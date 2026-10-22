@@ -4,13 +4,16 @@ All three paired seeds have completed the 100M milestone; the 300M continuations
 
 Compare ordinary and early-pause 150,436,608-parameter random models, seeds 23/47/71, on identical real targets and one frozen data order. The milestones are 100,488,104 / 301,465,908 / 1,004,887,590 real targets per run. Only the final endpoint is the primary test; both arms finish their decay. Intermediate stable-trunk curves are descriptive.
 
-## Three-seed 100M result (intermediate)
+## Learning curve (intermediate)
 
-| Real targets/run | Ordinary mean NLL | Early-pause mean NLL | Ordinary − pause | Paired-seed 95% interval |
-| ---: | ---: | ---: | ---: | --- |
-| 100,488,104 | 3.751589 | 4.040532 | −0.288943 | [−0.355418, −0.222468] |
+| Real targets/run | Paired seeds | Ordinary mean NLL | Early-pause mean NLL | Ordinary − pause | Paired-seed 95% interval |
+| ---: | ---: | ---: | ---: | ---: | --- |
+| 100,488,104 | 3 | 3.751589 | 4.040532 | −0.288943 | [−0.355418, −0.222468] |
+| 301,465,908 | 1 (seed 23) | 2.967167 | 3.015898 | −0.048731 | Pending other seeds |
 
-Gains are positive when pauses help. All three gains are negative: seed 23 −0.308813, seed 47 −0.258515, seed 71 −0.299502. The interval rules out the declared 0.01-nat gain **at this early exposure**. This is a descriptive intermediate point; the final fully annealed 1B endpoint remains primary. Each model scores the same 614 isolated documents / 777,348 real targets.
+Gains are positive when pauses help. **The 300M point is preliminary:** one pair shows a smaller deficit, and the other two are still running. At 100M all three gains are negative: seed 23 −0.308813, seed 47 −0.258515, seed 71 −0.299502. The interval rules out the declared 0.01-nat gain **at this early exposure**. This is a descriptive intermediate point; the final fully annealed 1B endpoint remains primary. Each model scores the same 614 isolated documents / 777,348 real targets.
+
+100M domain means across all three seeds:
 
 | Domain | Ordinary mean NLL | Early-pause mean NLL |
 | --- | ---: | ---: |

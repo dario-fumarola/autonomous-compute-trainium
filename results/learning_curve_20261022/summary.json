@@ -22,6 +22,18 @@
         -0.22246845820491223
       ],
       "assessment_at_this_exposure": "useful_gain_ruled_out"
+    },
+    {
+      "update": 1152,
+      "real_tokens": 301465908,
+      "paired_seeds": [
+        23
+      ],
+      "seed_gains_nats": {
+        "23": -0.04873070578940597
+      },
+      "mean_gain_nats": -0.04873070578940597,
+      "assessment_at_this_exposure": "preliminary_incomplete_seed_pairs"
     }
   ],
   "records": [
@@ -252,6 +264,82 @@
       },
       "initial_model_digest": "a37a6d50b7ac94851f98dd47bad1b22da7e0f8a1ffb31cf8e4de979e619b2137",
       "training_matmul_flops": 171589784630722560
+    },
+    {
+      "run": "natural-curve-v1-ordinary-s23-u1152",
+      "arm": "ordinary",
+      "seed": 23,
+      "update": 1152,
+      "real_tokens": 301465908,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 908865.723903656,
+            "real_targets": 260643,
+            "documents": 251,
+            "nll": 3.4870137464027655
+          },
+          "math": {
+            "nll_sum": 678302.5604076385,
+            "real_targets": 257227,
+            "documents": 241,
+            "nll": 2.6369804118838167
+          },
+          "code": {
+            "nll_sum": 450924.7751355171,
+            "real_targets": 259478,
+            "documents": 122,
+            "nll": 1.7378150561339194
+          }
+        },
+        "weighted_nll": 2.967167341445206,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "initial_model_digest": "00c98060a3068fbbd1bbf5cfbf0dd6ec09e57dbe6c0f70cf66dd31dd3f763de4",
+      "training_matmul_flops": 329523634844467200
+    },
+    {
+      "run": "natural-curve-v1-early-s23-u1152",
+      "arm": "early",
+      "seed": 23,
+      "update": 1152,
+      "real_tokens": 301465908,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 924805.0967340469,
+            "real_targets": 260643,
+            "documents": 251,
+            "nll": 3.5481677878709457
+          },
+          "math": {
+            "nll_sum": 687280.9381427765,
+            "real_targets": 257227,
+            "documents": 241,
+            "nll": 2.6718849037728405
+          },
+          "code": {
+            "nll_sum": 457486.17265701294,
+            "real_targets": 259478,
+            "documents": 122,
+            "nll": 1.7631019687873843
+          }
+        },
+        "weighted_nll": 3.015898047234612,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "initial_model_digest": "00c98060a3068fbbd1bbf5cfbf0dd6ec09e57dbe6c0f70cf66dd31dd3f763de4",
+      "training_matmul_flops": 514769353892167680
     }
   ],
   "scope": "Token-matched conditional on fixed corpus/order; final endpoint is primary; roughly 6.7 tokens/parameter, no convergence or FLOP-efficiency conclusion."
