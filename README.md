@@ -2,11 +2,13 @@
 
 Can a randomly initialized language model learn to use additional computation to predict natural text better?
 
-This is a fresh experiment on Trainium2. The first comparison uses ordinary pretraining, fixed pause positions from initialization, and pauses introduced later. Repeated blocks are a subsequent compute control. These mechanisms test extra computation; they do not establish autonomous textual reasoning.
+This is a fresh experiment on Trainium2. The active first comparison uses ordinary pretraining and fixed pause positions from initialization. The late-introduction arm and repeated blocks are follow-ups. These mechanisms test extra computation; they do not establish autonomous textual reasoning.
 
 Training and evaluation use natural web text, mathematical web text, and repository code. No generated arithmetic, synthetic rewrites, teacher traces, or RL. Held-out negative log likelihood on real source tokens is the primary metric, reported by domain. Both source-token and FLOP comparisons are required.
 
-The [packed-trainer report](results/performance_20261022/REPORT.md) records 100-update measurements across all 16 chips: about **855k real targets/sec ordinarily and 354k with pauses**. It includes full optimizer recovery, a 64-rank late switch, identical 150M decay-branch replay, fresh DEV evaluation, failure receipts and a revised budget. No large scientific run has launched and no pause benefit has been established. The [initial qualification](results/qualification_20261022/REPORT.md) remains preserved.
+The [learning-curve protocol](docs/LEARNING_CURVE_PROTOCOL.md) is frozen: 150M parameters, ordinary versus early pauses, three paired seeds, and unseen-text NLL at approximately 100M / 300M / 1B real targets. The corpus contains 1.05B natural training tokens, with separate tuning and curve source groups and sealed TEST. Independent LR tuning is running. No pause benefit has been established yet.
+
+The [packed-trainer report](results/performance_20261022/REPORT.md) records full optimizer recovery, a 64-rank late switch, identical 150M decay-branch replay, fresh DEV evaluation and failure receipts. The latest 100-warm-update measurements across all 16 chips are **855k real targets/sec ordinarily and 696k with causally padded pauses**. Padding improves native kernel compatibility; its full work is counted. The earlier unpadded pause rate was 354k. The [initial qualification](results/qualification_20261022/REPORT.md) remains preserved.
 
 Read the [protocol](docs/PROTOCOL.md), [current status](STATUS.md), [data rules](docs/DATA.md), and [Trainium notes](docs/OSS_NOTES.md). Previous [1.7B evidence](https://github.com/dario-fumarola/useful-thoughts-trainium) and the [closed pause pilot](https://github.com/dario-fumarola/pause-pretraining-trainium) remain preserved.
 

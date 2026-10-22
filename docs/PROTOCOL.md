@@ -1,5 +1,11 @@
 # Protocol v1 — natural text, before scientific training
 
+The narrower [learning-curve protocol](LEARNING_CURVE_PROTOCOL.md) supersedes
+the first-run arm count, LR grid and token milestones below. It prioritizes
+ordinary versus early pauses and defers the late arm and matched-FLOP branches.
+Both main endpoints finish decay; intermediate stable-trunk curves are
+descriptive. The broader controls and later hypotheses below remain follow-ups.
+
 The private October 22 meeting motivates learning computation during pretraining, without a larger model supplying answers or thoughts. The transcript stays private. The current owner direction excludes synthetic data.
 
 ## Falsifiable claim

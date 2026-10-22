@@ -48,7 +48,8 @@ def analyze(experiment):
         else:
             row["assessment_at_this_exposure"] = "preliminary_incomplete_seed_pairs"
         paired.append(row)
-    summary = {"status": "LEARNING_CURVE_INTERIM", "cohort": "curve", "test_sealed": True,
+    status = "LEARNING_CURVE_COMPLETE" if (experiment/"complete.json").exists() else "LEARNING_CURVE_INTERIM"
+    summary = {"status": status, "cohort": "curve", "test_sealed": True,
                "paired": paired, "records": records,
                "scope": "Token-matched conditional on fixed corpus/order; final endpoint is primary; roughly 6.7 tokens/parameter, no convergence or FLOP-efficiency conclusion."}
     (directory/"summary.json").write_text(json.dumps(summary, indent=2)+"\n")
