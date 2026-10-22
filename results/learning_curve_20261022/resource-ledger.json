@@ -1,7 +1,7 @@
 {
   "campaign": "natural-curve-v1",
   "start_utc": "2026-10-22T20:01:43+00:00",
-  "last_worker_or_collection_utc": "2026-10-22T21:55:14.456280+00:00",
+  "last_worker_or_collection_utc": "2026-10-22T22:32:57.107237+00:00",
   "runs": [
     {
       "run": "learning-pad1536-qualification-001",
@@ -126,6 +126,56 @@
         "minimum_host_available_bytes": 962046504960,
         "minimum_filesystem_free_bytes": 38630576128,
         "sampled_container_peak_bytes": 20213346304
+      }
+    },
+    {
+      "run": "natural-curve-v1-early-s23-u3840",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 1099.6518471240997,
+        "assigned_chip_hours": 4.887341542773776,
+        "whole_instance_opportunity_chip_hours": 4.887341542773776,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 181685276672,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 1101.1780915509444
+      },
+      "monitor": {
+        "samples": 550,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 801529675776,
+        "minimum_filesystem_free_bytes": 38608605184,
+        "sampled_container_peak_bytes": 181685276672
+      }
+    },
+    {
+      "run": "natural-curve-v1-early-s23-u3840-dev",
+      "status": "PASS_CHECKPOINT_DEV_EVALUATION",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 62.54688787460327,
+        "assigned_chip_hours": 0.01737413552072313,
+        "whole_instance_opportunity_chip_hours": 0.2779861683315701,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 47238819840,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 64.03899250400718
+      },
+      "monitor": {
+        "samples": 32,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 937522921472,
+        "minimum_filesystem_free_bytes": 38608433152,
+        "sampled_container_peak_bytes": 47238819840
       }
     },
     {
@@ -730,15 +780,52 @@
     },
     {
       "run": "natural-curve-v1-ordinary-s23-u3840",
-      "status": "FAILED_OR_INCOMPLETE",
-      "closure": {},
-      "supervisor": {},
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 940.1624991893768,
+        "assigned_chip_hours": 4.17849999639723,
+        "whole_instance_opportunity_chip_hours": 4.17849999639723,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 176681410560,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 941.0088441179832
+      },
+      "monitor": {
+        "samples": 470,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 803232133120,
+        "minimum_filesystem_free_bytes": 38609244160,
+        "sampled_container_peak_bytes": 176681410560
+      }
+    },
+    {
+      "run": "natural-curve-v1-ordinary-s23-u3840-dev",
+      "status": "PASS_CHECKPOINT_DEV_EVALUATION",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 63.77980422973633,
+        "assigned_chip_hours": 0.01771661228603787,
+        "whole_instance_opportunity_chip_hours": 0.2834657965766059,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 43801309184,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 64.03859905898571
+      },
       "monitor": {
         "samples": 32,
         "interval_seconds": 2,
-        "minimum_host_available_bytes": 844899434496,
-        "minimum_filesystem_free_bytes": 38610968576,
-        "sampled_container_peak_bytes": 125743452160
+        "minimum_host_available_bytes": 942059376640,
+        "minimum_filesystem_free_bytes": 38611558400,
+        "sampled_container_peak_bytes": 43801309184
       }
     },
     {
@@ -842,6 +929,19 @@
       }
     },
     {
+      "run": "natural-curve-v1-ordinary-s47-u3840",
+      "status": "FAILED_OR_INCOMPLETE",
+      "closure": {},
+      "supervisor": {},
+      "monitor": {
+        "samples": 77,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 814104829952,
+        "minimum_filesystem_free_bytes": 38607572992,
+        "sampled_container_peak_bytes": 175211741184
+      }
+    },
+    {
       "run": "natural-curve-v1-ordinary-s71-u1152",
       "status": "PASS_PACKED_TRAINING_PHASE",
       "closure": {
@@ -942,9 +1042,9 @@
       }
     }
   ],
-  "assigned_chip_hours_including_failures": 23.115787396099833,
-  "inclusive_node_hours": 1.8920711888207329,
-  "inclusive_opportunity_chip_hours": 30.273139021131726,
+  "assigned_chip_hours_including_failures": 32.2167196830776,
+  "inclusive_node_hours": 2.520585343639056,
+  "inclusive_opportunity_chip_hours": 40.329365498224895,
   "data_preparation_wall_seconds": 296.979536911007,
   "scope": "This learning-curve campaign and its padding qualification only; corpus preparation overlaps this node window and is not added twice. Preserved earlier campaigns are separate. No new instance."
 }

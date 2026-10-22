@@ -1,0 +1,57 @@
+{
+  "status": "INTERIM",
+  "dense_model_call_estimates": {
+    "qualification": {
+      "optimizer_training_matmul_flops": 46472233337487360,
+      "optimizer_training_real_targets": 27217655,
+      "native_training_probe_matmul_flops": 223424198737920,
+      "cpu_training_probe_matmul_flops": 3491003105280
+    },
+    "main": {
+      "optimizer_training_matmul_flops": 4502895939928719360,
+      "optimizer_training_real_targets": 3215638812,
+      "native_training_probe_matmul_flops": 2565126267863040,
+      "cpu_training_probe_matmul_flops": 40080097935360,
+      "native_dev_forward_matmul_flops": 7287897807912960,
+      "cpu_dev_probe_matmul_flops": 6680016322560,
+      "scored_dev_real_targets": 10882872
+    },
+    "tuning": {
+      "optimizer_training_matmul_flops": 844292988736634880,
+      "optimizer_training_real_targets": 602928624,
+      "native_training_probe_matmul_flops": 1099339829084160,
+      "cpu_training_probe_matmul_flops": 17177184829440,
+      "native_dev_forward_matmul_flops": 801601958707200,
+      "cpu_dev_probe_matmul_flops": 2862864138240,
+      "scored_dev_real_targets": 1195086
+    }
+  },
+  "measured_worker_wall_seconds": {
+    "qualification": {
+      "training_worker_wall_seconds": 155.21031093597412
+    },
+    "main": {
+      "training_worker_wall_seconds": 5626.991362333298,
+      "evaluation_worker_wall_seconds": 881.8922493457794
+    },
+    "tuning": {
+      "training_worker_wall_seconds": 1391.724599123001,
+      "evaluation_worker_wall_seconds": 315.47825145721436
+    }
+  },
+  "inclusive_node_hours": 2.520585343639056,
+  "assigned_chip_hours_including_failures": 32.2167196830776,
+  "preparation_wall_seconds_overlaps_node_window": 296.979536911007,
+  "main_warm_real_targets_per_second": {
+    "early": 708747.5177269327,
+    "ordinary": 832980.9610064168
+  },
+  "windows_per_evaluation": {
+    "curve": 1091,
+    "tune": 280
+  },
+  "runs_without_complete_flop_accounting": [
+    "natural-curve-v1-ordinary-s47-u3840"
+  ],
+  "assumptions": "Dense full-square attention; FMA=2, backward=2x forward, full LM head and tail padding included. Model-call estimates, not hardware counters. Excludes optimizer/elementwise operations, compilation and software-test fixtures from FLOPs; actual node/worker time includes those costs. CPU and native numerical probes are listed separately. Failed worker time is retained even when its FLOPs are unknown. Do not add overlapping preparation and node times."
+}

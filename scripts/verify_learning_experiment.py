@@ -95,11 +95,22 @@ def audit(experiment, root, data, require_complete=False):
                        "absolute_evaluation_cpu_native_probe_nll_difference": abs(evaluated["cpu_probe"]["native_nll"]-evaluated["cpu_probe"]["cpu_nll"])})
     assert all(len(digests) == 1 for digests in initial_digests.values())
     assert len({next(iter(v)) for v in initial_digests.values()}) == len(initial_digests)
+    stable_checks = []
+    if require_complete and (experiment/"stable-branches.json").exists():
+        branches = read(experiment/"stable-branches.json")
+        assert len(branches) == 2 and {b["arm"] for b in branches} == {"ordinary", "early"}
+        for branch in branches:
+            assert (branch["seed"], branch["update"], branch["real_targets"]) == (23, 3456, 904398582)
+            path = root/Path(branch["checkpoint"]).relative_to("/work")
+            assert sha(path) == branch["file_sha256"]
+            stable_checks.append({"arm": branch["arm"], "file_sha256": branch["file_sha256"],
+                                  "unchanged_after_final_endpoint": True})
     result = {"status": "PASS_COMPLETE_PROTOCOL_AUDIT" if require_complete else "PASS_COMPLETED_RECORDS_AUDIT",
               "complete": complete, "tuning_trials": len(trials), "curve_records": len(records),
               "test_file_unchanged": True, "data_and_protocol_hashes_match": True,
               "matched_initializations_and_data": True, "frozen_lrs_match_tuning_minima": True,
               "identical_training_model_loss_and_evaluation_code": {name: source[name] for name in stable_code},
+              "retained_stable_checkpoint_verification": stable_checks,
               "checks": checks}
     (experiment/"protocol-audit.json").write_text(json.dumps(result, indent=2)+"\n")
     return result

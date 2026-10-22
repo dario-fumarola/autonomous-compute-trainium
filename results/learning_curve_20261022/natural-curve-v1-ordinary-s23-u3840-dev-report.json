@@ -1,0 +1,47 @@
+{
+  "status": "PASS_CHECKPOINT_DEV_EVALUATION",
+  "split": "dev",
+  "cohort": "curve",
+  "real_training_tokens": 1004887590,
+  "pauses": 0,
+  "precision": "bf16",
+  "documents": 614,
+  "targets": 777348,
+  "metrics": {
+    "domains": {
+      "web": {
+        "nll_sum": 781038.1684484482,
+        "real_targets": 260643,
+        "documents": 251,
+        "nll": 2.996582177340071
+      },
+      "math": {
+        "nll_sum": 582598.535079956,
+        "real_targets": 257227,
+        "documents": 241,
+        "nll": 2.2649198376529527
+      },
+      "code": {
+        "nll_sum": 346581.99191474915,
+        "real_targets": 259478,
+        "documents": 122,
+        "nll": 1.3356893143725062
+      }
+    },
+    "weighted_nll": 2.5180711368091346,
+    "weights": {
+      "web": 0.6,
+      "math": 0.2,
+      "code": 0.2
+    },
+    "unit": "nats per real source token"
+  },
+  "cpu_probe": {
+    "native_nll": 2.888094912007295,
+    "cpu_nll": 2.8879141458650914
+  },
+  "weights_unchanged": true,
+  "wall_seconds": 60.32351342891343,
+  "scope": "Isolated documents; qualification subset when max-documents is nonzero",
+  "max_documents_per_domain": 0
+}
