@@ -4,9 +4,7 @@ import math
 import random
 import statistics
 from collections import defaultdict
-from dataclasses import asdict, dataclass
-
-import torch
+from dataclasses import dataclass
 
 
 def real_token_losses(logits, targets, target_mask):

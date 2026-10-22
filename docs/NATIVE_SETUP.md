@@ -2,7 +2,7 @@
 
 The host stays on Ubuntu 24.04, kernel 6.17.0-1019-aws and Neuron driver 2.30.2.0. The old XLA environment is unchanged. Native wheels need a newer glibc, so the new environment uses an isolated Ubuntu 26.04 container on the same node.
 
-Container image: `ubuntu@sha256:c098726dd9b9733f3e885f8de0ef375206a311b0a317eadc40d347b1115fb944`. Container name: `autonomous-compute-neuron233`. Bind the new artifact directory to `/work`, expose the existing `/dev/neuron0` through `/dev/neuron15`, and mount `/opt/aws/neuron` read-only. The container has a 256 GiB memory limit and 160 CPU quota. The wrapper requires at least 768 GiB host MemAvailable before launch, so the container limit leaves the 512 GiB host reserve intact. No new instance, host driver, IAM or cloud network change is needed.
+Container image: `ubuntu@sha256:c098726dd9b9733f3e885f8de0ef375206a311b0a317eadc40d347b1115fb944`. Container name: `autonomous-compute-neuron233`. Bind the new artifact directory to `/work`, expose the existing `/dev/neuron0` through `/dev/neuron15`, and mount `/opt/aws/neuron` read-only. The container initially had a 256 GiB memory limit and 160 CPU quota. Two pause compilation attempts hit that limit. It now has a 416 GiB limit. The wrapper reads the actual limit and requires that amount plus 512 GiB host MemAvailable before launch. No new instance, host driver, IAM or cloud network change is needed.
 
 Install these userspace prerequisites inside the container:
 
@@ -18,14 +18,18 @@ The pinned [package inventory](../results/qualification_20261022/native-requirem
 
 The old host runtime lacks a symbol required by the native wheel. Download runtime `2.35.30.0-d2725ccb8` and collectives `2.35.43.0-354ad3064` from the official Neuron Ubuntu package repository. Verify their SHA256 values against the published package index and extract the packages into `/work/sdk` with `dpkg-deb -x`. Package metadata and digests are retained in the qualification reports. Put `/work/sdk/opt/aws/neuron/lib` first in LD_LIBRARY_PATH. This changes only the new container's library selection; host packages stay intact. The older host driver uses a slower supported DMA fallback, included in our timing.
 
-Keep TMPDIR and Neuron caches under the new artifact root. The wrapper snapshots the exact source for each run, rejects repeated run identities, checks disk and memory reserves, records all exit codes and assigned chip-hours, and puts an internal 20-minute timeout around the entire process tree. The runtime and compiler retain additional caches in the container; monitor the host root filesystem reserve too.
+Keep TMPDIR and Neuron caches under the new artifact root. The wrapper uses a shared `TORCH_NEURONX_HLO_CACHE_DIR` and enables `TORCH_NEURONX_HLO_COMPILE_CACHE=1`. It snapshots the exact source for each run, rejects repeated run identities, checks disk and memory reserves, records all exit codes and assigned chip-hours, and puts an internal 20-minute timeout around the entire process tree. The runtime and compiler retain additional caches in the container; monitor the host root filesystem reserve too.
 
 Examples from the repository root:
 
 ```sh
+docker start autonomous-compute-neuron233
 RESEARCH_RUN=my-new-single-core-check bash scripts/run_native.sh --size tiny --engine titan --context 128 --steps 8 --arm late --compile
 RESEARCH_RUN=my-new-whole-instance-check RESEARCH_DDP_RANKS=64 NEURON_RT_VISIBLE_CORES=$(seq -s, 0 63) bash scripts/run_native.sh --size small --context 512 --steps 16 --warmup 4
+RESEARCH_RUN=my-new-inference-check RESEARCH_INFERENCE_ONLY=1 bash scripts/run_native.sh --context 512
 ```
+
+Each launcher runs from its own immutable copy. Do not edit an executing shell file. Training releases unused host arenas after warmup, before the steady timer starts. Run inference in a fresh process instead of retaining training and inference graphs in all 64 workers. The qualification development container is stopped at handoff; stopping it preserves its filesystem and the bound artifact directory.
 
 The distributed wrapper sets one physical logical-core ID per worker before importing the backend. Inputs move explicitly to that rank's sole device. `DDP(device_ids=None)` avoids the native side-stream index inconsistency. The ordinary and pause benchmarks use the same full natural windows, initial seed, global batch, parameter count and source-token targets. Compilation, CPU reference checks, state digests, evaluation and checkpoints stay outside the steady timer and are charged separately.
 

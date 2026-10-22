@@ -2,6 +2,8 @@
 
 import argparse
 import copy
+import ctypes
+import gc
 import json
 import os
 import random
@@ -116,6 +118,10 @@ def main():
         rows.append({"step": step, "seconds": elapsed, "local_loss": value})
         if rank == 0:
             print(json.dumps(rows[-1]), flush=True)
+        if step == args.warmup-1:
+            # Release host arenas left by tracing before the steady timer starts.
+            gc.collect()
+            ctypes.CDLL(None).malloc_trim(0)
     warm_wall = time.monotonic() - warm_started
     inference = None
     if args.inference:

@@ -4,7 +4,7 @@ The private October 22 meeting motivates learning computation during pretraining
 
 ## Falsifiable claim
 
-At the same real source-token exposure, a model with fixed computation positions from random initialization reduces held-out real-token NLL compared with an otherwise identical ordinary model. Reject a practically useful gain at a tested exposure if the paired seed mean improvement and its uncertainty do not exceed 0.01 nats/token. This threshold is declared before scientific results. A short failed learning diagnostic says nothing about eventual convergence.
+At the same real source-token exposure, a model with fixed computation positions from random initialization reduces held-out real-token NLL compared with an otherwise identical ordinary model. Support a useful gain at a tested exposure only when the lower paired-seed interval bound exceeds 0.01 nats/token. An upper bound below that threshold rules out a gain of that size at that exposure; an overlapping interval is inconclusive. This threshold is declared before scientific results. A short failed learning diagnostic says nothing about eventual convergence.
 
 The first claim concerns prediction of natural text. The separate efficiency claim requires improvement at the same cumulative estimated training FLOPs, including the LM head, attention, pauses, backward pass, and any recomputation. Report measured chip-hours as well. Never infer FLOP efficiency from a token-matched win.
 
@@ -17,6 +17,8 @@ Start at approximately 150M parameters with a pinned 32k tokenizer, tied input/o
 | Ordinary | Standard causal prediction | Standard causal prediction |
 | Early pause | 16 fixed positions after each 128 source positions | Same |
 | Late pause | Standard causal prediction | Introduce the same positions |
+
+Placement follows fixed input-window positions. A document's initial BOS occupies one input position. BOS, padding and EOS contribute no real-target loss or exposure. This convention keeps shapes and target alignment fixed across arms.
 
 Within a seed, clone initial weights and retain identical real targets, window boundaries and batch order. Reserve an existing tokenizer special token for pauses in every arm, without adding parameters. Pause positions have no language-model targets. Predict the next real token from the last pause state. Late switching retains every optimizer moment and scheduler step. Learning-rate sweeps use separate checkpoints with the same starting state and data per candidate.
 

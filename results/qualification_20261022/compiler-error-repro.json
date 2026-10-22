@@ -1,0 +1,40 @@
+{
+  "status": "BUG_NO_EXCEPTION",
+  "expected": [
+    [
+      30.0,
+      80.0,
+      130.0
+    ],
+    [
+      80.0,
+      255.0,
+      430.0
+    ],
+    [
+      130.0,
+      430.0,
+      730.0
+    ]
+  ],
+  "actual": [
+    [
+      90.0,
+      100.0,
+      110.0
+    ],
+    [
+      240.0,
+      275.0,
+      310.0
+    ],
+    [
+      390.0,
+      450.0,
+      510.0
+    ]
+  ],
+  "max_abs_error": 260.0,
+  "trigger": "Intentional invalid compiler flag, not a research dataset",
+  "package": "torch-neuronx==2.14.3.0.282+dc70ffa"
+}

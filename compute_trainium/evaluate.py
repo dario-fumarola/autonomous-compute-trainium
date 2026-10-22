@@ -1,7 +1,5 @@
 """Document-level real-token scoring; DEV and TEST remain explicit choices."""
 
-from collections import defaultdict
-
 import torch
 
 from .data import document_windows, layout

@@ -28,3 +28,11 @@ Move all inputs explicitly to each process's sole device and use `DistributedDat
 - The pinned TorchTitan fork imports Triton from its GPU expert-parallel module while importing a dense Llama model. On a CPU-wheel environment the listed requirements omit Triton. Installing `triton==3.8.0` and `torch-remat==0.2.0` permits the import. A lazy import for optional GPU paths may be a small contribution candidate.
 - The current host driver disables newer asynchronous DMA features. The measured throughput includes the runtime's supported threaded fallback. No host driver upgrade was performed.
 - Single-core compiled training records no fallback operations. DDP records `aten::_to_copy`; the inventory is published without claiming zero distributed fallbacks. Model/gradient agreement and full replica checks remain required.
+
+## Host memory during qualification
+
+Two 64-rank pause attempts exceeded the initial 256 GiB container limit during compilation. A 416 GiB limit allowed all training updates, but compiling an additional inference graph in the same processes exceeded that limit. These are resource failures, not failed language-learning results. Every closure remains in the ledger. The sampled host reserve stayed above 551 GiB during the 416 GiB attempt; the root filesystem stayed above 35 GiB free.
+
+The completed training benchmark uses static slices for prediction states, a shared compile cache, and `gc.collect()` plus `malloc_trim(0)` after warmup. It completes the full replica-state checks. Inference runs in a separate fresh process and passes CPU agreement with unchanged weights. Because several changes occurred together, these observations do not isolate the cause of high memory use. A smaller memory reproducer is needed before proposing an upstream fix.
+
+One completed pause benchmark has a wrapper exit code of 127: its hardware report passed, then editing the running shell file caused a trailing command to be read incorrectly. The launcher now executes an immutable copy. The subsequent ordinary and inference runs exit 0. Preserve the original 127 receipt; do not rewrite it as a clean run.

@@ -1,0 +1,45 @@
+{
+  "status": "PROPOSED_NOT_LAUNCHED",
+  "parameters": 150436608,
+  "tokens_per_fit_requested": 3000000000,
+  "seeds": 3,
+  "fits": 9,
+  "global_real_targets_per_full_step": 32768,
+  "full_steps_per_fit": 91553,
+  "tokens_per_parameter": 19.941954554040464,
+  "measured_tps": {
+    "ordinary": 158031.23687082666,
+    "pause": 112574.91487681193
+  },
+  "estimated_pause_training_flop_ratio": 1.1198224852071006,
+  "flop_matched_real_target_milestones": {
+    "ordinary": 3000000000,
+    "early": 2678996036,
+    "late": 2839498018
+  },
+  "milestone_scope": "Curve comparisons on a common source-token schedule; independently optimized FLOP-budget endpoints require additional runs.",
+  "steady_training_hours_per_seed": {
+    "ordinary": 5.273219078924837,
+    "early": 7.402478023147788,
+    "late_estimate": 6.337848551036314
+  },
+  "steady_training_hours_all_seeds": 57.04063695932682,
+  "lr_tuning": {
+    "candidates_per_variant": 3,
+    "real_tokens_per_candidate": 100000000,
+    "steady_hours": 1.901354565310894
+  },
+  "planning_hours_2x": 117.88398304927543,
+  "planning_hours_3x": 176.82597457391313,
+  "planning_chip_hours_2x": 1886.1437287884069,
+  "planning_chip_hours_3x": 2829.21559318261,
+  "extra_paired_continuation_3B_to_30B_steady_hours": 114.08127391865364,
+  "continuation_scope": "One ordinary/early paired seed only; late-training learning diagnostic, not three-seed convergence evidence.",
+  "limits": [
+    "Warm timing is short; 2x-3x allowance includes an unmeasured data/eval/checkpoint reserve, not a throughput guarantee.",
+    "Only FP32 and the measured shape/topology are priced; no assumed BF16 speedup or MFU.",
+    "Prepare a larger immutable natural corpus and near-duplicate audit before training; the qualification sample is too small.",
+    "Three billion targets is a signal-seeking pilot, not a convergence claim.",
+    "This FLOP estimate excludes elementwise and optimizer work. Add recomputation if activation checkpointing is enabled."
+  ]
+}

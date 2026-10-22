@@ -1,0 +1,27 @@
+{
+  "status": "PASS_NATIVE_INFERENCE",
+  "scientific_result": false,
+  "parameters": 150436608,
+  "context": 512,
+  "rows": {
+    "0": {
+      "mean_forward_seconds": 0.009178348249406554,
+      "teacher_forced_real_targets_per_second": 55783.457555459885,
+      "cold_two_forwards_seconds": 35.29898325307295,
+      "cpu_nll": 10.797113418579102,
+      "native_nll": 10.797140121459961,
+      "expanded_positions": 512
+    },
+    "16": {
+      "mean_forward_seconds": 0.03318044349725824,
+      "teacher_forced_real_targets_per_second": 15430.77626561283,
+      "cold_two_forwards_seconds": 81.3115105740726,
+      "cpu_nll": 10.841846466064453,
+      "native_nll": 10.841845512390137,
+      "expanded_positions": 576
+    }
+  },
+  "weights_unchanged": true,
+  "fallback_ops": "[]",
+  "scope": "Single-core teacher-forced real-token NLL with preloaded inputs; no KV-cached autoregressive decoding."
+}

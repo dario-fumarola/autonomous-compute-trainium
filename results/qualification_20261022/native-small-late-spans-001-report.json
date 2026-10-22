@@ -1,0 +1,114 @@
+{
+  "status": "PASS_NATIVE_QUALIFICATION",
+  "scientific_result": false,
+  "config": {
+    "dim": 768,
+    "layers": 20,
+    "heads": 12,
+    "kv_heads": 4,
+    "ffn_dim": 2048,
+    "vocab_size": 32000,
+    "max_seq": 4096
+  },
+  "engine": "titan",
+  "arm": "late",
+  "compiled": true,
+  "parameters": 150436608,
+  "initial_state_sha256": "00c98060a3068fbbd1bbf5cfbf0dd6ec09e57dbe6c0f70cf66dd31dd3f763de4",
+  "full_optimizer_replay": true,
+  "checkpoint_seconds": 2.1521987689775415,
+  "updates_including_replay": 9,
+  "warm_real_targets_per_second": 2529.4723542397,
+  "wall_seconds": 253.4096612560097,
+  "steps": [
+    {
+      "step": 0,
+      "pauses": 0,
+      "loss": 10.797140121459961,
+      "seconds": 71.2495380360051,
+      "real_targets": 512,
+      "expanded_positions": 512,
+      "source_document": "35024877cc760b4808fa7ade50ee0459ba3268057212f08a424e057fc2d85a5d"
+    },
+    {
+      "step": 1,
+      "pauses": 0,
+      "loss": 10.29627799987793,
+      "seconds": 0.11410090903518721,
+      "real_targets": 512,
+      "expanded_positions": 512,
+      "source_document": "efdf0e201956491cf5bb17b2357999c94f1929084fb0e6754dcb879802315ec7"
+    },
+    {
+      "step": 2,
+      "pauses": 0,
+      "loss": 10.89001750946045,
+      "seconds": 0.11375677597243339,
+      "real_targets": 512,
+      "expanded_positions": 512,
+      "source_document": "fae1b596568043d96f922f72f32cf929a61e366a46bb7849b09962b3a3e9246c"
+    },
+    {
+      "step": 3,
+      "pauses": 0,
+      "loss": 8.911588668823242,
+      "seconds": 0.1133310180157423,
+      "real_targets": 512,
+      "expanded_positions": 512,
+      "source_document": "35024877cc760b4808fa7ade50ee0459ba3268057212f08a424e057fc2d85a5d"
+    },
+    {
+      "step": 4,
+      "pauses": 16,
+      "loss": 9.18992805480957,
+      "seconds": 163.382235623023,
+      "real_targets": 512,
+      "expanded_positions": 576,
+      "source_document": "efdf0e201956491cf5bb17b2357999c94f1929084fb0e6754dcb879802315ec7"
+    },
+    {
+      "step": 4,
+      "pauses": 16,
+      "loss": 9.18992805480957,
+      "seconds": 0.20368664601119235,
+      "real_targets": 512,
+      "expanded_positions": 576,
+      "source_document": "efdf0e201956491cf5bb17b2357999c94f1929084fb0e6754dcb879802315ec7"
+    },
+    {
+      "step": 5,
+      "pauses": 16,
+      "loss": 8.72273063659668,
+      "seconds": 0.2030223630135879,
+      "real_targets": 512,
+      "expanded_positions": 576,
+      "source_document": "fae1b596568043d96f922f72f32cf929a61e366a46bb7849b09962b3a3e9246c"
+    },
+    {
+      "step": 6,
+      "pauses": 16,
+      "loss": 7.900665283203125,
+      "seconds": 0.20228116505313665,
+      "real_targets": 512,
+      "expanded_positions": 576,
+      "source_document": "35024877cc760b4808fa7ade50ee0459ba3268057212f08a424e057fc2d85a5d"
+    },
+    {
+      "step": 7,
+      "pauses": 16,
+      "loss": 8.156901359558105,
+      "seconds": 0.20193774002837017,
+      "real_targets": 512,
+      "expanded_positions": 576,
+      "source_document": "efdf0e201956491cf5bb17b2357999c94f1929084fb0e6754dcb879802315ec7"
+    }
+  ],
+  "versions": {
+    "torch": "2.14.0+cpu",
+    "torch-neuronx": "2.14.3.0.282+dc70ffa",
+    "neuronx-cc": "2.28.7631.0+8f7b0cf5",
+    "nki": "0.7.0+37713544100.gfede04bb"
+  },
+  "fallback_ops": "[]",
+  "corpus_sha256": "81fe046e2487b71b7a5f823ac5a0f5a2c0a013de06d76b30fa2b9776b4f51e31"
+}

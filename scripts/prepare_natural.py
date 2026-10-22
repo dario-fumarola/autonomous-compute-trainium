@@ -5,6 +5,7 @@ import concurrent.futures
 import gzip
 import hashlib
 import json
+import importlib.metadata
 from pathlib import Path
 
 import pyarrow.parquet as pq
@@ -119,7 +120,8 @@ def main():
     manifest = {"purpose": "qualification convenience sample; not a scientific benchmark",
                 "synthetic_generation": False, "sources": receipts,
                 "tokenizer": {"repository": "mistralai/Mistral-7B-v0.1", "revision": TOKENIZER_REV,
-                              "sha256": tok_sha, "vocab_size": 32000, "pause_id": 0},
+                              "sha256": tok_sha, "vocab_size": 32000, "pause_id": 0,
+                              "tokenizers_version": importlib.metadata.version("tokenizers")},
                 "split_rule": "global host/repository hash 80/10/10 before windows",
                 "content_dedup": "global normalized exact; near-duplicate audit outstanding",
                 "counts": counts, "corpus_sha256": hashlib.sha256(corpus_path.read_bytes()).hexdigest()}
