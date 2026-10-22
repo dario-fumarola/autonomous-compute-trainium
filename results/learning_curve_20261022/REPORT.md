@@ -1,49 +1,63 @@
-# Natural-text learning curve — running
+# Natural-text learning curve — complete
 
-All three paired seeds have completed 100M and 300M; seeds 23 and 47 have also completed the fully annealed 1B endpoint. Both 1B pairs favor ordinary, with mean pause gain −0.053493 nats. Seed 71 is still running, so the primary three-seed result remains pending. The [protocol](../../docs/LEARNING_CURVE_PROTOCOL.md), [specification](specification.json), [corpus manifest](corpus-manifest.json) and [frozen choices](selected-lrs.json) were fixed before curve evaluation. TEST is sealed.
+**Fixed pauses did not improve unseen-text prediction in this 150M / 1B-target pilot.** Across three paired seeds, ordinary NLL is **2.519907** and early-pause NLL is **2.573797**. Pause gain (ordinary minus pause) is **-0.053890 nats**, with paired-seed 95% interval **[-0.060287, -0.047493]**. The predeclared 0.01-nat useful gain is ruled out at this exposure under the fixed tuning procedure. Every seed and domain favors ordinary.
 
-Compare ordinary and early-pause 150,436,608-parameter random models, seeds 23/47/71, on identical real targets and one frozen data order. The milestones are 100,488,104 / 301,465,908 / 1,004,887,590 real targets per run. Only the final endpoint is the primary test; both arms finish their decay. Intermediate stable-trunk curves are descriptive.
+The complete campaign used **3.687 node-hours** on the existing instance, including tuning and the measured preparation/qualification/run window. All 16 chips trained each fit. All 49 supervised phases passed. TEST remains sealed and unchanged. The idle development container is stopped; data, full states and caches remain on this instance outside Git.
 
-## Learning curve (intermediate)
+## Learning curves
 
-| Real targets/run | Paired seeds | Ordinary mean NLL | Early-pause mean NLL | Ordinary − pause | Paired-seed 95% interval |
-| ---: | ---: | ---: | ---: | ---: | --- |
-| 100,488,104 | 3 | 3.751589 | 4.040532 | −0.288943 | [−0.355418, −0.222468] |
-| 301,465,908 | 3 | 2.974138 | 3.023412 | −0.049274 | [−0.069240, −0.029307] |
-| 1,004,887,590 | 2 (seeds 23, 47) | 2.518014 | 2.571507 | −0.053493 | Pending seed 71 |
+| Real targets per run | Ordinary mean NLL | Early-pause mean NLL | Gain (positive favors pauses) | Paired-seed 95% interval |
+| ---: | ---: | ---: | ---: | --- |
+| 100,488,104 | 3.751589 | 4.040532 | -0.288943 | [-0.355418, -0.222468] |
+| 301,465,908 | 2.974138 | 3.023412 | -0.049274 | [-0.069240, -0.029307] |
+| 1,004,887,590 | 2.519907 | 2.573797 | -0.053890 | [-0.060287, -0.047493] |
 
-Gains are positive when pauses help. At 100M, seed gains are −0.308813 / −0.258515 / −0.299502. At 300M they are −0.048731 / −0.057569 / −0.041521. Both intervals rule out the declared 0.01-nat gain at those exposures. The first two points are descriptive stable-trunk points. The two 1B pairs are fully annealed but preliminary; the complete three-seed 1B endpoint remains primary. Each model scores the same 614 isolated documents / 777,348 real targets.
+![Learning curves](learning-curve.png)
 
-| Domain | Ordinary 100M | Pause 100M | Ordinary 300M | Pause 300M |
-| --- | ---: | ---: | ---: | ---: |
-| Web | 4.308575 | 4.509929 | 3.495295 | 3.556147 |
-| Math | 3.307309 | 3.619620 | 2.641226 | 2.676767 |
-| Code | 2.524909 | 3.053254 | 1.743577 | 1.771849 |
+The 100M and 300M points are descriptive stable-trunk measurements. Both 1B endpoints complete their decay; the 1B comparison is primary. Final seed gains are −0.051011 / −0.055975 / −0.054684 for seeds 23 / 47 / 71. Pauses largely catch up between 100M and 300M, then retain a deficit at the measured 1B endpoint. Both arms substantially improve unseen-text NLL as training proceeds.
 
-![Learning curve](learning-curve.png)
+Each model scores the same **614 isolated documents / 777,348 real targets / 360 source groups**. The aggregate weights domain token NLLs 60/20/20. [CSV](learning-curve.csv), [SVG](learning-curve.svg), [aggregate records](summary.json), and [domain curves](domain-curves.svg) contain the complete observations.
 
-[Aggregate records](summary.json), [domain curves](domain-curves.svg), and [source-group uncertainty](source-group-uncertainty.json). Source-group intervals are conditional on the fitted models and do not substitute for training-seed uncertainty.
+| Domain at 1B | Ordinary mean NLL | Early-pause mean NLL | Gain |
+| --- | ---: | ---: | ---: |
+| Web | 3.000095 | 3.060654 | -0.060559 |
+| Math | 2.262162 | 2.307594 | -0.045432 |
+| Code | 1.337085 | 1.379425 | -0.042340 |
 
-## Independent tuning
+The separate source-group bootstrap interval for the mean fitted-model gain is [-0.055962, -0.051948], using 2,000 joint group draws. This is conditional on the fitted models and is separate from the primary initialization-seed interval. Domain analyses are exploratory. See [source-group uncertainty](source-group-uncertainty.json).
 
-Each candidate used seed 11 and the same first 100,488,104 targets, with its own completed short decay. Only a separate tuning cohort was scored. Lower is better.
+## Controlled comparison
 
-| Peak LR | Ordinary tune NLL | Pause tune NLL |
-| --- | ---: | ---: |
-| 0.0003 | 4.058754 | **4.127852** |
-| 0.001 | **4.051340** | 4.160350 |
-| 0.003 | 4.848056 | 4.926001 |
+The [protocol](../../docs/LEARNING_CURVE_PROTOCOL.md), [specification](specification.json), [corpus manifest](corpus-manifest.json), and [LR choices](selected-lrs.json) were frozen before curve evaluation. Compare two randomly initialized 150,436,608-parameter Llama-style/TorchTitan models with a 32k tokenizer, tied input/output weights, and identical initial weights within each seed. No teacher, RL or generated research examples. The tokenizer is the only pretrained asset.
 
-These are tuning scores, not the main scientific comparison. All six trials passed CPU numerical checks, full replica-state equality and clean supervised exits. The [protocol audit](protocol-audit.json) checks hashes, paired initial weights, exposure and selection. Main weights never reuse tuning weights.
+Both arms consume exactly 1,004,887,590 real targets from one frozen natural web/math/code order (data seed 23), with no wrapping or discarded source tails. Use context 1024, local batch 2, accumulation 2, 64 ranks, BF16 autocast, FP32 masters/AdamW moments, global clipping 1 and token-based WSD. Main initialization seeds are 23/47/71. Every continuation restores full state and validates CPU/native loss and gradients before updates.
 
-## Compute and scope
+Early adds 16 fixed computation inputs per 128 input positions from update one. They carry no prediction labels; the next real token after a pause block is predicted from its final pause. Causal right-tail padding takes expanded length 1152 to 1536 for the qualified native path. It follows all scored positions and passes CPU output/full-gradient invariance tests. All padded work is counted. ID 0 also occurs in 44 natural code source tokens; those remain real targets in both arms, as recorded in the [token-ID audit](source-token-id-audit.json).
 
-The 16-chip qualification measured 855,336 real targets/sec ordinary and 695,948 with pauses padded causally to 1536. Padding follows every scored position and passed CPU output/full-gradient and native checks. Count all padded work: the pause arm costs 1.562× the ordinary dense training matmul estimate, including the head. This experiment is token-matched; it cannot establish FLOP efficiency or isolate thought content.
+Sources and tokenizer revisions are pinned. Source groups are disjoint across TRAIN, tuning DEV, curve DEV and sealed TEST, with global exact deduplication and a disclosed approximate lexical near-duplicate screen. Training packs documents with causal cross-document attention inside each window; evaluation isolates documents. [Data rules](../../docs/DATA.md) disclose upstream model-assisted selection and remaining provenance/deduplication limits.
 
-The [budget](launch-manifest.json) estimates 2.40 steady node-hours including tuning, with a 4.8–7.2 h planning allowance and an eight-hour campaign cap. The [ledger](resource-ledger.json) counts actual training, DEV, qualification and failures separately from the inclusive node window. The [cost summary](cost-summary.json) also accounts for dense training and teacher-forced inference model calls, including CPU/native numerical probes, without adding overlapping preparation time twice. Source preparation took 296.98 s and overlapped qualification on this same instance.
+Each arm independently swept 3e-4 / 1e-3 / 3e-3 on the same first 100M targets and tuning cohort, using seed 11 and a completed short decay. Selected peaks were **1e-3 ordinary** and **3e-4 pause**, then fixed across main seeds. [All six tuning scores](tuning.json) are retained. This compares variants under that bounded tuning procedure; it does not establish globally optimal LRs at every exposure.
 
-The corpus uses pinned natural web/math/code in a 60/20/20 mixture. Split by source group, exact-deduplicate and apply a disclosed approximate lexical duplicate screen. Held-out NLL scores every real target in isolated documents; training uses packed documents and permits causal cross-document attention within a window. No generated research examples, teacher or RL. The [token-ID audit](source-token-id-audit.json) records 44 natural code source tokens using ID 0, also used as the pause input; these remain scored real targets in both arms. Artificial boundary loss masks use provenance, not token-ID equality.
+## Compute and actual cost
 
-The useful-gain threshold is 0.01 nats, using a paired-three-seed 95% interval conditional on this corpus/order. At 1B targets this is about 6.7 tokens per parameter, so a negative result would describe this early exposure, not convergence. Source-group uncertainty is reported separately. No timing, autonomous-placement or textual-reasoning claim follows.
+The 100-warm-update qualification measured 855,336 real targets/sec ordinary and 695,948 with padded pauses. Across all main phases, measured warm throughput is **834,056 ordinary / 709,346 pause targets/sec**, including cadence checkpoints. Actual worker/node times include compilation, numerical checks, saves and inference.
 
-The [retained stable pair](stable-branches.json) saves seed 23 at 904,398,582 targets before decay, including full optimizer/RNG/cursor state. The earlier 100M and 300M states remain for all seeds. Files stay outside Git. Retention used hard links to atomic checkpoints, with no extra training; the initial unprivileged link was rejected by container-file ownership and was retried successfully with the required filesystem ownership.
+The qualified pause path costs **1.562×** the ordinary dense training and full-window forward matmul estimate. Count the complete LM head and all 1536 positions, including right padding. These are dense full-square estimates, not hardware counters. The curves are token-matched; fully annealed matched-FLOP endpoints remain a separate comparison.
+
+| Measured worker time | Hours |
+| --- | ---: |
+| Main training phases | 2.697 |
+| Main held-out inference | 0.315 |
+| LR tuning training + inference | 0.474 |
+| Padding qualification | 0.043 |
+| Inclusive measured node window | 3.687 |
+
+Preparation took 296.98 s and overlaps that node window. Assigned accelerator time is 50.432 chip-hours; the full-node opportunity window is reported separately in the [ledger](resource-ledger.json). Main optimizer training totals 8.443e18 estimated matmul FLOPs; tuning adds 0.844e18. The [cost summary](cost-summary.json) additionally accounts for qualification, CPU/native numerical probes and every inference window (1,091 per curve evaluation; 280 per tuning evaluation), including partial windows. No run has missing FLOP accounting. The predeclared budget was 4.8–7.2 node-hours with an eight-hour cap.
+
+## Correctness and scope
+
+Twenty-nine CPU tests pass. The [complete protocol audit](protocol-audit.json) verifies all 18 curve records, paired initialization, exact exposures, immutable data/protocol hashes, identical training/model/loss/evaluation source, selected LRs, final LR floors, full optimizer recovery, replica equality and clean worker closures. All 49 supervised phases pass with no compiler-error or OOM rejection in this campaign. Maximum CPU/native probe differences are 0.000465 training NLL and 0.001593 evaluation NLL; maximum full-gradient relative L2 is 0.012894. Sampled reserves stayed above 733.65 GiB host available memory and 35.54 GiB filesystem free space.
+
+This is approximately 6.68 real targets per parameter. The negative result applies to this fixed-pause mechanism, exposure, data/context policy and LR selection procedure. The seed interval measures initialization variation conditional on one corpus/order; it is not a convergence, pure introduction-timing, latent-content or autonomous-thought result. Longer exposure and additional mechanism controls remain open.
+
+Full 100M/300M continuation states remain for every seed, and all six annealed endpoints remain local. The [seed-23 stable pair](stable-branches.json) additionally preserves both models at 904,398,582 targets before decay; their hashes remain unchanged after endpoint completion. [Reproduction instructions](../../docs/REPRODUCE_CURVE.md) describe the launch and analysis. Earlier [qualification](../qualification_20261022/REPORT.md), [performance work and failures](../performance_20261022/REPORT.md), original 1.7B evidence and the archived predecessor remain preserved. [Local OSS observations](../../docs/OSS_NOTES.md) were documented without an upstream submission.

@@ -1,8 +1,8 @@
 {
-  "status": "PASS_COMPLETED_RECORDS_AUDIT",
-  "complete": false,
+  "status": "PASS_COMPLETE_PROTOCOL_AUDIT",
+  "complete": true,
   "tuning_trials": 6,
-  "curve_records": 16,
+  "curve_records": 18,
   "test_file_unchanged": true,
   "data_and_protocol_hashes_match": true,
   "matched_initializations_and_data": true,
@@ -16,7 +16,18 @@
     "compute_trainium/metrics.py": "0296fee74cd632e0dfc04d8ee129a7235f984691eb3f211c968d681e6af38275",
     "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20"
   },
-  "retained_stable_checkpoint_verification": [],
+  "retained_stable_checkpoint_verification": [
+    {
+      "arm": "ordinary",
+      "file_sha256": "521aa4823971066b7bdae1cf89ccc087c19f84a11d74b577d7bb2a3333b1a4d9",
+      "unchanged_after_final_endpoint": true
+    },
+    {
+      "arm": "early",
+      "file_sha256": "668c34e52ada29596d1d17366ad3886e74659201ddd96b2c4b1c72b9b992b56a",
+      "unchanged_after_final_endpoint": true
+    }
+  ],
   "checks": [
     {
       "run": "natural-curve-v1-lr-ordinary-0",
@@ -193,6 +204,22 @@
       "absolute_cpu_native_probe_nll_difference": 0.00019216537475585938,
       "full_gradient_relative_l2": 0.012387065837004416,
       "absolute_evaluation_cpu_native_probe_nll_difference": 0.0015930813779401198
+    },
+    {
+      "run": "natural-curve-v1-ordinary-s71-u3840",
+      "cohort": "curve",
+      "real_targets": 1004887590,
+      "absolute_cpu_native_probe_nll_difference": 8.559226989746094e-05,
+      "full_gradient_relative_l2": 0.011422257403568671,
+      "absolute_evaluation_cpu_native_probe_nll_difference": 0.0003887535387634422
+    },
+    {
+      "run": "natural-curve-v1-early-s71-u3840",
+      "cohort": "curve",
+      "real_targets": 1004887590,
+      "absolute_cpu_native_probe_nll_difference": 0.00046539306640625,
+      "full_gradient_relative_l2": 0.012583417080267383,
+      "absolute_evaluation_cpu_native_probe_nll_difference": 0.0009433865962544807
     }
   ]
 }

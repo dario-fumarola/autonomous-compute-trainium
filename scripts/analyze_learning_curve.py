@@ -22,7 +22,7 @@ def analyze(experiment):
     directory.mkdir(exist_ok=True)
     columns = ["arm", "seed", "peak_lr", "update", "real_tokens", "weighted_nll", "web_nll", "math_nll", "code_nll", "training_matmul_flops"]
     with (directory/"learning-curve.csv").open("w") as stream:
-        writer = csv.DictWriter(stream, fieldnames=columns)
+        writer = csv.DictWriter(stream, fieldnames=columns, lineterminator="\n")
         writer.writeheader()
         for record in records:
             writer.writerow({**{k: record[k] for k in ("arm", "seed", "update", "real_tokens", "training_matmul_flops")},
@@ -93,6 +93,8 @@ def analyze(experiment):
         axis.spines[["top", "right"]].set_visible(False)
     fig.suptitle("150M natural-text pretraining · held-out source groups", fontsize=11)
     fig.savefig(directory/"learning-curve.svg")
+    svg = directory/"learning-curve.svg"
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines())+"\n")
     fig.savefig(directory/"learning-curve.png", dpi=180)
     plt.close(fig)
     fig, axes = plt.subplots(1, 3, figsize=(11, 3.3), constrained_layout=True)
@@ -117,6 +119,8 @@ def analyze(experiment):
         axes[0].legend(frameon=False, fontsize=8)
     fig.suptitle("Held-out domains · thin lines show initialization seeds", fontsize=11)
     fig.savefig(directory/"domain-curves.svg")
+    svg = directory/"domain-curves.svg"
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines())+"\n")
     fig.savefig(directory/"domain-curves.png", dpi=180)
     plt.close(fig)
     return summary

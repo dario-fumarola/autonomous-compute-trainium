@@ -1,5 +1,5 @@
 {
-  "status": "LEARNING_CURVE_INTERIM",
+  "status": "LEARNING_CURVE_COMPLETE",
   "cohort": "curve",
   "test_sealed": true,
   "paired": [
@@ -48,14 +48,20 @@
       "real_tokens": 1004887590,
       "paired_seeds": [
         23,
-        47
+        47,
+        71
       ],
       "seed_gains_nats": {
         "23": -0.0510112863910086,
-        "47": -0.05597453835960575
+        "47": -0.05597453835960575,
+        "71": -0.05468368601912754
       },
-      "mean_gain_nats": -0.05349291237530718,
-      "assessment_at_this_exposure": "preliminary_incomplete_seed_pairs"
+      "mean_gain_nats": -0.0538898369232473,
+      "interval_95": [
+        -0.06028672779308365,
+        -0.04749294605341095
+      ],
+      "assessment_at_this_exposure": "useful_gain_ruled_out"
     }
   ],
   "records": [
@@ -665,6 +671,82 @@
         "unit": "nats per real source token"
       },
       "initial_model_digest": "9c54544031262bbd9c79e599d200ced8b5ce5c75561f883008ca015ac13bf07e",
+      "training_matmul_flops": 1715897846307225600
+    },
+    {
+      "run": "natural-curve-v1-ordinary-s71-u3840",
+      "arm": "ordinary",
+      "seed": 71,
+      "update": 3840,
+      "real_tokens": 1004887590,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 783131.8231210709,
+            "real_targets": 260643,
+            "documents": 251,
+            "nll": 3.004614829943911
+          },
+          "math": {
+            "nll_sum": 582108.8748588562,
+            "real_targets": 257227,
+            "documents": 241,
+            "nll": 2.263016226363703
+          },
+          "code": {
+            "nll_sum": 348116.61311483383,
+            "real_targets": 259478,
+            "documents": 122,
+            "nll": 1.3416035776244377
+          }
+        },
+        "weighted_nll": 2.5236928587639746,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "initial_model_digest": "a37a6d50b7ac94851f98dd47bad1b22da7e0f8a1ffb31cf8e4de979e619b2137",
+      "training_matmul_flops": 1098412116148224000
+    },
+    {
+      "run": "natural-curve-v1-early-s71-u3840",
+      "arm": "early",
+      "seed": 71,
+      "update": 3840,
+      "real_tokens": 1004887590,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 798660.1215629578,
+            "real_targets": 260643,
+            "documents": 251,
+            "nll": 3.064191716497116
+          },
+          "math": {
+            "nll_sum": 595327.1737575531,
+            "real_targets": 257227,
+            "documents": 241,
+            "nll": 2.314403906889841
+          },
+          "code": {
+            "nll_sum": 359352.033844471,
+            "real_targets": 259478,
+            "documents": 122,
+            "nll": 1.3849036675343227
+          }
+        },
+        "weighted_nll": 2.578376544783102,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "initial_model_digest": "a37a6d50b7ac94851f98dd47bad1b22da7e0f8a1ffb31cf8e4de979e619b2137",
       "training_matmul_flops": 1715897846307225600
     }
   ],

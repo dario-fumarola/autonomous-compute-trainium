@@ -298,7 +298,8 @@
       "update": 3840,
       "paired_seeds": [
         23,
-        47
+        47,
+        71
       ],
       "within_seed_source_group_intervals": [
         {
@@ -322,13 +323,24 @@
           "source_groups": 360,
           "accepted_draws": 2000,
           "warning": "Within-seed uncertainty only; report paired training seeds separately."
+        },
+        {
+          "seed": 71,
+          "gain_nats": -0.05468368601912754,
+          "interval_95": [
+            -0.05700553279564752,
+            -0.052505544507389444
+          ],
+          "source_groups": 360,
+          "accepted_draws": 2000,
+          "warning": "Within-seed uncertainty only; report paired training seeds separately."
         }
       ],
       "source_group_interval_for_mean_model_gain": {
-        "gain_nats": -0.05349291237530762,
+        "gain_nats": -0.053889836923246115,
         "interval_95": [
-          -0.055896192841047285,
-          -0.051131673082811566
+          -0.055962030619192714,
+          -0.051948239391555864
         ],
         "source_groups": 360,
         "accepted_draws": 2000,
@@ -338,49 +350,91 @@
         "web": {
           "seed_gains_nats": {
             "23": -0.059877365041233865,
-            "47": -0.062223508755608226
+            "47": -0.062223508755608226,
+            "71": -0.05957688655320492
           },
           "source_group_interval_for_mean_model_gain": {
-            "gain_nats": -0.06105043689842082,
+            "gain_nats": -0.060559253450013895,
             "interval_95": [
-              -0.06405948999148263,
-              -0.05812448993144173
+              -0.06302909618261439,
+              -0.05805314031238267
             ],
             "source_groups": 183,
             "accepted_draws": 2000,
             "warning": "Within-seed uncertainty only; report paired training seeds separately."
+          },
+          "paired_initialization_interval": {
+            "mean_gain_nats": -0.06055925345001567,
+            "interval_95": [
+              -0.06415900910442596,
+              -0.05695949779560539
+            ],
+            "paired_seed_gains": {
+              "23": -0.059877365041233865,
+              "47": -0.062223508755608226,
+              "71": -0.05957688655320492
+            },
+            "assumption": "Independent paired seeds with approximately normal gains; df=2."
           }
         },
         "math": {
           "seed_gains_nats": {
             "23": -0.036320717264758606,
-            "47": -0.04858635081103779
+            "47": -0.04858635081103779,
+            "71": -0.05138768052613818
           },
           "source_group_interval_for_mean_model_gain": {
-            "gain_nats": -0.04245353403789798,
+            "gain_nats": -0.04543158286731064,
             "interval_95": [
-              -0.0492965915787701,
-              -0.035497282043491764
+              -0.05109706692858351,
+              -0.04035527515049139
             ],
             "source_groups": 62,
             "accepted_draws": 2000,
             "warning": "Within-seed uncertainty only; report paired training seeds separately."
+          },
+          "paired_initialization_interval": {
+            "mean_gain_nats": -0.045431582867311526,
+            "interval_95": [
+              -0.06533846590615666,
+              -0.02552469982846639
+            ],
+            "paired_seed_gains": {
+              "23": -0.036320717264758606,
+              "47": -0.04858635081103779,
+              "71": -0.05138768052613818
+            },
+            "assumption": "Independent paired seeds with approximately normal gains; df=2."
           }
         },
         "code": {
           "seed_gains_nats": {
             "23": -0.03910361956658415,
-            "47": -0.044615814720167846
+            "47": -0.044615814720167846,
+            "71": -0.04330008990988499
           },
           "source_group_interval_for_mean_model_gain": {
-            "gain_nats": -0.041859717143375885,
+            "gain_nats": -0.04233984139887936,
             "interval_95": [
-              -0.045004648971997165,
-              -0.038761482171537034
+              -0.044975482406781786,
+              -0.03968136882251924
             ],
             "source_groups": 117,
             "accepted_draws": 2000,
             "warning": "Within-seed uncertainty only; report paired training seeds separately."
+          },
+          "paired_initialization_interval": {
+            "mean_gain_nats": -0.042339841398878995,
+            "interval_95": [
+              -0.04949123844578658,
+              -0.03518844435197141
+            ],
+            "paired_seed_gains": {
+              "23": -0.03910361956658415,
+              "47": -0.044615814720167846,
+              "71": -0.04330008990988499
+            },
+            "assumption": "Independent paired seeds with approximately normal gains; df=2."
           }
         }
       }
