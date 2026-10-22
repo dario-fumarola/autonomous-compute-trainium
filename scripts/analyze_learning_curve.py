@@ -82,6 +82,29 @@ def analyze(experiment):
     fig.savefig(directory/"learning-curve.svg")
     fig.savefig(directory/"learning-curve.png", dpi=180)
     plt.close(fig)
+    fig, axes = plt.subplots(1, 3, figsize=(11, 3.3), constrained_layout=True)
+    for axis, domain in zip(axes, ("web", "math", "code")):
+        for arm in ("ordinary", "early"):
+            pool = sorted((r for r in records if r["arm"] == arm), key=lambda r: r["update"])
+            for seed in sorted({r["seed"] for r in pool}):
+                rows = [r for r in pool if r["seed"] == seed]
+                axis.plot([r["real_tokens"]/1e6 for r in rows],
+                          [r["metrics"]["domains"][domain]["nll"] for r in rows],
+                          color=colors[arm], alpha=.25, lw=.8)
+            points = [(next(r["real_tokens"] for r in pool if r["update"] == step)/1e6,
+                       np.mean([r["metrics"]["domains"][domain]["nll"] for r in pool if r["update"] == step]))
+                      for step in sorted({r["update"] for r in pool})]
+            if points:
+                x, y = np.array(points).T
+                axis.plot(x, y, "o-", color=colors[arm], label=arm)
+        axis.set(title=domain.capitalize(), xlabel="Real targets (millions)", ylabel="NLL (nats / real target)")
+        axis.grid(alpha=.2)
+        axis.spines[["top", "right"]].set_visible(False)
+    axes[0].legend(frameon=False, fontsize=8)
+    fig.suptitle("Held-out domains · thin lines show initialization seeds", fontsize=11)
+    fig.savefig(directory/"domain-curves.svg")
+    fig.savefig(directory/"domain-curves.png", dpi=180)
+    plt.close(fig)
     return summary
 
 

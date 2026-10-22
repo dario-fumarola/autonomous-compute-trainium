@@ -56,7 +56,7 @@ def collect(root, experiment, output, start_utc):
     analysis = experiment/"analysis"
     if analysis.exists():
         for name in ("summary.json", "learning-curve.csv", "learning-curve.svg", "learning-curve.png",
-                     "source-group-uncertainty.json"):
+                     "domain-curves.svg", "domain-curves.png", "source-group-uncertainty.json"):
             if (analysis/name).exists():
                 shutil.copyfile(analysis/name, output/name)
     ledger = {"campaign": identity, "start_utc": dt.datetime.fromtimestamp(start, dt.timezone.utc).isoformat(),
