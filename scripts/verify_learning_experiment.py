@@ -33,6 +33,10 @@ def audit(experiment, root, data, require_complete=False):
     assert selected["specification_sha256"] == sha(experiment/"specification.json")
     trials = read(experiment/"tuning.json")
     assert len(trials) == 6
+    source = read(root/"snapshots"/trials[0]["run"]/"launch.json")["source_sha256"]
+    stable_code = ("scripts/train_distributed.py", "scripts/evaluate_checkpoint.py",
+                   "compute_trainium/training.py", "compute_trainium/titan.py",
+                   "compute_trainium/model.py", "compute_trainium/metrics.py", "compute_trainium/data.py")
     for arm in specification["arms"]:
         candidates = [t for t in trials if t["arm"] == arm and t["status"] == "PASS"]
         expected = min(candidates, key=lambda t: (t["tune_weighted_nll"], t["lr"]))["lr"]
@@ -77,6 +81,8 @@ def audit(experiment, root, data, require_complete=False):
             if item["update"] > 384:
                 assert trained["recovered_model_optimizer_digest"]
         for phase in (run, run+"-dev"):
+            launch = read(root/"snapshots"/phase/"launch.json")
+            assert all(launch["source_sha256"][name] == source[name] for name in stable_code)
             closure = read(root/"snapshots"/phase/"closure.json")
             supervisor = read(root/"logs"/(phase+".supervisor.json"))
             assert closure["exit_code"] == 0 and supervisor["worker_exit_code"] == 0
@@ -92,6 +98,7 @@ def audit(experiment, root, data, require_complete=False):
               "complete": complete, "tuning_trials": len(trials), "curve_records": len(records),
               "test_file_unchanged": True, "data_and_protocol_hashes_match": True,
               "matched_initializations_and_data": True, "frozen_lrs_match_tuning_minima": True,
+              "identical_training_model_loss_and_evaluation_code": {name: source[name] for name in stable_code},
               "checks": checks}
     (experiment/"protocol-audit.json").write_text(json.dumps(result, indent=2)+"\n")
     return result

@@ -1,12 +1,22 @@
 # Natural-text learning curve — running
 
-LR selection is complete and the main comparison is running. The first paired seed has a 100M held-out point; it is preliminary, with the other seeds and longer milestones still pending. The [protocol](../../docs/LEARNING_CURVE_PROTOCOL.md), [specification](specification.json), [corpus manifest](corpus-manifest.json) and [frozen choices](selected-lrs.json) were fixed before curve evaluation. TEST is sealed.
+All three paired seeds have completed the 100M milestone; the 300M continuations are running. At 100M, fixed pauses have higher held-out NLL across every seed and domain. The longer milestones remain pending. The [protocol](../../docs/LEARNING_CURVE_PROTOCOL.md), [specification](specification.json), [corpus manifest](corpus-manifest.json) and [frozen choices](selected-lrs.json) were fixed before curve evaluation. TEST is sealed.
 
 Compare ordinary and early-pause 150,436,608-parameter random models, seeds 23/47/71, on identical real targets and one frozen data order. The milestones are 100,488,104 / 301,465,908 / 1,004,887,590 real targets per run. Only the final endpoint is the primary test; both arms finish their decay. Intermediate stable-trunk curves are descriptive.
 
-## Preliminary 100M point
+## Three-seed 100M result (intermediate)
 
-Seed 23: ordinary NLL **3.704642**, early-pause NLL **4.013455**; ordinary minus pause **−0.308813 nats**. This one early pair favors ordinary. No paired-seed interval is available yet. Both score the same 614 isolated documents / 777,348 real targets. The final 1B endpoint across all three seeds remains primary.
+| Real targets/run | Ordinary mean NLL | Early-pause mean NLL | Ordinary − pause | Paired-seed 95% interval |
+| ---: | ---: | ---: | ---: | --- |
+| 100,488,104 | 3.751589 | 4.040532 | −0.288943 | [−0.355418, −0.222468] |
+
+Gains are positive when pauses help. All three gains are negative: seed 23 −0.308813, seed 47 −0.258515, seed 71 −0.299502. The interval rules out the declared 0.01-nat gain **at this early exposure**. This is a descriptive intermediate point; the final fully annealed 1B endpoint remains primary. Each model scores the same 614 isolated documents / 777,348 real targets.
+
+| Domain | Ordinary mean NLL | Early-pause mean NLL |
+| --- | ---: | ---: |
+| Web | 4.308575 | 4.509929 |
+| Math | 3.307309 | 3.619620 |
+| Code | 2.524909 | 3.053254 |
 
 ![Learning curve](learning-curve.png)
 

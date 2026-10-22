@@ -53,18 +53,23 @@ def analyze(experiment):
                "paired": paired, "records": records,
                "scope": "Token-matched conditional on fixed corpus/order; final endpoint is primary; roughly 6.7 tokens/parameter, no convergence or FLOP-efficiency conclusion."}
     (directory/"summary.json").write_text(json.dumps(summary, indent=2)+"\n")
+    # Interim arm means use identical completed seed pairs at each milestone.
+    # Keep unpaired completed records in the CSV/JSON, without asymmetric plots.
+    plot_records = [r for r in records if any(p["update"] == r["update"] and
+                    r["seed"] in p["paired_seeds"] for p in paired)]
     colors = {"ordinary": "#2f5da8", "early": "#d05a30"}
     fig, axes = plt.subplots(1, 2, figsize=(10, 3.8), constrained_layout=True)
     for arm in ("ordinary", "early"):
         points = []
-        for step in sorted({r["update"] for r in records if r["arm"] == arm}):
-            pool = [r for r in records if r["arm"] == arm and r["update"] == step]
+        for step in sorted({r["update"] for r in plot_records if r["arm"] == arm}):
+            pool = [r for r in plot_records if r["arm"] == arm and r["update"] == step]
             points.append((pool[0]["real_tokens"]/1e6, np.mean([r["metrics"]["weighted_nll"] for r in pool])))
         if points:
             x, y = np.array(points).T
             axes[0].plot(x, y, "o-", color=colors[arm], label="Ordinary" if arm == "ordinary" else "Pauses from initialization")
     axes[0].set(xlabel="Real training targets (millions)", ylabel="Unseen-text NLL (nats / real target)")
-    axes[0].legend(frameon=False, fontsize=8)
+    if plot_records:
+        axes[0].legend(frameon=False, fontsize=8)
     for row in paired:
         error = (np.array(row["interval_95"])-row["mean_gain_nats"])*np.array([-1, 1]) if "interval_95" in row else np.zeros(2)
         axes[1].errorbar(row["real_tokens"]/1e6, row["mean_gain_nats"], yerr=error[:, None],
@@ -85,7 +90,7 @@ def analyze(experiment):
     fig, axes = plt.subplots(1, 3, figsize=(11, 3.3), constrained_layout=True)
     for axis, domain in zip(axes, ("web", "math", "code")):
         for arm in ("ordinary", "early"):
-            pool = sorted((r for r in records if r["arm"] == arm), key=lambda r: r["update"])
+            pool = sorted((r for r in plot_records if r["arm"] == arm), key=lambda r: r["update"])
             for seed in sorted({r["seed"] for r in pool}):
                 rows = [r for r in pool if r["seed"] == seed]
                 axis.plot([r["real_tokens"]/1e6 for r in rows],
@@ -100,7 +105,8 @@ def analyze(experiment):
         axis.set(title=domain.capitalize(), xlabel="Real targets (millions)", ylabel="NLL (nats / real target)")
         axis.grid(alpha=.2)
         axis.spines[["top", "right"]].set_visible(False)
-    axes[0].legend(frameon=False, fontsize=8)
+    if plot_records:
+        axes[0].legend(frameon=False, fontsize=8)
     fig.suptitle("Held-out domains · thin lines show initialization seeds", fontsize=11)
     fig.savefig(directory/"domain-curves.svg")
     fig.savefig(directory/"domain-curves.png", dpi=180)
