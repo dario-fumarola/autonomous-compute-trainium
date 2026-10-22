@@ -8,13 +8,13 @@
       "cpu_training_probe_matmul_flops": 3491003105280
     },
     "main": {
-      "optimizer_training_matmul_flops": 4502895939928719360,
-      "optimizer_training_real_targets": 3215638812,
-      "native_training_probe_matmul_flops": 2565126267863040,
-      "cpu_training_probe_matmul_flops": 40080097935360,
-      "native_dev_forward_matmul_flops": 7287897807912960,
-      "cpu_dev_probe_matmul_flops": 6680016322560,
-      "scored_dev_real_targets": 10882872
+      "optimizer_training_matmul_flops": 6472912913647534080,
+      "optimizer_training_real_targets": 4622482176,
+      "native_training_probe_matmul_flops": 2931572877557760,
+      "cpu_training_probe_matmul_flops": 45805826211840,
+      "native_dev_forward_matmul_flops": 8329026066186240,
+      "cpu_dev_probe_matmul_flops": 7634304368640,
+      "scored_dev_real_targets": 12437568
     },
     "tuning": {
       "optimizer_training_matmul_flops": 844292988736634880,
@@ -31,27 +31,27 @@
       "training_worker_wall_seconds": 155.21031093597412
     },
     "main": {
-      "training_worker_wall_seconds": 5626.991362333298,
-      "evaluation_worker_wall_seconds": 881.8922493457794
+      "training_worker_wall_seconds": 7662.181243658066,
+      "evaluation_worker_wall_seconds": 1007.0764434337616
     },
     "tuning": {
       "training_worker_wall_seconds": 1391.724599123001,
       "evaluation_worker_wall_seconds": 315.47825145721436
     }
   },
-  "inclusive_node_hours": 2.520585343639056,
-  "assigned_chip_hours_including_failures": 32.2167196830776,
+  "inclusive_node_hours": 3.109308310813374,
+  "assigned_chip_hours_including_failures": 41.29678143176768,
   "preparation_wall_seconds_overlaps_node_window": 296.979536911007,
   "main_warm_real_targets_per_second": {
-    "early": 708747.5177269327,
-    "ordinary": 832980.9610064168
+    "early": 709158.9360081431,
+    "ordinary": 833679.3383918022
   },
   "windows_per_evaluation": {
     "curve": 1091,
     "tune": 280
   },
   "runs_without_complete_flop_accounting": [
-    "natural-curve-v1-ordinary-s47-u3840"
+    "natural-curve-v1-ordinary-s71-u3840"
   ],
   "assumptions": "Dense full-square attention; FMA=2, backward=2x forward, full LM head and tail padding included. Model-call estimates, not hardware counters. Excludes optimizer/elementwise operations, compilation and software-test fixtures from FLOPs; actual node/worker time includes those costs. CPU and native numerical probes are listed separately. Failed worker time is retained even when its FLOPs are unknown. Do not add overlapping preparation and node times."
 }

@@ -1,6 +1,6 @@
 # Natural-text learning curve — running
 
-All three paired seeds have completed 100M and 300M; seed 23 has also completed the fully annealed 1B endpoint. That first 1B pair still favors ordinary (2.518 versus 2.569 NLL). The other two 1B pairs remain pending, so the primary three-seed result is not complete. The [protocol](../../docs/LEARNING_CURVE_PROTOCOL.md), [specification](specification.json), [corpus manifest](corpus-manifest.json) and [frozen choices](selected-lrs.json) were fixed before curve evaluation. TEST is sealed.
+All three paired seeds have completed 100M and 300M; seeds 23 and 47 have also completed the fully annealed 1B endpoint. Both 1B pairs favor ordinary, with mean pause gain −0.053493 nats. Seed 71 is still running, so the primary three-seed result remains pending. The [protocol](../../docs/LEARNING_CURVE_PROTOCOL.md), [specification](specification.json), [corpus manifest](corpus-manifest.json) and [frozen choices](selected-lrs.json) were fixed before curve evaluation. TEST is sealed.
 
 Compare ordinary and early-pause 150,436,608-parameter random models, seeds 23/47/71, on identical real targets and one frozen data order. The milestones are 100,488,104 / 301,465,908 / 1,004,887,590 real targets per run. Only the final endpoint is the primary test; both arms finish their decay. Intermediate stable-trunk curves are descriptive.
 
@@ -10,9 +10,9 @@ Compare ordinary and early-pause 150,436,608-parameter random models, seeds 23/4
 | ---: | ---: | ---: | ---: | ---: | --- |
 | 100,488,104 | 3 | 3.751589 | 4.040532 | −0.288943 | [−0.355418, −0.222468] |
 | 301,465,908 | 3 | 2.974138 | 3.023412 | −0.049274 | [−0.069240, −0.029307] |
-| 1,004,887,590 | 1 (seed 23) | 2.518071 | 2.569082 | −0.051011 | Pending other seeds |
+| 1,004,887,590 | 2 (seeds 23, 47) | 2.518014 | 2.571507 | −0.053493 | Pending seed 71 |
 
-Gains are positive when pauses help. At 100M, seed gains are −0.308813 / −0.258515 / −0.299502. At 300M they are −0.048731 / −0.057569 / −0.041521. Both intervals rule out the declared 0.01-nat gain at those exposures. The first two points are descriptive stable-trunk points. The 1B seed-23 point is fully annealed but preliminary; the complete three-seed 1B endpoint remains primary. Each model scores the same 614 isolated documents / 777,348 real targets.
+Gains are positive when pauses help. At 100M, seed gains are −0.308813 / −0.258515 / −0.299502. At 300M they are −0.048731 / −0.057569 / −0.041521. Both intervals rule out the declared 0.01-nat gain at those exposures. The first two points are descriptive stable-trunk points. The two 1B pairs are fully annealed but preliminary; the complete three-seed 1B endpoint remains primary. Each model scores the same 614 isolated documents / 777,348 real targets.
 
 | Domain | Ordinary 100M | Pause 100M | Ordinary 300M | Pause 300M |
 | --- | ---: | ---: | ---: | ---: |
