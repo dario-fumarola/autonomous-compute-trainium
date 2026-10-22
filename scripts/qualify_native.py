@@ -13,7 +13,7 @@ from pathlib import Path
 import torch
 from torch.utils._pytree import tree_map
 
-from compute_trainium.data import document_windows, layout
+from compute_trainium.data import document_windows, layout, prediction_spans
 from compute_trainium.metrics import real_token_losses
 from compute_trainium.model import LanguageModel, ModelConfig
 from compute_trainium.titan import build_titan
@@ -37,10 +37,10 @@ class Objective(torch.nn.Module):
     def __init__(self, model, prediction_positions):
         super().__init__()
         self.model = model
-        self.register_buffer("prediction_positions", prediction_positions, persistent=False)
+        self.spans = prediction_spans(prediction_positions)
 
     def forward(self, inputs, targets, mask):
-        logits = self.model(inputs, self.prediction_positions)
+        logits = self.model(inputs, prediction_spans=self.spans)
         return real_token_losses(logits, targets, mask).sum() / mask.sum()
 
 

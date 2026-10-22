@@ -2,16 +2,17 @@
 
 import math
 import random
+import statistics
 from collections import defaultdict
 from dataclasses import asdict, dataclass
 
 import torch
-import torch.nn.functional as F
 
 
 def real_token_losses(logits, targets, target_mask):
-    losses = F.cross_entropy(logits.float().reshape(-1, logits.shape[-1]),
-                             targets.reshape(-1), reduction="none").reshape_as(targets)
+    # Explicit full-vocabulary CE avoids a native beta cross_entropy graph break.
+    values = logits.float()
+    losses = values.logsumexp(dim=-1) - values.gather(-1, targets.unsqueeze(-1)).squeeze(-1)
     return losses * target_mask
 
 
@@ -82,3 +83,14 @@ def paired_group_interval(reference, candidate, *, draws=2000, seed=0, weights=N
             values[min(len(values) - 1, int(.975 * len(values)))]],
             "source_groups": len(groups), "accepted_draws": len(values),
             "warning": "Within-seed uncertainty only; report paired training seeds separately."}
+
+
+def paired_three_seed_interval(gain_by_seed):
+    """Student t interval across the three predeclared paired training seeds."""
+    if len(gain_by_seed) != 3 or not all(math.isfinite(x) for x in gain_by_seed.values()):
+        raise ValueError("Pass three finite paired seed gains.")
+    gains = list(gain_by_seed.values())
+    mean = statistics.mean(gains)
+    half = 4.302652729911275 * statistics.stdev(gains) / math.sqrt(3)
+    return {"mean_gain_nats": mean, "interval_95": [mean-half, mean+half],
+            "paired_seed_gains": gain_by_seed, "assumption": "Independent paired seeds with approximately normal gains; df=2."}

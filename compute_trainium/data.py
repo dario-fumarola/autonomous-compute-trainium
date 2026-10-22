@@ -85,3 +85,18 @@ def dummy_pause_mask(pause_mask: torch.Tensor) -> torch.Tensor:
     n = pause_mask.numel()
     causal = torch.ones((n, n), dtype=torch.bool, device=pause_mask.device).tril()
     return causal & (~pause_mask[:, None] | pause_mask[None, :])
+
+
+def prediction_spans(positions: torch.Tensor) -> tuple[tuple[int, int], ...]:
+    """Represent a static ordered gather as contiguous slices for compilation."""
+    values = positions.detach().cpu().tolist()
+    if not values or values != sorted(set(values)):
+        raise ValueError("Prediction positions must be nonempty and strictly increasing.")
+    spans, start, previous = [], values[0], values[0]
+    for value in values[1:]:
+        if value != previous + 1:
+            spans.append((start, previous+1))
+            start = value
+        previous = value
+    spans.append((start, previous+1))
+    return tuple(spans)

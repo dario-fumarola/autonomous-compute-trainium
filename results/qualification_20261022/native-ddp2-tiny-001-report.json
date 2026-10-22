@@ -1,0 +1,36 @@
+{
+  "status": "PASS_NATIVE_DDP_BENCHMARK",
+  "scientific_result": false,
+  "world_size": 2,
+  "physical_chips": [
+    0,
+    1
+  ],
+  "parameters": 4391552,
+  "size": "tiny",
+  "context": 128,
+  "pauses": 0,
+  "local_batch": 1,
+  "warm_global_real_targets_per_second": 18358.84174372325,
+  "warm_seconds": 0.0697211740189232,
+  "warm_real_targets": 1280,
+  "cold_first_step_seconds": 7.209607437020168,
+  "all_replica_model_optimizer_states_equal": true,
+  "cpu_global_check": {
+    "cpu_global_loss": 11.724724769592285,
+    "gradient_relative_l2": 0.0009147850132557473,
+    "global_real_targets": 256
+  },
+  "wall_seconds_rank0": 15.437904221995268,
+  "fallback_ops_by_rank": {
+    "0": "['aten::_to_copy']",
+    "1": "['aten::_to_copy']"
+  },
+  "flops_per_global_step": {
+    "forward_matmul_flops": 2281701376,
+    "training_matmul_flops": 6845104128,
+    "lm_head_forward_flops": 2097152000,
+    "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter."
+  },
+  "scope": "FP32 parameters and arithmetic, native AdamW, synchronized DDP, natural full windows and H2D; no evaluation or checkpoint in warm timer."
+}

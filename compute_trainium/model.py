@@ -107,8 +107,10 @@ class LanguageModel(nn.Module):
             h = block(h, cos, sin, attention_mask)
         return self.norm(h)
 
-    def forward(self, tokens, prediction_positions=None, attention_mask=None):
+    def forward(self, tokens, prediction_positions=None, attention_mask=None, prediction_spans=None):
         h = self.hidden(tokens, attention_mask)
-        if prediction_positions is not None:
+        if prediction_spans is not None:
+            h = torch.cat([h[:, a:b] for a, b in prediction_spans], dim=1)
+        elif prediction_positions is not None:
             h = h.index_select(1, prediction_positions)
         return F.linear(h, self.embedding.weight)

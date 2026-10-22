@@ -1,5 +1,6 @@
 """Small-vocabulary models from the pinned TorchTitan Neuron fork."""
 
+import torch
 import torch.nn.functional as F
 from torch import nn
 
@@ -36,9 +37,11 @@ def build_titan(c):
             self.decoder = decoder
             self.config = c
 
-        def forward(self, tokens, prediction_positions=None, attention_mask=None):
+        def forward(self, tokens, prediction_positions=None, attention_mask=None, prediction_spans=None):
             h = self.decoder(tokens, attention_masks=attention_mask)
-            if prediction_positions is not None:
+            if prediction_spans is not None:
+                h = torch.cat([h[:, a:b] for a, b in prediction_spans], dim=1)
+            elif prediction_positions is not None:
                 h = h.index_select(1, prediction_positions)
             return F.linear(h, self.decoder.lm_head.weight)
 

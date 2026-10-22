@@ -1,0 +1,86 @@
+{
+  "purpose": "qualification convenience sample; not a scientific benchmark",
+  "synthetic_generation": false,
+  "sources": {
+    "web": {
+      "repository": "HuggingFaceFW/fineweb-edu",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "file": "data/CC-MAIN-2013-20/train-00000-of-00014.parquet",
+      "sha256": "fb989c566f6fba00ab61decc5f7aa1538a07d9b142e58a52ff790154528ffd03",
+      "accepted": 600,
+      "rejected": {
+        "length_filter": 8
+      }
+    },
+    "math": {
+      "repository": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "file": "finemath-4plus/train-00000-of-00064.parquet",
+      "sha256": "5d0b26114b4cf309c82a4ba8f6f45857480b27812e23a46b61b45e8bbed61fe5",
+      "accepted": 600,
+      "rejected": {
+        "length_filter": 17,
+        "missing_source": 12
+      }
+    },
+    "code": {
+      "repository": "codeparrot/codeparrot-clean",
+      "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+      "file": "file-000000000001.json.gz",
+      "sha256": "3726a0239b5cb7d0ef3ea36886c533d0becc7404217763015559edb546d53c94",
+      "accepted": 600,
+      "rejected": {
+        "license_filter": 431,
+        "length_filter": 51
+      }
+    }
+  },
+  "tokenizer": {
+    "repository": "mistralai/Mistral-7B-v0.1",
+    "revision": "27d67f1b5f57dc0953326b2601d68371d40ea8da",
+    "sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+    "vocab_size": 32000,
+    "pause_id": 0
+  },
+  "split_rule": "global host/repository hash 80/10/10 before windows",
+  "content_dedup": "global normalized exact; near-duplicate audit outstanding",
+  "counts": {
+    "web/train": {
+      "documents": 489,
+      "real_tokens": 516371
+    },
+    "web/dev": {
+      "documents": 60,
+      "real_tokens": 54784
+    },
+    "web/test": {
+      "documents": 51,
+      "real_tokens": 52034
+    },
+    "math/train": {
+      "documents": 435,
+      "real_tokens": 553592
+    },
+    "math/dev": {
+      "documents": 106,
+      "real_tokens": 144650
+    },
+    "math/test": {
+      "documents": 59,
+      "real_tokens": 86588
+    },
+    "code/train": {
+      "documents": 462,
+      "real_tokens": 928614
+    },
+    "code/test": {
+      "documents": 72,
+      "real_tokens": 140963
+    },
+    "code/dev": {
+      "documents": 66,
+      "real_tokens": 108212
+    }
+  },
+  "corpus_sha256": "81fe046e2487b71b7a5f823ac5a0f5a2c0a013de06d76b30fa2b9776b4f51e31"
+}

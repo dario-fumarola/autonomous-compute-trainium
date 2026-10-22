@@ -1,0 +1,114 @@
+{
+  "status": "PASS_NATIVE_QUALIFICATION",
+  "scientific_result": false,
+  "config": {
+    "dim": 128,
+    "layers": 2,
+    "heads": 4,
+    "kv_heads": 2,
+    "ffn_dim": 256,
+    "vocab_size": 32000,
+    "max_seq": 1024
+  },
+  "engine": "titan",
+  "arm": "late",
+  "compiled": true,
+  "parameters": 4391552,
+  "initial_state_sha256": "8b72a344c17933c9ea8425564cc47e285558a0544531104635a5583d3d155ce8",
+  "full_optimizer_replay": true,
+  "checkpoint_seconds": 0.10006858495762572,
+  "updates_including_replay": 9,
+  "warm_real_targets_per_second": 12370.488786982125,
+  "wall_seconds": 22.23535599198658,
+  "steps": [
+    {
+      "step": 0,
+      "pauses": 0,
+      "loss": 11.605223655700684,
+      "seconds": 6.390314906951971,
+      "real_targets": 128,
+      "expanded_positions": 128,
+      "source_document": "35024877cc760b4808fa7ade50ee0459ba3268057212f08a424e057fc2d85a5d"
+    },
+    {
+      "step": 1,
+      "pauses": 0,
+      "loss": 11.333818435668945,
+      "seconds": 0.011344497965183109,
+      "real_targets": 128,
+      "expanded_positions": 128,
+      "source_document": "efdf0e201956491cf5bb17b2357999c94f1929084fb0e6754dcb879802315ec7"
+    },
+    {
+      "step": 2,
+      "pauses": 0,
+      "loss": 11.128399848937988,
+      "seconds": 0.01056820701342076,
+      "real_targets": 128,
+      "expanded_positions": 128,
+      "source_document": "fae1b596568043d96f922f72f32cf929a61e366a46bb7849b09962b3a3e9246c"
+    },
+    {
+      "step": 3,
+      "pauses": 0,
+      "loss": 11.23246955871582,
+      "seconds": 0.010338028019759804,
+      "real_targets": 128,
+      "expanded_positions": 128,
+      "source_document": "35024877cc760b4808fa7ade50ee0459ba3268057212f08a424e057fc2d85a5d"
+    },
+    {
+      "step": 4,
+      "pauses": 16,
+      "loss": 11.048504829406738,
+      "seconds": 8.422369025996886,
+      "real_targets": 128,
+      "expanded_positions": 144,
+      "source_document": "efdf0e201956491cf5bb17b2357999c94f1929084fb0e6754dcb879802315ec7"
+    },
+    {
+      "step": 4,
+      "pauses": 16,
+      "loss": 11.048504829406738,
+      "seconds": 0.010221097967587411,
+      "real_targets": 128,
+      "expanded_positions": 144,
+      "source_document": "efdf0e201956491cf5bb17b2357999c94f1929084fb0e6754dcb879802315ec7"
+    },
+    {
+      "step": 5,
+      "pauses": 16,
+      "loss": 10.711809158325195,
+      "seconds": 0.010492429020814598,
+      "real_targets": 128,
+      "expanded_positions": 144,
+      "source_document": "fae1b596568043d96f922f72f32cf929a61e366a46bb7849b09962b3a3e9246c"
+    },
+    {
+      "step": 6,
+      "pauses": 16,
+      "loss": 10.855198860168457,
+      "seconds": 0.010228057974018157,
+      "real_targets": 128,
+      "expanded_positions": 144,
+      "source_document": "35024877cc760b4808fa7ade50ee0459ba3268057212f08a424e057fc2d85a5d"
+    },
+    {
+      "step": 7,
+      "pauses": 16,
+      "loss": 10.683032035827637,
+      "seconds": 0.010321132023818791,
+      "real_targets": 128,
+      "expanded_positions": 144,
+      "source_document": "efdf0e201956491cf5bb17b2357999c94f1929084fb0e6754dcb879802315ec7"
+    }
+  ],
+  "versions": {
+    "torch": "2.14.0+cpu",
+    "torch-neuronx": "2.14.3.0.282+dc70ffa",
+    "neuronx-cc": "2.28.7631.0+8f7b0cf5",
+    "nki": "0.7.0+37713544100.gfede04bb"
+  },
+  "fallback_ops": "[]",
+  "corpus_sha256": "81fe046e2487b71b7a5f823ac5a0f5a2c0a013de06d76b30fa2b9776b4f51e31"
+}
