@@ -1,8 +1,16 @@
 # Natural-text learning curve — running
 
-LR selection is complete; the first fresh main fit is running. There is no held-out main-fit result yet. The [protocol](../../docs/LEARNING_CURVE_PROTOCOL.md), [specification](specification.json), [corpus manifest](corpus-manifest.json) and [frozen choices](selected-lrs.json) were fixed before curve evaluation. TEST is sealed.
+LR selection is complete and the main comparison is running. The first paired seed has a 100M held-out point; it is preliminary, with the other seeds and longer milestones still pending. The [protocol](../../docs/LEARNING_CURVE_PROTOCOL.md), [specification](specification.json), [corpus manifest](corpus-manifest.json) and [frozen choices](selected-lrs.json) were fixed before curve evaluation. TEST is sealed.
 
 Compare ordinary and early-pause 150,436,608-parameter random models, seeds 23/47/71, on identical real targets and one frozen data order. The milestones are 100,488,104 / 301,465,908 / 1,004,887,590 real targets per run. Only the final endpoint is the primary test; both arms finish their decay. Intermediate stable-trunk curves are descriptive.
+
+## Preliminary 100M point
+
+Seed 23: ordinary NLL **3.704642**, early-pause NLL **4.013455**; ordinary minus pause **−0.308813 nats**. This one early pair favors ordinary. No paired-seed interval is available yet. Both score the same 614 isolated documents / 777,348 real targets. The final 1B endpoint across all three seeds remains primary.
+
+![Learning curve](learning-curve.png)
+
+[Aggregate records](summary.json), [domain curves](domain-curves.svg), and [source-group uncertainty](source-group-uncertainty.json). Source-group intervals are conditional on the fitted models and do not substitute for training-seed uncertainty.
 
 ## Independent tuning
 

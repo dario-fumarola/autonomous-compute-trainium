@@ -1,0 +1,85 @@
+{
+  "cohort": "curve",
+  "test_sealed": true,
+  "bootstrap_draws": 2000,
+  "bootstrap_seed": 23,
+  "milestones": [
+    {
+      "update": 384,
+      "paired_seeds": [
+        23
+      ],
+      "within_seed_source_group_intervals": [
+        {
+          "seed": 23,
+          "gain_nats": -0.3088129148670298,
+          "interval_95": [
+            -0.3267520222558382,
+            -0.28920901882423916
+          ],
+          "source_groups": 360,
+          "accepted_draws": 2000,
+          "warning": "Within-seed uncertainty only; report paired training seeds separately."
+        }
+      ],
+      "source_group_interval_for_mean_model_gain": {
+        "gain_nats": -0.3088129148670298,
+        "interval_95": [
+          -0.3267520222558382,
+          -0.28920901882423916
+        ],
+        "source_groups": 360,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "domains": {
+        "web": {
+          "seed_gains_nats": {
+            "23": -0.23257026090117883
+          },
+          "source_group_interval_for_mean_model_gain": {
+            "gain_nats": -0.23257026090117883,
+            "interval_95": [
+              -0.24875592379253167,
+              -0.21420944110708565
+            ],
+            "source_groups": 183,
+            "accepted_draws": 2000,
+            "warning": "Within-seed uncertainty only; report paired training seeds separately."
+          }
+        },
+        "math": {
+          "seed_gains_nats": {
+            "23": -0.31417401888480745
+          },
+          "source_group_interval_for_mean_model_gain": {
+            "gain_nats": -0.31417401888480745,
+            "interval_95": [
+              -0.364628757116039,
+              -0.2487838405704775
+            ],
+            "source_groups": 62,
+            "accepted_draws": 2000,
+            "warning": "Within-seed uncertainty only; report paired training seeds separately."
+          }
+        },
+        "code": {
+          "seed_gains_nats": {
+            "23": -0.5321797727468067
+          },
+          "source_group_interval_for_mean_model_gain": {
+            "gain_nats": -0.5321797727468067,
+            "interval_95": [
+              -0.5877240154471571,
+              -0.4770897002606616
+            ],
+            "source_groups": 117,
+            "accepted_draws": 2000,
+            "warning": "Within-seed uncertainty only; report paired training seeds separately."
+          }
+        }
+      }
+    }
+  ],
+  "interpretation": "Descriptive source-group bootstrap, conditional on fitted models. Separate from the primary paired initialization interval; domain comparisons are exploratory."
+}
