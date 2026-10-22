@@ -1,5 +1,15 @@
 # Status — 2026-10-22
 
+## Performance/trainer follow-up in progress, 18:13 UTC
+
+The new packed trainer passes 21 CPU tests and a 64-rank BF16 accumulated-global-gradient check (relative L2 0.00110). The 150M ordinary phase measures **526,414 real targets/sec** over 100 warm optimizer updates at context 512, batch 1/core, accumulation 8. A fresh-process 64-rank ordinary-to-pause restore passes full CPU/device model+optimizer recovery, CPU loss/full-gradient checks, 104 updates and complete replica equality. Its 100-update warm rate is **222,039 real targets/sec**. These are throughput diagnostics using explicit repetition of the 2M-token natural qualification sample, not scientific fits.
+
+One initial late-restore compile exceeded the 416 GiB container cap. The failed receipt is retained. Mapping the full checkpoint and returning CPU malloc arenas before compiling allowed the retry to finish, with the host reserve preserved. The supervisor now also watches compiler-error logs and container OOM events. No large run or LR sweep has launched.
+
+Active: a bounded all-64-rank / all-16-chip context-1024, local-batch-2, accumulation-2 BF16 performance check, under continuous reserve/log monitoring. Next: compare its rate, finish end-to-end periodic DEV/branch/replay checks, then publish receipts and a revised budget. The earlier 5–7 day proposal below is superseded pending this pass. A larger frozen natural corpus, duplicate audit and per-variant LR selection at the chosen batch remain scientific launch gates. See [trainer details](docs/TRAINER.md).
+
+## Preserved initial qualification
+
 The fresh natural-text experiment is built and qualified. No large scientific run has launched. Read the [qualification report](results/qualification_20261022/REPORT.md), [protocol](docs/PROTOCOL.md), and [proposed budget](results/qualification_20261022/budget.json).
 
 Fourteen CPU tests pass. Random-initialized 150,436,608-parameter TorchTitan models pass ordinary, early-pause and late-pause native update/recovery checks. CPU gradient agreement is checked for ordinary and early pause. Both whole-instance training benchmarks use all 64 logical cores across all 16 Trainium2 chips and finish with identical full model/optimizer state on every replica.

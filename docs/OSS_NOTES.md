@@ -36,3 +36,23 @@ Two 64-rank pause attempts exceeded the initial 256 GiB container limit during c
 The completed training benchmark uses static slices for prediction states, a shared compile cache, and `gc.collect()` plus `malloc_trim(0)` after warmup. It completes the full replica-state checks. Inference runs in a separate fresh process and passes CPU agreement with unchanged weights. Because several changes occurred together, these observations do not isolate the cause of high memory use. A smaller memory reproducer is needed before proposing an upstream fix.
 
 One completed pause benchmark has a wrapper exit code of 127: its hardware report passed, then editing the running shell file caused a trailing command to be read incorrectly. The launcher now executes an immutable copy. The subsequent ordinary and inference runs exit 0. Preserve the original 127 receipt; do not rewrite it as a clean run.
+
+## Packed BF16 training follow-up
+
+The new trainer uses standard `torch.autocast("neuron", dtype=torch.bfloat16)`
+with FP32 parameters and Adam moments, `DDP.no_sync` across accumulated
+microbatches, and a token-correct global loss. A 64-rank tiny-model check agrees
+with the CPU global accumulated gradient to relative L2 0.00110. At 150M,
+ordinary BF16 loss/full-gradient CPU checks pass and 100 warm optimizer updates
+measure about 526k real targets/sec, including H2D, packing and finite-gradient
+clipping. Several variables changed together; this does not isolate an AMP gain.
+
+A fresh-process 64-rank late restore still exceeded 416 GiB during its first
+pause compile. Ordinary-to-pause graph coexistence was therefore not the only
+source of pressure. The next attempt maps the checkpoint read-only across ranks
+and returns freed CPU malloc arenas before compilation. It also verifies the
+complete restored model/optimizer digest after device transfer. Keep this as a
+resource-management observation until controlled profiling identifies an
+upstream allocation defect. The host supervisor now watches compiler errors
+and container OOM events as well as host/disk reserves; an error invalidates a
+phase even when Python returned normally. No installed upstream code is patched.

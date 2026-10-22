@@ -50,7 +50,12 @@ out={'exit_code':int(os.environ['RESEARCH_EXIT']),'wall_seconds':wall,
 PY
 }
 trap close_run EXIT
-if [[ "${RESEARCH_INFERENCE_ONLY:-0}" -gt 0 ]]; then
+if [[ "${RESEARCH_EVAL:-0}" -gt 0 ]]; then
+  RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m scripts.evaluate_checkpoint)
+elif [[ "${RESEARCH_TRAIN:-0}" -gt 0 ]]; then
+  RESEARCH_ENTRY=(/work/native-venv/bin/python -m torch.distributed.run --standalone
+    --nproc_per_node="${RESEARCH_DDP_RANKS:-1}" -m scripts.train_distributed)
+elif [[ "${RESEARCH_INFERENCE_ONLY:-0}" -gt 0 ]]; then
   RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m scripts.benchmark_inference)
 elif [[ "${RESEARCH_DDP_RANKS:-0}" -gt 0 ]]; then
   RESEARCH_ENTRY=(/work/native-venv/bin/python -m torch.distributed.run --standalone
@@ -68,6 +73,6 @@ docker exec \
   -e TORCH_NEURONX_HLO_CACHE_DIR=/work/hlo-cache \
   -e TORCH_NEURONX_HLO_COMPILE_CACHE=1 \
   autonomous-compute-neuron233 \
-  timeout --signal=TERM --kill-after=10s 1200 \
+  timeout --signal=TERM --kill-after=10s "${RESEARCH_TIMEOUT_SECONDS:-1200}" \
   "${RESEARCH_ENTRY[@]}" \
   --corpus /work/data-v1/corpus.json --output "/work/runs/$RESEARCH_RUN" "$@"
