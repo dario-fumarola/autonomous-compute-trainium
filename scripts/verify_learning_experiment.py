@@ -66,6 +66,7 @@ def audit(experiment, root, data, require_complete=False):
         assert signature["packing_sha256"] == manifest["packing"]["fingerprint"]
         assert signature.get("pad_to", 0) == specification["arms"][item["arm"]]["pad_to"]
         assert trained["pauses"] == specification["arms"][item["arm"]]["pauses"]
+        assert trained["schedule"]["peak"] == (selected["selected_lrs"][item["arm"]] if is_main else item["lr"])
         assert evaluated["split"] == "dev" and evaluated["cohort"] == ("curve" if is_main else "tune")
         assert evaluated["weights_unchanged"] and evaluated["max_documents_per_domain"] == 0
         seed = signature["seed"]

@@ -16,14 +16,17 @@ from compute_trainium.metrics import paired_three_seed_interval
 def analyze(experiment):
     progress = json.loads((experiment/"progress.json").read_text())
     records = progress["records"]
+    selection = experiment/"selected-lrs.json"
+    selected_lrs = json.loads(selection.read_text())["selected_lrs"] if selection.exists() else {}
     directory = experiment/"analysis"
     directory.mkdir(exist_ok=True)
-    columns = ["arm", "seed", "update", "real_tokens", "weighted_nll", "web_nll", "math_nll", "code_nll", "training_matmul_flops"]
+    columns = ["arm", "seed", "peak_lr", "update", "real_tokens", "weighted_nll", "web_nll", "math_nll", "code_nll", "training_matmul_flops"]
     with (directory/"learning-curve.csv").open("w") as stream:
         writer = csv.DictWriter(stream, fieldnames=columns)
         writer.writeheader()
         for record in records:
             writer.writerow({**{k: record[k] for k in ("arm", "seed", "update", "real_tokens", "training_matmul_flops")},
+                             "peak_lr": selected_lrs.get(record["arm"]),
                              "weighted_nll": record["metrics"]["weighted_nll"],
                              **{d+"_nll": record["metrics"]["domains"][d]["nll"] for d in ("web", "math", "code")}})
     paired = []
@@ -50,7 +53,7 @@ def analyze(experiment):
         paired.append(row)
     status = "LEARNING_CURVE_COMPLETE" if (experiment/"complete.json").exists() else "LEARNING_CURVE_INTERIM"
     summary = {"status": status, "cohort": "curve", "test_sealed": True,
-               "paired": paired, "records": records,
+               "paired": paired, "records": records, "independently_selected_peak_lrs": selected_lrs,
                "scope": "Token-matched conditional on fixed corpus/order; final endpoint is primary; roughly 6.7 tokens/parameter, no convergence or FLOP-efficiency conclusion."}
     (directory/"summary.json").write_text(json.dumps(summary, indent=2)+"\n")
     # Interim arm means use identical completed seed pairs at each milestone.
@@ -58,6 +61,9 @@ def analyze(experiment):
     plot_records = [r for r in records if any(p["update"] == r["update"] and
                     r["seed"] in p["paired_seeds"] for p in paired)]
     colors = {"ordinary": "#2f5da8", "early": "#d05a30"}
+    labels = {"ordinary": "Ordinary", "early": "Pauses from initialization"}
+    for arm, lr in selected_lrs.items():
+        labels[arm] += f" · peak LR {lr:g}"
     fig, axes = plt.subplots(1, 2, figsize=(10, 3.8), constrained_layout=True)
     for arm in ("ordinary", "early"):
         points = []
@@ -66,7 +72,7 @@ def analyze(experiment):
             points.append((pool[0]["real_tokens"]/1e6, np.mean([r["metrics"]["weighted_nll"] for r in pool])))
         if points:
             x, y = np.array(points).T
-            axes[0].plot(x, y, "o-", color=colors[arm], label="Ordinary" if arm == "ordinary" else "Pauses from initialization")
+            axes[0].plot(x, y, "o-", color=colors[arm], label=labels[arm])
     axes[0].set(xlabel="Real training targets (millions)", ylabel="Unseen-text NLL (nats / real target)")
     if plot_records:
         axes[0].legend(frameon=False, fontsize=8)
@@ -101,7 +107,7 @@ def analyze(experiment):
                       for step in sorted({r["update"] for r in pool})]
             if points:
                 x, y = np.array(points).T
-                axis.plot(x, y, "o-", color=colors[arm], label=arm)
+                axis.plot(x, y, "o-", color=colors[arm], label=labels[arm])
         axis.set(title=domain.capitalize(), xlabel="Real targets (millions)", ylabel="NLL (nats / real target)")
         axis.grid(alpha=.2)
         axis.spines[["top", "right"]].set_visible(False)
