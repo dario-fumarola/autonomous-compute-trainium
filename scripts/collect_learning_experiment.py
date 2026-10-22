@@ -49,7 +49,7 @@ def collect(root, experiment, output, start_utc):
         end = max(json.loads((root/"snapshots"/r["run"]/"launch.json").read_text())["started_unix"]+
                   r["closure"]["wall_seconds"] for r in rows if r["closure"])
     data = json.loads((output/"corpus-manifest.json").read_text())
-    for name in ("specification.json", "selected-lrs.json", "tuning.json", "launch-manifest.json", "complete.json"):
+    for name in ("specification.json", "selected-lrs.json", "tuning.json", "launch-manifest.json", "complete.json", "protocol-audit.json"):
         path = experiment/name
         if path.exists():
             shutil.copyfile(path, output/name)
