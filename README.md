@@ -10,6 +10,6 @@ The [learning-curve protocol](docs/LEARNING_CURVE_PROTOCOL.md) is frozen: 150M p
 
 The [packed-trainer report](results/performance_20261022/REPORT.md) records full optimizer recovery, a 64-rank late switch, identical 150M decay-branch replay, fresh DEV evaluation and failure receipts. The latest 100-warm-update measurements across all 16 chips are **855k real targets/sec ordinarily and 696k with causally padded pauses**. Padding improves native kernel compatibility; its full work is counted. The earlier unpadded pause rate was 354k. The [initial qualification](results/qualification_20261022/REPORT.md) remains preserved.
 
-Read the [protocol](docs/PROTOCOL.md), [current status](STATUS.md), [data rules](docs/DATA.md), and [Trainium notes](docs/OSS_NOTES.md). Previous [1.7B evidence](https://github.com/dario-fumarola/useful-thoughts-trainium) and the [closed pause pilot](https://github.com/dario-fumarola/pause-pretraining-trainium) remain preserved.
+Read the [reproduction guide](docs/REPRODUCE_CURVE.md), [protocol](docs/PROTOCOL.md), [current status](STATUS.md), [data rules](docs/DATA.md), and [Trainium notes](docs/OSS_NOTES.md). Previous [1.7B evidence](https://github.com/dario-fumarola/useful-thoughts-trainium) and the [closed pause pilot](https://github.com/dario-fumarola/pause-pretraining-trainium) remain preserved.
 
 Run the CPU correctness tests with `python -m pytest -q`. The data preparation script writes source content only outside this repository. Hardware qualification is separate from scientific training.
