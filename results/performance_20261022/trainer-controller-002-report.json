@@ -1,0 +1,149 @@
+{
+  "status": "PASS_ISOLATED_PHASES",
+  "phases": [
+    {
+      "run": "trainer-controller-ordinary-002",
+      "checkpoint": "/work/runs/trainer-controller-ordinary-002/checkpoint.pt",
+      "branch": false,
+      "real_tokens": 98152,
+      "dev": {
+        "domains": {
+          "web": {
+            "nll_sum": 4077.996383666992,
+            "real_targets": 355,
+            "documents": 2,
+            "nll": 11.487313756808428
+          },
+          "math": {
+            "nll_sum": 26562.231857299805,
+            "real_targets": 2483,
+            "documents": 2,
+            "nll": 10.697636672291504
+          },
+          "code": {
+            "nll_sum": 19984.664978027344,
+            "real_targets": 1838,
+            "documents": 2,
+            "nll": 10.873049498382668
+          }
+        },
+        "weighted_nll": 11.206525488219892,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "completed_unix": 1792693995.5310495
+    },
+    {
+      "run": "trainer-controller-late-002",
+      "checkpoint": "/work/runs/trainer-controller-late-002/checkpoint.pt",
+      "branch": false,
+      "real_tokens": 196322,
+      "dev": {
+        "domains": {
+          "web": {
+            "nll_sum": 3751.675003051758,
+            "real_targets": 355,
+            "documents": 2,
+            "nll": 10.568098600145797
+          },
+          "math": {
+            "nll_sum": 23994.102249145508,
+            "real_targets": 2483,
+            "documents": 2,
+            "nll": 9.663351691158079
+          },
+          "code": {
+            "nll_sum": 17869.633911132812,
+            "real_targets": 1838,
+            "documents": 2,
+            "nll": 9.722325305295328
+          }
+        },
+        "weighted_nll": 10.21799455937816,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "completed_unix": 1792694059.7723927
+    },
+    {
+      "run": "trainer-controller-early-002",
+      "checkpoint": "/work/runs/trainer-controller-early-002/checkpoint.pt",
+      "branch": false,
+      "real_tokens": 196322,
+      "dev": {
+        "domains": {
+          "web": {
+            "nll_sum": 3751.9786376953125,
+            "real_targets": 355,
+            "documents": 2,
+            "nll": 10.56895390900088
+          },
+          "math": {
+            "nll_sum": 23998.467742919922,
+            "real_targets": 2483,
+            "documents": 2,
+            "nll": 9.665109844107903
+          },
+          "code": {
+            "nll_sum": 17870.477905273438,
+            "real_targets": 1838,
+            "documents": 2,
+            "nll": 9.722784496884351
+          }
+        },
+        "weighted_nll": 10.218951213598979,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "completed_unix": 1792694124.008702
+    },
+    {
+      "run": "trainer-controller-ordinary-endpoint-002",
+      "checkpoint": "/work/runs/trainer-controller-ordinary-endpoint-002/checkpoint.pt",
+      "branch": false,
+      "real_tokens": 196322,
+      "dev": {
+        "domains": {
+          "web": {
+            "nll_sum": 3752.6505432128906,
+            "real_targets": 355,
+            "documents": 2,
+            "nll": 10.570846600599692
+          },
+          "math": {
+            "nll_sum": 23985.358367919922,
+            "real_targets": 2483,
+            "documents": 2,
+            "nll": 9.65983019247681
+          },
+          "code": {
+            "nll_sum": 17871.05255126953,
+            "real_targets": 1838,
+            "documents": 2,
+            "nll": 9.723097144325099
+          }
+        },
+        "weighted_nll": 10.219093427720198,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "completed_unix": 1792694184.2382433
+    }
+  ]
+}

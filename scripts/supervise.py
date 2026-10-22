@@ -33,8 +33,15 @@ def main():
                                              "autonomous-compute-neuron233"], text=True).strip()
     cgroup_name = Path(f"/proc/{container_pid}/cgroup").read_text().strip().split("::", 1)[1]
     cgroup = Path("/sys/fs/cgroup")/cgroup_name.lstrip("/")
+    last_oom = {"oom_kill": 0}
     def oom_events():
-        return {k: int(v) for k, v in (line.split() for line in (cgroup/"memory.events").read_text().splitlines())}
+        nonlocal last_oom
+        try:
+            last_oom = {k: int(v) for k, v in (line.split() for line in (cgroup/"memory.events").read_text().splitlines())}
+        except FileNotFoundError:
+            # docker stop may remove the cgroup before the final receipt.
+            pass
+        return last_oom
     initial_oom = oom_events()
     peak_container = 0
     with log.open("w") as output, monitor.open("w") as telemetry:

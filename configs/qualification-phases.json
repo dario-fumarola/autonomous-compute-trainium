@@ -1,10 +1,14 @@
 {
   "qualification_only": true,
   "world": 64,
+  "training_memory_gib": 160,
+  "evaluation_memory_gib": 64,
   "dev_documents_per_domain": 2,
-  "training_arguments": ["--size", "tiny", "--context", "128", "--batch", "1", "--accumulation", "2", "--precision", "bf16", "--warmup", "2", "--lr-warmup-tokens", "32768", "--qualification-repeat"],
+  "training_arguments": ["--size", "tiny", "--context", "128", "--packed-corpus", "/work/data-v1/packed-c128-s23", "--batch", "1", "--accumulation", "2", "--precision", "bf16", "--warmup", "2", "--lr-warmup-tokens", "32768", "--qualification-repeat"],
   "phases": [
-    {"run": "trainer-controller-ordinary-001", "steps": 6, "pauses": 0},
-    {"run": "trainer-controller-late-001", "steps": 6, "pauses": 16}
+    {"run": "trainer-controller-ordinary-002", "steps": 6, "pauses": 0},
+    {"run": "trainer-controller-late-002", "steps": 6, "pauses": 16},
+    {"run": "trainer-controller-early-002", "steps": 12, "pauses": 16, "resume": null},
+    {"run": "trainer-controller-ordinary-endpoint-002", "steps": 12, "pauses": 0, "resume": null}
   ]
 }

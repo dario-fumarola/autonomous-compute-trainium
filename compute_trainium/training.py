@@ -4,6 +4,7 @@ import hashlib
 import math
 import random
 from dataclasses import dataclass
+from pathlib import Path
 
 import torch
 
@@ -21,7 +22,7 @@ class PackedCorpus:
     def __init__(self, documents, context, seed=23):
         if context < 1:
             raise ValueError("Positive context required")
-        self.context = context
+        self.context, self.seed = context, seed
         pools = {}
         for domain in ("web", "math", "code"):
             pools[domain] = sorted((d for d in documents if d["split"] == "train"
@@ -58,6 +59,43 @@ class PackedCorpus:
         counts = torch.stack([(labels == d).sum(1) for d in (1, 2, 3)], dim=1)
         self.prefix_counts = torch.cat([torch.zeros(1, 3, dtype=torch.int64), counts.cumsum(0)])
 
+    def save_mapped(self, directory, source_sha256):
+        """Materialize once, outside Git; 64 workers share file-backed pages."""
+        import json
+        import numpy as np
+        directory = Path(directory)
+        directory.mkdir(parents=True, exist_ok=False)
+        for name in ("tokens", "domains", "prefix_counts"):
+            np.save(directory/(name+".npy"), getattr(self, name).numpy())
+        metadata = {k: getattr(self, k) for k in ("context", "seed", "windows", "real_targets",
+                    "domain_counts", "fingerprint", "order_fingerprint")}
+        metadata.update(source_sha256=source_sha256,
+                        files={p.name: file_sha256(p) for p in directory.glob("*.npy")})
+        (directory/"manifest.json").write_text(json.dumps(metadata, indent=2)+"\n")
+
+    @classmethod
+    def from_mapped(cls, directory, context, seed, source_sha256):
+        import json
+        import numpy as np
+        directory = Path(directory)
+        metadata = json.loads((directory/"manifest.json").read_text())
+        if (metadata["context"], metadata["seed"], metadata["source_sha256"]) != (context, seed, source_sha256):
+            raise ValueError("Mapped corpus provenance/context/seed mismatch")
+        for name, expected in metadata["files"].items():
+            if Path(name).name != name or file_sha256(directory/name) != expected:
+                raise ValueError("Mapped corpus file fingerprint mismatch")
+        result = cls.__new__(cls)
+        for key in ("context", "seed", "windows", "real_targets", "domain_counts", "fingerprint", "order_fingerprint"):
+            setattr(result, key, metadata[key])
+        for name in ("tokens", "domains", "prefix_counts"):
+            # Copy-on-write mappings share source pages and never modify files.
+            setattr(result, name, torch.from_numpy(np.load(directory/(name+".npy"), mmap_mode="c")))
+        if (result.tokens.shape != (result.windows*context+1,) or
+                result.domains.shape != result.tokens.shape or
+                result.prefix_counts.shape != (result.windows+1, 3)):
+            raise ValueError("Invalid mapped packing dimensions")
+        return result
+
     def counts(self, cursor, windows, repeat=False):
         if cursor < 0 or windows < 1 or (not repeat and cursor+windows > self.windows):
             raise ValueError("Unique natural corpus exhausted; prepare more data")
@@ -86,6 +124,14 @@ def global_indices(cursor, micro, rank, world, batch):
     """Global stream order is independent of arm, checkpoint and process restart."""
     start = cursor + (micro*world + rank)*batch
     return list(range(start, start+batch))
+
+
+def file_sha256(path):
+    value = hashlib.sha256()
+    with Path(path).open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024*1024), b""):
+            value.update(chunk)
+    return value.hexdigest()
 
 
 class TokenObjective(torch.nn.Module):

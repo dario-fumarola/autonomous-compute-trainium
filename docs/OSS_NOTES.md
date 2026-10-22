@@ -56,3 +56,35 @@ resource-management observation until controlled profiling identifies an
 upstream allocation defect. The host supervisor now watches compiler errors
 and container OOM events as well as host/disk reserves; an error invalidates a
 phase even when Python returned normally. No installed upstream code is patched.
+
+The mapped/trimmed retry passed. The final context-1024, batch-2, accumulation-2
+BF16 measurements over 100 warm updates are 855,336 real targets/sec ordinary
+and 353,879 pause. All full replica states agree. The supervisor uses measured
+phase limits instead of reserving a 416 GiB compile allowance for single-core
+DEV. This fixes one conservative preflight rejection; it does not weaken the
+512 GiB host reserve.
+
+## Strided integer inputs and attention shape limits
+
+The batch-2 trainer exposed a compiled-input prologue CPU round trip for an
+int64 token view with shape `(2, 1024)` and stride `(1025, 1)`. The physical
+int64-emulation warning prints `(2,1024,2):Int:S(2050,2,1)`. Its Python lowering
+raises `Attempting to use FunctionalTensor on its own` in
+`python_ops/contiguous_empty_hlo.py`, then falls back. Contiguous CPU tensors
+before H2D avoid that path. Both complete 104-update model/optimizer results
+remain bit-identical, and the extra contiguous fallback disappears. The local
+`repro_noncontiguous_input.py` exercises this input contract without a model or
+research data; its aggregate receipts distinguish numeric success from fallback.
+Both standalone runs pass numerical agreement: the strided case records
+`aten::contiguous[prologue_cpu_roundtrip]`, while the contiguous control records
+an empty fallback list. This reproduces the avoidable transfer independently
+of the larger model's additional FunctionalTensor warning.
+
+The pinned backend's `_can_use_nki_flash_attention_backward` in
+`neuron_dynamo_backend/decompositions.py` requires `S % min(512, S) == 0`.
+The ordinary length 1024 satisfies it; pause-expanded 1152 does not. The forward
+gate can accept 1152. This is source evidence for a shape-related performance
+hypothesis, not a profile proving which kernels or costs dominate this run.
+Record the measured 2.42× runtime penalty as well as the 1.132× dense matmul
+estimate. A future operator profile or arbitrary-length attention improvement
+could be useful upstream work. No unsupported peak-utilization claim is made.

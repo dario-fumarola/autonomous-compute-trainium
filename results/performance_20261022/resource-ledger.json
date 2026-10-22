@@ -1,0 +1,591 @@
+{
+  "utc": "2026-10-22T18:45:53.076553+00:00",
+  "campaign_start_utc": "2026-10-22T17:50:00+00:00",
+  "runs": [
+    {
+      "run": "contiguous-input-repro-001",
+      "status": "PASS_STRIDED_INPUT_NUMERICS",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 12.297610998153687,
+        "assigned_chip_hours": 0.003416003055042691,
+        "whole_instance_opportunity_chip_hours": 0.05465604888068305,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 17182134272,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 14.023300054948777
+      },
+      "monitor": {
+        "samples": 7,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 1001433583616,
+        "minimum_filesystem_free_bytes": 38277005312,
+        "sampled_container_peak_bytes": 17182134272
+      }
+    },
+    {
+      "run": "packed-ddp64-small-bf16-a8-001",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 177.17882800102234,
+        "assigned_chip_hours": 0.7874614577823215,
+        "whole_instance_opportunity_chip_hours": 0.7874614577823215,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "elapsed_seconds": 178.14599795092363
+      },
+      "monitor": {
+        "samples": 89,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 862711246848,
+        "minimum_filesystem_free_bytes": 38370598912,
+        "sampled_container_peak_bytes": 0
+      }
+    },
+    {
+      "run": "packed-ddp64-small-bf16-a8-late-001",
+      "status": "FAILED_OR_INCOMPLETE",
+      "closure": {
+        "exit_code": 1,
+        "wall_seconds": 215.27848196029663,
+        "assigned_chip_hours": 0.9567932531568739,
+        "whole_instance_opportunity_chip_hours": 0.9567932531568739,
+        "report_exists": false
+      },
+      "supervisor": {
+        "worker_exit_code": 1,
+        "supervisor_failure": null,
+        "elapsed_seconds": 216.16058021201752
+      },
+      "monitor": {
+        "samples": 108,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 583988039680,
+        "minimum_filesystem_free_bytes": 38302367744,
+        "sampled_container_peak_bytes": 0
+      }
+    },
+    {
+      "run": "packed-ddp64-small-bf16-a8-late-002",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 353.80149126052856,
+        "assigned_chip_hours": 1.572451072269016,
+        "whole_instance_opportunity_chip_hours": 1.572451072269016,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "elapsed_seconds": 354.3156524779042
+      },
+      "monitor": {
+        "samples": 177,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 606954270720,
+        "minimum_filesystem_free_bytes": 38281535488,
+        "sampled_container_peak_bytes": 0
+      }
+    },
+    {
+      "run": "packed-ddp64-small-bf16-c1024-b2-a2-001",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 157.9369659423828,
+        "assigned_chip_hours": 0.7019420708550347,
+        "whole_instance_opportunity_chip_hours": 0.7019420708550347,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 150461231104,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 158.20580328803044
+      },
+      "monitor": {
+        "samples": 79,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 866431799296,
+        "minimum_filesystem_free_bytes": 38324105216,
+        "sampled_container_peak_bytes": 150461231104
+      }
+    },
+    {
+      "run": "packed-ddp64-small-bf16-c1024-b2-a2-late-001",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 277.0523142814636,
+        "assigned_chip_hours": 1.2313436190287272,
+        "whole_instance_opportunity_chip_hours": 1.2313436190287272,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 165037125632,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 278.2923001720337
+      },
+      "monitor": {
+        "samples": 139,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 848326496256,
+        "minimum_filesystem_free_bytes": 38113517568,
+        "sampled_container_peak_bytes": 165037125632
+      }
+    },
+    {
+      "run": "packed-ddp64-small-c1024-contiguous-late-001",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 234.2060239315033,
+        "assigned_chip_hours": 1.0409156619177924,
+        "whole_instance_opportunity_chip_hours": 1.0409156619177924,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 171557068800,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 236.25413159199525
+      },
+      "monitor": {
+        "samples": 118,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 845011030016,
+        "minimum_filesystem_free_bytes": 38069952512,
+        "sampled_container_peak_bytes": 171557068800
+      }
+    },
+    {
+      "run": "packed-ddp64-small-c1024-contiguous-ordinary-001",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 127.72057366371155,
+        "assigned_chip_hours": 0.5676469940609402,
+        "whole_instance_opportunity_chip_hours": 0.5676469940609402,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 154219552768,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 128.14820395002607
+      },
+      "monitor": {
+        "samples": 64,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 862554279936,
+        "minimum_filesystem_free_bytes": 38271438848,
+        "sampled_container_peak_bytes": 154219552768
+      }
+    },
+    {
+      "run": "packed-ddp64-tiny-bf16-001",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 51.372087717056274,
+        "assigned_chip_hours": 0.22832038985358344,
+        "whole_instance_opportunity_chip_hours": 0.22832038985358344,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "elapsed_seconds": 52.042424930026755
+      },
+      "monitor": {
+        "samples": 26,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 949203787776,
+        "minimum_filesystem_free_bytes": 38510972928,
+        "sampled_container_peak_bytes": 0
+      }
+    },
+    {
+      "run": "strided-input-repro-001",
+      "status": "PASS_STRIDED_INPUT_NUMERICS",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 13.972151517868042,
+        "assigned_chip_hours": 0.0038811531994077894,
+        "whole_instance_opportunity_chip_hours": 0.06209845119052463,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 17182134272,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 16.025709655950777
+      },
+      "monitor": {
+        "samples": 8,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 1001433583616,
+        "minimum_filesystem_free_bytes": 38276980736,
+        "sampled_container_peak_bytes": 17182134272
+      }
+    },
+    {
+      "run": "trainer-150m-decay-replay-a-001",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 158.80494046211243,
+        "assigned_chip_hours": 0.7057997353871663,
+        "whole_instance_opportunity_chip_hours": 0.7057997353871663,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 163266899968,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 160.15893053403124
+      },
+      "monitor": {
+        "samples": 80,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 839198633984,
+        "minimum_filesystem_free_bytes": 38012375040,
+        "sampled_container_peak_bytes": 163266899968
+      }
+    },
+    {
+      "run": "trainer-150m-decay-replay-a-001-dev",
+      "status": "PASS_CHECKPOINT_DEV_EVALUATION",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 90.58099293708801,
+        "assigned_chip_hours": 0.02516138692696889,
+        "whole_instance_opportunity_chip_hours": 0.40258219083150226,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 17872801792,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 92.0416588820517
+      },
+      "monitor": {
+        "samples": 46,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 981293473792,
+        "minimum_filesystem_free_bytes": 38250631168,
+        "sampled_container_peak_bytes": 17872801792
+      }
+    },
+    {
+      "run": "trainer-150m-decay-replay-b-001",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 159.6188268661499,
+        "assigned_chip_hours": 0.7094170082939996,
+        "whole_instance_opportunity_chip_hours": 0.7094170082939996,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 164245372928,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 160.1708119859686
+      },
+      "monitor": {
+        "samples": 80,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 835640139776,
+        "minimum_filesystem_free_bytes": 37973778432,
+        "sampled_container_peak_bytes": 164245372928
+      }
+    },
+    {
+      "run": "trainer-150m-decay-replay-b-001-dev",
+      "status": "PASS_CHECKPOINT_DEV_EVALUATION",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 90.54286503791809,
+        "assigned_chip_hours": 0.025150795843866137,
+        "whole_instance_opportunity_chip_hours": 0.4024127335018582,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 19794427904,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 92.04270255903248
+      },
+      "monitor": {
+        "samples": 46,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 978076405760,
+        "minimum_filesystem_free_bytes": 38212145152,
+        "sampled_container_peak_bytes": 19794427904
+      }
+    },
+    {
+      "run": "trainer-controller-early-002",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 46.66981530189514,
+        "assigned_chip_hours": 0.20742140134175618,
+        "whole_instance_opportunity_chip_hours": 0.20742140134175618,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 76089131008,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 48.06107763189357
+      },
+      "monitor": {
+        "samples": 24,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 939414441984,
+        "minimum_filesystem_free_bytes": 38353657856,
+        "sampled_container_peak_bytes": 76089131008
+      }
+    },
+    {
+      "run": "trainer-controller-early-002-dev",
+      "status": "PASS_CHECKPOINT_DEV_EVALUATION",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 14.94539189338684,
+        "assigned_chip_hours": 0.004151497748163011,
+        "whole_instance_opportunity_chip_hours": 0.06642396397060818,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 12903251968,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 16.02371259103529
+      },
+      "monitor": {
+        "samples": 8,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 996823461888,
+        "minimum_filesystem_free_bytes": 38363144192,
+        "sampled_container_peak_bytes": 12903251968
+      }
+    },
+    {
+      "run": "trainer-controller-late-002",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 44.22092342376709,
+        "assigned_chip_hours": 0.19653743743896485,
+        "whole_instance_opportunity_chip_hours": 0.19653743743896485,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 75803344896,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 46.066197308013216
+      },
+      "monitor": {
+        "samples": 23,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 939375099904,
+        "minimum_filesystem_free_bytes": 38358233088,
+        "sampled_container_peak_bytes": 75803344896
+      }
+    },
+    {
+      "run": "trainer-controller-late-002-dev",
+      "status": "PASS_CHECKPOINT_DEV_EVALUATION",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 17.41627597808838,
+        "assigned_chip_hours": 0.004837854438357883,
+        "whole_instance_opportunity_chip_hours": 0.07740567101372613,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 12858904576,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 18.026839619036764
+      },
+      "monitor": {
+        "samples": 9,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 999027232768,
+        "minimum_filesystem_free_bytes": 38361931776,
+        "sampled_container_peak_bytes": 12858904576
+      }
+    },
+    {
+      "run": "trainer-controller-ordinary-001",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 39.50797462463379,
+        "assigned_chip_hours": 0.17559099833170572,
+        "whole_instance_opportunity_chip_hours": 0.17559099833170572,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 75989417984,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 40.06100548792165
+      },
+      "monitor": {
+        "samples": 20,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 940347666432,
+        "minimum_filesystem_free_bytes": 38366752768,
+        "sampled_container_peak_bytes": 75989417984
+      }
+    },
+    {
+      "run": "trainer-controller-ordinary-002",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 38.15298652648926,
+        "assigned_chip_hours": 0.16956882900661893,
+        "whole_instance_opportunity_chip_hours": 0.16956882900661893,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 75487666176,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 40.06006539904047
+      },
+      "monitor": {
+        "samples": 20,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 939721445376,
+        "minimum_filesystem_free_bytes": 38366593024,
+        "sampled_container_peak_bytes": 75487666176
+      }
+    },
+    {
+      "run": "trainer-controller-ordinary-002-dev",
+      "status": "PASS_CHECKPOINT_DEV_EVALUATION",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 14.823628902435303,
+        "assigned_chip_hours": 0.004117674695120917,
+        "whole_instance_opportunity_chip_hours": 0.06588279512193468,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 12749938688,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 16.023946184082888
+      },
+      "monitor": {
+        "samples": 8,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 996597850112,
+        "minimum_filesystem_free_bytes": 38366425088,
+        "sampled_container_peak_bytes": 12749938688
+      }
+    },
+    {
+      "run": "trainer-controller-ordinary-endpoint-002",
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 42.90015149116516,
+        "assigned_chip_hours": 0.19066733996073404,
+        "whole_instance_opportunity_chip_hours": 0.19066733996073404,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 76182089728,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 44.059492214000784
+      },
+      "monitor": {
+        "samples": 22,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 939030450176,
+        "minimum_filesystem_free_bytes": 38355312640,
+        "sampled_container_peak_bytes": 76182089728
+      }
+    },
+    {
+      "run": "trainer-controller-ordinary-endpoint-002-dev",
+      "status": "PASS_CHECKPOINT_DEV_EVALUATION",
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 15.602752923965454,
+        "assigned_chip_hours": 0.004334098034434848,
+        "whole_instance_opportunity_chip_hours": 0.06934556855095757,
+        "report_exists": true
+      },
+      "supervisor": {
+        "worker_exit_code": 0,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 13063593984,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 16.024331112974323
+      },
+      "monitor": {
+        "samples": 8,
+        "interval_seconds": 2,
+        "minimum_host_available_bytes": 995579006976,
+        "minimum_filesystem_free_bytes": 38353313792,
+        "sampled_container_peak_bytes": 13063593984
+      }
+    },
+    {
+      "run": "trainer-controller-ordinary-001-dev",
+      "status": "PREFLIGHT_RESERVE_REJECTED",
+      "closure": {
+        "assigned_chip_hours": 0
+      },
+      "supervisor": {
+        "worker_exit_code": 1,
+        "supervisor_failure": null,
+        "sampled_container_peak_bytes": 11795017728,
+        "container_oom_kill_delta": 0,
+        "elapsed_seconds": 2.0226036440581083
+      },
+      "scope": "Reserve rejected before docker exec; no accelerator worker launched. CPU/preflight time is in the inclusive node window."
+    }
+  ],
+  "assigned_chip_hours_including_failures": 9.516927732626597,
+  "inclusive_campaign_opportunity_chip_hours": 14.902562457777778,
+  "scope": "This follow-up only; do not add its opportunity window to an overlapping ledger. No new instance."
+}

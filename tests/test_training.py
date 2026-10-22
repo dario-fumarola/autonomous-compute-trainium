@@ -35,6 +35,24 @@ def test_global_stream_cursor_restart_is_arm_independent():
     assert flat == list(range(24, 48))
 
 
+def test_mapped_corpus_preserves_masks_order_counts_and_rejects_corruption(tmp_path):
+    packed = PackedCorpus(docs(), 8)
+    path = tmp_path/"packed"
+    packed.save_mapped(path, "source-hash")
+    mapped = PackedCorpus.from_mapped(path, 8, 23, "source-hash")
+    assert mapped.fingerprint == packed.fingerprint
+    for x, y in zip((mapped.tokens, mapped.domains, mapped.prefix_counts),
+                    (packed.tokens, packed.domains, packed.prefix_counts), strict=True):
+        assert torch.equal(x, y)
+    assert mapped.counts(0, mapped.windows) == packed.counts(0, packed.windows)
+    with pytest.raises(ValueError):
+        PackedCorpus.from_mapped(path, 8, 24, "source-hash")
+    with (path/"tokens.npy").open("ab") as f:
+        f.write(b"corrupt")
+    with pytest.raises(ValueError):
+        PackedCorpus.from_mapped(path, 8, 23, "source-hash")
+
+
 def test_variable_mask_accumulation_matches_full_batch_gradient():
     packed = PackedCorpus(docs(), 8)
     b, _ = packed.batch([0, 1, 2])
@@ -78,6 +96,7 @@ def test_long_timing_budget_anneals_all_flop_endpoints_and_charges_branches():
     ordinary = {"status": "PASS_PACKED_TRAINING_PHASE", "warm_updates": 100,
                 "world_size": 64, "parameters": 150_436_608, "context": 512,
                 "local_batch": 1, "accumulation": 8, "precision": "bf16", "optimizer": "plain",
+                "input_layout": "host_contiguous",
                 "pauses": 0, "warm_real_targets": 25_600_000,
                 "warm_global_real_targets_per_second": 500_000,
                 "flops_per_global_step": {"training_matmul_flops": 256_000_000}}
@@ -98,3 +117,41 @@ def test_supervisor_recognizes_silent_compile_failure_log():
     assert FATAL.search("[Neuron] [ERROR] [CompilationCache.cpp:962] Compilation error key=x error= Command failed (neuronx-cc compilation) with exit code 70")
     assert not FATAL.search("WARN NRT: using threaded asynchronous implementation")
     assert not FATAL.search("attn_backend='sdpa' cannot express per-document masking")
+
+
+def test_controller_preserves_trunk_across_decay_branch_and_stops_on_failure(tmp_path, monkeypatch):
+    import json
+    import subprocess
+    from scripts.run_phases import run
+    monkeypatch.setenv("RESEARCH_ROOT", str(tmp_path))
+    calls = []
+    def launch(command, env=None, check=True, **kwargs):
+        if command[0] == "docker":
+            return
+        calls.append((command, env))
+        path = tmp_path/"runs"/env["RESEARCH_RUN"]
+        path.mkdir(parents=True)
+        report = ({"status": "PASS_CHECKPOINT_DEV_EVALUATION", "metrics": {}}
+                  if env["RESEARCH_EVAL"] == "1" else
+                  {"status": "PASS_PACKED_TRAINING_PHASE", "total_real_targets": 20})
+        (path/"report.json").write_text(json.dumps(report))
+    monkeypatch.setattr(subprocess, "run", launch)
+    plan = {"world": 2, "training_arguments": [], "phases": [
+        {"run": "trunk", "steps": 2, "pauses": 0},
+        {"run": "branch", "steps": 2, "pauses": 0, "branch": True,
+         "decay_start": 10, "decay_end": 20},
+        {"run": "continuation", "steps": 2, "pauses": 16}]}
+    run(plan, tmp_path/"controller")
+    training = [command for command, env in calls if env["RESEARCH_EVAL"] == "0"]
+    for command in training[1:]:
+        assert command[command.index("--resume")+1] == "/work/runs/trunk/checkpoint.pt"
+    calls.clear()
+    def fail(*args, **kwargs):
+        if args[0][0] == "docker":
+            return
+        calls.append(args)
+        raise subprocess.CalledProcessError(1, args[0])
+    monkeypatch.setattr(subprocess, "run", fail)
+    with pytest.raises(subprocess.CalledProcessError):
+        run(plan, tmp_path/"failed-controller")
+    assert len(calls) == 1

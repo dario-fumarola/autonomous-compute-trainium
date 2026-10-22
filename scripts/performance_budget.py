@@ -9,7 +9,7 @@ def measured_budget(ordinary, pause, tokens=3_000_000_000, seeds=3, decay_fracti
     for report in (ordinary, pause):
         if report["status"] != "PASS_PACKED_TRAINING_PHASE" or report["warm_updates"] < 100:
             raise ValueError("Need passing packed-trainer timings with >=100 warm updates")
-    for key in ("world_size", "parameters", "context", "local_batch", "accumulation", "precision", "optimizer"):
+    for key in ("world_size", "parameters", "context", "local_batch", "accumulation", "precision", "optimizer", "input_layout"):
         if ordinary[key] != pause[key]:
             raise ValueError(f"Mismatched timing condition: {key}")
     if ordinary["pauses"] != 0 or pause["pauses"] != 16:
@@ -42,7 +42,7 @@ def measured_budget(ordinary, pause, tokens=3_000_000_000, seeds=3, decay_fracti
     return {"status": "PROPOSED_NOT_LAUNCHED", "parameters": ordinary["parameters"],
             "real_tokens_per_token_matched_fit": tokens, "paired_seeds": seeds,
             "tokens_per_parameter": tokens/ordinary["parameters"],
-            "chosen_batch": {k: ordinary[k] for k in ("world_size", "context", "local_batch", "accumulation", "precision", "optimizer")},
+            "chosen_batch": {k: ordinary[k] for k in ("world_size", "context", "local_batch", "accumulation", "precision", "optimizer", "input_layout")},
             "measured_real_tps": dict(zip(("ordinary", "pause"), speeds)),
             "estimated_training_matmul_flops_per_real_target": dict(zip(("ordinary", "pause"), costs)),
             "equal_flop_budget_per_fit": flop_budget, "late_switch_real_targets": int(switch),

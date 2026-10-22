@@ -5,6 +5,7 @@ import copy
 import hashlib
 import json
 import time
+from dataclasses import asdict
 from pathlib import Path
 
 import torch
@@ -13,7 +14,7 @@ from compute_trainium.data import document_windows, layout
 from compute_trainium.metrics import DocumentScore, summarize
 from compute_trainium.model import ModelConfig
 from compute_trainium.titan import build_titan
-from compute_trainium.training import TokenObjective
+from compute_trainium.training import TokenObjective, file_sha256
 from scripts.qualify_native import digest
 
 
@@ -27,7 +28,8 @@ def main():
     torch.set_num_threads(2)
     started = time.monotonic()
     saved = torch.load(args.checkpoint, map_location="cpu", weights_only=False, mmap=True)
-    if hashlib.sha256(args.corpus.read_bytes()).hexdigest() != saved["signature"]["corpus_sha256"]:
+    expected = saved["signature"].get("dev_corpus_sha256", saved["signature"]["corpus_sha256"])
+    if file_sha256(args.corpus) != expected:
         raise ValueError("Evaluation corpus differs from checkpoint")
     config = ModelConfig(**saved["signature"]["model"])
     context, precision = saved["signature"]["context"], saved["signature"]["precision"]
@@ -36,7 +38,7 @@ def main():
     model.load_state_dict(saved["model"])
     before = digest(model.state_dict())
     del saved
-    reference = copy.deepcopy(model)
+    reference = copy.deepcopy(model).eval()
     model.to("neuron").eval()
     corpus = json.loads(args.corpus.read_text())
     docs = []
@@ -57,7 +59,7 @@ def main():
             count = 0
             for source, mask in document_windows(doc["tokens"], context):
                 b = layout(source[None], mask[None], pauses=pauses)
-                value = compiled(*(v.to("neuron") for v in (b.inputs, b.targets, b.target_mask)))
+                value = compiled(*(v.contiguous().to("neuron") for v in (b.inputs, b.targets, b.target_mask)))
                 loss_sum = value.detach().cpu().item()
                 targets = int(mask.sum())
                 if cpu_check is None:
@@ -83,6 +85,9 @@ def main():
               "weights_unchanged": True, "wall_seconds": time.monotonic()-started,
               "scope": "Isolated documents; qualification subset when max-documents is nonzero",
               "max_documents_per_domain": args.max_documents_per_domain}
+    # Preserve pairing/group sufficient statistics locally for later bootstrap.
+    # The public collector publishes only the aggregate report.
+    (args.output/"document-scores.json").write_text(json.dumps([asdict(s) for s in scores])+"\n")
     (args.output/"report.json").write_text(json.dumps(report, indent=2)+"\n")
     print(json.dumps(report), flush=True)
 

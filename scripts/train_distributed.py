@@ -26,13 +26,15 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 from compute_trainium.model import ModelConfig
 from compute_trainium.titan import build_titan
 from compute_trainium.training import (PackedCorpus, TokenObjective, WSDSchedule,
-                                       atomic_checkpoint, global_indices)
+                                       atomic_checkpoint, file_sha256, global_indices)
 from scripts.qualify_native import digest
 
 
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--corpus", type=Path, required=True)
+    p.add_argument("--packed-corpus", type=Path)
+    p.add_argument("--dev-corpus", type=Path)
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--size", choices=["tiny", "small"], default="small")
     p.add_argument("--context", type=int, default=512)
@@ -66,8 +68,9 @@ def main():
     start = time.monotonic()
     config = (ModelConfig(dim=128, layers=2, heads=4, kv_heads=2, ffn_dim=256, max_seq=2048)
               if args.size == "tiny" else ModelConfig())
-    corpus_hash = hashlib.sha256(args.corpus.read_bytes()).hexdigest()
-    packed = PackedCorpus(json.loads(args.corpus.read_text()), args.context, args.seed)
+    corpus_hash = file_sha256(args.corpus)
+    packed = (PackedCorpus.from_mapped(args.packed_corpus, args.context, args.seed, corpus_hash)
+              if args.packed_corpus else PackedCorpus(json.loads(args.corpus.read_text()), args.context, args.seed))
     bf16 = args.precision == "bf16"
     torch.manual_seed(args.seed)
     model = build_titan(config)
@@ -79,6 +82,8 @@ def main():
                  "precision": args.precision, "corpus_sha256": corpus_hash,
                  "packing_sha256": packed.fingerprint, "clip": args.clip,
                  "optimizer": args.optimizer, "repeat_qualification": args.qualification_repeat}
+    if args.dev_corpus:
+        signature["dev_corpus_sha256"] = file_sha256(args.dev_corpus)
     cursor = exposure = update = cumulative_flops = 0
     previous_pauses, recovered_digest = None, None
     if args.resume:
@@ -130,7 +135,7 @@ def main():
     objective = TokenObjective(model, first.prediction_positions, bf16)
     torch._dynamo.config.optimize_ddp = False
     compiled = torch.compile(objective, backend="neuron", fullgraph=True, dynamic=False)
-    x, y, m = (v.to("neuron") for v in (first.inputs, first.targets, first.target_mask))
+    x, y, m = (v.contiguous().to("neuron") for v in (first.inputs, first.targets, first.target_mask))
     probe = compiled(x, y, m)/max(1, first.target_mask.sum().item())
     probe.backward()
     cpu_check = None
@@ -198,7 +203,7 @@ def main():
         local_sum = torch.zeros((), device="neuron")
         for micro in range(args.accumulation):
             b = batch_at(micro)
-            x, y, m = (v.to("neuron") for v in (b.inputs, b.targets, b.target_mask))
+            x, y, m = (v.contiguous().to("neuron") for v in (b.inputs, b.targets, b.target_mask))
             with ddp.no_sync() if micro < args.accumulation-1 else contextlib.nullcontext():
                 loss_sum = ddp(x, y, m)
                 (loss_sum*(world/global_count)).backward()
@@ -269,6 +274,8 @@ def main():
                   "world_size": world, "physical_chips": sorted({int(c)//4 for c in _cores}),
                   "context": args.context, "local_batch": args.batch,
                   "accumulation": args.accumulation, "precision": args.precision,
+                  "input_layout": "host_contiguous",
+                  "data_backend": "mapped" if args.packed_corpus else "in_memory_qualification",
                   "optimizer": args.optimizer, "pauses": args.pauses,
                   "updates": update-origin_update, "warm_updates": args.steps-args.warmup,
                   "warm_seconds": warm_seconds, "warm_real_targets": warm_tokens,

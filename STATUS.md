@@ -1,30 +1,22 @@
 # Status — 2026-10-22
 
-## Performance/trainer follow-up in progress, 18:13 UTC
+The bounded performance/trainer pass is complete. **No large scientific fit or LR sweep has launched.** Read the [new report](results/performance_20261022/REPORT.md), [budget](results/performance_20261022/budget.json), [protocol](docs/PROTOCOL.md) and [trainer details](docs/TRAINER.md).
 
-The new packed trainer passes 21 CPU tests and a 64-rank BF16 accumulated-global-gradient check (relative L2 0.00110). The 150M ordinary phase measures **526,414 real targets/sec** over 100 warm optimizer updates at context 512, batch 1/core, accumulation 8. A fresh-process 64-rank ordinary-to-pause restore passes full CPU/device model+optimizer recovery, CPU loss/full-gradient checks, 104 updates and complete replica equality. Its 100-update warm rate is **222,039 real targets/sec**. These are throughput diagnostics using explicit repetition of the 2M-token natural qualification sample, not scientific fits.
-
-One initial late-restore compile exceeded the 416 GiB container cap. The failed receipt is retained. Mapping the full checkpoint and returning CPU malloc arenas before compiling allowed the retry to finish, with the host reserve preserved. The supervisor now also watches compiler-error logs and container OOM events. No large run or LR sweep has launched.
-
-Active: a bounded all-64-rank / all-16-chip context-1024, local-batch-2, accumulation-2 BF16 performance check, under continuous reserve/log monitoring. Next: compare its rate, finish end-to-end periodic DEV/branch/replay checks, then publish receipts and a revised budget. The earlier 5–7 day proposal below is superseded pending this pass. A larger frozen natural corpus, duplicate audit and per-variant LR selection at the chosen batch remain scientific launch gates. See [trainer details](docs/TRAINER.md).
-
-## Preserved initial qualification
-
-The fresh natural-text experiment is built and qualified. No large scientific run has launched. Read the [qualification report](results/qualification_20261022/REPORT.md), [protocol](docs/PROTOCOL.md), and [proposed budget](results/qualification_20261022/budget.json).
-
-Fourteen CPU tests pass. Random-initialized 150,436,608-parameter TorchTitan models pass ordinary, early-pause and late-pause native update/recovery checks. CPU gradient agreement is checked for ordinary and early pause. Both whole-instance training benchmarks use all 64 logical cores across all 16 Trainium2 chips and finish with identical full model/optimizer state on every replica.
-
-| Measured warm training | Real targets/sec |
+| 150M, all 16 chips, 100 warm optimizer updates | Real targets/sec |
 | --- | ---: |
-| Ordinary | 158,031 |
-| 16 pauses per 128 input positions | 112,575 |
+| Ordinary | 855,336 |
+| 16 pauses per 128 input positions | 353,879 |
 
-Separate single-core inference checks agree with CPU and preserve weights. Teacher-forced window latency is 9.18 ms ordinary versus 33.18 ms with pauses. These are not cached autoregressive decode measurements. The small three-arm natural-text learning diagnostic improves fresh DEV NLL from about 11.54 to 8.09, but establishes no pause benefit. TEST remains unevaluated.
+The chosen configuration uses 64 ranks, context 1024, local batch 2, accumulation 2, BF16 autocast with FP32 masters/moments, token-correct DDP no_sync, packing and gradient clipping. This is 5.41× / 3.14× the original benchmark rates. The small natural qualification sample is explicitly repeated for timing; these are not scientific fits.
 
-The proposed 3B-target, three-arm, three-seed pilot plus separate LR sweeps budgets 118–177 node-hours with a 2–3× allowance. It remains undertrained by design; a subsequent paired continuation to 30B targets is priced separately. Before scientific launch: freeze a larger natural corpus and order, audit duplicates, and perform the short full-topology late-switch/memory-stability check. Its throughput is currently estimated from the two measured mechanisms.
+Twenty-three CPU tests pass. The 64-rank accumulated gradient agrees with the CPU global batch. All three tiny-model arms complete the same 196,322 real targets through the controller, including fresh-process DEV. The 150M full-topology late switch passes recovery and CPU numerical checks. Two independent 150M WSD branches finish bit-identically in full model/optimizer state, schedule, losses and mapped-data cursor; the stable checkpoint remains unchanged. Both full DEV evaluations score all 232 documents / 307,646 targets identically, with unchanged weights. TEST remains sealed. These checks establish no pause advantage.
 
-No accelerator workers remain active at handoff. The development container is stopped after qualification; restart it with `docker start autonomous-compute-neuron233` before a new bounded check. All sources, raw data, logs, states and caches remain under `/run/user/1000/autonomous-compute`. The wrapper snapshots its own launcher and the source for each attempt, records exit codes and costs, and checks the actual container limit plus a 512 GiB host reserve.
+The revised three-arm, three-seed, 3B-target pilot costs 16.77 steady node-hours including separate LR mini-fits and extra annealed FLOP endpoints. Plan **33.5–50.3 node-hours** with a 2–3× allowance, replacing the earlier 118–177 h proposal. Three billion targets remains a signal-seeking exposure; the paired 30B continuation is priced separately. Every comparison endpoint must complete its own decay.
 
-Failures are preserved in the [resource ledger](results/qualification_20261022/resource-ledger.json). Two 256 GiB pause compiles and a combined training/inference attempt at 416 GiB exceeded the container limit. The completed pause benchmark passed hardware checks before a post-success launcher error; its original exit 127 is retained. The immutable launcher subsequently completes ordinary training and separate inference with exit 0. See [OSS notes](docs/OSS_NOTES.md) for the reproduced compiler-error propagation defect, device-index workaround, and memory observations. No upstream submission was sent.
+The [new ledger](results/performance_20261022/resource-ledger.json) retains 24 attempts, including one compile OOM and one preflight rejection. Assigned accelerator time is 9.5169 chip-hours; the inclusive node window is reported separately. Sampled host MemAvailable stayed above 543.88 GiB and filesystem free space above 35.36 GiB. The supervisor checks reserves, compiler errors, OOM events and wall limits. Standalone strided-input and contiguous-control reproducers agree numerically and isolate the extra CPU round trip. See [OSS notes](docs/OSS_NOTES.md); no upstream submission was sent.
 
-The predecessor pilot is archived. Its five stopped qualifications used 11.8631 assigned chip-hours. The original 1.7B numerical results remain frozen: 2,516 protected files match commit d07d89e. The private meeting transcript is not published. Training and evaluation source data contain no generated arithmetic, synthetic rewrites, or teacher traces.
+No accelerator workers remain active. The development container is stopped; models, optimizer states, raw sources and caches remain outside Git under `/run/user/1000/autonomous-compute`. Restart it before another bounded run. Plans set measured phase-specific container limits: tiny training 160 GiB, 150M training 256 GiB, DEV 64 GiB, with the separate 512 GiB host reserve.
+
+Next scientific launch gates: freeze a larger natural corpus and 60/20/20 order, audit duplicates, build shared mapped arrays with streaming preparation, measure production I/O, then select each variant's LR at the chosen batch. Freeze rounded token/FLOP endpoints and schedule before the main fits. No synthetic research corpus, teacher traces, RL, larger model or new instance has been introduced.
+
+The [initial qualification](results/qualification_20261022/REPORT.md) remains preserved. The predecessor is archived and its costs stay separate. The original 1.7B numerical evidence remains frozen; the private meeting transcript is not published.

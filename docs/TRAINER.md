@@ -15,6 +15,14 @@ Production data may not silently wrap. `--qualification-repeat` explicitly
 permits repeating the small natural sample for throughput checks; those curves
 are not evidence of generalization or new unique token exposure.
 
+Use `--packed-corpus` for shared file-backed token/domain/count arrays rather
+than decoding a full Python corpus in each worker. File hashes, context, seed
+and source provenance are checked. `pack_corpus.py` materializes this contract
+for the small JSON sample; a large-corpus freeze must build the same files with
+streaming preprocessing. `--dev-corpus` can pin a separate DEV-only file, so
+evaluation does not read the complete training corpus. Large-source preparation,
+I/O timing and duplicate auditing remain launch gates.
+
 For accumulation, each microbatch produces a summed real-token loss. Its
 backward scale is world-size / global real-target count for the whole update.
 DDP averages gradients. All but the final microbatch use `no_sync` around both
@@ -45,6 +53,11 @@ phase. This provides periodic checkpoints/evaluation without co-resident large
 training and inference graphs. A pause switch therefore cannot retain the old
 graph. Any worker, numerical probe, supervisor or DEV failure stops the plan.
 All phases must use a consistent global batch to preserve data-order pairing.
+The controller sets explicit container caps at process boundaries: the checked
+tiny plan uses 160 GiB, the measured 150M plan 256 GiB, and single-core DEV
+64 GiB. The host preflight reserves the actual cap plus 512 GiB. Larger models
+or datasets need their own measured memory limit; do not inherit an unrelated
+compile cap for a small evaluation phase.
 
 Stable checkpoints can fork independent cosine-decay branches. Set `branch:
 true`, the chosen `resume` checkpoint, and decay boundaries in that phase's

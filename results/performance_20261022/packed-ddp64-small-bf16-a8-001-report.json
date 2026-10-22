@@ -1,0 +1,196 @@
+{
+  "status": "PASS_PACKED_TRAINING_PHASE",
+  "scientific_result": false,
+  "size": "small",
+  "parameters": 150436608,
+  "world_size": 64,
+  "physical_chips": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "context": 512,
+  "local_batch": 1,
+  "accumulation": 8,
+  "precision": "bf16",
+  "optimizer": "plain",
+  "pauses": 0,
+  "updates": 104,
+  "warm_updates": 100,
+  "warm_seconds": 49.727633854956366,
+  "warm_real_targets": 26177341,
+  "warm_global_real_targets_per_second": 526414.3690478628,
+  "phase_real_targets": 27224301,
+  "total_real_targets": 27224301,
+  "cursor": 53248,
+  "corpus_unique_train_targets": 1998577,
+  "qualification_repeats_data": true,
+  "domain_real_targets": {
+    "web": 7229194,
+    "math": 7558738,
+    "code": 12436369
+  },
+  "cpu_probe": {
+    "native_loss": 10.661857604980469,
+    "cpu_loss": 10.6620512008667,
+    "gradient_relative_l2": 0.003052503587397125,
+    "bf16_reference": true
+  },
+  "global_gradient_check": null,
+  "all_replica_model_optimizer_states_equal": true,
+  "recovered_model_optimizer_digest": null,
+  "previous_pauses": null,
+  "state_digest": "c984cd339ffcf3b47f77b94048a45a6c6de7f68fa4e971e7e37b5316d0ff1872",
+  "flops_per_global_step": {
+    "forward_matmul_flops": 87101936762880,
+    "training_matmul_flops": 261305810288640,
+    "lm_head_forward_flops": 12884901888000,
+    "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter."
+  },
+  "total_training_matmul_flops": 27175804270018560,
+  "cold_first_training_step_seconds": 6.516853897948749,
+  "cold_probe_and_setup_seconds": 80.80274795508012,
+  "wall_seconds": 146.9965433620382,
+  "fallback_ops_rank0": "['aten::_to_copy']",
+  "signature": {
+    "model": {
+      "dim": 768,
+      "layers": 20,
+      "heads": 12,
+      "kv_heads": 4,
+      "ffn_dim": 2048,
+      "vocab_size": 32000,
+      "max_seq": 4096
+    },
+    "context": 512,
+    "batch": 1,
+    "accumulation": 8,
+    "world": 64,
+    "seed": 23,
+    "precision": "bf16",
+    "corpus_sha256": "81fe046e2487b71b7a5f823ac5a0f5a2c0a013de06d76b30fa2b9776b4f51e31",
+    "packing_sha256": "8113e5897aa20006c68dc8a5174df928a4e739dddce1889c09fec888d03c8279",
+    "clip": 1.0,
+    "optimizer": "plain",
+    "repeat_qualification": true
+  },
+  "schedule": {
+    "peak": 0.0003,
+    "warmup_tokens": 0,
+    "decay_start": null,
+    "decay_end": null,
+    "floor_ratio": 0.1
+  },
+  "progress": [
+    {
+      "update": 1,
+      "real_tokens": 261744,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 10.801700325508895,
+      "gradient_norm": 7.982996940612793,
+      "elapsed_seconds": 87.31960185302887
+    },
+    {
+      "update": 10,
+      "real_tokens": 2617635,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 8.618637009642862,
+      "gradient_norm": 3.842479944229126,
+      "elapsed_seconds": 93.8061901560286
+    },
+    {
+      "update": 20,
+      "real_tokens": 5235354,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 7.218939310023453,
+      "gradient_norm": 2.0830366611480713,
+      "elapsed_seconds": 98.77029787399806
+    },
+    {
+      "update": 30,
+      "real_tokens": 7853187,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 7.002400688174999,
+      "gradient_norm": 1.715644121170044,
+      "elapsed_seconds": 103.76134963100776
+    },
+    {
+      "update": 40,
+      "real_tokens": 10470847,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 7.36814778658271,
+      "gradient_norm": 0.6527562141418457,
+      "elapsed_seconds": 108.7285280280048
+    },
+    {
+      "update": 50,
+      "real_tokens": 13088536,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 5.891676152424025,
+      "gradient_norm": 1.1736327409744263,
+      "elapsed_seconds": 113.69829121197108
+    },
+    {
+      "update": 60,
+      "real_tokens": 15706341,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 6.1309513123920985,
+      "gradient_norm": 1.3172365427017212,
+      "elapsed_seconds": 118.68142988602631
+    },
+    {
+      "update": 70,
+      "real_tokens": 18324055,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 6.046237868714657,
+      "gradient_norm": 0.9865243434906006,
+      "elapsed_seconds": 123.63816100801341
+    },
+    {
+      "update": 80,
+      "real_tokens": 20941704,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 6.595066231870769,
+      "gradient_norm": 0.8658835291862488,
+      "elapsed_seconds": 128.61225852102507
+    },
+    {
+      "update": 90,
+      "real_tokens": 23559499,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 5.527171255691715,
+      "gradient_norm": 0.7275789976119995,
+      "elapsed_seconds": 133.57718981907237
+    },
+    {
+      "update": 100,
+      "real_tokens": 26177311,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 5.7924409985825145,
+      "gradient_norm": 0.8065263032913208,
+      "elapsed_seconds": 138.5711214019684
+    },
+    {
+      "update": 104,
+      "real_tokens": 27224301,
+      "lr": 0.0003,
+      "rank0_scaled_nll": 5.358946837686496,
+      "gradient_norm": 0.9876000285148621,
+      "elapsed_seconds": 140.5507192009827
+    }
+  ],
+  "scope": "Packed natural data, H2D, token-weighted no_sync accumulation, FP32 masters/AdamW, clipping and WSD. Per-step gradient finiteness synchronizes. Final state save/hash excluded; periodic saves included."
+}

@@ -21,6 +21,9 @@ def run(plan, output):
     events = []
     output.mkdir(parents=True, exist_ok=False)
     common = plan["training_arguments"]
+    def memory_limit(gib):
+        subprocess.run(["docker", "update", "--memory", str(gib*1024**3),
+                        "autonomous-compute-neuron233"], check=True, capture_output=True)
     if not plan.get("qualification_only", True):
         manifest = json.loads(Path(plan["scientific_manifest"]).read_text())
         required = ("immutable_sources", "near_duplicate_audit", "frozen_order_sha256",
@@ -29,8 +32,11 @@ def run(plan, output):
             raise ValueError("Scientific launch manifest gates incomplete")
         if "--qualification-repeat" in common:
             raise ValueError("Scientific training may not silently repeat the corpus")
+        if "--packed-corpus" not in common:
+            raise ValueError("Scientific training requires mapped packing, not per-rank Python corpora")
     for phase in plan["phases"]:
         run_id = phase["run"]
+        memory_limit(plan.get("training_memory_gib", 256))
         env = dict(os.environ, RESEARCH_TRAIN="1", RESEARCH_EVAL="0", RESEARCH_RUN=run_id,
                    RESEARCH_DDP_RANKS=str(plan["world"]),
                    NEURON_RT_VISIBLE_CORES=",".join(map(str, range(plan["world"]))))
@@ -46,15 +52,20 @@ def run(plan, output):
         phase_report = json.loads((root/"runs"/run_id/"report.json").read_text())
         if phase_report["status"] != "PASS_PACKED_TRAINING_PHASE":
             raise AssertionError("Training phase did not pass")
+        if phase.get("decay_end") and phase_report["total_real_targets"] < phase["decay_end"]:
+            raise AssertionError("Decay endpoint is incomplete; cannot compare this branch")
         checkpoint = f"/work/runs/{run_id}/checkpoint.pt"
         if not phase.get("branch", False):
             previous = checkpoint
         evaluation = run_id+"-dev"
+        memory_limit(plan.get("evaluation_memory_gib", 64))
         eval_env = dict(env, RESEARCH_TRAIN="0", RESEARCH_EVAL="1", RESEARCH_RUN=evaluation,
                         NEURON_RT_VISIBLE_CORES="0")
-        subprocess.run(["python3", str(supervisor), "--checkpoint", checkpoint,
-                        "--max-documents-per-domain", str(plan.get("dev_documents_per_domain", 0))],
-                       env=eval_env, check=True)
+        evaluation_command = ["python3", str(supervisor), "--checkpoint", checkpoint,
+                              "--max-documents-per-domain", str(plan.get("dev_documents_per_domain", 0))]
+        if "--dev-corpus" in common:
+            evaluation_command += ["--corpus", common[common.index("--dev-corpus")+1]]
+        subprocess.run(evaluation_command, env=eval_env, check=True)
         eval_report = json.loads((root/"runs"/evaluation/"report.json").read_text())
         if eval_report["status"] != "PASS_CHECKPOINT_DEV_EVALUATION":
             raise AssertionError("DEV phase did not pass")

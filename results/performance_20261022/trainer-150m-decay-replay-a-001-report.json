@@ -1,0 +1,118 @@
+{
+  "status": "PASS_PACKED_TRAINING_PHASE",
+  "scientific_result": false,
+  "size": "small",
+  "parameters": 150436608,
+  "world_size": 64,
+  "physical_chips": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "context": 1024,
+  "local_batch": 2,
+  "accumulation": 2,
+  "precision": "bf16",
+  "input_layout": "host_contiguous",
+  "data_backend": "mapped",
+  "optimizer": "plain",
+  "pauses": 16,
+  "updates": 2,
+  "warm_updates": 2,
+  "warm_seconds": 3.2896976890042424,
+  "warm_real_targets": 523492,
+  "warm_global_real_targets_per_second": 159130.73160180126,
+  "phase_real_targets": 523492,
+  "total_real_targets": 54958431,
+  "cursor": 53760,
+  "corpus_unique_train_targets": 1998577,
+  "qualification_repeats_data": true,
+  "domain_real_targets": {
+    "web": 231748,
+    "math": 145594,
+    "code": 146150
+  },
+  "cpu_probe": {
+    "native_loss": 5.4641547203063965,
+    "cpu_loss": 5.464252471923828,
+    "gradient_relative_l2": 0.0048977296213220155,
+    "bf16_reference": true
+  },
+  "global_gradient_check": null,
+  "all_replica_model_optimizer_states_equal": true,
+  "recovered_model_optimizer_digest": "27a80a7a982dbc2ce919a5dfee9a5527bd7017df1bf5b1cdc0b27d2bf7ff7f72",
+  "previous_pauses": 16,
+  "state_digest": "f4b1b1a475e316d763b92b9a2088196a463c0f9f4286b0fa25219eee658f785b",
+  "flops_per_global_step": {
+    "forward_matmul_flops": 107975477821440,
+    "training_matmul_flops": 323926433464320,
+    "lm_head_forward_flops": 12884901888000,
+    "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter."
+  },
+  "total_training_matmul_flops": 64084863426232320,
+  "cold_first_training_step_seconds": 1.469628144055605,
+  "cold_probe_and_setup_seconds": 119.24404707597569,
+  "wall_seconds": 128.72935183602385,
+  "fallback_ops_rank0": "['aten::_to_copy']",
+  "signature": {
+    "model": {
+      "dim": 768,
+      "layers": 20,
+      "heads": 12,
+      "kv_heads": 4,
+      "ffn_dim": 2048,
+      "vocab_size": 32000,
+      "max_seq": 4096
+    },
+    "context": 1024,
+    "batch": 2,
+    "accumulation": 2,
+    "world": 64,
+    "seed": 23,
+    "precision": "bf16",
+    "corpus_sha256": "81fe046e2487b71b7a5f823ac5a0f5a2c0a013de06d76b30fa2b9776b4f51e31",
+    "packing_sha256": "53304641ce4e3fbe3f0aa69b706be3a88874db0f103c656faddc7b0eddbbd33e",
+    "clip": 1.0,
+    "optimizer": "plain",
+    "repeat_qualification": true
+  },
+  "schedule": {
+    "peak": 0.0003,
+    "warmup_tokens": 0,
+    "decay_start": 54434939,
+    "decay_end": 54958431,
+    "floor_ratio": 0.1
+  },
+  "progress": [
+    {
+      "update": 209,
+      "real_tokens": 54696673,
+      "lr": 0.0001650097219825602,
+      "rank0_scaled_nll": 4.1196778026546035,
+      "gradient_norm": 0.7479344010353088,
+      "elapsed_seconds": 120.71367522003129
+    },
+    {
+      "update": 210,
+      "real_tokens": 54958431,
+      "lr": 2.9999999999999997e-05,
+      "rank0_scaled_nll": 4.361387235538169,
+      "gradient_norm": 0.7556074261665344,
+      "elapsed_seconds": 122.51911946805194
+    }
+  ],
+  "scope": "Packed natural data, H2D, token-weighted no_sync accumulation, FP32 masters/AdamW, clipping and WSD. Per-step gradient finiteness synchronizes. Final state save/hash excluded; periodic saves included."
+}

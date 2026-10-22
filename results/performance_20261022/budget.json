@@ -1,0 +1,67 @@
+{
+  "status": "PROPOSED_NOT_LAUNCHED",
+  "parameters": 150436608,
+  "real_tokens_per_token_matched_fit": 3000000000,
+  "paired_seeds": 3,
+  "tokens_per_parameter": 19.941954554040464,
+  "chosen_batch": {
+    "world_size": 64,
+    "context": 1024,
+    "local_batch": 2,
+    "accumulation": 2,
+    "precision": "bf16",
+    "optimizer": "plain",
+    "input_layout": "host_contiguous"
+  },
+  "measured_real_tps": {
+    "ordinary": 855335.9846585225,
+    "pause": 353878.73335139017
+  },
+  "estimated_training_matmul_flops_per_real_target": {
+    "ordinary": 1092996658.7192278,
+    "pause": 1237747702.5846717
+  },
+  "equal_flop_budget_per_fit": 3.278989976157683e+18,
+  "late_switch_real_targets": 1500000000,
+  "annealed_equal_flop_endpoints": {
+    "ordinary": {
+      "total_real_targets": 3000000000,
+      "stable_trunk_targets": 2700000000,
+      "decay_targets": 300000000,
+      "decay_complete_at_comparison": true
+    },
+    "early": {
+      "total_real_targets": 2649158604,
+      "stable_trunk_targets": 2384242743,
+      "decay_targets": 264915860,
+      "decay_complete_at_comparison": true
+    },
+    "late": {
+      "total_real_targets": 2824579302,
+      "stable_trunk_targets": 2542121371,
+      "decay_targets": 282457930,
+      "decay_complete_at_comparison": true
+    }
+  },
+  "token_matched_steady_hours_per_seed": {
+    "ordinary": 0.9742760134966455,
+    "early": 2.3548556462867754,
+    "late": 1.6645658298917103
+  },
+  "token_matched_steady_hours_all_seeds": 14.981092469025395,
+  "additional_flop_decay_branches_steady_hours": 1.2889862615020755,
+  "lr_sweep_steady_hours": 0.4993697489675132,
+  "steady_total_hours": 16.769448479494983,
+  "planning_node_hours_2x": 33.538896958989966,
+  "planning_node_hours_3x": 50.30834543848495,
+  "additional_paired_3B_to_30B_steady_hours": 29.962184938050793,
+  "limits": [
+    "No large run is authorized by this estimate. Freeze corpus/order, LR, schedule and launch gates first.",
+    "Every endpoint includes its decay inside the stated budget; all extra branches are charged.",
+    "Round branch/switch endpoints to complete shared global updates; record realized tokens and FLOPs.",
+    "2x-3x allowance includes unmeasured production data IO, periodic eval/checkpoint/restarts and variation.",
+    "LR sweeps must use this batch/precision; three variants, three candidates, 100M real targets each.",
+    "Matmul FLOPs include vocabulary head but exclude elementwise/optimizer work; not a hardware counter.",
+    "Qualification repeats a small natural corpus; its learning curve is not a scientific result."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "qualification_only": true,
+  "world": 64,
+  "training_memory_gib": 256,
+  "evaluation_memory_gib": 64,
+  "dev_documents_per_domain": 0,
+  "resume": "/work/runs/packed-ddp64-small-c1024-contiguous-late-001/checkpoint.pt",
+  "training_arguments": [
+    "--size",
+    "small",
+    "--context",
+    "1024",
+    "--packed-corpus",
+    "/work/data-v1/packed-c1024-s23",
+    "--batch",
+    "2",
+    "--accumulation",
+    "2",
+    "--precision",
+    "bf16",
+    "--warmup",
+    "0",
+    "--qualification-repeat"
+  ],
+  "phases": [
+    {
+      "run": "trainer-150m-decay-replay-a-001",
+      "steps": 2,
+      "pauses": 16,
+      "branch": true,
+      "decay_start": 54434939,
+      "decay_end": 54958431
+    },
+    {
+      "run": "trainer-150m-decay-replay-b-001",
+      "steps": 2,
+      "pauses": 16,
+      "branch": true,
+      "decay_start": 54434939,
+      "decay_end": 54958431
+    }
+  ]
+}

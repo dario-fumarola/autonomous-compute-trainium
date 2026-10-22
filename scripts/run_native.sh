@@ -50,7 +50,9 @@ out={'exit_code':int(os.environ['RESEARCH_EXIT']),'wall_seconds':wall,
 PY
 }
 trap close_run EXIT
-if [[ "${RESEARCH_EVAL:-0}" -gt 0 ]]; then
+if [[ "${RESEARCH_STRIDE_REPRO:-0}" -gt 0 ]]; then
+  RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m scripts.repro_noncontiguous_input)
+elif [[ "${RESEARCH_EVAL:-0}" -gt 0 ]]; then
   RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m scripts.evaluate_checkpoint)
 elif [[ "${RESEARCH_TRAIN:-0}" -gt 0 ]]; then
   RESEARCH_ENTRY=(/work/native-venv/bin/python -m torch.distributed.run --standalone
