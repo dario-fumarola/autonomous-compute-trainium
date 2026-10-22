@@ -1,0 +1,11 @@
+[project]
+name = "autonomous-compute-trainium"
+version = "0.0.1"
+requires-python = ">=3.12"
+dependencies = ["torch>=2.9", "tokenizers>=0.22", "requests>=2.32", "pyarrow>=25"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
