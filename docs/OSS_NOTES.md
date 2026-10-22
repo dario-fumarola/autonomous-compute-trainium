@@ -88,3 +88,13 @@ hypothesis, not a profile proving which kernels or costs dominate this run.
 Record the measured 2.42× runtime penalty as well as the 1.132× dense matmul
 estimate. A future operator profile or arbitrary-length attention improvement
 could be useful upstream work. No unsupported peak-utilization claim is made.
+
+The bounded right-tail-padding check now supplies a practical workaround:
+expand pauses to 1152 as before, then append masked causal inputs to 1536.
+All scored positions precede that tail. A CPU test compares prediction outputs
+and full gradients to the unpadded model; a native 64-rank check passes CPU
+loss/full-gradient agreement and complete replica-state equality. Over 100 warm
+updates, throughput rises from 353,879 to 695,948 real targets/sec. The source
+gate and speedup motivate an arbitrary-length backward-attention contribution;
+they still do not constitute a kernel profile isolating the entire speedup.
+The scientific budget counts all 1536 positions, including unused padding.

@@ -38,6 +38,7 @@ def run(plan, output):
         run_id = phase["run"]
         memory_limit(plan.get("training_memory_gib", 256))
         env = dict(os.environ, RESEARCH_TRAIN="1", RESEARCH_EVAL="0", RESEARCH_RUN=run_id,
+                   RESEARCH_TIMEOUT_SECONDS=str(plan.get("timeout_seconds", 1200)),
                    RESEARCH_DDP_RANKS=str(plan["world"]),
                    NEURON_RT_VISIBLE_CORES=",".join(map(str, range(plan["world"]))))
         command = ["python3", str(supervisor), *common, "--steps", str(phase["steps"]),
@@ -62,7 +63,8 @@ def run(plan, output):
         eval_env = dict(env, RESEARCH_TRAIN="0", RESEARCH_EVAL="1", RESEARCH_RUN=evaluation,
                         NEURON_RT_VISIBLE_CORES="0")
         evaluation_command = ["python3", str(supervisor), "--checkpoint", checkpoint,
-                              "--max-documents-per-domain", str(plan.get("dev_documents_per_domain", 0))]
+                              "--max-documents-per-domain", str(plan.get("dev_documents_per_domain", 0)),
+                              "--cohort", plan.get("evaluation_cohort", "all")]
         if "--dev-corpus" in common:
             evaluation_command += ["--corpus", common[common.index("--dev-corpus")+1]]
         subprocess.run(evaluation_command, env=eval_env, check=True)

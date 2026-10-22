@@ -72,6 +72,23 @@ def test_static_spans_equal_gather_in_logits_and_full_parameter_gradients():
         torch.testing.assert_close(p.grad, q.grad, atol=0, rtol=0)
 
 
+def test_causal_tail_padding_preserves_every_real_prediction_and_full_gradient():
+    from compute_trainium.data import pad_layout
+    a, b = tiny(), tiny()
+    batch = layout(torch.tensor([[1, 4, 5, 6, 7, 8, 9, 10, 11]]),
+                   torch.ones(1, 8, dtype=torch.bool), pauses=2, interval=4)
+    padded = pad_layout(batch, 32)
+    x = a(batch.inputs, batch.prediction_positions)
+    y = b(padded.inputs, padded.prediction_positions)
+    torch.testing.assert_close(x, y, atol=1e-7, rtol=1e-5)
+    x.square().sum().backward()
+    y.square().sum().backward()
+    for p, q in zip(a.parameters(), b.parameters(), strict=True):
+        torch.testing.assert_close(p.grad, q.grad, atol=1e-6, rtol=1e-5)
+    assert torch.equal(batch.targets, padded.targets)
+    assert torch.equal(batch.target_mask, padded.target_mask)
+
+
 def test_nll_uses_real_target_denominator_and_fp32_ce():
     logits = torch.zeros(1, 3, 5, requires_grad=True)
     loss = real_token_losses(logits, torch.tensor([[1, 2, 3]]), torch.tensor([[True, False, True]]))

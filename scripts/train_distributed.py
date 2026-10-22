@@ -24,6 +24,7 @@ import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 
 from compute_trainium.model import ModelConfig
+from compute_trainium.data import pad_layout
 from compute_trainium.titan import build_titan
 from compute_trainium.training import (PackedCorpus, TokenObjective, WSDSchedule,
                                        atomic_checkpoint, file_sha256, global_indices)
@@ -45,6 +46,10 @@ def main():
     p.add_argument("--steps", type=int, default=104, help="Updates in this process, not total run")
     p.add_argument("--warmup", type=int, default=4, help="Unmeasured compile/warm updates")
     p.add_argument("--seed", type=int, default=23)
+    p.add_argument("--data-seed", type=int)
+    p.add_argument("--pad-to", type=int, default=0)
+    p.add_argument("--reference-threads", type=int, default=8)
+    p.add_argument("--purpose", choices=["qualification", "tuning", "scientific"], default="qualification")
     p.add_argument("--lr", type=float, default=3e-4)
     p.add_argument("--lr-warmup-tokens", type=int, default=0)
     p.add_argument("--decay-start", type=int)
@@ -69,11 +74,13 @@ def main():
     config = (ModelConfig(dim=128, layers=2, heads=4, kv_heads=2, ffn_dim=256, max_seq=2048)
               if args.size == "tiny" else ModelConfig())
     corpus_hash = file_sha256(args.corpus)
-    packed = (PackedCorpus.from_mapped(args.packed_corpus, args.context, args.seed, corpus_hash)
-              if args.packed_corpus else PackedCorpus(json.loads(args.corpus.read_text()), args.context, args.seed))
+    data_seed = args.seed if args.data_seed is None else args.data_seed
+    packed = (PackedCorpus.from_mapped(args.packed_corpus, args.context, data_seed, corpus_hash)
+              if args.packed_corpus else PackedCorpus(json.loads(args.corpus.read_text()), args.context, data_seed))
     bf16 = args.precision == "bf16"
     torch.manual_seed(args.seed)
     model = build_titan(config)
+    initial_model_digest = digest(model.state_dict())
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr,
                                   foreach=args.optimizer == "foreach", fused=False)
     schedule = WSDSchedule(args.lr, args.lr_warmup_tokens, args.decay_start, args.decay_end)
@@ -84,6 +91,10 @@ def main():
                  "optimizer": args.optimizer, "repeat_qualification": args.qualification_repeat}
     if args.dev_corpus:
         signature["dev_corpus_sha256"] = file_sha256(args.dev_corpus)
+    if args.data_seed is not None:
+        signature["data_seed"] = data_seed
+    if args.pad_to:
+        signature["pad_to"] = args.pad_to
     cursor = exposure = update = cumulative_flops = 0
     previous_pauses, recovered_digest = None, None
     if args.resume:
@@ -107,11 +118,14 @@ def main():
         recovered_digest = digest({"model": model.state_dict(), "optimizer": optimizer.state_dict()})
         if recovered_digest != saved["state_digest"]:
             raise AssertionError("Full CPU model/optimizer recovery differs")
+        if saved.get("initial_model_digest", initial_model_digest) != initial_model_digest:
+            raise AssertionError("Random initialization differs from the original fit")
         del saved
     origin_exposure, origin_update = exposure, update
     def batch_at(micro, worker=rank):
-        return packed.batch(global_indices(cursor, micro, worker, world, args.batch),
-                            args.pauses, repeat=args.qualification_repeat)[0]
+        batch = packed.batch(global_indices(cursor, micro, worker, world, args.batch),
+                             args.pauses, repeat=args.qualification_repeat)[0]
+        return pad_layout(batch, args.pad_to)
     first = batch_at(0)
     # A single graph is compiled in this process. Validate BEFORE DDP or updates.
     reference = copy.deepcopy(model) if rank == 0 else None
@@ -140,6 +154,7 @@ def main():
     probe.backward()
     cpu_check = None
     if rank == 0:
+        torch.set_num_threads(args.reference_threads)
         ref = TokenObjective(reference, first.prediction_positions, bf16, "cpu")
         ref_loss = ref(first.inputs, first.targets, first.target_mask)/first.target_mask.sum()
         ref_loss.backward()
@@ -157,6 +172,7 @@ def main():
                      "gradient_relative_l2": relative, "bf16_reference": bf16}
         (args.output/"cpu-probe.json").write_text(json.dumps(cpu_check, indent=2)+"\n")
         print(json.dumps({"event": "cpu_probe_pass", **cpu_check}), flush=True)
+        torch.set_num_threads(2)
     del probe
     optimizer.zero_grad(set_to_none=True)
     if reference is not None:
@@ -166,13 +182,17 @@ def main():
     rows, warm_tokens, cold_seconds = [], 0, None
     domain_counts = [0, 0, 0]
     global_check = None
+    last_checkpoint_update = None
     def checkpoint():
+        nonlocal last_checkpoint_update
         dist.barrier()
+        last_checkpoint_update = update
         if rank == 0:
             state = {"model": model.state_dict(), "optimizer": optimizer.state_dict()}
             state_digest = digest(state)
             atomic_checkpoint(args.output/"checkpoint.pt", {**state, "state_digest": state_digest,
                 "signature": signature, "schedule": asdict(schedule), "pauses": args.pauses,
+                "initial_model_digest": initial_model_digest,
                 "cursor": cursor, "real_tokens": exposure, "update": update,
                 "training_matmul_flops": cumulative_flops, "cpu_rng": torch.get_rng_state(),
                 "numerical_probe_passed": True})
@@ -260,7 +280,7 @@ def main():
     torch.neuron.synchronize()
     dist.barrier()
     warm_seconds = time.monotonic()-warm_started
-    if args.save:
+    if args.save and last_checkpoint_update != update:
         checkpoint()
     state_digest = digest({"model": model.state_dict(), "optimizer": optimizer.state_dict()})
     (args.output/f"replica-{rank}.json").write_text(json.dumps({"rank": rank, "state_digest": state_digest})+"\n")
@@ -270,6 +290,8 @@ def main():
             raise AssertionError("Replica full states differ")
         import torch_neuronx
         report = {"status": "PASS_PACKED_TRAINING_PHASE", "scientific_result": False,
+                  "purpose": args.purpose, "initial_model_digest": initial_model_digest,
+                  "reference_threads": args.reference_threads,
                   "size": args.size, "parameters": config.parameter_count(),
                   "world_size": world, "physical_chips": sorted({int(c)//4 for c in _cores}),
                   "context": args.context, "local_batch": args.batch,

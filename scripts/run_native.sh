@@ -74,6 +74,7 @@ docker exec \
   -e TORCH_NEURONX_NEFF_LOCAL_CACHE_DIR=/work/cache \
   -e TORCH_NEURONX_HLO_CACHE_DIR=/work/hlo-cache \
   -e TORCH_NEURONX_HLO_COMPILE_CACHE=1 \
+  -e TMPDIR=/work/tmp \
   autonomous-compute-neuron233 \
   timeout --signal=TERM --kill-after=10s "${RESEARCH_TIMEOUT_SECONDS:-1200}" \
   "${RESEARCH_ENTRY[@]}" \

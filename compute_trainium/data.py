@@ -56,6 +56,18 @@ class Layout:
     pause_mask: torch.Tensor
 
 
+def pad_layout(batch: Layout, length: int = 0, pad_id: int = 2) -> Layout:
+    """Right-tail padding cannot affect earlier causal predictions or targets."""
+    if not length:
+        return batch
+    missing = length-batch.inputs.shape[1]
+    if missing < 0:
+        raise ValueError("Padding length is smaller than the expanded sequence")
+    return Layout(torch.nn.functional.pad(batch.inputs, (0, missing), value=pad_id),
+                  batch.targets, batch.target_mask, batch.prediction_positions,
+                  torch.nn.functional.pad(batch.pause_mask, (0, missing), value=False))
+
+
 def layout(source: torch.Tensor, target_mask: torch.Tensor, *, pauses: int = 0,
            interval: int = 128, pause_id: int = 0) -> Layout:
     """Map target j to expanded position p(j)-1, including the last pause."""
