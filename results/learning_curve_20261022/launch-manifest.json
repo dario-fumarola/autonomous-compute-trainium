@@ -1,0 +1,31 @@
+{
+  "immutable_sources": true,
+  "near_duplicate_audit": {
+    "method": "32 affine uint64 minhash, 8 bands x 4, bottom-256 five-word shingle Jaccard estimate >=0.8",
+    "crowded_buckets_rejected": true,
+    "exact_global_dedup": true,
+    "limit": "Approximate lexical screening; not exhaustive semantic deduplication"
+  },
+  "frozen_order_sha256": "99c092e76d775a20e1947b66ea2f86089497e0c3f6dab2d45145624ec82db01a",
+  "lr_selected_at_this_batch": {
+    "selected_lrs": {
+      "ordinary": 0.001,
+      "early": 0.0003
+    },
+    "selection_cohort": "tune",
+    "curve_evaluations_before_selection": 0,
+    "frozen_unix": 1792701665.3974369,
+    "specification_sha256": "28e6c9dca1fce30155fd8743790d7fdc77179cc1b911fdb98962396d9e0437a7"
+  },
+  "trainer_qualified": true,
+  "measured_budget": {
+    "scope": "Two arms, three seeds, 1B targets; 8 node-hour cap including tuning/evaluation",
+    "steady_main_hours": 2.182298293498779,
+    "steady_tuning_hours": 0.21822840689686276,
+    "planning_node_hours_2x": 4.801053400791283,
+    "planning_node_hours_3x": 7.201580101186925,
+    "node_hours_limit": 8,
+    "ordinary_tps_reference": 855335.9846585225,
+    "pause_tps_measured": 695947.7036418995
+  }
+}
