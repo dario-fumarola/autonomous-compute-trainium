@@ -64,7 +64,7 @@ def analyze(experiment):
     labels = {"ordinary": "Ordinary", "early": "Pauses from initialization"}
     for arm, lr in selected_lrs.items():
         labels[arm] += f" · peak LR {lr:g}"
-    fig, axes = plt.subplots(1, 2, figsize=(10, 3.8), constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4.2), constrained_layout=True)
     for arm in ("ordinary", "early"):
         points = []
         for step in sorted({r["update"] for r in plot_records if r["arm"] == arm}):
@@ -84,9 +84,11 @@ def analyze(experiment):
                          xytext=(5, 5), textcoords="offset points", fontsize=7)
     axes[1].axhline(0, color="#888888", lw=.8)
     axes[1].axhline(.01, color="#888888", ls="--", lw=.8, label="Declared useful gain")
-    axes[1].set(xlabel="Real training targets (millions)", ylabel="Ordinary − pause NLL (positive favors pauses)")
+    axes[1].set(xlabel="Real training targets (millions)", ylabel="Ordinary − pause NLL (nats)",
+                title="Positive favors pauses")
     axes[1].legend(frameon=False, fontsize=8)
     for axis in axes:
+        axis.margins(x=.08)
         axis.grid(alpha=.2)
         axis.spines[["top", "right"]].set_visible(False)
     fig.suptitle("150M natural-text pretraining · held-out source groups", fontsize=11)
