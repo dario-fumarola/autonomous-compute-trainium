@@ -9,6 +9,7 @@ from compute_trainium.independent_untied import IndependentUntiedModel
 from compute_trainium.metrics import DocumentScore,summarize
 from compute_trainium.model import ModelConfig
 from compute_trainium.training import file_sha256
+from compute_trainium.queue import write_state
 
 
 def main():
@@ -24,7 +25,7 @@ def main():
   'precision':'FP32 weights/matmuls, FP64 log normalization','maximum_native_difference_nats':.0002,
   'source_sha256':{f:file_sha256(f) for f in ['scripts/verify_mechanism_cpu.py','compute_trainium/independent.py','compute_trainium/independent_untied.py','compute_trainium/diagnostics.py']},
   'scope':'Independent numerical verification on the same DEV panel, not new model replications or TEST selection'}
- (a.output/'specification.json').write_text(json.dumps(spec,indent=2)+'\n');records=[]
+ write_state(a.output/'specification.json',spec);records=[]
  with torch.inference_mode():
   for arm,run in models:
    phase=a.root/'runs'/(run+'-dev')/'report.json'
@@ -50,11 +51,11 @@ def main():
     if time.time()>a.deadline_unix:raise TimeoutError('CPU audit scoring deadline')
    metrics=summarize(scores);native=json.loads(phase.read_text());difference=metrics['weighted_nll']-native['metrics']['weighted_nll']
    row={'arm':arm,'run':run,'training_real_targets':exposure,'metrics':metrics,'cpu_minus_native_nll':difference,'seconds':time.time()-model_start,'targets':sum(d.tokens for d in scores)};records.append(row)
-   (a.output/'progress.json').write_text(json.dumps(records,indent=2)+'\n')
+   write_state(a.output/'progress.json',records)
    if abs(difference)>.0002:raise AssertionError('Independent full-panel NLL differs from native')
    print(json.dumps({'event':'independent_endpoint','run':run,'cpu_minus_native_nll':difference}),flush=True)
    del model,scores;gc.collect()
- (a.output/'report.json').write_text(json.dumps({'status':'PASS_THREE_NEW_ENDPOINT_CPU_AUDITS','specification':spec,'records':records,'wall_seconds_including_waits':time.time()-started,'active_scoring_seconds':sum(r['seconds'] for r in records)},indent=2)+'\n')
+ write_state(a.output/'report.json',{'status':'PASS_THREE_NEW_ENDPOINT_CPU_AUDITS','specification':spec,'records':records,'wall_seconds_including_waits':time.time()-started,'active_scoring_seconds':sum(r['seconds'] for r in records)})
 
 
 if __name__=='__main__':main()

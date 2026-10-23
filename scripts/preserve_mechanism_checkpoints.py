@@ -4,6 +4,7 @@ from pathlib import Path
 import torch
 from compute_trainium.training import file_sha256
 from scripts.qualify_native import digest
+from compute_trainium.queue import write_state
 
 
 def main():
@@ -42,13 +43,13 @@ def main():
    'model_optimizer_rng_schedule_recovered':True,'on_instance_ebs_only':True})
   del value
   progress=(a.output.with_suffix('.progress.json') if a.output else a.recovery/'mechanism-copies-progress.json')
-  progress.write_text(json.dumps(records,indent=2)+'\n')
+  write_state(progress,records)
   print(json.dumps(records[-1]),flush=True)
  receipt={'status':'PASS_FULL_STATE_EBS_RECOVERY_COPIES' if a.runs_manifest else 'PASS_SIX_NEW_FULL_STATE_EBS_RECOVERY_COPIES','copies':records,'scope':'Private on-instance EBS copy and full serialized model/Adam digest readback. Native recovery was independently qualified. Not off-instance storage.'}
- if a.output:a.output.write_text(json.dumps(receipt,indent=2)+'\n')
+ if a.output:write_state(a.output,receipt)
  else:
-  (a.recovery/'mechanism-copy-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
-  (a.root/'mechanism-campaign-v2/checkpoint-copy-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+  write_state(a.recovery/'mechanism-copy-receipt.json',receipt)
+  write_state(a.root/'mechanism-campaign-v2/checkpoint-copy-receipt.json',receipt)
 
 
 if __name__=='__main__':main()
