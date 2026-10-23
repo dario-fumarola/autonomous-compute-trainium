@@ -54,3 +54,13 @@ explicit dropout and routing is stateless; this does not identify the cause.
 No vendor defect is inferred from these observations. The separately documented
 [optional AMP-metadata gap](OSS_FUSED_ADAMW_METADATA_20261023.md) is not used by
 these unscaled runs. No upstream issue or PR has been submitted.
+
+A trained100M-checkpoint continuation probe later reaches1.11% native/CPU-BF16
+gradient relative L2. The frozen ongoing trainer guard is8%; startup hardware
+qualification used1% and passed before fits. No threshold or algorithm is
+changed. A CPU-only calibration on that exact natural TRAIN batch finds
+**1.017% CPU-BF16/FP32 gradient difference** in the independent implementation.
+Its FP32 loss4.144055 differs from native4.144054 by about1.4e-6. This shows
+precision sensitivity at that state; it does not directly measure native-to-
+FP32 gradient error, because the native gradient vector was not retained.
+[Calibration](../results/variable_depth_20261023/cpu-precision-calibration.json).

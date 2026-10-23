@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE_CPU_PRECISION_CALIBRATION",
+  "checkpoint_sha256": "46941ef74b6ff938031236c6598170e45650fe4a38a38e7ebc59a53c2370b047",
+  "rank": 0,
+  "depth": 1,
+  "source_cursor": 98304,
+  "real_targets": 4086,
+  "results": {
+    "fp32": {
+      "loss": 4.144055366516113,
+      "gradient_norm": 1.6720287513637084
+    },
+    "bf16": {
+      "loss": 4.144235134124756,
+      "gradient_norm": 1.6713758609745344
+    },
+    "bf16_to_fp32_gradient_relative_l2": 0.010173789577580519
+  },
+  "seconds": 23.045767307281494,
+  "scope": "Same independent model, weights and natural TRAIN windows, CPU FP32 versus CPU BF16 only. No native gradient vectors are available here; this does not directly identify native-to-FP32 error or the cause of cross-backend differences. No optimizer step or TEST use."
+}

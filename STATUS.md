@@ -1,13 +1,27 @@
-# Status — 2026-10-23, 22:10 UTC
+# Status — 2026-10-23, 22:35 UTC
 
-**All twelve300M-target LR trials are complete, and the three-seed main fits
-have started on both eight-chip halves.** Selected peaks are6e-4 ordinary,
-1e-3 fixed and6e-4 mixture. Their TUNE NLLs are2.969665 /2.940222 /2.957476.
-Ordinary and mixture winners are interior; fixed is an upper-grid winner,
-only0.002882 better than6e-4. The optimum is not bracketed for that arm.
-These are development selections, not architecture results.
-[Complete tuning table](results/variable_depth_20261023/tuning.json) ·
-[Live receipts](results/variable_depth_20261023/progress.json).
+**The three-seed main campaign is running; the first two mixture runs have
+completed their100M and301M stable DEV points.** Seed103 scores3.808420 then
+3.013947; seed211 scores3.814483 then3.019806. Ordinary/fixed main curves are
+still pending, so this is learning evidence, not an architecture comparison.
+Selected peaks remain6e-4 ordinary,1e-3 fixed and6e-4 mixture, frozen after all
+twelve300M-target trials. Fixed is an upper-grid winner, only0.002882 better
+than6e-4; its optimum is not bracketed.
+[Complete tuning](results/variable_depth_20261023/tuning.json) ·
+[Live curves](results/variable_depth_20261023/progress.json).
+
+The exploratory independent CPU cross-panel reference is complete. Old shared
+recurrence still loses on fresh DEV: ordinary-minus-shared gain
+**-0.031166 [-0.034496,-0.027835]** across the original three pairs. This rules
+out a simple explanation based on changing the DEV panel; it does not isolate
+which recipe change matters in the new study.
+[Reference](results/variable_depth_20261023/old-recipe-fresh-dev.json).
+
+The owner authorized ongoing work across days. This campaign still ends under
+its frozen04:15 cutoff; the broader research goal remains active afterward.
+A final positive needs a useful gain against a strong baseline and independent
+confirmation, with repeated-testing accounting.
+[Ongoing charter](docs/ONGOING_RESEARCH_CHARTER.md).
 [Protocol](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md) ·
 [Frozen measured plan](results/variable_depth_20261023/plan.json).
 

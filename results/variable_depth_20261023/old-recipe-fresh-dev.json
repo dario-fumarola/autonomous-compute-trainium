@@ -1,0 +1,380 @@
+{
+  "status": "COMPLETE_OLD_RECIPE_FRESH_DEV_REFERENCE",
+  "specification": {
+    "started_unix": 1792791838.4701486,
+    "corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+    "seeds": [
+      23,
+      47,
+      71
+    ],
+    "depths": {
+      "ordinary": 1,
+      "shared": 2
+    },
+    "source_sha256": "55b2bd65adfe8905e5482875f70a844c4b76aca54aed925d7e3fb3b907f25d27",
+    "scope": "Exploratory reference motivated during LR screening. Read all six canonical old1B endpoints on fresh DEV, no new TEST, no checkpoint/exit selection or fit. Does not isolate beta2, since recipes also differ in warmup, tuning, topology, routing and initialization seeds."
+  },
+  "records": [
+    {
+      "arm": "ordinary",
+      "seed": 23,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 784200.2981996542,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.107749946300599
+          },
+          "code": {
+            "nll_sum": 369069.97517949966,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4701933004541186
+          },
+          "math": {
+            "nll_sum": 577321.433598086,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.296626727868334
+          }
+        },
+        "weighted_nll": 2.6180139734448495,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "recipe": {
+        "optimizer_betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decays": [
+          0.01
+        ],
+        "schedule": {
+          "peak": 0.001,
+          "warmup_tokens": 10467614,
+          "decay_start": 904398582,
+          "decay_end": 1004887590,
+          "floor_ratio": 0.1
+        },
+        "world": 64,
+        "batch": 2,
+        "accumulation": 2,
+        "training_real_targets": 1004887590
+      },
+      "checkpoint_sha256": "1bf8b387e837c996c433b636c7f21b83b8f5efc13350c8222162b300100f95b1",
+      "targets": 754750,
+      "seconds": 304.7359299659729
+    },
+    {
+      "arm": "shared",
+      "seed": 23,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 794022.8881209556,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.1466764212975327
+          },
+          "code": {
+            "nll_sum": 374383.992114757,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4913617308931304
+          },
+          "math": {
+            "nll_sum": 583745.8852229926,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.3221836645330645
+          }
+        },
+        "weighted_nll": 2.6507149318637584,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "recipe": {
+        "optimizer_betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decays": [
+          0.01
+        ],
+        "schedule": {
+          "peak": 0.0003,
+          "warmup_tokens": 10467614,
+          "decay_start": 904398582,
+          "decay_end": 1004887590,
+          "floor_ratio": 0.1
+        },
+        "world": 64,
+        "batch": 2,
+        "accumulation": 2,
+        "training_real_targets": 1004887590
+      },
+      "checkpoint_sha256": "6660d0d6c2697c6933ef4e21ec3c30a6ee7b18010098c2791a9ea3427b5b8e21",
+      "targets": 754750,
+      "seconds": 490.1686701774597
+    },
+    {
+      "arm": "ordinary",
+      "seed": 47,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 785093.7837148086,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.1112907885677035
+          },
+          "code": {
+            "nll_sum": 367855.9384753154,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4653571751959504
+          },
+          "math": {
+            "nll_sum": 577365.6450301809,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2968026041665577
+          }
+        },
+        "weighted_nll": 2.619206429013124,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "recipe": {
+        "optimizer_betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decays": [
+          0.01
+        ],
+        "schedule": {
+          "peak": 0.001,
+          "warmup_tokens": 10467614,
+          "decay_start": 904398582,
+          "decay_end": 1004887590,
+          "floor_ratio": 0.1
+        },
+        "world": 64,
+        "batch": 2,
+        "accumulation": 2,
+        "training_real_targets": 1004887590
+      },
+      "checkpoint_sha256": "ec7d2bb70f7cfd8997db9773abe8ff72c883895029c1533af2548d69d2ff5b01",
+      "targets": 754750,
+      "seconds": 296.6797080039978
+    },
+    {
+      "arm": "shared",
+      "seed": 47,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 793980.3795720048,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.146507961860547
+          },
+          "code": {
+            "nll_sum": 373756.3041560701,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.48886133071512
+          },
+          "math": {
+            "nll_sum": 583322.105676085,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.3204978386178783
+          }
+        },
+        "weighted_nll": 2.6497766109829275,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "recipe": {
+        "optimizer_betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decays": [
+          0.01
+        ],
+        "schedule": {
+          "peak": 0.0003,
+          "warmup_tokens": 10467614,
+          "decay_start": 904398582,
+          "decay_end": 1004887590,
+          "floor_ratio": 0.1
+        },
+        "world": 64,
+        "batch": 2,
+        "accumulation": 2,
+        "training_real_targets": 1004887590
+      },
+      "checkpoint_sha256": "d6ec1bf7c325bb777e3cef7f567822baf7dd8d3f7e2ada86c27ee5c499ae0353",
+      "targets": 754750,
+      "seconds": 394.3078017234802
+    },
+    {
+      "arm": "ordinary",
+      "seed": 71,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 786123.3007037229,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.115370717349112
+          },
+          "code": {
+            "nll_sum": 371141.4375865917,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4784449880956507
+          },
+          "math": {
+            "nll_sum": 578475.683795022,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.3012184192531646
+          }
+        },
+        "weighted_nll": 2.6251551118792302,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "recipe": {
+        "optimizer_betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decays": [
+          0.01
+        ],
+        "schedule": {
+          "peak": 0.001,
+          "warmup_tokens": 10467614,
+          "decay_start": 904398582,
+          "decay_end": 1004887590,
+          "floor_ratio": 0.1
+        },
+        "world": 64,
+        "batch": 2,
+        "accumulation": 2,
+        "training_real_targets": 1004887590
+      },
+      "checkpoint_sha256": "d0a40229b95ed5d1aa19902be261fe5b07fa86113b6d0d953a77736058fc9b0e",
+      "targets": 754750,
+      "seconds": 305.26910066604614
+    },
+    {
+      "arm": "shared",
+      "seed": 71,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 795150.4198453946,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.1511447779968638
+          },
+          "code": {
+            "nll_sum": 375390.1557111046,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.495369791905928
+          },
+          "math": {
+            "nll_sum": 585232.7721893085,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.328098609223196
+          }
+        },
+        "weighted_nll": 2.655380547023943,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "recipe": {
+        "optimizer_betas": [
+          0.9,
+          0.999
+        ],
+        "weight_decays": [
+          0.01
+        ],
+        "schedule": {
+          "peak": 0.0003,
+          "warmup_tokens": 10467614,
+          "decay_start": 904398582,
+          "decay_end": 1004887590,
+          "floor_ratio": 0.1
+        },
+        "world": 64,
+        "batch": 2,
+        "accumulation": 2,
+        "training_real_targets": 1004887590
+      },
+      "checkpoint_sha256": "bc63ff4be086cbd87d6a59e0a07851bcd3b4c1e9517445d7e0808e22aff90d4e",
+      "targets": 754750,
+      "seconds": 438.3691132068634
+    }
+  ],
+  "paired_old_seed_gain": {
+    "mean_gain_nats": -0.031165525177808462,
+    "interval_95": [
+      -0.03449638150594712,
+      -0.027834668849669807
+    ],
+    "paired_seed_gains": {
+      "23": -0.032700958418908854,
+      "47": -0.030570181969803656,
+      "71": -0.030225435144712876
+    },
+    "degrees_of_freedom": 2,
+    "decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE",
+    "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats."
+  },
+  "wall_seconds": 2245.414531469345,
+  "configured_threads": 12,
+  "scope": "Independent FP32 numerical readout on fresh DEV. New recipe needs its own paired seed result; no across-recipe seed pairing or single-hyperparameter causal attribution."
+}
