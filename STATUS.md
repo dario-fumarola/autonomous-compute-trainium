@@ -1,13 +1,20 @@
-# Status — 2026-10-23, 23:05 UTC
+# Status — 2026-10-23, 23:33 UTC
 
 **The first two mixture1B endpoints are complete.** Fresh DEV NLL is
 2.587427 for seed103 and2.590665 for seed211, after the planned decay.
 Their earlier100M/301M stable scores were3.808420/3.013947 and
-3.814483/3.019806. Independent full-panel FP32 auditing is underway.
+3.814483/3.019806. Both endpoints have passed independent whole-DEV FP32
+audits and full optimizer-state copy/readback: CPU-minus-native deltas are
+-0.00001469 and-0.00000106 nats. Ten model audits remain pending.
+[Partial audit](results/variable_depth_20261023/partial-independent-cpu-verification.json).
 Ordinary/fixed main curves are still pending, so this is learning evidence,
 not an architecture comparison. Mixture307 and ordinary103 are now running
 on disjoint eight-chip halves; all16 chips remain assigned.
 No primary comparison or new TEST result has been reported.
+At301M stable targets, ordinary103 scores3.024108 versus mixture103
+3.013947: a0.010160-nat equal-data gain in one pair, with additional compute.
+Mixture307 scores3.015378 after its worse100M point3.868176. These are
+development curves, not a three-seed or matched-compute claim.
 Selected peaks remain6e-4 ordinary,1e-3 fixed and6e-4 mixture, frozen after all
 twelve300M-target trials. Fixed is an upper-grid winner, only0.002882 better
 than6e-4; its optimum is not bracketed.
@@ -35,7 +42,7 @@ global batch and per-arm four-LR selection budget. Mixed depths have mean two
 and exactly match fixed-depth estimated neural training work. No pass signal,
 separate norms, teacher, synthetic examples or RL is added.
 
-The **69-test CPU suite passes**. Added tests cover the separate future
+The **71-test CPU suite passes**. Added tests cover the separate future
 five-seed confirmation helper, source exclusions for a longer natural stream,
 and a prospective topology resize; the running trainer, analysis and all30
 frozen scientific source hashes are unchanged. No terminal confirmation
@@ -62,13 +69,22 @@ include setup/probe/checkpoint overhead but exclude separate DEV scoring;
 they are serial job-time ratios, not summed node throughput.
 [Timing receipts](results/variable_depth_20261023/tuning-timing.json).
 
-A separate20-worker CPU job is preparing another3.25B natural TRAIN targets
-for future longer runs, preserving the current3.25B packed prefix. It rebuilt
-duplicate sketches for2,838,062 prior and fresh-panel documents before
-acceptance. Its23:55 deadline, input/source hashes and quotas are
-[frozen separately](results/future_natural_extension_20261023/plan.json).
-It changes no running data stream or model. This is preparation in progress,
-not a completed corpus or a newly launched scientific run.
+A separate20-worker CPU job completed a **6,500,009,163-target natural
+stream** for future longer runs. It rebuilt duplicate sketches for2,838,062
+prior and fresh-panel documents. An independent full-array/SQLite audit
+verified the entire old prefix, masks, vocabulary, checksums and zero exact-ID
+or protected-group overlap. Preparation took30.88 minutes; the independent
+audit took76 seconds. It changes no running data stream or model, and model-
+source migration is not yet qualified.
+[Data manifest](results/future_natural_extension_20261023/manifest.json) ·
+[Independent audit](results/future_natural_extension_20261023/independent-audit.json).
+
+A separate35-minute, at-most-eight-attempt topology qualification is prepared
+to wait for successful scientific and read-only annex completion. It compares
+32 ranks/batch4 with16 ranks/batch8 at the same source/depth assignments,
+global batch, parameters and NN work. No native benchmark has launched yet.
+It requires numerical/replica/recovery checks and100 warm updates per full
+job; any speedup is a software result, not a learning result.
 
 Fresh TUNE/DEV/TEST each retain at least250k natural targets/domain after
 reconstructing all2,836,362 previous accepted documents' duplicate sketches

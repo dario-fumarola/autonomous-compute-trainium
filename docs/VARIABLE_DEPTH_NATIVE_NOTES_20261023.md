@@ -82,3 +82,30 @@ speedup is assumed. Require full-size CPU agreement at each active depth,
 global-gradient normalization, replica equality, full optimizer recovery and
 100 warm updates before considering future use. Preserve the running32-rank
 campaign and count every qualification attempt separately.
+
+The queued `scripts.qualify_depth_topology` controller implements a separate
+35-minute, at-most-eight-attempt benchmark. It waits for successful primary
+completion, terminal read-only annex completion and no live training/scoring
+workers. It does not take an idle half from an unfinished scientific fit.
+Tiny32/16-rank mixed-depth global-gradient checks precede fresh paired150M
+ordinary/mixed benchmarks in both layouts, then full16-rank optimizer restores.
+Each full benchmark measures100 warm updates; every active depth must meet
+the same0.01 loss/relative-gradient qualification limits, with finite values
+and identical replicas. Source-window exposure, estimated NN work and initial
+weights must match across layouts. Cold setup and failed work count separately.
+
+Promote the candidate only if actual joint pair throughput improves at least
+10% and neither arm loses more than5%. This is a bounded engineering decision,
+not a scientific learning result. Native core shape changes can alter floating
+point trajectories; no cross-layout bit-identical trajectory is claimed. The
+existing native cache symlinks already point to private instance NVMe; no
+cache relocation or environment replacement is part of this benchmark.
+
+The live scientific controller's `--resume` has narrower operational scope
+than model/optimizer recovery. It recomputes the whole original budget before
+reusing stages, cannot reuse a failed occupied launch identity, and reconstructs
+its frozen module inventory by glob. Newly added unused modules therefore
+also prevent a direct restart against the earlier inventory. The current
+controller is live. If recovery becomes necessary, preserve the old receipts
+and tensor states and make an explicit orchestration-only recovery amendment;
+do not silently restart completed fits or change frozen models/analyses.

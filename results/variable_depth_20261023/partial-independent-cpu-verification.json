@@ -1,0 +1,95 @@
+{
+  "status": "PARTIAL_INDEPENDENT_CPU_VERIFICATION",
+  "updated_unix": 1792798282.3318348,
+  "completed_models": 2,
+  "required_primary_models": 12,
+  "records": [
+    {
+      "identity": "vdepth-v1-mixture-s211-u3840",
+      "arm": "mixture",
+      "seed": 211,
+      "endpoint": "1B",
+      "depth": 2,
+      "training_real_targets": 1004887590,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 777067.5100180216,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0794830326825697
+          },
+          "code": {
+            "nll_sum": 363463.3310385728,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.447859187119616
+          },
+          "math": {
+            "nll_sum": 569876.6786624267,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2670109502916986
+          }
+        },
+        "weighted_nll": 2.590663847091805,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": -1.0622072075250344e-06,
+      "checkpoint_sha256": "33a09bf1e04a5a08e6b8530d06451e03fe413cb7769e8a6bfa40966128af8d2b",
+      "full_state_serialized_digest": "8da85491dde668c5406d94ab916c63c79a717c18b157d98e454d226e61512821",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 754750,
+      "active_seconds": 470.32582354545593
+    },
+    {
+      "identity": "vdepth-v1-mixture-s103-u3840",
+      "arm": "mixture",
+      "seed": 103,
+      "endpoint": "1B",
+      "depth": 2,
+      "training_real_targets": 1004887590,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 776190.4151425348,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0760071457714675
+          },
+          "code": {
+            "nll_sum": 362608.75888243504,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4444549918634255
+          },
+          "math": {
+            "nll_sum": 569267.422972339,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.264587286764709
+          }
+        },
+        "weighted_nll": 2.5874127431885072,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": -1.4685076139553388e-05,
+      "checkpoint_sha256": "eb233fe7efc3c435c28b22d2ff9fafc9766d68c73a8cb9f866e49b704779c823",
+      "full_state_serialized_digest": "958b27224b620b64729b770efaffeb03d4da0ce27ce5f182001b1eac520bc65f",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 754750,
+      "active_seconds": 503.62346720695496
+    }
+  ],
+  "scope": "Only completed whole-DEV FP32 audits and copied-state readbacks. Remaining model audits are still pending."
+}
