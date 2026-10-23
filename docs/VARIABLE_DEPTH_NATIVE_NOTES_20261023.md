@@ -64,3 +64,21 @@ Its FP32 loss4.144055 differs from native4.144054 by about1.4e-6. This shows
 precision sensitivity at that state; it does not directly measure native-to-
 FP32 gradient error, because the native gradient vector was not retained.
 [Calibration](../results/variable_depth_20261023/cpu-precision-calibration.json).
+
+## Prospective topology qualification
+
+`depth_topology.resize_depth_signature` and its CPU tests establish a useful
+invariant:32 ranks with local batch4 and16 ranks with local batch8 assign
+every original window to the same recurrent depth, with the same two
+microbatches, routing and accumulated objective. The numerical fixture also
+reproduces the global masked gradient. A matching global batch alone is
+insufficient:64 ranks/batch2 and8 ranks/batch16 change the mixture and are
+rejected. No active scientific signature or tensor state is resized.
+
+After the current science and read-only annex finish, a separate bounded
+performance qualification can compare the16-rank layout on the same eight
+physical chips per job. It uses fewer logical cores and may be slower; no
+speedup is assumed. Require full-size CPU agreement at each active depth,
+global-gradient normalization, replica equality, full optimizer recovery and
+100 warm updates before considering future use. Preserve the running32-rank
+campaign and count every qualification attempt separately.

@@ -91,6 +91,13 @@ smaller shared fraction is a possible controlled follow-up, not a claimed
 reproduction or a demonstrated fix.
 [Huginn paper](https://arxiv.org/html/2502.05171v2).
 
+That paper also synchronizes sampled depths across workers to avoid waiting
+for the deepest worker. Our static heterogeneous depths avoid retaining three
+training graphs per rank in the native beta, at a measured wall-time cost.
+Locked-step sampling is a possible later optimization, but it changes
+per-update depth composition and needs new qualification; it is not a
+drop-in change to this frozen comparison.
+
 DeepLoop reports natural FineWeb-Edu pretraining for50B tokens. Its main loss
 table has single training seeds, compares residual parameterizations, and
 does not establish our desired resource-matched result. Its initialization

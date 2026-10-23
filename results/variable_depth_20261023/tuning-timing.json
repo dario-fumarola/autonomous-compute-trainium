@@ -1,0 +1,138 @@
+{
+  "status": "COMPLETE_TWELVE_TRIAL_TIMING_READOUT",
+  "collected_unix": 1792796425.2267222,
+  "by_arm": {
+    "ordinary": {
+      "trials": 4,
+      "serial_job_real_targets_per_second": 664942.2259783986,
+      "warm_training_targets_per_second": 863081.289509092,
+      "warm_fraction_of_launch_wall": 0.7677532924185471,
+      "launch_to_closure_job_seconds": 1813.486322402954
+    },
+    "fixed": {
+      "trials": 4,
+      "serial_job_real_targets_per_second": 451797.6416008847,
+      "warm_training_targets_per_second": 564737.3050828326,
+      "warm_fraction_of_launch_wall": 0.7972361053767826,
+      "launch_to_closure_job_seconds": 2669.0348088741302
+    },
+    "mixture": {
+      "trials": 4,
+      "serial_job_real_targets_per_second": 350624.4262304951,
+      "warm_training_targets_per_second": 432993.26570171886,
+      "warm_fraction_of_launch_wall": 0.8069572028279217,
+      "launch_to_closure_job_seconds": 3439.1888921260834
+    }
+  },
+  "trials": [
+    {
+      "identity": "vdepth-v1-tune-fixed-lr1000",
+      "arm": "fixed",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 542.5926370329689,
+      "launch_to_closure_seconds": 683.4852917194366,
+      "cold_probe_and_setup_seconds": 100.9132764179958
+    },
+    {
+      "identity": "vdepth-v1-tune-fixed-lr150",
+      "arm": "fixed",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 529.260650447919,
+      "launch_to_closure_seconds": 664.6254124641418,
+      "cold_probe_and_setup_seconds": 93.4411392249167
+    },
+    {
+      "identity": "vdepth-v1-tune-fixed-lr300",
+      "arm": "fixed",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 527.4491882340517,
+      "launch_to_closure_seconds": 659.336266040802,
+      "cold_probe_and_setup_seconds": 91.95021687995177
+    },
+    {
+      "identity": "vdepth-v1-tune-fixed-lr600",
+      "arm": "fixed",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 528.5484404269373,
+      "launch_to_closure_seconds": 661.5878386497498,
+      "cold_probe_and_setup_seconds": 88.51317591092084
+    },
+    {
+      "identity": "vdepth-v1-tune-mixture-lr1000",
+      "arm": "mixture",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 697.6291203649016,
+      "launch_to_closure_seconds": 867.4621794223785,
+      "cold_probe_and_setup_seconds": 128.1954539779108
+    },
+    {
+      "identity": "vdepth-v1-tune-mixture-lr150",
+      "arm": "mixture",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 690.8653566610301,
+      "launch_to_closure_seconds": 854.3315238952637,
+      "cold_probe_and_setup_seconds": 119.43325715500396
+    },
+    {
+      "identity": "vdepth-v1-tune-mixture-lr300",
+      "arm": "mixture",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 690.4402691479772,
+      "launch_to_closure_seconds": 856.8023715019226,
+      "cold_probe_and_setup_seconds": 121.4016767879948
+    },
+    {
+      "identity": "vdepth-v1-tune-mixture-lr600",
+      "arm": "mixture",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 696.3435022130143,
+      "launch_to_closure_seconds": 860.5928173065186,
+      "cold_probe_and_setup_seconds": 119.72555974812713
+    },
+    {
+      "identity": "vdepth-v1-tune-ordinary-lr1000",
+      "arm": "ordinary",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 354.8339062819723,
+      "launch_to_closure_seconds": 465.98626041412354,
+      "cold_probe_and_setup_seconds": 69.2977783230599
+    },
+    {
+      "identity": "vdepth-v1-tune-ordinary-lr150",
+      "arm": "ordinary",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 346.0456559279701,
+      "launch_to_closure_seconds": 450.06392192840576,
+      "cold_probe_and_setup_seconds": 65.29178525798488
+    },
+    {
+      "identity": "vdepth-v1-tune-ordinary-lr300",
+      "arm": "ordinary",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 346.36830974696204,
+      "launch_to_closure_seconds": 450.8073568344116,
+      "cold_probe_and_setup_seconds": 64.9461501360638
+    },
+    {
+      "identity": "vdepth-v1-tune-ordinary-lr600",
+      "arm": "ordinary",
+      "real_targets": 301465908,
+      "warm_real_targets": 300419198,
+      "warm_seconds": 345.0622228239663,
+      "launch_to_closure_seconds": 446.6287832260132,
+      "cold_probe_and_setup_seconds": 64.81900153309107
+    }
+  ],
+  "scope": "All four completed300M-target LR trials per arm. Serial job-time ratios, not summed node throughput; jobs overlap on disjoint eight-chip halves. Warm excludes four timing warmup updates. Remaining launch wall includes CPU probes/setup, early updates, final state checks/checkpoint and launcher overhead; compilation is not isolated. Separate DEV scoring is not included in these training-only rates."
+}

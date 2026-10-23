@@ -1,8 +1,8 @@
 {
   "status": "PARTIAL_VARIABLE_DEPTH_RECEIPTS",
-  "collected_unix": 1792795268.359843,
-  "declared_task_window_through_collection_hours": 2.4356555119487973,
-  "declared_task_window_through_collection_opportunity_chip_hours": 38.970488191180756,
+  "collected_unix": 1792796792.0078785,
+  "declared_task_window_through_collection_hours": 2.8588910773727627,
+  "declared_task_window_through_collection_opportunity_chip_hours": 45.7422572379642,
   "cpu_only_jobs": [
     {
       "identity": "old_recipe_fresh_dev",
@@ -19,7 +19,7 @@
       "active_scoring_and_recovery_seconds": 23.045767307281494
     }
   ],
-  "closed_native_attempts": 51,
+  "closed_native_attempts": 57,
   "runs": [
     {
       "identity": "vdepth-q-150m-fixed-004",
@@ -314,6 +314,20 @@
       "real_scored_targets": 754750
     },
     {
+      "identity": "vdepth-v1-mixture-s103-u3456",
+      "module": "scripts.train_variable_depth",
+      "started_unix": 1792794552.7237935,
+      "wall_seconds": 1556.1190803050995,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 3.458042400677999,
+      "exit_code": 0,
+      "report_exists": true,
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "known_optimizer_update_matmul_flops": 1115036731960197120,
+      "known_numerical_probe_matmul_flops": 241978457456640,
+      "real_training_targets": 602932674
+    },
+    {
       "identity": "vdepth-v1-mixture-s103-u384",
       "module": "scripts.train_variable_depth",
       "started_unix": 1792793335.3005528,
@@ -334,6 +348,33 @@
       "wall_seconds": 78.80641794204712,
       "assigned_chips": 8,
       "assigned_chip_hours": 0.17512537320454916,
+      "exit_code": 0,
+      "report_exists": true,
+      "status": "PASS_DEPTH_MATRIX_READOUT",
+      "known_readout_matmul_flops": 666701062471680,
+      "real_scored_targets": 754750
+    },
+    {
+      "identity": "vdepth-v1-mixture-s103-u3840",
+      "module": "scripts.train_variable_depth",
+      "started_unix": 1792796110.361699,
+      "wall_seconds": 395.8518123626709,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.8796706941392687,
+      "exit_code": 0,
+      "report_exists": true,
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "known_optimizer_update_matmul_flops": 185839455326699520,
+      "known_numerical_probe_matmul_flops": 241978457456640,
+      "real_training_targets": 100489008
+    },
+    {
+      "identity": "vdepth-v1-mixture-s103-u3840-dev-r2",
+      "module": "scripts.evaluate_depth_curve",
+      "started_unix": 1792796506.8181176,
+      "wall_seconds": 79.0165023803711,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.17559222751193576,
       "exit_code": 0,
       "report_exists": true,
       "status": "PASS_DEPTH_MATRIX_READOUT",
@@ -368,6 +409,20 @@
       "real_scored_targets": 754750
     },
     {
+      "identity": "vdepth-v1-mixture-s211-u3456",
+      "module": "scripts.train_variable_depth",
+      "started_unix": 1792794554.7256672,
+      "wall_seconds": 1553.5904624462128,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 3.4524232498804728,
+      "exit_code": 0,
+      "report_exists": true,
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "known_optimizer_update_matmul_flops": 1115036731960197120,
+      "known_numerical_probe_matmul_flops": 241978457456640,
+      "real_training_targets": 602932674
+    },
+    {
       "identity": "vdepth-v1-mixture-s211-u384",
       "module": "scripts.train_variable_depth",
       "started_unix": 1792793335.3068166,
@@ -388,6 +443,33 @@
       "wall_seconds": 76.38364434242249,
       "assigned_chips": 8,
       "assigned_chip_hours": 0.16974143187204996,
+      "exit_code": 0,
+      "report_exists": true,
+      "status": "PASS_DEPTH_MATRIX_READOUT",
+      "known_readout_matmul_flops": 666701062471680,
+      "real_scored_targets": 754750
+    },
+    {
+      "identity": "vdepth-v1-mixture-s211-u3840",
+      "module": "scripts.train_variable_depth",
+      "started_unix": 1792796110.3442545,
+      "wall_seconds": 393.0183403491974,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.8733740896648831,
+      "exit_code": 0,
+      "report_exists": true,
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "known_optimizer_update_matmul_flops": 185839455326699520,
+      "known_numerical_probe_matmul_flops": 241978457456640,
+      "real_training_targets": 100489008
+    },
+    {
+      "identity": "vdepth-v1-mixture-s211-u3840-dev-r2",
+      "module": "scripts.evaluate_depth_curve",
+      "started_unix": 1792796504.8368733,
+      "wall_seconds": 79.31976628303528,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.17626614729563395,
       "exit_code": 0,
       "report_exists": true,
       "status": "PASS_DEPTH_MATRIX_READOUT",
@@ -720,18 +802,18 @@
     }
   ],
   "missing_closures": [
-    "vdepth-v1-mixture-s103-u3456",
-    "vdepth-v1-mixture-s211-u3456"
+    "vdepth-v1-mixture-s307-u384",
+    "vdepth-v1-ordinary-s103-u384"
   ],
-  "assigned_chip_hours": 30.056199836995866,
-  "accelerator_active_union_hours": 1.9588556674453947,
-  "active_node_opportunity_chip_hours": 31.341690679126316,
-  "observed_native_launch_span_hours": 2.108864691985978,
-  "declared_window_through_last_closed_launch_hours": 2.2370928465657762,
-  "declared_window_through_last_closed_launch_opportunity_chip_hours": 35.79348554505242,
-  "known_optimizer_update_matmul_flops": 7032670160179691520,
-  "known_numerical_probe_matmul_flops": 4653768863907840,
-  "known_readout_matmul_flops": 9446018210856960,
+  "assigned_chip_hours": 39.07156864616606,
+  "accelerator_active_union_hours": 2.522966498467657,
+  "active_node_opportunity_chip_hours": 40.367463975482515,
+  "observed_native_launch_span_hours": 2.673392573197683,
+  "declared_window_through_last_closed_launch_hours": 2.801620727777481,
+  "declared_window_through_last_closed_launch_opportunity_chip_hours": 44.8259316444397,
+  "known_optimizer_update_matmul_flops": 9634422534753484800,
+  "known_numerical_probe_matmul_flops": 5621682693734400,
+  "known_readout_matmul_flops": 10779420335800320,
   "unquantified_failed_nn_work": [],
   "fresh_panel_preparation_seconds": 530.9271297269734,
   "fresh_panel_configured_workers": 20,

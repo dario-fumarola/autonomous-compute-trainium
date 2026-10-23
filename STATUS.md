@@ -1,11 +1,13 @@
-# Status — 2026-10-23, 22:42 UTC
+# Status — 2026-10-23, 23:05 UTC
 
-**The three-seed main campaign is running; the first two mixture runs have
-completed their100M and301M stable DEV points.** Seed103 scores3.808420 then
-3.013947; seed211 scores3.814483 then3.019806. Ordinary/fixed main curves are
-still pending, so this is learning evidence, not an architecture comparison.
-Both active jobs have now passed539M real targets, on disjoint eight-chip
-halves. No primary endpoint or new TEST result has been reported.
+**The first two mixture1B endpoints are complete.** Fresh DEV NLL is
+2.587427 for seed103 and2.590665 for seed211, after the planned decay.
+Their earlier100M/301M stable scores were3.808420/3.013947 and
+3.814483/3.019806. Independent full-panel FP32 auditing is underway.
+Ordinary/fixed main curves are still pending, so this is learning evidence,
+not an architecture comparison. Mixture307 and ordinary103 are now running
+on disjoint eight-chip halves; all16 chips remain assigned.
+No primary comparison or new TEST result has been reported.
 Selected peaks remain6e-4 ordinary,1e-3 fixed and6e-4 mixture, frozen after all
 twelve300M-target trials. Fixed is an upper-grid winner, only0.002882 better
 than6e-4; its optimum is not bracketed.
@@ -33,8 +35,9 @@ global batch and per-arm four-LR selection budget. Mixed depths have mean two
 and exactly match fixed-depth estimated neural training work. No pass signal,
 separate norms, teacher, synthetic examples or RL is added.
 
-The **64-test CPU suite passes**. The four added tests cover the separate
-future five-seed confirmation helper; the running trainer, analysis and all30
+The **69-test CPU suite passes**. Added tests cover the separate future
+five-seed confirmation helper, source exclusions for a longer natural stream,
+and a prospective topology resize; the running trainer, analysis and all30
 frozen scientific source hashes are unchanged. No terminal confirmation
 attempt has been registered. Native global-gradient relative errors are
 0.00145 mixed /0.00155 fixed. Full-size CPU loss/gradient checks pass at each
@@ -52,6 +55,20 @@ cost despite equal estimated work. The qualification-based primary budget is
 the longer one-seed diagnostic has a separate time-only launch gate.
 The persistent queue and independent liveness/deadline monitor are running.
 Training cutoff is October24 **03:00 UTC**, hard campaign deadline **04:15 UTC**.
+
+All twelve completed LR trials also provide training-only launch-to-closure
+rates of665k ordinary /452k fixed /351k mixture targets/sec per job. These
+include setup/probe/checkpoint overhead but exclude separate DEV scoring;
+they are serial job-time ratios, not summed node throughput.
+[Timing receipts](results/variable_depth_20261023/tuning-timing.json).
+
+A separate20-worker CPU job is preparing another3.25B natural TRAIN targets
+for future longer runs, preserving the current3.25B packed prefix. It rebuilt
+duplicate sketches for2,838,062 prior and fresh-panel documents before
+acceptance. Its23:55 deadline, input/source hashes and quotas are
+[frozen separately](results/future_natural_extension_20261023/plan.json).
+It changes no running data stream or model. This is preparation in progress,
+not a completed corpus or a newly launched scientific run.
 
 Fresh TUNE/DEV/TEST each retain at least250k natural targets/domain after
 reconstructing all2,836,362 previous accepted documents' duplicate sketches

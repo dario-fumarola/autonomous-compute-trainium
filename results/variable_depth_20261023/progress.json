@@ -1,26 +1,21 @@
 {
-  "updated_unix": 1792795267.1449928,
+  "updated_unix": 1792796713.4009502,
   "status": "RUNNING",
   "active_phases": [
     {
-      "identity": "vdepth-v1-mixture-s103-u3456",
+      "identity": "vdepth-v1-mixture-s307-u384",
       "assigned_chips": 8,
-      "module": "scripts.train_variable_depth",
-      "update": 2062,
-      "real_tokens": 539604262,
-      "lr": 0.0006,
-      "gradient_norm": 0.20590397715568542,
-      "elapsed_seconds": 687.1675583010074
+      "module": "scripts.train_variable_depth"
     },
     {
-      "identity": "vdepth-v1-mixture-s211-u3456",
+      "identity": "vdepth-v1-ordinary-s103-u384",
       "assigned_chips": 8,
       "module": "scripts.train_variable_depth",
-      "update": 2062,
-      "real_tokens": 539604262,
-      "lr": 0.0006,
-      "gradient_norm": 0.20561322569847107,
-      "elapsed_seconds": 687.1420901550446
+      "update": 40,
+      "real_tokens": 10467614,
+      "lr": 0.00025000536985225616,
+      "gradient_norm": 1.1508674621582031,
+      "elapsed_seconds": 98.6662801069906
     }
   ],
   "completed_tuning_trials": [
@@ -167,6 +162,40 @@
       }
     },
     {
+      "identity": "vdepth-v1-mixture-s103-u3840-dev-r2",
+      "training_real_targets": 1004887590,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 776194.9958381653,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.076025298858928
+          },
+          "code": {
+            "nll_sum": 362610.5272254944,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4444620360726368
+          },
+          "math": {
+            "nll_sum": 569270.419878006,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.264599208673814
+          }
+        },
+        "weighted_nll": 2.587427428264647,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
       "identity": "vdepth-v1-mixture-s211-u1152-dev-r2",
       "training_real_targets": 301465908,
       "depth": 2,
@@ -226,6 +255,40 @@
           }
         },
         "weighted_nll": 3.8144826944630132,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
+      "identity": "vdepth-v1-mixture-s211-u3840-dev-r2",
+      "training_real_targets": 1004887590,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 777070.6219711304,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0794953652105335
+          },
+          "code": {
+            "nll_sum": 363455.13540649414,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4478265397514058
+          },
+          "math": {
+            "nll_sum": 569876.9201915264,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.267011911112056
+          }
+        },
+        "weighted_nll": 2.5906649092990124,
         "weights": {
           "web": 0.6,
           "math": 0.2,
