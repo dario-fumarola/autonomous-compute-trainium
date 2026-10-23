@@ -1,5 +1,5 @@
 {
-  "status": "PARTIAL_READOUT",
+  "status": "COMPLETE_SHARING_AND_EXPOSURE_READOUT",
   "rows": [
     {
       "arm": "ordinary",
@@ -87,6 +87,186 @@
         }
       },
       "training_matmul_flops": 1858394553266995200
+    },
+    {
+      "arm": "ordinary",
+      "seed": 23,
+      "endpoint": "stable",
+      "update": 7680,
+      "real_targets": 2009762680,
+      "nll": 2.463624421033698,
+      "domains": {
+        "web": {
+          "nll_sum": 763872.8258709908,
+          "real_targets": 260643,
+          "documents": 251,
+          "nll": 2.930724500067106
+        },
+        "math": {
+          "nll_sum": 570234.1255950928,
+          "real_targets": 257227,
+          "documents": 241,
+          "nll": 2.216851751935422
+        },
+        "code": {
+          "nll_sum": 339681.8332309723,
+          "real_targets": 259478,
+          "documents": 122,
+          "nll": 1.3090968530317495
+        }
+      },
+      "parameters": 150436608,
+      "training_matmul_flops": 2196824232296448000
+    },
+    {
+      "arm": "recurrent",
+      "seed": 23,
+      "endpoint": "stable",
+      "update": 7680,
+      "real_targets": 2009762680,
+      "nll": 2.462958665354404,
+      "domains": {
+        "web": {
+          "nll_sum": 764825.9467344284,
+          "real_targets": 260643,
+          "documents": 251,
+          "nll": 2.934381305979552
+        },
+        "math": {
+          "nll_sum": 567060.278251648,
+          "real_targets": 257227,
+          "documents": 241,
+          "nll": 2.2045130497640137
+        },
+        "code": {
+          "nll_sum": 339173.1281785965,
+          "real_targets": 259478,
+          "documents": 122,
+          "nll": 1.3071363590693488
+        }
+      },
+      "parameters": 150436608,
+      "training_matmul_flops": 3716789106533990400
+    },
+    {
+      "arm": "ordinary",
+      "seed": 23,
+      "endpoint": "stable",
+      "update": 10368,
+      "real_targets": 2713176594,
+      "nll": 2.4207391000852416,
+      "domains": {
+        "web": {
+          "nll_sum": 752093.8708324432,
+          "real_targets": 260643,
+          "documents": 251,
+          "nll": 2.885532589912038
+        },
+        "math": {
+          "nll_sum": 559535.3706169128,
+          "real_targets": 257227,
+          "documents": 241,
+          "nll": 2.1752590926182434
+        },
+        "code": {
+          "nll_sum": 330014.14612960815,
+          "real_targets": 259478,
+          "documents": 122,
+          "nll": 1.2718386380718525
+        }
+      },
+      "parameters": 150436608,
+      "training_matmul_flops": 2965712713600204800
+    },
+    {
+      "arm": "recurrent",
+      "seed": 23,
+      "endpoint": "stable",
+      "update": 10368,
+      "real_targets": 2713176594,
+      "nll": 2.408606327058976,
+      "domains": {
+        "web": {
+          "nll_sum": 749203.5595884323,
+          "real_targets": 260643,
+          "documents": 251,
+          "nll": 2.874443432543488
+        },
+        "math": {
+          "nll_sum": 554727.255947113,
+          "real_targets": 257227,
+          "documents": 241,
+          "nll": 2.156566985375225
+        },
+        "code": {
+          "nll_sum": 327755.575463295,
+          "real_targets": 259478,
+          "documents": 122,
+          "nll": 1.263134352289192
+        }
+      },
+      "parameters": 150436608,
+      "training_matmul_flops": 5017665293820887040
+    },
+    {
+      "arm": "ordinary",
+      "seed": 23,
+      "endpoint": "3B",
+      "update": 11520,
+      "real_targets": 3014637826,
+      "nll": 2.3369141104962963,
+      "domains": {
+        "web": {
+          "nll_sum": 727921.3785934448,
+          "real_targets": 260643,
+          "documents": 251,
+          "nll": 2.792790823438361
+        },
+        "math": {
+          "nll_sum": 540550.8032665253,
+          "real_targets": 257227,
+          "documents": 241,
+          "nll": 2.10145437013426
+        },
+        "code": {
+          "nll_sum": 312604.48891067505,
+          "real_targets": 259478,
+          "documents": 122,
+          "nll": 1.2047437120321378
+        }
+      },
+      "parameters": 150436608,
+      "training_matmul_flops": 3295236348444672000
+    },
+    {
+      "arm": "recurrent",
+      "seed": 23,
+      "endpoint": "3B",
+      "update": 11520,
+      "real_targets": 3014637826,
+      "nll": 2.3367999905595727,
+      "domains": {
+        "web": {
+          "nll_sum": 728409.3785791397,
+          "real_targets": 260643,
+          "documents": 251,
+          "nll": 2.7946631161364
+        },
+        "math": {
+          "nll_sum": 538951.3380203247,
+          "real_targets": 257227,
+          "documents": 241,
+          "nll": 2.0952362622132386
+        },
+        "code": {
+          "nll_sum": 312612.43675899506,
+          "real_targets": 259478,
+          "documents": 122,
+          "nll": 1.2047743421754256
+        }
+      },
+      "parameters": 150436608,
+      "training_matmul_flops": 5575183659800985600
     }
   ],
   "contrasts": {
@@ -105,6 +285,16 @@
       "interval_95": [
         0.057376212744025865,
         0.06315195316741337
+      ],
+      "source_groups": 360,
+      "accepted_draws": 2000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    "ordinary_to_shared_3b": {
+      "gain_nats": 0.0001141199367236112,
+      "interval_95": [
+        -0.0023811773722417938,
+        0.002077336731248351
       ],
       "source_groups": 360,
       "accepted_draws": 2000,

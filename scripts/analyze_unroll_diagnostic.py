@@ -38,6 +38,13 @@ def main():
   'application_gradients':json.loads((a.root/'mechanism-states-v1/application-gradients.json').read_text()),
   'state_probe_specification':state['specification'],'scope':'Exploratory fixed DEV readouts, unchanged weights and positions. Seed and source-group intervals are separate; no inference claim from an untrained path alone.'}
  result['document_boundaries']=json.loads((a.root/'document-boundary-v1/report.json').read_text())
+ history_path=a.root/'unroll-development-v1/report.json'
+ if history_path.exists():
+  history=json.loads(history_path.read_text())
+  if history['status']!='COMPLETE_FIXED_PREFIX_UNROLL_DEVELOPMENT':raise ValueError('Incomplete historical unroll readout')
+  result['unroll_development']={'rows':history['rows'],'seed':23,'prefixes':12,'real_targets_per_prefix':512,
+   'cpu_seconds':history['elapsed_seconds'],
+   'scope':'Fixed small DEV prefix panel, not full DEV. Truncated one-pass readout is outside the two-pass training configuration. Shows learned dependence, not a reusable iterative algorithm or an advantage over ordinary.'}
  (a.output/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
  (a.output/'state-probes.json').write_text(json.dumps(state,indent=2)+'\n')
  text='''# Same-weight recurrence diagnostic
@@ -86,6 +93,15 @@ selection or TEST scoring is part of these measurements.
  text+=f'\nOn the three inspected TRAIN prefixes, aggregate application-gradient cosine is {g["mean_gradient_cosine"]:.3f}. Residual RMS rises from approximately 1.44 after the first core pass to 2.74 after the second, with substantial centered token variation in both. These summaries provide no evidence of gross token-state collapse; they do not establish a causal optimization explanation.\n'
  boundary=result['document_boundaries']['aggregate'];vals={(r['arm'],r['mode']):r['nll'] for r in boundary}
  text+=f'\nA separate fixed 32-window TRAIN attention intervention retains all tokens, positions and targets. Blocking attention across document boundaries changes ordinary NLL from {vals["ordinary","packed"]:.6f} to {vals["ordinary","document_masked"]:.6f}, and recurrent NLL from {vals["recurrent","packed"]:.6f} to {vals["recurrent","document_masked"]:.6f}. The recurrent deficit remains in both modes. This limited sample does not support boundary context as the sole explanation of the loss. [Boundary protocol](../../docs/DOCUMENT_BOUNDARY_DIAGNOSTIC.md).\n'
+ if 'unroll_development' in result:
+  history=result['unroll_development']['rows']
+  text+='\nA historical read-only check uses the same twelve fixed DEV prefixes (512 real targets each), seed23 only. These are not full-panel scores.\n\n| Training real targets | One-pass NLL | Trained two-pass NLL | Difference |\n| ---: | ---: | ---: | ---: |\n'
+  for update in [384,1152,3456,3840]:
+   first=next(r for r in history if r['update']==update and r['passes']==1)
+   second=next(r for r in history if r['update']==update and r['passes']==2)
+   text+=f"| {first['real_targets']:,} | {first['nll']:.6f} | {second['nll']:.6f} | {first['nll']-second['nll']:.6f} |\n"
+  text+='\nDependence on the second pass is already present at100M targets and grows on this panel. One pass remains an intervention outside training; this does not establish monotonic refinement, better ordinary prediction or seed robustness. The904M checkpoint is stable; the1B branch is annealed.\n'
+  text=text.replace('at100M','at 100M').replace('The904M','The 904M').replace('the1B','the 1B')
  (a.output/'REPORT.md').write_text(text)
  print(json.dumps({'cells':cells,'contrasts':{k:{'mean':v['mean_gain_nats'],'interval':v['interval_95']} for k,v in contrasts.items()}},indent=2))
 

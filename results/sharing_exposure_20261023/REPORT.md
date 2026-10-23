@@ -13,6 +13,12 @@ three-candidate LR selection. No teacher, synthetic research corpus or RL.
 | ordinary | 1B | 1,004,887,590 | 150,436,608 | 2.518071 |
 | shared | 1B | 1,004,887,590 | 150,436,608 | 2.549316 |
 | untied | 1B | 1,004,887,590 | 251,124,480 | 2.489247 |
+| ordinary | stable | 2,009,762,680 | 150,436,608 | 2.463624 |
+| recurrent | stable | 2,009,762,680 | 150,436,608 | 2.462959 |
+| ordinary | stable | 2,713,176,594 | 150,436,608 | 2.420739 |
+| recurrent | stable | 2,713,176,594 | 150,436,608 | 2.408606 |
+| ordinary | 3B | 3,014,637,826 | 150,436,608 | 2.336914 |
+| recurrent | 3B | 3,014,637,826 | 150,436,608 | 2.336800 |
 
 Positive gain below means the candidate has lower NLL than its reference.
 
@@ -20,6 +26,11 @@ Positive gain below means the candidate has lower NLL than its reference.
 | --- | ---: | ---: |
 | ordinary_to_untied_1b | 0.028824 | [0.026470, 0.031257] |
 | shared_to_untied_1b | 0.060069 | [0.057376, 0.063152] |
+| ordinary_to_shared_3b | 0.000114 | [-0.002381, 0.002077] |
+
+The fully annealed 3B gain is **0.000114 [-0.002381, 0.002077]**, conditional on this one pair. The stable 2.713B checkpoint gain was 0.012133; that intermediate value is not the final endpoint. Both models finish their own decay. Seed variation at 3B is unmeasured.
+
+![Single-seed learning curve; stable points and annealed endpoints shown separately](learning-curve-seed23.png)
 
 All comparisons use identical held-out source targets and the fixed 60/20/20
 web/math/code aggregate. The shared/untied 1B contrast tests the sharing plus

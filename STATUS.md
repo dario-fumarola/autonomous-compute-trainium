@@ -1,11 +1,21 @@
-# Status — 2026-10-23, 16:23 UTC
+# Status — 2026-10-23, 17:10 UTC
 
-**The unchanged seed-23 3B continuation is training on all 16 chips.**
-Both paths have completed the stable 2.010B-target checkpoint: ordinary
-2.463624 NLL, shared recurrence 2.462959. This near tie is one seed at stable
-LR, not the annealed endpoint or a replicated efficiency result. Ordinary has
-also finished training to the 2.713B stable milestone; shared is following.
-The paired annealed 3.015B endpoints and independent FP32 audits remain pending.
+**The paired 3B continuation and its independent CPU audits are complete.**
+At 3,014,637,826 real targets, ordinary scores **2.336914** and shared
+recurrence **2.336800**. Gain is **0.000114 [-0.002381, 0.002077]**, a
+source-group interval conditional on this one pair. The 2.713B stable point
+had a 0.012133 gain; after both models complete decay the endpoints are
+essentially even. This does not support the declared 0.01-nat useful gain.
+It is not a seed-robust 3B result or an efficiency win. The original 1B
+negative remains unchanged. [Completed longer curve](results/sharing_exposure_20261023/REPORT.md)
+· [Learning-curve figure](results/sharing_exposure_20261023/learning-curve-seed23.png).
+
+All three new independent FP32 endpoint audits pass, maximum CPU/native
+difference **0.00002233 nats**. Six full model/Adam/RNG/cursor states have
+checksum-verified on-instance EBS recovery copies. All three generic
+trained-path DEV templates reproduce the scalar NLL exactly. Their 64-rank
+end-to-end times are not a scoring speedup; startup and full-state verification
+are counted. The scientific model, optimizer and evaluator remain fixed.
 
 The original three-seed 1B result is preserved: ordinary **2.519907**, shared
 **2.550448**, ordinary-minus-shared gain **-0.03054 [-0.03220,-0.02888]**.
@@ -32,11 +42,14 @@ keeps all Adam moments and completes its own decay. No new architecture,
 learning-rate search, teacher, synthetic research corpus, RL or halting.
 [Follow-up protocol](docs/CONFIRMATION_FOLLOWUP_20261023.md).
 
-The detached follow-up coordinator waits for the current campaign, independent
-endpoint audits and three trained-path DEV evaluator calibrations. It then
-requires a conservative measured complete budget with protected confirmation
-and reporting reserves. The follow-up lasts at most four hours, with an
-absolute ceiling of **23:30 UTC**. Both fresh seeds have already passed full-size
+The detached follow-up coordinator passed the original campaign, independent
+endpoint audits and all three DEV evaluator calibrations. It is now training
+the ordinary estimated-compute-matched branch on all 16 chips. Untied seeds47
+and71 follow automatically, using the same frozen recipe. The measured complete
+budget is **2.93 hours**, including conservative training margin, fresh-process
+overhead and protected TEST/reporting reserves. The follow-up lasts at most four hours, with an
+absolute ceiling of **23:30 UTC**; the realized four-hour guard ends at
+**21:00:29 UTC**. Both fresh seeds have already passed full-size
 initial-weight/function equality against their paired original controls.
 
 **TEST remains sealed.** The old nine-model postprocessing waiter was explicitly
@@ -54,7 +67,7 @@ original path retained by symlink to make room for recovery states; installed
 environments, drivers and XLA remain unchanged. Copies are on-instance only.
 The post-science fused-optimizer qualification waits until every scientific
 fit and TEST readout is closed; it cannot change completed models. No upstream
-OSS submission has been made. Current CPU suite: **50 tests pass**.
+OSS submission has been made. Current CPU suite: **51 tests pass**.
 
 All earlier results and original protocols remain preserved, including the
 [original primary](results/recurrent_learning_20261023/REPORT.md),

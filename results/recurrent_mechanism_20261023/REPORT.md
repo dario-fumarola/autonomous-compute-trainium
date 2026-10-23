@@ -49,3 +49,14 @@ selection or TEST scoring is part of these measurements.
 On the three inspected TRAIN prefixes, aggregate application-gradient cosine is 0.227. Residual RMS rises from approximately 1.44 after the first core pass to 2.74 after the second, with substantial centered token variation in both. These summaries provide no evidence of gross token-state collapse; they do not establish a causal optimization explanation.
 
 A separate fixed 32-window TRAIN attention intervention retains all tokens, positions and targets. Blocking attention across document boundaries changes ordinary NLL from 2.521323 to 2.522929, and recurrent NLL from 2.548532 to 2.551067. The recurrent deficit remains in both modes. This limited sample does not support boundary context as the sole explanation of the loss. [Boundary protocol](../../docs/DOCUMENT_BOUNDARY_DIAGNOSTIC.md).
+
+A historical read-only check uses the same twelve fixed DEV prefixes (512 real targets each), seed23 only. These are not full-panel scores.
+
+| Training real targets | One-pass NLL | Trained two-pass NLL | Difference |
+| ---: | ---: | ---: | ---: |
+| 100,488,104 | 3.876307 | 3.746497 | 0.129810 |
+| 301,465,908 | 3.029004 | 2.779684 | 0.249320 |
+| 904,398,582 | 2.895916 | 2.476154 | 0.419761 |
+| 1,004,887,590 | 2.873672 | 2.410940 | 0.462731 |
+
+Dependence on the second pass is already present at 100M targets and grows on this panel. One pass remains an intervention outside training; this does not establish monotonic refinement, better ordinary prediction or seed robustness. The 904M checkpoint is stable; the 1B branch is annealed.

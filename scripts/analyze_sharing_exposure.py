@@ -55,6 +55,12 @@ three-candidate LR selection. No teacher, synthetic research corpus or RL.
   text+=f"| {r['arm']} | {r['endpoint']} | {r['real_targets']:,} | {r['parameters']:,} | {r['nll']:.6f} |\n"
  text+='\nPositive gain below means the candidate has lower NLL than its reference.\n\n| Reference to candidate | Gain | 95% source-group interval, conditional on weights |\n| --- | ---: | ---: |\n'
  for label,v in contrasts.items():text+=f"| {label} | {v['gain_nats']:.6f} | [{v['interval_95'][0]:.6f}, {v['interval_95'][1]:.6f}] |\n"
+ if 'ordinary_to_shared_3b' in contrasts:
+  v=contrasts['ordinary_to_shared_3b']
+  stable={r['arm']:r['nll'] for r in rows if r.get('update')==10368}
+  text+=f"\nThe fully annealed 3B gain is **{v['gain_nats']:.6f} [{v['interval_95'][0]:.6f}, {v['interval_95'][1]:.6f}]**, conditional on this one pair. The stable 2.713B checkpoint gain was {stable['ordinary']-stable['recurrent']:.6f}; that intermediate value is not the final endpoint. Both models finish their own decay. Seed variation at 3B is unmeasured.\n"
+ if (a.output/'learning-curve-seed23.png').exists():
+  text+='\n![Single-seed learning curve; stable points and annealed endpoints shown separately](learning-curve-seed23.png)\n'
  text+='''
 All comparisons use identical held-out source targets and the fixed60/20/20
 web/math/code aggregate. The shared/untied1B contrast tests the sharing plus

@@ -44,6 +44,12 @@ def main():
         if stage=='stable':stable.append((targets/1e9,gain))
         else:axes[1].scatter(targets/1e9,gain,marker='D' if stage=='annealed_1b' else '*',s=65 if stage=='annealed_1b' else 130,color='#454545',zorder=3)
     axes[1].plot([x for x,y in stable],[y for x,y in stable],'o-',color='#454545',label='Stable checkpoints')
+    final_values=next(v for (t,s),v in grouped.items() if s=='annealed_3b')
+    final_gain=final_values['ordinary']-final_values['recurrent']
+    final_x=next(t/1e9 for t,s in grouped if s=='annealed_3b')
+    axes[1].plot([stable[-1][0],final_x],[stable[-1][1],final_gain],':',color='#454545')
+    axes[1].annotate(f'3B endpoint gain: {final_gain:+.5f}',xy=(final_x,final_gain),xytext=(1.65,-.055),
+        arrowprops={'arrowstyle':'->','color':'#555555'},fontsize=9)
     axes[1].axhline(0,color='#555555',linewidth=.8)
     axes[1].axhline(.01,color='#2b8755',linestyle='--',linewidth=1,label='Declared useful gain: 0.01')
     axes[1].set(xlabel='Real source targets (billions)',ylabel='Ordinary NLL − shared NLL',title='Positive favors shared recurrence')
