@@ -46,7 +46,7 @@ def main():
                 if key=='step':assert torch.equal(aa,bb)
                 else:
                     assert aa.dtype==torch.float32
-                    torch.testing.assert_close(aa,bb,atol=2e-7,rtol=2e-4)
+                    torch.testing.assert_close(aa,bb,atol=1e-10 if key=="exp_avg_sq" else 2e-8,rtol=2e-4)
     args.output.mkdir(parents=True,exist_ok=True)
     for i in range(12):
         step(cpu,cpu_opt,grad_cpu,i);step(device,opt,grad_device,i);compare()

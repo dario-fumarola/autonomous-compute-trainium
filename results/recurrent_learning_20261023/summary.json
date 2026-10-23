@@ -1,5 +1,5 @@
 {
-  "status": "IN_PROGRESS",
+  "status": "COMPLETE",
   "curves": [
     {
       "update": 384,
@@ -80,18 +80,122 @@
           "code": 1.7413480200978102
         }
       }
+    },
+    {
+      "update": 3840,
+      "real_targets": 1004887590,
+      "mean_gain_nats": -0.03054124349070057,
+      "interval_95": [
+        -0.032201837771630826,
+        -0.028880649209770314
+      ],
+      "paired_seed_gains": {
+        "23": -0.031244620803815515,
+        "47": -0.02991421931425009,
+        "71": -0.0304648903540361
+      },
+      "assumption": "Independent paired seeds with approximately normal gains; df=2.",
+      "ordinary_mean_nll": 2.519906698900333,
+      "recurrent_mean_nll": 2.550447942391034,
+      "ordinary_seed_nll": {
+        "23": 2.5180711368091346,
+        "47": 2.51795610112789,
+        "71": 2.5236928587639746
+      },
+      "recurrent_seed_nll": {
+        "23": 2.54931575761295,
+        "47": 2.54787032044214,
+        "71": 2.5541577491180107
+      },
+      "schedule": "fully annealed",
+      "domain_mean_nll": {
+        "ordinary": {
+          "web": 3.0000952463216897,
+          "math": 2.262162416001539,
+          "code": 1.3370853395350575
+        },
+        "recurrent": {
+          "web": 3.037706848705221,
+          "math": 2.2815324939656496,
+          "code": 1.3575866718738572
+        }
+      }
     }
   ],
-  "compute_matched": null,
-  "primary_decision": "PENDING_PRIMARY_ENDPOINT",
+  "compute_matched": {
+    "mean_gain_nats": -0.17574374112497315,
+    "interval_95": [
+      -0.1784542672302978,
+      -0.1730332150196485
+    ],
+    "paired_seed_gains": {
+      "23": -0.17520689936481038,
+      "47": -0.17502503323448648,
+      "71": -0.1769992907756226
+    },
+    "assumption": "Independent paired seeds with approximately normal gains; df=2.",
+    "ordinary_real_targets": 1004887590,
+    "recurrent_real_targets": 593774218,
+    "ordinary_training_matmul_flops": 1098412116148224000,
+    "recurrent_training_matmul_flops": 1098098239938232320,
+    "ordinary_mean_nll": 2.519906698900333,
+    "recurrent_mean_nll": 2.695650440025306,
+    "both_endpoints_fully_annealed": true
+  },
+  "primary_decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE",
   "threshold_nats": 0.01,
   "selected_recurrent_lr": 0.0003,
   "ordinary_lr": 0.001,
   "parameters": 150436608,
-  "completed_recurrent_records": 7,
+  "completed_recurrent_records": 18,
   "reference_controls_reused": true,
   "protocol_sha256": "2e2b04a8cacccc48d3e4667d2ceea8db3a523c90f60dde0b325fb073e873b179",
   "specification_sha256": "24e4a4f7cebb94cb2a3d20149923c1e5f920bba538d5cb0d81c534c9b22fea9f",
   "analysis_sha256": "b13216d19fe2c33ce12b7b7f04af6b3c7aa284c33abe00527f1687f90eb0478c",
-  "scope": "Three paired initializations conditional on one frozen natural corpus/order; intermediate stable trunks are descriptive."
+  "scope": "Three paired initializations conditional on one frozen natural corpus/order; intermediate stable trunks are descriptive.",
+  "source_group_uncertainty": {
+    "per_seed": {
+      "23": {
+        "gain_nats": -0.031244620803815515,
+        "interval_95": [
+          -0.03463847484395778,
+          -0.028011621977108124
+        ],
+        "source_groups": 360,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "47": {
+        "gain_nats": -0.02991421931425009,
+        "interval_95": [
+          -0.03262616384064638,
+          -0.026992541591773004
+        ],
+        "source_groups": 360,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "71": {
+        "gain_nats": -0.0304648903540361,
+        "interval_95": [
+          -0.03290849498707381,
+          -0.028388221591518277
+        ],
+        "source_groups": 360,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      }
+    },
+    "fixed_seed_mean": {
+      "gain_nats": -0.030541243490699976,
+      "interval_95": [
+        -0.032637637656638116,
+        -0.028521522253845244
+      ],
+      "source_groups": 360,
+      "accepted_draws": 2000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    "scope": "Resampled source groups conditional on fitted checkpoints; not joint seed/data uncertainty or an ensemble model."
+  }
 }

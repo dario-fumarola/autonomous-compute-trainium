@@ -1,0 +1,16 @@
+{
+  "corpus_sha256": "314968e92dd7fd45df1b69b501cd9738595198e121ff96c74e46822e2a3a8ee4",
+  "seeds": [
+    23,
+    47,
+    71
+  ],
+  "cohort": "curve",
+  "precision": "FP32 weights/matmuls, FP64 log normalization",
+  "implementation": "Standalone separate-projection attention and real-pair RoPE, Torch CPU; no TorchTitan/native compiler",
+  "partial_windows": "Trim only causal padding after every last scored target; preserve all actual prefix/target tokens",
+  "scripts_sha256": "874a9e09c7fc69bcec1ee29013aeefa3b8866530549ea11ddebf8904d6ac4246",
+  "reference_sha256": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba",
+  "started_unix": 1792731676.8448062,
+  "threads": 16
+}

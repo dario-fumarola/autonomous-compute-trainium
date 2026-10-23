@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE_NATURAL_CONTEXT_SENSITIVITY",
+  "results": {
+    "ordinary_pre_norm": {
+      "natural_positions": 1536,
+      "mean_KL_to_average_distribution": 3.0656545162200928,
+      "mean_output_entropy": 4.213388919830322,
+      "mean_centered_logit_std_across_positions": 1.453088402748108
+    },
+    "single_sandwich": {
+      "natural_positions": 1536,
+      "mean_KL_to_average_distribution": 6.0874249356857035e-06,
+      "mean_output_entropy": 7.3788161277771,
+      "mean_centered_logit_std_across_positions": 0.001017203787341714
+    },
+    "two_pass_sandwich": {
+      "natural_positions": 1536,
+      "mean_KL_to_average_distribution": 4.29704641646822e-06,
+      "mean_output_entropy": 7.370357513427734,
+      "mean_centered_logit_std_across_positions": 0.0007614269852638245
+    }
+  },
+  "specification": {
+    "selection": "First eight ID-sorted tuning DEV documents/domain; positions 64:128 of first original window",
+    "models": [
+      "ordinary_pre_norm",
+      "single_sandwich",
+      "two_pass_sandwich"
+    ],
+    "purpose": "Context sensitivity diagnostic, not a new outcome criterion",
+    "created_unix": 1792727720.7899632
+  }
+}
