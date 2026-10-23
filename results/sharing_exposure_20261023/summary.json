@@ -1,0 +1,121 @@
+{
+  "status": "PARTIAL_READOUT",
+  "rows": [
+    {
+      "arm": "ordinary",
+      "seed": 23,
+      "endpoint": "1B",
+      "real_targets": 1004887590,
+      "parameters": 150436608,
+      "nll": 2.5180711368091346,
+      "domains": {
+        "web": {
+          "nll_sum": 781038.1684484482,
+          "real_targets": 260643,
+          "documents": 251,
+          "nll": 2.996582177340071
+        },
+        "math": {
+          "nll_sum": 582598.535079956,
+          "real_targets": 257227,
+          "documents": 241,
+          "nll": 2.2649198376529527
+        },
+        "code": {
+          "nll_sum": 346581.99191474915,
+          "real_targets": 259478,
+          "documents": 122,
+          "nll": 1.3356893143725062
+        }
+      },
+      "training_matmul_flops": 1098412116148224000
+    },
+    {
+      "arm": "shared",
+      "seed": 23,
+      "endpoint": "1B",
+      "real_targets": 1004887590,
+      "parameters": 150436608,
+      "nll": 2.54931575761295,
+      "domains": {
+        "web": {
+          "nll_sum": 791516.2082586288,
+          "real_targets": 260643,
+          "documents": 251,
+          "nll": 3.03678291094957
+        },
+        "math": {
+          "nll_sum": 586792.4266242981,
+          "real_targets": 257227,
+          "documents": 241,
+          "nll": 2.281224080770285
+        },
+        "code": {
+          "nll_sum": 351594.240237236,
+          "real_targets": 259478,
+          "documents": 122,
+          "nll": 1.3550059744457565
+        }
+      },
+      "training_matmul_flops": 1858394553266995200
+    },
+    {
+      "arm": "untied",
+      "seed": 23,
+      "endpoint": "1B",
+      "real_targets": 1004887590,
+      "parameters": 251124480,
+      "nll": 2.4892470709683825,
+      "domains": {
+        "web": {
+          "nll_sum": 773775.112713337,
+          "real_targets": 260643,
+          "documents": 251,
+          "nll": 2.9687162621414616
+        },
+        "math": {
+          "nll_sum": 573707.7507247925,
+          "real_targets": 257227,
+          "documents": 241,
+          "nll": 2.2303558752572337
+        },
+        "code": {
+          "nll_sum": 339846.30079984665,
+          "real_targets": 259478,
+          "documents": 122,
+          "nll": 1.3097306931602934
+        }
+      },
+      "training_matmul_flops": 1858394553266995200
+    }
+  ],
+  "contrasts": {
+    "ordinary_to_untied_1b": {
+      "gain_nats": 0.028824065840752144,
+      "interval_95": [
+        0.026469638722323448,
+        0.031256797645716296
+      ],
+      "source_groups": 360,
+      "accepted_draws": 2000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    "shared_to_untied_1b": {
+      "gain_nats": 0.06006868664456766,
+      "interval_95": [
+        0.057376212744025865,
+        0.06315195316741337
+      ],
+      "source_groups": 360,
+      "accepted_draws": 2000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    }
+  },
+  "untied_selected_lr": {
+    "lr": 0.0003,
+    "nll": 4.020647356130325,
+    "run": "untied-depth-v1-lr-0",
+    "frozen_unix": 1792764889.4868672
+  },
+  "scope": "One paired seed23 control and continuation; source-group intervals condition on fitted models, not seed variance. Untied has more parameters, equal shared-path dense matmul FLOPs and matched initial function. Original three-seed 1B outcome remains unchanged."
+}
