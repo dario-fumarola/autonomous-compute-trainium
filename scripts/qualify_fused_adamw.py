@@ -19,7 +19,10 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--corpus');p.add_argument('--output',type=Path,required=True)
     p.add_argument('--mode',choices=['plain','foreach','fused'],default='fused');args=p.parse_args()
     torch.set_num_threads(4);torch.neuron.set_device(0);torch.manual_seed(29)
-    shapes=[(128,128),(768,),(1024,256),(33,)]
+    # Cover every distinct full-size weight family, including the tied
+    # vocabulary matrix, plus a deliberately irregular small view. An optimizer
+    # fixture limited to tiny matrices would miss shape-specific kernel errors.
+    shapes=[(32000,768),(768,768),(256,768),(2048,768),(768,2048),(768,),(33,)]
     original=[torch.randn(shape,dtype=torch.float32)*.02 for shape in shapes]
     cpu=[torch.nn.Parameter(x.clone()) for x in original]
     device=[torch.nn.Parameter(x.clone().to('neuron')) for x in original]
@@ -68,6 +71,7 @@ def main():
     torch.neuron.synchronize();seconds=time.monotonic()-before
     import torch_neuronx
     report={'status':'PASS_OPTIMIZER_SOFTWARE_FIXTURE','mode':args.mode,'parameters':sum(x.numel() for x in original),
+            'parameter_shapes':[list(s) for s in shapes],'all_150m_parameter_shape_families':True,
             'maximum_cpu_parameter_error':maximum_error,'fp32_moments':True,'offset_gradient_bucket_views':True,
             'changing_lr_cpu_agreement':True,'full_optimizer_continuation_exact':True,
             'warm_optimizer_only_updates':100,'warm_seconds':seconds,'fallback_ops':str(torch_neuronx.get_fallback_ops()),
