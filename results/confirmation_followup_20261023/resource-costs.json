@@ -1,0 +1,137 @@
+{
+  "status": "COMPLETE_RETAINED_PATH_RESOURCE_LEDGER",
+  "models": [
+    {
+      "identity": "ordinary-flop-s23",
+      "parameters": 150436608,
+      "real_targets": 1699926288,
+      "training_matmul_flops": 1858147163150745600,
+      "forward_matmul_flops_per_1024_window": 372454195200.0,
+      "training_process_seconds": 2544.0056614875793,
+      "assigned_training_chip_hours": 11.306691828833685,
+      "training_process_starts": 5,
+      "retained_path": [
+        {
+          "run": "natural-curve-v1-ordinary-s23-u384",
+          "seconds": 213.2124798297882,
+          "chips": 16,
+          "warm_real_targets_per_second": 830285.6154606065,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        },
+        {
+          "run": "natural-curve-v1-ordinary-s23-u1152",
+          "seconds": 337.6753671169281,
+          "chips": 16,
+          "warm_real_targets_per_second": 833520.7451655997,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        },
+        {
+          "run": "natural-curve-v1-ordinary-s23-u3840 (retained prefix to3456)",
+          "seconds": 812.2724714279175,
+          "chips": 16,
+          "method": "Prefix ends at original stable-checkpoint filesystem mtime. Includes writing that state; excludes later annealed suffix and terminal teardown. Timestamp reconstruction, not a new timing experiment."
+        },
+        {
+          "run": "confirmation-v3-ordinary-flop-s23-u5846",
+          "seconds": 866.6535129547119,
+          "chips": 16,
+          "warm_real_targets_per_second": 830109.1379446827,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        },
+        {
+          "run": "confirmation-v3-ordinary-flop-s23-u6496",
+          "seconds": 314.19183015823364,
+          "chips": 16,
+          "warm_real_targets_per_second": 839990.7420342093,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        }
+      ]
+    },
+    {
+      "identity": "untied-1b-s23",
+      "parameters": 251124480,
+      "real_targets": 1004887590,
+      "training_matmul_flops": 1858394553266995200,
+      "forward_matmul_flops_per_1024_window": 630152232960.0,
+      "training_process_seconds": 2376.8410432338715,
+      "assigned_training_chip_hours": 10.563737969928319,
+      "training_process_starts": 2,
+      "retained_path": [
+        {
+          "run": "untied-depth-v1-s23-u3456",
+          "seconds": 2033.0849771499634,
+          "chips": 16,
+          "warm_real_targets_per_second": 473305.1517199708,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        },
+        {
+          "run": "untied-depth-v1-s23-u3840",
+          "seconds": 343.7560660839081,
+          "chips": 16,
+          "warm_real_targets_per_second": 473241.0218392626,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        }
+      ]
+    },
+    {
+      "identity": "untied-1b-s47",
+      "parameters": 251124480,
+      "real_targets": 1004887590,
+      "training_matmul_flops": 1858394553266995200,
+      "forward_matmul_flops_per_1024_window": 630152232960.0,
+      "training_process_seconds": 2407.5165276527405,
+      "assigned_training_chip_hours": 10.700073456234403,
+      "training_process_starts": 2,
+      "retained_path": [
+        {
+          "run": "confirmation-v3-untied-s47-u3456",
+          "seconds": 2061.184002161026,
+          "chips": 16,
+          "warm_real_targets_per_second": 468929.13808688166,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        },
+        {
+          "run": "confirmation-v3-untied-s47-u3840",
+          "seconds": 346.3325254917145,
+          "chips": 16,
+          "warm_real_targets_per_second": 470550.897983637,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        }
+      ]
+    },
+    {
+      "identity": "untied-1b-s71",
+      "parameters": 251124480,
+      "real_targets": 1004887590,
+      "training_matmul_flops": 1858394553266995200,
+      "forward_matmul_flops_per_1024_window": 630152232960.0,
+      "training_process_seconds": 2417.530256509781,
+      "assigned_training_chip_hours": 10.744578917821247,
+      "training_process_starts": 2,
+      "retained_path": [
+        {
+          "run": "confirmation-v3-untied-s71-u3456",
+          "seconds": 2075.5610115528107,
+          "chips": 16,
+          "warm_real_targets_per_second": 464649.8010302452,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        },
+        {
+          "run": "confirmation-v3-untied-s71-u3840",
+          "seconds": 341.9692449569702,
+          "chips": 16,
+          "warm_real_targets_per_second": 472222.9397667319,
+          "method": "Full training-process launch/closure, including compile, recovery and checkpoint hashing"
+        }
+      ]
+    }
+  ],
+  "flop_match": {
+    "updates": 6496,
+    "stable_update": 5846,
+    "reference_flops": 1858394553266995200,
+    "candidate_flops": 1858147163150745600,
+    "rounding_shortfall_flops": 247390116249600
+  },
+  "scope": "Training-process costs along the retained paths, including reused historical ordinary states; not new campaign charges. Separate incremental execution-costs.json counts all qualification, tuning, readouts and failed attempts. DEV evaluation, CPU audits and idle/controller gaps are not in these per-model training sums. Ordinary uses five process segments versus two for untied; its retained-parent segment uses filesystem timestamp reconstruction and omits that segment final teardown. Warm throughput and the full observed campaign span are therefore reported separately. Dense FLOPs exclude optimizer, elementwise, communication and compilation; inference forward FLOPs are estimates, not generation latency."
+}

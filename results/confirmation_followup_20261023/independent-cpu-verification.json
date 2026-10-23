@@ -1,0 +1,146 @@
+{
+  "status": "PASS_THREE_NEW_ENDPOINT_CPU_AUDITS",
+  "specification": {
+    "models": [
+      [
+        "ordinary",
+        "confirmation-v3-ordinary-flop-s23-u6496"
+      ],
+      [
+        "untied",
+        "confirmation-v3-untied-s47-u3840"
+      ],
+      [
+        "untied",
+        "confirmation-v3-untied-s71-u3840"
+      ]
+    ],
+    "corpus_sha256": "314968e92dd7fd45df1b69b501cd9738595198e121ff96c74e46822e2a3a8ee4",
+    "started_unix": 1792775163.985167,
+    "threads": 16,
+    "precision": "FP32 weights/matmuls, FP64 log normalization",
+    "maximum_native_difference_nats": 0.0002,
+    "source_sha256": {
+      "scripts/verify_mechanism_cpu.py": "5ab403fa60dfa8bc4d43f5ac0249188e7bacb2398454eaffe7a434304d693f88",
+      "compute_trainium/independent.py": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba",
+      "compute_trainium/independent_untied.py": "68df2244de5c949d84eee133b793cc135673e30b834e5def2f8782bace4b67ac",
+      "compute_trainium/diagnostics.py": "a4f21139a254e08fb62a39a69792a867b133c23bbab492bf2a27365650a6a5f6"
+    },
+    "scope": "Independent numerical verification on the same DEV panel, not new model replications or TEST selection"
+  },
+  "records": [
+    {
+      "arm": "ordinary",
+      "run": "confirmation-v3-ordinary-flop-s23-u6496",
+      "training_real_targets": 1699926288,
+      "metrics": {
+        "domains": {
+          "math": {
+            "nll_sum": 559801.8107160543,
+            "real_targets": 257227,
+            "documents": 241,
+            "nll": 2.1762949096170088
+          },
+          "web": {
+            "nll_sum": 752368.0601606311,
+            "real_targets": 260643,
+            "documents": 251,
+            "nll": 2.8865845626417403
+          },
+          "code": {
+            "nll_sum": 330435.4400476164,
+            "real_targets": 259478,
+            "documents": 122,
+            "nll": 1.2734622590262619
+          }
+        },
+        "weighted_nll": 2.4219021713136986,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": -4.175973237652286e-05,
+      "seconds": 269.2274854183197,
+      "targets": 777348
+    },
+    {
+      "arm": "untied",
+      "run": "confirmation-v3-untied-s47-u3840",
+      "training_real_targets": 1004887590,
+      "metrics": {
+        "domains": {
+          "math": {
+            "nll_sum": 576381.4531821049,
+            "real_targets": 257227,
+            "documents": 241,
+            "nll": 2.240750205779739
+          },
+          "web": {
+            "nll_sum": 774460.3505455379,
+            "real_targets": 260643,
+            "documents": 251,
+            "nll": 2.971345290476007
+          },
+          "code": {
+            "nll_sum": 342236.00742854655,
+            "real_targets": 259478,
+            "documents": 122,
+            "nll": 1.3189403626841063
+          }
+        },
+        "weighted_nll": 2.494745287978373,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": -8.09380725375064e-06,
+      "seconds": 478.97037744522095,
+      "targets": 777348
+    },
+    {
+      "arm": "untied",
+      "run": "confirmation-v3-untied-s71-u3840",
+      "training_real_targets": 1004887590,
+      "metrics": {
+        "domains": {
+          "math": {
+            "nll_sum": 573765.5943204501,
+            "real_targets": 257227,
+            "documents": 241,
+            "nll": 2.2305807489899974
+          },
+          "web": {
+            "nll_sum": 772975.1368861154,
+            "real_targets": 260643,
+            "documents": 251,
+            "nll": 2.965647022502486
+          },
+          "code": {
+            "nll_sum": 339899.37224026915,
+            "real_targets": 259478,
+            "documents": 122,
+            "nll": 1.3099352247214375
+          }
+        },
+        "weighted_nll": 2.4874914082437782,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": -1.0653388379466833e-05,
+      "seconds": 309.74184560775757,
+      "targets": 777348
+    }
+  ],
+  "wall_seconds_including_waits": 6832.786756515503,
+  "active_scoring_seconds": 1057.9397084712982
+}
