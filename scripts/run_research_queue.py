@@ -10,7 +10,7 @@ def alive(pid):
         os.kill(pid,0)
         stat=Path(f'/proc/{pid}/stat').read_text().rsplit(')',1)[1].split()[0]
         return stat!='Z'
-    except ProcessLookupError:return False
+    except OSError:return False
 
 
 def main():
