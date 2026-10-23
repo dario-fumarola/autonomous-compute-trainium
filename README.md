@@ -2,11 +2,13 @@
 
 Can a randomly initialized language model learn to use additional computation to predict natural text better?
 
-This is a fresh experiment on Trainium2. The active first comparison uses ordinary pretraining and fixed pause positions from initialization. The late-introduction arm and repeated blocks are follow-ups. These mechanisms test extra computation; they do not establish autonomous textual reasoning.
+The active Trainium2 study compares ordinary pretraining with a fixed, differentiable recurrent core from initialization. Its single-pass path is exactly the qualified ordinary architecture. These mechanisms test extra computation; they do not establish autonomous textual reasoning.
 
 Training and evaluation use natural web text, mathematical web text, and repository code. No generated arithmetic, synthetic rewrites, teacher traces, or RL. Held-out negative log likelihood on real source tokens is the primary metric, reported by domain. Both source-token and FLOP comparisons are required.
 
-The [learning-curve protocol](docs/LEARNING_CURVE_PROTOCOL.md) is frozen: 150M parameters, ordinary versus early pauses, three paired seeds, and unseen-text NLL at approximately 100M / 300M / 1B real targets. The corpus contains 1.05B natural training tokens, with separate tuning and curve source groups and sealed TEST. The three-seed comparison is complete: at 1B targets ordinary scores **2.520 NLL** and early pauses **2.574**. Pause gain is **-0.0539 nats**, 95% interval **[-0.0603, -0.0475]**. This pilot favors ordinary; see the [complete learning-curve report](results/learning_curve_20261022/REPORT.md). TEST remains sealed. The measured campaign used 3.69 node-hours on the existing instance.
+The [recurrent protocol](docs/PRELN_RECURRENT_PROTOCOL.md) freezes 150M parameters, three paired seeds, a 1B real-target primary endpoint and a separately annealed equal-FLOP comparison. The new [learning curve](results/recurrent_learning_20261023/REPORT.md) is running. A longer natural-text continuation is gated on data, hardware and measured remaining time. [Current status](STATUS.md).
+
+The previous [fixed-pause study](results/learning_curve_20261022/REPORT.md) is complete: at 1B targets ordinary scores **2.520 NLL** and pauses **2.574**, gain **-0.0539 [-0.0603, -0.0475]**. The [position diagnostic](results/pause_locality_20261023/REPORT.md) finds losses in every bin, largest immediately after a pause. Its original protocol, data, models and negative decision are preserved. The campaign used 3.69 node-hours; it is not charged again as new training.
 
 The [packed-trainer report](results/performance_20261022/REPORT.md) records full optimizer recovery, a 64-rank late switch, identical 150M decay-branch replay, fresh DEV evaluation and failure receipts. The latest 100-warm-update measurements across all 16 chips are **855k real targets/sec ordinarily and 696k with causally padded pauses**. Padding improves native kernel compatibility; its full work is counted. The earlier unpadded pause rate was 354k. The [initial qualification](results/qualification_20261022/REPORT.md) remains preserved.
 

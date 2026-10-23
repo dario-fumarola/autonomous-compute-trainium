@@ -1,0 +1,57 @@
+{
+  "status": "IN_PROGRESS",
+  "curves": [
+    {
+      "update": 384,
+      "real_targets": 100488104,
+      "mean_gain_nats": -0.2390023883143423,
+      "interval_95": [
+        -0.30915998113799054,
+        -0.1688447954906941
+      ],
+      "paired_seed_gains": {
+        "23": -0.2620584904440446,
+        "47": -0.20750096079152813,
+        "71": -0.24744771370745422
+      },
+      "assumption": "Independent paired seeds with approximately normal gains; df=2.",
+      "ordinary_mean_nll": 3.751588822812617,
+      "recurrent_mean_nll": 3.9905912111269592,
+      "ordinary_seed_nll": {
+        "23": 3.704642398891032,
+        "47": 3.785580899336211,
+        "71": 3.764543170210608
+      },
+      "recurrent_seed_nll": {
+        "23": 3.9667008893350766,
+        "47": 3.993081860127739,
+        "71": 4.011990883918062
+      },
+      "schedule": "stable trunk, descriptive",
+      "domain_mean_nll": {
+        "ordinary": {
+          "web": 4.308575383845083,
+          "math": 3.307309074282572,
+          "code": 2.524908888245264
+        },
+        "recurrent": {
+          "web": 4.4752918662802,
+          "math": 3.559348470152572,
+          "code": 2.967731986641625
+        }
+      }
+    }
+  ],
+  "compute_matched": null,
+  "primary_decision": "PENDING_PRIMARY_ENDPOINT",
+  "threshold_nats": 0.01,
+  "selected_recurrent_lr": 0.0003,
+  "ordinary_lr": 0.001,
+  "parameters": 150436608,
+  "completed_recurrent_records": 3,
+  "reference_controls_reused": true,
+  "protocol_sha256": "2e2b04a8cacccc48d3e4667d2ceea8db3a523c90f60dde0b325fb073e873b179",
+  "specification_sha256": "24e4a4f7cebb94cb2a3d20149923c1e5f920bba538d5cb0d81c534c9b22fea9f",
+  "analysis_sha256": "b13216d19fe2c33ce12b7b7f04af6b3c7aa284c33abe00527f1687f90eb0478c",
+  "scope": "Three paired initializations conditional on one frozen natural corpus/order; intermediate stable trunks are descriptive."
+}
