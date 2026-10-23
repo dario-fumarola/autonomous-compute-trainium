@@ -1,0 +1,34 @@
+{
+  "status": "FROZEN_NATURAL_TRANSFER_PROBE",
+  "examples_sha256": "9c99fffdd6ef41fe5c3313aeb09141887ca86cbef1c729b973801fb6714bdc6f",
+  "source_sha256": {
+    "ARC-Challenge/train-00000-of-00001.parquet": "e488c1587ffdcfc8443f916c53488a95cd471c5790e0746c6bfe4cecf20962cb",
+    "ARC-Challenge/validation-00000-of-00001.parquet": "395a5c88d1580d69855fbaee9450270578df1ad5af6259771cd0a42c20e99f05",
+    "transfer-data/race_high_train.jsonl": "af103e7b4e96d1ca6373ee585d65c1cb4727a1e209642fe79e2f81d0f95433cf",
+    "transfer-data/race_high_validation.jsonl": "91da30e2e101cbd5ccbc39b6daaa43f82325fed9bc831410cccae763234c65f3"
+  },
+  "race_revision": "e30efe648089df42c548e93faa9c5f1816e2c44f",
+  "arc_revision": "210d026faf9955653af8916fad021475a3f00453",
+  "answer_token_ids": [
+    32,
+    33,
+    34,
+    35
+  ],
+  "counts": {
+    "arc_challenge": {
+      "train": 1116,
+      "validation": 295
+    },
+    "race_high": {
+      "train": 256,
+      "validation": 128
+    }
+  },
+  "source_group_overlap": 0,
+  "max_prompt_tokens": 512,
+  "truncation": false,
+  "selection": "All eligible 4-option ARC train/validation; 256/128 SHA-selected RACE passages with one SHA-selected eligible question each; no official TEST.",
+  "human_exam_data": true,
+  "generated_research_examples": false
+}
