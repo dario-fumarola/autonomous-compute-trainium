@@ -1,50 +1,51 @@
-# Status — 2026-10-23
+# Status — 2026-10-23, 05:35 UTC
 
-**The pre-norm fixed-recurrence experiment is qualified and entering LR selection.**
-The [active protocol](docs/PRELN_RECURRENT_PROTOCOL.md) compares a second shared
-core application against all three preserved ordinary controls, with equal-token
-and independently annealed equal-FLOP endpoints. Actual CPU checks prove that
-one pass gives bit-identical ordinary outputs/full gradients, and the 150M
-initial state hash matches the preserved control. Full 64-rank numerical,
-replica and complete optimizer-recovery checks pass. Warm recurrent throughput
-is 604,416 real targets/sec. Thirty-seven CPU tests pass. All 16 chips are used
-for the new fits; the measured primary allowance is about three hours within
-the work window ending 11:12 UTC.
+**Three-seed fixed recurrence is running on all 16 chips.** At 301,465,908 real
+source targets/run, ordinary mean NLL is 2.97414 and recurrent mean NLL is
+2.99425: gain -0.02011 [-0.03381, -0.00642]. The deficit narrows from 0.239 at
+100M. These are stable-trunk development curves; the annealed 1B primary and
+independently annealed equal-FLOP endpoints are still pending. TEST is sealed.
+[Current curves](results/recurrent_learning_20261023/REPORT.md).
 
-The first sandwich-normalized screen completed all six 100M-target LR trials
-at 7.335–7.337 NLL. A natural-prefix diagnostic found near-constant predictions,
-so its larger fits were explicitly held before any main update. All states and
-costs are retained. This is a failed learning recipe, not a completed negative
-test of recurrent computation. The replacement keeps the healthy ordinary
-architecture/initialization exactly and adds only the repeated core pathway.
+The 150M pre-norm paths have identical paired initial weights, parameters,
+source order and global batch. The ordinary controls are reused explicitly
+from the completed study. CPU outputs/full gradients prove exact single-pass
+equivalence. All three recurrent LR trials pass; 3e-4 is frozen versus the
+ordinary reference's independently selected 1e-3. Full 64-rank gradient,
+replica and optimizer-recovery checks pass. The measured warm recurrent rate
+is 604k real targets/sec. Forty-one CPU tests pass.
 
-New scratch uses the previously unused fourth instance-local NVMe, verified
-to have zero writes, signatures, mounts or open users before preparation.
-Existing storage/results remain intact. Runtime caches were copied, hash-checked
-and redirected, with original copies retained. This is not an off-instance backup.
-The native environment, original XLA environment and host drivers are preserved.
+The active [protocol](docs/PRELN_RECURRENT_PROTOCOL.md) and
+[remaining-time allocation](docs/LONGER_EXPOSURE_ALLOCATION.md) fix the claims,
+controls and 11:12 UTC campaign deadline. A natural append-only extension is
+ready: 3,250,005,799 targets, all 912,935 original document identities recovered
+for global duplicate screening, zero group overlap and unchanged original
+packed prefix/DEV/TEST. Longer training remains gated on native recovery and
+measured complete-run time. No generated research data, teacher or RL is used.
 
-The six-checkpoint pause-locality CPU readout is complete and awaits aggregate
-analysis. The existing 1.7B natural-exam transfer screen is extracting features
-on CPU. Its first BF16 batch check failed before trained checkpoints were scored;
-the replacement FP32 path passes a much tighter numerical check. The frozen
-readout is a linear residual probe, not full backbone fine-tuning. No generated
-research examples, external teacher or RL have been added. A seed-23 longer
-natural-text continuation is predeclared but remains gated on append-only data,
-native recovery and measured remaining time.
+An independent, separate-projection FP32 CPU implementation passes full
+forward/gradient checks. It scores the complete curve panel: all three ordinary
+endpoint NLLs agree with native to within 0.000022 nats. Recurrent endpoints
+will be checked as they finish. A live runtime sample shows all 64 logical
+cores active, zero execution errors and roughly 65% runtime busy occupancy;
+this is not peak-FLOP utilization or a campaign average.
 
----
+The [existing 1.7B checkpoint probe](results/transfer_probe_20261023/REPORT.md)
+is complete: initial trace-versus-raw class-NLL gains disappear under identical
+linear-readout adaptation. Both final intervals exclude a 0.01-nat gain for
+this limited probe. Full backbone adaptation remains untested. The
+[pause-locality readout](results/pause_locality_20261023/REPORT.md) is complete:
+ordinary wins in every bin. The original [1B pause result](results/learning_curve_20261022/REPORT.md)
+and all states remain preserved. [Previous complete status](docs/archive/STATUS_AFTER_PAUSE_20261022.md).
 
-**The controlled natural-text learning curve is complete.** At 1,004,887,590 real targets per run, ordinary mean NLL is **2.519907** and early-pause mean NLL is **2.573797** across three paired initialization seeds. Pause gain is **-0.053890 [-0.060287, -0.047493]**. The declared 0.01-nat gain is ruled out at this exposure under the fixed tuning procedure. All three seeds and domains favor ordinary. Read the [complete report and plots](results/learning_curve_20261022/REPORT.md).
+Failures remain recorded: the initial sandwich recipe's six LR trials collapse
+to nearly context-independent prediction and its 1B fits never launch; a BF16
+feature-batching check fails before trained models are scored; download-only
+preparation is stopped for a caught copy-boundary bug; one independent CPU
+gradient-export test needs correction. No primary scientific state is restarted.
 
-Both arms learn unseen text substantially; pauses narrow their deficit from 0.289 nats at 100M to 0.049 at 300M, then show a 0.054 deficit at the fully annealed 1B endpoint. This is a 150M / 6.68-targets-per-parameter pilot, conditional on one frozen corpus/order and coarse independent LR tuning. No convergence or introduction-timing claim follows.
-
-All six LR trials passed; the fixed peaks were 1e-3 ordinary and 3e-4 pause. The corpus contains 1,050,002,682 natural TRAIN tokens in a frozen 60/20/20 web/math/code mixture. Every main arm/seed consumes the same first 1,004,887,590 real targets without wrapping. TRAIN, tuning DEV, curve DEV and TEST source groups are disjoint. The evaluation scores all 614 curve documents / 777,348 targets. TEST remains sealed and its hash is unchanged. No generated research examples, external teacher or RL were introduced.
-
-All 49 supervised phases pass. Twenty-nine CPU tests pass. The [complete audit](results/learning_curve_20261022/protocol-audit.json) checks every curve record, source/data hashes, initial weights, real exposure, final LR floors, optimizer recovery, full replica-state equality, numerical probes and clean exits. Sampled host available memory stays above 733.65 GiB and filesystem free space above 35.54 GiB. The supervisor fails closed on compiler errors, OOM events and reserve violations.
-
-Actual inclusive run time is **3.687 node-hours**, versus a 4.8–7.2 h allowance and eight-hour cap. Main warm throughput is 834,056 ordinary / 709,346 pause real targets/sec on all 16 chips. The qualified padded pause path costs 1.562× the ordinary dense matmul estimate, including the head and all padding. These are token-matched curves; matched-FLOP endpoints remain separate. [Costs](results/learning_curve_20261022/cost-summary.json) and the [49-phase ledger](results/learning_curve_20261022/resource-ledger.json) include tuning, inference, qualification and numerical probes, with overlapping preparation time kept separate.
-
-No accelerator workers remain active. The dedicated development container is stopped, preserving its filesystem and the bound artifact directory. Full 100M/300M states and all six annealed endpoints remain outside Git under `/run/user/1000/autonomous-compute`; the seed-23 904M stable pair is additionally retained and hash-verified. [Reproduction instructions](docs/REPRODUCE_CURVE.md) and the [frozen protocol](docs/LEARNING_CURVE_PROTOCOL.md) are public. A longer continuation requires its own explicit data/schedule/budget protocol; none is running.
-
-The [previous performance/trainer report](results/performance_20261022/REPORT.md), its failure ledger, initial qualification, archived pause pilot and original 1.7B evidence remain preserved. The private meeting stays private. Local [OSS reproducers and observations](docs/OSS_NOTES.md) are retained; no upstream submission was sent. No host driver or preserved XLA environment was replaced and no new instance was created.
+New scratch and copied runtime caches use the previously unused fourth local
+NVMe; original copies and filesystems remain intact. Host drivers and the
+preserved XLA environment are unchanged. Full states stay private, with reserve
+guards active. This is on-instance storage, not an off-instance backup. Local
+[OSS notes/reproducers](docs/OSS_NOTES.md) are retained; nothing is submitted upstream.

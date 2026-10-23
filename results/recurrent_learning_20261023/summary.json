@@ -40,6 +40,46 @@
           "code": 2.967731986641625
         }
       }
+    },
+    {
+      "update": 1152,
+      "real_targets": 301465908,
+      "mean_gain_nats": -0.020113763406095497,
+      "interval_95": [
+        -0.0338114439326888,
+        -0.006416082879502197
+      ],
+      "paired_seed_gains": {
+        "23": -0.01919094808266575,
+        "47": -0.02603100734059094,
+        "71": -0.015119334795029804
+      },
+      "assumption": "Independent paired seeds with approximately normal gains; df=2.",
+      "ordinary_mean_nll": 2.974138009638845,
+      "recurrent_mean_nll": 2.9942517730449403,
+      "ordinary_seed_nll": {
+        "23": 2.967167341445206,
+        "47": 2.9679051535713805,
+        "71": 2.9873415338999476
+      },
+      "recurrent_seed_nll": {
+        "23": 2.986358289527872,
+        "47": 2.9939361609119715,
+        "71": 3.0024608686949774
+      },
+      "schedule": "stable trunk, descriptive",
+      "domain_mean_nll": {
+        "ordinary": {
+          "web": 3.495295481791354,
+          "math": 2.6412264317136334,
+          "code": 1.7435771711065293
+        },
+        "recurrent": {
+          "web": 3.5291895521729,
+          "math": 2.6423421886081906,
+          "code": 1.7413480200978102
+        }
+      }
     }
   ],
   "compute_matched": null,
@@ -48,7 +88,7 @@
   "selected_recurrent_lr": 0.0003,
   "ordinary_lr": 0.001,
   "parameters": 150436608,
-  "completed_recurrent_records": 3,
+  "completed_recurrent_records": 7,
   "reference_controls_reused": true,
   "protocol_sha256": "2e2b04a8cacccc48d3e4667d2ceea8db3a523c90f60dde0b325fb073e873b179",
   "specification_sha256": "24e4a4f7cebb94cb2a3d20149923c1e5f920bba538d5cb0d81c534c9b22fea9f",

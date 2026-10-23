@@ -1,11 +1,15 @@
 # Fixed recurrence learning curve — running
 
-The three-seed 1B primary comparison is in progress. At the first stable-trunk
-readout, **100,488,104 real targets**, ordinary mean NLL is **3.75159** and
-two-pass recurrent mean NLL is **3.99059**. Ordinary-minus-recurrent gain is
-**-0.23900 [-0.30916, -0.16884]** across the three paired initialization seeds.
-These are descriptive stable checkpoints, not the declared annealed endpoint.
-The final practical-gain decision is pending. TEST remains sealed.
+The three-seed 1B primary comparison is in progress. The recurrent deficit
+narrows from **0.2390** nats at 100M targets to **0.02011** at 301M targets.
+All three seeds still favor ordinary overall. These are descriptive stable
+checkpoints, not the declared annealed endpoint. The final practical-gain
+decision is pending. TEST remains sealed.
+
+| Real targets/run | Ordinary mean NLL | Recurrent mean NLL | Ordinary minus recurrent, 95% seed interval |
+| --- | ---: | ---: | ---: |
+| 100,488,104 | 3.75159 | 3.99059 | -0.23900 [-0.30916, -0.16884] |
+| 301,465,908 | 2.97414 | 2.99425 | -0.02011 [-0.03381, -0.00642] |
 
 ![Learning curve](learning-curve.png)
 
