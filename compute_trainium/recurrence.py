@@ -109,11 +109,17 @@ def build_recurrent(config):
 
 
 def config_from_signature(signature):
+    if signature["model"].get("normalization") == "pre":
+        from .preln_recurrence import PreNormRecurrenceConfig
+        return PreNormRecurrenceConfig(**signature["model"])
     cls = RecurrenceConfig if "repetitions" in signature["model"] else ModelConfig
     return cls(**signature["model"])
 
 
 def build_from_config(config):
+    if getattr(config, "normalization", None) == "pre":
+        from .preln_recurrence import build_preln_recurrent
+        return build_preln_recurrent(config)
     if isinstance(config, RecurrenceConfig):
         return build_recurrent(config)
     from .titan import build_titan

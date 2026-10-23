@@ -22,6 +22,8 @@ def run(plan, output):
     events = []
     output.mkdir(parents=True, exist_ok=False)
     common = plan["training_arguments"]
+    if not plan.get("qualification_only", True) and (root/"hold-scientific.json").exists():
+        raise RuntimeError("Scientific launch held: "+(root/"hold-scientific.json").read_text())
     def memory_limit(gib):
         subprocess.run(["docker", "update", "--memory", str(gib*1024**3),
                         "autonomous-compute-neuron233"], check=True, capture_output=True)

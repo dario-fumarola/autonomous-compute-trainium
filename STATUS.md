@@ -1,21 +1,37 @@
 # Status — 2026-10-23
 
-**A new fixed-recurrence campaign is qualifying on the existing instance.**
-The [new protocol](docs/RECURRENCE_PROTOCOL.md) compares one versus two
-applications of a shared core on natural text, with equal-token and separately
-annealed equal-FLOP endpoints. It preserves the complete pause study below.
-The initial eight-hour work window starts at 03:12 UTC. No new scientific fit
-has launched yet. All 16 chips are currently assigned to the 150M two-pass
-qualification (`recurrence-150m-r2-ddp64-001`). New artifacts use a separate
-160 GiB tmpfs mounted under the existing container's workspace; previous assets
-remain unchanged. The original XLA environment and host driver are preserved.
+**The pre-norm fixed-recurrence experiment is qualified and entering LR selection.**
+The [active protocol](docs/PRELN_RECURRENT_PROTOCOL.md) compares a second shared
+core application against all three preserved ordinary controls, with equal-token
+and independently annealed equal-FLOP endpoints. Actual CPU checks prove that
+one pass gives bit-identical ordinary outputs/full gradients, and the 150M
+initial state hash matches the preserved control. Full 64-rank numerical,
+replica and complete optimizer-recovery checks pass. Warm recurrent throughput
+is 604,416 real targets/sec. Thirty-seven CPU tests pass. All 16 chips are used
+for the new fits; the measured primary allowance is about three hours within
+the work window ending 11:12 UTC.
 
-Thirty-three CPU tests pass. Actual TorchTitan wrapper CPU checks pass causal
-masking, identical paired initialization, sharing versus untied summed gradients,
-all-parameter gradients and exact full-Adam continuation. The new 64-rank tiny
-global accumulated gradient check passes at relative L2 0.001614; every replica
-has identical model/optimizer state. Next: qualify full-size recovery and warm
-throughput, freeze the measured budget, then execute the bounded comparison.
+The first sandwich-normalized screen completed all six 100M-target LR trials
+at 7.335–7.337 NLL. A natural-prefix diagnostic found near-constant predictions,
+so its larger fits were explicitly held before any main update. All states and
+costs are retained. This is a failed learning recipe, not a completed negative
+test of recurrent computation. The replacement keeps the healthy ordinary
+architecture/initialization exactly and adds only the repeated core pathway.
+
+New scratch uses the previously unused fourth instance-local NVMe, verified
+to have zero writes, signatures, mounts or open users before preparation.
+Existing storage/results remain intact. Runtime caches were copied, hash-checked
+and redirected, with original copies retained. This is not an off-instance backup.
+The native environment, original XLA environment and host drivers are preserved.
+
+The six-checkpoint pause-locality CPU readout is complete and awaits aggregate
+analysis. The existing 1.7B natural-exam transfer screen is extracting features
+on CPU. Its first BF16 batch check failed before trained checkpoints were scored;
+the replacement FP32 path passes a much tighter numerical check. The frozen
+readout is a linear residual probe, not full backbone fine-tuning. No generated
+research examples, external teacher or RL have been added. A seed-23 longer
+natural-text continuation is predeclared but remains gated on append-only data,
+native recovery and measured remaining time.
 
 ---
 

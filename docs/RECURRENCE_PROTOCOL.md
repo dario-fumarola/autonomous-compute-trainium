@@ -1,5 +1,11 @@
 # Fixed recurrence on natural text — 2026-10-23
 
+**Superseded after the bounded tuning/learning gate.** All six sandwich trials
+remain near 7.3 NLL and nearly context-independent; no 1B fit launched. The
+active [pre-norm protocol](PRELN_RECURRENT_PROTOCOL.md) retains the healthy
+ordinary model exactly as its single-pass control. The original version of
+this proposal is preserved in [the screen archive](RECURRENCE_SANDWICH_SCREEN_20261023.md).
+
 This is a new mechanism study. The completed pause experiment stays frozen.
 The current campaign is bounded to eight hours on the existing instance.
 No synthetic research examples, external teacher, discrete thoughts, RL,

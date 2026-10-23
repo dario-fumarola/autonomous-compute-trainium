@@ -27,6 +27,8 @@ from compute_trainium.model import ModelConfig
 from compute_trainium.data import pad_layout
 from compute_trainium.titan import build_titan
 from compute_trainium.recurrence import RecurrenceConfig, build_from_config
+from compute_trainium.preln_recurrence import PreNormRecurrenceConfig
+from compute_trainium.continuation import validate_resume_signature, validate_resume_schedule
 from compute_trainium.training import (PackedCorpus, TokenObjective, WSDSchedule,
                                        atomic_checkpoint, file_sha256, global_indices)
 from scripts.qualify_native import digest
@@ -39,7 +41,7 @@ def main():
     p.add_argument("--dev-corpus", type=Path)
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--size", choices=["tiny", "small"], default="small")
-    p.add_argument("--architecture", choices=["ordinary", "recurrent"], default="ordinary")
+    p.add_argument("--architecture", choices=["ordinary", "recurrent", "preln"], default="ordinary")
     p.add_argument("--repetitions", type=int, default=2)
     p.add_argument("--untied-depth", action="store_true")
     p.add_argument("--context", type=int, default=512)
@@ -59,6 +61,8 @@ def main():
     p.add_argument("--decay-start", type=int)
     p.add_argument("--decay-end", type=int)
     p.add_argument("--decay-branch", action="store_true")
+    p.add_argument("--extend-stable-schedule", action="store_true")
+    p.add_argument("--allow-corpus-extension", action="store_true")
     p.add_argument("--clip", type=float, default=1.)
     p.add_argument("--checkpoint-every", type=int, default=0)
     p.add_argument("--resume", type=Path)
@@ -77,12 +81,13 @@ def main():
     start = time.monotonic()
     config = (ModelConfig(dim=128, layers=2, heads=4, kv_heads=2, ffn_dim=256, max_seq=2048)
               if args.size == "tiny" else ModelConfig())
-    if args.architecture == "recurrent":
-        config = (RecurrenceConfig(dim=128, layers=4, heads=4, kv_heads=2, ffn_dim=256,
+    if args.architecture in ("recurrent", "preln"):
+        cls = PreNormRecurrenceConfig if args.architecture == "preln" else RecurrenceConfig
+        config = (cls(dim=128, layers=4, heads=4, kv_heads=2, ffn_dim=256,
                                   max_seq=2048, prelude=1, core=2, coda=1,
                                   repetitions=args.repetitions, untied=args.untied_depth)
                   if args.size == "tiny" else
-                  RecurrenceConfig(repetitions=args.repetitions, untied=args.untied_depth))
+                  cls(repetitions=args.repetitions, untied=args.untied_depth))
     corpus_hash = file_sha256(args.corpus)
     data_seed = args.seed if args.data_seed is None else args.data_seed
     packed = (PackedCorpus.from_mapped(args.packed_corpus, args.context, data_seed, corpus_hash)
@@ -109,16 +114,12 @@ def main():
     previous_pauses, recovered_digest = None, None
     if args.resume:
         saved = torch.load(args.resume, map_location="cpu", weights_only=False, mmap=True)
-        if saved["signature"] != signature:
-            raise ValueError("Checkpoint configuration/data fingerprint mismatch")
-        # Schedule overrides are allowed only for an explicitly separate decay branch.
-        if saved["schedule"] != asdict(schedule):
-            if not args.decay_branch or args.decay_start != saved["real_tokens"]:
-                raise ValueError("New decay must explicitly branch at the recovered stable exposure")
-            old = dict(saved["schedule"], decay_start=None, decay_end=None)
-            new = dict(asdict(schedule), decay_start=None, decay_end=None)
-            if old != new or saved["schedule"]["decay_start"] is not None:
-                raise ValueError("A branch must preserve peak/warmup and fork an undecayed trunk")
+        metadata = json.loads((args.packed_corpus/'manifest.json').read_text()) if args.packed_corpus else None
+        validate_resume_signature(saved['signature'], signature,
+            allow_extension=args.allow_corpus_extension, metadata=metadata, packed=packed,
+            cursor=saved['cursor'], exposure=saved['real_tokens'])
+        validate_resume_schedule(saved['schedule'], asdict(schedule), saved['real_tokens'],
+            decay_branch=args.decay_branch, extend_stable=args.extend_stable_schedule)
         model.load_state_dict(saved["model"])
         optimizer.load_state_dict(saved["optimizer"])
         torch.set_rng_state(saved["cpu_rng"])

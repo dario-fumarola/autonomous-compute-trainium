@@ -27,8 +27,12 @@ prove absence from the mature base model's historical pretraining corpus.
 
 Freeze each model's backbone. Extract its final normalized hidden state at
 the last prompt position and original vocabulary logits for the four answer
-labels A/B/C/D. Qualify padded batched extraction against individual prompts
-before processing the dataset. Store features privately, never in Git.
+labels A/B/C/D. Use FP32 CPU weights/operations and qualify padded batches
+against individual prompts before processing the dataset. Store features
+privately, never in Git. The initial BF16 attempt failed this qualification
+before any trained checkpoint was scored: maximum feature difference 0.283
+and answer-logit difference 0.060. FP32 reduces those to 0.000061/0.000012.
+Retain that failure; the examples and readout are unchanged.
 
 Adapt a four-class linear residual readout on those hidden states, added to
 the original four label logits. Normalize the hidden vector to unit RMS and
@@ -54,7 +58,7 @@ nats requires positive lower bounds above that threshold in both source
 orders. Upper bounds below the threshold rule out that size of benefit for
 this particular readout; otherwise report inconclusive. Report all outcomes.
 
-Bound feature extraction to two CPU hours after a TRAIN-only speed rehearsal.
+Bound feature extraction to three CPU hours after a TRAIN-only speed rehearsal.
 Record actual model calls, original prompt tokens, wall time and CPU threads.
 Do not expand the probe or alter the frozen primary recurrence design based on
 these scores. A weak or noisy readout does not establish that all downstream
