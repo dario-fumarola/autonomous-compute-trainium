@@ -1,31 +1,42 @@
-# Status — 2026-10-23, 20:45 UTC
+# Status — 2026-10-23, 20:55 UTC
 
-The new [variable-depth study](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md) is in
-numerical/throughput qualification. No new LR trial or scientific fit has
-started. All controls will rerun with one explicit common recipe: beta2=0.95,
-matrix decay0.1, zero embedding/norm decay,2.5% warmup and separate300M-target
-four-LR screens. Fixed and mixture differ only in training-depth distribution.
-There are no pass embeddings, separate norms, teachers or synthetic examples.
+**Variable-depth hardware qualification passes. The separately frozen
+scientific campaign is now running its300M-target LR screens on both eight-chip
+halves.** There is no new endpoint result yet. The old TEST remains excluded.
+[Protocol](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md) ·
+[Frozen measured plan](results/variable_depth_20261023/plan.json).
 
-The **60-test CPU suite passes**. The fresh natural panel is complete after
-rebuilding every one of2,836,362 prior accepted documents' duplicate sketches
-and excluding421,315 old source groups. TUNE/DEV/TEST each retain at least250k
-real targets/domain. The old TEST is excluded. [Data gate](results/variable_depth_20261023/data-gate.json).
+All three paths have150,436,608 parameters. Ordinary, fixed-two-pass and the
+one/two/three-pass mixture use the same explicit optimizer, data, routing,
+global batch and per-arm four-LR selection budget. Mixed depths have mean two
+and exactly match fixed-depth estimated neural training work. No pass signal,
+separate norms, teacher, synthetic examples or RL is added.
 
-The first software attempt rejected the known host-copy fallback. The next
-loaded all states exactly but exposed small numerical drift between
-interrupted and uninterrupted training (maximum parameter difference7.09e-6).
-Two independent fresh-process continuations agree bit-for-bit; the drift's
-cause is not isolated. Both attempts and their costs are retained. The explicit
-new optimizer passes full-shape CPU/native parity (maximum parameter error
-2.98e-8); mixed-depth global-gradient, replay, full-size recovery and100-warm
-throughput gates are now running. This is software evidence, not a new language
-model result. The bounded controller will stop explicitly on a failed gate.
+The **60-test CPU suite passes**. Native global-gradient relative errors are
+0.00145 mixed /0.00155 fixed. Full-size CPU loss/gradient checks pass at each
+depth, all replicas agree, optimizer state restores exactly and two fresh
+continuations match bit-for-bit. Interrupted versus uninterrupted tiny training
+is numerically close but not bit-identical (max parameter error3.31e-5,
+global relativeL2 1.11e-6); this is explicitly separate from exact state
+recovery. Normal-recipe AdamW CPU parameter error is2.98e-8.
+[Qualification](results/variable_depth_20261023/qualification.json).
 
-Hard deadline: October24 **04:15 UTC**; scientific training cutoff **03:00 UTC**.
-The completed fixed-depth campaign remains preserved below. Its source,
-protocol and evaluation hashes, all old states, host drivers and XLA remain
-unchanged.
+Over100 warm updates on eight chips/job, measured real targets/sec are
+**900k ordinary /577k fixed /436k mixture**. The mixture has a real straggler
+cost despite equal estimated work. The qualification-based primary budget is
+5.39 node-hours including30% compute margin and an hour of setup/readout;
+the longer one-seed diagnostic has a separate time-only launch gate.
+The persistent queue and independent liveness/deadline monitor are running.
+Training cutoff is October24 **03:00 UTC**, hard campaign deadline **04:15 UTC**.
+
+Fresh TUNE/DEV/TEST each retain at least250k natural targets/domain after
+reconstructing all2,836,362 previous accepted documents' duplicate sketches
+and excluding421,315 old source groups. The old TEST has no role in new
+selection or confirmation. Raw data and all checkpoints remain private.
+[Data gate](results/variable_depth_20261023/data-gate.json).
+
+Prior fixed-depth results, protocols and evaluation hashes remain unchanged.
+The earlier completed status follows as a historical record.
 
 ---
 

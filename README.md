@@ -4,9 +4,10 @@ Can a randomly initialized language model learn to use additional computation
 to predict unseen natural text better?
 
 A separately [predeclared variable-depth follow-up](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md)
-is in numerical and throughput qualification. It uses fresh held-out source
-groups. Its hypotheses have not yet been tested; completed results below remain
-unchanged. [Live status](STATUS.md).
+has passed numerical and throughput qualification and is running its300M-target
+LR screens on all16 chips. It uses fresh held-out source groups and an explicit
+common optimizer recipe. No primary endpoint result is established yet; the
+completed results below remain unchanged. [Live status](STATUS.md).
 
 The completed Trainium2 study compares ordinary pretraining with a fixed,
 differentiable recurrent core available from initialization. Training and
@@ -73,8 +74,8 @@ Read [current status](STATUS.md), the [recurrent protocol](docs/PRELN_RECURRENT_
 [follow-up protocol](docs/CONFIRMATION_FOLLOWUP_20261023.md),
 [reproduction guide](docs/REPRODUCE_CURVE.md), [data rules](docs/DATA.md),
 [execution ledger](results/sharing_exposure_20261023/execution-costs.json) and
-[Trainium notes](docs/OSS_NOTES.md). All bounded jobs are complete; no larger
-run has launched. Further scientific variants require a new held-out panel.
+[Trainium notes](docs/OSS_NOTES.md). The fixed-depth campaign is complete. The variable-depth follow-up uses its
+own fresh panel and bounded protocol. Further variants require another held-out panel.
 
 Run CPU correctness tests with `python -m pytest -q`. Source contents, weights
 and full optimizer states stay outside this public repository.

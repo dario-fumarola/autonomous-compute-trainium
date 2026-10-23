@@ -1,0 +1,35 @@
+{
+  "updated_unix": 1792789382.9069924,
+  "status": "RUNNING",
+  "active_phases": [
+    {
+      "identity": "vdepth-v1-tune-fixed-lr150",
+      "assigned_chips": 8,
+      "module": "scripts.train_variable_depth",
+      "update": 1152,
+      "real_tokens": 301465908,
+      "lr": 1.4999999999999999e-05,
+      "gradient_norm": 0.4676620662212372,
+      "elapsed_seconds": 627.1996371939313
+    },
+    {
+      "identity": "vdepth-v1-tune-mixture-lr150",
+      "assigned_chips": 8,
+      "module": "scripts.train_variable_depth"
+    }
+  ],
+  "completed_tuning_trials": [
+    {
+      "identity": "vdepth-v1-tune-ordinary-lr150-dev-r1",
+      "cohort": "tune",
+      "weighted_nll": 3.3455626568315884,
+      "targets": 759473
+    }
+  ],
+  "completed_learning_curve_cells": [],
+  "stage_states": {
+    "controller_liveness": "ALIVE",
+    "tuning": "RUNNING"
+  },
+  "scope": "Only actual native progress and completed readouts. Training rank-zero loss is omitted; TUNE selects the declared LR only. Stable and annealed curve endpoints differ. No best-depth or TEST selection."
+}
