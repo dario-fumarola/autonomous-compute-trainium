@@ -75,7 +75,7 @@ original path retained by symlink to make room for recovery states; installed
 environments, drivers and XLA remain unchanged. Copies are on-instance only.
 The post-science fused-optimizer qualification waits until every scientific
 fit and TEST readout is closed; it cannot change completed models. No upstream
-OSS submission has been made. Current CPU suite: **51 tests pass**.
+OSS submission has been made. Current CPU suite: **53 tests pass**.
 
 All earlier results and original protocols remain preserved, including the
 [original primary](results/recurrent_learning_20261023/REPORT.md),
