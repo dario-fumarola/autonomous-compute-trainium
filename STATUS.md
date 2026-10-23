@@ -1,10 +1,13 @@
-# Status — 2026-10-23, 21:55 UTC
+# Status — 2026-10-23, 22:10 UTC
 
-**Ten of twelve300M-target LR trials are scored; fixed and mixture are
-finishing their final candidates on both eight-chip halves.** Ordinary's
-best candidate is6e-4 (fresh TUNE NLL2.969665), bracketed by worse3e-4 and
-1e-3 trials. No main fit has started, and no architecture result is established.
-The old TEST remains excluded. [Live receipts](results/variable_depth_20261023/progress.json).
+**All twelve300M-target LR trials are complete, and the three-seed main fits
+have started on both eight-chip halves.** Selected peaks are6e-4 ordinary,
+1e-3 fixed and6e-4 mixture. Their TUNE NLLs are2.969665 /2.940222 /2.957476.
+Ordinary and mixture winners are interior; fixed is an upper-grid winner,
+only0.002882 better than6e-4. The optimum is not bracketed for that arm.
+These are development selections, not architecture results.
+[Complete tuning table](results/variable_depth_20261023/tuning.json) ·
+[Live receipts](results/variable_depth_20261023/progress.json).
 [Protocol](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md) ·
 [Frozen measured plan](results/variable_depth_20261023/plan.json).
 

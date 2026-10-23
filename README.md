@@ -4,9 +4,9 @@ Can a randomly initialized language model learn to use additional computation
 to predict unseen natural text better?
 
 A separately [predeclared variable-depth follow-up](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md)
-has passed numerical and throughput qualification and is running its300M-target
-LR screens on all16 chips. It uses fresh held-out source groups and an explicit
-common optimizer recipe. No primary endpoint result is established yet; the
+has passed qualification and completed its300M-target LR screens. Three-seed
+main fits now use all16 chips, with fresh held-out groups and an explicit common
+optimizer recipe. No primary endpoint result is established yet; the
 completed results below remain unchanged. [Live status](STATUS.md).
 
 The completed Trainium2 study compares ordinary pretraining with a fixed,

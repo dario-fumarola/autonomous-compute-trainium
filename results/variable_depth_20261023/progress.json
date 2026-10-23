@@ -1,29 +1,25 @@
 {
-  "updated_unix": 1792792578.8384233,
+  "updated_unix": 1792793442.4344163,
   "status": "RUNNING",
   "active_phases": [
     {
-      "identity": "vdepth-v1-tune-fixed-lr1000",
+      "identity": "vdepth-v1-mixture-s103-u384",
       "assigned_chips": 8,
-      "module": "scripts.train_variable_depth",
-      "update": 550,
-      "real_tokens": 143928902,
-      "lr": 0.001,
-      "gradient_norm": 0.2936103343963623,
-      "elapsed_seconds": 364.27811539103277
+      "module": "scripts.train_variable_depth"
     },
     {
-      "identity": "vdepth-v1-tune-mixture-lr1000",
+      "identity": "vdepth-v1-mixture-s211-u384",
       "assigned_chips": 8,
-      "module": "scripts.train_variable_depth",
-      "update": 50,
-      "real_tokens": 13084474,
-      "lr": 0.001,
-      "gradient_norm": 0.6099513173103333,
-      "elapsed_seconds": 161.8923462650273
+      "module": "scripts.train_variable_depth"
     }
   ],
   "completed_tuning_trials": [
+    {
+      "identity": "vdepth-v1-tune-fixed-lr1000-dev-r2",
+      "cohort": "tune",
+      "weighted_nll": 2.9402217044084042,
+      "targets": 759473
+    },
     {
       "identity": "vdepth-v1-tune-fixed-lr150-dev-r2",
       "cohort": "tune",
@@ -40,6 +36,12 @@
       "identity": "vdepth-v1-tune-fixed-lr600-dev-r2",
       "cohort": "tune",
       "weighted_nll": 2.9431037295302347,
+      "targets": 759473
+    },
+    {
+      "identity": "vdepth-v1-tune-mixture-lr1000-dev-r2",
+      "cohort": "tune",
+      "weighted_nll": 2.982256630830667,
       "targets": 759473
     },
     {
@@ -88,7 +90,8 @@
   "completed_learning_curve_cells": [],
   "stage_states": {
     "controller_liveness": "ALIVE",
-    "tuning": "RUNNING"
+    "tuning": "COMPLETE",
+    "primary_fits": "RUNNING"
   },
   "scope": "Only actual native progress and completed readouts. Training rank-zero loss is omitted; TUNE selects the declared LR only. Stable and annealed curve endpoints differ. No best-depth or TEST selection."
 }

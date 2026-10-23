@@ -56,7 +56,20 @@ def main():
     start=dt.datetime(2026,10,23,20,15,tzinfo=dt.timezone.utc).timestamp()
     last=max((end for _,end in intervals),default=start)
     fresh=json.loads((a.root/'variable-depth-fresh-v1/manifest.json').read_text())
+    collected=time.time();cpu_jobs=[]
+    for identity,path,threads in [
+       ('old_recipe_fresh_dev',a.root/'old-recipe-fresh-dev-v1/report.json',12),
+       ('primary_independent_audits',a.root/'variable-depth-campaign-v2/independent-cpu/report.json',12),
+       ('longer_independent_audits',a.root/'variable-depth-campaign-v2/long-independent-cpu/report.json',12),
+       ('mechanism_independent_audits',a.root/'variable-depth-readonly-v1/independent-mechanism/report.json',12)]:
+        if path.exists():
+            report=json.loads(path.read_text());cpu_jobs.append({'identity':identity,'status':report['status'],
+                'configured_threads':threads,'wall_seconds_including_waits':report.get('wall_seconds_including_waits',report.get('wall_seconds')),
+                'active_scoring_and_recovery_seconds':report.get('active_seconds',sum(r.get('seconds',0) for r in report.get('records',[])))})
     result={'status':'COMPLETE_VARIABLE_DEPTH_RECEIPTS' if not missing else 'PARTIAL_VARIABLE_DEPTH_RECEIPTS',
+      'collected_unix':collected,'declared_task_window_through_collection_hours':(collected-start)/3600,
+      'declared_task_window_through_collection_opportunity_chip_hours':16*(collected-start)/3600,
+      'cpu_only_jobs':cpu_jobs,
       'closed_native_attempts':len(records),'runs':records,'missing_closures':missing,
       'assigned_chip_hours':sum(v['assigned_chip_hours'] for v in records),
       'accelerator_active_union_hours':active/3600,'active_node_opportunity_chip_hours':16*active/3600,
@@ -65,7 +78,7 @@ def main():
       'known_optimizer_update_matmul_flops':training,'known_numerical_probe_matmul_flops':probes,
       'known_readout_matmul_flops':readout,'unquantified_failed_nn_work':unknown,
       'fresh_panel_preparation_seconds':fresh['preparation_seconds'],'fresh_panel_configured_workers':20,
-      'scope':'All variable-depth software, failed/stopped attempts, tuning, fits and readouts. Native launch includes setup/compile/full-state checks. Union active intervals avoids overlap double-counting. Declared-window span includes CPU/control/idle time but is not the entire instance bill. NN work includes every completed optimizer update, separately known native numerical probes and readout forwards; excludes CPU math, elementwise/optimizer kernels, communication, compiler-internal and unobserved failed NN work, all retained in wall cost. Reused raw downloads/corpora and prior campaign fits remain historical costs. Configured CPU workers are not measured core-hours.'}
+      'scope':'All variable-depth software, failed/stopped attempts, tuning, fits and readouts. Native launch includes setup/compile/full-state checks. Union active intervals avoids overlap double-counting. Declared-window span includes CPU/control/idle time but is not the entire instance bill. NN work includes every completed optimizer update, separately known native numerical probes and readout forwards; excludes CPU math, elementwise/optimizer kernels, communication, compiler-internal and unobserved failed NN work, all retained in wall cost. Reused raw downloads/corpora and prior campaign fits remain historical costs. Task-window-through-collection also includes any CPU-only tail and reporting work; it is separate from native active/span costs and is not the full instance bill. CPU wall times overlap, so they are not added to node-hours. Configured CPU workers/threads are not measured core-hours.'}
     a.output.mkdir(parents=True,exist_ok=True);(a.output/'execution-costs.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps({k:v for k,v in result.items() if k not in ['runs','scope']}))
 
