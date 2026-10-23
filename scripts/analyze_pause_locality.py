@@ -70,6 +70,8 @@ def main():
     ax.set_title('Existing 1B checkpoints: pause gain by source position')
     ax.grid(axis='y',alpha=.2)
     fig.savefig(args.output/'pause-locality.png',dpi=180);fig.savefig(args.output/'pause-locality.svg');plt.close(fig)
+    svg=args.output/'pause-locality.svg'
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
     print(json.dumps({'overall_gain':result['mean_overall_cpu_gain_nats'],
         'bins':[{k:v for k,v in d.items() if k in ['bin','mean_gain_nats','interval_95']} for d in summary]},indent=2))
 
