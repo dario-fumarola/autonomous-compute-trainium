@@ -5,7 +5,8 @@ requires-python = ">=3.12"
 dependencies = ["torch>=2.9", "tokenizers>=0.22", "requests>=2.32", "pyarrow>=25"]
 
 [project.optional-dependencies]
-test = ["pytest>=8"]
+test = ["pytest>=8", "scipy>=1.14"]
+analysis = ["scipy>=1.14", "matplotlib>=3.9"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

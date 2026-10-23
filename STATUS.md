@@ -1,9 +1,11 @@
-# Status — 2026-10-23, 22:35 UTC
+# Status — 2026-10-23, 22:42 UTC
 
 **The three-seed main campaign is running; the first two mixture runs have
 completed their100M and301M stable DEV points.** Seed103 scores3.808420 then
 3.013947; seed211 scores3.814483 then3.019806. Ordinary/fixed main curves are
 still pending, so this is learning evidence, not an architecture comparison.
+Both active jobs have now passed539M real targets, on disjoint eight-chip
+halves. No primary endpoint or new TEST result has been reported.
 Selected peaks remain6e-4 ordinary,1e-3 fixed and6e-4 mixture, frozen after all
 twelve300M-target trials. Fixed is an upper-grid winner, only0.002882 better
 than6e-4; its optimum is not bracketed.
@@ -31,7 +33,10 @@ global batch and per-arm four-LR selection budget. Mixed depths have mean two
 and exactly match fixed-depth estimated neural training work. No pass signal,
 separate norms, teacher, synthetic examples or RL is added.
 
-The **60-test CPU suite passes**. Native global-gradient relative errors are
+The **64-test CPU suite passes**. The four added tests cover the separate
+future five-seed confirmation helper; the running trainer, analysis and all30
+frozen scientific source hashes are unchanged. No terminal confirmation
+attempt has been registered. Native global-gradient relative errors are
 0.00145 mixed /0.00155 fixed. Full-size CPU loss/gradient checks pass at each
 depth, all replicas agree, optimizer state restores exactly and two fresh
 continuations match bit-for-bit. Interrupted versus uninterrupted tiny training

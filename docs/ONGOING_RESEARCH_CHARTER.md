@@ -49,6 +49,18 @@ predeclared meaningful-effect criterion, rather than stopping at the first
 nominal p<0.05. Independent data and seeds are essential to this procedure;
 alpha spending cannot repair leaked or outcome-selected confirmation data.
 
+The separate `compute_trainium/terminal_confirmation.py` helper validates
+future one-primary registrations and computes fixed-sample paired Student-t
+intervals for five or more seeds at the allocated level. Its tests check the
+quantile, freshness constraints and allocation sequence. It uses host SciPy
+(currently1.18.1); it is not part of the running native trainer or this study's
+frozen analysis. Seed intervals assume independent, approximately normal
+paired-seed differences and are conditional on the chosen panel. Source-group
+uncertainty, the data gate and independent numerical audits remain necessary.
+No terminal attempt has been registered and no new TEST panel has been opened
+by adding this helper. A valid numerical interval alone cannot establish the
+resource and scientific controls required for a final claim.
+
 ## Operating constraints
 
 Keep the natural-source policy: no generated research corpus, external teacher

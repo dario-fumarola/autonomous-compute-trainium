@@ -59,13 +59,14 @@ def main():
     collected=time.time();cpu_jobs=[]
     for identity,path,threads in [
        ('old_recipe_fresh_dev',a.root/'old-recipe-fresh-dev-v1/report.json',12),
+       ('cpu_precision_calibration',a.root/'cpu-bf16-calibration-v1/report.json',12),
        ('primary_independent_audits',a.root/'variable-depth-campaign-v2/independent-cpu/report.json',12),
        ('longer_independent_audits',a.root/'variable-depth-campaign-v2/long-independent-cpu/report.json',12),
        ('mechanism_independent_audits',a.root/'variable-depth-readonly-v1/independent-mechanism/report.json',12)]:
         if path.exists():
             report=json.loads(path.read_text());cpu_jobs.append({'identity':identity,'status':report['status'],
-                'configured_threads':threads,'wall_seconds_including_waits':report.get('wall_seconds_including_waits',report.get('wall_seconds')),
-                'active_scoring_and_recovery_seconds':report.get('active_seconds',sum(r.get('seconds',0) for r in report.get('records',[])))})
+                'configured_threads':threads,'wall_seconds_including_waits':report.get('wall_seconds_including_waits',report.get('wall_seconds',report.get('seconds'))),
+                'active_scoring_and_recovery_seconds':report.get('active_seconds',report.get('seconds',sum(r.get('seconds',0) for r in report.get('records',[]))))})
     result={'status':'COMPLETE_VARIABLE_DEPTH_RECEIPTS' if not missing else 'PARTIAL_VARIABLE_DEPTH_RECEIPTS',
       'collected_unix':collected,'declared_task_window_through_collection_hours':(collected-start)/3600,
       'declared_task_window_through_collection_opportunity_chip_hours':16*(collected-start)/3600,
