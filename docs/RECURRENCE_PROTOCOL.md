@@ -96,7 +96,10 @@ DDP accumulation, clipping 1, atomic full-state checkpoints and immutable
 launch snapshots. Use fresh workers per shape or evaluation. Fail closed on
 compiler errors, OOMs, numerical disagreement, replica disagreement or reserves.
 Keep host available memory above 512 GiB and every output filesystem above
-35 GiB free. A separate 96 GiB tmpfs holds new artifacts; old results remain.
+35 GiB free. A separate tmpfs holds new artifacts; it was created at 96 GiB
+and expanded to 160 GiB before tuning to retain all full curve/branch states.
+This is filesystem capacity, not reserved physical RAM. The shared container
+memory ceiling includes its new checkpoint pages. Old results remain.
 
 Before scientific training: actual-wrapper CPU causal/gradient/sharing and
 full optimizer-continuation checks; native tiny global-batch reference; native

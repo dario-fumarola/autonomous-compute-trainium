@@ -7,7 +7,7 @@ annealed equal-FLOP endpoints. It preserves the complete pause study below.
 The initial eight-hour work window starts at 03:12 UTC. No new scientific fit
 has launched yet. All 16 chips are currently assigned to the 150M two-pass
 qualification (`recurrence-150m-r2-ddp64-001`). New artifacts use a separate
-96 GiB tmpfs mounted under the existing container's workspace; previous assets
+160 GiB tmpfs mounted under the existing container's workspace; previous assets
 remain unchanged. The original XLA environment and host driver are preserved.
 
 Thirty-three CPU tests pass. Actual TorchTitan wrapper CPU checks pass causal

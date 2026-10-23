@@ -20,7 +20,12 @@ for path in [root,pathlib.Path('/')]:
 mem=dict(line.split(':',1) for line in pathlib.Path('/proc/meminfo').read_text().splitlines())
 limit=int(subprocess.check_output(['docker','inspect','--format','{{.HostConfig.Memory}}','autonomous-compute-neuron233']))
 if limit <= 0: raise RuntimeError('Set a positive container memory limit')
-if int(mem['MemAvailable'].split()[0])*1024 < 512*1024**3+limit: raise RuntimeError('Host memory reserve failed')
+pid=subprocess.check_output(['docker','inspect','--format','{{.State.Pid}}','autonomous-compute-neuron233'],text=True).strip()
+cg=pathlib.Path('/proc/'+pid+'/cgroup').read_text().strip().split('::',1)[1]
+used=int((pathlib.Path('/sys/fs/cgroup')/cg.lstrip('/')/'memory.current').read_text())
+# Existing usage is already deducted from MemAvailable. Reserve only the
+# remaining shared container allowance, including when another job is active.
+if int(mem['MemAvailable'].split()[0])*1024 < 512*1024**3+max(0,limit-used): raise RuntimeError('Host memory reserve failed')
 if (root/'runs'/os.environ['RESEARCH_RUN']).exists(): raise FileExistsError('Use a new run identity')
 PY
 mkdir -p "$RESEARCH_ROOT/snapshots/$RESEARCH_RUN"
@@ -31,6 +36,7 @@ root=pathlib.Path(os.environ['RESEARCH_ROOT']); run=os.environ['RESEARCH_RUN']
 cores=os.environ.get('NEURON_RT_VISIBLE_CORES','0')
 if '-' in cores: raise ValueError('Pass an explicit comma-separated core list')
 chips=sorted({int(c)//4 for c in cores.split(',')})
+if os.environ.get('RESEARCH_CPU_ONLY') == '1': chips=[]
 p=root/'snapshots'/run
 files={str(f.relative_to(p)):hashlib.sha256(f.read_bytes()).hexdigest() for f in p.rglob('*.py')}
 limit=int(subprocess.check_output(['docker','inspect','--format','{{.HostConfig.Memory}}','autonomous-compute-neuron233']))
