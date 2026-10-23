@@ -1,4 +1,23 @@
-# Status — 2026-10-22
+# Status — 2026-10-23
+
+**A new fixed-recurrence campaign is qualifying on the existing instance.**
+The [new protocol](docs/RECURRENCE_PROTOCOL.md) compares one versus two
+applications of a shared core on natural text, with equal-token and separately
+annealed equal-FLOP endpoints. It preserves the complete pause study below.
+The initial eight-hour work window starts at 03:12 UTC. No new scientific fit
+has launched yet. All 16 chips are currently assigned to the 150M two-pass
+qualification (`recurrence-150m-r2-ddp64-001`). New artifacts use a separate
+96 GiB tmpfs mounted under the existing container's workspace; previous assets
+remain unchanged. The original XLA environment and host driver are preserved.
+
+Thirty-three CPU tests pass. Actual TorchTitan wrapper CPU checks pass causal
+masking, identical paired initialization, sharing versus untied summed gradients,
+all-parameter gradients and exact full-Adam continuation. The new 64-rank tiny
+global accumulated gradient check passes at relative L2 0.001614; every replica
+has identical model/optimizer state. Next: qualify full-size recovery and warm
+throughput, freeze the measured budget, then execute the bounded comparison.
+
+---
 
 **The controlled natural-text learning curve is complete.** At 1,004,887,590 real targets per run, ordinary mean NLL is **2.519907** and early-pause mean NLL is **2.573797** across three paired initialization seeds. Pause gain is **-0.053890 [-0.060287, -0.047493]**. The declared 0.01-nat gain is ruled out at this exposure under the fixed tuning procedure. All three seeds and domains favor ordinary. Read the [complete report and plots](results/learning_curve_20261022/REPORT.md).
 

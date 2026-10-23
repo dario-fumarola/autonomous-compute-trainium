@@ -51,7 +51,8 @@ def main():
         while process.poll() is None:
             mem = dict(line.split(":", 1) for line in Path("/proc/meminfo").read_text().splitlines())
             available = int(mem["MemAvailable"].split()[0])*1024
-            frees = {str(p): shutil.disk_usage(p).free for p in (root, Path("/"))}
+            paths = [root, Path("/"), Path('/run/user/1000/autonomous-compute')]
+            frees = {str(p): shutil.disk_usage(p).free for p in paths}
             with log.open() as reader:
                 reader.seek(offset)
                 new = reader.read()

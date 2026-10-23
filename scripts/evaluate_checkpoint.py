@@ -14,6 +14,7 @@ from compute_trainium.data import document_windows, layout, pad_layout
 from compute_trainium.metrics import DocumentScore, summarize
 from compute_trainium.model import ModelConfig
 from compute_trainium.titan import build_titan
+from compute_trainium.recurrence import config_from_signature, build_from_config
 from compute_trainium.training import TokenObjective, file_sha256
 from scripts.qualify_native import digest
 
@@ -32,11 +33,11 @@ def main():
     expected = saved["signature"].get("dev_corpus_sha256", saved["signature"]["corpus_sha256"])
     if file_sha256(args.corpus) != expected:
         raise ValueError("Evaluation corpus differs from checkpoint")
-    config = ModelConfig(**saved["signature"]["model"])
+    config = config_from_signature(saved["signature"])
     context, precision = saved["signature"]["context"], saved["signature"]["precision"]
     pauses, exposure = saved["pauses"], saved["real_tokens"]
     padding = saved["signature"].get("pad_to", 0)
-    model = build_titan(config)
+    model = build_from_config(config)
     model.load_state_dict(saved["model"])
     before = digest(model.state_dict())
     del saved

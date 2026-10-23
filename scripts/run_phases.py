@@ -16,6 +16,7 @@ from pathlib import Path
 
 def run(plan, output):
     root = Path(os.environ.get("RESEARCH_ROOT", "/run/user/1000/autonomous-compute"))
+    container_root = os.environ.get("RESEARCH_CONTAINER_ROOT", "/work")
     supervisor = Path(__file__).with_name("supervise.py")
     previous = plan.get("resume")
     events = []
@@ -55,7 +56,7 @@ def run(plan, output):
             raise AssertionError("Training phase did not pass")
         if phase.get("decay_end") and phase_report["total_real_targets"] < phase["decay_end"]:
             raise AssertionError("Decay endpoint is incomplete; cannot compare this branch")
-        checkpoint = f"/work/runs/{run_id}/checkpoint.pt"
+        checkpoint = f"{container_root}/runs/{run_id}/checkpoint.pt"
         if not phase.get("branch", False):
             previous = checkpoint
         evaluation = run_id+"-dev"

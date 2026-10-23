@@ -11,6 +11,7 @@ if [[ "${RESEARCH_LAUNCHER_FROZEN:-0}" != 1 ]]; then
   exec bash "$RESEARCH_LAUNCHER_FILE" "$@"
 fi
 export RESEARCH_ROOT RESEARCH_RUN
+RESEARCH_CONTAINER_ROOT="${RESEARCH_CONTAINER_ROOT:-/work}"
 python3 - <<'PY'
 import os,pathlib,shutil,subprocess
 root=pathlib.Path(os.environ['RESEARCH_ROOT'])
@@ -50,7 +51,10 @@ out={'exit_code':int(os.environ['RESEARCH_EXIT']),'wall_seconds':wall,
 PY
 }
 trap close_run EXIT
-if [[ "${RESEARCH_STRIDE_REPRO:-0}" -gt 0 ]]; then
+if [[ -n "${RESEARCH_ENTRY_MODULE:-}" ]]; then
+  [[ "$RESEARCH_ENTRY_MODULE" == scripts.* ]] || exit 2
+  RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m "$RESEARCH_ENTRY_MODULE")
+elif [[ "${RESEARCH_STRIDE_REPRO:-0}" -gt 0 ]]; then
   RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m scripts.repro_noncontiguous_input)
 elif [[ "${RESEARCH_EVAL:-0}" -gt 0 ]]; then
   RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m scripts.evaluate_checkpoint)
@@ -66,7 +70,7 @@ else
   RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m scripts.qualify_native)
 fi
 docker exec \
-  -e "PYTHONPATH=/work/snapshots/$RESEARCH_RUN:/work/vendor/torchtitan-neuron" \
+  -e "PYTHONPATH=$RESEARCH_CONTAINER_ROOT/snapshots/$RESEARCH_RUN:/work/vendor/torchtitan-neuron" \
   -e "NEURON_RT_VISIBLE_CORES=${NEURON_RT_VISIBLE_CORES:-0}" \
   -e "RESEARCH_VISIBLE_CORES=${NEURON_RT_VISIBLE_CORES:-0}" \
   -e PATH=/work/native-venv/bin:/opt/aws/neuron/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
@@ -78,4 +82,4 @@ docker exec \
   autonomous-compute-neuron233 \
   timeout --signal=TERM --kill-after=10s "${RESEARCH_TIMEOUT_SECONDS:-1200}" \
   "${RESEARCH_ENTRY[@]}" \
-  --corpus /work/data-v1/corpus.json --output "/work/runs/$RESEARCH_RUN" "$@"
+  --corpus /work/data-v1/corpus.json --output "$RESEARCH_CONTAINER_ROOT/runs/$RESEARCH_RUN" "$@"

@@ -26,6 +26,7 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 from compute_trainium.model import ModelConfig
 from compute_trainium.data import pad_layout
 from compute_trainium.titan import build_titan
+from compute_trainium.recurrence import RecurrenceConfig, build_from_config
 from compute_trainium.training import (PackedCorpus, TokenObjective, WSDSchedule,
                                        atomic_checkpoint, file_sha256, global_indices)
 from scripts.qualify_native import digest
@@ -38,6 +39,9 @@ def main():
     p.add_argument("--dev-corpus", type=Path)
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--size", choices=["tiny", "small"], default="small")
+    p.add_argument("--architecture", choices=["ordinary", "recurrent"], default="ordinary")
+    p.add_argument("--repetitions", type=int, default=2)
+    p.add_argument("--untied-depth", action="store_true")
     p.add_argument("--context", type=int, default=512)
     p.add_argument("--batch", type=int, default=1)
     p.add_argument("--accumulation", type=int, default=8)
@@ -73,13 +77,19 @@ def main():
     start = time.monotonic()
     config = (ModelConfig(dim=128, layers=2, heads=4, kv_heads=2, ffn_dim=256, max_seq=2048)
               if args.size == "tiny" else ModelConfig())
+    if args.architecture == "recurrent":
+        config = (RecurrenceConfig(dim=128, layers=4, heads=4, kv_heads=2, ffn_dim=256,
+                                  max_seq=2048, prelude=1, core=2, coda=1,
+                                  repetitions=args.repetitions, untied=args.untied_depth)
+                  if args.size == "tiny" else
+                  RecurrenceConfig(repetitions=args.repetitions, untied=args.untied_depth))
     corpus_hash = file_sha256(args.corpus)
     data_seed = args.seed if args.data_seed is None else args.data_seed
     packed = (PackedCorpus.from_mapped(args.packed_corpus, args.context, data_seed, corpus_hash)
               if args.packed_corpus else PackedCorpus(json.loads(args.corpus.read_text()), args.context, data_seed))
     bf16 = args.precision == "bf16"
     torch.manual_seed(args.seed)
-    model = build_titan(config)
+    model = build_from_config(config)
     initial_model_digest = digest(model.state_dict())
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr,
                                   foreach=args.optimizer == "foreach", fused=False)
