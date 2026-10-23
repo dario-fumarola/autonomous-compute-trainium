@@ -1,4 +1,4 @@
-# Status — 2026-10-23, 17:10 UTC
+# Status — 2026-10-23, 17:37 UTC
 
 **The paired 3B continuation and its independent CPU audits are complete.**
 At 3,014,637,826 real targets, ordinary scores **2.336914** and shared
@@ -16,6 +16,14 @@ checksum-verified on-instance EBS recovery copies. All three generic
 trained-path DEV templates reproduce the scalar NLL exactly. Their 64-rank
 end-to-end times are not a scoring speedup; startup and full-state verification
 are counted. The scientific model, optimizer and evaluator remain fixed.
+
+The separately annealed ordinary resource control is also complete:
+**2.421944 NLL at 1,699,926,288 targets**, versus **2.489247 untied at
+1,004,887,590**, at nearly identical estimated training matmul work. The
+ordinary-minus-untied gain is **-0.067303 [-0.072733,-0.062260]** conditional
+on seed23: the equal-data untied gain does not survive this resource control.
+Independent CPU/native difference is -0.00004176 nats. Its full model/Adam/RNG
+copy passes EBS readback. [Resource-control readout](results/sharing_exposure_20261023/compute-control.json).
 
 The original three-seed 1B result is preserved: ordinary **2.519907**, shared
 **2.550448**, ordinary-minus-shared gain **-0.03054 [-0.03220,-0.02888]**.
@@ -43,9 +51,9 @@ learning-rate search, teacher, synthetic research corpus, RL or halting.
 [Follow-up protocol](docs/CONFIRMATION_FOLLOWUP_20261023.md).
 
 The detached follow-up coordinator passed the original campaign, independent
-endpoint audits and all three DEV evaluator calibrations. It is now training
-the ordinary estimated-compute-matched branch on all 16 chips. Untied seeds47
-and71 follow automatically, using the same frozen recipe. The measured complete
+endpoint audits and all three DEV evaluator calibrations. The ordinary estimated-compute-matched branch is complete. Untied seed47
+is now training on all 16 chips; seed71 follows automatically, using the
+same frozen recipe. The measured complete
 budget is **2.93 hours**, including conservative training margin, fresh-process
 overhead and protected TEST/reporting reserves. The follow-up lasts at most four hours, with an
 absolute ceiling of **23:30 UTC**; the realized four-hour guard ends at
