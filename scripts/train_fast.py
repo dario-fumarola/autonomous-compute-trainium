@@ -75,9 +75,15 @@ def main():
     p.add_argument("--save", action="store_true")
     p.add_argument("--check-global", action="store_true")
     p.add_argument("--optimizer", choices=["plain", "foreach", "fused"], default="plain")
+    p.add_argument("--warm-rendezvous", type=Path)
+    p.add_argument("--warm-peer-names", default="")
     args = p.parse_args()
     if args.steps <= args.warmup or min(args.batch, args.accumulation, args.clip) <= 0:
         raise ValueError("Positive sizes and a nonempty warm interval required")
+    if args.warm_rendezvous:
+        peers=args.warm_peer_names.split(',')
+        if len(set(peers))!=2 or args.output.name not in peers or any(Path(v).name!=v for v in peers):
+            raise ValueError('Concurrent timing requires the two explicit unique job identities')
     rank, world = int(os.environ["RANK"]), int(os.environ["WORLD_SIZE"])
     torch.set_num_threads(2)
     torch.neuron.set_device(0)
@@ -217,13 +223,30 @@ def main():
     dist.barrier()
     torch.neuron.synchronize()
     warm_started = None
+    warm_started_unix = None
     for step in range(args.steps):
         if step == args.warmup:
             gc.collect()
             ctypes.CDLL(None).malloc_trim(0)
             dist.barrier()
             torch.neuron.synchronize()
+            if args.warm_rendezvous:
+                if rank==0:
+                    args.warm_rendezvous.mkdir(parents=True,exist_ok=True)
+                    ready=args.warm_rendezvous/(args.output.name+'.json')
+                    if ready.exists():raise FileExistsError('Timing rendezvous must be fresh')
+                    temporary=ready.with_suffix('.tmp')
+                    temporary.write_text(json.dumps({'member':args.output.name,'peers':peers,'ready_unix':time.time()}))
+                    temporary.replace(ready);limit=time.monotonic()+300
+                    while not all((args.warm_rendezvous/(v+'.json')).exists() for v in peers):
+                        if time.monotonic()>limit:raise TimeoutError('Other half-node job did not complete compilation')
+                        time.sleep(.1)
+                    for v in peers:
+                        if json.loads((args.warm_rendezvous/(v+'.json')).read_text())['peers']!=peers:
+                            raise ValueError('Timing peer identities differ')
+                dist.barrier()
             warm_started = time.monotonic()
+            warm_started_unix = time.time()
         before = time.monotonic()
         # Count masks globally on CPU from the immutable stream, without a device
         # collective or mean-of-means bias. DDP averages gradients across ranks.
@@ -296,6 +319,7 @@ def main():
     torch.neuron.synchronize()
     dist.barrier()
     warm_seconds = time.monotonic()-warm_started
+    warm_ended_unix = time.time()
     if args.save and last_checkpoint_update != update:
         checkpoint()
     state_digest = digest({"model": model.state_dict(), "optimizer": optimizer.state_dict()})
@@ -317,6 +341,7 @@ def main():
                   "optimizer": args.optimizer, "pauses": args.pauses,
                   "updates": update-origin_update, "warm_updates": args.steps-args.warmup,
                   "warm_seconds": warm_seconds, "warm_real_targets": warm_tokens,
+                  "warm_started_unix": warm_started_unix, "warm_ended_unix": warm_ended_unix,
                   "warm_global_real_targets_per_second": warm_tokens/warm_seconds,
                   "phase_real_targets": exposure-origin_exposure, "total_real_targets": exposure,
                   "cursor": cursor, "corpus_unique_train_targets": packed.real_targets,

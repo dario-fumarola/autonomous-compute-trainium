@@ -39,10 +39,16 @@ def main():
     if not tiny['global_gradient_check'] or not tiny['all_replica_model_optimizer_states_equal']:
         raise ValueError('Global-gradient/replica proof missing')
     jobs=[]
+    peers=','.join(f'fast-150m-r{r}-half32-001' for r in [1,2])
+    rendezvous=f'{croot}/{args.output.relative_to(root)}/warm-ready'
     for r in [1,2]:
-        jobs.append(phase(f'fast-150m-r{r}-half32-001','scripts.train_fast',base+['--size','small','--repetitions',str(r),'--steps','104'],list(range((r-1)*32,r*32))))
+        jobs.append(phase(f'fast-150m-r{r}-half32-001','scripts.train_fast',base+['--size','small','--repetitions',str(r),'--steps','104',
+            '--warm-rendezvous',rendezvous,'--warm-peer-names',peers],list(range((r-1)*32,r*32))))
     finish(jobs)
     reports={r:json.loads((root/f'runs/fast-150m-r{r}-half32-001/report.json').read_text()) for r in [1,2]}
+    overlap=max(0,min(v['warm_ended_unix'] for v in reports.values())-max(v['warm_started_unix'] for v in reports.values()))
+    if overlap<.95*min(v['warm_seconds'] for v in reports.values()):
+        raise AssertionError('Two warm timing windows did not overlap sufficiently')
     # Independent process recovery of both full model + optimizer states.
     jobs=[]
     for r in [1,2]:
@@ -58,6 +64,8 @@ def main():
         'optimizer':'fused','world_per_job':32,'batch_per_rank':4,'accumulation':2,
         'global_microbatch_windows':128,'global_update_windows':256,'warm_updates_per_arm':100,
         'concurrent_half_node_measurements':True,'fp32_master_and_moments':True,
+        'synchronized_warm_start':True,'warm_overlap_seconds':overlap,
+        'warm_overlap_fraction_by_arm':{str(r):overlap/reports[r]['warm_seconds'] for r in [1,2]},
         'optimizer_fixture':fixture,'tiny_global_gradient':tiny['global_gradient_check'],
         'rates':{str(r):reports[r]['warm_global_real_targets_per_second'] for r in [1,2]},
         'full_optimizer_recovery_both_arms':True,'replicas_identical_both_arms':True,
