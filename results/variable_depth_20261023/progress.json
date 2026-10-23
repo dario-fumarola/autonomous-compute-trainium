@@ -1,28 +1,87 @@
 {
-  "updated_unix": 1792789382.9069924,
+  "updated_unix": 1792792578.8384233,
   "status": "RUNNING",
   "active_phases": [
     {
-      "identity": "vdepth-v1-tune-fixed-lr150",
+      "identity": "vdepth-v1-tune-fixed-lr1000",
       "assigned_chips": 8,
       "module": "scripts.train_variable_depth",
-      "update": 1152,
-      "real_tokens": 301465908,
-      "lr": 1.4999999999999999e-05,
-      "gradient_norm": 0.4676620662212372,
-      "elapsed_seconds": 627.1996371939313
+      "update": 550,
+      "real_tokens": 143928902,
+      "lr": 0.001,
+      "gradient_norm": 0.2936103343963623,
+      "elapsed_seconds": 364.27811539103277
     },
     {
-      "identity": "vdepth-v1-tune-mixture-lr150",
+      "identity": "vdepth-v1-tune-mixture-lr1000",
       "assigned_chips": 8,
-      "module": "scripts.train_variable_depth"
+      "module": "scripts.train_variable_depth",
+      "update": 50,
+      "real_tokens": 13084474,
+      "lr": 0.001,
+      "gradient_norm": 0.6099513173103333,
+      "elapsed_seconds": 161.8923462650273
     }
   ],
   "completed_tuning_trials": [
     {
+      "identity": "vdepth-v1-tune-fixed-lr150-dev-r2",
+      "cohort": "tune",
+      "weighted_nll": 3.3049840565045594,
+      "targets": 759473
+    },
+    {
+      "identity": "vdepth-v1-tune-fixed-lr300-dev-r2",
+      "cohort": "tune",
+      "weighted_nll": 3.071832589221524,
+      "targets": 759473
+    },
+    {
+      "identity": "vdepth-v1-tune-fixed-lr600-dev-r2",
+      "cohort": "tune",
+      "weighted_nll": 2.9431037295302347,
+      "targets": 759473
+    },
+    {
+      "identity": "vdepth-v1-tune-mixture-lr150-dev-r2",
+      "cohort": "tune",
+      "weighted_nll": 3.340207608102247,
+      "targets": 759473
+    },
+    {
+      "identity": "vdepth-v1-tune-mixture-lr300-dev-r2",
+      "cohort": "tune",
+      "weighted_nll": 3.0877973957471316,
+      "targets": 759473
+    },
+    {
+      "identity": "vdepth-v1-tune-mixture-lr600-dev-r2",
+      "cohort": "tune",
+      "weighted_nll": 2.957476335421853,
+      "targets": 759473
+    },
+    {
+      "identity": "vdepth-v1-tune-ordinary-lr1000-dev-r1",
+      "cohort": "tune",
+      "weighted_nll": 3.0173110266832084,
+      "targets": 759473
+    },
+    {
       "identity": "vdepth-v1-tune-ordinary-lr150-dev-r1",
       "cohort": "tune",
       "weighted_nll": 3.3455626568315884,
+      "targets": 759473
+    },
+    {
+      "identity": "vdepth-v1-tune-ordinary-lr300-dev-r1",
+      "cohort": "tune",
+      "weighted_nll": 3.095383558412032,
+      "targets": 759473
+    },
+    {
+      "identity": "vdepth-v1-tune-ordinary-lr600-dev-r1",
+      "cohort": "tune",
+      "weighted_nll": 2.969665302053677,
       "targets": 759473
     }
   ],
