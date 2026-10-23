@@ -109,3 +109,28 @@ also prevent a direct restart against the earlier inventory. The current
 controller is live. If recovery becomes necessary, preserve the old receipts
 and tensor states and make an explicit orchestration-only recovery amendment;
 do not silently restart completed fits or change frozen models/analyses.
+
+The separate `scripts.recover_variable_depth_campaign` entry point now
+implements that amendment. Its `--inspect` mode is read-only and verifies the
+saved paths, even when unrelated helpers exist, then estimates only unfinished
+successful-report/closure pairs. On this live checkout it verified all30
+original paths and budgeted remaining work; a real duplicate-launch attempt
+was refused while the original controller remained live, without changing
+the plan or starting any recovery stage. CPU tests cover saved membership,
+failed receipts, preserved TEST release and verified process adoption/cleanup.
+
+Execution retains the original03:00/04:15 cutoffs and requires no live primary
+controller or native worker. It reuses completed stages, adopts matching live
+CPU audits, preserves selected LRs and an existing TEST release timestamp,
+and archives incomplete readback copies. Occupied failed native identities
+stop for explicit operator handling: this is not an automatic compiler-error
+retry. An execution amendment records the new orchestration hashes and keeps
+the scientific model, data, schedule, evaluator and analysis freeze intact.
+No recovery execution has been needed or started.
+
+`scripts.guard_depth_diagnostics` separately watches the actual annex process.
+If it exits without a terminal report, the guard cleans only matching
+read-only mechanism-audit children, including the spawn-before-PID-receipt
+case, and writes an explicit stopped record. A subprocess integration fixture
+exercises orphan cleanup and terminal reporting; it scores no research data.
+The running annex and its two frozen source hashes are preserved.

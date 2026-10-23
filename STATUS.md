@@ -1,15 +1,19 @@
-# Status — 2026-10-23, 23:33 UTC
+# Status — 2026-10-23, 23:58 UTC
 
-**The first two mixture1B endpoints are complete.** Fresh DEV NLL is
-2.587427 for seed103 and2.590665 for seed211, after the planned decay.
+**All three mixture 1B endpoints are complete.** Fresh DEV NLL is
+2.587427 / 2.590665 / 2.587213 for seeds103 / 211 / 307, after planned decay.
 Their earlier100M/301M stable scores were3.808420/3.013947 and
 3.814483/3.019806. Both endpoints have passed independent whole-DEV FP32
 audits and full optimizer-state copy/readback: CPU-minus-native deltas are
 -0.00001469 and-0.00000106 nats. Ten model audits remain pending.
 [Partial audit](results/variable_depth_20261023/partial-independent-cpu-verification.json).
-Ordinary/fixed main curves are still pending, so this is learning evidence,
-not an architecture comparison. Mixture307 and ordinary103 are now running
-on disjoint eight-chip halves; all16 chips remain assigned.
+The first ordinary pair is also ready: at equal data, ordinary103 scores
+2.599135 versus mixture103 at2.587427, a **0.011708-nat** gain. At matched
+estimated training matmuls, ordinary at1.700B targets scores **2.495278**,
+beating mixture at1.005B by **0.092150 nats**. This pair's equal-data gain
+does not repay the extra compute. The remaining paired seeds and fixed-depth
+controls are pending; all16 chips remain assigned.
+[First-pair DEV comparison](results/variable_depth_20261023/first-pair-dev.json).
 No primary comparison or new TEST result has been reported.
 At301M stable targets, ordinary103 scores3.024108 versus mixture103
 3.013947: a0.010160-nat equal-data gain in one pair, with additional compute.
@@ -42,7 +46,8 @@ global batch and per-arm four-LR selection budget. Mixed depths have mean two
 and exactly match fixed-depth estimated neural training work. No pass signal,
 separate norms, teacher, synthetic examples or RL is added.
 
-The **71-test CPU suite passes**. Added tests cover the separate future
+The **77-test CPU suite passes**. Added tests cover operational recovery,
+verified orphan-audit cleanup, the separate future
 five-seed confirmation helper, source exclusions for a longer natural stream,
 and a prospective topology resize; the running trainer, analysis and all30
 frozen scientific source hashes are unchanged. No terminal confirmation

@@ -1,26 +1,16 @@
 {
-  "updated_unix": 1792798282.2989883,
+  "updated_unix": 1792799892.1563294,
   "status": "RUNNING",
   "active_phases": [
     {
-      "identity": "vdepth-v1-mixture-s307-u3456",
+      "identity": "vdepth-v1-ordinary-s307-u384",
       "assigned_chips": 8,
-      "module": "scripts.train_variable_depth",
-      "update": 1702,
-      "real_tokens": 445395238,
-      "lr": 0.0006,
-      "gradient_norm": 0.21938103437423706,
-      "elapsed_seconds": 454.5393475500168
+      "module": "scripts.train_variable_depth"
     },
     {
-      "identity": "vdepth-v1-ordinary-s103-u3840",
+      "identity": "vdepth-v1-ordinary-s211-u384-dev-r1",
       "assigned_chips": 8,
-      "module": "scripts.train_variable_depth",
-      "update": 3556,
-      "real_tokens": 930567884,
-      "lr": 0.0005145681379872062,
-      "gradient_norm": 0.1973532885313034,
-      "elapsed_seconds": 100.07143653102685
+      "module": "scripts.evaluate_depth_curve"
     }
   ],
   "completed_tuning_trials": [
@@ -371,6 +361,40 @@
       }
     },
     {
+      "identity": "vdepth-v1-mixture-s307-u3840-dev-r2",
+      "training_real_targets": 1004887590,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 775956.6707191467,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.075080827302959
+          },
+          "code": {
+            "nll_sum": 362611.28884506226,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4444650699904884
+          },
+          "math": {
+            "nll_sum": 569712.7818231583,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2663589567231748
+          }
+        },
+        "weighted_nll": 2.587213301724508,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
       "identity": "vdepth-v1-ordinary-s103-u1152-dev-r1",
       "training_real_targets": 301465908,
       "depth": 1,
@@ -430,6 +454,74 @@
           }
         },
         "weighted_nll": 3.8045098414583856,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
+      "identity": "vdepth-v1-ordinary-s103-u3840-dev-r1",
+      "training_real_targets": 1004887590,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 779461.4906387329,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0889702684851326
+          },
+          "code": {
+            "nll_sum": 364770.8504066467,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4530677013430269
+          },
+          "math": {
+            "nll_sum": 572060.3087828159,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2756975900151004
+          }
+        },
+        "weighted_nll": 2.599135219362705,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
+      "identity": "vdepth-v1-ordinary-s103-u6496-dev-r1",
+      "training_real_targets": 1699926288,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 751083.3483543396,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.976508987403114
+          },
+          "code": {
+            "nll_sum": 343670.1198158264,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3690127664103668
+          },
+          "math": {
+            "nll_sum": 547463.1649436951,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.177848359616574
+          }
+        },
+        "weighted_nll": 2.495277617647256,
         "weights": {
           "web": 0.6,
           "math": 0.2,

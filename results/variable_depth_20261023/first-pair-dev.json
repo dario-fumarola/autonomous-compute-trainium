@@ -1,0 +1,95 @@
+{
+  "status": "PARTIAL_SINGLE_PAIR_DEVELOPMENT_COMPARISON",
+  "updated_unix": 1792799892.1801155,
+  "seed": 103,
+  "ordinary_1b": {
+    "domains": {
+      "web": {
+        "nll_sum": 779461.4906387329,
+        "real_targets": 252337,
+        "documents": 291,
+        "nll": 3.0889702684851326
+      },
+      "code": {
+        "nll_sum": 364770.8504066467,
+        "real_targets": 251035,
+        "documents": 153,
+        "nll": 1.4530677013430269
+      },
+      "math": {
+        "nll_sum": 572060.3087828159,
+        "real_targets": 251378,
+        "documents": 159,
+        "nll": 2.2756975900151004
+      }
+    },
+    "weighted_nll": 2.599135219362705,
+    "weights": {
+      "web": 0.6,
+      "math": 0.2,
+      "code": 0.2
+    },
+    "unit": "nats per real source token"
+  },
+  "mixture_1b_depth2": {
+    "domains": {
+      "web": {
+        "nll_sum": 776194.9958381653,
+        "real_targets": 252337,
+        "documents": 291,
+        "nll": 3.076025298858928
+      },
+      "code": {
+        "nll_sum": 362610.5272254944,
+        "real_targets": 251035,
+        "documents": 153,
+        "nll": 1.4444620360726368
+      },
+      "math": {
+        "nll_sum": 569270.419878006,
+        "real_targets": 251378,
+        "documents": 159,
+        "nll": 2.264599208673814
+      }
+    },
+    "weighted_nll": 2.587427428264647,
+    "weights": {
+      "web": 0.6,
+      "math": 0.2,
+      "code": 0.2
+    },
+    "unit": "nats per real source token"
+  },
+  "ordinary_matched_compute": {
+    "domains": {
+      "web": {
+        "nll_sum": 751083.3483543396,
+        "real_targets": 252337,
+        "documents": 291,
+        "nll": 2.976508987403114
+      },
+      "code": {
+        "nll_sum": 343670.1198158264,
+        "real_targets": 251035,
+        "documents": 153,
+        "nll": 1.3690127664103668
+      },
+      "math": {
+        "nll_sum": 547463.1649436951,
+        "real_targets": 251378,
+        "documents": 159,
+        "nll": 2.177848359616574
+      }
+    },
+    "weighted_nll": 2.495277617647256,
+    "weights": {
+      "web": 0.6,
+      "math": 0.2,
+      "code": 0.2
+    },
+    "unit": "nats per real source token"
+  },
+  "equal_data_mixture_gain_nats": 0.011707791098058085,
+  "matched_compute_mixture_gain_nats": -0.09214981061739058,
+  "scope": "One completed DEV pair only; no seed interval, hypothesis decision, TEST scoring or attribution to variable depth versus fixed depth. All models share unique parameter count. Ordinary matched compute sees more real source text."
+}
