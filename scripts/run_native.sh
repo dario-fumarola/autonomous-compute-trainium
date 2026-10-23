@@ -41,6 +41,7 @@ p=root/'snapshots'/run
 files={str(f.relative_to(p)):hashlib.sha256(f.read_bytes()).hexdigest() for f in p.rglob('*.py')}
 limit=int(subprocess.check_output(['docker','inspect','--format','{{.HostConfig.Memory}}','autonomous-compute-neuron233']))
 (p/'launch.json').write_text(json.dumps({'started_unix':time.time(),'visible_cores':cores,'container_memory_limit_bytes':limit,'arguments':sys.argv[1:],
+    'entry_module':os.environ.get('RESEARCH_ENTRY_MODULE'),
     'physical_chips':chips,'source_sha256':files},indent=2)+'\n')
 PY
 close_run() {
@@ -59,7 +60,12 @@ PY
 trap close_run EXIT
 if [[ -n "${RESEARCH_ENTRY_MODULE:-}" ]]; then
   [[ "$RESEARCH_ENTRY_MODULE" == scripts.* ]] || exit 2
-  RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m "$RESEARCH_ENTRY_MODULE")
+  if [[ "${RESEARCH_DDP_RANKS:-0}" -gt 1 ]]; then
+    RESEARCH_ENTRY=(/work/native-venv/bin/python -m torch.distributed.run --standalone
+      --nproc_per_node="$RESEARCH_DDP_RANKS" -m "$RESEARCH_ENTRY_MODULE")
+  else
+    RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m "$RESEARCH_ENTRY_MODULE")
+  fi
 elif [[ "${RESEARCH_STRIDE_REPRO:-0}" -gt 0 ]]; then
   RESEARCH_ENTRY=(/work/native-venv/bin/python -u -m scripts.repro_noncontiguous_input)
 elif [[ "${RESEARCH_EVAL:-0}" -gt 0 ]]; then
