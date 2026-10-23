@@ -1,28 +1,35 @@
-# Frozen TEST confirmation after this campaign's models are final
+# Frozen TEST confirmation after twelve terminal models are fixed
 
-Keep TEST sealed while the untied control and longer pair are training. Once
-all specified endpoint weights and analysis rules are frozen, confirm only
-these trained paths: the three original ordinary/shared pairs at 1B, the single
-untied seed 23 endpoint at 1B, and the ordinary/shared seed 23 pair at 3B. Include
-every completed specified endpoint regardless of its DEV score; report missing
-models explicitly. No exploratory unroll or model selection uses TEST.
+Scope amended before any TEST access. The original nine-model scope is
+[archived](archive/FROZEN_TEST_CONFIRMATION_NINE_MODELS_20261023.md).
+Keep TEST sealed until all original and follow-up fits, independent numerical
+audits and DEV evaluator calibrations pass. Include all three ordinary/shared
+1B pairs, all three untied 1B endpoints, the ordinary/shared seed-23 3B pair,
+and the ordinary seed-23 annealed estimated-FLOP-matched endpoint. No missing
+model may be silently dropped, and no projected weights or untrained inference
+depth is eligible. The follow-up seeds and compute endpoint are declared in
+[the separate protocol](CONFIRMATION_FOLLOWUP_20261023.md).
 
-First calibrate the generic trained-path sharded evaluator on DEV against
-original scalar scoring for ordinary, shared and untied architecture templates.
-Require absolute weighted-NLL agreement within 0.0001, plus CPU-forward agreement,
-full real-target coverage, unchanged weights and replica equality. The untied
-loader retains its extra independently trained blocks. Only its trained depth
-is permitted. Use an immutable release manifest containing exact full-checkpoint
-SHA256s, allowed trained depths, TEST source SHA and evaluator source SHA.
+Calibrate the generic sharded evaluator on DEV against scalar scoring for
+ordinary, shared and untied templates: weighted-NLL agreement within 0.0001,
+CPU-forward agreement, complete target coverage, unchanged weights and exact
+replica identity. Independent full-panel FP32 audits use tolerance 0.0002.
+Freeze full checkpoint SHA256s, trained depths, source SHA, evaluator, analysis
+and imported analysis helpers before opening TEST. Only the trained path is
+allowed. Every declared endpoint is included regardless of its DEV score.
 
-The original three paired initializations are the sole replicated confirmation.
-Use the same 60/20/20 weighted real-target NLL and 0.01-nat rule, with paired-seed
-95% Student-t interval (df = 2). The untied and 3B single pairs are diagnostic;
-source-group bootstrap intervals condition on those weights and do not estimate
-seed variance. Publish every declared contrast and all domains. Do not replace
-the original DEV result or imply these single pairs are replications.
+The original ordinary/shared three-seed comparison remains primary. Use the
+fixed 60/20/20 real-token NLL, paired-seed Student-t 95% interval with df=2,
+and useful-gain threshold 0.01 nats. A lower bound above the threshold supports
+a useful gain, an upper bound below it rules it out at this exposure; otherwise
+the comparison is inconclusive. Untied seed23 motivated replication: report
+combined three-seed results as descriptive and fresh seeds47/71 separately
+with df=1. Report every paired gain and all domains. Longer-exposure and
+resource-matched controls are one seed; source-group bootstrap intervals
+condition on those fitted weights, not training-seed variance. Estimated
+matmul matching is not a total-cost match. Untied is intentionally larger.
 
-Freeze analysis source before release. Once TEST is opened, finish reporting
-this fixed campaign without further model/architecture/LR choices on it.
-Later scientific variants require a separate held-out panel. Pure software
-performance qualification does not select models using these scores.
+After TEST release there are no additional architecture, LR, endpoint,
+inference-depth or model choices on this panel. Complete and publish this
+fixed comparison. Further variants require a separate held-out panel. Pure
+software performance qualification cannot select models using TEST scores.

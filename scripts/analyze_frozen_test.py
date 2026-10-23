@@ -2,6 +2,7 @@
 import argparse,json
 from pathlib import Path
 from compute_trainium.metrics import DocumentScore,paired_group_interval,paired_three_seed_interval
+from scripts.analyze_confirmation_followups import comparisons
 
 
 def main():
@@ -15,28 +16,31 @@ def main():
  by_id={r['identity']:r for r in rows};gains={str(seed):by_id[f'ordinary-1b-s{seed}']['metrics']['weighted_nll']-by_id[f'shared-1b-s{seed}']['metrics']['weighted_nll'] for seed in [23,47,71]}
  primary=paired_three_seed_interval(gains);lower,upper=primary['interval_95']
  primary['decision']='USEFUL_GAIN_SUPPORTED' if lower>.01 else ('USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE' if upper<.01 else 'INCONCLUSIVE')
- contrasts={}
- for key,x,y in [('shared_to_untied_1b','shared-1b-s23','untied-1b-s23'),('ordinary_to_untied_1b','ordinary-1b-s23','untied-1b-s23'),('ordinary_to_shared_3b','ordinary-3b-s23','shared-3b-s23')]:
-  contrasts[key]=paired_group_interval(scores[x],scores[y],draws=2000,seed=23)
+ stats=comparisons(rows,scores);contrasts=stats['single_pair_diagnostics']
  result={'status':'COMPLETE_FROZEN_TEST_CONFIRMATION','rows':rows,'three_seed_1b_confirmation':primary,
-  'single_pair_diagnostics':contrasts,'scope':'Original replicated comparison is primary confirmation. Untied and3B have one seed; group intervals condition on weights, not training variance. No model selection or inference-depth intervention on TEST.'}
+  **stats,'scope':'Original ordinary/shared comparison is primary. Untied fresh seeds47/71 were declared after seed23 discovery, before their training and TEST access. Combined untied intervals include discovery. 3B and matched-compute have one seed. No model selection or inference-depth intervention on TEST.'}
  (a.output/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
  text='''# Frozen TEST confirmation
 
 All model identities, trained depths, evaluator and analysis sources were
 frozen before opening TEST. This confirms the original three-seed comparison;
-the untied control and longer pair remain single-seed diagnostics.
+the untied replications and resource control were added before TEST access.
 
 | Model | Seed | Endpoint | TEST weighted NLL |
 | --- | ---: | --- | ---: |
 '''
  for r in rows:text+=f"| {r['arm']} | {r['seed']} | {r['endpoint']} | {r['metrics']['weighted_nll']:.6f} |\n"
  text+=f"\nOriginal three-seed ordinary-minus-shared gain: **{primary['mean_gain_nats']:.6f} [{lower:.6f}, {upper:.6f}]**. Decision at the declared0.01-nat threshold: `{primary['decision']}`.\n"
+ text+='\n| Paired comparison | Mean gain | 95% training-seed interval |\n| --- | ---: | ---: |\n'
+ for key,v in stats['paired_seed_comparisons'].items():text+=f"| {key} | {v['mean_gain_nats']:.6f} | [{v['interval_95'][0]:.6f}, {v['interval_95'][1]:.6f}] |\n"
  text+='\n| Single-pair comparison | Gain | 95% source-group interval, conditional on weights |\n| --- | ---: | ---: |\n'
  for key,v in contrasts.items():text+=f"| {key} | {v['gain_nats']:.6f} | [{v['interval_95'][0]:.6f}, {v['interval_95'][1]:.6f}] |\n"
  text+='''
 Positive gains favor the candidate. Source-group intervals do not replace
-independent training seeds. All domain scores are in the machine-readable
+independent training seeds. Combined untied intervals include the discovery
+seed; fresh-seed intervals have df=1. The larger untied model is not parameter
+matched. The ordinary resource control matches estimated dense training matmul
+work, not every cost. All domain scores are in the machine-readable
 report. The original DEV outcome and protocols remain preserved; TEST does
 not replace them. No tuning, new model variant, checkpoint selection, or
 exploratory unroll uses this panel. Further scientific variants need a

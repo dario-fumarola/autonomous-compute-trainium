@@ -7,11 +7,12 @@ from scripts.qualify_native import digest
 
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--recovery',type=Path,required=True);p.add_argument('--deadline-unix',type=float,required=True);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--recovery',type=Path,required=True);p.add_argument('--deadline-unix',type=float,required=True);p.add_argument('--runs-manifest',type=Path);p.add_argument('--output',type=Path);a=p.parse_args()
  a.recovery.mkdir(exist_ok=True);torch.set_num_threads(2);records=[]
  names=['untied-depth-v1-s23-u3456','untied-depth-v1-s23-u3840',
   'stable-cont-v2-ordinary-s23-u10368','stable-cont-v2-recurrent-s23-u10368',
   'stable-cont-v2-ordinary-s23-u11520','stable-cont-v2-recurrent-s23-u11520']
+ if a.runs_manifest:names=json.loads(a.runs_manifest.read_text())
  for name in names:
   source=a.root/'runs'/name/'checkpoint.pt';report=source.with_name('report.json')
   while not report.exists():
@@ -40,11 +41,14 @@ def main():
    'update':value['update'],'real_targets':value['real_tokens'],'cursor':value['cursor'],
    'model_optimizer_rng_schedule_recovered':True,'on_instance_ebs_only':True})
   del value
-  (a.recovery/'mechanism-copies-progress.json').write_text(json.dumps(records,indent=2)+'\n')
+  progress=(a.output.with_suffix('.progress.json') if a.output else a.recovery/'mechanism-copies-progress.json')
+  progress.write_text(json.dumps(records,indent=2)+'\n')
   print(json.dumps(records[-1]),flush=True)
- receipt={'status':'PASS_SIX_NEW_FULL_STATE_EBS_RECOVERY_COPIES','copies':records,'scope':'Private on-instance EBS copy and full serialized model/Adam digest readback. Native recovery was independently qualified. Not off-instance storage.'}
- (a.recovery/'mechanism-copy-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
- (a.root/'mechanism-campaign-v2/checkpoint-copy-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+ receipt={'status':'PASS_FULL_STATE_EBS_RECOVERY_COPIES' if a.runs_manifest else 'PASS_SIX_NEW_FULL_STATE_EBS_RECOVERY_COPIES','copies':records,'scope':'Private on-instance EBS copy and full serialized model/Adam digest readback. Native recovery was independently qualified. Not off-instance storage.'}
+ if a.output:a.output.write_text(json.dumps(receipt,indent=2)+'\n')
+ else:
+  (a.recovery/'mechanism-copy-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+  (a.root/'mechanism-campaign-v2/checkpoint-copy-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
 
 
 if __name__=='__main__':main()

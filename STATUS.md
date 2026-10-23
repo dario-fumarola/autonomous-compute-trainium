@@ -1,52 +1,62 @@
-# Status — 2026-10-23, 15:03 UTC
+# Status — 2026-10-23, 16:23 UTC
 
-**The untied sharing control is complete; the paired 3B continuation is qualifying on all 16 chips.**
-The original three-seed 1B result stays negative: ordinary 2.519907 NLL,
-shared recurrence 2.550448, gain -0.03054 [-0.03220,-0.02888].
-[Completed primary](results/recurrent_learning_20261023/REPORT.md).
+**The unchanged seed-23 3B continuation is training on all 16 chips.**
+Both paths have completed the stable 2.010B-target checkpoint: ordinary
+2.463624 NLL, shared recurrence 2.462959. This near tie is one seed at stable
+LR, not the annealed endpoint or a replicated efficiency result. Ordinary has
+also finished training to the 2.713B stable milestone; shared is following.
+The paired annealed 3.015B endpoints and independent FP32 audits remain pending.
 
-The full same-weight inference matrix has completed all 15 cells.
-Every completed trained-path calibration reproduces its original score.
-The recurrent checkpoints already score about 3.04–3.06 with one pass versus
-2.55 with their trained two-pass path. Applying two passes to ordinary
-checkpoints worsens NLL to about2.64. Four passes worsen recurrent NLL to about 2.69.
-This establishes trained-path dependence, not better pretraining or autonomous
-reasoning. It narrows the failure from unused computation to inferior overall
-learning despite useful dependence on the second pass.
+The original three-seed 1B result is preserved: ordinary **2.519907**, shared
+**2.550448**, ordinary-minus-shared gain **-0.03054 [-0.03220,-0.02888]**.
+The seed-23 untied control completes 1.005B targets at **2.489247**, versus
+**2.518071 ordinary** and **2.549316 shared**. Its extra 100.7M parameters are
+intentional. This positive is a sharing-plus-capacity control, not a
+parameter-matched or total-cost-matched computation advantage.
 
-The fixed natural-prefix CPU probe is complete in matching isolated-document
-TRAIN/DEV formats, for all three pairs. Recurrence loses to ordinary on both
-small panels. State variation remains substantial across token positions.
-On three frozen TRAIN prefixes, two application-specific core gradients have
-positive aggregate cosine 0.227; this is observational, not a causal sharing
-test. In saved norms after 100M, no recurrent sample out of 1,053 exceeds the
-clip threshold. These are sampled logs, not every update. Persistent clipping
-and gross state collapse are not supported by these checks.
+The fifteen-cell same-weight inference matrix is complete: shared checkpoints
+need their trained second pass (mean NLL 3.050335 with one, 2.550448 with two).
+Four passes worsen NLL to 2.693321. These results establish trained-path
+dependence, not a reusable operation that improves every additional iteration.
+State, clipping, gradient and document-boundary diagnostics remain in the
+[mechanism report](results/recurrent_mechanism_20261023/REPORT.md). Untied
+weight-projection and spectrum readouts are exploratory perturbations, not
+retrained sharing controls or evidence that small adaptations cannot work.
 
-A detached queue, with atomic stage receipts, heartbeat and an independent
-hard-deadline guard, will continue through the untied sharing control and
-one seed 23 3B ordinary/recurrent continuation. New window ends 19:30 UTC.
-Each fit requires native numerical qualification, full optimizer recovery and
-a complete measured budget. The untied path has passed actual-wrapper CPU
-function/gradient checks; full-size initial functions are bit-identical to
-the shared path. Its extra parameters are explicitly counted. Native untied qualification and exact full optimizer recovery passed. The 251M-parameter seed-23 fit is complete at 1,004,887,590 targets. Its NLL is **2.489247**, versus **2.549316 shared** and **2.518071 ordinary** for the paired seed. Gain over shared is **0.06007 [0.05738, 0.06315]**; over ordinary **0.02882 [0.02647, 0.03126]**. These are source-group intervals conditional on ONE seed. Extra capacity is intentional: this diagnoses sharing plus capacity, not a parameter-matched compute win. [Sharing readout](results/sharing_exposure_20261023/REPORT.md). Its selected LR is 3e-4, after tuning scores 4.02065 / 4.19920 / 5.07006; the measured warm qualification rate is 489k targets/sec. TEST stays sealed; no generated research data, teacher or RL.
-[New protocol](docs/MECHANISM_DIAGNOSIS_20261023.md) · [Mechanism readout](results/recurrent_mechanism_20261023/REPORT.md).
+A **separate bounded confirmation follow-up** is now declared, before either
+new fit and before TEST access: untied seeds **47 and 71**, using the already
+selected LR 3e-4 and exact existing recipe; and ordinary seed 23 at **6,496
+updates**, approximately 1.70B targets, to match the untied endpoint's estimated
+training matmul work. That control forks the original stable 900M full state,
+keeps all Adam moments and completes its own decay. No new architecture,
+learning-rate search, teacher, synthetic research corpus, RL or halting.
+[Follow-up protocol](docs/CONFIRMATION_FOLLOWUP_20261023.md).
 
-The 3B continuation keeps the original 64-rank plain-AdamW topology and full
-stable 900M state, including moments, cursor and RNG. It does not depend on
-qualifying a new fused optimizer. The append-only 3.25B natural corpus is ready.
-The old 11:12 campaign remains closed; this is a separate execution window.
-The previous orchestration gap and unexecuted follow-ons remain recorded in
-[the archived status](docs/archive/STATUS_AFTER_RECURRENT_1B_20261023.md).
+The detached follow-up coordinator waits for the current campaign, independent
+endpoint audits and three trained-path DEV evaluator calibrations. It then
+requires a conservative measured complete budget with protected confirmation
+and reporting reserves. The follow-up lasts at most four hours, with an
+absolute ceiling of **23:30 UTC**. Both fresh seeds have already passed full-size
+initial-weight/function equality against their paired original controls.
 
-All previous experiments, source snapshots and private recovery states are
-preserved. Host drivers/XLA are unchanged, and reserve guards remain active.
-The queue recovery/failure integration test passes. No upstream OSS submission
-has been made.
+**TEST remains sealed.** The old nine-model postprocessing waiter was explicitly
+superseded before any TEST access. The amended scope fixes all twelve terminal
+models before release. The original three-seed comparison stays primary;
+combined untied intervals include discovery seed23, while fresh seeds47/71 are
+reported separately with df=1. Resource matching is one pair, with conditional
+source-group intervals. All domains and declared comparisons are retained.
+[Confirmation protocol](docs/FROZEN_TEST_CONFIRMATION.md).
 
-A separate FP32 CPU implementation of the untied path passes actual-wrapper
-forward/full-gradient checks. All 16 copied core layers learn distinct values.
-Independent full-panel audits of the three new endpoints are queued on CPU.
-Exact trained-path TEST confirmation is also queued after all scientific
-models and analysis sources are final; the release guard rejects unfrozen
-weights, code, sources and untrained depths. TEST has not been opened.
+Private full-state backup/readback checks run on CPU. Every native stage keeps
+512 GiB host memory and 35 GiB free filesystem reserves. An inactive package
+cache was copied byte-for-byte to instance NVMe, checksum verified, and its
+original path retained by symlink to make room for recovery states; installed
+environments, drivers and XLA remain unchanged. Copies are on-instance only.
+The post-science fused-optimizer qualification waits until every scientific
+fit and TEST readout is closed; it cannot change completed models. No upstream
+OSS submission has been made. Current CPU suite: **50 tests pass**.
+
+All earlier results and original protocols remain preserved, including the
+[original primary](results/recurrent_learning_20261023/REPORT.md),
+[sharing readout](results/sharing_exposure_20261023/REPORT.md), and
+[prior campaign status](docs/archive/STATUS_BEFORE_CONFIRMATION_FOLLOWUP_20261023.md).

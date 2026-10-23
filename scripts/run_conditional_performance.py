@@ -13,6 +13,8 @@ def main():
  prior=json.loads(report.read_text())
  if prior['status']!='COMPLETE_MECHANISM_POSTPROCESSING':
   (a.output/'report.json').write_text(json.dumps({'status':'PERFORMANCE_BLOCKED_PRIOR_STAGE','prior_status':prior['status']})+'\n');return
+ plan=a.postprocessing/'plan.json'
+ if plan.exists():a.deadline_unix=min(a.deadline_unix,json.loads(plan.read_text())['deadline_unix'])
  if time.time()+1500>a.deadline_unix:
   (a.output/'report.json').write_text(json.dumps({'status':'PERFORMANCE_SKIPPED_MEASURED_TIME_RESERVE'})+'\n');return
  started=time.time();log=(a.output/'qualification.log').open('w')

@@ -12,12 +12,14 @@ from compute_trainium.training import file_sha256
 
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--deadline-unix',type=float,required=True);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--deadline-unix',type=float,required=True);p.add_argument('--models-manifest',type=Path);a=p.parse_args()
  a.output.mkdir(exist_ok=False);torch.set_num_threads(16);torch.set_num_interop_threads(1);started=time.time()
  proof=json.loads((a.root/'runs/independent-untied-cpu-001/report.json').read_text())
  if proof['status']!='PASS_INDEPENDENT_UNTIED_CPU_REFERENCE':raise ValueError('Independent untied reference is not qualified')
  corpus=a.root.parent/'natural-v2-1050m/dev.json';docs=sorted([d for d in json.loads(corpus.read_text()) if d['split']=='dev' and d.get('cohort')=='curve'],key=lambda d:d['id'])
  models=[('untied','untied-depth-v1-s23-u3840'),('ordinary','stable-cont-v2-ordinary-s23-u11520'),('shared','stable-cont-v2-recurrent-s23-u11520')]
+ if a.models_manifest:models=json.loads(a.models_manifest.read_text())
+ if len(models)!=3 or any(arm not in ['untied','ordinary','shared'] for arm,_ in models):raise ValueError('Require three qualified endpoint paths')
  spec={'models':models,'corpus_sha256':file_sha256(corpus),'started_unix':time.time(),'threads':16,
   'precision':'FP32 weights/matmuls, FP64 log normalization','maximum_native_difference_nats':.0002,
   'source_sha256':{f:file_sha256(f) for f in ['scripts/verify_mechanism_cpu.py','compute_trainium/independent.py','compute_trainium/independent_untied.py','compute_trainium/diagnostics.py']},
