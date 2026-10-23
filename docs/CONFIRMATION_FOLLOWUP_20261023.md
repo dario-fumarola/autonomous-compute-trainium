@@ -25,6 +25,10 @@ shared-core initialization and that its base initial weights match the original
 paired ordinary/shared control. Existing native global-gradient, optimizer,
 replica and throughput qualification covers this unchanged implementation;
 every fresh phase still passes its CPU loss/full-gradient and recovery probes.
+DEV scoring also uses all 64 ranks, only after its unchanged trained-path
+objective reproduces the original scalar scores within 0.0001 for all three
+architecture templates. Documents, contexts, targets and inference depth stay
+fixed; every readout requires complete coverage and unchanged replica weights.
 The untied control remains intentionally larger. A repeated win is not evidence
 of a parameter-matched computation advantage.
 

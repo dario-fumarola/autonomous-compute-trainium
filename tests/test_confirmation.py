@@ -41,3 +41,36 @@ def test_campaign_fails_closed_before_any_device_or_test_access(tmp_path,monkeyp
     assert json.loads((output/'queue/report.json').read_text())['status']=='CONFIRMATION_BLOCKED_ORIGINAL_CAMPAIGN'
     assert not (output/'test-release.json').exists()
     assert not (output/'followups').exists()
+
+
+def test_full_confirmation_analysis_keeps_seed_and_source_uncertainty_separate(tmp_path,monkeypatch):
+    """Numerical score fixtures only; never reads a research corpus or checkpoint."""
+    import json
+    import sys
+    from dataclasses import asdict
+    from compute_trainium.metrics import DocumentScore,summarize
+    from scripts.analyze_frozen_test import main
+    root=tmp_path/'private';campaign=tmp_path/'campaign';campaign.mkdir()
+    models=endpoint_inventory('/work/new')
+    for m in models:
+        m['run']='fixture-'+m['identity'];out=root/'runs'/m['run'];out.mkdir(parents=True)
+        nll=2+m['seed']/10000+{'ordinary':0,'shared':.03,'untied':-.02}[m['arm']]
+        if m['identity']=='ordinary-flop-s23':nll-=.04
+        scores=[DocumentScore(domain,f'{domain}-{g}',f'group{g}',100*(nll+i*.1),100)
+            for g in range(3) for i,domain in enumerate(['web','math','code'])]
+        (out/'document-scores.json').write_text(json.dumps([asdict(s) for s in scores]))
+        (out/'report.json').write_text(json.dumps({'status':'PASS_SHARDED_TRAINED_PATH_READOUT',
+            'split':'test','metrics':summarize(scores),'training_real_tokens':1234}))
+    (campaign/'test-release.json').write_text(json.dumps({'models':models}))
+    output=tmp_path/'report'
+    monkeypatch.setattr(sys,'argv',['analyze_frozen_test','--root',str(root),
+        '--campaign',str(campaign),'--output',str(output)])
+    main();report=json.loads((output/'summary.json').read_text())
+    assert report['three_seed_1b_confirmation']['mean_gain_nats']==pytest.approx(-.03)
+    assert report['three_seed_1b_confirmation']['decision']=='USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE'
+    fresh=report['paired_seed_comparisons']['ordinary_to_untied_fresh_seeds']
+    assert fresh['degrees_of_freedom']==1 and set(fresh['paired_seed_gains'])=={'47','71'}
+    assert fresh['mean_gain_nats']==pytest.approx(.02)
+    resource=report['single_pair_diagnostics']['ordinary_matched_flops_to_untied_1b']
+    assert resource['gain_nats']==pytest.approx(-.02)
+    assert 'Within-seed' in resource['warning']

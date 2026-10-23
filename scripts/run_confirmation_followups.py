@@ -21,6 +21,11 @@ def main():
         raise ValueError('Original campaign must finish before follow-up')
     if load(root/'mechanism-endpoint-cpu-v1/report.json')['status']!='PASS_THREE_NEW_ENDPOINT_CPU_AUDITS':
         raise ValueError('Independent original endpoint audits must pass')
+    for arm in ['ordinary','shared','untied']:
+        calibration=load(root/f'runs/confirmation-v3-calibration-{arm}/report.json')
+        if (calibration['status']!='PASS_SHARDED_TRAINED_PATH_READOUT' or
+                abs(calibration['scalar_calibration_delta_nats'])>.0001):
+            raise ValueError('Sharded DEV template calibration must pass')
     selected=load(root/'untied-depth-v1/selected-lr.json')
     if selected['lr']!=.0003:raise ValueError('Frozen selected LR differs')
     proofs={s:load(root/f'runs/untied-initial-s{s}-cpu-001/report.json') for s in [47,71]}
@@ -48,7 +53,7 @@ def main():
     if time.time()+required>a.deadline_unix:raise TimeoutError('Complete follow-up plus confirmation budget does not fit')
     files=['scripts/train_distributed.py','compute_trainium/model.py','compute_trainium/titan.py',
         'compute_trainium/recurrence.py','compute_trainium/preln_recurrence.py','compute_trainium/continuation.py',
-        'compute_trainium/training.py','compute_trainium/data.py','scripts/run_confirmation_followups.py',
+        'compute_trainium/training.py','compute_trainium/data.py','scripts/run_confirmation_followups.py','scripts/evaluate_trained_path.py',
         'docs/CONFIRMATION_FOLLOWUP_20261023.md']
     spec={'identity':'confirmation-followups-v3','frozen_unix':time.time(),'deadline_unix':a.deadline_unix,
         'untied_seeds':[47,71],'untied_selected_lr':.0003,'data_order_seed':23,
@@ -78,17 +83,32 @@ def main():
         common+=['--allow-corpus-extension','--extend-stable-schedule'] if extension else ['--untied-depth']
         for update in updates:
             if time.time()+2400>a.deadline_unix:raise TimeoutError('Protected final confirmation reserve')
+            if (root/'hold-scientific.json').exists():raise RuntimeError('Explicit scientific launch hold')
             for f,sha in spec['source_sha256'].items():
                 if file_sha256(f)!=sha:raise ValueError('Frozen follow-up code or protocol changed')
             label='ordinary-flop' if extension else 'untied'
             name=f'confirmation-v3-{label}-s{seed}-u{update}'
             plan={'qualification_only':False,'scientific_manifest':str(a.output/'launch-gates.json'),
-                'world':64,'training_memory_gib':288 if extension else 320,'evaluation_memory_gib':128,
+                'world':64,'evaluation_world':64,'training_memory_gib':288 if extension else 320,'evaluation_memory_gib':224,
                 'timeout_seconds':5400,'evaluation_cohort':'curve','resume':previous,'training_arguments':common,
                 'phases':[{'run':name,'steps':update-prior,'pauses':0}]}
             path=a.output/(name+'-plan.json');write_state(path,plan)
-            subprocess.run([os.sys.executable,'-m','scripts.run_phases','--plan',str(path),'--output',str(a.output/(name+'-controller'))],check=True)
+            # This evaluator must first reproduce each scalar architecture
+            # template on DEV. Parallelize readout without changing its path,
+            # token contexts, targets, weights or numerical objective.
+            env=dict(os.environ,RESEARCH_RUN=name,RESEARCH_ENTRY_MODULE='scripts.train_distributed',
+                RESEARCH_DDP_RANKS='64',NEURON_RT_VISIBLE_CORES=','.join(map(str,range(64))),RESEARCH_TIMEOUT_SECONDS='5400')
+            subprocess.run(['docker','update','--memory',str(plan['training_memory_gib']*1024**3),'autonomous-compute-neuron233'],check=True,capture_output=True)
+            command=[os.sys.executable,'-m','scripts.supervise',*common,'--steps',str(update-prior),'--pauses','0','--save']
+            if previous:command+=['--resume',previous]
+            subprocess.run(command,env=env,check=True)
+            subprocess.run(['docker','update','--memory',str(224*1024**3),'autonomous-compute-neuron233'],check=True,capture_output=True)
+            env.update(RESEARCH_RUN=name+'-dev',RESEARCH_ENTRY_MODULE='scripts.evaluate_trained_path',RESEARCH_TIMEOUT_SECONDS='900')
+            subprocess.run([os.sys.executable,'-m','scripts.supervise','--checkpoint',f'{croot}/runs/{name}/checkpoint.pt',
+                '--corpus','/work/natural-v2-1050m/dev.json','--repetitions','1' if extension else '2','--split','dev'],env=env,check=True)
             train=load(root/'runs'/name/'report.json');dev=load(root/'runs'/(name+'-dev')/'report.json')
+            if train['status']!='PASS_PACKED_TRAINING_PHASE' or dev['status']!='PASS_SHARDED_TRAINED_PATH_READOUT':
+                raise ValueError('Follow-up train or calibrated readout failed')
             if (train['total_real_targets']!=count(update,extension) or not train['all_replica_model_optimizer_states_equal']):
                 raise AssertionError('Follow-up exposure or replica state differs')
             if arm=='untied' and train['initial_model_digest']!=proofs[seed]['full_untied_initial_digest']:
