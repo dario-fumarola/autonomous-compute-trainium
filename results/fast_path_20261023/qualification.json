@@ -1,0 +1,484 @@
+{
+  "status": "PASS_FAST_PATH_QUALIFICATION",
+  "elapsed_seconds": 510.6965458393097,
+  "optimizer": "fused",
+  "world_per_job": 32,
+  "batch_per_rank": 4,
+  "accumulation": 2,
+  "global_microbatch_windows": 128,
+  "global_update_windows": 256,
+  "warm_updates_per_arm": 100,
+  "concurrent_half_node_measurements": true,
+  "fp32_master_and_moments": true,
+  "synchronized_warm_start": true,
+  "warm_overlap_seconds": 29.9464590549469,
+  "warm_overlap_fraction_by_arm": {
+    "1": 1.000000080975562,
+    "2": 0.6591686766200496
+  },
+  "optimizer_fixture": {
+    "status": "PASS_OPTIMIZER_SOFTWARE_FIXTURE",
+    "mode": "fused",
+    "parameters": 28508961,
+    "parameter_shapes": [
+      [
+        32000,
+        768
+      ],
+      [
+        768,
+        768
+      ],
+      [
+        256,
+        768
+      ],
+      [
+        2048,
+        768
+      ],
+      [
+        768,
+        2048
+      ],
+      [
+        768
+      ],
+      [
+        33
+      ]
+    ],
+    "all_150m_parameter_shape_families": true,
+    "maximum_cpu_parameter_error": 1.564621925354004e-07,
+    "fp32_moments": true,
+    "offset_gradient_bucket_views": true,
+    "changing_lr_cpu_agreement": true,
+    "full_optimizer_continuation_exact": true,
+    "warm_optimizer_only_updates": 100,
+    "warm_seconds": 1.2861381359398365,
+    "fallback_ops": "[]",
+    "scope": "Numerical software fixture, not a corpus or whole-model performance estimate"
+  },
+  "tiny_global_gradient": {
+    "gradient_relative_l2": 0.0023587485679065234,
+    "real_targets": 261664
+  },
+  "rates": {
+    "1": 873844.2188105459,
+    "2": 576010.6906426392
+  },
+  "full_optimizer_recovery_both_arms": true,
+  "replicas_identical_both_arms": true,
+  "main_reports": {
+    "1": {
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "scientific_result": false,
+      "purpose": "qualification",
+      "initial_model_digest": "00c98060a3068fbbd1bbf5cfbf0dd6ec09e57dbe6c0f70cf66dd31dd3f763de4",
+      "reference_threads": 4,
+      "size": "small",
+      "parameters": 150436608,
+      "world_size": 32,
+      "physical_chips": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "context": 1024,
+      "local_batch": 4,
+      "accumulation": 2,
+      "precision": "bf16",
+      "input_layout": "host_contiguous",
+      "data_backend": "mapped",
+      "optimizer": "fused",
+      "pauses": 0,
+      "updates": 104,
+      "warm_updates": 100,
+      "warm_seconds": 29.946456630015746,
+      "warm_real_targets": 26168538,
+      "warm_started_unix": 1792783373.413948,
+      "warm_ended_unix": 1792783403.360407,
+      "warm_global_real_targets_per_second": 873844.2188105459,
+      "phase_real_targets": 27215248,
+      "total_real_targets": 27215248,
+      "cursor": 26624,
+      "corpus_unique_train_targets": 1050002682,
+      "qualification_repeats_data": false,
+      "domain_real_targets": {
+        "web": 16328021,
+        "math": 5442861,
+        "code": 5444366
+      },
+      "cpu_probe": {
+        "native_loss": 10.775225639343262,
+        "cpu_loss": 10.775445938110352,
+        "gradient_relative_l2": 0.0022890469053168973,
+        "bf16_reference": true
+      },
+      "global_gradient_check": null,
+      "all_replica_model_optimizer_states_equal": true,
+      "recovered_model_optimizer_digest": null,
+      "previous_pauses": null,
+      "state_digest": "dc17584e9694bab5b39d7e3e73439695648d2e2fe6e4cb73fd6eb6b77eeb54f6",
+      "flops_per_global_step": {
+        "forward_matmul_flops": 95348273971200,
+        "training_matmul_flops": 286044821913600,
+        "lm_head_forward_flops": 12884901888000,
+        "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter.",
+        "effective_layers": 20,
+        "note": "All recurrent applications counted; full BPTT, no activation recomputation. Injection and RMSNorm are elementwise, excluded as in baseline."
+      },
+      "total_training_matmul_flops": 29748661479014400,
+      "cold_first_training_step_seconds": 20.833079964038916,
+      "cold_probe_and_setup_seconds": 70.86630965291988,
+      "wall_seconds": 137.5667330849683,
+      "fallback_ops_rank0": "['aten::_to_copy']",
+      "signature": {
+        "model": {
+          "dim": 768,
+          "layers": 20,
+          "heads": 12,
+          "kv_heads": 4,
+          "ffn_dim": 2048,
+          "vocab_size": 32000,
+          "max_seq": 4096,
+          "prelude": 2,
+          "core": 16,
+          "coda": 2,
+          "repetitions": 1,
+          "untied": false,
+          "normalization": "pre"
+        },
+        "context": 1024,
+        "batch": 4,
+        "accumulation": 2,
+        "world": 32,
+        "seed": 23,
+        "precision": "bf16",
+        "corpus_sha256": "21b24dfe425620263e09e2acc623f8463cdc114b6ea8f2559bad0d5ed8bb0b86",
+        "packing_sha256": "f9186d0638a62972540cedf3ed6b0713f68dccf1ac28e4597a2fd9cca8f3e2e9",
+        "clip": 1.0,
+        "optimizer": "fused",
+        "repeat_qualification": false,
+        "dev_corpus_sha256": "314968e92dd7fd45df1b69b501cd9738595198e121ff96c74e46822e2a3a8ee4",
+        "data_seed": 23
+      },
+      "schedule": {
+        "peak": 0.0003,
+        "warmup_tokens": 0,
+        "decay_start": null,
+        "decay_end": null,
+        "floor_ratio": 0.1
+      },
+      "progress": [
+        {
+          "update": 1,
+          "real_tokens": 261664,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 10.847510547878194,
+          "gradient_norm": 8.990150451660156,
+          "elapsed_seconds": 91.6993896169588
+        },
+        {
+          "update": 10,
+          "real_tokens": 2616912,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 8.341435362088466,
+          "gradient_norm": 2.2907323837280273,
+          "elapsed_seconds": 102.48259244498331
+        },
+        {
+          "update": 20,
+          "real_tokens": 5233798,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 7.588887721175526,
+          "gradient_norm": 0.6349619626998901,
+          "elapsed_seconds": 105.47769406891894
+        },
+        {
+          "update": 30,
+          "real_tokens": 7850732,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 7.082866842945901,
+          "gradient_norm": 0.6290367245674133,
+          "elapsed_seconds": 108.46797443996184
+        },
+        {
+          "update": 40,
+          "real_tokens": 10467614,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 7.1235889146202584,
+          "gradient_norm": 0.4747451841831207,
+          "elapsed_seconds": 111.4529202709673
+        },
+        {
+          "update": 50,
+          "real_tokens": 13084474,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.875118439049737,
+          "gradient_norm": 0.5194944143295288,
+          "elapsed_seconds": 114.44557892694138
+        },
+        {
+          "update": 60,
+          "real_tokens": 15701370,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.8370565397490175,
+          "gradient_norm": 0.5214179158210754,
+          "elapsed_seconds": 117.43581251893193
+        },
+        {
+          "update": 70,
+          "real_tokens": 18318100,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.68216335279374,
+          "gradient_norm": 0.9132839441299438,
+          "elapsed_seconds": 120.43073281494435
+        },
+        {
+          "update": 80,
+          "real_tokens": 20934888,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 5.906990641312738,
+          "gradient_norm": 0.5376152992248535,
+          "elapsed_seconds": 123.41764295101166
+        },
+        {
+          "update": 90,
+          "real_tokens": 23551672,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.354102664037782,
+          "gradient_norm": 0.8798330426216125,
+          "elapsed_seconds": 126.4089836019557
+        },
+        {
+          "update": 100,
+          "real_tokens": 26168398,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.2488841503492765,
+          "gradient_norm": 0.5045120716094971,
+          "elapsed_seconds": 129.4182125480147
+        },
+        {
+          "update": 104,
+          "real_tokens": 27215248,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.138139242537712,
+          "gradient_norm": 1.1956684589385986,
+          "elapsed_seconds": 130.61533288599458
+        }
+      ],
+      "scope": "Packed natural data, H2D, token-weighted no_sync accumulation, FP32 masters/AdamW, clipping and WSD. Per-step gradient finiteness synchronizes. Final state save/hash excluded; periodic saves included."
+    },
+    "2": {
+      "status": "PASS_PACKED_TRAINING_PHASE",
+      "scientific_result": false,
+      "purpose": "qualification",
+      "initial_model_digest": "00c98060a3068fbbd1bbf5cfbf0dd6ec09e57dbe6c0f70cf66dd31dd3f763de4",
+      "reference_threads": 4,
+      "size": "small",
+      "parameters": 150436608,
+      "world_size": 32,
+      "physical_chips": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "context": 1024,
+      "local_batch": 4,
+      "accumulation": 2,
+      "precision": "bf16",
+      "input_layout": "host_contiguous",
+      "data_backend": "mapped",
+      "optimizer": "fused",
+      "pauses": 0,
+      "updates": 104,
+      "warm_updates": 100,
+      "warm_seconds": 45.43064638401847,
+      "warm_real_targets": 26168538,
+      "warm_started_unix": 1792783373.336337,
+      "warm_ended_unix": 1792783418.7669852,
+      "warm_global_real_targets_per_second": 576010.6906426392,
+      "phase_real_targets": 27215248,
+      "total_real_targets": 27215248,
+      "cursor": 26624,
+      "corpus_unique_train_targets": 1050002682,
+      "qualification_repeats_data": false,
+      "domain_real_targets": {
+        "web": 16328021,
+        "math": 5442861,
+        "code": 5444366
+      },
+      "cpu_probe": {
+        "native_loss": 10.793983459472656,
+        "cpu_loss": 10.794086456298828,
+        "gradient_relative_l2": 0.002616314394576732,
+        "bf16_reference": true
+      },
+      "global_gradient_check": null,
+      "all_replica_model_optimizer_states_equal": true,
+      "recovered_model_optimizer_digest": null,
+      "previous_pauses": null,
+      "state_digest": "6ed0bf33bd5ba141690285b8571eff3dd9534f201e763c14f809f574cf1742b8",
+      "flops_per_global_step": {
+        "forward_matmul_flops": 161318971637760,
+        "training_matmul_flops": 483956914913280,
+        "lm_head_forward_flops": 12884901888000,
+        "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter.",
+        "effective_layers": 36,
+        "note": "All recurrent applications counted; full BPTT, no activation recomputation. Injection and RMSNorm are elementwise, excluded as in baseline."
+      },
+      "total_training_matmul_flops": 50331519150981120,
+      "cold_first_training_step_seconds": 8.395360640017316,
+      "cold_probe_and_setup_seconds": 83.03550996491686,
+      "wall_seconds": 153.12646140693687,
+      "fallback_ops_rank0": "['aten::_to_copy']",
+      "signature": {
+        "model": {
+          "dim": 768,
+          "layers": 20,
+          "heads": 12,
+          "kv_heads": 4,
+          "ffn_dim": 2048,
+          "vocab_size": 32000,
+          "max_seq": 4096,
+          "prelude": 2,
+          "core": 16,
+          "coda": 2,
+          "repetitions": 2,
+          "untied": false,
+          "normalization": "pre"
+        },
+        "context": 1024,
+        "batch": 4,
+        "accumulation": 2,
+        "world": 32,
+        "seed": 23,
+        "precision": "bf16",
+        "corpus_sha256": "21b24dfe425620263e09e2acc623f8463cdc114b6ea8f2559bad0d5ed8bb0b86",
+        "packing_sha256": "f9186d0638a62972540cedf3ed6b0713f68dccf1ac28e4597a2fd9cca8f3e2e9",
+        "clip": 1.0,
+        "optimizer": "fused",
+        "repeat_qualification": false,
+        "dev_corpus_sha256": "314968e92dd7fd45df1b69b501cd9738595198e121ff96c74e46822e2a3a8ee4",
+        "data_seed": 23
+      },
+      "schedule": {
+        "peak": 0.0003,
+        "warmup_tokens": 0,
+        "decay_start": null,
+        "decay_end": null,
+        "floor_ratio": 0.1
+      },
+      "progress": [
+        {
+          "update": 1,
+          "real_tokens": 261664,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 10.866714565243978,
+          "gradient_norm": 8.682012557983398,
+          "elapsed_seconds": 91.43087060493417
+        },
+        {
+          "update": 10,
+          "real_tokens": 2616912,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 8.267385099196039,
+          "gradient_norm": 2.1757972240448,
+          "elapsed_seconds": 103.42433486704249
+        },
+        {
+          "update": 20,
+          "real_tokens": 5233798,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 7.555076049986624,
+          "gradient_norm": 0.804635226726532,
+          "elapsed_seconds": 107.97780691599473
+        },
+        {
+          "update": 30,
+          "real_tokens": 7850732,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 7.054371604013665,
+          "gradient_norm": 0.4498368203639984,
+          "elapsed_seconds": 112.53563795494847
+        },
+        {
+          "update": 40,
+          "real_tokens": 10467614,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 7.1052366840162335,
+          "gradient_norm": 0.4157816171646118,
+          "elapsed_seconds": 117.08165723504499
+        },
+        {
+          "update": 50,
+          "real_tokens": 13084474,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.835222149630547,
+          "gradient_norm": 0.44525817036628723,
+          "elapsed_seconds": 121.64901413803454
+        },
+        {
+          "update": 60,
+          "real_tokens": 15701370,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.80701263317182,
+          "gradient_norm": 0.6357142329216003,
+          "elapsed_seconds": 126.20551938097924
+        },
+        {
+          "update": 70,
+          "real_tokens": 18318100,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.625495743672821,
+          "gradient_norm": 0.7312125563621521,
+          "elapsed_seconds": 130.7645566909341
+        },
+        {
+          "update": 80,
+          "real_tokens": 20934888,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 5.846996545425363,
+          "gradient_norm": 1.0130019187927246,
+          "elapsed_seconds": 135.24264953902457
+        },
+        {
+          "update": 90,
+          "real_tokens": 23551672,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.300456997875495,
+          "gradient_norm": 0.6352837085723877,
+          "elapsed_seconds": 139.8445371449925
+        },
+        {
+          "update": 100,
+          "real_tokens": 26168398,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.202690554256279,
+          "gradient_norm": 1.0336142778396606,
+          "elapsed_seconds": 144.3258963349508
+        },
+        {
+          "update": 104,
+          "real_tokens": 27215248,
+          "lr": 0.0003,
+          "rank0_scaled_nll": 6.0902232763759185,
+          "gradient_norm": 0.7615962624549866,
+          "elapsed_seconds": 146.1076791229425
+        }
+      ],
+      "scope": "Packed natural data, H2D, token-weighted no_sync accumulation, FP32 masters/AdamW, clipping and WSD. Per-step gradient finiteness synchronizes. Final state save/hash excluded; periodic saves included."
+    }
+  }
+}

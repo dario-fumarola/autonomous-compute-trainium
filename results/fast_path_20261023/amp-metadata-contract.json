@@ -1,0 +1,65 @@
+{
+  "status": "REPRODUCED_FUSED_OPTIONAL_METADATA_MISMATCH",
+  "cases": [
+    {
+      "case": "normal",
+      "cpu_agreement": true,
+      "maximum_errors": {
+        "parameter": 0.0,
+        "exp_avg": 1.4901161193847656e-08,
+        "exp_avg_sq": 0.0
+      },
+      "cpu_means": [
+        0.01990925334393978,
+        0.1810000091791153,
+        0.3996000587940216
+      ],
+      "native_means": [
+        0.01990925334393978,
+        0.1809999942779541,
+        0.3996000587940216
+      ]
+    },
+    {
+      "case": "overflow_skip",
+      "cpu_agreement": false,
+      "maximum_errors": {
+        "parameter": 9.0746209025383e-05,
+        "exp_avg": 0.019000008702278137,
+        "exp_avg_sq": 0.0003999173641204834
+      },
+      "cpu_means": [
+        0.019999997690320015,
+        0.20000003278255463,
+        0.40000006556510925
+      ],
+      "native_means": [
+        0.01990925334393978,
+        0.1809999942779541,
+        0.3996000587940216
+      ]
+    },
+    {
+      "case": "gradient_unscale",
+      "cpu_agreement": false,
+      "maximum_errors": {
+        "parameter": 3.7439167499542236e-07,
+        "exp_avg": 0.0007499903440475464,
+        "exp_avg_sq": 8.940696716308594e-08
+      },
+      "cpu_means": [
+        0.01990962214767933,
+        0.18025001883506775,
+        0.39959999918937683
+      ],
+      "native_means": [
+        0.01990925334393978,
+        0.1809999942779541,
+        0.3996000587940216
+      ]
+    }
+  ],
+  "torch": "2.14.0+cpu",
+  "torch_neuronx": "2.14.3.0.282+dc70ffa",
+  "scope": "Direct ATen operator comparison with same-version CPU. High-level GradScaler support/reachability is untested. Scientific training uses unscaled BF16 with FP32 masters, not these optional metadata arguments."
+}

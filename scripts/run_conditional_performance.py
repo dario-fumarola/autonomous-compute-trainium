@@ -22,7 +22,7 @@ def main():
   result=subprocess.run([os.sys.executable,'-u','-m','scripts.qualify_fast_path','--output',str(a.output/'qualification'),
    '--deadline-unix',str(min(a.deadline_unix,time.time()+1200))],stdout=log,stderr=subprocess.STDOUT,timeout=1200)
   status='COMPLETE_POST_SCIENCE_PERFORMANCE_QUALIFICATION' if result.returncode==0 else 'PERFORMANCE_QUALIFICATION_FAILED'
-  receipt={'status':status,'exit_code':result.returncode,'wall_seconds':time.time()-started,
+  receipt={'status':status,'exit_code':result.returncode,'qualification_wall_seconds':time.time()-started,
    'scope':'Software/throughput qualification only, with numerical fixtures and natural TRAIN windows. No TEST selection, new research recipe or change to completed scientific models.'}
   if result.returncode==0 and time.time()+300<a.deadline_unix:
    env=dict(os.environ,RESEARCH_RUN='fused-amp-metadata-repro-001',RESEARCH_ENTRY_MODULE='scripts.repro_fused_amp_metadata',RESEARCH_DDP_RANKS='0',NEURON_RT_VISIBLE_CORES='0',RESEARCH_TIMEOUT_SECONDS='240')
@@ -34,6 +34,7 @@ def main():
   subprocess.run(['docker','stop','--time','5','autonomous-compute-neuron233'],capture_output=True,timeout=25)
   receipt={'status':'PERFORMANCE_QUALIFICATION_STOPPED_AT_BUDGET','wall_seconds':time.time()-started}
  finally:log.close()
+ receipt['wall_seconds']=time.time()-started
  (a.output/'report.json').write_text(json.dumps(receipt,indent=2)+'\n')
 
 

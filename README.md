@@ -1,23 +1,75 @@
 # Autonomous computation during pretraining
 
-Can a randomly initialized language model learn to use additional computation to predict natural text better?
+Can a randomly initialized language model learn to use additional computation
+to predict unseen natural text better?
 
-The active Trainium2 study compares ordinary pretraining with a fixed, differentiable recurrent core from initialization. Its single-pass path is exactly the qualified ordinary architecture. These mechanisms test extra computation; they do not establish autonomous textual reasoning.
+The completed Trainium2 study compares ordinary pretraining with a fixed,
+differentiable recurrent core available from initialization. Training and
+evaluation use natural web text, mathematical web text and repository code.
+There are no generated research examples, teacher traces or RL. Held-out
+negative log likelihood on real source targets is primary; equal-data and
+estimated training-compute comparisons are reported separately.
 
-Training and evaluation use natural web text, mathematical web text, and repository code. No generated arithmetic, synthetic rewrites, teacher traces, or RL. Held-out negative log likelihood on real source tokens is the primary metric, reported by domain. Both source-token and FLOP comparisons are required.
+The [sealed twelve-model TEST confirmation](results/frozen_test_20261023/REPORT.md)
+is complete. At 1.005B targets, three paired seeds give:
 
-The [recurrent protocol](docs/PRELN_RECURRENT_PROTOCOL.md) freezes 150M parameters, three paired seeds, a 1B real-target primary endpoint and a separately annealed equal-FLOP comparison. The completed [learning curve](results/recurrent_learning_20261023/REPORT.md) favors ordinary: **2.5199 NLL** versus **2.5504** with recurrence, gain **-0.03054 [-0.03220, -0.02888]**. Recurrence also loses at matched estimated FLOPs. A separate FP32 CPU implementation verifies all six terminal scores. The completed [seed-23 3B continuation](results/sharing_exposure_20261023/REPORT.md) scores **2.336914 ordinary / 2.336800 shared**, gain **0.000114 [-0.002381, 0.002077]** conditional on those fitted weights. Longer exposure removes the earlier deficit in this seed, without establishing a useful gain or efficiency advantage. All new full-panel CPU audits pass. All twelve predeclared endpoint models and audits are complete; their frozen TEST confirmation is running. [Current status](STATUS.md).
+| Model | Unique parameters | Mean TEST NLL, lower is better |
+| --- | ---: | ---: |
+| Ordinary | 150.4M | 2.578753 |
+| Shared two-pass | 150.4M | 2.610307 |
+| Untied two-pass | 251.1M | 2.549910 |
 
-The completed [same-weight diagnostic](results/recurrent_mechanism_20261023/REPORT.md) shows that recurrent-trained checkpoints depend on their second pass: NLL is **3.0503 / 2.5504 / 2.6933** at one/two/four passes. Applying two passes to ordinary checkpoints worsens NLL. The [bounded campaign](docs/MECHANISM_DIAGNOSIS_20261023.md) has completed its seed-23 untied sharing control: **2.489247 NLL**, versus **2.518071 ordinary** and **2.549316 shared** at equal source exposure. The untied model has 251M rather than 150M parameters; this is a sharing-plus-capacity control, not an efficiency win. The paired 3B continuation is complete; its [learning curve](results/sharing_exposure_20261023/learning-curve-seed23.png) separates stable checkpoints from annealed branches. A separately [predeclared follow-up](docs/CONFIRMATION_FOLLOWUP_20261023.md) adds untied seeds47/71 with the frozen recipe and a fully annealed ordinary endpoint at matched estimated training matmul work, before a single [twelve-model TEST confirmation](docs/FROZEN_TEST_CONFIRMATION.md).
+Shared recurrence loses by **0.031554 nats/token**, with training-seed 95%
+interval **[0.024888, 0.038220]** for its deficit. Untying improves every
+observed equal-data run, but adds 67% more parameters. Its mean gain is
+**0.028842 [0.002752, 0.054932]**, inconclusive at the predeclared 0.01-nat
+useful-gain threshold. This combined interval includes the discovery seed;
+the separate two-fresh-seed interval is much wider.
 
-The completed annealed [resource control](results/sharing_exposure_20261023/compute-control.json) favors ordinary training: **2.421944 at 1.700B targets**, versus **2.489247 untied at 1.005B**, at nearly matched estimated training matmul work. The 0.06730-nat ordinary advantage is one seed, with independent CPU agreement; it does not estimate seed robustness. All three untied fits are complete: mean **2.490501**, versus **2.519907 ordinary** at equal source exposure. Every seed improves; the combined interval includes its discovery seed, while the separate two-fresh-seed interval remains wide. [All seed readouts and intervals](results/confirmation_followup_20261023/REPORT.md). The twelve-model TEST confirmation is now running against [frozen identities and sources](results/frozen_test_20261023/release.json).
+At nearly matched estimated dense training matmul work, a separately annealed
+ordinary seed23 endpoint at 1.700B targets beats untied at 1.005B by
+**0.071734 [0.065560, 0.077985]** on TEST. This is a single fitted pair and
+does not match wall time exactly. A separate unchanged 3.015B ordinary/shared
+continuation is nearly tied: **2.391002 / 2.393539 TEST NLL**, also one pair.
+**This recipe has no demonstrated compute-efficiency advantage.**
+[Resource accounting](results/confirmation_followup_20261023/RESOURCES.md) ·
+[Longer-exposure curve](results/sharing_exposure_20261023/learning-curve-seed23.png).
 
-The previous [fixed-pause study](results/learning_curve_20261022/REPORT.md) is complete: at 1B targets ordinary scores **2.520 NLL** and pauses **2.574**, gain **-0.0539 [-0.0603, -0.0475]**. The [position diagnostic](results/pause_locality_20261023/REPORT.md) finds losses in every bin, largest immediately after a pause. Its original protocol, data, models and negative decision are preserved. The campaign used 3.69 node-hours; it is not charged again as new training.
+The [original three-seed DEV study](results/recurrent_learning_20261023/REPORT.md),
+[same-weight mechanism diagnostics](results/recurrent_mechanism_20261023/REPORT.md),
+[untied replications](results/confirmation_followup_20261023/REPORT.md) and
+[one-seed longer continuation](results/sharing_exposure_20261023/REPORT.md)
+remain preserved. The shared model depends on its trained second pass;
+further repeated passes hurt. The untied control starts with the same two-pass
+function, then learns separate core weights. It tests sharing plus capacity,
+not autonomous reasoning or learned allocation of computation. Independent
+full-panel FP32 audits, all-replica equality and full optimizer recovery pass.
+Checkpoint identities and evaluation sources were frozen before TEST access.
 
-The [existing 1.7B checkpoint readout](results/transfer_probe_20261023/REPORT.md) finds initial trace-versus-raw exam NLL gains, which disappear after common linear-readout adaptation. This is a frozen-feature probe, with all models and references retained; full backbone fine-tuning remains untested.
+After scientific scoring closed, [software qualification](results/fast_path_20261023/REPORT.md)
+validated unscaled fused AdamW and two concurrent eight-chip jobs, each with
+100 warm updates: **874k ordinary / 576k shared real targets/sec**. The actual
+paired completion rate is **1.152M targets/sec**; the individual rates must not
+be summed. These are warm qualification rates without periodic scientific
+checkpoint overhead. A separate [operator-contract reproducer](docs/OSS_FUSED_ADAMW_METADATA_20261023.md)
+documents ignored optional AMP metadata; neither the completed science nor
+the qualified unscaled candidate uses it. No upstream submission was made.
 
-The [packed-trainer report](results/performance_20261022/REPORT.md) records full optimizer recovery, a 64-rank late switch, identical 150M decay-branch replay, fresh DEV evaluation and failure receipts. The latest 100-warm-update measurements across all 16 chips are **855k real targets/sec ordinarily and 696k with causally padded pauses**. Padding improves native kernel compatibility; its full work is counted. The earlier unpadded pause rate was 354k. The [initial qualification](results/qualification_20261022/REPORT.md) remains preserved.
+The earlier [fixed-pause study](results/learning_curve_20261022/REPORT.md)
+and [position diagnostic](results/pause_locality_20261023/REPORT.md) are
+preserved negative results. The [existing 1.7B checkpoint readout](results/transfer_probe_20261023/REPORT.md)
+finds initial trace-versus-raw exam gains that disappear after common
+linear-readout adaptation; full backbone fine-tuning remains untested.
+Previous [1.7B evidence](https://github.com/dario-fumarola/useful-thoughts-trainium)
+and the [closed pause pilot](https://github.com/dario-fumarola/pause-pretraining-trainium)
+remain intact.
 
-Read the [reproduction guide](docs/REPRODUCE_CURVE.md), [protocol](docs/PROTOCOL.md), [current status](STATUS.md), [data rules](docs/DATA.md), and [Trainium notes](docs/OSS_NOTES.md). Previous [1.7B evidence](https://github.com/dario-fumarola/useful-thoughts-trainium) and the [closed pause pilot](https://github.com/dario-fumarola/pause-pretraining-trainium) remain preserved.
+Read [current status](STATUS.md), the [recurrent protocol](docs/PRELN_RECURRENT_PROTOCOL.md),
+[follow-up protocol](docs/CONFIRMATION_FOLLOWUP_20261023.md),
+[reproduction guide](docs/REPRODUCE_CURVE.md), [data rules](docs/DATA.md),
+[execution ledger](results/sharing_exposure_20261023/execution-costs.json) and
+[Trainium notes](docs/OSS_NOTES.md). All bounded jobs are complete; no larger
+run has launched. Further scientific variants require a new held-out panel.
 
-Run the CPU correctness tests with `python -m pytest -q`. The data preparation script writes source content only outside this repository. Hardware qualification is separate from scientific training.
+Run CPU correctness tests with `python -m pytest -q`. Source contents, weights
+and full optimizer states stay outside this public repository.

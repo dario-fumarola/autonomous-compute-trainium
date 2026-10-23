@@ -1,67 +1,102 @@
-# Status — 2026-10-23, 19:05 UTC
+# Status — 2026-10-23, 19:50 UTC
 
-**All scientific fits and independent endpoint audits are complete. The frozen
-12-model TEST confirmation is running on all 16 chips.** Checkpoint identities,
-trained depths, evaluator and analysis hashes were fixed before TEST access.
-No model, LR, endpoint or inference-depth choice uses the confirmation scores.
-[Frozen release](results/frozen_test_20261023/release.json).
+**The bounded scientific campaign, independent audits, twelve-model sealed
+TEST confirmation and post-science performance qualification are complete.
+This recipe has no demonstrated compute-efficiency advantage. No training or
+evaluation workers remain active; no larger experiment has launched.**
 
-At 1,004,887,590 real targets, the three-seed DEV means are:
+All checkpoint identities, trained depths, evaluator and analysis hashes were
+frozen before TEST access and still match the released files. No model, LR,
+endpoint or inference-depth choice uses TEST scores.
+[Frozen confirmation](results/frozen_test_20261023/REPORT.md) ·
+[Release](results/frozen_test_20261023/release.json).
 
-| Model | Unique parameters | DEV NLL |
+At 1,004,887,590 real targets, the three-seed TEST means are:
+
+| Model | Unique parameters | TEST NLL |
 | --- | ---: | ---: |
-| Ordinary | 150,436,608 | 2.519907 |
-| Shared two-pass | 150,436,608 | 2.550448 |
-| Untied two-pass | 251,124,480 | 2.490501 |
+| Ordinary | 150,436,608 | 2.578753 |
+| Shared two-pass | 150,436,608 | 2.610307 |
+| Untied two-pass | 251,124,480 | 2.549910 |
 
-Untied improves over ordinary in every seed. The combined mean gain is
-**0.029406 [0.013225, 0.045586]**. This includes discovery seed23. The two
-fresh-seed interval is much wider, **[-0.052818, 0.112211]**, and inconclusive
-at the 0.01-nat threshold. This is a larger-network data advantage, not a
-parameter-matched or compute-efficiency result. All seeds use the selected
-3e-4 recipe without new tuning. [Completed replication](results/confirmation_followup_20261023/REPORT.md).
+Ordinary-minus-shared gain is **-0.031554 [-0.038220, -0.024888]** across
+training seeds. The declared 0.01-nat useful gain is ruled out at this exposure.
+The original three-seed DEV negative remains preserved.
 
-The fully annealed ordinary resource control scores **2.421944** at
-1,699,926,288 targets, versus **2.489247 untied** at 1,004,887,590. Ordinary
-leads by **0.067303 [0.062260, 0.072733]**, conditional on seed23. The two
-estimated training matmul budgets differ by only 0.0133%; vocabulary projection
-is included. The equal-data untied gain does not survive this resource control.
-Recorded retained training paths take 42.40 minutes ordinary and 39.61 minutes
-untied23, with five versus two process segments. The ordinary parent-prefix
-time is reconstructed from the original checkpoint timestamp. These are not
-exactly wall-time-matched endpoints. [Detailed resources](results/confirmation_followup_20261023/RESOURCES.md).
+Untied improves over ordinary in every observed seed. Its combined TEST gain
+is **0.028842 [0.002752, 0.054932]**: positive, but **inconclusive at the
+declared 0.01-nat useful-gain threshold**. This interval includes discovery
+seed23. The separate fresh-seed interval is much wider,
+**[-0.093489, 0.155537]**. All seeds use the previously selected 3e-4 recipe
+without new tuning. This is a larger-network equal-data advantage, with 67%
+more parameters, rather than a parameter-matched or efficiency victory.
+[Replication and preserved DEV readouts](results/confirmation_followup_20261023/REPORT.md).
+
+The fully annealed ordinary resource control at 1,699,926,288 targets scores
+**2.478950 TEST**, versus **2.550684 untied** at 1,004,887,590 targets in
+seed23. Ordinary leads by **0.071734 [0.065560, 0.077985]**, conditional on
+this fitted pair. Estimated dense training matmul budgets differ by 0.0133%;
+the vocabulary projection is included. Recorded retained training paths take
+42.40 minutes ordinary and 39.61 minutes untied23, with five versus two process
+segments. The ordinary parent-prefix time is reconstructed from the original
+checkpoint timestamp. This is not an exactly wall-time-matched comparison.
+[Detailed resources](results/confirmation_followup_20261023/RESOURCES.md).
 
 The unchanged shared seed23 continuation at 3,014,637,826 targets scores
-**2.336800**, versus **2.336914 ordinary**. Gain is **0.000114
-[-0.002381, 0.002077]** conditional on this one pair. The 2.713B stable gain
-of 0.012133 does not survive endpoint annealing. Longer exposure removes the
-early deficit in this seed, without establishing the declared useful gain.
-The original three-seed 1B negative remains unchanged.
+**2.393539 TEST**, versus **2.391002 ordinary**. Ordinary-minus-shared gain
+is **-0.002538 [-0.005603, 0.000730]**, conditional on one fitted pair.
+The earlier deficit largely disappears, without establishing a useful gain.
+The stable-checkpoint DEV advantage also disappears after endpoint annealing:
+the annealed DEV gain is 0.000114. DEV and TEST are separate panels.
 [Longer-exposure curve](results/sharing_exposure_20261023/REPORT.md) ·
 [Figure](results/sharing_exposure_20261023/learning-curve-seed23.png).
 
 All new independent full-panel FP32 audits pass; the largest new CPU/native
 NLL difference is 0.00004176 nats. Earlier six-endpoint audits also passed.
-The three generic sharded evaluator templates reproduce scalar NLL exactly.
-Their 64-rank startup/verification costs are recorded; they do not establish a
-small-panel latency speedup. Nine new full-state model/Adam/RNG/cursor copies
-pass checksum and serialized-state readback on existing EBS. Copies are
-on-instance only; raw weights, optimizer state and source contents stay private.
-The root filesystem retains approximately 39 GiB free, above the 35 GiB floor.
+Generic sharded evaluators reproduce scalar NLL exactly. Full optimizer,
+RNG and data-cursor continuity and all-replica equality pass. Nine new
+checksum-verified full-state copies join six earlier endpoints on existing
+EBS. These are on-instance recovery copies, not off-instance backups. Raw
+weights, optimizer state and source contents remain private. The root
+filesystem retains approximately 39 GiB free, above the 35 GiB floor.
 
-The first campaign and follow-up are executed by persistent bounded controllers;
-a companion liveness record tracks controller and native workers independently
-of stage-boundary snapshots. The realized follow-up deadline is **21:00:29 UTC**.
-The performance controller waits until all scientific and TEST scoring closes.
-It then attempts bounded unscaled fused-AdamW, two concurrent half-node jobs,
-100 synchronized warm updates and complete optimizer recovery. No scientific
-model uses that candidate optimizer. Optional AMP-metadata operator checks
-remain separate. No upstream submission has been made.
+After scientific scoring closed, **unscaled fused AdamW qualification passed**
+all distinct 150M weight shapes, offset gradient views, changing LRs, CPU
+agreement and fresh-process full optimizer recovery. Two synchronized jobs on
+disjoint eight-chip halves achieve **873,844 ordinary / 576,011 shared real
+targets/sec**, each over 100 warm updates. The unequal-duration pair completes
+52,337,076 targets in 45.43 seconds: **1,152,021 targets/sec across the pair**.
+The individual rates must not be summed. These jointly change optimizer,
+local batch and DDP topology; they do not isolate an optimizer speedup or
+include a scientific checkpoint cadence. A separate exact-NLL readout check
+takes 58.64 seconds with 16 ranks versus 85.90 with 64, one measurement each
+with different cache histories. [Qualification](results/fast_path_20261023/REPORT.md).
 
-Current CPU suite: **53 tests pass**. Training/evaluation use frozen natural
-web, mathematical web and repository code, without a generated research corpus,
-teacher, RL, halting or another architecture in this cycle. Host drivers and
-XLA are preserved. All previous results and original protocols remain intact.
+A separate direct-ATen fixture reproduces ignored optional overflow/unscale
+metadata in the pinned fused optimizer. Normal unscaled updates agree with
+CPU. High-level GradScaler reachability remains untested; neither scientific
+training nor the qualified unscaled candidate uses those optional arguments.
+This does not explain the scientific NLL gaps. A reproducible contribution
+note is ready for human review; no upstream submission has been made.
+[OSS evidence](docs/OSS_FUSED_ADAMW_METADATA_20261023.md).
+
+The incremental ledger closes **82 native attempts**, including stopped and
+failed work: **90.60 assigned chip-hours**, **5.91 hours of accelerator-active
+node time**, and **6.19 hours from first to last native launch**. The latter
+includes CPU/control/idle gaps and corresponds to 99.03 node-opportunity
+chip-hours; it is a lower bound on reservation cost, not the full instance
+bill. Historical controls and prior campaigns are retained separately rather
+than charged again. Known neural matmuls and numerical probes are itemized;
+optimizer, communication and unknown failed work are not silently treated as
+neural FLOPs. [Execution ledger](results/sharing_exposure_20261023/execution-costs.json).
+
+Current CPU suite: **53 tests pass**. All scientific fits used all 16 chips
+with 64 ranks. Natural web, mathematical web and repository code remain the
+only research corpus: no generated examples, teacher, RL or learned halting.
+Host drivers and XLA are preserved. All previous results and protocols remain
+intact. Do not extend or scale this exact shared recipe on the evidence here.
+Any selective-sharing experiment needs a separate protocol and held-out panel;
+this TEST panel is now consumed.
 
 [Mechanism diagnostic](results/recurrent_mechanism_20261023/REPORT.md) ·
 [Original primary](results/recurrent_learning_20261023/REPORT.md) ·

@@ -1,0 +1,78 @@
+{
+  "status": "PASS_UNSCALED_FAST_PATH_WITH_SEPARATE_OPTIONAL_METADATA_GAP",
+  "rates": {
+    "1": 873844.2188105459,
+    "2": 576010.6906426392
+  },
+  "world_per_job": 32,
+  "chips_per_job": 8,
+  "batch_per_rank": 4,
+  "accumulation": 2,
+  "context": 1024,
+  "parameters_each": 150436608,
+  "warm_updates_each": 100,
+  "synchronized_warm_start": true,
+  "warm_overlap_seconds": 29.9464590549469,
+  "warm_overlap_fraction_by_arm": {
+    "1": 1.000000080975562,
+    "2": 0.6591686766200496
+  },
+  "warm_pair_elapsed_seconds": 45.4306480884552,
+  "warm_pair_real_targets": 52337076,
+  "warm_pair_effective_targets_per_second": 1152021.3380645092,
+  "full_optimizer_recovery_both_arms": true,
+  "replicas_identical_both_arms": true,
+  "software_fixture_parameter_error": 1.564621925354004e-07,
+  "global_gradient_relative_l2": 0.0023587485679065234,
+  "execution_source_sha256": {
+    "compute_trainium/preln_recurrence.py": "3c959efdb138fee2f66074e99c314e509cf0e5f30092b411b6d31dac0570f9eb",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd",
+    "compute_trainium/model.py": "4a2edc5034ccff94ac1817f5b8529f031f4b6ef63cf1da4bc8e1f2e09cc53eb0",
+    "compute_trainium/titan.py": "9b1cab2cb54c47a75b79cbb3392952c7b44fcd0e88af719e0ca5eb6d50214714",
+    "compute_trainium/continuation.py": "96556245f26af9215f2ad7cf3a6fa899e98d9cc1e2775dfa159f36ffc9d8604b",
+    "compute_trainium/recurrence.py": "43f1913f5abc0e6dabd4afe86522190619307c18a2f412c8b3b73c04dbf73706",
+    "scripts/train_fast.py": "970ff8705f414458a50a3c10c897abc85c8ba3e23ec53d49ebd27086734cb62a"
+  },
+  "normal_qualification_seconds": 510.6965458393097,
+  "optional_metadata_native_launch_seconds": 10.812465906143188,
+  "reconstructed_total_seconds": 522.8312475681305,
+  "timing_note": "Original conditional-runner wall_seconds was sampled before its optional metadata subprocess; raw receipt is preserved. Total above uses report-file timestamps to reconstruct the additional tail. Future runner records total time after all subprocesses.",
+  "ordinary_readout_latency": [
+    {
+      "ranks": 1,
+      "assigned_chips": 1,
+      "wall_seconds": 63.77980422973633,
+      "native_report_seconds": 60.32351342891343,
+      "nll": 2.5180711368091346,
+      "documents": 614,
+      "real_targets": 777348
+    },
+    {
+      "ranks": 16,
+      "assigned_chips": 16,
+      "wall_seconds": 58.64034867286682,
+      "native_report_seconds": 51.32044082903303,
+      "nll": 2.5180711368091346,
+      "documents": 614,
+      "real_targets": 777348
+    },
+    {
+      "ranks": 64,
+      "assigned_chips": 16,
+      "wall_seconds": 85.89746308326721,
+      "native_report_seconds": 75.90414969902486,
+      "nll": 2.5180711368091346,
+      "documents": 614,
+      "real_targets": 777348
+    }
+  ],
+  "readout_scope": "Same fixed 1B seed23 ordinary checkpoint and full curve DEV, unchanged weights and exact NLL. One end-to-end measurement per topology; cache/setup histories differ. These are panel latencies, not autoregressive generation latency.",
+  "scope": "Joint optimizer/local-batch/DDP-topology qualification. FP32 masters and moments, unscaled BF16 matmuls; natural TRAIN windows and numerical software fixtures. No scientific model or hypothesis selected from performance or TEST. Training rates exclude cold setup/final hashes and have no intermediate scientific checkpoint cadence; future campaign budgets need those overheads.",
+  "optional_metadata_scope": "Direct ATen operator comparison with same-version CPU. High-level GradScaler support/reachability is untested. Scientific training uses unscaled BF16 with FP32 masters, not these optional metadata arguments.",
+  "upstream_check": {
+    "head": "50b14171affaa365f1df6aa015232427336f6a4d",
+    "optimizer_sha256": "2a55b748f4e5369795273164ecdffe87641ec9b4ddc0ad2adcbd240bc4394a32",
+    "same_as_pinned": true
+  }
+}

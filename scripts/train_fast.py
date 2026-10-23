@@ -1,6 +1,8 @@
-"""UNEXECUTED HARDWARE DRAFT — not a qualified research trainer.
+"""Hardware-qualified optimizer implementation variant.
 
-Explicit optimizer-implementation qualification/continuation variant.
+Numerical and throughput evidence is in results/fast_path_20261023; scientific
+use requires a separate frozen experiment. Completed scientific models use
+the original plain-optimizer trainer.
 
 Based on the frozen primary trainer; changes only AdamW implementation flags.
 One bounded training phase. New shapes and DEV run in fresh processes.

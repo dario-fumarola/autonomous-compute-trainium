@@ -1,6 +1,8 @@
-"""UNEXECUTED HARDWARE DRAFT — not a qualified research trainer.
+"""Bounded qualification of fused AdamW and concurrent half-node jobs.
 
-Bounded independent qualification of fused AdamW and concurrent half-node jobs."""
+Executed evidence is in results/fast_path_20261023. Software qualification
+does not select scientific models or authorize another training campaign.
+"""
 import argparse
 import json
 import os

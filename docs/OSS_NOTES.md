@@ -1,5 +1,13 @@
 # PyTorch and Trainium observations
 
+The post-science [fused-optimizer qualification](../results/fast_path_20261023/REPORT.md)
+passes CPU agreement on all full-size parameter shapes, offset gradient views,
+changing LRs, exact recovery and concurrent half-node training. A separate
+direct-ATen fixture reproduces ignored overflow/unscale metadata in the pinned
+backend. Its normal unscaled case agrees with CPU. High-level GradScaler is
+untested; neither the completed science nor the qualified unscaled candidate
+uses those optional inputs. [Reproducer and contribution note](OSS_FUSED_ADAMW_METADATA_20261023.md).
+
 Record issues only after reproducing them against a pinned version. Separate documented limits, configuration errors and backend defects. Keep a small local reproducer, exact environment, expected/actual behavior and affected training result for any contribution candidate. Do not submit upstream issues or PRs autonomously.
 
 ## Verified setup constraint
