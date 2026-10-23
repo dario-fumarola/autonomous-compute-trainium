@@ -3,6 +3,10 @@
 Can a randomly initialized language model learn to use additional computation
 to predict unseen natural text better?
 
+The [ongoing research charter](docs/ONGOING_RESEARCH_CHARTER.md) records the
+owner's multi-day authorization, independent-confirmation standard and repeated-
+testing rules. Individual experiments remain bounded and falsifiable.
+
 A separately [predeclared variable-depth follow-up](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md)
 has passed qualification and completed its300M-target LR screens. Three-seed
 main fits now use all16 chips, with fresh held-out groups and an explicit common
