@@ -40,3 +40,17 @@ are retained separately from reused controls. TEST confirmation is a separate
 frozen release after model/analysis identities are fixed.
 
 [Machine-readable readout](summary.json) · [Frozen campaign](../../docs/MECHANISM_DIAGNOSIS_20261023.md).
+
+A separate read-only diagnosis uses twelve previously fixed DEV prefixes, with 512 real targets each. It averages the selected family of corresponding weights between the two trained core copies, without reoptimization. This is a perturbation of one fitted model, not a retrained sharing control or a TEST candidate.
+
+| Projection | Fixed-prefix NLL |
+| --- | ---: |
+| baseline | 2.335771 |
+| project_norm | 2.351442 |
+| project_attention | 3.435118 |
+| project_mlp | 3.367969 |
+| project_all | 3.689310 |
+
+Averaging can change parameter norms and disrupt coadapted features. These effects do not add linearly or establish which constraint caused the training deficit. Separate attention and MLP values matter strongly to this fitted network; this does not rule out learning a better shared solution from scratch. No projected weights are saved or evaluated on TEST.
+
+Exact SVD on every attention/MLP matrix in four preselected, evenly spaced core layers finds rank 16 captures 18.9% of copy-difference energy on average; the median rank for 80% energy is 208. This is weight-space geometry, not a functional compression guarantee or evidence that low-rank adapters cannot learn another solution.

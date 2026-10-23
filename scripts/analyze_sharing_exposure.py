@@ -34,6 +34,9 @@ def main():
  result={'status':'COMPLETE_SHARING_AND_EXPOSURE_READOUT' if untied and longer and len(rows)>=9 else 'PARTIAL_READOUT',
   'rows':rows,'contrasts':contrasts,'untied_selected_lr':json.loads((a.root/'untied-depth-v1/selected-lr.json').read_text()) if (a.root/'untied-depth-v1/selected-lr.json').exists() else None,
   'scope':'One paired seed23 control and continuation; source-group intervals condition on fitted models, not seed variance. Untied has more parameters, equal shared-path dense matmul FLOPs and matched initial function. Original three-seed 1B outcome remains unchanged.'}
+ for folder,key in [('untied-specialization-v1','component_projection'),('core-difference-rank-v1','difference_spectra')]:
+  path=a.root/folder/'report.json'
+  if path.exists():result[key]=json.loads(path.read_text())
  (a.output/'summary.json').write_text(json.dumps(result,indent=2)+'\n')
  text='''# Sharing and longer-exposure controls
 
@@ -74,6 +77,17 @@ frozen release after model/analysis identities are fixed.
 [Machine-readable readout](summary.json) · [Frozen campaign](../../docs/MECHANISM_DIAGNOSIS_20261023.md).
 '''
  for x,y in [('with150','with 150'),('fixed60','fixed 60'),('shared/untied1B','shared/untied 1B'),('The3B','The 3B'),('stable900M','stable 900M'),('Original64','Original 64'),('The1B','The 1B'),('and3B','and 3B'),('three-seed1B','three-seed 1B')]:text=text.replace(x,y)
+ if 'component_projection' in result:
+  text+='\nA separate read-only diagnosis uses twelve previously fixed DEV prefixes, with512 real targets each. It averages the selected family of corresponding weights between the two trained core copies, without reoptimization. This is a perturbation of one fitted model, not a retrained sharing control or a TEST candidate.\n\n| Projection | Fixed-prefix NLL |\n| --- | ---: |\n'
+  for row in result['component_projection']['rows']:text+=f"| {row['mode']} | {row['weighted_nll']:.6f} |\n"
+  text+='\nAveraging can change parameter norms and disrupt coadapted features. These effects do not add linearly or establish which constraint caused the training deficit. Separate attention and MLP values matter strongly to this fitted network; this does not rule out learning a better shared solution from scratch. No projected weights are saved or evaluated on TEST.\n'
+ if 'difference_spectra' in result:
+  import statistics
+  spectra=result['difference_spectra']['rows']
+  energy=statistics.mean(row['energy_fraction_by_rank']['16'] for row in spectra)
+  rank=statistics.median(row['rank_for_80_percent_energy'] for row in spectra)
+  text+=f'\nExact SVD on every attention/MLP matrix in four preselected, evenly spaced core layers finds rank16 captures {energy:.1%} of copy-difference energy on average; the median rank for80% energy is {rank:g}. This is weight-space geometry, not a functional compression guarantee or evidence that low-rank adapters cannot learn another solution.\n'
+ text=text.replace('with512','with 512').replace('rank16','rank 16').replace('for80%','for 80%')
  (a.output/'REPORT.md').write_text(text)
  print(json.dumps({'status':result['status'],'rows':len(rows),'contrasts':contrasts},indent=2))
 

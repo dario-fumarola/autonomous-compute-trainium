@@ -23,7 +23,7 @@ def main():
    'warm_real_targets_per_second':v.get('warm_global_real_targets_per_second'),
    'parameters':v.get('parameters'),'scored_real_targets':v.get('targets',0)})
  cpu=[]
- for folder in ['mechanism-states-v1','document-boundary-v1','mechanism-endpoint-cpu-v1']:
+ for folder in ['mechanism-states-v1','document-boundary-v1','mechanism-endpoint-cpu-v1','untied-specialization-v1','core-difference-rank-v1']:
   path=a.root/folder/'report.json'
   if path.exists():
    v=json.loads(path.read_text());cpu.append({'job':folder,'status':v['status'],'wall_seconds':v.get('wall_seconds',v.get('elapsed_seconds',v.get('wall_seconds_including_waits'))),
