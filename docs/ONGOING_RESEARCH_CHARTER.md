@@ -81,3 +81,28 @@ third-party message is authorized by the research objective alone.
 Continue after informative negatives by choosing a new falsifiable mechanism
 or a justified control. Do not manufacture a positive, hide a negative, weaken
 the baseline or redefine the success criterion to match an observed result.
+
+## Primary-literature check, October23
+
+These papers inform possible later choices; none changes the live protocol.
+The published Huginn model uses a four-layer recurrent core between two-layer
+prelude/coda modules. Our16-layer shared core is a different constraint. A
+smaller shared fraction is a possible controlled follow-up, not a claimed
+reproduction or a demonstrated fix.
+[Huginn paper](https://arxiv.org/html/2502.05171v2).
+
+DeepLoop reports natural FineWeb-Edu pretraining for50B tokens. Its main loss
+table has single training seeds, compares residual parameterizations, and
+does not establish our desired resource-matched result. Its initialization
+sweep also reports failed runs stuck near a unigram floor. That makes our old
+collapse compatible with a training-dynamics problem; it does not identify
+the cause of our failure or validate copying the new normalization blindly.
+[DeepLoop paper, sections5.1 andC](https://arxiv.org/html/2607.13491).
+
+Source-Centered State Evolution explicitly constrains recurrence around an
+input-dependent anchor. Its direct-web comparisons improve on other shared
+models, but the reported unshared eight-layer references still have lower
+perplexity; those references are not parameter matched. The direct-web22M
+settings use20.48M training tokens. These are useful mechanism hypotheses,
+not proof that an anchor will beat our stronger ordinary baseline.
+[SCSE paper, appendix direct-web tables](https://arxiv.org/html/2607.27656).
