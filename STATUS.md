@@ -1,3 +1,34 @@
+# Status — 2026-10-23, 20:45 UTC
+
+The new [variable-depth study](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md) is in
+numerical/throughput qualification. No new LR trial or scientific fit has
+started. All controls will rerun with one explicit common recipe: beta2=0.95,
+matrix decay0.1, zero embedding/norm decay,2.5% warmup and separate300M-target
+four-LR screens. Fixed and mixture differ only in training-depth distribution.
+There are no pass embeddings, separate norms, teachers or synthetic examples.
+
+The **60-test CPU suite passes**. The fresh natural panel is complete after
+rebuilding every one of2,836,362 prior accepted documents' duplicate sketches
+and excluding421,315 old source groups. TUNE/DEV/TEST each retain at least250k
+real targets/domain. The old TEST is excluded. [Data gate](results/variable_depth_20261023/data-gate.json).
+
+The first software attempt rejected the known host-copy fallback. The next
+loaded all states exactly but exposed small numerical drift between
+interrupted and uninterrupted training (maximum parameter difference7.09e-6).
+Two independent fresh-process continuations agree bit-for-bit; the drift's
+cause is not isolated. Both attempts and their costs are retained. The explicit
+new optimizer passes full-shape CPU/native parity (maximum parameter error
+2.98e-8); mixed-depth global-gradient, replay, full-size recovery and100-warm
+throughput gates are now running. This is software evidence, not a new language
+model result. The bounded controller will stop explicitly on a failed gate.
+
+Hard deadline: October24 **04:15 UTC**; scientific training cutoff **03:00 UTC**.
+The completed fixed-depth campaign remains preserved below. Its source,
+protocol and evaluation hashes, all old states, host drivers and XLA remain
+unchanged.
+
+---
+
 # Status — 2026-10-23, 19:50 UTC
 
 **The bounded scientific campaign, independent audits, twelve-model sealed

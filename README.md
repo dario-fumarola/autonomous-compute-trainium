@@ -3,6 +3,11 @@
 Can a randomly initialized language model learn to use additional computation
 to predict unseen natural text better?
 
+A separately [predeclared variable-depth follow-up](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md)
+is in numerical and throughput qualification. It uses fresh held-out source
+groups. Its hypotheses have not yet been tested; completed results below remain
+unchanged. [Live status](STATUS.md).
+
 The completed Trainium2 study compares ordinary pretraining with a fixed,
 differentiable recurrent core available from initialization. Training and
 evaluation use natural web text, mathematical web text and repository code.
