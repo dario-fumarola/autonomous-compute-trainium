@@ -1,43 +1,64 @@
 {
-  "status": "LIVE_CAMPAIGN_RECEIPTS",
-  "collected_unix": 1792813655.642429,
-  "closed_attempts": [],
-  "open_attempts": [
+  "status": "CLOSED_CAMPAIGN_RECEIPTS",
+  "collected_unix": 1792815237.3604712,
+  "closed_attempts": [
+    {
+      "identity": "mature-fixed-v1-fixed-s103-u10368",
+      "exit_code": 1,
+      "wall_seconds": 147.5073585510254,
+      "assigned_chip_hours": 0.32779413011338976,
+      "whole_instance_opportunity_chip_hours": 0.6555882602267795,
+      "report_exists": false
+    },
     {
       "identity": "mature-fixed-v1-fixed-s103-u7680",
-      "assigned_physical_chips": 8,
-      "observed_launch_wall_seconds": 766.021641254425,
-      "last_logged_update": {
-        "update": 4806,
-        "real_tokens": 1257676406,
-        "lr": 0.001,
-        "rank0_scaled_nll": 2.393121770963896,
-        "gradient_norm": 0.17531262338161469,
-        "elapsed_seconds": 737.6357685429975
-      },
-      "observed_200_update_targets_per_second": 576788.8793931358
+      "exit_code": 0,
+      "wall_seconds": 2091.3866000175476,
+      "assigned_chip_hours": 4.647525777816773,
+      "whole_instance_opportunity_chip_hours": 9.295051555633545,
+      "report_exists": true
+    },
+    {
+      "identity": "mature-fixed-v1-fixed-s103-u7680-dev-r2",
+      "exit_code": 0,
+      "wall_seconds": 77.85049247741699,
+      "assigned_chip_hours": 0.17300109439425998,
+      "whole_instance_opportunity_chip_hours": 0.34600218878851996,
+      "report_exists": true
+    },
+    {
+      "identity": "mature-fixed-v1-ordinary-s103-u10368",
+      "exit_code": 137,
+      "wall_seconds": 864.8132688999176,
+      "assigned_chip_hours": 1.9218072642220392,
+      "whole_instance_opportunity_chip_hours": 3.8436145284440784,
+      "report_exists": false
     },
     {
       "identity": "mature-fixed-v1-ordinary-s103-u7680",
-      "assigned_physical_chips": 8,
-      "observed_launch_wall_seconds": 766.0216240882874,
-      "last_logged_update": {
-        "update": 5626,
-        "real_tokens": 1472259168,
-        "lr": 0.0006,
-        "rank0_scaled_nll": 2.5469124957966494,
-        "gradient_norm": 0.213033065199852,
-        "elapsed_seconds": 740.278577051009
-      },
-      "observed_200_update_targets_per_second": 881783.0556840438
+      "exit_code": 0,
+      "wall_seconds": 1394.4958441257477,
+      "assigned_chip_hours": 3.0988796536127725,
+      "whole_instance_opportunity_chip_hours": 6.197759307225545,
+      "report_exists": true
+    },
+    {
+      "identity": "mature-fixed-v1-ordinary-s103-u7680-dev-r1",
+      "exit_code": 0,
+      "wall_seconds": 63.024972438812256,
+      "assigned_chip_hours": 0.14005549430847167,
+      "whole_instance_opportunity_chip_hours": 0.28011098861694333,
+      "report_exists": true
     }
   ],
-  "closed_assigned_chip_hours": 0,
-  "open_attempt_opportunity_chip_hours_observed": 3.404540589650472,
-  "declared_window_through_collection_opportunity_chip_hours": 3.9807830460866294,
-  "closed_successful_training_updates": 0,
-  "closed_successful_training_matmul_flops": 0,
+  "open_attempts": [],
+  "closed_assigned_chip_hours": 10.309063414467706,
+  "open_attempt_opportunity_chip_hours_observed": 0,
+  "declared_window_through_collection_opportunity_chip_hours": 11.010641011132135,
+  "closed_successful_training_updates": 8448,
+  "closed_successful_training_matmul_flops": 3252487336356741120,
   "scope": "Launch-to-closure costs include setup/compile/checkpoint overhead and failed attempts. Open durations are observations, not successful results. Rolling200-update rates include any checkpoint/timing stalls, exclude earlier setup, and are not a new matched performance qualification. Rank-zero logged NLL is a training diagnostic, not held-out or globally aggregated loss. CPU preparation, prior studies/qualification and parent-copy costs are separate; overlapping intervals must not be added as sequential node time. This is not an entire-instance billing receipt.",
+  "campaign_result_status": "STOPPED_MATURE_FIXED_DEVELOPMENT_CAMPAIGN",
   "independent_cpu": {
     "status": "WAITING_REGISTERED_ENDPOINTS",
     "completed_endpoint_audits": 0

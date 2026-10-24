@@ -1,0 +1,24 @@
+{
+  "identity": "trained-gradient-v1-ordinary",
+  "registered_unix": 1792817131.4153383,
+  "source": "ordinary seed103 periodic update9216, exact next global batch",
+  "capture_topology": {
+    "world": 32,
+    "batch": 4,
+    "accumulation": 2,
+    "context": 1024
+  },
+  "native_optimizer_updates": 0,
+  "comparisons": [
+    "exact local Native BF16 versus CPU BF16/FP32",
+    "global Native BF16 versus CPU FP32 and CPU BF16",
+    "CPU BF16 versus CPU FP32"
+  ],
+  "qualified_global_gradient_relative_l2_limit": 0.02,
+  "qualified_global_fp32_loss_absolute_limit": 0.003,
+  "source_sha256": {
+    "scripts/qualify_trained_gradient.py": "0fc8f81b7980a9ce4796ef038e24aad58bde3a93e47f77934fc495d9fbc0d469"
+  },
+  "deadline_unix": 1792818931.4153388,
+  "scope": "Diagnosis of failed8% local-gradient guard. Thresholds apply to full global objective, not a raised local limit. Capture and CPU reference separate processes. No optimizer updates/TEST. Does not automatically authorize scientific continuation or relabel prior failed attempts."
+}
