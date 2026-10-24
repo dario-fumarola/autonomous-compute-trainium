@@ -1,0 +1,54 @@
+{
+  "status": "COMPLETE_INDEPENDENT_FP32_DEV_ANCHOR",
+  "update": 7680,
+  "training_real_targets": 2009762680,
+  "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+  "scorer_sha256": "fc09da25617b899ea41a678cbb6f5e7cb6ff7e3feab99b7d43cc0e886b5363fd",
+  "reference_sha256": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba",
+  "metrics": {
+    "domains": {
+      "web": {
+        "nll_sum": 760146.4828482292,
+        "real_targets": 252337,
+        "documents": 291,
+        "nll": 3.012425775245918
+      },
+      "code": {
+        "nll_sum": 351395.7072278828,
+        "real_targets": 251035,
+        "documents": 153,
+        "nll": 1.3997877078012342
+      },
+      "math": {
+        "nll_sum": 554783.3005052684,
+        "real_targets": 251378,
+        "documents": 159,
+        "nll": 2.20696839224303
+      }
+    },
+    "weighted_nll": 2.5288066851564035,
+    "weights": {
+      "web": 0.6,
+      "math": 0.2,
+      "code": 0.2
+    },
+    "unit": "nats per real source token"
+  },
+  "documents": 603,
+  "targets": 754750,
+  "comparison": {
+    "cpu_minus_historical_native_nll": -0.00020137182211943383,
+    "within_old_0_0002_agreement_limit": false,
+    "historical_native_training_precision": "bf16",
+    "scope": "Cross-precision diagnostic for a historical readout; disagreement is reported, never relabeled as a passed audit."
+  },
+  "wall_seconds": 510.9393527507782,
+  "native_chips_assigned": 0,
+  "test_model_scoring_performed": false,
+  "cpu_seconds": {
+    "user": 5915.959619,
+    "system": 85.294512
+  },
+  "scope": "Read-only existing DEV, independent FP32 attention/RoPE implementation and FP64 log normalization. Canonical parent score, not a numerical-agreement waiver, new training seed, research endpoint or TEST."
+}

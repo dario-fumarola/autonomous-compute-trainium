@@ -1,8 +1,8 @@
 {
-  "status": "RUNNING_FRESH_DATA_RESERVE",
+  "status": "COMPLETE_FRESH_NATURAL_RESERVE_AND_INDEPENDENT_DATA_AUDIT",
   "started_unix": 1792826001.6306705,
-  "ended_unix": 1792828693.8553822,
-  "wall_seconds": 2692.224711894989,
+  "ended_unix": 1792828856.844625,
+  "wall_seconds": 2855.2139544487,
   "stages": [
     {
       "module": "scripts.prepare_confirmation_reserve",
@@ -12,6 +12,15 @@
       "exit_code": 0,
       "deadline_termination": false,
       "configured_cpu_workers": 12
+    },
+    {
+      "module": "scripts.audit_confirmation_reserve",
+      "started_unix": 1792828693.8577292,
+      "ended_unix": 1792828856.844619,
+      "wall_seconds": 162.98689007759094,
+      "exit_code": 0,
+      "deadline_termination": false,
+      "configured_cpu_workers": 1
     }
   ],
   "native_chips_assigned": 0,

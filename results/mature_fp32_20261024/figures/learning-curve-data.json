@@ -1,0 +1,109 @@
+{
+  "rows": [
+    {
+      "arm": "ordinary",
+      "update": 7680,
+      "real_targets": 2009762680,
+      "phase": "stable",
+      "cpu_fp32_nll": 2.549253915097685,
+      "domains": {
+        "web": 3.0368032029720107,
+        "code": 1.4102362891322415,
+        "math": 2.225623677440151
+      },
+      "training_matmul_flops": 2196824232296448000,
+      "checkpoint_sha256": "04fc4d7e9dcdbc4e3940acb4b5a440e2936f9d0a689b62dc53e49d93dbcf03a9"
+    },
+    {
+      "arm": "fixed",
+      "update": 7680,
+      "real_targets": 2009762680,
+      "phase": "stable",
+      "cpu_fp32_nll": 2.5288066851564035,
+      "domains": {
+        "web": 3.012425775245918,
+        "code": 1.3997877078012342,
+        "math": 2.20696839224303
+      },
+      "training_matmul_flops": 3716789106533990400,
+      "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539"
+    },
+    {
+      "arm": "ordinary",
+      "update": 8448,
+      "real_targets": 2210737866,
+      "phase": "stable",
+      "cpu_fp32_nll": 2.5268426413408003,
+      "domains": {
+        "web": 3.011956995105534,
+        "code": 1.3889816483832902,
+        "math": 2.2093605730041097
+      },
+      "training_matmul_flops": 2416506655526092800,
+      "checkpoint_sha256": "50f6e21c8af6126c7c8014322ae1325bad2fae33b64cf776168ed97a6556c099"
+    },
+    {
+      "arm": "fixed",
+      "update": 8448,
+      "real_targets": 2210737866,
+      "phase": "stable",
+      "cpu_fp32_nll": 2.498791922810278,
+      "domains": {
+        "web": 2.9790946254055513,
+        "code": 1.3730664469694638,
+        "math": 2.1836092908652724
+      },
+      "training_matmul_flops": 4088468017187389440,
+      "checkpoint_sha256": "54c765b036134650f0fe9ace8dfed61699a529128a282c04b58417d61c03b139"
+    },
+    {
+      "arm": "ordinary",
+      "update": 10368,
+      "real_targets": 2713176594,
+      "phase": "stable",
+      "cpu_fp32_nll": 2.4959572395531584,
+      "domains": {
+        "web": 2.9751416905270314,
+        "code": 1.3738232777909951,
+        "math": 2.1805378483937026
+      },
+      "training_matmul_flops": 2965712713600204800,
+      "checkpoint_sha256": "8b320038580cb814c334cb39a9597f6d1fba130fce3ae090d5e75c2dd63c072c"
+    },
+    {
+      "arm": "fixed",
+      "update": 10368,
+      "real_targets": 2713176594,
+      "phase": "stable",
+      "cpu_fp32_nll": 2.472258671502555,
+      "domains": {
+        "web": 2.9484633696671727,
+        "code": 1.3598765233199444,
+        "math": 2.156026725191314
+      },
+      "training_matmul_flops": 5017665293820887040,
+      "checkpoint_sha256": "822dcb64343ed4401bf490d4badf5e2a0a0da09f489ca2fb95d48fdf11026c2c"
+    }
+  ],
+  "paired_points": [
+    {
+      "update": 7680,
+      "real_targets": 2009762680,
+      "phase": "stable",
+      "equal_data_gain": 0.020447229941281453
+    },
+    {
+      "update": 8448,
+      "real_targets": 2210737866,
+      "phase": "stable",
+      "equal_data_gain": 0.0280507185305221
+    },
+    {
+      "update": 10368,
+      "real_targets": 2713176594,
+      "phase": "stable",
+      "equal_data_gain": 0.02369856805060344
+    }
+  ],
+  "scope": "Only completed independent CPU FP32 existing-DEV scores; unpaired partial points excluded from gain curve."
+}

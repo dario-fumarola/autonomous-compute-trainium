@@ -1,0 +1,21 @@
+{
+  "identity": "cpu-head-precision-v1",
+  "registered_unix": 1792829870.2176526,
+  "deadline_unix": 1792830870.2176526,
+  "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "source_sha256": {
+    "scripts/screen_cpu_head_precision.py": "8693f4fead5ad24abd7b7e66380ce08f76670c66b03c1923c779e91ca7674d0f",
+    "compute_trainium/independent.py": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba",
+    "compute_trainium/model.py": "4a2edc5034ccff94ac1817f5b8529f031f4b6ef63cf1da4bc8e1f2e09cc53eb0"
+  },
+  "train_subset": "First routed window of ranks0..7, micro0, preserved32x4x2 cursor at update7680",
+  "modes": [
+    "fp32",
+    "bf16_all_matmuls",
+    "bf16_body_fp32_head"
+  ],
+  "threads": 8,
+  "native_chips_assigned": 0,
+  "prerequisite_for_any_native_followup": "Candidate must first clear2% relative full-gradient error on this CPU subset; a subset pass is not qualification. A native full-global check and measured update qualification would remain required.",
+  "scope": "Prospective numerical-only screen, no model updates or held-out scoring. No changes to frozen active training."
+}

@@ -1,0 +1,63 @@
+{
+  "status": "PASS_INDEPENDENT_FRESH_RESERVE_DATA_AUDIT",
+  "manifest_sha256": "31507c6b30b9323b989af4b8335158d39b27ccb2122c8ae33e651835d8634c41",
+  "auditor_sha256": "8be9073d3908c1a0f285be14050b32e7697ee37928b6e85bb473e662a8a8ceee",
+  "old_documents_reconstructed": 14700735,
+  "every_selected_raw_row_and_token_verified": 1697,
+  "mapped_ids_match_all_prior_databases": true,
+  "all_raw_sketch_coverage_bits_present": true,
+  "prior_exact_id_overlap": 0,
+  "prior_source_group_overlap": 0,
+  "cross_role_source_group_overlap": 0,
+  "counts": {
+    "web/tune": {
+      "documents": 251,
+      "real_targets": 250299,
+      "source_groups": 247
+    },
+    "web/curve": {
+      "documents": 246,
+      "real_targets": 250335,
+      "source_groups": 238
+    },
+    "web/test": {
+      "documents": 275,
+      "real_targets": 250327,
+      "source_groups": 263
+    },
+    "math/tune": {
+      "documents": 165,
+      "real_targets": 250342,
+      "source_groups": 164
+    },
+    "math/curve": {
+      "documents": 145,
+      "real_targets": 250134,
+      "source_groups": 140
+    },
+    "math/test": {
+      "documents": 149,
+      "real_targets": 251396,
+      "source_groups": 145
+    },
+    "code/tune": {
+      "documents": 147,
+      "real_targets": 256212,
+      "source_groups": 146
+    },
+    "code/curve": {
+      "documents": 173,
+      "real_targets": 250341,
+      "source_groups": 170
+    },
+    "code/test": {
+      "documents": 146,
+      "real_targets": 251830,
+      "source_groups": 144
+    }
+  },
+  "wall_seconds": 161.158588886261,
+  "test_model_scoring_performed": false,
+  "terminal_attempt_registered": false,
+  "scope": "Independent SQL identity/group checks over every corpus generation and prior panels, mapped-index export equality/coverage, and raw-row/complete-token reconstruction for every selected document. Does not independently repeat every minhash comparison; that approximate screening uses the separately tested inverted algorithm and complete prior-ID raw coverage. Data audit only, no scientific confirmation or alpha spending."
+}

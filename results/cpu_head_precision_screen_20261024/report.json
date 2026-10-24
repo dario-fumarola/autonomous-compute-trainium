@@ -1,0 +1,240 @@
+{
+  "status": "COMPLETE_TRAIN_SUBSET_CPU_PRECISION_SCREEN",
+  "rows": [
+    {
+      "mode": "fp32",
+      "nll": 2.3518938198685646,
+      "gradient_vs_cpu_fp32": {
+        "relative_l2": 0.0,
+        "cosine": 1.0,
+        "reference_norm": 0.7788660337954959,
+        "candidate_norm": 0.7788660337954959,
+        "maximum_absolute_error": 0.0,
+        "largest_error_contributors": [
+          {
+            "parameter": "embedding.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 0.31466458101609646
+          },
+          {
+            "parameter": "blocks.0.attn_norm.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 0.00953356548893496
+          },
+          {
+            "parameter": "blocks.0.ffn_norm.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 0.00025312233517158113
+          },
+          {
+            "parameter": "blocks.0.q.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 9.790813101190448e-07
+          },
+          {
+            "parameter": "blocks.0.k.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 4.312931936197346e-07
+          },
+          {
+            "parameter": "blocks.0.v.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 0.02585859628254061
+          },
+          {
+            "parameter": "blocks.0.o.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 0.009723091950396529
+          },
+          {
+            "parameter": "blocks.0.gate.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 0.0014050563886169067
+          },
+          {
+            "parameter": "blocks.0.up.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 0.002361668142493405
+          },
+          {
+            "parameter": "blocks.0.down.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 0.006574510833427172
+          },
+          {
+            "parameter": "blocks.1.attn_norm.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 2.5173127415049544e-05
+          },
+          {
+            "parameter": "blocks.1.ffn_norm.weight",
+            "squared_error": 0.0,
+            "reference_squared_norm": 4.399754092355345e-05
+          }
+        ]
+      },
+      "elapsed_seconds": 57.688472509384155
+    },
+    {
+      "mode": "bf16_all_matmuls",
+      "nll": 2.3568439930677414,
+      "gradient_vs_cpu_fp32": {
+        "relative_l2": 0.05341263471209445,
+        "cosine": 0.9987545165185736,
+        "reference_norm": 0.7788660337954959,
+        "candidate_norm": 0.7927454500640049,
+        "maximum_absolute_error": 0.0070352703332901,
+        "largest_error_contributors": [
+          {
+            "parameter": "embedding.weight",
+            "squared_error": 0.0008706353735534814,
+            "reference_squared_norm": 0.31466458101609646
+          },
+          {
+            "parameter": "blocks.0.v.weight",
+            "squared_error": 0.00032916046556634427,
+            "reference_squared_norm": 0.02585859628254061
+          },
+          {
+            "parameter": "blocks.19.down.weight",
+            "squared_error": 0.00014290239362036784,
+            "reference_squared_norm": 0.06992694806737285
+          },
+          {
+            "parameter": "blocks.0.attn_norm.weight",
+            "squared_error": 7.581994378909577e-05,
+            "reference_squared_norm": 0.00953356548893496
+          },
+          {
+            "parameter": "blocks.0.o.weight",
+            "squared_error": 5.191693668358036e-05,
+            "reference_squared_norm": 0.009723091950396529
+          },
+          {
+            "parameter": "blocks.9.down.weight",
+            "squared_error": 1.7821240916199267e-05,
+            "reference_squared_norm": 0.010729243867371393
+          },
+          {
+            "parameter": "blocks.0.down.weight",
+            "squared_error": 8.712512035260956e-06,
+            "reference_squared_norm": 0.006574510833427172
+          },
+          {
+            "parameter": "blocks.19.up.weight",
+            "squared_error": 7.872728433777612e-06,
+            "reference_squared_norm": 0.00303970731339454
+          },
+          {
+            "parameter": "blocks.14.k.weight",
+            "squared_error": 7.705566666991227e-06,
+            "reference_squared_norm": 0.0026729407223985376
+          },
+          {
+            "parameter": "blocks.2.v.weight",
+            "squared_error": 6.550248713019074e-06,
+            "reference_squared_norm": 0.00507857463417139
+          },
+          {
+            "parameter": "blocks.1.v.weight",
+            "squared_error": 6.026547489242975e-06,
+            "reference_squared_norm": 0.003695858713291018
+          },
+          {
+            "parameter": "blocks.14.v.weight",
+            "squared_error": 5.700323277003776e-06,
+            "reference_squared_norm": 0.003780977999999518
+          }
+        ]
+      },
+      "elapsed_seconds": 72.55745339393616
+    },
+    {
+      "mode": "bf16_body_fp32_head",
+      "nll": 2.3520861491560936,
+      "gradient_vs_cpu_fp32": {
+        "relative_l2": 0.033688211544611914,
+        "cosine": 0.9994735066430092,
+        "reference_norm": 0.7788660337954959,
+        "candidate_norm": 0.7855168958014056,
+        "maximum_absolute_error": 0.007683787494897842,
+        "largest_error_contributors": [
+          {
+            "parameter": "blocks.0.v.weight",
+            "squared_error": 0.00039644869581962814,
+            "reference_squared_norm": 0.02585859628254061
+          },
+          {
+            "parameter": "blocks.0.attn_norm.weight",
+            "squared_error": 9.277886055843103e-05,
+            "reference_squared_norm": 0.00953356548893496
+          },
+          {
+            "parameter": "embedding.weight",
+            "squared_error": 8.100448334975109e-05,
+            "reference_squared_norm": 0.31466458101609646
+          },
+          {
+            "parameter": "blocks.0.o.weight",
+            "squared_error": 4.848411364480799e-05,
+            "reference_squared_norm": 0.009723091950396529
+          },
+          {
+            "parameter": "blocks.19.down.weight",
+            "squared_error": 1.3663040375182203e-05,
+            "reference_squared_norm": 0.06992694806737285
+          },
+          {
+            "parameter": "blocks.9.down.weight",
+            "squared_error": 2.9808277297022407e-06,
+            "reference_squared_norm": 0.010729243867371393
+          },
+          {
+            "parameter": "blocks.0.down.weight",
+            "squared_error": 2.5313904189908123e-06,
+            "reference_squared_norm": 0.006574510833427172
+          },
+          {
+            "parameter": "blocks.1.v.weight",
+            "squared_error": 2.282968748103028e-06,
+            "reference_squared_norm": 0.003695858713291018
+          },
+          {
+            "parameter": "blocks.2.v.weight",
+            "squared_error": 1.759307486965303e-06,
+            "reference_squared_norm": 0.00507857463417139
+          },
+          {
+            "parameter": "blocks.18.down.weight",
+            "squared_error": 1.5795179818387451e-06,
+            "reference_squared_norm": 0.0044723765689406066
+          },
+          {
+            "parameter": "blocks.3.v.weight",
+            "squared_error": 1.418309824375077e-06,
+            "reference_squared_norm": 0.005165816753273191
+          },
+          {
+            "parameter": "blocks.5.v.weight",
+            "squared_error": 1.3171586964025555e-06,
+            "reference_squared_norm": 0.003387306431536406
+          }
+        ]
+      },
+      "elapsed_seconds": 88.43301606178284
+    }
+  ],
+  "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "source_update": 7680,
+  "train_windows": 8,
+  "real_train_targets": 8178,
+  "native_chips_assigned": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "wall_seconds": 90.06711173057556,
+  "cpu_seconds": {
+    "user": 458.246688,
+    "system": 26.392914
+  },
+  "scope": "Independent CPU reference, eight preselected actual TRAIN windows. No native fidelity, global qualification, throughput or prediction benefit is established. Frozen active FP32 fits are unchanged."
+}

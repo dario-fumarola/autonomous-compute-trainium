@@ -1,0 +1,105 @@
+{
+  "status": "COMPLETE_COMMON_FP32_PARENT_READOUT",
+  "rows": [
+    {
+      "arm": "ordinary",
+      "identity": "mature-fixed-v1-ordinary-s103-u7680",
+      "seed": 103,
+      "endpoint": "stable2B_parent",
+      "depth": 1,
+      "training_real_targets": 2009762680,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 766297.8098283482,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0368032029720107
+          },
+          "code": {
+            "nll_sum": 354018.66684231226,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4102362891322415
+          },
+          "math": {
+            "nll_sum": 559472.8287875503,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.225623677440151
+          }
+        },
+        "weighted_nll": 2.549253915097685,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": -2.3055640043345704e-05,
+      "checkpoint_sha256": "04fc4d7e9dcdbc4e3940acb4b5a440e2936f9d0a689b62dc53e49d93dbcf03a9",
+      "full_state_serialized_digest": "4fde0a803ce124ce7dad828e7c64103245db63a0eba4951fcca2d6916e7fbaec",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 754750,
+      "active_seconds": 347.1056945323944
+    },
+    {
+      "arm": "fixed",
+      "status": "COMPLETE_INDEPENDENT_FP32_DEV_ANCHOR",
+      "update": 7680,
+      "training_real_targets": 2009762680,
+      "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+      "corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "scorer_sha256": "fc09da25617b899ea41a678cbb6f5e7cb6ff7e3feab99b7d43cc0e886b5363fd",
+      "reference_sha256": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba",
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 760146.4828482292,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.012425775245918
+          },
+          "code": {
+            "nll_sum": 351395.7072278828,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3997877078012342
+          },
+          "math": {
+            "nll_sum": 554783.3005052684,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.20696839224303
+          }
+        },
+        "weighted_nll": 2.5288066851564035,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "targets": 754750,
+      "comparison": {
+        "cpu_minus_historical_native_nll": -0.00020137182211943383,
+        "within_old_0_0002_agreement_limit": false,
+        "historical_native_training_precision": "bf16",
+        "scope": "Cross-precision diagnostic for a historical readout; disagreement is reported, never relabeled as a passed audit."
+      },
+      "wall_seconds": 510.9393527507782,
+      "native_chips_assigned": 0,
+      "test_model_scoring_performed": false,
+      "cpu_seconds": {
+        "user": 5915.959619,
+        "system": 85.294512
+      },
+      "scope": "Read-only existing DEV, independent FP32 attention/RoPE implementation and FP64 log normalization. Canonical parent score, not a numerical-agreement waiver, new training seed, research endpoint or TEST."
+    }
+  ],
+  "equal_data_gain": 0.020447229941281453,
+  "scope": "Common FP32 existing-DEV parent anchors. The historical fixed BF16 agreement failure stays failed; its remeasurement reports the exact discrepancy. One reused paired seed, stable checkpoints, no TEST or efficiency claim."
+}
