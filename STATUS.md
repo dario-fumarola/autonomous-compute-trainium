@@ -1,4 +1,4 @@
-# Status — 2026-10-24, 09:14 UTC
+# Status — 2026-10-24, 15:42 UTC
 
 **The paired 3B FP32 continuation is complete and independently audited.** At
 3,014,637,826 real targets, ordinary DEV NLL is **2.405907** and fixed two-pass
@@ -24,49 +24,55 @@ source hashes remain unchanged. Copies are on this instance.
 ([SVG](results/mature_fp32_20261024/figures/paired-learning-curve.svg),
 [PDF](results/mature_fp32_20261024/figures/paired-learning-curve.pdf)).
 
-## Active work on the instance
+## Completed follow-ups and next bounded qualification
 
-**Half0, eight chips:** the missing ordinary 5.100B resource control is training
-from the independently audited **stable 2.713B** checkpoint. It retains the
-qualified FP32 path and completes its own 4.590B→5.100B decay. Its estimated
-training matmul budget matches fixed3B within 0.003051%, including the vocabulary
-head. This is the still-pending efficiency comparison. The registered measured
-window is 5.60 hours including 30% margin and CPU tail; training cutoff14:45 UTC,
-hard cutoff15:30 UTC. No numerical threshold changed.
+The **5.100B ordinary compute control is complete and independently audited**:
+ordinary2.342369879 versus fixed3B2.369851103. Ordinary wins by0.027481223 nats.
+Both endpoints completed decay; total estimated training matmuls match within
+0.003051%. Differing precision-history fractions are not matched chip-time costs.
+This one-pair consumed-DEV efficiency result is negative.
+[Complete resource comparison](results/mature_fp32_compute_20261024/REPORT.md).
 
-[Control protocol](docs/MATURE_FP32_COMPUTE_CONTROL_20261024.md) ·
-[Frozen plan](results/mature_fp32_compute_20261024/plan.json) ·
-[Live observations](results/mature_fp32_compute_20261024/live-observation.json).
+The **trained inexpensive-connection pilot is complete**. At1.005B targets,
+ordinary NLL is2.606832753 versus connection2.574477293, a0.032355460-nat gain.
+Parameters, original weights, source order and estimated matmuls match. Both
+train in FP32 from random initialization, each with its own four-LR301M screen.
+All selected TUNE and all six main whole-DEV/state-copy audits pass. This is one
+predeclared seed419; the gain is descriptive, not seed significance or a latent-
+depth success. It supplies a stronger architectural baseline for recurrence.
+[Complete connection report](results/reinjection_pilot_20261024/REPORT.md).
 
-**Half1, eight chips:** a separately registered pilot is starting its four-LR
-selection for ordinary versus an inexpensive trained reinjection connection.
-Each model uses every block once; the control adds the prelude state at the
-core boundary. Parameters and estimated matmuls match ordinary. This tests a
-missing architectural control, not a new latent-depth success claim.
+The review correctly identified shared-container failure cleanup as an execution
+risk. Both scientific campaigns finished without that interruption. Historical
+frozen sources remain unchanged. New launches use separate ownership-checked
+containers: ordinary failures stop their own workers; shared host-memory/disk
+emergencies can stop managed workers globally. A real CPU-worker test verified
+that cancellation preserves the other container and its existing worker.
+[Isolation proof](results/native_execution_isolation_20261024/report.json).
 
-Native qualification passed actual updates, a 32-window global-gradient check
-(relative error 0.000000708), 100 warm updates at the intended 256-window batch
-(**176,832 targets/s**), and eight full-state restored updates. All replicas agree.
-The whole native sequence took 15.35 minutes, within its 25-minute bound.
+A new30-minute, zero-update native FP16 full-gradient qualification is registered
+for all16 chips after the scientific native readouts closed. It uses an exact
+local copy of the existing SDK root filesystem, two160GiB caps (320GiB total),
+unchanged host drivers/XLA, FP32 master gradients, an FP32 vocabulary head and
+manual loss scale8192. Compare both complete256-window mature objectives with
+pinned CPU FP32 references. Numerical gates remain2% gradient /0.003 NLL.
+No optimizer, recovery, throughput or learning adoption is implied by this test.
+[Qualification protocol](docs/FP16_NATIVE_GRADIENT_PROTOCOL_20261024.md) ·
+[Prepared plan](results/fp16_native_gradient_20261024/plan.json).
 
-Both pilot arms receive LRs {0.0003,0.0006,0.001,0.0015}, 301M-target tuning,
-seed11, matched weights/source order, FP32 and the same AdamW recipe. Selected
-TUNE models receive independent CPU audits. A predeclared >0.02-nat cheap-model
-TUNE penalty stops the main fits; otherwise both train seed419 to1.005B with
-stable learning-curve points and completed decay. Half0 can take remaining
-predeclared tuning trials after the strong resource control closes. The
-conservative measured pilot budget is9.10 hours including margin/tails; training
-cutoff18:00 UTC and hard cutoff19:00 UTC. Existing consumed TUNE/DEV only.
+The CPU feasibility screen passed0.7251% scaled-gradient error; unscaled FP16
+failed at8.86%. All active scientific comparisons kept their frozen FP32 path.
+A retrospective whole-document oracle gives only0.000651 nats improvement for
+mixture depth selection and still loses to matched-work ordinary in every seed.
+That deprioritizes document-level routing for those existing checkpoints; it
+says nothing universal about token routing or new architectures.
+[CPU precision report](results/cpu_fp16_precision_screen_20261024/REPORT.md) ·
+[Oracle report](results/document_depth_oracle_20261024/REPORT.md).
 
-[Pilot protocol](docs/REINJECTION_PILOT_PROTOCOL_20261024.md) ·
-[Measured frozen pilot plan](results/reinjection_pilot_20261024/plan.json) ·
-[Live observations](results/reinjection_pilot_20261024/live-observation.json) ·
-[Completed native qualification](results/reinjection_control_20261024/native-v1/report.json).
-
-No fresh TEST is opened and no terminal alpha is spent. A future positive still
-requires a frozen candidate and strong controls, at least five fresh paired
-training seeds, new held-out groups and the charter's repeated-test allocation.
-The research objective remains active.
+The research goal stays active. Fresh confirmation panels remain unscored, no
+terminal alpha is spent, and no latent-computation efficiency win is claimed.
+The next scientific comparison must retain the inexpensive connection as a
+strong control and distinguish its gain from the value of another core pass.
 
 ## The established three-seed result
 
@@ -119,7 +125,7 @@ gradients incorrectly. Its repaired, independently checked fixture gives5.13e-7
 relative gradient error and zero loss difference, with the original failure and
 a regression test preserved. These are numerical diagnostics, not learning gains.
 
-The 96-test CPU suite passes after the latest source changes. Natural sources
+The 101-test CPU suite passes after the latest source changes. Natural sources
 only; no synthetic research corpus, external teacher, RL or larger model.
 All failed/stopped jobs, tuning, qualification, compilation, data preparation
 and CPU tails retain separate receipts. Concurrent intervals must not be added
@@ -127,3 +133,5 @@ as sequential reservation time. Existing old results/checkpoints are preserved.
 
 [Previous full status and historical links](docs/archive/STATUS_BEFORE_FP32_3B_COMPLETION_20261024.md) ·
 [Ongoing research charter](docs/ONGOING_RESEARCH_CHARTER.md).
+
+An unapplied local SDPA dtype-policy contribution draft now has seven CPU gate fixtures and clean patch-application checks. It was neither installed nor submitted upstream. Patched native/cache/performance validation remains pending. [Draft](contributions/sdpa_dtype_policy/README.md).

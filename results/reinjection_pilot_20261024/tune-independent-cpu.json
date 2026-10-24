@@ -1,0 +1,94 @@
+{
+  "status": "PASS_REINJECTION_PILOT_INDEPENDENT_AUDITS",
+  "records": [
+    {
+      "identity": "reinjection-pilot-v1-tune-ordinary-lr1-s11",
+      "arm": "ordinary",
+      "seed": 11,
+      "endpoint": "tune301M",
+      "depth": 1,
+      "training_real_targets": 301465908,
+      "metrics": {
+        "domains": {
+          "math": {
+            "nll_sum": 660120.3678585947,
+            "real_targets": 252312,
+            "documents": 176,
+            "nll": 2.61628605797027
+          },
+          "web": {
+            "nll_sum": 894891.717035333,
+            "real_targets": 257141,
+            "documents": 251,
+            "nll": 3.4801595896233315
+          },
+          "code": {
+            "nll_sum": 451368.21047782357,
+            "real_targets": 250020,
+            "documents": 129,
+            "nll": 1.8053284156380431
+          }
+        },
+        "weighted_nll": 2.9724186484956614,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": 6.603895164047913e-07,
+      "checkpoint_sha256": "95e737572d1c84d093891508b85187ce67dcbb08d71c0176b877b8841ab572b7",
+      "full_state_serialized_digest": "84fbe8abbfcb8bdc0a318c29dc12fccb5219db0a4d68bf3625a680faf9a7b240",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 759473,
+      "active_seconds": 221.9917769432068
+    },
+    {
+      "identity": "reinjection-pilot-v1-tune-reinjection-lr2-s11",
+      "arm": "reinjection",
+      "seed": 11,
+      "endpoint": "tune301M",
+      "depth": 1,
+      "training_real_targets": 301465908,
+      "metrics": {
+        "domains": {
+          "math": {
+            "nll_sum": 651433.0519229849,
+            "real_targets": 252312,
+            "documents": 176,
+            "nll": 2.5818552107033548
+          },
+          "web": {
+            "nll_sum": 884650.343518246,
+            "real_targets": 257141,
+            "documents": 251,
+            "nll": 3.4403317383001775
+          },
+          "code": {
+            "nll_sum": 443844.51184853876,
+            "real_targets": 250020,
+            "documents": 129,
+            "nll": 1.775236028511874
+          }
+        },
+        "weighted_nll": 2.9356172908231524,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": 6.617998482560949e-07,
+      "checkpoint_sha256": "f7fb1193cb5c6a3ce75d5083ccd729f6f7df6ae53e9cd22452a032467efc2351",
+      "full_state_serialized_digest": "6dd152199a0d41f39589c3a9ddc0fbfede9f6fb471319d71e8fa7780b953afdd",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 759473,
+      "active_seconds": 226.39042282104492
+    }
+  ],
+  "wall_seconds_including_waits": 448.6184594631195,
+  "active_seconds": 448.3821997642517,
+  "scope": "Separate FP32 implementation, full fresh DEV panel; numerical verification, not model replication. Full-state copies are on the same instance-local NVMe, not off-instance backups."
+}

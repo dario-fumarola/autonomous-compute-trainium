@@ -1,0 +1,78 @@
+{
+  "ordinary": {
+    "identity": "reinjection-pilot-v1-tune-ordinary-lr1-s11",
+    "arm": "ordinary",
+    "seed": 11,
+    "endpoint": "tune301M",
+    "evaluation_identity": "reinjection-pilot-v1-tune-ordinary-lr1-s11-tune-r1",
+    "lr": 0.0006,
+    "metrics": {
+      "domains": {
+        "math": {
+          "nll_sum": 660120.1706123352,
+          "real_targets": 252312,
+          "documents": 176,
+          "nll": 2.6162852762149056
+        },
+        "web": {
+          "nll_sum": 894891.5826835632,
+          "real_targets": 257141,
+          "documents": 251,
+          "nll": 3.480159067140453
+        },
+        "code": {
+          "nll_sum": 451367.9722728729,
+          "real_targets": 250020,
+          "documents": 129,
+          "nll": 1.8053274628944602
+        }
+      },
+      "weighted_nll": 2.972417988106145,
+      "weights": {
+        "web": 0.6,
+        "math": 0.2,
+        "code": 0.2
+      },
+      "unit": "nats per real source token"
+    },
+    "initial_model_digest": "b85703c5a9311d9c2e2c65488b46008b2ea65e6c7d9123de6027bc5d8884f55f"
+  },
+  "reinjection": {
+    "identity": "reinjection-pilot-v1-tune-reinjection-lr2-s11",
+    "arm": "reinjection",
+    "seed": 11,
+    "endpoint": "tune301M",
+    "evaluation_identity": "reinjection-pilot-v1-tune-reinjection-lr2-s11-tune-r1",
+    "lr": 0.001,
+    "metrics": {
+      "domains": {
+        "math": {
+          "nll_sum": 651432.8591117859,
+          "real_targets": 252312,
+          "documents": 176,
+          "nll": 2.581854446525674
+        },
+        "web": {
+          "nll_sum": 884650.2050800323,
+          "real_targets": 257141,
+          "documents": 251,
+          "nll": 3.4403311999254584
+        },
+        "code": {
+          "nll_sum": 443844.2794055939,
+          "real_targets": 250020,
+          "documents": 129,
+          "nll": 1.7752350988144703
+        }
+      },
+      "weighted_nll": 2.935616629023304,
+      "weights": {
+        "web": 0.6,
+        "math": 0.2,
+        "code": 0.2
+      },
+      "unit": "nats per real source token"
+    },
+    "initial_model_digest": "b85703c5a9311d9c2e2c65488b46008b2ea65e6c7d9123de6027bc5d8884f55f"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "status": "PASS_LOCAL_PATCH_APPLICABILITY_AND_CPU_GATE_FIXTURES",
+  "installed_source_sha256": "b28d069733c897673573f0370788a0df22cec1bb61533f98de6004211a4d6211",
+  "proposed_source_sha256": "6b72af6ec120cd0ada8a93793073305432aaa31a8486437725d425f994c53327",
+  "patch_sha256": "73319c09d4a0e8b795f98095a25918dd3cd4a2aa3d43ff3faacacbd5c22430a7",
+  "cases": [
+    {
+      "case": "torch.bfloat16",
+      "installed_gate": {
+        "forward": true,
+        "backward": true
+      },
+      "proposed_gate": {
+        "forward": true,
+        "backward": true
+      }
+    },
+    {
+      "case": "torch.float32",
+      "installed_gate": {
+        "forward": true,
+        "backward": true
+      },
+      "proposed_gate": {
+        "forward": false,
+        "backward": false
+      }
+    },
+    {
+      "case": "torch.float16",
+      "installed_gate": {
+        "forward": false,
+        "backward": false
+      },
+      "proposed_gate": {
+        "forward": false,
+        "backward": false
+      }
+    },
+    {
+      "case": "disabled",
+      "installed_gate": {
+        "forward": false,
+        "backward": false
+      },
+      "proposed_gate": {
+        "forward": false,
+        "backward": false
+      }
+    },
+    {
+      "case": "scale_zero",
+      "installed_gate": {
+        "forward": false,
+        "backward": false
+      },
+      "proposed_gate": {
+        "forward": false,
+        "backward": false
+      }
+    },
+    {
+      "case": "mixed_dtype",
+      "installed_gate": {
+        "forward": false,
+        "backward": false
+      },
+      "proposed_gate": {
+        "forward": false,
+        "backward": false
+      }
+    },
+    {
+      "case": "length1152",
+      "installed_gate": {
+        "forward": true,
+        "backward": false
+      },
+      "proposed_gate": {
+        "forward": true,
+        "backward": false
+      }
+    }
+  ],
+  "installed_source_unchanged": true,
+  "native_chips_assigned": 0,
+  "upstream_submission": false,
+  "scope": "Unapplied local policy proposal. CPU meta-tensor eligibility checks and clean application to a private source copy only. No patched native forward/backward, graph-cache or throughput qualification; no change to active experiments."
+}

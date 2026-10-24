@@ -1,24 +1,43 @@
 {
-  "status": "LIVE_OBSERVATION",
-  "observed_unix": 1792833233.0725522,
-  "closed_attempts": [],
-  "open_attempts": [
+  "status": "CLOSED_OBSERVATION",
+  "observed_unix": 1792845654.8814728,
+  "closed_attempts": [
     {
       "identity": "mature-fp32-compute-v1-ordinary-s103-u17541",
-      "assigned_chips": 8,
-      "observed_launch_seconds": 2011.4952583312988,
-      "last_logged_training_update": {
-        "update": 11598,
-        "real_tokens": 3035049158,
-        "lr": 0.0006,
-        "rank0_scaled_nll": 2.388699742455159,
-        "gradient_norm": 0.18927738070487976,
-        "elapsed_seconds": 1986.356365012005
-      },
-      "rolling200_update_targets_per_second": 176215.48969172736
+      "exit_code": 0,
+      "wall_seconds": 10869.19241976738,
+      "assigned_chip_hours": 24.1537609328164,
+      "whole_instance_opportunity_chip_hours": 48.3075218656328,
+      "report_exists": true
+    },
+    {
+      "identity": "mature-fp32-compute-v1-ordinary-s103-u17541-dev-r1",
+      "exit_code": 0,
+      "wall_seconds": 75.99261045455933,
+      "assigned_chip_hours": 0.1688724676767985,
+      "whole_instance_opportunity_chip_hours": 0.337744935353597,
+      "report_exists": true
+    },
+    {
+      "identity": "mature-fp32-compute-v1-ordinary-s103-u19490",
+      "exit_code": 0,
+      "wall_seconds": 3101.437177658081,
+      "assigned_chip_hours": 6.892082617017958,
+      "whole_instance_opportunity_chip_hours": 13.784165234035916,
+      "report_exists": true
+    },
+    {
+      "identity": "mature-fp32-compute-v1-ordinary-s103-u19490-dev-r1",
+      "exit_code": 0,
+      "wall_seconds": 76.0550639629364,
+      "assigned_chip_hours": 0.16901125325096977,
+      "whole_instance_opportunity_chip_hours": 0.33802250650193955,
+      "report_exists": true
     }
   ],
-  "closed_assigned_chip_hours": 0,
-  "open_assigned_chip_hours_so_far": 4.469989462958442,
-  "scope": "Read-only receipt/update observations, not new training or held-out evidence. Rank-zero logged NLL is not aggregate DEV. Rolling rates are not controlled performance qualification. Other campaigns overlap; do not add their wall intervals as sequential reservation time. CPU work has separate receipts."
+  "open_attempts": [],
+  "closed_assigned_chip_hours": 31.383727270762126,
+  "open_assigned_chip_hours_so_far": 0,
+  "scope": "Read-only receipt/update observations, not new training or held-out evidence. Rank-zero logged NLL is not aggregate DEV. Rolling rates are not controlled performance qualification. Other campaigns overlap; do not add their wall intervals as sequential reservation time. CPU work has separate receipts.",
+  "campaign_status": "COMPLETE_ONE_PAIR_FP32_3B_COMPUTE_CONTROL"
 }

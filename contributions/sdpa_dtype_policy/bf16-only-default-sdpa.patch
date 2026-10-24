@@ -1,0 +1,21 @@
+--- a/torch_neuronx/neuron_dynamo_backend/decompositions.py
++++ b/torch_neuronx/neuron_dynamo_backend/decompositions.py
+@@ -2139,7 +2139,8 @@
+     B, H, L, E = query.shape
+     B_k, H_k, S, D = key.shape
+     B_v, H_v, S_v, D_v = value.shape
+-    # The forward kernel converts FP16 input tiles to BF16. Use the math path for FP16.
++    # NKI uses BF16 for non-softmax math. Keep FP32/FP16 on the math path;
++    # callers can explicitly opt into BF16 through autocast.
+     return (
+         B > 0
+         and H > 0
+@@ -2154,7 +2155,7 @@
+         and E == D
+         and D_v > 0
+         and query.dtype == key.dtype == value.dtype
+-        and query.dtype in (torch.bfloat16, torch.float32)
++        and query.dtype == torch.bfloat16
+     )
+ 
+ 
