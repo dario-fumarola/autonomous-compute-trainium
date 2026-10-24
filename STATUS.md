@@ -1,4 +1,44 @@
-# Status — 2026-10-24, 21:23 UTC
+# Status — 2026-10-24, 22:51 UTC
+
+**The small-core scientific learning-rate screen has started on all16 chips.**
+It compares recipe-matched ordinary, true one-pass Parcae and sampled low-depth
+Parcae, each with four independent rate opportunities at approximately301M
+natural targets. Fresh seed11 weights are distinct from qualification weights;
+each endpoint finishes its own cooldown. Pinned upstream CPU FP32 scores on
+consumed TUNE select each arm's rate. No new main fit, fresh TEST, terminal alpha
+or scientific success is implied. The whole screen is capped at3hours, including
+CPU scoring. [Frozen screen](results/parcae_low_depth_pilot_20261024/tuning/plan.json)
+· [Protocol](docs/LOW_DEPTH_TUNING_PROTOCOL_20261024.md).
+
+**All10 complete model/training/profile cases pass**, including100 warm updates,
+independent full-global trained gradients, prescribed actual updates,32-replica
+equality and fresh-process full-state recovery. The common512-window batch is
+faster than the smaller qualified batch. Measured FP16 rates per eight-chip job
+are479,674 ordinary,435,366 one-pass and394,766 recurrent real targets/second.
+The chosen execution uses FP16 body/FP32 head and masters, explicit8192 unscale,
+eager FP32-polar Muon and fused unscaled AdamW. Compiled/eager BF16-polar failures
+remain recorded; this is an explicit numerical deviation from the release.
+[Complete engine report](results/parcae_low_depth_qualification_20261024/attempt4/REPORT.md).
+
+The finite scientific-driver integration also passes: two arms each execute
+20+20+10 updates, recover exact complete model/optimizer/RNG state, retain source
+and work counters, and finish independent cooldown branches. Those100 updates
+are qualification only. The first driver attempt failed before updates because
+of a communication-port collision; explicit distinct non-ephemeral phase ports
+resolved the observed failure without SDK, driver or host-network changes.
+[Driver report](results/low_depth_driver_qualification_20261024/attempt2/REPORT.md).
+
+Fresh seed1231 main initializations, fixed sampled-depth tables and integer work
+endpoints are prepared but have not trained. At the common1.858147e18 estimated
+matrix-work budget, ordinary receives3.646B real targets, true one-pass3.597B,
+and sampled recurrence3.334B. Unlike old head-only estimates, this ledger charges
+all32 replicas' Muon matrix work as well as neural forward/backward work. Pointwise
+operations, communication and elapsed chip time are separate. Main launch still
+requires selected-rate numerical checks and a finite execution registration.
+[Prepared endpoints](results/parcae_low_depth_pilot_20261024/preparation-plan.json).
+
+The CPU suite passes160 tests. The research goal remains active: no
+compute-efficiency advantage has been demonstrated.
 
 **The common-FP32 depth/connection campaign is complete and independently audited.**
 All endpoints finish their own decay, share seed419/original weights/natural
@@ -64,12 +104,11 @@ the third update, reduced owned workload caps to128GiB each/256GiB aggregate,
 and passed in92.135s. Every failure and original source is preserved. No gate,
 SDK or scientific arithmetic was weakened.
 
-All16 chips are now in the FP16-gradient stage. The complete low-depth engine
-waits behind that precision result, with frozen25/37/48-file recovery/precision/
-profile bundles and zero chip reservation while waiting. Model, initialization,
-source/noise/depth tables and numerical thresholds are unchanged. Earlier
-BF16-dependent and stopped admission revisions remain preserved. No scientific
-fit launches automatically from a software qualification.
+The FP16-gradient and complete low-depth engine stages subsequently passed;
+the scientific screen above now uses the qualified common geometry. Model,
+initialization, source/noise/depth tables and numerical thresholds remain fixed.
+Earlier BF16-dependent and stopped admission revisions remain preserved.
+No scientific fit launches automatically from a software qualification.
 [Native gradient pass](results/parcae_native_global_20261024/native-report.json) ·
 [Optimizer/recovery pass](results/parcae_optimizer_precise_20261024/REPORT.md) ·
 [Current engine](results/parcae_low_depth_qualification_20261024/attempt3/REPORT.md).

@@ -1,0 +1,187 @@
+{
+  "status": "COMPLETE_LOW_DEPTH_SCIENTIFIC_PREPARATION",
+  "initial_states": {
+    "s11-ordinary": {
+      "file": "initial-s11-ordinary.pt",
+      "sha256": "e1aa6502432b339edd702d3cae67ecbf7117322cf2a5e028333979420ec4d324",
+      "model_digest": "668a7c11d0b50634367fc978039370b7680b8ed9de9573e5978ac36560682850",
+      "parameters": 140781888
+    },
+    "s11-family": {
+      "file": "initial-s11-family.pt",
+      "sha256": "53f78acfc750b84c1511c0f67a8f66f36b91a560d799ae085eca19eb32d86007",
+      "model_digest": "5260b1439e160ff461ded29a420e9c7e25774ca61255b1c6899842858e6d880d",
+      "parameters": 141963840
+    },
+    "s1231-ordinary": {
+      "file": "initial-s1231-ordinary.pt",
+      "sha256": "76f406f455ae1aacca03142f027a2b2384602ac12ed84dd661bc295f1aca45ab",
+      "model_digest": "27d57ec457f110cf97bdd8b8d8c92801eb0e7d41b7cadb832a572cfe82699723",
+      "parameters": 140781888
+    },
+    "s1231-family": {
+      "file": "initial-s1231-family.pt",
+      "sha256": "aba46bd831a955475531b486ebbc98f345e7e8b1fbf89e49d7a93112f8f724dd",
+      "model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "parameters": 141963840
+    }
+  },
+  "records": [
+    {
+      "arm": "ordinary",
+      "parameters": 140781888,
+      "depth_table": "fixed-depths.npy",
+      "depth_table_sha256": "a577d949590a2cbd1574672fba150a9dd96c2dbb09bf7b2896ff2c6b5a1e75b9",
+      "work_table": "ordinary-work.npy",
+      "work_table_sha256": "c18a9232004ad12d2fa069c3cdaa8ebeb3e356ec3fe09edc6c736962fe0fa75e",
+      "one_replica_optimizer_matmuls": 815372773200,
+      "matched_work": {
+        "updates": 6967,
+        "executed_matmuls": 1857963940393010688,
+        "budget_matmuls": 1858147163150745600,
+        "unused_budget_matmuls": 183222757734912,
+        "relative_shortfall": 9.86050843380093e-05,
+        "next_update_would_exceed_budget": true,
+        "source_cursor": 3567104,
+        "domain_targets": [
+          2187795190,
+          729269259,
+          729272684
+        ],
+        "real_targets": 3646337133,
+        "cooldown_start_update": 3483,
+        "cooldown_start_targets": 1822918078
+      },
+      "tuning": {
+        "source_cursor": 294912,
+        "domain_targets": [
+          180878087,
+          60295034,
+          60292787
+        ],
+        "real_targets": 301465908,
+        "updates": 576,
+        "cooldown_start_update": 288,
+        "cooldown_start_targets": 150732802
+      },
+      "equal_data": {
+        "source_cursor": 983040,
+        "domain_targets": [
+          602931715,
+          200977491,
+          200978384
+        ],
+        "real_targets": 1004887590,
+        "updates": 1920,
+        "cooldown_start_update": 960,
+        "cooldown_start_targets": 502444236
+      }
+    },
+    {
+      "arm": "fixed1",
+      "parameters": 141963840,
+      "depth_table": "fixed-depths.npy",
+      "depth_table_sha256": "a577d949590a2cbd1574672fba150a9dd96c2dbb09bf7b2896ff2c6b5a1e75b9",
+      "work_table": "fixed1-work.npy",
+      "work_table_sha256": "327f7b852e7feb1bccbc7bfcef29754b64e862d0ca40040fc2415e12b5240cdf",
+      "one_replica_optimizer_matmuls": 815372773200,
+      "matched_work": {
+        "updates": 6872,
+        "executed_matmuls": 1858130253846245376,
+        "budget_matmuls": 1858147163150745600,
+        "unused_budget_matmuls": 16909304500224,
+        "relative_shortfall": 9.100088967954473e-06,
+        "next_update_would_exceed_budget": true,
+        "source_cursor": 3518464,
+        "domain_targets": [
+          2157968272,
+          719324721,
+          719324698
+        ],
+        "real_targets": 3596617691,
+        "cooldown_start_update": 3436,
+        "cooldown_start_targets": 1798320410
+      },
+      "tuning": {
+        "source_cursor": 294912,
+        "domain_targets": [
+          180878087,
+          60295034,
+          60292787
+        ],
+        "real_targets": 301465908,
+        "updates": 576,
+        "cooldown_start_update": 288,
+        "cooldown_start_targets": 150732802
+      },
+      "equal_data": {
+        "source_cursor": 983040,
+        "domain_targets": [
+          602931715,
+          200977491,
+          200978384
+        ],
+        "real_targets": 1004887590,
+        "updates": 1920,
+        "cooldown_start_update": 960,
+        "cooldown_start_targets": 502444236
+      }
+    },
+    {
+      "arm": "poisson2",
+      "parameters": 141963840,
+      "depth_table": "poisson2-depths.npy",
+      "depth_table_sha256": "277f262fce6ba461de2102879450773b10b53d90088cd8004b1267fcf014262c",
+      "work_table": "poisson2-work.npy",
+      "work_table_sha256": "ed0a1aad610c380c7b05bd280f7c68d1be90e71754e3804cc007c5c515450edd",
+      "one_replica_optimizer_matmuls": 815372773200,
+      "matched_work": {
+        "updates": 6370,
+        "executed_matmuls": 1858054877398471680,
+        "budget_matmuls": 1858147163150745600,
+        "unused_budget_matmuls": 92285752273920,
+        "relative_shortfall": 4.96654700467517e-05,
+        "next_update_would_exceed_budget": true,
+        "source_cursor": 3261440,
+        "domain_targets": [
+          2000334075,
+          666779484,
+          666780924
+        ],
+        "real_targets": 3333894483,
+        "cooldown_start_update": 3185,
+        "cooldown_start_targets": 1666954102
+      },
+      "tuning": {
+        "source_cursor": 294912,
+        "domain_targets": [
+          180878087,
+          60295034,
+          60292787
+        ],
+        "real_targets": 301465908,
+        "updates": 576,
+        "cooldown_start_update": 288,
+        "cooldown_start_targets": 150732802
+      },
+      "equal_data": {
+        "source_cursor": 983040,
+        "domain_targets": [
+          602931715,
+          200977491,
+          200978384
+        ],
+        "real_targets": 1004887590,
+        "updates": 1920,
+        "cooldown_start_update": 960,
+        "cooldown_start_targets": 502444236
+      }
+    }
+  ],
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "scientific_launch_authorized": false,
+  "wall_seconds_after_imports": 75.83939695358276,
+  "scope": "Fresh pinned random initialization for all arms/seeds and exact source/depth/work tables. Reuses only configuration/data provenance from qualification, never its weights. Final precision, tuning/launch budget and scientific gates remain separate."
+}

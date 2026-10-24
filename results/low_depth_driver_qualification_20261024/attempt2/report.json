@@ -1,0 +1,389 @@
+{
+  "status": "PASS_FINITE_LOW_DEPTH_DRIVER_AND_BRANCH_RECOVERY",
+  "records": [
+    {
+      "identity": "low-depth-driver-v2-poisson2-first",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "poisson2-main",
+      "purpose": "low_depth_driver_integration_qualification",
+      "plan_sha256": "74b0937a484a9b49789cf3801ed152cde6ddb63a9d95e8b49fca44637922dd6c",
+      "arm": "poisson2",
+      "seed": 1009,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+      "actual_optimizer_calls_per_replica": 20,
+      "segment_real_targets": 10467614,
+      "segment_executed_matmuls": 5829906883430400,
+      "update": 20,
+      "source_cursor": 10240,
+      "real_targets": 10467614,
+      "domain_targets": [
+        6277565,
+        2096615,
+        2093434
+      ],
+      "executed_matmuls": 5829906883430400,
+      "complete_state_on_load_exact": false,
+      "recovered_state_digest": null,
+      "checkpoint_records": [
+        {
+          "update": 20,
+          "checkpoint_sha256": "bdbe71dad5892ae86950f55d37819a309a5c3490d35044f69c0ccf7696293c5d",
+          "full_state_digest": "8e69f406dfa3b25d798a593acf26a1cca32a8828b722df56e2528dbb638415b9",
+          "real_targets": 10467614,
+          "executed_matmuls": 5829906883430400,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "progress": [
+        {
+          "update": 10,
+          "real_targets": 5233798,
+          "executed_matmuls": 2917463407272960,
+          "global_train_nll": 7.919161004448249,
+          "gradient_norm_before_clip": 38.46860885620117,
+          "lr": 0.0006,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.2,
+          "elapsed_seconds": 93.34753775596619
+        },
+        {
+          "update": 20,
+          "real_targets": 10467614,
+          "executed_matmuls": 5829906883430400,
+          "global_train_nll": 6.412016585142158,
+          "gradient_norm_before_clip": 4.152612209320068,
+          "lr": 0.0006,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.2,
+          "elapsed_seconds": 106.45723748207092
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 113.44875311851501,
+      "qualification_only": true,
+      "research_optimizer_updates": 0,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-driver-v2-ordinary-first",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "ordinary-main",
+      "purpose": "low_depth_driver_integration_qualification",
+      "plan_sha256": "74b0937a484a9b49789cf3801ed152cde6ddb63a9d95e8b49fca44637922dd6c",
+      "arm": "ordinary",
+      "seed": 1009,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 140781888,
+      "initial_model_digest": "6f274ef14bd233418a9fac78b0d851e5a73351aa5930213c4b207ea1574f465e",
+      "actual_optimizer_calls_per_replica": 20,
+      "segment_real_targets": 10467614,
+      "segment_executed_matmuls": 5333612574689280,
+      "update": 20,
+      "source_cursor": 10240,
+      "real_targets": 10467614,
+      "domain_targets": [
+        6277565,
+        2096615,
+        2093434
+      ],
+      "executed_matmuls": 5333612574689280,
+      "complete_state_on_load_exact": false,
+      "recovered_state_digest": null,
+      "checkpoint_records": [
+        {
+          "update": 20,
+          "checkpoint_sha256": "a4cc90b84398ac05c92aa3d5fef1f2cc5716518ba62c4eb04242b9f6375495be",
+          "full_state_digest": "aab2c716eb63b6472226616a14243be8f15d060d09df9747a3ad9ae3291abf95",
+          "real_targets": 10467614,
+          "executed_matmuls": 5333612574689280,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "progress": [
+        {
+          "update": 10,
+          "real_targets": 5233798,
+          "executed_matmuls": 2666806287344640,
+          "global_train_nll": 10.61333576636757,
+          "gradient_norm_before_clip": 189.3208770751953,
+          "lr": 0.0006,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.2,
+          "elapsed_seconds": 102.47577595710754
+        },
+        {
+          "update": 20,
+          "real_targets": 10467614,
+          "executed_matmuls": 5333612574689280,
+          "global_train_nll": 6.898755636655457,
+          "gradient_norm_before_clip": 14.330525398254395,
+          "lr": 0.0006,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.2,
+          "elapsed_seconds": 113.13787913322449
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 119.48394107818604,
+      "qualification_only": true,
+      "research_optimizer_updates": 0,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-driver-v2-ordinary-continued",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "ordinary-main",
+      "purpose": "low_depth_driver_integration_qualification",
+      "plan_sha256": "74b0937a484a9b49789cf3801ed152cde6ddb63a9d95e8b49fca44637922dd6c",
+      "arm": "ordinary",
+      "seed": 1009,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 140781888,
+      "initial_model_digest": "6f274ef14bd233418a9fac78b0d851e5a73351aa5930213c4b207ea1574f465e",
+      "actual_optimizer_calls_per_replica": 20,
+      "segment_real_targets": 10467274,
+      "segment_executed_matmuls": 5333612574689280,
+      "update": 40,
+      "source_cursor": 20480,
+      "real_targets": 20934888,
+      "domain_targets": [
+        12559744,
+        4188344,
+        4186800
+      ],
+      "executed_matmuls": 10667225149378560,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "aab2c716eb63b6472226616a14243be8f15d060d09df9747a3ad9ae3291abf95",
+      "checkpoint_records": [
+        {
+          "update": 40,
+          "checkpoint_sha256": "454b3c725def085f29d36eb026517007fb0bcac80914d886414a9e9ca35ba4d6",
+          "full_state_digest": "db1540268611f0163d539e205bcf80541a43534c8b5fa2b55cfc64bb537045b4",
+          "real_targets": 20934888,
+          "executed_matmuls": 10667225149378560,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "progress": [
+        {
+          "update": 30,
+          "real_targets": 15701370,
+          "executed_matmuls": 8000418862033920,
+          "global_train_nll": 6.46075333121888,
+          "gradient_norm_before_clip": 8.818552017211914,
+          "lr": 0.0002999892851894668,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.09999772624658532,
+          "elapsed_seconds": 111.00731945037842
+        },
+        {
+          "update": 40,
+          "real_targets": 20934888,
+          "executed_matmuls": 10667225149378560,
+          "global_train_nll": 6.2861103362362485,
+          "gradient_norm_before_clip": 7.458745956420898,
+          "lr": 0.0,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.0,
+          "elapsed_seconds": 158.0517599582672
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 165.84408235549927,
+      "qualification_only": true,
+      "research_optimizer_updates": 0,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-driver-v2-poisson2-continued",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "poisson2-main",
+      "purpose": "low_depth_driver_integration_qualification",
+      "plan_sha256": "74b0937a484a9b49789cf3801ed152cde6ddb63a9d95e8b49fca44637922dd6c",
+      "arm": "poisson2",
+      "seed": 1009,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+      "actual_optimizer_calls_per_replica": 20,
+      "segment_real_targets": 10467274,
+      "segment_executed_matmuls": 5841009358817280,
+      "update": 40,
+      "source_cursor": 20480,
+      "real_targets": 20934888,
+      "domain_targets": [
+        12559744,
+        4188344,
+        4186800
+      ],
+      "executed_matmuls": 11670916242247680,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "8e69f406dfa3b25d798a593acf26a1cca32a8828b722df56e2528dbb638415b9",
+      "checkpoint_records": [
+        {
+          "update": 40,
+          "checkpoint_sha256": "333084509072351714e5908de23c884ad87d5e9d491d071ac152bb9b1ddc8ca4",
+          "full_state_digest": "4a442ad709a5ad11caffa5888d9dbca09aa3b0e888360e2a4d428aa8e23db17e",
+          "real_targets": 20934888,
+          "executed_matmuls": 11670916242247680,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "progress": [
+        {
+          "update": 30,
+          "real_targets": 15701370,
+          "executed_matmuls": 8751474175994880,
+          "global_train_nll": 5.931525635195708,
+          "gradient_norm_before_clip": 2.3957533836364746,
+          "lr": 0.0002999892851894668,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.09999772624658532,
+          "elapsed_seconds": 119.57813692092896
+        },
+        {
+          "update": 40,
+          "real_targets": 20934888,
+          "executed_matmuls": 11670916242247680,
+          "global_train_nll": 5.792160888223133,
+          "gradient_norm_before_clip": 1.720119833946228,
+          "lr": 0.0,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.0,
+          "elapsed_seconds": 169.0365114212036
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 175.82179927825928,
+      "qualification_only": true,
+      "research_optimizer_updates": 0,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-driver-v2-ordinary-short",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "ordinary-short",
+      "purpose": "low_depth_driver_integration_qualification",
+      "plan_sha256": "74b0937a484a9b49789cf3801ed152cde6ddb63a9d95e8b49fca44637922dd6c",
+      "arm": "ordinary",
+      "seed": 1009,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 140781888,
+      "initial_model_digest": "6f274ef14bd233418a9fac78b0d851e5a73351aa5930213c4b207ea1574f465e",
+      "actual_optimizer_calls_per_replica": 10,
+      "segment_real_targets": 5233756,
+      "segment_executed_matmuls": 2666806287344640,
+      "update": 30,
+      "source_cursor": 15360,
+      "real_targets": 15701370,
+      "domain_targets": [
+        9420615,
+        3139997,
+        3140758
+      ],
+      "executed_matmuls": 8000418862033920,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "aab2c716eb63b6472226616a14243be8f15d060d09df9747a3ad9ae3291abf95",
+      "checkpoint_records": [
+        {
+          "update": 30,
+          "checkpoint_sha256": "e7437b8ca49cb165d6df58724c0f135de459fd673ba4430858131132cd1c10c6",
+          "full_state_digest": "ae26eb8baa7dc997b15c85c3c31abdaed3651da57f8419dc9dca49f4be731752",
+          "real_targets": 15701370,
+          "executed_matmuls": 8000418862033920,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "progress": [
+        {
+          "update": 30,
+          "real_targets": 15701370,
+          "executed_matmuls": 8000418862033920,
+          "global_train_nll": 6.620291202219412,
+          "gradient_norm_before_clip": 11.177546501159668,
+          "lr": 0.0,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.0,
+          "elapsed_seconds": 118.60421586036682
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 125.31842160224915,
+      "qualification_only": true,
+      "research_optimizer_updates": 0,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-driver-v2-poisson2-short",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "poisson2-short",
+      "purpose": "low_depth_driver_integration_qualification",
+      "plan_sha256": "74b0937a484a9b49789cf3801ed152cde6ddb63a9d95e8b49fca44637922dd6c",
+      "arm": "poisson2",
+      "seed": 1009,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+      "actual_optimizer_calls_per_replica": 10,
+      "segment_real_targets": 5233756,
+      "segment_executed_matmuls": 2921567292564480,
+      "update": 30,
+      "source_cursor": 15360,
+      "real_targets": 15701370,
+      "domain_targets": [
+        9420615,
+        3139997,
+        3140758
+      ],
+      "executed_matmuls": 8751474175994880,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "8e69f406dfa3b25d798a593acf26a1cca32a8828b722df56e2528dbb638415b9",
+      "checkpoint_records": [
+        {
+          "update": 30,
+          "checkpoint_sha256": "ee8a755f1dd590acd357a0a70f4b81865646a0d6d91a274eaa42956ee701f5f5",
+          "full_state_digest": "420ddd3bf4e5f542674fa4e87e40db2f53a4c8c4424d942d01e965c28dbf6b5d",
+          "real_targets": 15701370,
+          "executed_matmuls": 8751474175994880,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "progress": [
+        {
+          "update": 30,
+          "real_targets": 15701370,
+          "executed_matmuls": 8751474175994880,
+          "global_train_nll": 6.049436167082551,
+          "gradient_norm_before_clip": 1.9544821977615356,
+          "lr": 0.0,
+          "muon_momentum": 0.95,
+          "muon_cautious_decay": 0.0,
+          "elapsed_seconds": 114.42754983901978
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 122.59700179100037,
+      "qualification_only": true,
+      "research_optimizer_updates": 0,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    }
+  ],
+  "wall_seconds": 522.0599241256714,
+  "research_optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "Qualification-only new driver, two model arms,20+20+10 actual updates each. No scientific initialization/fitting or held-out scoring; exact registered schedule/branch/full-state/source/work checks."
+}

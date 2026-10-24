@@ -1,0 +1,42 @@
+{
+  "status": "STOPPED_COMPLETE_PARCAE_TRAINING_QUALIFICATION",
+  "native_attempts": [
+    {
+      "identity": "parcae-low-qual-v3-fp32-a8-poisson2-warm",
+      "exit_code": 0,
+      "wall_seconds": 305.00710129737854,
+      "assigned_chip_hours": 0.677793558438619,
+      "whole_instance_opportunity_chip_hours": 1.355587116877238,
+      "report_exists": true
+    },
+    {
+      "identity": "parcae-low-qual-v3-fp32-a16-ordinary-warm",
+      "exit_code": 0,
+      "wall_seconds": 332.6258659362793,
+      "assigned_chip_hours": 0.7391685909695096,
+      "whole_instance_opportunity_chip_hours": 1.4783371819390192,
+      "report_exists": true
+    },
+    {
+      "identity": "parcae-low-qual-v3-fp32-a8-poisson2-replay",
+      "exit_code": 137,
+      "wall_seconds": 16.766772985458374,
+      "assigned_chip_hours": 0.03725949552324083,
+      "whole_instance_opportunity_chip_hours": 0.07451899104648166,
+      "report_exists": false
+    }
+  ],
+  "cpu_audits": [
+    {
+      "identity": "fp32-a8-poisson2",
+      "started_unix": 1792877351.2706554,
+      "finished_unix": 1792877361.3275597,
+      "wall_seconds": 10.056905508041382,
+      "assigned_chips": 0,
+      "exit_code": 1
+    }
+  ],
+  "waiting_seconds": 270.03845500946045,
+  "active_execution_seconds": 340.9977352619171,
+  "scope": "All cold/native updates, source checks, checkpoints/replays, CPU tails and failed attempts are included. Warm100 excludes initial compile/probe and final audits. Waiting assigns zero chips. Do not add concurrent wall intervals as sequential reservation time. Qualification source is intentionally reused across configurations; zero scientific exposure or claim."
+}

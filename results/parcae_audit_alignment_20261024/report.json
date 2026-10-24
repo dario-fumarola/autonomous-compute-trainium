@@ -1,0 +1,59 @@
+{
+  "status": "STOPPED_ALIGNMENT_FIRST_UPDATE_SCREEN",
+  "error": "could not get source code",
+  "records": [
+    {
+      "arm": "poisson2",
+      "update_comparison": {
+        "relative_l2": 1.3511062717374749e-05,
+        "maximum_absolute_error": 3.725290298461914e-09,
+        "reference_l2": 0.025329103112313425,
+        "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+      },
+      "moment_comparison": {
+        "relative_l2": 3.5796243103816965e-05,
+        "maximum_absolute_error": 3.282912075519562e-08,
+        "reference_l2": 0.14521353712859786
+      },
+      "families": {
+        "adamw": {
+          "update_comparison": {
+            "relative_l2": 1.3473804103347592e-05,
+            "maximum_absolute_error": 3.725290298461914e-09,
+            "reference_l2": 0.02532521236864372,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.57266026089379e-05,
+            "maximum_absolute_error": 1.682201400399208e-08,
+            "reference_l2": 0.010305772889422781
+          }
+        },
+        "muon": {
+          "update_comparison": {
+            "relative_l2": 5.877482038442237e-05,
+            "maximum_absolute_error": 8.412825991399586e-11,
+            "reference_l2": 0.0004439402632120327,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.57965952937376e-05,
+            "maximum_absolute_error": 3.282912075519562e-08,
+            "reference_l2": 0.14484737626395
+          }
+        }
+      },
+      "passes_registered_gate": true,
+      "cpu_norm_before_clip": 16.457536697387695,
+      "independent_group_membership_validated": true,
+      "reference_registration_order_aligned_by_name": true,
+      "native_norm_before_clip": 16.458126068115234,
+      "prescribed_cpu_optimizer_steps": 1,
+      "research_optimizer_updates": 0,
+      "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+    }
+  ],
+  "assigned_chips": 0,
+  "research_optimizer_updates": 0,
+  "wall_seconds_after_imports": 14.634049892425537
+}

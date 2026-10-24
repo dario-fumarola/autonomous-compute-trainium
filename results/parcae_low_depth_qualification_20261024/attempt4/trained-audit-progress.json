@@ -1,0 +1,994 @@
+{
+  "records": [
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "poisson2",
+      "precision": "fp32",
+      "accumulation": 8,
+      "source_cursor": 30720,
+      "real_targets": 261698,
+      "windows": 256,
+      "gradient": {
+        "overall": {
+          "relative_l2": 3.451884491984111e-06,
+          "maximum_absolute_error": 6.612390279769897e-08,
+          "reference_l2": 3.067379575975761
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 1.5057312196026395e-06,
+            "maximum_absolute_error": 1.418811734765768e-09,
+            "reference_l2": 0.12578469163712216
+          },
+          "tied_input_output": {
+            "relative_l2": 1.2749841440790273e-06,
+            "maximum_absolute_error": 1.594889909029007e-08,
+            "reference_l2": 0.2390327294024432
+          },
+          "transformer_body": {
+            "relative_l2": 3.4633558239941097e-06,
+            "maximum_absolute_error": 6.612390279769897e-08,
+            "reference_l2": 3.0554637782872756
+          },
+          "value_embeddings": {
+            "relative_l2": 1.6748095029480615e-06,
+            "maximum_absolute_error": 3.7061909097246826e-11,
+            "reference_l2": 0.0003582064446352235
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.126748851341766,
+      "native_minus_cpu_nll": -1.753870400023061e-07,
+      "checkpoint_sha256": "c415edc75b0e1d2333af05f5b629adea5f677c64da38ac41a0ba92075f158020",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "26d4a3a653c61400e56ca83017e36641b3eb2f3c37e7fb645aa0f1ac08559c10",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 1.3511062717374749e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.025329103112313425,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.5796243103816965e-05,
+          "maximum_absolute_error": 3.282912075519562e-08,
+          "reference_l2": 0.14521353712859786
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.3473804103347592e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.02532521236864372,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.57266026089379e-05,
+              "maximum_absolute_error": 1.682201400399208e-08,
+              "reference_l2": 0.010305772889422781
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 5.877482038442237e-05,
+              "maximum_absolute_error": 8.412825991399586e-11,
+              "reference_l2": 0.0004439402632120327,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.57965952937376e-05,
+              "maximum_absolute_error": 3.282912075519562e-08,
+              "reference_l2": 0.14484737626395
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 16.457536697387695,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 16.458126068115234,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 219.9640028476715,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    },
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "ordinary",
+      "precision": "fp32",
+      "accumulation": 16,
+      "source_cursor": 61440,
+      "real_targets": 523312,
+      "windows": 512,
+      "gradient": {
+        "overall": {
+          "relative_l2": 5.402936728907451e-07,
+          "maximum_absolute_error": 4.842877388000488e-08,
+          "reference_l2": 11.105379575504495
+        },
+        "families": {
+          "tied_input_output": {
+            "relative_l2": 1.0101872812365166e-06,
+            "maximum_absolute_error": 8.993083611130714e-09,
+            "reference_l2": 0.17577132885576432
+          },
+          "transformer_body": {
+            "relative_l2": 5.401247020464783e-07,
+            "maximum_absolute_error": 4.842877388000488e-08,
+            "reference_l2": 11.103988432852045
+          },
+          "value_embeddings": {
+            "relative_l2": 5.223673209231111e-07,
+            "maximum_absolute_error": 5.820766091346741e-11,
+            "reference_l2": 0.0009160090889157252
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.597343721709635,
+      "native_minus_cpu_nll": -2.6312278755824536e-07,
+      "checkpoint_sha256": "71ba1c289850c7adba70c8bc636c8f6d3afce8d20b967aff5ed212ac77621794",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "e8b2a96562963e3ab4978a53d07791ca0ecc12ac7e007ab223cb82cc7f46b088",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 4.1409953080005545e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.020435763239220844,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 4.169687259033937e-05,
+          "maximum_absolute_error": 2.246815711259842e-08,
+          "reference_l2": 0.14535664170245288
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 4.138579775573244e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.020431339946345765,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 4.16259492141287e-05,
+              "maximum_absolute_error": 2.246815711259842e-08,
+              "reference_l2": 0.014067478937395872
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 7.958154126667786e-05,
+              "maximum_absolute_error": 6.989608891672106e-11,
+              "reference_l2": 0.0004251672216267195,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 4.169754257682334e-05,
+              "maximum_absolute_error": 1.798616722226143e-08,
+              "reference_l2": 0.1446743215756037
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 34.02682876586914,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 34.02824783325195,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 401.3890497684479,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    },
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "fixed1",
+      "precision": "fp32",
+      "accumulation": 8,
+      "source_cursor": 30720,
+      "real_targets": 261698,
+      "windows": 256,
+      "gradient": {
+        "overall": {
+          "relative_l2": 3.583707088223154e-06,
+          "maximum_absolute_error": 7.523340173065662e-08,
+          "reference_l2": 3.6930529235897276
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 1.5421955529084568e-06,
+            "maximum_absolute_error": 1.2514647096395493e-09,
+            "reference_l2": 0.1303957704020905
+          },
+          "tied_input_output": {
+            "relative_l2": 1.289250175795905e-06,
+            "maximum_absolute_error": 1.7156708054244518e-08,
+            "reference_l2": 0.2535604784894188
+          },
+          "transformer_body": {
+            "relative_l2": 3.5929240853225632e-06,
+            "maximum_absolute_error": 7.523340173065662e-08,
+            "reference_l2": 3.6820298390165385
+          },
+          "value_embeddings": {
+            "relative_l2": 1.7634616638859944e-06,
+            "maximum_absolute_error": 5.093170329928398e-11,
+            "reference_l2": 0.00043340044097674814
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.1217634654108695,
+      "native_minus_cpu_nll": -2.0524015376111038e-08,
+      "checkpoint_sha256": "15aef9268455e3e49d171027ee1e96ebc16d3ad6a826cdbe77d467c1b8c8c655",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "fa6a926e2377ba756f865052362cb998a0523d70b41d109511326c55ec8e0f0f",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 1.3874288596093202e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.025317939814799958,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 4.025160092792027e-05,
+          "maximum_absolute_error": 3.725290298461914e-08,
+          "reference_l2": 0.1451653697322965
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.3837401594815633e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.0253140724099578,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 4.018245929689922e-05,
+              "maximum_absolute_error": 1.5425030142068863e-08,
+              "reference_l2": 0.00876199254925399
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 5.947811141743786e-05,
+              "maximum_absolute_error": 8.222400538215879e-11,
+              "reference_l2": 0.0004425093097844761,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 4.025185352591828e-05,
+              "maximum_absolute_error": 3.725290298461914e-08,
+              "reference_l2": 0.14490069722427548
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 21.14956283569336,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 21.150413513183594,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 229.27354216575623,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    },
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "poisson2",
+      "precision": "fp32",
+      "accumulation": 16,
+      "source_cursor": 61440,
+      "real_targets": 523312,
+      "windows": 512,
+      "gradient": {
+        "overall": {
+          "relative_l2": 4.213183464877166e-06,
+          "maximum_absolute_error": 4.976755008101463e-08,
+          "reference_l2": 2.311878308268341
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 1.6827970681342462e-06,
+            "maximum_absolute_error": 1.1059455573558807e-09,
+            "reference_l2": 0.09183343857863904
+          },
+          "tied_input_output": {
+            "relative_l2": 1.5011832291621166e-06,
+            "maximum_absolute_error": 1.0244548320770264e-08,
+            "reference_l2": 0.16282450019068867
+          },
+          "transformer_body": {
+            "relative_l2": 4.225161321049046e-06,
+            "maximum_absolute_error": 4.976755008101463e-08,
+            "reference_l2": 2.304308150785462
+          },
+          "value_embeddings": {
+            "relative_l2": 2.339423552415032e-06,
+            "maximum_absolute_error": 4.638422979041934e-11,
+            "reference_l2": 0.0002452791212945633
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.038905593909859,
+      "native_minus_cpu_nll": 4.5066775467006437e-07,
+      "checkpoint_sha256": "952095a7afc7a83afd8d2c55d59b4b9ff7c06a822c762887634c77b44946d4fd",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "eadb01a0a40f7a346ce920d8778be20bd9ab5613cb23f8d0db512ca7f551eaa5",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 1.366596965414142e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.025328114837555482,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.4939988590584766e-05,
+          "maximum_absolute_error": 2.9569491744041443e-08,
+          "reference_l2": 0.14519332490493775
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.3620889264418675e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.02532462994358244,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.4866863334871286e-05,
+              "maximum_absolute_error": 1.7404090613126755e-08,
+              "reference_l2": 0.009965054319775481
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 6.823496905570136e-05,
+              "maximum_absolute_error": 9.108447329708724e-11,
+              "reference_l2": 0.00042014217237260033,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.494033431269905e-05,
+              "maximum_absolute_error": 2.9569491744041443e-08,
+              "reference_l2": 0.14485095543128024
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 16.750919342041016,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 16.75150489807129,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 448.93808937072754,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    },
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "poisson2",
+      "precision": "fp16",
+      "accumulation": 8,
+      "source_cursor": 30720,
+      "real_targets": 261698,
+      "windows": 256,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0006864249961684968,
+          "maximum_absolute_error": 1.657145912759006e-05,
+          "reference_l2": 3.0670484165539573
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0005280185577743998,
+            "maximum_absolute_error": 4.799221642315388e-07,
+            "reference_l2": 0.12578356594274498
+          },
+          "tied_input_output": {
+            "relative_l2": 0.00038469369749090897,
+            "maximum_absolute_error": 5.434267222881317e-06,
+            "reference_l2": 0.2390359133282133
+          },
+          "transformer_body": {
+            "relative_l2": 0.0006881016041317621,
+            "maximum_absolute_error": 1.657145912759006e-05,
+            "reference_l2": 3.0551311244942227
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0004233119598049531,
+            "maximum_absolute_error": 2.0756488083861768e-08,
+            "reference_l2": 0.00035820507546730266
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.126746517201483,
+      "native_minus_cpu_nll": 7.258038126067845e-07,
+      "checkpoint_sha256": "092ddc072c4492949cfb96b32dbfc74a5820def922c6500527eb0ecaa426d97e",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "f391b5ffe01c726cdbb3713b7f4fabeb5774f4993bb75fffb4cf498999ade8b9",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 1.3509632020291565e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.025329116759454536,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.591894646730528e-05,
+          "maximum_absolute_error": 3.2887328416109085e-08,
+          "reference_l2": 0.1452135408093465
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.3473116523305524e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.02532522601478201,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.5849797514111745e-05,
+              "maximum_absolute_error": 1.6909325495362282e-08,
+              "reference_l2": 0.010305796554132537
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 5.821453345227537e-05,
+              "maximum_absolute_error": 8.069633850027458e-11,
+              "reference_l2": 0.0004439404400243263,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.591929617654562e-05,
+              "maximum_absolute_error": 3.2887328416109085e-08,
+              "reference_l2": 0.14484737827027652
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 16.457592010498047,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 16.45818328857422,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 237.23265862464905,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    },
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "fixed1",
+      "precision": "fp32",
+      "accumulation": 16,
+      "source_cursor": 61440,
+      "real_targets": 523312,
+      "windows": 512,
+      "gradient": {
+        "overall": {
+          "relative_l2": 3.7708511510018517e-06,
+          "maximum_absolute_error": 6.332993507385254e-08,
+          "reference_l2": 3.0572119401503906
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 1.704368931635309e-06,
+            "maximum_absolute_error": 1.11504050437361e-09,
+            "reference_l2": 0.09931373669957134
+          },
+          "tied_input_output": {
+            "relative_l2": 1.4732106355406921e-06,
+            "maximum_absolute_error": 1.30385160446167e-08,
+            "reference_l2": 0.18203946289468642
+          },
+          "transformer_body": {
+            "relative_l2": 3.7781253186637634e-06,
+            "maximum_absolute_error": 6.332993507385254e-08,
+            "reference_l2": 3.050171004250127
+          },
+          "value_embeddings": {
+            "relative_l2": 2.1651746934105044e-06,
+            "maximum_absolute_error": 7.003109203651547e-11,
+            "reference_l2": 0.0003278439685355526
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.033391539577489,
+      "native_minus_cpu_nll": 5.859613860792479e-07,
+      "checkpoint_sha256": "ef5bebada6c5bc20ce1648822c17b3ce9ea3781cdb49b2e93fd8717ae90d2d23",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "c2687c8b3553ecf0c9ddbe791ab2a6bfaf7d2f58ee34fd0fb22b3d8477f14e21",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 1.4071700770000848e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.025318151004769876,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.8521531035215956e-05,
+          "maximum_absolute_error": 3.3120159059762955e-08,
+          "reference_l2": 0.1451515581715272
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.4027980582246154e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.025314695507194795,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.844883588650626e-05,
+              "maximum_absolute_error": 1.6443664208054543e-08,
+              "reference_l2": 0.008586742393124529
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 6.854003894374591e-05,
+              "maximum_absolute_error": 8.93507490218326e-11,
+              "reference_l2": 0.0004182842076165633,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.85217860879491e-05,
+              "maximum_absolute_error": 3.3120159059762955e-08,
+              "reference_l2": 0.1448973522694475
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 21.149396896362305,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 21.150211334228516,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 434.06322717666626,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    },
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "ordinary",
+      "precision": "fp16",
+      "accumulation": 16,
+      "source_cursor": 61440,
+      "real_targets": 523312,
+      "windows": 512,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.00030262831313661006,
+          "maximum_absolute_error": 1.5706755220890045e-05,
+          "reference_l2": 11.105481832109046
+        },
+        "families": {
+          "tied_input_output": {
+            "relative_l2": 0.0005036009860546015,
+            "maximum_absolute_error": 5.372101441025734e-06,
+            "reference_l2": 0.1757659806434002
+          },
+          "transformer_body": {
+            "relative_l2": 0.0003025612311396602,
+            "maximum_absolute_error": 1.5706755220890045e-05,
+            "reference_l2": 11.104090786923146
+          },
+          "value_embeddings": {
+            "relative_l2": 0.00025798847608216773,
+            "maximum_absolute_error": 2.1069354261271656e-08,
+            "reference_l2": 0.0009160354997800738
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.597336942099073,
+      "native_minus_cpu_nll": -2.5603153570585846e-06,
+      "checkpoint_sha256": "af72702e565269a900bc199c32f7af90eb9e5ee911e6c7645c63da964b4b77ba",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "b3f45618bbe2b80a20b2b305a3954cccf2ec2a05c9edfa8fc91ef2f4223f81db",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 4.1415012537497186e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.020435750588253414,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 4.1760765643349116e-05,
+          "maximum_absolute_error": 2.246815711259842e-08,
+          "reference_l2": 0.14535664608937246
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 4.139031386639603e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.020431327301847695,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 4.16908464115368e-05,
+              "maximum_absolute_error": 2.246815711259842e-08,
+              "reference_l2": 0.014067317559415137
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 8.023763112048076e-05,
+              "maximum_absolute_error": 6.965805710024142e-11,
+              "reference_l2": 0.000425166779126227,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 4.1761426137611535e-05,
+              "maximum_absolute_error": 1.8015271052718163e-08,
+              "reference_l2": 0.1446743416747892
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 34.027217864990234,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 34.02864074707031,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 337.3788392543793,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    },
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "poisson2",
+      "precision": "fp16",
+      "accumulation": 16,
+      "source_cursor": 61440,
+      "real_targets": 523312,
+      "windows": 512,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0013638103817226039,
+          "maximum_absolute_error": 3.207928966730833e-05,
+          "reference_l2": 2.3100229835309314
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0012612834796089636,
+            "maximum_absolute_error": 1.0352814570069313e-06,
+            "reference_l2": 0.09177670225741469
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0011516661624086826,
+            "maximum_absolute_error": 1.104455441236496e-05,
+            "reference_l2": 0.16273325657677534
+          },
+          "transformer_body": {
+            "relative_l2": 0.0013649440087780964,
+            "maximum_absolute_error": 3.207928966730833e-05,
+            "reference_l2": 2.302455438979258
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0013895877289282004,
+            "maximum_absolute_error": 4.802313924301416e-08,
+            "reference_l2": 0.0002451176256205716
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.038892420975381,
+      "native_minus_cpu_nll": -2.304657042984104e-07,
+      "checkpoint_sha256": "c35858d8b86a9e732ed1113c9b0c70cb7072ca5fde3591b7d40bbe1da1810c64",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "d615b92ce62faaea980b01cb07675763aec3e1b8b023b663d9c2a57ef2229b43",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 1.3604417690039798e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.025328082434007654,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.487779311986249e-05,
+          "maximum_absolute_error": 2.9511284083127975e-08,
+          "reference_l2": 0.14519331881576858
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.3558586545834954e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.025324597531888378,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.480483947191665e-05,
+              "maximum_absolute_error": 1.7345882952213287e-08,
+              "reference_l2": 0.009965070037022298
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 6.86157554069594e-05,
+              "maximum_absolute_error": 9.873701856122352e-11,
+              "reference_l2": 0.00042014239462368847,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.487813803197664e-05,
+              "maximum_absolute_error": 2.9511284083127975e-08,
+              "reference_l2": 0.14485094824644626
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 16.7509822845459,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 16.75156593322754,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 373.8181245326996,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    },
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "fixed1",
+      "precision": "fp16",
+      "accumulation": 8,
+      "source_cursor": 30720,
+      "real_targets": 261698,
+      "windows": 256,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.000712469708853917,
+          "maximum_absolute_error": 2.509448677301407e-05,
+          "reference_l2": 3.692702437019178
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0006407503671280846,
+            "maximum_absolute_error": 6.288173608481884e-07,
+            "reference_l2": 0.13039248359132183
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0005256661075353948,
+            "maximum_absolute_error": 8.518807590007782e-06,
+            "reference_l2": 0.2535425494913474
+          },
+          "transformer_body": {
+            "relative_l2": 0.0007133244101405193,
+            "maximum_absolute_error": 2.509448677301407e-05,
+            "reference_l2": 3.6816796542374526
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0006038101097676849,
+            "maximum_absolute_error": 3.7151949072722346e-08,
+            "reference_l2": 0.00043331475804916534
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.1217768116182585,
+      "native_minus_cpu_nll": -9.478363418580216e-07,
+      "checkpoint_sha256": "8a6c1ad7f68467fbbeb2352921fe86465013ece3a0c7faa27ee9fcd5f5c2acc7",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "16a7db96185005eb136ef4b328425086b404bbea7a751259853d508fe26b8c75",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 1.387122526444965e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.02531793072991675,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 4.0881957854232316e-05,
+          "maximum_absolute_error": 3.7834979593753815e-08,
+          "reference_l2": 0.14516546813647546
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.3833433072498986e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.02531406331959577,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 4.081268697246016e-05,
+              "maximum_absolute_error": 1.5686964616179466e-08,
+              "reference_l2": 0.008762009912732875
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 6.0156242333103106e-05,
+              "maximum_absolute_error": 8.270534257448503e-11,
+              "reference_l2": 0.0004425095438054261,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 4.088221092805444e-05,
+              "maximum_absolute_error": 3.7834979593753815e-08,
+              "reference_l2": 0.1449007947582457
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 21.149635314941406,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 21.150501251220703,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 199.69936323165894,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    },
+    {
+      "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+      "arm": "fixed1",
+      "precision": "fp16",
+      "accumulation": 16,
+      "source_cursor": 61440,
+      "real_targets": 523312,
+      "windows": 512,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0011204457141158995,
+          "maximum_absolute_error": 3.3836811780929565e-05,
+          "reference_l2": 3.0634021878468918
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0009342348675851702,
+            "maximum_absolute_error": 7.688540790695697e-07,
+            "reference_l2": 0.0993631410734924
+          },
+          "tied_input_output": {
+            "relative_l2": 0.000808316957841083,
+            "maximum_absolute_error": 1.4422810636460781e-05,
+            "reference_l2": 0.18212337900996026
+          },
+          "transformer_body": {
+            "relative_l2": 0.0011215795154143123,
+            "maximum_absolute_error": 3.3836811780929565e-05,
+            "reference_l2": 3.0563689073453983
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0010036624287333667,
+            "maximum_absolute_error": 4.2633558905436075e-08,
+            "reference_l2": 0.0003282246470410146
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "cpu_nll": 6.033395336196726,
+      "native_minus_cpu_nll": 1.334275134823315e-07,
+      "checkpoint_sha256": "babf5c2a777618c14866bcd56a5aeb9d9672b4aadbc9eb751a91899b409f45bd",
+      "full_state_readback_exact": true,
+      "cpu_global_gradient_sha256": "edf03b1865dbec9b4e6eef1fc842960165154fac48694744e02782b07ff69774",
+      "first_actual_update": {
+        "update_comparison": {
+          "relative_l2": 1.4064731239489022e-05,
+          "maximum_absolute_error": 1.4901161193847656e-08,
+          "reference_l2": 0.025318138983646328,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.844288127412573e-05,
+          "maximum_absolute_error": 3.3120159059762955e-08,
+          "reference_l2": 0.14515153324906463
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.402115778950653e-05,
+              "maximum_absolute_error": 1.4901161193847656e-08,
+              "reference_l2": 0.025314683481826004,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.837072079534785e-05,
+              "maximum_absolute_error": 1.6472768038511276e-08,
+              "reference_l2": 0.00858675040543713
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 6.841220357577113e-05,
+              "maximum_absolute_error": 9.254996768959245e-11,
+              "reference_l2": 0.00041828436523204247,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.844313445279508e-05,
+              "maximum_absolute_error": 3.3120159059762955e-08,
+              "reference_l2": 0.14489732682844442
+            }
+          }
+        },
+        "passes_registered_gate": true,
+        "cpu_norm_before_clip": 21.14947509765625,
+        "independent_group_membership_validated": true,
+        "reference_registration_order_aligned_by_name": true,
+        "native_norm_before_clip": 21.150287628173828,
+        "prescribed_cpu_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+      },
+      "wall_seconds": 365.0404450893402,
+      "assigned_chips": 0,
+      "prescribed_cpu_optimizer_steps": 1,
+      "native_optimizer_updates": 0,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+    }
+  ]
+}

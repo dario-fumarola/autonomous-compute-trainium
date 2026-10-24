@@ -22,6 +22,7 @@ from compute_trainium.parcae_training_candidate import configure_optimizer
 from compute_trainium.parcae_recovery_check import moments
 from compute_trainium.parcae_update_qualification import named_moments
 from compute_trainium.parcae_optimizer_precise import independent_fp32_reference
+from compute_trainium.parcae_optimizer_alignment import align_reference_groups
 from compute_trainium.queue import write_state
 from compute_trainium.training import PackedCorpus, atomic_checkpoint, file_sha256
 from scripts.qualify_native import digest
@@ -53,11 +54,13 @@ def first_update(config,preparation,primary,native,output):
     vector=torch.load(primary/'initial-global-native.pt',map_location='cpu',mmap=True,weights_only=False)
     actual=torch.load(primary/'after-1-model-optimizer.pt',map_location='cpu',mmap=True,weights_only=False)
     unwrapped_reference()
-    reference_optimizer.muon_step=independent_fp32_reference(reference_optimizer)
+    precise_reference_step=independent_fp32_reference(reference_optimizer)
     if actual['optimizer']['recipe']['specified_muon_polar_dtype']!='fp32':
         raise AssertionError('Explicit FP32-polar recipe required')
-    optimizer=reference_optimizer.MuonAdamW(reference_optimizer.get_muon_param_groups(
-        model.named_parameters(),adamw_lr=.008,adamw_betas=(.8,.95),adamw_eps=1e-10,adamw_wd=0.,muon_lr=.008))
+    groups=reference_optimizer.get_muon_param_groups(
+        model.named_parameters(),adamw_lr=.008,adamw_betas=(.8,.95),adamw_eps=1e-10,adamw_wd=0.,muon_lr=.008)
+    groups=align_reference_groups(model,groups,actual['optimizer']['recipe']['groups'])
+    optimizer=reference_optimizer.MuonAdamW(groups)
     before={n:p.detach().clone() for n,p in model.named_parameters()}
     if set(before)!=set(vector['gradients']):raise AssertionError('First-gradient parameter inventory differs')
     lookup={id(p):n for n,p in model.named_parameters()}
@@ -66,12 +69,18 @@ def first_update(config,preparation,primary,native,output):
     for n,p in model.named_parameters():p.grad=vector['gradients'][n].clone()
     norm=float(torch.nn.utils.clip_grad_norm_(model.parameters(),1.,foreach=False))
     configure_optimizer(optimizer,0)
-    optimizer.step()
+    original_reference_step=reference_optimizer.muon_step
+    try:
+        reference_optimizer.muon_step=precise_reference_step
+        optimizer.step()
+    finally:
+        reference_optimizer.muon_step=original_reference_step
     expected={'model':{n:p.detach() for n,p in model.named_parameters()},
               'moments':named_moments(model,optimizer,reference=True)}
     right={'model':{n:actual['model'][n] for n in before},'moments':moments(actual['optimizer'])}
     result=step_comparison(before,expected,before,right)
     result.update(passes_registered_gate=step_passes(result),cpu_norm_before_clip=norm,
+        independent_group_membership_validated=True,reference_registration_order_aligned_by_name=True,
         native_norm_before_clip=vector['raw_gradient_norm'],
         prescribed_cpu_optimizer_steps=1,research_optimizer_updates=0,
         scope='Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point.')

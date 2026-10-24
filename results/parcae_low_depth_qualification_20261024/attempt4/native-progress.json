@@ -1,0 +1,614 @@
+{
+  "records": [
+    {
+      "arm": "poisson2",
+      "precision": "fp32",
+      "accumulation": 8,
+      "parameters": 141963840,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 7.787928553230286e-06,
+          "maximum_absolute_error": 1.4156103134155273e-06,
+          "reference_l2": 0.30066732368041893,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 4.5738579833018296e-08,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.5235898459975966
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 2.5403180048285428e-06,
+              "maximum_absolute_error": 2.384185791015625e-07,
+              "reference_l2": 0.3000657084660437,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 6.762435040487632e-08,
+              "maximum_absolute_error": 1.4551915228366852e-10,
+              "reference_l2": 0.0375943849620941
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 0.00011646180219022848,
+              "maximum_absolute_error": 1.4156103134155273e-06,
+              "reference_l2": 0.019010789881461095,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 4.5597813972012724e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.522238440801813
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 26168514,
+      "warm_seconds": 87.33872469502967,
+      "warm_targets_per_second_per_eight_chips": 299620.97673598403,
+      "warm_model_matmuls": 13284112988897280,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 31925708,
+      "extra_initial_probe_model_matmuls": 16624469803008,
+      "extra_initial_probe_real_targets": 32712
+    },
+    {
+      "arm": "ordinary",
+      "precision": "fp32",
+      "accumulation": 16,
+      "parameters": 140781888,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 4.578702745912447e-06,
+          "maximum_absolute_error": 1.041218638420105e-06,
+          "reference_l2": 0.3852104614045599,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 4.9578642000495225e-08,
+          "maximum_absolute_error": 1.4901161193847656e-08,
+          "reference_l2": 0.7439886452006457
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 3.205075612168904e-06,
+              "maximum_absolute_error": 2.384185791015625e-07,
+              "reference_l2": 0.3848422757031844,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 3.905298944751036e-08,
+              "maximum_absolute_error": 2.9103830456733704e-11,
+              "reference_l2": 0.013193767786048895
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 7.487421777883804e-05,
+              "maximum_absolute_error": 1.041218638420105e-06,
+              "reference_l2": 0.016838123621952784,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 4.9581601660664975e-08,
+              "maximum_absolute_error": 1.4901161193847656e-08,
+              "reference_l2": 0.7438716479871378
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 52337436,
+      "warm_seconds": 123.18978474591859,
+      "warm_targets_per_second_per_eight_chips": 424852.0776941612,
+      "warm_model_matmuls": 24058869999206400,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 63851674,
+      "extra_initial_probe_model_matmuls": 15036793749504,
+      "extra_initial_probe_real_targets": 32722
+    },
+    {
+      "arm": "fixed1",
+      "precision": "fp32",
+      "accumulation": 8,
+      "parameters": 141963840,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 6.114279485515988e-06,
+          "maximum_absolute_error": 1.3485550880432129e-06,
+          "reference_l2": 0.30214836478350465,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 5.5486338489328214e-08,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.5227103565101653
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 2.604291533520402e-06,
+              "maximum_absolute_error": 2.384185791015625e-07,
+              "reference_l2": 0.3015503482829655,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 6.76882345553694e-08,
+              "maximum_absolute_error": 1.7462298274040222e-10,
+              "reference_l2": 0.03273082885422328
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 8.800740995066467e-05,
+              "maximum_absolute_error": 1.3485550880432129e-06,
+              "reference_l2": 0.019000573458924253,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 5.5433000196898265e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.5216845882767668
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 26168514,
+      "warm_seconds": 78.67383152898401,
+      "warm_targets_per_second_per_eight_chips": 332620.3070503733,
+      "warm_model_matmuls": 12214977586790400,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 31925708,
+      "extra_initial_probe_model_matmuls": 15268721983488,
+      "extra_initial_probe_real_targets": 32712
+    },
+    {
+      "arm": "poisson2",
+      "precision": "fp32",
+      "accumulation": 16,
+      "parameters": 141963840,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 2.7420439689898347e-06,
+          "maximum_absolute_error": 1.7136335372924805e-07,
+          "reference_l2": 0.32687244083795997,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 4.6699011326891416e-08,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.5330040015241934
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 2.5262284781035386e-06,
+              "maximum_absolute_error": 1.1920928955078125e-07,
+              "reference_l2": 0.3263227778412528,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 6.186248111462062e-08,
+              "maximum_absolute_error": 2.3283064365386963e-10,
+              "reference_l2": 0.037710619351739486
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 1.8566992543060858e-05,
+              "maximum_absolute_error": 1.7136335372924805e-07,
+              "reference_l2": 0.01894827805722593,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 4.661025579650536e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.5316682939849907
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 52337436,
+      "warm_seconds": 160.29867983108852,
+      "warm_targets_per_second_per_eight_chips": 326499.48243584734,
+      "warm_model_matmuls": 26562839628349440,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 63851674,
+      "extra_initial_probe_model_matmuls": 16624469803008,
+      "extra_initial_probe_real_targets": 32722
+    },
+    {
+      "arm": "poisson2",
+      "precision": "fp16",
+      "accumulation": 8,
+      "parameters": 141963840,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 4.83884122871715e-06,
+          "maximum_absolute_error": 6.705522537231445e-07,
+          "reference_l2": 0.30066624380209334,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 5.807265795566779e-08,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.5236114944714505
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 2.89791697042925e-06,
+              "maximum_absolute_error": 2.384185791015625e-07,
+              "reference_l2": 0.3000646784807749,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 6.77643175352732e-08,
+              "maximum_absolute_error": 1.7462298274040222e-10,
+              "reference_l2": 0.0375972197973257
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 6.13581143600876e-05,
+              "maximum_absolute_error": 6.705522537231445e-07,
+              "reference_l2": 0.019009968182220807,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 5.80182144127267e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.5222599412228909
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 26168514,
+      "warm_seconds": 74.82620059000328,
+      "warm_targets_per_second_per_eight_chips": 349723.94420218753,
+      "warm_model_matmuls": 13284112988897280,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 31925708,
+      "extra_initial_probe_model_matmuls": 16624469803008,
+      "extra_initial_probe_real_targets": 32712
+    },
+    {
+      "arm": "fixed1",
+      "precision": "fp32",
+      "accumulation": 16,
+      "parameters": 141963840,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 4.945516435283669e-06,
+          "maximum_absolute_error": 1.171603798866272e-06,
+          "reference_l2": 0.31618962046951793,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 4.851559657925798e-08,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.5298992076090052
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 2.8664750221792735e-06,
+              "maximum_absolute_error": 2.384185791015625e-07,
+              "reference_l2": 0.3156229229003702,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 6.310286416841685e-08,
+              "maximum_absolute_error": 2.3283064365386963e-10,
+              "reference_l2": 0.03141154164648764
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 6.74036382273805e-05,
+              "maximum_absolute_error": 1.171603798866272e-06,
+              "reference_l2": 0.018922120189996703,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 4.845638802971731e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.5289673763816088
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 52337436,
+      "warm_seconds": 144.1502452089917,
+      "warm_targets_per_second_per_eight_chips": 363075.59466250107,
+      "warm_model_matmuls": 24429955173580800,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 63851674,
+      "extra_initial_probe_model_matmuls": 15268721983488,
+      "extra_initial_probe_real_targets": 32722
+    },
+    {
+      "arm": "poisson2",
+      "precision": "fp16",
+      "accumulation": 16,
+      "parameters": 141963840,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 6.202813759035784e-06,
+          "maximum_absolute_error": 1.2852251529693604e-06,
+          "reference_l2": 0.32685821991881514,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 4.6349646590159957e-08,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.5330742294977958
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 4.3636700251815076e-06,
+              "maximum_absolute_error": 2.384185791015625e-07,
+              "reference_l2": 0.32630889697507504,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 7.1591761665056e-08,
+              "maximum_absolute_error": 2.3283064365386963e-10,
+              "reference_l2": 0.03771475917337604
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 7.619384050443621e-05,
+              "maximum_absolute_error": 1.2852251529693604e-06,
+              "reference_l2": 0.01894200843116627,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 4.6187800893430076e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.5317384047585456
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 52337436,
+      "warm_seconds": 132.57832802797202,
+      "warm_targets_per_second_per_eight_chips": 394766.14902669156,
+      "warm_model_matmuls": 26562839628349440,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 63851674,
+      "extra_initial_probe_model_matmuls": 16624469803008,
+      "extra_initial_probe_real_targets": 32722
+    },
+    {
+      "arm": "ordinary",
+      "precision": "fp16",
+      "accumulation": 16,
+      "parameters": 140781888,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 5.15089194011394e-06,
+          "maximum_absolute_error": 8.25151801109314e-07,
+          "reference_l2": 0.38520634289059313,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 3.660377403302388e-08,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.7440138268858439
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 3.0649180145712983e-06,
+              "maximum_absolute_error": 2.384185791015625e-07,
+              "reference_l2": 0.3848381518986794,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 3.930080083215425e-08,
+              "maximum_absolute_error": 5.820766091346741e-11,
+              "reference_l2": 0.01319330558113237
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 9.475581567211558e-05,
+              "maximum_absolute_error": 8.25151801109314e-07,
+              "reference_l2": 0.016838154481835507,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 3.660289443471808e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.743896841830345
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 52337436,
+      "warm_seconds": 109.11043104098644,
+      "warm_targets_per_second_per_eight_chips": 479673.9917592285,
+      "warm_model_matmuls": 24058869999206400,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 63851674,
+      "extra_initial_probe_model_matmuls": 15036793749504,
+      "extra_initial_probe_real_targets": 32722
+    },
+    {
+      "arm": "fixed1",
+      "precision": "fp16",
+      "accumulation": 8,
+      "parameters": 141963840,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 5.939923041946756e-06,
+          "maximum_absolute_error": 1.1511147022247314e-06,
+          "reference_l2": 0.3022069461487761,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 5.078442894701921e-08,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.522708922355607
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 2.1787147766622665e-06,
+              "maximum_absolute_error": 1.1920928955078125e-07,
+              "reference_l2": 0.30160905606188604,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 6.77615028114319e-08,
+              "maximum_absolute_error": 1.1641532182693481e-10,
+              "reference_l2": 0.03273297633219951
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 8.791847022858984e-05,
+              "maximum_absolute_error": 1.1511147022247314e-06,
+              "reference_l2": 0.019000410575231202,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 5.0706359615286397e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.5216830165633108
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 26168514,
+      "warm_seconds": 68.25233066396322,
+      "warm_targets_per_second_per_eight_chips": 383408.3575671475,
+      "warm_model_matmuls": 12214977586790400,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 31925708,
+      "extra_initial_probe_model_matmuls": 15268721983488,
+      "extra_initial_probe_real_targets": 32712
+    },
+    {
+      "arm": "fixed1",
+      "precision": "fp16",
+      "accumulation": 16,
+      "parameters": 141963840,
+      "complete_state_on_load_exact": true,
+      "per_rank_cpu_rng_on_load_exact": true,
+      "all_replica_model_optimizer_states_equal": true,
+      "replay": {
+        "update": {
+          "relative_l2": 6.536113243196689e-06,
+          "maximum_absolute_error": 1.3597309589385986e-06,
+          "reference_l2": 0.3157999060165291,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 4.4468948189285046e-08,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.5298591225020126
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 2.9948445587476385e-06,
+              "maximum_absolute_error": 2.384185791015625e-07,
+              "reference_l2": 0.3152326937018835,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 6.24818640391104e-08,
+              "maximum_absolute_error": 1.7462298274040222e-10,
+              "reference_l2": 0.03136236134381629
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 9.702150060146248e-05,
+              "maximum_absolute_error": 1.3597309589385986e-06,
+              "reference_l2": 0.01891902379889262,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 4.4392727216021494e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.5289301390444135
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_recovery_gate": true,
+      "warm_real_targets": 52337436,
+      "warm_seconds": 120.21491018205415,
+      "warm_targets_per_second_per_eight_chips": 435365.5958378198,
+      "warm_model_matmuls": 24429955173580800,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "actual_optimizer_calls_per_replica_including_replay": 122,
+      "phase_training_real_targets_including_replay": 63851674,
+      "extra_initial_probe_model_matmuls": 15268721983488,
+      "extra_initial_probe_real_targets": 32722
+    }
+  ]
+}
