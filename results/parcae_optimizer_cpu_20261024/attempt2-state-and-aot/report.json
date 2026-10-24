@@ -1,0 +1,362 @@
+{
+  "status": "PASS_CPU_RELEASE_OPTIMIZER_UPDATE_AND_RECOVERY_CHECKS",
+  "source_sha256": {
+    "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7",
+    "scripts/qualify_parcae_optimizer_cpu.py": "44150d76faa8ae27298fb0f6c6c38dc8541a8fc1b71ac17202c16fee3ab9fe3a",
+    "third_party/parcae_reference/muon_adamw.py": "c01b2c54a65e0102b5fa546ae9e8423194daa549619454438b3c9ae38d41a053"
+  },
+  "records": [
+    {
+      "adamw_fused": false,
+      "muon_backend": null,
+      "updates": [
+        {
+          "update": 1,
+          "parameter_error_relative_to_reference_update_delta": 3.853019671750614e-07,
+          "maximum_absolute_parameter_difference": 2.9802322387695312e-08,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 2,
+          "parameter_error_relative_to_reference_update_delta": 1.3102465529524753e-06,
+          "maximum_absolute_parameter_difference": 1.1920928955078125e-07,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 3,
+          "parameter_error_relative_to_reference_update_delta": 2.353369488767401e-06,
+          "maximum_absolute_parameter_difference": 1.1920928955078125e-07,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 4,
+          "parameter_error_relative_to_reference_update_delta": 4.612620276010655e-06,
+          "maximum_absolute_parameter_difference": 2.384185791015625e-07,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 5,
+          "parameter_error_relative_to_reference_update_delta": 6.876314014291401e-06,
+          "maximum_absolute_parameter_difference": 2.384185791015625e-07,
+          "maximum_muon_moment_difference": 0.0
+        }
+      ],
+      "complete_state_roundtrip_and_next_update_exact": true,
+      "recipe": {
+        "identity": "parcae_muon_adamw_candidate_v1",
+        "gate_policy": "release_muon",
+        "groups": [
+          [
+            "transformer.wte.weight",
+            "transformer.prelude.0.norm_1.weight",
+            "transformer.prelude.0.norm_2.weight",
+            "transformer.prelude.1.norm_1.weight",
+            "transformer.prelude.1.norm_2.weight",
+            "transformer.core_block.0.norm_1.weight",
+            "transformer.core_block.0.norm_2.weight",
+            "transformer.core_block.1.norm_1.weight",
+            "transformer.core_block.1.norm_2.weight",
+            "transformer.coda.0.norm_1.weight",
+            "transformer.coda.0.norm_2.weight",
+            "transformer.coda.1.norm_1.weight",
+            "transformer.coda.1.norm_2.weight",
+            "transformer.adapter.A_log",
+            "transformer.adapter.dt_bias",
+            "transformer.adapter.B",
+            "transformer.C.weight",
+            "transformer.ln_prelude.weight",
+            "transformer.ln_f.weight",
+            "value_embeds.1.weight",
+            "value_embeds.3.weight",
+            "value_embeds.5.weight"
+          ],
+          [
+            "transformer.prelude.0.attn.c_q.weight",
+            "transformer.prelude.0.attn.c_k.weight",
+            "transformer.prelude.0.attn.c_v.weight",
+            "transformer.prelude.0.attn.c_proj.weight",
+            "transformer.prelude.1.attn.c_q.weight",
+            "transformer.prelude.1.attn.c_k.weight",
+            "transformer.prelude.1.attn.c_v.weight",
+            "transformer.prelude.1.attn.c_proj.weight",
+            "transformer.core_block.0.attn.c_q.weight",
+            "transformer.core_block.0.attn.c_k.weight",
+            "transformer.core_block.0.attn.c_v.weight",
+            "transformer.core_block.0.attn.c_proj.weight",
+            "transformer.core_block.1.attn.c_q.weight",
+            "transformer.core_block.1.attn.c_k.weight",
+            "transformer.core_block.1.attn.c_v.weight",
+            "transformer.core_block.1.attn.c_proj.weight",
+            "transformer.coda.0.attn.c_q.weight",
+            "transformer.coda.0.attn.c_k.weight",
+            "transformer.coda.0.attn.c_v.weight",
+            "transformer.coda.0.attn.c_proj.weight",
+            "transformer.coda.1.attn.c_q.weight",
+            "transformer.coda.1.attn.c_k.weight",
+            "transformer.coda.1.attn.c_v.weight",
+            "transformer.coda.1.attn.c_proj.weight"
+          ],
+          [
+            "transformer.prelude.0.mlp.fc.weight",
+            "transformer.prelude.1.mlp.fc.weight",
+            "transformer.core_block.0.mlp.fc.weight",
+            "transformer.core_block.1.mlp.fc.weight",
+            "transformer.coda.0.mlp.fc.weight",
+            "transformer.coda.1.mlp.fc.weight"
+          ],
+          [
+            "transformer.prelude.0.mlp.proj.weight",
+            "transformer.prelude.1.mlp.proj.weight",
+            "transformer.core_block.0.mlp.proj.weight",
+            "transformer.core_block.1.mlp.proj.weight",
+            "transformer.coda.0.mlp.proj.weight",
+            "transformer.coda.1.mlp.proj.weight"
+          ],
+          [
+            "transformer.prelude.1.attn.ve_gate.weight",
+            "transformer.core_block.1.attn.ve_gate.weight",
+            "transformer.coda.1.attn.ve_gate.weight"
+          ]
+        ],
+        "specified_muon_polar_dtype": "bf16",
+        "master_and_moment_dtype": "fp32"
+      }
+    },
+    {
+      "adamw_fused": true,
+      "muon_backend": null,
+      "updates": [
+        {
+          "update": 1,
+          "parameter_error_relative_to_reference_update_delta": 3.853324864906357e-07,
+          "maximum_absolute_parameter_difference": 2.9802322387695312e-08,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 2,
+          "parameter_error_relative_to_reference_update_delta": 1.3091254058070772e-06,
+          "maximum_absolute_parameter_difference": 1.1920928955078125e-07,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 3,
+          "parameter_error_relative_to_reference_update_delta": 2.3455022545430347e-06,
+          "maximum_absolute_parameter_difference": 1.1920928955078125e-07,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 4,
+          "parameter_error_relative_to_reference_update_delta": 4.600061093576792e-06,
+          "maximum_absolute_parameter_difference": 2.384185791015625e-07,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 5,
+          "parameter_error_relative_to_reference_update_delta": 6.85811529175182e-06,
+          "maximum_absolute_parameter_difference": 2.384185791015625e-07,
+          "maximum_muon_moment_difference": 0.0
+        }
+      ],
+      "complete_state_roundtrip_and_next_update_exact": true,
+      "recipe": {
+        "identity": "parcae_muon_adamw_candidate_v1",
+        "gate_policy": "release_muon",
+        "groups": [
+          [
+            "transformer.wte.weight",
+            "transformer.prelude.0.norm_1.weight",
+            "transformer.prelude.0.norm_2.weight",
+            "transformer.prelude.1.norm_1.weight",
+            "transformer.prelude.1.norm_2.weight",
+            "transformer.core_block.0.norm_1.weight",
+            "transformer.core_block.0.norm_2.weight",
+            "transformer.core_block.1.norm_1.weight",
+            "transformer.core_block.1.norm_2.weight",
+            "transformer.coda.0.norm_1.weight",
+            "transformer.coda.0.norm_2.weight",
+            "transformer.coda.1.norm_1.weight",
+            "transformer.coda.1.norm_2.weight",
+            "transformer.adapter.A_log",
+            "transformer.adapter.dt_bias",
+            "transformer.adapter.B",
+            "transformer.C.weight",
+            "transformer.ln_prelude.weight",
+            "transformer.ln_f.weight",
+            "value_embeds.1.weight",
+            "value_embeds.3.weight",
+            "value_embeds.5.weight"
+          ],
+          [
+            "transformer.prelude.0.attn.c_q.weight",
+            "transformer.prelude.0.attn.c_k.weight",
+            "transformer.prelude.0.attn.c_v.weight",
+            "transformer.prelude.0.attn.c_proj.weight",
+            "transformer.prelude.1.attn.c_q.weight",
+            "transformer.prelude.1.attn.c_k.weight",
+            "transformer.prelude.1.attn.c_v.weight",
+            "transformer.prelude.1.attn.c_proj.weight",
+            "transformer.core_block.0.attn.c_q.weight",
+            "transformer.core_block.0.attn.c_k.weight",
+            "transformer.core_block.0.attn.c_v.weight",
+            "transformer.core_block.0.attn.c_proj.weight",
+            "transformer.core_block.1.attn.c_q.weight",
+            "transformer.core_block.1.attn.c_k.weight",
+            "transformer.core_block.1.attn.c_v.weight",
+            "transformer.core_block.1.attn.c_proj.weight",
+            "transformer.coda.0.attn.c_q.weight",
+            "transformer.coda.0.attn.c_k.weight",
+            "transformer.coda.0.attn.c_v.weight",
+            "transformer.coda.0.attn.c_proj.weight",
+            "transformer.coda.1.attn.c_q.weight",
+            "transformer.coda.1.attn.c_k.weight",
+            "transformer.coda.1.attn.c_v.weight",
+            "transformer.coda.1.attn.c_proj.weight"
+          ],
+          [
+            "transformer.prelude.0.mlp.fc.weight",
+            "transformer.prelude.1.mlp.fc.weight",
+            "transformer.core_block.0.mlp.fc.weight",
+            "transformer.core_block.1.mlp.fc.weight",
+            "transformer.coda.0.mlp.fc.weight",
+            "transformer.coda.1.mlp.fc.weight"
+          ],
+          [
+            "transformer.prelude.0.mlp.proj.weight",
+            "transformer.prelude.1.mlp.proj.weight",
+            "transformer.core_block.0.mlp.proj.weight",
+            "transformer.core_block.1.mlp.proj.weight",
+            "transformer.coda.0.mlp.proj.weight",
+            "transformer.coda.1.mlp.proj.weight"
+          ],
+          [
+            "transformer.prelude.1.attn.ve_gate.weight",
+            "transformer.core_block.1.attn.ve_gate.weight",
+            "transformer.coda.1.attn.ve_gate.weight"
+          ]
+        ],
+        "specified_muon_polar_dtype": "bf16",
+        "master_and_moment_dtype": "fp32"
+      }
+    },
+    {
+      "adamw_fused": true,
+      "muon_backend": "aot_eager",
+      "updates": [
+        {
+          "update": 1,
+          "parameter_error_relative_to_reference_update_delta": 3.853324864906357e-07,
+          "maximum_absolute_parameter_difference": 2.9802322387695312e-08,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 2,
+          "parameter_error_relative_to_reference_update_delta": 1.3091254058070772e-06,
+          "maximum_absolute_parameter_difference": 1.1920928955078125e-07,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 3,
+          "parameter_error_relative_to_reference_update_delta": 2.3455022545430347e-06,
+          "maximum_absolute_parameter_difference": 1.1920928955078125e-07,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 4,
+          "parameter_error_relative_to_reference_update_delta": 4.600061093576792e-06,
+          "maximum_absolute_parameter_difference": 2.384185791015625e-07,
+          "maximum_muon_moment_difference": 0.0
+        },
+        {
+          "update": 5,
+          "parameter_error_relative_to_reference_update_delta": 6.85811529175182e-06,
+          "maximum_absolute_parameter_difference": 2.384185791015625e-07,
+          "maximum_muon_moment_difference": 0.0
+        }
+      ],
+      "complete_state_roundtrip_and_next_update_exact": true,
+      "recipe": {
+        "identity": "parcae_muon_adamw_candidate_v1",
+        "gate_policy": "release_muon",
+        "groups": [
+          [
+            "transformer.wte.weight",
+            "transformer.prelude.0.norm_1.weight",
+            "transformer.prelude.0.norm_2.weight",
+            "transformer.prelude.1.norm_1.weight",
+            "transformer.prelude.1.norm_2.weight",
+            "transformer.core_block.0.norm_1.weight",
+            "transformer.core_block.0.norm_2.weight",
+            "transformer.core_block.1.norm_1.weight",
+            "transformer.core_block.1.norm_2.weight",
+            "transformer.coda.0.norm_1.weight",
+            "transformer.coda.0.norm_2.weight",
+            "transformer.coda.1.norm_1.weight",
+            "transformer.coda.1.norm_2.weight",
+            "transformer.adapter.A_log",
+            "transformer.adapter.dt_bias",
+            "transformer.adapter.B",
+            "transformer.C.weight",
+            "transformer.ln_prelude.weight",
+            "transformer.ln_f.weight",
+            "value_embeds.1.weight",
+            "value_embeds.3.weight",
+            "value_embeds.5.weight"
+          ],
+          [
+            "transformer.prelude.0.attn.c_q.weight",
+            "transformer.prelude.0.attn.c_k.weight",
+            "transformer.prelude.0.attn.c_v.weight",
+            "transformer.prelude.0.attn.c_proj.weight",
+            "transformer.prelude.1.attn.c_q.weight",
+            "transformer.prelude.1.attn.c_k.weight",
+            "transformer.prelude.1.attn.c_v.weight",
+            "transformer.prelude.1.attn.c_proj.weight",
+            "transformer.core_block.0.attn.c_q.weight",
+            "transformer.core_block.0.attn.c_k.weight",
+            "transformer.core_block.0.attn.c_v.weight",
+            "transformer.core_block.0.attn.c_proj.weight",
+            "transformer.core_block.1.attn.c_q.weight",
+            "transformer.core_block.1.attn.c_k.weight",
+            "transformer.core_block.1.attn.c_v.weight",
+            "transformer.core_block.1.attn.c_proj.weight",
+            "transformer.coda.0.attn.c_q.weight",
+            "transformer.coda.0.attn.c_k.weight",
+            "transformer.coda.0.attn.c_v.weight",
+            "transformer.coda.0.attn.c_proj.weight",
+            "transformer.coda.1.attn.c_q.weight",
+            "transformer.coda.1.attn.c_k.weight",
+            "transformer.coda.1.attn.c_v.weight",
+            "transformer.coda.1.attn.c_proj.weight"
+          ],
+          [
+            "transformer.prelude.0.mlp.fc.weight",
+            "transformer.prelude.1.mlp.fc.weight",
+            "transformer.core_block.0.mlp.fc.weight",
+            "transformer.core_block.1.mlp.fc.weight",
+            "transformer.coda.0.mlp.fc.weight",
+            "transformer.coda.1.mlp.fc.weight"
+          ],
+          [
+            "transformer.prelude.0.mlp.proj.weight",
+            "transformer.prelude.1.mlp.proj.weight",
+            "transformer.core_block.0.mlp.proj.weight",
+            "transformer.core_block.1.mlp.proj.weight",
+            "transformer.coda.0.mlp.proj.weight",
+            "transformer.coda.1.mlp.proj.weight"
+          ],
+          [
+            "transformer.prelude.1.attn.ve_gate.weight",
+            "transformer.core_block.1.attn.ve_gate.weight",
+            "transformer.coda.1.attn.ve_gate.weight"
+          ]
+        ],
+        "specified_muon_polar_dtype": "bf16",
+        "master_and_moment_dtype": "fp32"
+      }
+    }
+  ],
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "scope": "Five prescribed gradient updates per CPU implementation and exact nested-state restoration/next step. Numerical software fixtures only; no model learning, native arithmetic, distributed recovery or throughput qualification. Gate policy explicitly follows released code.",
+  "wall_seconds_after_imports": 1.963383436203003
+}

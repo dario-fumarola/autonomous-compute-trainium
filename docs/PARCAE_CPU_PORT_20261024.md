@@ -68,3 +68,8 @@ the specified optimizer on the native backend after the current scientific
 campaign releases its chips. Do not replace per-sequence sampling with a new
 depth policy without declaring that adaptation. No large new fit, new TEST
 access or terminal confirmation attempt is registered here.
+
+Subsequent CPU work has qualified the optimizer and static AOT stages and
+prepared independent complete256-window TRAIN gradients. A separate native
+qualification is queued after the current scientific fit; it is still not a
+learning result. [Updated preparation and cost scope](PARCAE_OPTIMIZER_AND_STAGES_20261024.md).

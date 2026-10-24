@@ -1,0 +1,53 @@
+{
+  "identity": "parcae-native-global-v1",
+  "registered_unix": 1792863231.3420362,
+  "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+  "source_sha256": {
+    "scripts/prepare_parcae_native_reference.py": "7910efda45c92c0ddf41c984e4f4cc86f07b50573432670524e8bfc02a6a5ac0",
+    "scripts/qualify_parcae_candidate_cpu.py": "f1f8cf41b9ce3c817ecebd5cb4c7e3ebbe07e323aca21406c3846ef81313c3e7",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/stable_recurrence_candidate.py": "3bf06aba0d1afa097d8ff7dae2fc86fba05437e673cc25695dcee314230cc3a5",
+    "docs/PARCAE_NATIVE_GRADIENT_PROTOCOL_20261024.md": "27dabe938276083abfb947caca66ffac9266c9792e0b1369e47097f99a116c50"
+  },
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "source_corpus_sha256": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+  "packed_manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+  "data_seed": 23,
+  "routing_seed": 271828,
+  "source_cursor": 0,
+  "source_windows": 256,
+  "model_seed": 743,
+  "numerical_weight_perturbation_std": 0.01,
+  "recurrent_forward_steps": 4,
+  "recurrent_backward_cap": 2,
+  "native_ranks_per_job": 32,
+  "batch": 1,
+  "accumulation": 8,
+  "context": 1024,
+  "gradient_gate": 0.02,
+  "nll_gate": 0.003,
+  "cpu_deadline_unix": 1792865931.3360395,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "CPU reference preparation for a subsequent bounded native gradient-only qualification. No permission to interrupt the active campaign or launch scientific training.",
+  "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+  "real_targets": 261664,
+  "initial_state_file_sha256": "0530fb7039984f2ffd5a7a15b1f37d67ec2af705610c87b4833f745841cd7d59",
+  "domain_real_targets": {
+    "web": 155439,
+    "math": 53049,
+    "code": 53176
+  }
+}

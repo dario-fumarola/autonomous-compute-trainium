@@ -1,6 +1,6 @@
 {
   "status": "LIVE_OBSERVATION",
-  "observed_unix": 1792861791.229083,
+  "observed_unix": 1792865421.9285614,
   "closed_attempts": [
     {
       "identity": "depth-connection-v1-fixed-tune-lr0-s11",
@@ -17,39 +17,70 @@
       "assigned_chip_hours": 0.19372125731574164,
       "whole_instance_opportunity_chip_hours": 0.38744251463148327,
       "report_exists": true
+    },
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr1-s11",
+      "exit_code": 0,
+      "wall_seconds": 2018.4812524318695,
+      "assigned_chip_hours": 4.485513894293043,
+      "whole_instance_opportunity_chip_hours": 8.971027788586087,
+      "report_exists": true
+    },
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr1-s11-tune-r2",
+      "exit_code": 0,
+      "wall_seconds": 83.161048412323,
+      "assigned_chip_hours": 0.18480232980516223,
+      "whole_instance_opportunity_chip_hours": 0.36960465961032446,
+      "report_exists": true
+    },
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr2-s11",
+      "exit_code": 0,
+      "wall_seconds": 2023.1334097385406,
+      "assigned_chip_hours": 4.495852021641201,
+      "whole_instance_opportunity_chip_hours": 8.991704043282402,
+      "report_exists": true
+    },
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr2-s11-tune-r2",
+      "exit_code": 0,
+      "wall_seconds": 82.5473690032959,
+      "assigned_chip_hours": 0.183438597785102,
+      "whole_instance_opportunity_chip_hours": 0.366877195570204,
+      "report_exists": true
     }
   ],
   "open_attempts": [
     {
-      "identity": "depth-connection-v1-fixed-tune-lr1-s11",
+      "identity": "depth-connection-v1-fixed-tune-lr3-s11",
       "assigned_chips": 8,
-      "observed_launch_seconds": 1002.5063364505768,
+      "observed_launch_seconds": 395.75765562057495,
       "last_logged_training_update": {
-        "update": 520,
-        "real_tokens": 136078208,
-        "lr": 0.0006,
-        "rank0_scaled_nll": 3.754028182228133,
-        "gradient_norm": 0.3908151388168335,
-        "elapsed_seconds": 962.6920187290525
-      },
-      "rolling200_update_targets_per_second": 163600.2454764288
+        "update": 140,
+        "real_tokens": 36636094,
+        "lr": 0.0015,
+        "rank0_scaled_nll": 5.240636798942203,
+        "gradient_norm": 0.44181951880455017,
+        "elapsed_seconds": 360.0384166869335
+      }
     },
     {
       "identity": "depth-connection-v1-reinjection-s419-u6496",
       "assigned_chips": 8,
-      "observed_launch_seconds": 3117.422644853592,
+      "observed_launch_seconds": 6748.122123241425,
       "last_logged_training_update": {
-        "update": 3112,
-        "real_tokens": 814377954,
+        "update": 5552,
+        "real_tokens": 1452894502,
         "lr": 0.001,
-        "rank0_scaled_nll": 2.380098698034062,
-        "gradient_norm": 0.17087610065937042,
-        "elapsed_seconds": 3078.2127358589787
+        "rank0_scaled_nll": 2.6143888472796473,
+        "gradient_norm": 0.1457819938659668,
+        "elapsed_seconds": 6711.0854467469035
       },
-      "rolling200_update_targets_per_second": 173870.35771217305
+      "rolling200_update_targets_per_second": 176279.68169565374
     }
   ],
-  "closed_assigned_chip_hours": 4.663925432099237,
-  "open_assigned_chip_hours_so_far": 9.155397736231485,
+  "closed_assigned_chip_hours": 14.013532275623746,
+  "open_assigned_chip_hours_so_far": 15.87528839747111,
   "scope": "Read-only receipt/update observations, not new training or held-out evidence. Rank-zero logged NLL is not aggregate DEV. Rolling rates are not controlled performance qualification. Other campaigns overlap; do not add their wall intervals as sequential reservation time. CPU work has separate receipts."
 }

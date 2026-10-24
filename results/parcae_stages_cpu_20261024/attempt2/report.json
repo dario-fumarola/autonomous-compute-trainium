@@ -1,0 +1,56 @@
+{
+  "status": "PASS_CPU_FULLGRAPH_STATIC_STAGES_AND_AUTOGRAD",
+  "records": [
+    {
+      "recurrent": false,
+      "forward_steps": 1,
+      "backward_cap": 1,
+      "maximum_logit_difference": 0.0,
+      "full_gradient_relative_l2": 0.0,
+      "checkpoint_parameter_names_unchanged": true
+    },
+    {
+      "recurrent": true,
+      "forward_steps": 1,
+      "backward_cap": 1,
+      "maximum_logit_difference": 0.0,
+      "full_gradient_relative_l2": 0.0,
+      "checkpoint_parameter_names_unchanged": true
+    },
+    {
+      "recurrent": true,
+      "forward_steps": 2,
+      "backward_cap": 2,
+      "maximum_logit_difference": 0.0,
+      "full_gradient_relative_l2": 0.0,
+      "checkpoint_parameter_names_unchanged": true
+    },
+    {
+      "recurrent": true,
+      "forward_steps": 4,
+      "backward_cap": 2,
+      "maximum_logit_difference": 0.0,
+      "full_gradient_relative_l2": 0.0,
+      "checkpoint_parameter_names_unchanged": true
+    },
+    {
+      "recurrent": true,
+      "forward_steps": 3,
+      "backward_cap": 1,
+      "maximum_logit_difference": 0.0,
+      "full_gradient_relative_l2": 0.0,
+      "checkpoint_parameter_names_unchanged": true
+    }
+  ],
+  "source_sha256": {
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/stable_recurrence_candidate.py": "3bf06aba0d1afa097d8ff7dae2fc86fba05437e673cc25695dcee314230cc3a5",
+    "scripts/qualify_parcae_stages_cpu.py": "a50cb36c13f030ad0066ee5a4189dc6a81f3e9abd4cbd05f4c99610d5cb1983c"
+  },
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "optimizer_updates": 0,
+  "scope": "AOT-eager CPU compiler with fullgraph=True/dynamic=False on each fixed-shape stage. Host loop counts vary without compiling a different whole unroll. Same model function/parameters and tail truncation. No native compilation, per-sequence DDP, throughput or model quality claim.",
+  "wall_seconds_after_imports": 10.438470363616943
+}

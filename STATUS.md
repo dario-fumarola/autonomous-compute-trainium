@@ -1,4 +1,4 @@
-# Status — 2026-10-24, 17:09 UTC
+# Status — 2026-10-24, 18:10 UTC
 
 **All16 chips are taking scientific updates in the registered common-FP32
 depth/connection comparison.** Eight chips continue the inexpensive-connection
@@ -14,10 +14,10 @@ No fresh confirmation panel or terminal alpha is used.
 The independent-audit observer and registered descriptive readout are running;
 they will write the endpoint comparison automatically after all audits pass.
 All47 frozen scientific source hashes remain unchanged.
-The first fixed LR candidate completed301M targets and native TUNE scoring
-(3.072932 nats at3e-4); the remaining candidates are pending. This is not the
-selected recipe or a new endpoint comparison. The connection control and
-second LR candidate are taking updates on the two eight-chip halves.
+Three fixed LR candidates completed301M targets and native TUNE scoring:
+3.072932 at3e-4,2.946779 at6e-4 and2.974434 at1e-3. The1.5e-3 candidate is
+pending. This is not the selected recipe or a new endpoint comparison. The
+connection resource control and fourth LR candidate are taking updates.
 
 **The paired 3B FP32 continuation is complete and independently audited.** At
 3,014,637,826 real targets, ordinary DEV NLL is **2.405907** and fixed two-pass
@@ -145,7 +145,7 @@ gradients incorrectly. Its repaired, independently checked fixture gives5.13e-7
 relative gradient error and zero loss difference, with the original failure and
 a regression test preserved. These are numerical diagnostics, not learning gains.
 
-The 111-test CPU suite passes after the latest source changes. Natural sources
+The 120-test CPU suite passes after the latest source changes. Natural sources
 only; no synthetic research corpus, external teacher, RL or larger model.
 All failed/stopped jobs, tuning, qualification, compilation, data preparation
 and CPU tails retain separate receipts. Concurrent intervals must not be added
@@ -170,7 +170,29 @@ gradients match the pinned reference exactly in seven checked cases, with
 causal masking and an independently counted, head-inclusive matmul ledger.
 The final measured CPU attempt takes22.07s,3.47GiB peak RSS and zero chips or
 optimizer updates. This is numerical preparation, not a learning result.
-The111-test suite includes inventory, truncation, causality and executed-work
+The CPU suite includes inventory, truncation, causality and executed-work
 regressions. Native graphs, sampled-depth DDP, optimizer, recovery and throughput
 remain qualification gates; the active trainer does not import this candidate.
 [Port scope and evidence](docs/PARCAE_CPU_PORT_20261024.md).
+
+**Parcae preparation now includes CPU optimizer/recovery, static-stage AOT and
+independent complete256-window TRAIN gradient references.** The reference work
+uses261,664 real targets per model and takes448.09s from launch to report, with
+zero chips or learning updates. CPU optimizer update differences stay below
+6.88e-6 relative to reference-step size, with exact Muon moments and complete
+nested-state replay. A report-writer failure remains preserved. Native behavior,
+sampled-depth DDP, actual optimizer learning and throughput are still unqualified.
+
+The paired native gradient gate is registered and queued behind completion of
+depth-connection-v1, with no chip reservation while waiting. It has a30-minute
+cap, local/global2% gradient gates and latest start01:00 UTC October25. Revision2
+fixes an unstarted scheduler's late-readiness cutoff ordering; the canceled
+zero-chip plan/source and receipt are preserved. Its12 source hashes are frozen
+separately from the47 scientific files. Do not change either active bundle.
+
+The executed-work audit finds Muon matrix updates add21.69% to ordinary neural
+matmuls at32 ranks/global256 windows;64 ranks at the same batch doubles that
+overhead. This is matrix work, not a latency estimate. New budgets must include
+optimizer matmuls and measured time; old reports retain their declared scopes.
+[Preparation, receipts and accounting](docs/PARCAE_OPTIMIZER_AND_STAGES_20261024.md) ·
+[Native queue status](results/parcae_native_global_20261024/native-status.json).

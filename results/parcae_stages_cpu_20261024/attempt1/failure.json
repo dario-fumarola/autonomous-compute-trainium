@@ -1,0 +1,10 @@
+{
+  "status": "FAILED_CPU_QUALIFICATION_REPORT_WRITE",
+  "error": "AttributeError: 'Parameter' object has no attribute 'output'",
+  "cause": "The parameter-comparison loop reused the argparse variable name. The calculations finished, but the output-directory reference was lost before report writing.",
+  "repair": "Use an independent args variable; rerun in attempt2 with complete execution receipts.",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "exact_wall_receipt_available": false,
+  "scope": "CPU software qualification helper only. The running hardware campaign and its frozen sources are unchanged. No numerical result from this failed report is substituted for a successful qualification."
+}

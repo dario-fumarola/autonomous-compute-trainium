@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETE_INDEPENDENT_PARCAE_CPU_GLOBAL_REFERENCES",
+  "records": [
+    {
+      "arm": "ordinary",
+      "parameters": 140781888,
+      "real_targets": 261664,
+      "local_port_reference_gradient_relative_l2": 0.0,
+      "local_port_reference_logit_max_error": 0.0,
+      "checkpoint_sha256": "3a12816088f15d56dfdc76608a1a5da45cff069387275c448be5ed1f38064aba",
+      "global_gradient_file_sha256": "876c11610292861161a0c5f640d3f5f3fce7a5831e34372f69d9c602a8759e72",
+      "cpu_fp32_training_fixture_nll": 10.575972740058576,
+      "active_seconds": 197.38399600982666
+    },
+    {
+      "arm": "recurrent",
+      "parameters": 141963840,
+      "real_targets": 261664,
+      "local_port_reference_gradient_relative_l2": 0.0,
+      "local_port_reference_logit_max_error": 0.0,
+      "checkpoint_sha256": "f80d995cc34411f0f0f5f6cc86fcda2f637be91b106b426cc20b95c4723a2363",
+      "global_gradient_file_sha256": "34d6968e78cb2439ad8dd3f249657249e35112dc7866fd23ece2ee42dc09982d",
+      "cpu_fp32_training_fixture_nll": 10.616377864211117,
+      "active_seconds": 220.98563647270203
+    }
+  ],
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "wall_seconds_including_imported_setup": 446.85576152801514,
+  "scope": "Complete256-window natural-TRAIN FP32 reference gradients from pinned independent upstream code. Numerical-only perturbed states. No learning, native execution or optimizer qualification."
+}
