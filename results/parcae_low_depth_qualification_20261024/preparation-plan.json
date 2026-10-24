@@ -1,0 +1,130 @@
+{
+  "identity": "parcae-low-depth-qualification-v1",
+  "registered_unix": 1792873565.2305377,
+  "source_sha256": {
+    "scripts/prepare_parcae_low_depth_qualification.py": "7e23f5d31c9196da008d87fba12c16771affd4075e6b29bd0e051d3b501561fb",
+    "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "scripts/qualify_parcae_candidate_cpu.py": "f1f8cf41b9ce3c817ecebd5cb4c7e3ebbe07e323aca21406c3846ef81313c3e7"
+  },
+  "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "model_seed": 1009,
+  "state_seed": 2009,
+  "context": 1024,
+  "source_corpus_sha256": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+  "packed_manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+  "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+  "data_seed": 23,
+  "routing_seed": 271828,
+  "world": 32,
+  "batch": 1,
+  "accumulations": [
+    8,
+    16
+  ],
+  "arms": [
+    "ordinary",
+    "fixed1",
+    "poisson2"
+  ],
+  "poisson_mean": 2,
+  "backward_cap": 1,
+  "expected_clamped_poisson_depth": 2.135335283236613,
+  "warmup_updates": 20,
+  "measured_updates": 100,
+  "updates_through_probe": 121,
+  "qualification_peak_lr": 0.0001,
+  "clip": 1.0,
+  "qualification_only": true,
+  "test_accessed": false,
+  "scope": "Three-arm low-depth engine preparation after owner steering. Shared backbone tensors are identical at initialization; family fixed1/Poisson2 have exactly the same parameters and complete weights. Ordinary omits injection/readout machinery and has fewer parameters. CPU noise/depth fixtures only, no native/scientific training.",
+  "initial_states": {
+    "ordinary": {
+      "file": "initial-state-ordinary.pt",
+      "sha256": "4c0c337714445a632c44d8becb2b80de1282160a0663609518b35b726d1a80e3",
+      "model_digest": "6f274ef14bd233418a9fac78b0d851e5a73351aa5930213c4b207ea1574f465e",
+      "parameters": 140781888
+    },
+    "family": {
+      "file": "initial-state.pt",
+      "sha256": "ecd37ea195a31f60f96023e91c82bd07379c62340be208878f4841cc63e10459",
+      "model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+      "parameters": 141963840
+    }
+  },
+  "all_shared_backbone_tensors_cloned": true,
+  "cases": [
+    {
+      "arm": "ordinary",
+      "accumulation": 8,
+      "depth_table_sha256": "291d5afa16b835b69b2eccebcaf544ee5cea55186106adac6f4398c65c597495",
+      "initial_kind": "ordinary",
+      "minimum_depth": 1,
+      "maximum_depth": 1,
+      "mean_depth": 1.0,
+      "mean_backward_tail": 1.0
+    },
+    {
+      "arm": "fixed1",
+      "accumulation": 8,
+      "depth_table_sha256": "291d5afa16b835b69b2eccebcaf544ee5cea55186106adac6f4398c65c597495",
+      "initial_kind": "family",
+      "minimum_depth": 1,
+      "maximum_depth": 1,
+      "mean_depth": 1.0,
+      "mean_backward_tail": 1.0
+    },
+    {
+      "arm": "poisson2",
+      "accumulation": 8,
+      "depth_table_sha256": "5eb1040952bf8ad0ad00fa6d5abcff594d19d7e888ab035fad631191c5b7512c",
+      "initial_kind": "family",
+      "minimum_depth": 1,
+      "maximum_depth": 9,
+      "mean_depth": 2.1405927169421486,
+      "mean_backward_tail": 1.0
+    },
+    {
+      "arm": "ordinary",
+      "accumulation": 16,
+      "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+      "initial_kind": "ordinary",
+      "minimum_depth": 1,
+      "maximum_depth": 1,
+      "mean_depth": 1.0,
+      "mean_backward_tail": 1.0
+    },
+    {
+      "arm": "fixed1",
+      "accumulation": 16,
+      "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+      "initial_kind": "family",
+      "minimum_depth": 1,
+      "maximum_depth": 1,
+      "mean_depth": 1.0,
+      "mean_backward_tail": 1.0
+    },
+    {
+      "arm": "poisson2",
+      "accumulation": 16,
+      "depth_table_sha256": "b60758ec9cd628ed227a58221de76ec5e5403ffba0eb056ef02955e7c952db43",
+      "initial_kind": "family",
+      "minimum_depth": 1,
+      "maximum_depth": 10,
+      "mean_depth": 2.1351368801652892,
+      "mean_backward_tail": 1.0
+    }
+  ]
+}

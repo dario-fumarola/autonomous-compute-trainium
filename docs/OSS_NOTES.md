@@ -192,3 +192,28 @@ recommends BF16. FP16 with explicit loss scaling could be a bounded future
 CPU-gradient screen; actual operator accuracy, underflow/overflow, native support,
 complete-state recovery and throughput are unqualified. No FP16 model update,
 backend change or new qualification is launched by this note.
+
+## October24: Muon BF16 compiled/eager numerical discrepancy
+
+The new Parcae optimizer fails its registered actual-update gate before any
+scientific use. Compiled BF16 Muon differs from independent CPU updates by
+10.26–10.44%; eager BF16 reduces that to0.94–2.32% but still misses the unchanged
+2% gate on the signed third fixture. AdamW agrees and every replica is identical.
+The large embedding update would hide this in an aggregate-only error check.
+
+The [checkpoint-free stage reproducer](../scripts/repro_muon_polar_precision.py)
+compares same-version Torch2.14 CPU eager, native eager and native compiled
+outputs for four matrix geometries. Momentum agrees exactly. BF16 compiled
+normalization differs before the polynomial loop; the difference grows through
+the loop. Diagnostic FP32 polar outputs agree within0.011% in these fixtures.
+No unexpected fallback occurs. These are numerical arrays, not a research corpus.
+[Stage evidence](../results/muon_polar_diagnosis_20261024/REPORT.md) ·
+[Complete-update failure](../results/parcae_early_optimizer_20261024/REPORT.md) ·
+[Eager failure](../results/parcae_eager_optimizer_20261024/REPORT.md).
+
+This identifies a reproducible execution-mode difference, not its compiler-pass
+cause or an established PyTorch contract violation. A potential contribution is
+clearer compiled BF16 accuracy guidance or a precision-preserving option for
+sensitive polynomial optimizers. No SDK patch, upstream message, issue or PR has
+been submitted. A prospective FP32-polar optimizer is an explicitly different
+recipe and must pass independent update/recovery/performance gates before use.

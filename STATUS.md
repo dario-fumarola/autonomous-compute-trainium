@@ -1,26 +1,55 @@
-# Status — 2026-10-24, 19:07 UTC
+# Status — 2026-10-24, 20:58 UTC
 
-**All16 chips are taking updates in the remaining common-FP32 fits:** ordinary's
-1.700B resource control and fixed recurrence's1.005B endpoint. The
-inexpensive-connection resource control has completed
-1,699,926,288 targets and its planned decay. Independent full-DEV NLL is
-2.477058137,7.13e-7 above native; full-state copy/readback passes. Fixed's
-four-candidate LR screen and selected6e-4 independent CPU audit pass. Same
-initialization, natural target order, FP32 arithmetic and optimizer
-recipe isolate the extra core execution beyond the trained cheap connection.
-The estimated window is6.78hours, with23:00 UTC training /00:00 hard cutoffs.
-No fresh confirmation panel or terminal alpha is used.
+**The common-FP32 fixed endpoint and inexpensive-connection compute control are
+complete and independently audited; ordinary1.700B is still taking updates.**
+Fixed two-pass NLL is2.578226554 at1,004,887,590 natural targets. At the same
+exposure and initial seed419, the earlier cheap connection scores2.574477293
+and ordinary2.606832753. Thus fixed improves ordinary by0.028606199 but is
+0.003749261 worse than the cheap connection in this one paired descriptive DEV
+comparison. No training-seed significance or broad architectural negative follows.
+The cheap1.700B control scores2.477058137. Both new endpoint copy/readback audits
+pass; native/CPU differences are below7.25e-7. The remaining ordinary resource
+control is completing its own decay. All47 frozen scientific files are unchanged.
+The registered final readout waits for its endpoint and audit; no fresh panel or
+terminal alpha is used.
 [Protocol](docs/DEPTH_CONNECTION_PROTOCOL_20261024.md) ·
-[Frozen plan](results/depth_connection_20261024/plan.json) ·
-[Actual-update observations](results/depth_connection_20261024/live-observation.json).
-The independent-audit observer and registered descriptive readout are running;
-they will write the endpoint comparison automatically after all audits pass.
-All47 frozen scientific source hashes remain unchanged.
-All four fixed LR candidates completed301M targets and native TUNE scoring:
-3.072932 at3e-4,2.946779 at6e-4,2.974434 at1e-3 and2.997060 at1.5e-3.
-The independent endpoint readout is partial: ordinary1.7B and fixed1B remain
-pending. No gain or significance is inferred from the completed control alone.
-[Partial independent audit](results/depth_connection_20261024/partial-independent-cpu.json).
+[Live work](results/depth_connection_20261024/live-observation.json) ·
+[Independent audits](results/depth_connection_20261024/partial-independent-cpu.json).
+
+**Next experiment: a small2-block core at low depth, with strong one-pass
+controls.** CPU preparation passes for recipe-matched ordinary, true one-pass
+Parcae and sampled lambda2/minimum1/last1-gradient Parcae. All shared backbone
+weights are cloned; one-pass and recurrent family have identical complete
+initial weights and141.96M parameters. Expected executed depth is2.135335.
+The earlier eight-pass CPU preparation is preserved but never launched natively.
+The new charter anchors each main arm to the old ordinary1.700B complete work
+budget, charges replicated Muon matrix work, reserves one controlled full-gradient
+follow-up and specifies an authentic-code distant-context diagnostic. Final
+throughput, endpoint/tuning allowances and a scientific launch remain pending.
+[Scientific charter](docs/LOW_DEPTH_SCIENTIFIC_PILOT_20261024.md) ·
+[Prepared engine](results/parcae_low_depth_qualification_20261024/REPORT.md).
+
+**The spare-chip optimizer check found a real qualification failure before
+scientific use.** Three prescribed actual-shape updates agree across32 replicas,
+with AdamW error below6.14e-6, but Muon updates differ from independent CPU by
+10.26–10.44%, above the frozen2% family gate. The unstarted optimizer, FP16 and
+training-engine queues are suspended with zero native phases; all source freezes
+are preserved. The separate FP32 zero-update gradient queue remains waiting
+behind the scientific campaign.
+
+A same-version CPU/native eager/compiled numerical trace narrows the discrepancy
+to BF16 polar arithmetic: compiled normalization already differs, and subsequent
+polynomial steps amplify the difference. FP32 polar tracing agrees closely.
+This is not evidence of a training-quality effect or a diagnosed compiler pass.
+The bounded eager-BF16 check improves errors to1.05%,0.94%,2.32% but still fails
+the unchanged gate on its signed third step. An explicitly changed FP32-polar
+variant now has passing CPU unit/recovery checks; independent actual-shape CPU
+vectors are being prepared before native use. Every future arm would use that
+same qualified policy, with the deviation and measured costs disclosed. The ordinary scientific run
+uses its unchanged, previously qualified optimizer on the other eight chips.
+[Early failure](results/parcae_early_optimizer_20261024/REPORT.md) ·
+[Checkpoint-free diagnosis](results/muon_polar_diagnosis_20261024/REPORT.md) ·
+[Eager failure](results/parcae_eager_optimizer_20261024/REPORT.md).
 
 **The paired 3B FP32 continuation is complete and independently audited.** At
 3,014,637,826 real targets, ordinary DEV NLL is **2.405907** and fixed two-pass
@@ -148,7 +177,7 @@ gradients incorrectly. Its repaired, independently checked fixture gives5.13e-7
 relative gradient error and zero loss difference, with the original failure and
 a regression test preserved. These are numerical diagnostics, not learning gains.
 
-The 130-test CPU suite passes after the latest source changes. Natural sources
+The 143-test CPU suite passes after the latest source changes. Natural sources
 only; no synthetic research corpus, external teacher, RL or larger model.
 All failed/stopped jobs, tuning, qualification, compilation, data preparation
 and CPU tails retain separate receipts. Concurrent intervals must not be added
@@ -204,7 +233,7 @@ Actual-shape Parcae CPU optimizer vectors now pass for both models: three
 prescribed updates against the independent released algorithm, maximum update
 relative error1.65204e-6 and named-moment error4.72221e-8. This takes124.485s
 with zero chips and zero research updates. An initial report-directory failure
-is preserved. A separate bounded native optimizer/recovery queue waits behind
+is preserved. A separate bounded native optimizer/recovery queue was registered behind
 the native-gradient pass; it cannot displace the scientific campaign. Revision2
 corrects an unstarted capture's buffer/tied-alias inventory before any native
 attempt. CPU vectors and optimizer algorithm are unchanged. Its update/moment
@@ -228,7 +257,7 @@ with every named family below2%. Three CPU tests cover disabled-policy function
 identity, master/head/gradient dtypes and static-stage AOT. Wall time143.435s,
 zero chips/updates. No scientific model or running precision policy changed.
 
-Its zero-update native gradient queue waits for the preceding FP32-gradient
+Its now-suspended zero-update native gradient queue was registered to wait for the preceding FP32-gradient
 and optimizer/recovery gates to pass, then uses all16 chips with a30-minute
 cap and latest start03:00 UTC October25. Waiting assigns no chips. Original
 CPU references remain authoritative; full global/local gradient families,

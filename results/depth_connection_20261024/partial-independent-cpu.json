@@ -43,7 +43,50 @@
       "copy_checksum_and_full_state_readback": true,
       "targets": 754750,
       "active_seconds": 245.22836422920227
+    },
+    {
+      "identity": "depth-connection-v1-fixed-s419-u3840",
+      "arm": "fixed",
+      "seed": 419,
+      "endpoint": "1B",
+      "depth": 2,
+      "training_real_targets": 1004887590,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 773879.0374523689,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0668472616079643
+          },
+          "code": {
+            "nll_sum": 360431.29266143654,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.435781037151937
+          },
+          "math": {
+            "nll_sum": 566809.6148364886,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2548099469185394
+          }
+        },
+        "weighted_nll": 2.5782265537788738,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": 7.240568100641553e-07,
+      "checkpoint_sha256": "df0626e0486a9aea52dbea38287cb4ed9cd80cfc33f167fa2357127c19aaf597",
+      "full_state_serialized_digest": "bc34d99283c5aee675de35a5f4ff92dd09dc12161cb251f02a205498b693eed9",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 754750,
+      "active_seconds": 397.12114119529724
     }
   ],
-  "scope": "One completed canonical endpoint so far; remaining registered endpoints are pending. Active CPU seconds are per record; observer wall time includes waiting and overlaps native training. No new scoring panel or terminal attempt."
+  "scope": "Two completed canonical endpoints audited; ordinary matched-work endpoint remains pending. CPU times are per record and overlap native training. One paired consumed DEV diagnostic, no terminal attempt."
 }

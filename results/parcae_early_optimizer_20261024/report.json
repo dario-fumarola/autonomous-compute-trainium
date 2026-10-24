@@ -1,0 +1,139 @@
+{
+  "status": "FAILED_EARLY_OPTIMIZER_ARITHMETIC_SCREEN",
+  "comparisons": {
+    "updates": [
+      {
+        "update": 1,
+        "update_comparison": {
+          "relative_l2": 0.002492704026351713,
+          "maximum_absolute_error": 0.0008563995361328125,
+          "reference_l2": 61.08654715361066,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 0.0024422345915737953,
+          "maximum_absolute_error": 0.0007434177678078413,
+          "reference_l2": 0.8326080191654825
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 3.2591914427248685e-06,
+              "maximum_absolute_error": 4.76837158203125e-07,
+              "reference_l2": 61.06914488910809,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 8.388291962487323e-08,
+              "maximum_absolute_error": 1.862645149230957e-09,
+              "reference_l2": 0.4687173677986174
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 0.10443743215611129,
+              "maximum_absolute_error": 0.0008563995361328125,
+              "reference_l2": 1.4580074291378993,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 0.0029549461255781754,
+              "maximum_absolute_error": 0.0007434177678078413,
+              "reference_l2": 0.6881425308049229
+            }
+          }
+        }
+      },
+      {
+        "update": 2,
+        "update_comparison": {
+          "relative_l2": 0.0025001113861718486,
+          "maximum_absolute_error": 0.0005967020988464355,
+          "reference_l2": 41.69409798198994,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 0.003009297388226273,
+          "maximum_absolute_error": 0.0009535159915685654,
+          "reference_l2": 1.206913817164394
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 3.4991576547834252e-06,
+              "maximum_absolute_error": 4.76837158203125e-07,
+              "reference_l2": 41.682000220797136,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 9.088615314022863e-08,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.7265112510089022
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 0.10379112711653564,
+              "maximum_absolute_error": 0.0005967020988464355,
+              "reference_l2": 1.0043227196700515,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 0.00376855654071534,
+              "maximum_absolute_error": 0.0009535159915685654,
+              "reference_l2": 0.9637543069786033
+            }
+          }
+        }
+      },
+      {
+        "update": 3,
+        "update_comparison": {
+          "relative_l2": 0.005990397043539466,
+          "maximum_absolute_error": 0.0003725886344909668,
+          "reference_l2": 11.751770322968987,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 0.005480636843465745,
+          "maximum_absolute_error": 0.001256073359400034,
+          "reference_l2": 0.87388443658442
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 6.1373479999876724e-06,
+              "maximum_absolute_error": 4.76837158203125e-07,
+              "reference_l2": 11.731722396236892,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 1.2654520773844643e-07,
+              "maximum_absolute_error": 2.7939677238464355e-09,
+              "reference_l2": 0.3468791422781397
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 0.10259887477978161,
+              "maximum_absolute_error": 0.0003725886344909668,
+              "reference_l2": 0.6861452772178211,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 0.0059712019534002465,
+              "maximum_absolute_error": 0.001256073359400034,
+              "reference_l2": 0.8020903123444713
+            }
+          }
+        }
+      }
+    ]
+  },
+  "actual_optimizer_calls_per_replica": 3,
+  "all_complete_replica_states_equal": true,
+  "research_optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "Independent optimizer-only screening on the scientifically released eight-chip half. Reuses frozen native capture and existing independent CPU vectors. No language-model forward/backward, source exposure, full recovery qualification or scientific recipe change. The planned complete paired gates remain unchanged.",
+  "wall_seconds": 138.35957384109497
+}

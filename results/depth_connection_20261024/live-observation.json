@@ -1,7 +1,23 @@
 {
   "status": "LIVE_OBSERVATION",
-  "observed_unix": 1792868782.5784328,
+  "observed_unix": 1792875504.09291,
   "closed_attempts": [
+    {
+      "identity": "depth-connection-v1-fixed-s419-u3840",
+      "exit_code": 0,
+      "wall_seconds": 6338.119225263596,
+      "assigned_chip_hours": 14.084709389474657,
+      "whole_instance_opportunity_chip_hours": 28.169418778949314,
+      "report_exists": true
+    },
+    {
+      "identity": "depth-connection-v1-fixed-s419-u3840-curve-r2",
+      "exit_code": 0,
+      "wall_seconds": 82.1938099861145,
+      "assigned_chip_hours": 0.18265291108025444,
+      "whole_instance_opportunity_chip_hours": 0.3653058221605089,
+      "report_exists": true
+    },
     {
       "identity": "depth-connection-v1-fixed-tune-lr0-s11",
       "exit_code": 0,
@@ -85,35 +101,21 @@
   ],
   "open_attempts": [
     {
-      "identity": "depth-connection-v1-fixed-s419-u3840",
-      "assigned_chips": 8,
-      "observed_launch_seconds": 1275.8447966575623,
-      "last_logged_training_update": {
-        "update": 690,
-        "real_tokens": 180565034,
-        "lr": 0.0006,
-        "rank0_scaled_nll": 3.4321570761785347,
-        "gradient_norm": 0.35264942049980164,
-        "elapsed_seconds": 1246.0547616500407
-      },
-      "rolling200_update_targets_per_second": 163605.69312949313
-    },
-    {
       "identity": "depth-connection-v1-ordinary-s419-u6496",
       "assigned_chips": 8,
-      "observed_launch_seconds": 1274.3958432674408,
+      "observed_launch_seconds": 7995.910320520401,
       "last_logged_training_update": {
-        "update": 1882,
-        "real_tokens": 492500002,
-        "lr": 0.0006,
-        "rank0_scaled_nll": 3.0293479049969814,
-        "gradient_norm": 0.1971115618944168,
-        "elapsed_seconds": 1240.7540537309833
+        "update": 6392,
+        "real_tokens": 1672711256,
+        "lr": 9.339654063186229e-05,
+        "rank0_scaled_nll": 2.779972379121635,
+        "gradient_norm": 0.1513320952653885,
+        "elapsed_seconds": 7957.260277378024
       },
-      "rolling200_update_targets_per_second": 176048.30881639718
+      "rolling200_update_targets_per_second": 177332.4614808024
     }
   ],
-  "closed_assigned_chip_hours": 36.972793122397526,
-  "open_assigned_chip_hours_so_far": 5.667201422055562,
+  "closed_assigned_chip_hours": 51.24015542295244,
+  "open_assigned_chip_hours_so_far": 17.768689601156446,
   "scope": "Read-only receipt/update observations, not new training or held-out evidence. Rank-zero logged NLL is not aggregate DEV. Rolling rates are not controlled performance qualification. Other campaigns overlap; do not add their wall intervals as sequential reservation time. CPU work has separate receipts."
 }

@@ -1,6 +1,12 @@
 # Conditional native FP16 gradient qualification
 
-**Queued; zero chips reserved while waiting.** No native result is established.
+**Suspended before any native phase; zero chips reserved.** No native result is established.
+
+The preceding optimizer implementation fails the separate early Muon update
+screen. This unstarted queue is suspended while that arithmetic is diagnosed;
+all original frozen sources remain unchanged. The original requirements below
+remain unfulfilled. [Suspension](early-screen-suspension.json) ·
+[Early optimizer evidence](../parcae_early_optimizer_20261024/REPORT.md).
 
 Prerequisites are a passing full native FP32 gradient gate, passing native
 optimizer/recovery gate, and no existing managed native workers. The current

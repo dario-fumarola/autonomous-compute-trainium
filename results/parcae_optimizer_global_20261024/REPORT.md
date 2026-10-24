@@ -1,7 +1,15 @@
 # Actual-shape Parcae optimizer preparation
 
-**Independent CPU update vectors pass; native execution is queued.**
+**Independent CPU update vectors pass; the unstarted native queue is suspended.**
 This is numerical preparation, not model learning or a scientific advantage.
+
+The separate early recurrent optimizer screen fails the unchanged2% Muon-family
+update gate at about10% error. Revision2 was suspended before any native phase,
+avoiding a known-failing repeat. All original source hashes and CPU vectors are
+unchanged; a separately registered correction is required. The historical queue
+description below records the original plan, not current execution.
+[Early failure](../parcae_early_optimizer_20261024/REPORT.md) ·
+[Suspension](attempt2/early-screen-suspension.json).
 
 The ordinary140,781,888-parameter and recurrent141,963,840-parameter points use
 the existing qualification weights and complete256-window natural-TRAIN
