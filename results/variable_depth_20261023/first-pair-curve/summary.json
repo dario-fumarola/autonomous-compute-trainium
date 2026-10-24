@@ -1,0 +1,166 @@
+{
+  "status": "EXPLORATORY_FIRST_PAIR_CURVE",
+  "created_unix": 1792800577.0977745,
+  "rows": [
+    {
+      "arm": "ordinary",
+      "seed": 103,
+      "update": 384,
+      "depth": 1,
+      "targets": 100488104,
+      "nll": 3.8045098414583856,
+      "training_update_matmul_flops": 109841211614822400,
+      "schedule": "stable"
+    },
+    {
+      "arm": "ordinary",
+      "seed": 103,
+      "update": 1152,
+      "depth": 1,
+      "targets": 301465908,
+      "nll": 3.0241077134295247,
+      "training_update_matmul_flops": 329523634844467200,
+      "schedule": "stable"
+    },
+    {
+      "arm": "ordinary",
+      "seed": 103,
+      "update": 3840,
+      "depth": 1,
+      "targets": 1004887590,
+      "nll": 2.599135219362705,
+      "training_update_matmul_flops": 1098412116148224000,
+      "schedule": "annealed"
+    },
+    {
+      "arm": "ordinary",
+      "seed": 103,
+      "update": 6496,
+      "depth": 1,
+      "targets": 1699926288,
+      "nll": 2.495277617647256,
+      "training_update_matmul_flops": 1858147163150745600,
+      "schedule": "annealed"
+    },
+    {
+      "arm": "mixture",
+      "seed": 103,
+      "update": 384,
+      "depth": 2,
+      "targets": 100488104,
+      "nll": 3.808420115104875,
+      "training_update_matmul_flops": 185839455326699520,
+      "schedule": "stable"
+    },
+    {
+      "arm": "mixture",
+      "seed": 103,
+      "update": 1152,
+      "depth": 2,
+      "targets": 301465908,
+      "nll": 3.0139467635917225,
+      "training_update_matmul_flops": 557518365980098560,
+      "schedule": "stable"
+    },
+    {
+      "arm": "mixture",
+      "seed": 103,
+      "update": 3840,
+      "depth": 2,
+      "targets": 1004887590,
+      "nll": 2.587427428264647,
+      "training_update_matmul_flops": 1858394553266995200,
+      "schedule": "annealed"
+    }
+  ],
+  "source_group_intervals": [
+    {
+      "label": "100M, equal data",
+      "update": 384,
+      "gain_nats": -0.003910273646489326,
+      "interval_95": [
+        -0.006891377266896809,
+        -0.0006527298232677504
+      ],
+      "source_groups": 518,
+      "accepted_draws": 2000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    {
+      "label": "301M, equal data",
+      "update": 1152,
+      "gain_nats": 0.010160949837802136,
+      "interval_95": [
+        0.007673748683772963,
+        0.012626377289588007
+      ],
+      "source_groups": 518,
+      "accepted_draws": 2000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    {
+      "label": "1.005B, equal data",
+      "update": 3840,
+      "gain_nats": 0.011707791098058085,
+      "interval_95": [
+        0.00976992082353959,
+        0.013631690952568574
+      ],
+      "source_groups": 518,
+      "accepted_draws": 2000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    {
+      "label": "Matched update matmuls",
+      "update": null,
+      "gain_nats": -0.09214981061739058,
+      "interval_95": [
+        -0.0957181307890752,
+        -0.08903929750898662
+      ],
+      "source_groups": 518,
+      "accepted_draws": 2000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    }
+  ],
+  "compute_rounding_shortfall_fraction": 0.00013312034078805102,
+  "provenance": {
+    "vdepth-v1-ordinary-s103-u384": {
+      "training_report_sha256": "6e517400e735df2accaf2b3ca10335dcbc2be685c10746d2ba4f070dcc974ff1",
+      "readout_report_sha256": "f3188e36586fd3b08c339cd02469ef337223b67611f11238c2cdc4c88cba5ba5",
+      "private_document_scores_sha256": "36e4400753cedb22cdc0979ed7cfa8a1dab95a12215f0bea7b4e87ca90899a2f"
+    },
+    "vdepth-v1-ordinary-s103-u1152": {
+      "training_report_sha256": "be6193a90daae8b967b76e62c7a434408a3d32d478d84c1fddc53aea347190a5",
+      "readout_report_sha256": "51e4ca6bdb4f27fd437b793a6349d461f7d4dc1a59420b6910ff7087f31cfc6d",
+      "private_document_scores_sha256": "136a6cf67e73d2a6b47246ea6db91a4fe4440454c3c1b4bea4c558faec06e8ed"
+    },
+    "vdepth-v1-ordinary-s103-u3840": {
+      "training_report_sha256": "e0d8df57c4ab2827adb6f71ae222fa357297ca67d3bc23b81ba0083179e9b5d7",
+      "readout_report_sha256": "6475fef02efc7002c74e230bbe23b66540d4d96f4d42a4922574a841bd1b52b8",
+      "private_document_scores_sha256": "a2293d2c5b0d0694db98cac055396f08a713722cb3b78d5250906b49f7d967b1"
+    },
+    "vdepth-v1-ordinary-s103-u6496": {
+      "training_report_sha256": "4b69ba668112a05dd9f2fe8a15f0647c58fa4a8e833d801a3b256a8828aa65a5",
+      "readout_report_sha256": "03353db0cc4c6e0ceda73052d5154a8e6b606a422f9881d08a4cf8b67355bffd",
+      "private_document_scores_sha256": "79364fb04396068c041e96d99bc834043a61a2cc46149b8b292dd867d161a5f2"
+    },
+    "vdepth-v1-mixture-s103-u384": {
+      "training_report_sha256": "d56a80e6a1c18db77cb59d1c9fcbb894ef7f149953efd3288642e7a05212c86e",
+      "readout_report_sha256": "79e054503251281e2ab593fc31b315c654787700f141b5a5bfb9b234860cba9c",
+      "private_document_scores_sha256": "fb8e9bf6ac7c34656707837787106e5385ab0ece060b44e524039e62d55cd04d"
+    },
+    "vdepth-v1-mixture-s103-u1152": {
+      "training_report_sha256": "e48e04808ae4790c1e3183221075575b09b28f58428f30d1f1983ab79380c4f0",
+      "readout_report_sha256": "6582e32ec501ab7e8528897548928575f9b33295ba9697dd649eb247dc09e7d4",
+      "private_document_scores_sha256": "65a6b9ce89020ed33843aac199f23e8a0e82f9850baa123953c66b17b633b0a8"
+    },
+    "vdepth-v1-mixture-s103-u3840": {
+      "training_report_sha256": "a85cc84201743c62d98b1b9b81bae48cdbef0db7c2320303cdcb67847f55e009",
+      "readout_report_sha256": "5501ac994a057d044baad4af8d5f85746b32f0bfd70801f28a351ecfce2fcb77",
+      "private_document_scores_sha256": "5f08840750df05e9a518d422cfbbfe826c5f95542a0f7c157259fcb4778a6ddb"
+    }
+  },
+  "script_sha256": "aac614b68f56ce2b91fbb0062d5efa970f528bfb600315647e862379f66ad8d2",
+  "scope": "Seed103 only. Same targets/initialization/parameters; independently annealed endpoints. Group-bootstrap95% intervals condition on these fitted weights and are descriptive, without multiplicity adjustment or a seed-level hypothesis decision. No new fit or TEST scoring; frozen primary analysis is unchanged."
+}

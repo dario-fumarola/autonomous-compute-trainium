@@ -1,4 +1,4 @@
-# Status — 2026-10-23, 23:58 UTC
+# Status — 2026-10-24, 00:26 UTC
 
 **All three mixture 1B endpoints are complete.** Fresh DEV NLL is
 2.587427 / 2.590665 / 2.587213 for seeds103 / 211 / 307, after planned decay.
@@ -6,7 +6,7 @@ Their earlier100M/301M stable scores were3.808420/3.013947 and
 3.814483/3.019806. Mixture103/211 and both ordinary103 endpoints have passed
 independent whole-DEV FP32 audits and full optimizer-state copy/readback.
 The two mixture CPU-minus-native deltas are-0.00001469 and-0.00000106 nats.
-Four of twelve primary-model audits are complete; mixture307 is pending.
+Five of twelve primary-model audits are complete, including all mixture endpoints.
 [Partial audit](results/variable_depth_20261023/partial-independent-cpu-verification.json).
 The first ordinary pair is also ready: at equal data, ordinary103 scores
 2.599135 versus mixture103 at2.587427, a **0.011708-nat** gain. At matched
@@ -15,7 +15,17 @@ beating mixture at1.005B by **0.092150 nats**. This pair's equal-data gain
 does not repay the extra compute. The remaining paired seeds and fixed-depth
 controls are pending; all16 chips remain assigned.
 [First-pair DEV comparison](results/variable_depth_20261023/first-pair-dev.json).
+Ordinary211 now scores2.598596 at1B, versus mixture211 at2.590665: a
+0.007931-nat equal-data gain in the second pair. Ordinary307 is pending.
 No primary comparison or new TEST result has been reported.
+The standalone [first-pair learning curve](results/variable_depth_20261023/first-pair-curve/first-pair-learning.png)
+includes source-group uncertainty. At1B, seed103's conditional interval is
+[0.009770,0.013632], which does not clear the0.01 useful-gain threshold.
+Across all three paired seeds at301M, the mean gain is0.009592 with nominal
+seed interval[-0.000256,0.019440]. These descriptive checks measure different
+uncertainty and do not replace the frozen final analysis.
+[Conditional readout](results/variable_depth_20261023/first-pair-curve/REPORT.md) ·
+[Early seed variation](results/variable_depth_20261023/early-paired-curves.json).
 At301M stable targets, ordinary103 scores3.024108 versus mixture103
 3.013947: a0.010160-nat equal-data gain in one pair, with additional compute.
 Mixture307 scores3.015378 after its worse100M point3.868176. These are

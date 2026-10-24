@@ -1,7 +1,7 @@
 {
   "status": "PARTIAL_INDEPENDENT_CPU_VERIFICATION",
-  "updated_unix": 1792799963.8630028,
-  "completed_models": 4,
+  "updated_unix": 1792801333.5335357,
+  "completed_models": 5,
   "required_primary_models": 12,
   "records": [
     {
@@ -175,6 +175,49 @@
       "copy_checksum_and_full_state_readback": true,
       "targets": 754750,
       "active_seconds": 284.0787823200226
+    },
+    {
+      "identity": "vdepth-v1-mixture-s307-u3840",
+      "arm": "mixture",
+      "seed": 307,
+      "endpoint": "1B",
+      "depth": 2,
+      "training_real_targets": 1004887590,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 775955.3213301736,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0750754797361215
+          },
+          "code": {
+            "nll_sum": 362612.6656050067,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4444705543251206
+          },
+          "math": {
+            "nll_sum": 569709.5670126226,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.266346167972625
+          }
+        },
+        "weighted_nll": 2.587208632301222,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": -4.669423285807994e-06,
+      "checkpoint_sha256": "9acd5552e7d8d748acfe92168dfd7b1217dd3583c9447fd5adffab42e3e4f936",
+      "full_state_serialized_digest": "41b404dd964af02367be9e97535c8f04b66a56235699c7502c74eac26ba85c7d",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 754750,
+      "active_seconds": 475.5826427936554
     }
   ],
   "scope": "Only completed whole-DEV FP32 audits and copied-state readbacks. Remaining model audits are still pending."
