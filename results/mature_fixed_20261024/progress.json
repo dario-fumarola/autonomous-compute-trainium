@@ -1,0 +1,79 @@
+{
+  "learning_curve": [
+    {
+      "arm": "ordinary",
+      "seed": 103,
+      "update": 7680,
+      "schedule": "stable",
+      "real_targets": 2009762680,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 766301.519569397,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0368179045062633
+          },
+          "code": {
+            "nll_sum": 354034.0882835388,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4102977205709915
+          },
+          "math": {
+            "nll_sum": 559475.2777519226,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2256334195988616
+          }
+        },
+        "weighted_nll": 2.5492769707377283,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
+      "arm": "fixed",
+      "seed": 103,
+      "update": 7680,
+      "schedule": "stable",
+      "real_targets": 2009762680,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 760183.8039398193,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.012573677026434
+          },
+          "code": {
+            "nll_sum": 351478.00731658936,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4001155508856906
+          },
+          "math": {
+            "nll_sum": 554842.4524345398,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.207203702927622
+          }
+        },
+        "weighted_nll": 2.529008056978523,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    }
+  ],
+  "status": "PARTIAL_DEVELOPMENT_READOUT",
+  "rows": [],
+  "scope": "Registered3B development comparison. Same original seeds/order and consumed DEV; no new TEST or terminal significance claim."
+}
