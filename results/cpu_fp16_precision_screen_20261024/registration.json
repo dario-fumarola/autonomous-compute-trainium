@@ -1,0 +1,29 @@
+{
+  "identity": "cpu-fp16-precision-v1",
+  "registered_unix": 1792833618.0258572,
+  "maximum_execution_seconds": 1050,
+  "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "source_sha256": {
+    "scripts/screen_cpu_fp16_precision.py": "063aec972e18c53eb9a2e8528eed3d573caaa45cc79733a330e4b6ea5dfd7b2e",
+    "compute_trainium/independent.py": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba",
+    "compute_trainium/model.py": "4a2edc5034ccff94ac1817f5b8529f031f4b6ef63cf1da4bc8e1f2e09cc53eb0",
+    "scripts/capture_gradient_precision_control.py": "b0bdb656d62851f59536a671594fdc21b5cf7f8ee4324715edf989dffa7282c5"
+  },
+  "modes": [
+    "fp32",
+    "fp16_fp32_head",
+    "fp16_fp32_head_scaled8192"
+  ],
+  "train_subset": "First routed window of ranks0..7 at micro0 of preserved32x4x2 update7680 cursor; same eight windows as prior head-precision screen.",
+  "threads": 8,
+  "native_chips_assigned": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "cpu_screen_criterion": {
+    "gradient_relative_l2": 0.02,
+    "absolute_nll_difference": 0.003,
+    "finite_gradients": true
+  },
+  "conservative_memory_margin_bytes_before_launch": 51558592512,
+  "scope": "Numerical CPU feasibility only. Passing eight windows does not qualify full global/native gradients, optimizer scaling/recovery, throughput or any learning benefit. No active precision, model, schedule or source changes."
+}
