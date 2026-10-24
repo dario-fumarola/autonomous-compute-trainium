@@ -1,0 +1,36 @@
+{
+  "status": "COMPLETE_FP32_GRADIENT_UPDATE_AND_PAIRED_THROUGHPUT_QUALIFICATION",
+  "warm_overlap_fraction_of_shorter": 0.9998473569357051,
+  "warm_targets_per_second": {
+    "fixed": 162898.71321288095,
+    "ordinary": 176468.0710572832
+  },
+  "attempts": [
+    {
+      "identity": "fp32-final-v1-ordinary-capture",
+      "exit_code": 0,
+      "wall_seconds": 170.10322332382202,
+      "assigned_chip_hours": 0.37800716294182674,
+      "whole_instance_opportunity_chip_hours": 0.7560143258836535,
+      "report_exists": true
+    },
+    {
+      "identity": "fp32-final-v1-fixed-warm100",
+      "exit_code": 0,
+      "wall_seconds": 355.17479491233826,
+      "assigned_chip_hours": 0.7892773220274183,
+      "whole_instance_opportunity_chip_hours": 1.5785546440548366,
+      "report_exists": true
+    },
+    {
+      "identity": "fp32-final-v1-ordinary-warm100",
+      "exit_code": 0,
+      "wall_seconds": 342.39196395874023,
+      "assigned_chip_hours": 0.7608710310194228,
+      "whole_instance_opportunity_chip_hours": 1.5217420620388455,
+      "report_exists": true
+    }
+  ],
+  "wall_seconds": 539.2951257228851,
+  "scope": "Both full-global CPU reference gates and strict exact state load/replica equality checked. Does not relabel the failed bit-identical post-restart trajectory gate. Larger scientific execution still requires explicit policy, NLL sensitivity result and budget."
+}

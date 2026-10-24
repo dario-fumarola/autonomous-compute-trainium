@@ -1,0 +1,26 @@
+{
+  "identity": "primitive-fp32-final-qualification-v1",
+  "registered_unix": 1792823100.3887947,
+  "ordinary_checkpoint_sha256": "cb72706d795c7cfecc02ec5d82041ebafe85a4314128ff6d5aaca1f6066e9342",
+  "fixed_checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "precision": "fp32",
+  "nki_sdpa_enabled": false,
+  "world_per_job": 32,
+  "batch": 1,
+  "accumulation": 8,
+  "stages": [
+    "Ordinary trained no-update global capture compared with existing exact independent CPU FP32 reference",
+    "Only on2% gradient/.003 loss agreement, concurrent ordinary/fixed108-update qualification with100 warm updates and synchronized warm rendezvous"
+  ],
+  "deadline_unix": 1792824900.3887956,
+  "all_replica_model_optimizer_states_must_match": true,
+  "exact_state_load_and_rng_counters_required": true,
+  "prior_strict_future_bit_identity": "FAILED and preserved. Short uninterrupted repeats are bit-identical; restart differs at4.12e-8 modelrelativeL2 after8 updates. No automatic waiver or scientific launch from this performance qualification. Whole-DEV independent prediction sensitivity is separately registered/running.",
+  "source_sha256": {
+    "scripts/capture_gradient_batch2_control.py": "e6492208cab8a6ba590778666068be9a624fcec41fec8168d6ba448786eb3807",
+    "scripts/capture_gradient_precision_control.py": "b0bdb656d62851f59536a671594fdc21b5cf7f8ee4324715edf989dffa7282c5",
+    "scripts/train_primitive_attention_qualification.py": "8c63ec656ad17fb66186524b90f7e08c7e76eb9dbdb7839d9d1092dc4720d86e",
+    "scripts/train_variable_depth.py": "ab0b0e6ed343f2bcfa75f125aa65a6420e1d1b88bd706d6a492535a4786fa732"
+  },
+  "scope": "Bounded numerical/update/performance work only. No model/optimizer changes, new scientific endpoint or TEST. B1 chosen because completedB2 throughput did not improve. Exact load remains distinct from post-update trajectory bit identity."
+}

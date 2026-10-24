@@ -1,0 +1,40 @@
+{
+  "identity": "fresh-confirmation-reserve-v1",
+  "purpose": "DATA_ONLY_NO_MODEL_SELECTION_OR_SCORING",
+  "registered_unix": 1792821700.0145588,
+  "deadline_unix": 1792828298.7867796,
+  "workers": 8,
+  "synthetic_generation": false,
+  "generation_manifest_sha256": [
+    "454f4730dfb6aa752ae241a5dc33404728c8e577e94b2ea8f1634ef639206af9",
+    "a4b9aa1fdf2570d38b2f24743d5c907724b8db8dd0847251d101f59f499b7d52",
+    "61dac8f7d6c3df53041ea194e7732d5db7a9d50324bd406f8bc5475f570feae1",
+    "a0a521bbceb5e01a9daeb74f3ec3672d1f5aceb856af53d6967df8799cd9b733"
+  ],
+  "prior_database_sha256": [
+    "99a32bf7bbcec496db4ca581ac024653f80186a19e4a7ad14a00882dc1335911",
+    "6f11de3a7c16df42897b1de0d2bde26de0b40477e2cd677b62cf98a8c621c5e4",
+    "2f91b555ea7003462e6051461993a4bbbf684f8cb1f48acbaee5593fa5b3cfcb",
+    "d651ea3855a99a606392986c94120dca80f39d8094d3c4f2fdc8fcfee76081ce"
+  ],
+  "protected_panel_sha256": [
+    "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+    "3cbcc34976752ff61906a89fd441b60c861967eabfdd3f08f39f6fe6a00d3670"
+  ],
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "source_sha256": {
+    "scripts/prepare_confirmation_reserve.py": "f1a894559d559e73a6c391cbf7db097e47b556f02bd36362f9aee2ed8ce47b98",
+    "compute_trainium/heldout_screen.py": "fdf5ce4c54e666371a40582d15a7dbdffc8a8047357d55d2e6f3375098b9bbbd",
+    "scripts/prepare_chained_extension.py": "4f498882a94c1091ccff734d767444b38c500273450093cb19028b70f5450ed6",
+    "scripts/prepare_learning_corpus.py": "6f2f43a38a040939d08d61411ee6fd30c196d6750f6030266fed0765d89f199f",
+    "scripts/prepare_natural.py": "b7bc340b26689250ccfbc70b51740ec2c752b91568135988a354a19b85f356ef",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20",
+    "compute_trainium/corpus_audit.py": "7e132c5d3aa7535e593175e4ce2377d0eff040db39cba64ff4d055ac763dc532"
+  },
+  "selection": "Unused global natural-v1 heldout groups, exclude all prior accepted IDs and protected groups; content hash mod8=0; confirmation-reserve-v1 group hash assigns tune/curve/test; at most2 documents/group/domain/role. Keep up to1200 candidates/domain/role in raw receipt/interleaved-row order, then admit in content-hash order.",
+  "real_target_quota_per_domain_role": 250000,
+  "minimum_groups_per_domain_role": 100,
+  "near_duplicate_rule": "Same32 minhash/8x4 bands, bottom256 Jaccard0.8 and distinct-prior-neighbor cutoff256. Inverted small candidate index, mapped accepted IDs and boolean reconstruction coverage.",
+  "terminal_attempt_registered": false,
+  "test_scored": false
+}

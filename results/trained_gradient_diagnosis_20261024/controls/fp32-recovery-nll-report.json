@@ -1,0 +1,77 @@
+{
+  "status": "COMPLETE_INDEPENDENT_FP32_RECOVERY_PREDICTION_SENSITIVITY",
+  "models": {
+    "direct108": {
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 755257.5187287725,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.993051033850654
+          },
+          "code": {
+            "nll_sum": 348348.9764474687,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3876510305235075
+          },
+          "math": {
+            "nll_sum": 551060.2481543297,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.1921578187205313
+          }
+        },
+        "weighted_nll": 2.5117923901592003,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "wall_seconds": 407.9367263317108
+    },
+    "resumed4plus104": {
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 755253.8784559809,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.99303660761593
+          },
+          "code": {
+            "nll_sum": 348347.2167885732,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3876440209077348
+          },
+          "math": {
+            "nll_sum": 551056.6156839308,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.192143368488614
+          }
+        },
+        "weighted_nll": 2.5117794424488276,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "wall_seconds": 368.60606956481934
+    }
+  },
+  "resumed_minus_direct_weighted_nll": -1.2947710372746002e-05,
+  "within_registered_nll_diagnostic_limit": true,
+  "wall_seconds": 778.9654395580292,
+  "scope": "Independent FP32 CPU, real-token FP64 log normalization, same existing DEV panel; no TEST or new hypothesis endpoint. This measures impact of the failed strict state-trajectory gate and does not relabel it as passed."
+}

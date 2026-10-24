@@ -1,0 +1,23 @@
+{
+  "identity": "primitive-fp32-repeat-floor-v1",
+  "registered_unix": 1792822352.279607,
+  "source_update": 7680,
+  "precision": "fp32",
+  "nki_sdpa_enabled": false,
+  "world": 32,
+  "batch": 1,
+  "accumulation": 8,
+  "stages": [
+    "Two concurrent fresh8-update runs on opposite node halves",
+    "Concurrent4-update resume of preserved prefix4 and fresh4-update source repeat"
+  ],
+  "deadline_unix": 1792823252.2796073,
+  "optimizer_updates_total": 24,
+  "requirements": "Preserve exact loaded-state and2% local full-gradient guards; every replica equal. Compare independent repeat8, resumed4+4 vs direct8, and prefix4 repeat. Record all exact/relative differences; do not recast the failed108-update bit-identity gate as passed.",
+  "motivation": "Longer recovery has same RNG/cursors/schedule/step counts but modelrelativeL2 .0002965 and firstmoment .009216. Determine whether drift is common native FP32 repeat behavior or specifically restart-dependent before any new scientific fit.",
+  "source_sha256": {
+    "scripts/train_primitive_attention_qualification.py": "8c63ec656ad17fb66186524b90f7e08c7e76eb9dbdb7839d9d1092dc4720d86e",
+    "scripts/train_variable_depth.py": "ab0b0e6ed343f2bcfa75f125aa65a6420e1d1b88bd706d6a492535a4786fa732"
+  },
+  "scope": "Bounded numerical repeat/restart diagnosis only. No architecture/optimizer changes, research endpoint or TEST."
+}

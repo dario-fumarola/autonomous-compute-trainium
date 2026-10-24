@@ -1,18 +1,44 @@
 {
-  "status": "UPDATE_RECOVERY_AND_BATCH2_QUALIFICATIONS_OPEN",
-  "collected_unix": 1792821253.424753,
+  "status": "PAIRED_WARM100_OPEN",
+  "collected_unix": 1792823517.6191225,
   "attempts": [
     {
-      "identity": "trained-gradient-v1-fixed-repeat",
-      "started_unix": 1792818540.2172186,
-      "ended_unix": 1792818684.692052,
+      "identity": "fp32-final-v1-fixed-warm100",
+      "started_unix": 1792823284.6897178,
+      "ended_unix": null,
+      "closure": null,
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": 232.9246039390564
+    },
+    {
+      "identity": "fp32-repeat-v1-fresh-d4",
+      "started_unix": 1792822543.7628388,
+      "ended_unix": 1792822729.771781,
       "closure": {
         "exit_code": 0,
-        "wall_seconds": 144.47483325004578,
-        "assigned_chip_hours": 0.3210551850001017,
-        "whole_instance_opportunity_chip_hours": 0.6421103700002034,
+        "wall_seconds": 186.00894212722778,
+        "assigned_chip_hours": 0.41335320472717285,
+        "whole_instance_opportunity_chip_hours": 0.8267064094543457,
         "report_exists": true
       },
+      "qualification_optimizer_updates": 4,
+      "qualification_real_targets_optimized": 1046676,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "primitive-fp32-q-v2-restored104",
+      "started_unix": 1792821688.3088071,
+      "ended_unix": 1792822033.7393837,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 345.43057656288147,
+        "assigned_chip_hours": 0.76762350347307,
+        "whole_instance_opportunity_chip_hours": 1.53524700694614,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 104,
+      "qualification_real_targets_optimized": 27215092,
       "open_wall_seconds": null
     },
     {
@@ -26,32 +52,62 @@
         "whole_instance_opportunity_chip_hours": 0.585467472076416,
         "report_exists": true
       },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
       "open_wall_seconds": null
     },
     {
-      "identity": "trained-gradient-v1-fixed-b1-fp32",
-      "started_unix": 1792819177.6319573,
-      "ended_unix": 1792819323.4402804,
+      "identity": "trained-gradient-v1-ordinary-capture",
+      "started_unix": 1792817131.6339927,
+      "ended_unix": 1792817250.599057,
       "closure": {
         "exit_code": 0,
-        "wall_seconds": 145.80832314491272,
-        "assigned_chip_hours": 0.3240184958775838,
-        "whole_instance_opportunity_chip_hours": 0.6480369917551676,
+        "wall_seconds": 118.96506428718567,
+        "assigned_chip_hours": 0.26436680952707925,
+        "whole_instance_opportunity_chip_hours": 0.5287336190541585,
         "report_exists": true
       },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
       "open_wall_seconds": null
     },
     {
-      "identity": "trained-gradient-v1-fixed-b1-bf16",
-      "started_unix": 1792819177.6333039,
-      "ended_unix": 1792819321.7450802,
+      "identity": "fp32-final-v1-ordinary-warm100",
+      "started_unix": 1792823284.6885478,
+      "ended_unix": null,
+      "closure": null,
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": 232.92690348625183
+    },
+    {
+      "identity": "primitive-fp32-b2-v1-warm100",
+      "started_unix": 1792821170.5999246,
+      "ended_unix": 1792821425.473299,
       "closure": {
-        "exit_code": 0,
-        "wall_seconds": 144.1117763519287,
-        "assigned_chip_hours": 0.3202483918931749,
-        "whole_instance_opportunity_chip_hours": 0.6404967837863498,
-        "report_exists": true
+        "exit_code": 1,
+        "wall_seconds": 254.87337446212769,
+        "assigned_chip_hours": 0.5663852765825059,
+        "whole_instance_opportunity_chip_hours": 1.1327705531650119,
+        "report_exists": false
       },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "primitive-fp32-q-v1-prefix4",
+      "started_unix": 1792820841.9714193,
+      "ended_unix": 1792821424.9434936,
+      "closure": {
+        "exit_code": 1,
+        "wall_seconds": 582.9720742702484,
+        "assigned_chip_hours": 1.2954934983783297,
+        "whole_instance_opportunity_chip_hours": 2.5909869967566594,
+        "report_exists": false
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
       "open_wall_seconds": null
     },
     {
@@ -65,58 +121,8 @@
         "whole_instance_opportunity_chip_hours": 0.7437122313181559,
         "report_exists": true
       },
-      "open_wall_seconds": null
-    },
-    {
-      "identity": "trained-gradient-v1-primitive-bf16",
-      "started_unix": 1792820004.5260193,
-      "ended_unix": 1792820180.2321787,
-      "closure": {
-        "exit_code": 0,
-        "wall_seconds": 175.70615935325623,
-        "assigned_chip_hours": 0.39045813189612494,
-        "whole_instance_opportunity_chip_hours": 0.7809162637922499,
-        "report_exists": true
-      },
-      "open_wall_seconds": null
-    },
-    {
-      "identity": "trained-amp-operators-v1",
-      "started_unix": 1792820575.024869,
-      "ended_unix": 1792820587.1848743,
-      "closure": {
-        "exit_code": 1,
-        "wall_seconds": 12.160005331039429,
-        "assigned_chip_hours": 0.027022234068976508,
-        "whole_instance_opportunity_chip_hours": 0.054044468137953015,
-        "report_exists": false
-      },
-      "open_wall_seconds": null
-    },
-    {
-      "identity": "trained-amp-operators-v2",
-      "started_unix": 1792820695.975629,
-      "ended_unix": 1792820716.1057436,
-      "closure": {
-        "exit_code": 0,
-        "wall_seconds": 20.130114555358887,
-        "assigned_chip_hours": 0.044733587900797525,
-        "whole_instance_opportunity_chip_hours": 0.08946717580159505,
-        "report_exists": true
-      },
-      "open_wall_seconds": null
-    },
-    {
-      "identity": "sdpa-fp32-precision-v1",
-      "started_unix": 1792821032.2337005,
-      "ended_unix": 1792821050.457215,
-      "closure": {
-        "exit_code": 0,
-        "wall_seconds": 18.223514556884766,
-        "assigned_chip_hours": 0.04049669901529948,
-        "whole_instance_opportunity_chip_hours": 0.08099339803059896,
-        "report_exists": true
-      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
       "open_wall_seconds": null
     },
     {
@@ -130,23 +136,270 @@
         "whole_instance_opportunity_chip_hours": 1.495150898827447,
         "report_exists": true
       },
+      "qualification_optimizer_updates": 108,
+      "qualification_real_targets_optimized": 28261768,
       "open_wall_seconds": null
     },
     {
-      "identity": "primitive-fp32-q-v1-prefix4",
-      "started_unix": 1792820841.9714193,
-      "ended_unix": null,
-      "closure": null,
-      "open_wall_seconds": 411.453236579895
+      "identity": "trained-gradient-v1-fixed-capture",
+      "started_unix": 1792816787.4136627,
+      "ended_unix": 1792816932.7437305,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 145.3300678730011,
+        "assigned_chip_hours": 0.3229557063844469,
+        "whole_instance_opportunity_chip_hours": 0.6459114127688937,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
     },
     {
-      "identity": "primitive-fp32-b2-v1-warm100",
-      "started_unix": 1792821170.5999246,
-      "ended_unix": null,
-      "closure": null,
-      "open_wall_seconds": 82.82482552528381
+      "identity": "trained-amp-operators-v2",
+      "started_unix": 1792820695.975629,
+      "ended_unix": 1792820716.1057436,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 20.130114555358887,
+        "assigned_chip_hours": 0.044733587900797525,
+        "whole_instance_opportunity_chip_hours": 0.08946717580159505,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "trained-gradient-v1-fixed-reference",
+      "started_unix": 1792817043.1286926,
+      "ended_unix": 1792817926.519945,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 883.3912522792816,
+        "assigned_chip_hours": 0.0,
+        "whole_instance_opportunity_chip_hours": 3.9261833434634736,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "primitive-fp32-b2-v2-warm100",
+      "started_unix": 1792821737.3229327,
+      "ended_unix": 1792822106.470237,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 369.14730429649353,
+        "assigned_chip_hours": 0.8203273428810968,
+        "whole_instance_opportunity_chip_hours": 1.6406546857621935,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 108,
+      "qualification_real_targets_optimized": 28261768,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "primitive-fp32-q-v2-prefix4",
+      "started_unix": 1792821510.091545,
+      "ended_unix": 1792821687.4157176,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 177.32417249679565,
+        "assigned_chip_hours": 0.3940537166595459,
+        "whole_instance_opportunity_chip_hours": 0.7881074333190918,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 4,
+      "qualification_real_targets_optimized": 1046676,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "fp32-repeat-v1-fresh-a8",
+      "started_unix": 1792822353.5030313,
+      "ended_unix": 1792822543.173293,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 189.6702618598938,
+        "assigned_chip_hours": 0.421489470799764,
+        "whole_instance_opportunity_chip_hours": 0.842978941599528,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 8,
+      "qualification_real_targets_optimized": 2093346,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "trained-gradient-v1-fixed-b1-fp32",
+      "started_unix": 1792819177.6319573,
+      "ended_unix": 1792819323.4402804,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 145.80832314491272,
+        "assigned_chip_hours": 0.3240184958775838,
+        "whole_instance_opportunity_chip_hours": 0.6480369917551676,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "trained-gradient-v1-fixed-repeat",
+      "started_unix": 1792818540.2172186,
+      "ended_unix": 1792818684.692052,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 144.47483325004578,
+        "assigned_chip_hours": 0.3210551850001017,
+        "whole_instance_opportunity_chip_hours": 0.6421103700002034,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "trained-gradient-v1-primitive-bf16",
+      "started_unix": 1792820004.5260193,
+      "ended_unix": 1792820180.2321787,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 175.70615935325623,
+        "assigned_chip_hours": 0.39045813189612494,
+        "whole_instance_opportunity_chip_hours": 0.7809162637922499,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "trained-amp-operators-v1",
+      "started_unix": 1792820575.024869,
+      "ended_unix": 1792820587.1848743,
+      "closure": {
+        "exit_code": 1,
+        "wall_seconds": 12.160005331039429,
+        "assigned_chip_hours": 0.027022234068976508,
+        "whole_instance_opportunity_chip_hours": 0.054044468137953015,
+        "report_exists": false
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "fp32-repeat-v1-resumed-c4",
+      "started_unix": 1792822543.7603347,
+      "ended_unix": 1792822729.5928588,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 185.832524061203,
+        "assigned_chip_hours": 0.4129611645804511,
+        "whole_instance_opportunity_chip_hours": 0.8259223291609022,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 4,
+      "qualification_real_targets_optimized": 1046670,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "primitive-fp32-b2-v2-capture",
+      "started_unix": 1792821556.8389406,
+      "ended_unix": 1792821734.3478143,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 177.50887370109558,
+        "assigned_chip_hours": 0.39446416378021243,
+        "whole_instance_opportunity_chip_hours": 0.7889283275604249,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "trained-gradient-v1-fixed-b1-bf16",
+      "started_unix": 1792819177.6333039,
+      "ended_unix": 1792819321.7450802,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 144.1117763519287,
+        "assigned_chip_hours": 0.3202483918931749,
+        "whole_instance_opportunity_chip_hours": 0.6404967837863498,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "trained-gradient-v1-ordinary-reference",
+      "started_unix": 1792817927.7739105,
+      "ended_unix": 1792818457.9833503,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 530.2094397544861,
+        "assigned_chip_hours": 0.0,
+        "whole_instance_opportunity_chip_hours": 2.356486398908827,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "fp32-final-v1-ordinary-capture",
+      "started_unix": 1792823110.227901,
+      "ended_unix": 1792823280.3311243,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 170.10322332382202,
+        "assigned_chip_hours": 0.37800716294182674,
+        "whole_instance_opportunity_chip_hours": 0.7560143258836535,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "fp32-repeat-v1-fresh-b8",
+      "started_unix": 1792822353.500787,
+      "ended_unix": 1792822541.0576103,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 187.5568232536316,
+        "assigned_chip_hours": 0.41679294056362576,
+        "whole_instance_opportunity_chip_hours": 0.8335858811272515,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 8,
+      "qualification_real_targets_optimized": 2093346,
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "sdpa-fp32-precision-v1",
+      "started_unix": 1792821032.2337005,
+      "ended_unix": 1792821050.457215,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 18.223514556884766,
+        "assigned_chip_hours": 0.04049669901529948,
+        "whole_instance_opportunity_chip_hours": 0.08099339803059896,
+        "report_exists": true
+      },
+      "qualification_optimizer_updates": 0,
+      "qualification_real_targets_optimized": 0,
+      "open_wall_seconds": null
     }
   ],
-  "closed_assigned_chip_hours": 2.8801980267630682,
-  "scope": "All no-update controls plus bounded update/recovery/throughput qualifications; includes failed harness predecessor and CPU waits inside native allocation. Overlapping whole-node opportunity intervals must be unioned, not summed."
+  "closed_assigned_chip_hours": 9.748471988042196,
+  "qualification_optimizer_updates_in_closed_reports": 348,
+  "qualification_real_targets_optimized_in_closed_reports": 91065342,
+  "union_observed_execution_seconds": 4451.655326366425,
+  "union_observed_whole_instance_opportunity_chip_hours": 19.785134783850776,
+  "scope": "Native captures, CPU references launched through the SDK, all qualification updates/repeats and stopped attempts. Overlap intervals unioned. Does not include every data-preparation/host-only audit interval; those retain separate receipts. Assigned chip-hours count allocation, not achieved device utilization. No qualification exposure is a scientific endpoint."
 }

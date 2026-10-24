@@ -23,7 +23,7 @@ from compute_trainium.depth_evaluation_gate import validate_depth_test_release
 from scripts.qualify_native import digest
 
 
-def main():
+def main(*, expected_precision='bf16', allow_test=True):
     p=argparse.ArgumentParser();p.add_argument('--corpus',type=Path,required=True)
     p.add_argument('--checkpoint',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--repetitions',type=int,choices=[1,2,3,4],required=True)
@@ -37,7 +37,8 @@ def main():
     corpus_sha=file_sha256(args.corpus)
     saved=torch.load(args.checkpoint,map_location='cpu',mmap=True,weights_only=False)
     sig=saved['signature'];context=sig['context'];exposure=saved['real_tokens']
-    if sig['precision']!='bf16' or saved['pauses']!=0:raise ValueError('This readout is for the fixed pre-norm ordinary/recurrent paths')
+    if sig['precision']!=expected_precision or saved['pauses']!=0:raise ValueError('This readout requires its declared precision and fixed pre-norm paths')
+    if args.split=='test' and not allow_test:raise ValueError('This developmental evaluator cannot read TEST')
     if 'repetitions' in sig['model'] and sig['model'].get('normalization')!='pre':
         raise ValueError('The failed sandwich screen is not part of this readout')
     if args.split=='test':
@@ -65,17 +66,18 @@ def main():
     # Every worker has identical shapes; uneven final document counts are fine.
     first_source,first_mask=next(document_windows(docs[0]['tokens'],context))
     first=layout(first_source[None],first_mask[None])
-    objective=TokenObjective(model,first.prediction_positions,True)
+    bf16=expected_precision=='bf16'
+    objective=TokenObjective(model,first.prediction_positions,bf16)
     compiled=torch.compile(objective,backend='neuron',fullgraph=True,dynamic=False)
     cpu_check=None;scores=[];windows=0
     with torch.no_grad():
         probe=compiled(*(v.contiguous().to('neuron') for v in [first.inputs,first.targets,first.target_mask]))
         if rank==0:
             torch.set_num_threads(8)
-            ref=TokenObjective(reference,first.prediction_positions,True,'cpu')
+            ref=TokenObjective(reference,first.prediction_positions,bf16,'cpu')
             cpu=float(ref(first.inputs,first.targets,first.target_mask));native=float(probe.detach().cpu())
             n=int(first.target_mask.sum())
-            if abs(native-cpu)/n>.03:raise AssertionError('Distributed readout probe differs from CPU')
+            if abs(native-cpu)/n>(.03 if bf16 else .003):raise AssertionError('Distributed readout probe differs from CPU')
             cpu_check={'native_nll':native/n,'cpu_nll':cpu/n}
             del reference,ref;torch.set_num_threads(2)
         dist.barrier()

@@ -1,0 +1,19 @@
+{
+  "identity": "fp32-recovery-nll-sensitivity-v1",
+  "registered_unix": 1792822494.861062,
+  "cases": [
+    "same intended108-update direct trajectory",
+    "4+104-update resumed trajectory"
+  ],
+  "metric": "Whole existing DEV FP32 CPU prediction NLL, separate attention/RoPE implementation and FP64 log normalization",
+  "diagnostic_absolute_nll_limit": 0.0001,
+  "deadline_unix": 1792824294.8610628,
+  "threads": 12,
+  "research_test_scoring": false,
+  "source_sha256": {
+    "compute_trainium/independent.py": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20",
+    "compute_trainium/metrics.py": "0296fee74cd632e0dfc04d8ee129a7235f984691eb3f211c968d681e6af38275"
+  },
+  "scope": "Sensitivity readout of the exact-trajectory failure, not a new research win or automatic waiver. Existing developmental panel only; fresh confirmation remains sealed and unscored."
+}

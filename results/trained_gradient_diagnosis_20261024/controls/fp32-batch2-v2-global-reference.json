@@ -1,0 +1,76 @@
+{
+  "status": "PASS_CACHED_INDEPENDENT_FULL_GLOBAL_REFERENCE",
+  "gradient": {
+    "relative_l2": 0.0001213366405685736,
+    "cosine": 0.9999999947784957,
+    "reference_norm": 0.3907851800719999,
+    "candidate_norm": 0.3907596134731704,
+    "maximum_absolute_error": 1.1764466762542725e-05,
+    "largest_error_contributors": [
+      {
+        "parameter": "decoder.layers.0.attention.qkv_linear.wqkv.weight",
+        "squared_error": 8.204125271364203e-10,
+        "reference_squared_norm": 0.02954308510430297
+      },
+      {
+        "parameter": "decoder.layers.0.attention_norm.weight",
+        "squared_error": 2.9427031267049584e-10,
+        "reference_squared_norm": 0.010525122602348898
+      },
+      {
+        "parameter": "decoder.tok_embeddings.weight",
+        "squared_error": 2.1199170768454013e-10,
+        "reference_squared_norm": 0.07309022858407027
+      },
+      {
+        "parameter": "decoder.layers.19.feed_forward.w2.weight",
+        "squared_error": 1.0545330404280164e-10,
+        "reference_squared_norm": 0.014668492393885676
+      },
+      {
+        "parameter": "decoder.layers.0.attention.wo.weight",
+        "squared_error": 1.0471819437413468e-10,
+        "reference_squared_norm": 0.00553828510736623
+      },
+      {
+        "parameter": "decoder.layers.19.feed_forward.w3.weight",
+        "squared_error": 8.8921796991398e-11,
+        "reference_squared_norm": 0.0009500508717381819
+      },
+      {
+        "parameter": "decoder.layers.19.feed_forward.w1.weight",
+        "squared_error": 7.984409459427442e-11,
+        "reference_squared_norm": 0.0007795250124125195
+      },
+      {
+        "parameter": "decoder.layers.9.feed_forward.w2.weight",
+        "squared_error": 6.652799347255576e-11,
+        "reference_squared_norm": 0.0018178649177202208
+      },
+      {
+        "parameter": "decoder.layers.16.attention.qkv_linear.wqkv.weight",
+        "squared_error": 4.4270088568936375e-11,
+        "reference_squared_norm": 0.0008727201778971293
+      },
+      {
+        "parameter": "decoder.layers.14.attention.qkv_linear.wqkv.weight",
+        "squared_error": 4.2829802752934417e-11,
+        "reference_squared_norm": 0.0009670237061742983
+      },
+      {
+        "parameter": "decoder.layers.19.ffn_norm.weight",
+        "squared_error": 3.151257027582795e-11,
+        "reference_squared_norm": 0.0004010195059220002
+      },
+      {
+        "parameter": "decoder.layers.15.attention.qkv_linear.wqkv.weight",
+        "squared_error": 2.8975508350763048e-11,
+        "reference_squared_norm": 0.0008584751337998645
+      }
+    ]
+  },
+  "loss_difference": -5.325762941765788e-07,
+  "source_targets": 261640,
+  "optimizer_updates_before_gate": 0,
+  "scope": "Exact same natural TRAIN global set and trained weights; existing full CPU FP32 gradients used outside native workers. Thresholds unchanged."
+}

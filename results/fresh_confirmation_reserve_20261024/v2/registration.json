@@ -1,0 +1,28 @@
+{
+  "identity": "fresh-confirmation-reserve-v2",
+  "registered_unix": 1792821698.7867792,
+  "purpose": "DATA_PREPARATION_ONLY_NO_MODEL_SCORING",
+  "workers": 8,
+  "preparation_deadline_unix": 1792828298.7867796,
+  "audit_deadline_unix": 1792829198.7867806,
+  "native_chips_assigned": 0,
+  "synthetic_generation": false,
+  "protected_generations_real_targets": [
+    1050002682,
+    3250005799,
+    6500009163,
+    16506320261
+  ],
+  "source_sha256": {
+    "scripts/prepare_confirmation_reserve.py": "f1a894559d559e73a6c391cbf7db097e47b556f02bd36362f9aee2ed8ce47b98",
+    "scripts/audit_confirmation_reserve.py": "8be9073d3908c1a0f285be14050b32e7697ee37928b6e85bb473e662a8a8ceee",
+    "compute_trainium/heldout_screen.py": "fdf5ce4c54e666371a40582d15a7dbdffc8a8047357d55d2e6f3375098b9bbbd"
+  },
+  "selection": "Unused global natural-v1 heldout source groups; exclude prior IDs/groups; fixed content/group hashes;250k real targets and100 source groups/domain/role; max2 documents/group/domain/role.",
+  "duplicate_screen": "Mapped prior ID arrays; small fixed candidate minhash index; stream every accepted raw ID, consume every submitted result, verify crowded neighborhoods and raw reconstruction coverage.",
+  "memory_policy": "Keep512GiB host reserve plus the remaining native-container allowance; preflight20GiB conservative margin for8workers; yield below4GiB additional margin.",
+  "terminal_attempt_registered": false,
+  "test_model_scoring_performed": false,
+  "scope": "Same registered data selection/filter algorithm and source hashes as v1; new execution after prior attempt stopped before indexing because container was down. No model scores, new scientific arm, terminal attempt or alpha spending. Numerical qualification may run concurrently under the unchanged memory reserve.",
+  "preflight_conservative_memory_margin_gib": 22.784988403320312
+}
