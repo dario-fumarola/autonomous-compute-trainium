@@ -1,4 +1,4 @@
-# Status — 2026-10-24, 00:26 UTC
+# Status — 2026-10-24, 00:29 UTC
 
 **All three mixture 1B endpoints are complete.** Fresh DEV NLL is
 2.587427 / 2.590665 / 2.587213 for seeds103 / 211 / 307, after planned decay.
@@ -15,8 +15,13 @@ beating mixture at1.005B by **0.092150 nats**. This pair's equal-data gain
 does not repay the extra compute. The remaining paired seeds and fixed-depth
 controls are pending; all16 chips remain assigned.
 [First-pair DEV comparison](results/variable_depth_20261023/first-pair-dev.json).
-Ordinary211 now scores2.598596 at1B, versus mixture211 at2.590665: a
-0.007931-nat equal-data gain in the second pair. Ordinary307 is pending.
+All three data-matched pairs are now complete. Ordinary211/307 score
+2.598596/2.601686, giving mixture gains0.007931/0.014472 in those pairs.
+The mean gain is **0.011370 [0.003214,0.019527]**, a nominal paired-seed95%
+interval. All three gains are positive, but the useful0.01 threshold remains
+inconclusive. This is the declared secondary DEV comparison, not a confirmed
+primary or efficiency result.
+[Three-seed secondary readout](results/variable_depth_20261023/token-matched-secondary-dev.json).
 No primary comparison or new TEST result has been reported.
 The standalone [first-pair learning curve](results/variable_depth_20261023/first-pair-curve/first-pair-learning.png)
 includes source-group uncertainty. At1B, seed103's conditional interval is
