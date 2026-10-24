@@ -1,0 +1,31 @@
+{
+  "identity": "natural-code-context-v1",
+  "registered_unix": 1792883684.1195154,
+  "source_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "split": "dev",
+  "cohort": "curve",
+  "domain": "code",
+  "distance_bands": [
+    "129-256",
+    "257-512",
+    "513-900"
+  ],
+  "full_positions": 1024,
+  "short_prefix_tokens": 128,
+  "maximum_identifier_tokens": 16,
+  "maximum_targets_per_band": 60,
+  "maximum_per_repository_band": 8,
+  "maximum_per_function_band": 2,
+  "minimum_per_band": 10,
+  "minimum_repositories_per_band": 5,
+  "selection": "Unique direct unconditional local assignment,dominating later same-scope identifier use. Reject rebinding/parameters/global/import/dynamic scope; prune nested scopes. Exact source token roundtrip,UTF8 AST alignment and whitespace-only token edge extension. Stable hash order,balanced bands,repository/function quotas.",
+  "software_sha256": {
+    "scripts/prepare_natural_code_context.py": "52be50452e4d2c53d3a74526fd6e5a2715d7c7eb2ae0e49733ef83ab68252dae",
+    "compute_trainium/natural_code_context.py": "91a8e7e7244054e0d8dc9df200f0b5224e973d7a3e11bd23197de4a9822b284d",
+    "tests/test_natural_code_context.py": "73148ab9d638b4b21e28105d0b161cc94f4d06705957a87781529181cdad8cf1"
+  },
+  "model_scores_seen": false,
+  "test_accessed": false,
+  "scope": "Authentic unchanged held-out code tokens and lexical dependency positions; teacher-free syntax selection only. Development mechanism diagnostic,not general reasoning,synthetic programs or terminal confirmation."
+}

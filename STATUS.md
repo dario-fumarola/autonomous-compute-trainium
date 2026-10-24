@@ -1,6 +1,40 @@
-# Status — 2026-10-24, 22:51 UTC
+# Status — 2026-10-24, 23:17 UTC
 
-**The small-core scientific learning-rate screen has started on all16 chips.**
+**The scalar-input fix restores measured scheduled throughput, but qualification
+needs one retained-state recovery.** Ordinary and recurrent100-update intervals
+with distinct LR/decay values reach491,376 and399,894 targets/second per eight
+chips. Both uninterrupted/replayed native paths complete with exact state loads.
+A separate gradient-check controller claimed the chips during an inter-phase
+gap, stopping the third qualification inventory and interrupting CPU audits.
+All four completed native paths are retained; the next execution will run only
+the missing inventory and CPU audits, with explicit predecessor phase closure.
+The follow-on pilot queue correctly stopped on that failed prerequisite. No
+main fit or held-out score has run.
+
+The next-global-gradient capture/checker qualification is currently using the
+instance, with zero updates. Syntax-only selection also froze149 authentic
+code identifier targets across the three declared distance bands; no model
+scores were used. [Natural-code panel](results/natural_code_context_20261024/report.json).
+
+**The first LR screen is stopped for runtime infeasibility before any held-out
+scoring.** Changing schedule scalars cost about4.4seconds/update versus1.1–1.2
+at constant values. The installed native `fill_.Scalar` registration specializes
+on the value; the projected cooldown would exceed the frozen phase/screen caps.
+No cap, source freeze or scientific outcome was changed. Both20-update states,
+partial trajectories and951.152seconds of screen execution are preserved.
+[Stop evidence](results/parcae_low_depth_pilot_20261024/tuning/runtime-budget-stop.json).
+
+The runtime-tensor alternative gives bit-identical complete CPU model/optimizer
+state across changing-scalar updates. All16 chips are now qualifying it with
+the three actual inventories,100 varying-schedule warm updates,independent
+gradients/first updates and full-state recovery. It changes scalar ingestion,
+not optimizer mathematics. Only a separate new screen may adopt it after these
+gates pass. The four rates,source exposure,initial weights,selection policy and
+3hour budget stay fixed. [Performance policy](docs/PARCAE_RUNTIME_SCALARS_20261024.md)
+· [Current qualification](results/parcae_runtime_scalars_20261024/plan.json)
+· [Prospective amendment](docs/LOW_DEPTH_TUNING_RUNTIME_AMENDMENT_20261024.md).
+
+**The stopped small-core scientific learning-rate screen**
 It compares recipe-matched ordinary, true one-pass Parcae and sampled low-depth
 Parcae, each with four independent rate opportunities at approximately301M
 natural targets. Fresh seed11 weights are distinct from qualification weights;
@@ -37,7 +71,7 @@ operations, communication and elapsed chip time are separate. Main launch still
 requires selected-rate numerical checks and a finite execution registration.
 [Prepared endpoints](results/parcae_low_depth_pilot_20261024/preparation-plan.json).
 
-The CPU suite passes160 tests. The research goal remains active: no
+The CPU suite passes162 tests. The research goal remains active: no
 compute-efficiency advantage has been demonstrated.
 
 **The common-FP32 depth/connection campaign is complete and independently audited.**

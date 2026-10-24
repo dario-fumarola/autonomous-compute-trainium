@@ -1,0 +1,32 @@
+{
+  "identity": "low-depth-pilot-queue-v1",
+  "registered_unix": 1792883515.9783256,
+  "deadline_unix": 1792933915.978326,
+  "source_sha256": {
+    "scripts/run_low_depth_pilot_queue.py": "f0d3fdc07ef1bfbf933131f2106297d2d713220db3ee5a752c929ca7cd108139",
+    "scripts/prepare_low_depth_tuning_v2.py": "a134525f264b2783747c11d440f0c6737f121c965956799b730db86b082903b9",
+    "scripts/run_low_depth_tuning_v2.py": "38998182b5bffdbf39be8c68cc7d13dc787921b4d76100094c10039863a494fa",
+    "scripts/train_low_depth_runtime.py": "e2876c2bfc256d66012fe0ccb93b1b584865edb8cc3daabab26bc0a28721e523",
+    "scripts/audit_runtime_replayed_gradients.py": "3ab41772f0814244600aa6d73e2bd997302266474a8b7cb676e427ad7b6c3aa7",
+    "compute_trainium/parcae_runtime_scalars.py": "fbd0f887c6459129fb7a100ddc7bd979bbd2fd783fc5dda88090dab097ede946",
+    "scripts/prepare_low_depth_main.py": "5164f6939eff4e995eefe865b8a3034c7f216b6895ecc0ec6b6aaf2568a597db",
+    "scripts/run_low_depth_main.py": "9195bd89b67bd5636662ab3bf539059e6267cba2f5b09fd5a6e1a13a54f64690",
+    "scripts/run_low_depth_gradient_validation.py": "867e3cf5048228fbd94d57058c9a51137ccc3ebbbf81566a553fd0a6e4af957d",
+    "scripts/capture_low_depth_gradient.py": "2dab3cd0dd0d30d6abda5be34c5527e8507775ccb9f749dfdc4acaa545fd0341",
+    "scripts/audit_low_depth_gradient.py": "a79b77453db486b2e1a467040bdc5c29c56385382e78aa303b0a2a7ef40e5742",
+    "compute_trainium/low_depth_gradient_probe.py": "1233b767b9985d6dc57944fcabf8fc6fa67be939794388201942ea382cd85217",
+    "docs/LOW_DEPTH_MAIN_PROTOCOL_20261024.md": "551b9bc850414e5a28e4a502e4540f9e57ba8af78aa52550f42cdbc71be369bb",
+    "docs/LOW_DEPTH_TUNING_RUNTIME_AMENDMENT_20261024.md": "c44d784776e78b4d5f79ebcc0027061ef4efd9b5a6b32e7a9eeeb1ced254cfb7",
+    "docs/LOW_DEPTH_MATURE_GRADIENT_POLICY_20261024.md": "f8003cf7b543a828e0cab40f05c14fc5aa9c2bd06a085dfdc71f2675cc61047c"
+  },
+  "stages": [
+    "complete changing-schedule numerical/profile qualification",
+    "freeze and run runtime-input four-rate screen",
+    "finish gradient-capture driver qualification",
+    "qualify selected301M gradients",
+    "freeze and run one-seed matched-work/equal-data pilot"
+  ],
+  "test_accessed": false,
+  "new_terminal_attempt": false,
+  "scope": "Fixed approved finite stages; every child ends in verified success or failed prerequisite. No gate relaxation,window reset,budget expansion,qualification/tuning-weight reuse,fresh confirmation or automatic significant-result claim. Each child retains independent cap/receipts."
+}
