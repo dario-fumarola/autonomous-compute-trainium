@@ -1,4 +1,4 @@
-# Status — 2026-10-24, 00:29 UTC
+# Status — 2026-10-24, 00:56 UTC
 
 **All three mixture 1B endpoints are complete.** Fresh DEV NLL is
 2.587427 / 2.590665 / 2.587213 for seeds103 / 211 / 307, after planned decay.
@@ -6,14 +6,16 @@ Their earlier100M/301M stable scores were3.808420/3.013947 and
 3.814483/3.019806. Mixture103/211 and both ordinary103 endpoints have passed
 independent whole-DEV FP32 audits and full optimizer-state copy/readback.
 The two mixture CPU-minus-native deltas are-0.00001469 and-0.00000106 nats.
-Five of twelve primary-model audits are complete, including all mixture endpoints.
+Nine of twelve primary-model audits are complete, including every mixture and
+ordinary endpoint. The largest CPU/native difference is0.00004622 nats.
 [Partial audit](results/variable_depth_20261023/partial-independent-cpu-verification.json).
 The first ordinary pair is also ready: at equal data, ordinary103 scores
 2.599135 versus mixture103 at2.587427, a **0.011708-nat** gain. At matched
 estimated training matmuls, ordinary at1.700B targets scores **2.495278**,
 beating mixture at1.005B by **0.092150 nats**. This pair's equal-data gain
-does not repay the extra compute. The remaining paired seeds and fixed-depth
-controls are pending; all16 chips remain assigned.
+does not repay the extra compute. The remaining paired seeds are now complete;
+fixed-depth controls are running on both eight-chip halves. All16 chips remain
+assigned.
 [First-pair DEV comparison](results/variable_depth_20261023/first-pair-dev.json).
 All three data-matched pairs are now complete. Ordinary211/307 score
 2.598596/2.601686, giving mixture gains0.007931/0.014472 in those pairs.
@@ -22,7 +24,21 @@ interval. All three gains are positive, but the useful0.01 threshold remains
 inconclusive. This is the declared secondary DEV comparison, not a confirmed
 primary or efficiency result.
 [Three-seed secondary readout](results/variable_depth_20261023/token-matched-secondary-dev.json).
-No primary comparison or new TEST result has been reported.
+The matched-compute primary DEV contrast is now complete across all three
+seeds. Ordinary at1.700B targets scores2.495278 /2.495164 /2.496952, beating
+mixture at1.005B by a mean **0.092637 nats**. The three-comparison family95%
+interval for mixture's gain is **[-0.104356,-0.080918]**, ruling out the declared
+useful gain at this exposure on DEV. The other two primary contrasts and
+sealed TEST confirmation remain pending. This is a substantive efficiency
+negative for this recipe, not a universal claim about latent computation.
+[Primary compute DEV contrast](results/variable_depth_20261023/primary-compute-dev.json).
+The [retained model resource paths](results/variable_depth_20261023/model-resources/REPORT.md)
+separate the ordinary1B decay branch from its1.7B control. They verify full
+optimizer lineage, target/work counters and parameter matching. Mixture's
+retained training launch time is about18% longer than ordinary's matched-work
+path; inference uses1.692 times the estimated forward matmuls. These are not
+wall-time-matched or measured generation-latency comparisons. Shared ancestors
+are deduplicated separately from per-model rows and whole-campaign costs.
 The standalone [first-pair learning curve](results/variable_depth_20261023/first-pair-curve/first-pair-learning.png)
 includes source-group uncertainty. At1B, seed103's conditional interval is
 [0.009770,0.013632], which does not clear the0.01 useful-gain threshold.
