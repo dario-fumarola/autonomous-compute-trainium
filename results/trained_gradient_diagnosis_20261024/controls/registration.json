@@ -1,0 +1,25 @@
+{
+  "identity": "trained-gradient-controls-v1",
+  "registered_unix": 1792818790.7304344,
+  "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "global_real_targets": 261640,
+  "global_windows": 256,
+  "optimizer_updates": 0,
+  "controls": [
+    "Repeat the original BF1632x4x2 capture unchanged",
+    "Separate each micro backward/reduction/CPU copy, then FP32 CPU sum, same32x4x2 data",
+    "Optional NativeFP32 and BF16 at32x1x8, exact same global source-window set"
+  ],
+  "expected_repeat_relative_l2_limit": 1e-05,
+  "expected_separate_vs_accumulated_relative_l2_limit": 1e-05,
+  "global_fp32_reference_gate": {
+    "relative_l2": 0.02,
+    "loss_absolute": 0.003
+  },
+  "source_sha256": {
+    "scripts/qualify_trained_gradient.py": "0fc8f81b7980a9ce4796ef038e24aad58bde3a93e47f77934fc495d9fbc0d469",
+    "scripts/capture_separate_microgradients.py": "707a5d753949003a0262a930241d3974518db8583c8ce8dbd83583e21a0eaf71",
+    "scripts/capture_gradient_precision_control.py": "d7de07e15a0b361fe37a52a798d078801748d2577ec57996274560a21ff8d59d"
+  },
+  "scope": "Operational numerical diagnosis, not a new learning recipe or outcome selection. Same weights/natural TRAIN batch; no optimizer changes or TEST. A discrepancy in the summation control implicates accumulation/communication/executor behavior, not by itself one specific operator. FP32/BF16 partition controls are prospective until actual receipts exist."
+}
