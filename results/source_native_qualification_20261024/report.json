@@ -1,0 +1,30 @@
+{
+  "status": "STOPPED_NATIVE_APPEND_SOURCE_CONTINUATION",
+  "error": "CPU qualification disagreement",
+  "records": [],
+  "execution_wall_seconds": 126.63332915306091,
+  "execution_costs": {
+    "closed_attempts": [
+      {
+        "identity": "source-native-v1-ordinary-old",
+        "exit_code": 0,
+        "wall_seconds": 110.6733751296997,
+        "assigned_chip_hours": 0.24594083362155492,
+        "whole_instance_opportunity_chip_hours": 0.49188166724310983,
+        "report_exists": true
+      },
+      {
+        "identity": "source-native-v1-ordinary-new",
+        "exit_code": 137,
+        "wall_seconds": 116.6705961227417,
+        "assigned_chip_hours": 0.25926799138387047,
+        "whole_instance_opportunity_chip_hours": 0.5185359827677409,
+        "report_exists": false
+      }
+    ],
+    "missing_closures": [],
+    "assigned_chip_hours": 0.5052088250054254,
+    "node_opportunity_chip_hours": 0.5628157721625434,
+    "scope": "Includes repeated qualification updates, setup, probes and closure. Concurrent CPU preparation costs overlap this interval; do not add node elapsed times."
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "status": "COMPLETE_EXPLORATORY_INJECTION_ABLATION",
+  "specification": {
+    "identity": "injection-only-dev-v1",
+    "started_unix": 1792811749.8475428,
+    "deadline_unix": 1792812348.8309808,
+    "seed": 103,
+    "corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+    "selection_sha256": "7f1a3b85183553918ccb3aec0be7eb4ace2726059692e7cf4e05c10cdaf10565",
+    "selection": "First four distinct-source DEV-curve documents/domain by content-hash order, length at least1024; score first1024 real tokens.",
+    "models": [
+      "fixed",
+      "mixture"
+    ],
+    "paths": [
+      "one",
+      "one_plus_injection",
+      "two"
+    ],
+    "configured_cpu_threads": 12,
+    "source_sha256": {
+      "scripts/diagnose_injection_only.py": "4381e3a0a704a73398ed708efbbbbb20de867e14f5fb70e79e0e687d3f6a5f62",
+      "compute_trainium/independent.py": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba",
+      "compute_trainium/model.py": "4a2edc5034ccff94ac1817f5b8529f031f4b6ef63cf1da4bc8e1f2e09cc53eb0"
+    },
+    "scope": "Exploratory first-predeclared-seed same-weight intervention on12 long natural DEV prefixes. Injection-only omits the second16-layer core but preserves the added prelude state. It was not trained in this form. It cannot establish how an independently trained cheap skip control would perform, replace the primary result, or support TEST/exit selection. No synthetic examples, fit or weight changes."
+  },
+  "records": [
+    {
+      "arm": "fixed",
+      "seed": 103,
+      "checkpoint_sha256": "9d44edf92998e0e93ce549374379834657b095c32f4a0422efcd0aae6d16cb1f",
+      "targets": 12288,
+      "metrics": {
+        "one": {
+          "domains": {
+            "web": {
+              "nll_sum": 14854.861011518047,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 3.6266750516401483
+            },
+            "math": {
+              "nll_sum": 14452.940205487415,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 3.528549854855326
+            },
+            "code": {
+              "nll_sum": 8709.584264750269,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 2.126363345886296
+            }
+          },
+          "weighted_nll": 3.3069876711324135,
+          "weights": {
+            "web": 0.6,
+            "math": 0.2,
+            "code": 0.2
+          },
+          "unit": "nats per real source token"
+        },
+        "one_plus_injection": {
+          "domains": {
+            "web": {
+              "nll_sum": 14100.65731105342,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 3.442543288831401
+            },
+            "math": {
+              "nll_sum": 13647.817258262896,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 3.33198663531809
+            },
+            "code": {
+              "nll_sum": 8268.462355357422,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 2.018667567225933
+            }
+          },
+          "weighted_nll": 3.1356568138076453,
+          "weights": {
+            "web": 0.6,
+            "math": 0.2,
+            "code": 0.2
+          },
+          "unit": "nats per real source token"
+        },
+        "two": {
+          "domains": {
+            "web": {
+              "nll_sum": 11999.47581786826,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 2.9295595258467433
+            },
+            "math": {
+              "nll_sum": 11480.906450049888,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 2.802955676281711
+            },
+            "code": {
+              "nll_sum": 6055.225676468341,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 1.4783265811690285
+            }
+          },
+          "weighted_nll": 2.613992166998194,
+          "weights": {
+            "web": 0.6,
+            "math": 0.2,
+            "code": 0.2
+          },
+          "unit": "nats per real source token"
+        }
+      },
+      "canonical_paths_bit_identical_to_reference": true,
+      "active_seconds": 9.696712732315063
+    },
+    {
+      "arm": "mixture",
+      "seed": 103,
+      "checkpoint_sha256": "eb233fe7efc3c435c28b22d2ff9fafc9766d68c73a8cb9f866e49b704779c823",
+      "targets": 12288,
+      "metrics": {
+        "one": {
+          "domains": {
+            "web": {
+              "nll_sum": 12360.315149409304,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 3.0176550657737558
+            },
+            "math": {
+              "nll_sum": 11765.447485851848,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 2.872423702600549
+            },
+            "code": {
+              "nll_sum": 6333.303139621768,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 1.5462165868217208
+            }
+          },
+          "weighted_nll": 2.6943210973487073,
+          "weights": {
+            "web": 0.6,
+            "math": 0.2,
+            "code": 0.2
+          },
+          "unit": "nats per real source token"
+        },
+        "one_plus_injection": {
+          "domains": {
+            "web": {
+              "nll_sum": 12538.636619098665,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 3.061190580834635
+            },
+            "math": {
+              "nll_sum": 11876.735147530924,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 2.899593541877667
+            },
+            "code": {
+              "nll_sum": 6508.64069657457,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 1.5890236075621509
+            }
+          },
+          "weighted_nll": 2.7344377783887444,
+          "weights": {
+            "web": 0.6,
+            "math": 0.2,
+            "code": 0.2
+          },
+          "unit": "nats per real source token"
+        },
+        "two": {
+          "domains": {
+            "web": {
+              "nll_sum": 12199.641949113233,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 2.978428210232723
+            },
+            "math": {
+              "nll_sum": 11641.145382595034,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 2.8420765094226157
+            },
+            "code": {
+              "nll_sum": 6209.503363711716,
+              "real_targets": 4096,
+              "documents": 4,
+              "nll": 1.5159920321561806
+            }
+          },
+          "weighted_nll": 2.658670634455393,
+          "weights": {
+            "web": 0.6,
+            "math": 0.2,
+            "code": 0.2
+          },
+          "unit": "nats per real source token"
+        }
+      },
+      "canonical_paths_bit_identical_to_reference": true,
+      "active_seconds": 9.450642108917236
+    }
+  ],
+  "wall_seconds": 24.361087799072266,
+  "native_chips_assigned": 0,
+  "scope": "Exploratory first-predeclared-seed same-weight intervention on12 long natural DEV prefixes. Injection-only omits the second16-layer core but preserves the added prelude state. It was not trained in this form. It cannot establish how an independently trained cheap skip control would perform, replace the primary result, or support TEST/exit selection. No synthetic examples, fit or weight changes."
+}

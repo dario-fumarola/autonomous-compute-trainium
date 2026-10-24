@@ -47,9 +47,17 @@ def compare_trees(left, right):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True)
-    p.add_argument('--output',type=Path,required=True);a=p.parse_args();a.output.mkdir(exist_ok=False)
+    p.add_argument('--output',type=Path,required=True);p.add_argument('--revision',type=int,choices=[1,2],default=1)
+    a=p.parse_args();a.output.mkdir(exist_ok=False)
     torch.set_num_threads(4);started=time.time();deadline=started+1800
-    public=Path('results/source_native_qualification_20261024');public.mkdir(exist_ok=True)
+    public=Path('results/source_native_qualification_20261024')
+    if a.revision==2:
+        prior=json.loads((a.root/'source-native-equivalence-v1/report.json').read_text())
+        if prior['status']!='STOPPED_NATIVE_APPEND_SOURCE_CONTINUATION' or prior['error']!='CPU qualification disagreement':
+            raise ValueError('Revision2 requires the preserved overly strict CPU-gradient stop')
+        public=public/'v2'
+    public.mkdir(parents=True,exist_ok=True)
+    gradient_tolerance=.01 if a.revision==1 else .08
     old=a.root/'natural-append-3250m';new=a.root/'natural-append-6500m-v2'
     prefix=np.load(new/'packed/prefix_counts.npy',mmap_mode='r')
     count=lambda update:int(prefix[update*256].sum())
@@ -62,11 +70,12 @@ def main():
             path=(a.root/'runs'/f'vdepth-v1-{arm}-s103-u3456/checkpoint.pt' if kind=='old'
                   else a.root/'source-state-copy-q-v1'/f'{arm}-s103.pt')
             inputs[arm,kind]=(path,file_sha256(path))
-    plan={'identity':'source-native-equivalence-v1','purpose':'QUALIFICATION_ONLY',
+    plan={'identity':f'source-native-equivalence-v{a.revision}','purpose':'QUALIFICATION_ONLY',
           'registered_unix':time.time(),'deadline_unix':deadline,'maximum_native_attempts':4,
           'seed':103,'source_update':3456,'updates_per_attempt':8,'world':32,'batch':4,'accumulation':2,
           'future_schedule':{'warmup_tokens':count(96),'decay_start':count(10368),'decay_end':count(11520)},
-          'source_sha256':sources,'cpu_probe_loss_tolerance':.01,'cpu_gradient_relative_l2_tolerance':.01,
+          'source_sha256':sources,'cpu_probe_loss_tolerance':.01,'cpu_gradient_relative_l2_tolerance':gradient_tolerance,
+          'revision_note':'V1 remains stopped at an additional1% CPU-gradient gate. V2 uses the frozen trainer existing8% BF16 CPU-gradient tolerance, not a newly inferred bound; direct old/new model+optimizer agreement remains1e-5 relative/1e-4 maximum. No prior result is relabeled.',
           'state_relative_l2_tolerance':1e-5,'state_maximum_absolute_tolerance':1e-4,
           'scope':'Old3.25B versus independently audited6.5B source, identical first8 restored updates and full optimizer state. Both explicitly extend the stable schedule identically. Fresh qualification copies only; no scientific continuation or TEST. Existing topology unchanged. Costs include all four repeated-update attempts.'}
     write_state(a.output/'plan.json',plan);write_state(public/'plan.json',plan)
@@ -87,7 +96,7 @@ def main():
         for arm in ['ordinary','fixed']:
             pairs=[]
             for half,kind in enumerate(['old','new']):
-                frozen();name=f'source-native-v1-{arm}-{kind}';data=old if kind=='old' else new
+                frozen();name=f'source-native-v{a.revision}-{arm}-{kind}';data=old if kind=='old' else new
                 checkpoint,sha=inputs[arm,kind]
                 if file_sha256(checkpoint)!=sha:raise AssertionError('Source checkpoint changed')
                 relative=lambda path:'/work/instance-nvme/'+str(path.relative_to(a.root))
@@ -115,7 +124,7 @@ def main():
                 probe=report['cpu_probe']
                 if report['status']!='PASS_PACKED_TRAINING_PHASE' or not report['all_replica_model_optimizer_states_equal']:
                     raise AssertionError('Incomplete distributed recovery/update check')
-                if abs(probe['native_loss']-probe['cpu_loss'])>.01 or probe['gradient_relative_l2']>.01:
+                if abs(probe['native_loss']-probe['cpu_loss'])>.01 or probe['gradient_relative_l2']>gradient_tolerance:
                     raise AssertionError('CPU qualification disagreement')
                 reports.append(report)
             keys=['cursor','total_real_targets','total_training_matmul_flops','initial_model_digest','schedule','recovered_model_optimizer_digest']
