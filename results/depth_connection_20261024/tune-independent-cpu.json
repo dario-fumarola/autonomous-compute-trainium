@@ -1,0 +1,51 @@
+{
+  "status": "PASS_DEPTH_CONNECTION_INDEPENDENT_AUDITS",
+  "records": [
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr1-s11",
+      "arm": "fixed",
+      "seed": 11,
+      "endpoint": "tune301M",
+      "depth": 2,
+      "training_real_targets": 301465908,
+      "metrics": {
+        "domains": {
+          "math": {
+            "nll_sum": 652694.405569848,
+            "real_targets": 252312,
+            "documents": 176,
+            "nll": 2.5868543928542755
+          },
+          "web": {
+            "nll_sum": 888516.1737413115,
+            "real_targets": 257141,
+            "documents": 251,
+            "nll": 3.4553656310791028
+          },
+          "code": {
+            "nll_sum": 445272.3169315607,
+            "real_targets": 250020,
+            "documents": 129,
+            "nll": 1.780946791982884
+          }
+        },
+        "weighted_nll": 2.9467796156148935,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": 6.66441297703102e-07,
+      "checkpoint_sha256": "ef12878b9ddbcd028075fa0fe3bea9c17395f1bae5b7eddada3c8395f00d943e",
+      "full_state_serialized_digest": "56b4ab184a20fd0d8db20a1bec5171a7b3ca7bbba3d60c1883b08971835a1956",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 759473,
+      "active_seconds": 357.75160932540894
+    }
+  ],
+  "wall_seconds_including_waits": 357.93974590301514,
+  "active_seconds": 357.75160932540894,
+  "scope": "Separate FP32 implementation, full fresh DEV panel; numerical verification, not model replication. Full-state copies are on the same instance-local NVMe, not off-instance backups."
+}

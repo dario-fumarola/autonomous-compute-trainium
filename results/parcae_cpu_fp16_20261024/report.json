@@ -1,0 +1,75 @@
+{
+  "status": "PASS_CPU_PARCAE_FP16_BODY_SCREEN",
+  "records": [
+    {
+      "arm": "ordinary",
+      "real_targets": 8180,
+      "gradient_comparison": {
+        "relative_l2": 0.000708932420174952,
+        "maximum_absolute_error": 8.46274197101593e-05,
+        "reference_l2": 8.959233872965683
+      },
+      "gradient_groups": {
+        "tied_input_output": {
+          "relative_l2": 0.0007012555610334276,
+          "maximum_absolute_error": 8.46274197101593e-05,
+          "reference_l2": 2.2347888847072306
+        },
+        "transformer_body": {
+          "relative_l2": 0.0007094389246540466,
+          "maximum_absolute_error": 3.1608156859874725e-05,
+          "reference_l2": 8.676027427092697
+        },
+        "value_embeddings": {
+          "relative_l2": 0.0006551607403264721,
+          "maximum_absolute_error": 4.7369758249260485e-07,
+          "reference_l2": 0.01176076613012496
+        }
+      },
+      "fp32_nll": 10.562517310704463,
+      "fp16_body_nll": 10.562482928063876,
+      "passes_registered_screen": true,
+      "active_seconds": 50.78095865249634
+    },
+    {
+      "arm": "recurrent",
+      "real_targets": 8180,
+      "gradient_comparison": {
+        "relative_l2": 0.0006823140628123099,
+        "maximum_absolute_error": 9.012315422296524e-05,
+        "reference_l2": 6.1511388053709135
+      },
+      "gradient_groups": {
+        "recurrent_injection_readout": {
+          "relative_l2": 0.0005618318239371472,
+          "maximum_absolute_error": 1.6188248991966248e-05,
+          "reference_l2": 1.9393409706394054
+        },
+        "tied_input_output": {
+          "relative_l2": 0.0006680136522683309,
+          "maximum_absolute_error": 9.012315422296524e-05,
+          "reference_l2": 1.9982721822162266
+        },
+        "transformer_body": {
+          "relative_l2": 0.000697751225843745,
+          "maximum_absolute_error": 2.9381364583969116e-05,
+          "reference_l2": 5.484735299048282
+        },
+        "value_embeddings": {
+          "relative_l2": 0.0006223082869989649,
+          "maximum_absolute_error": 3.09839379042387e-07,
+          "reference_l2": 0.0072241050559611305
+        }
+      },
+      "fp32_nll": 10.622667472111859,
+      "fp16_body_nll": 10.62267559023533,
+      "passes_registered_screen": true,
+      "active_seconds": 65.0394492149353
+    }
+  ],
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "wall_seconds_after_imports": 142.24208688735962,
+  "scope": "Existing natural-TRAIN numerical fixtures at perturbed qualification weights. FP16 body with FP32 final norm, vocabulary projection, masters, gradients and CE. Manual loss scale8192. CPU feasibility only, no native execution or learning adoption."
+}

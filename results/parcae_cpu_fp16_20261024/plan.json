@@ -1,0 +1,21 @@
+{
+  "identity": "parcae-cpu-fp16-v1",
+  "registered_unix": 1792867667.84985,
+  "source_sha256": {
+    "scripts/screen_parcae_fp16_cpu.py": "3ed71e9e3b09516f2d6bb28f52c2996bd0cabd7533eb76974c50e5bda7641bbf",
+    "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02"
+  },
+  "cpu_reference_report_sha256": "9665e8005dec89a1dc0a3f211b180483b96c8afa6e87aacb1a981117b33d215d",
+  "reference_plan_sha256": "aa4a2dafd4fc16e1aa1374ccfe3ae1632cf1c8a07b036fe60e2147d1f3734a81",
+  "training_windows": 8,
+  "scale": 8192,
+  "gradient_relative_gate": 0.02,
+  "nll_absolute_gate": 0.003,
+  "cpu_seconds_limit": 600,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "Existing natural-TRAIN numerical fixtures at perturbed qualification weights. FP16 body with FP32 final norm, vocabulary projection, masters, gradients and CE. Manual loss scale8192. CPU feasibility only, no native execution or learning adoption."
+}

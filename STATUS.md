@@ -1,12 +1,12 @@
-# Status — 2026-10-24, 18:43 UTC
+# Status — 2026-10-24, 19:07 UTC
 
-**The registered common-FP32 depth/connection comparison is at its audit
-handoff.** The inexpensive-connection resource control has completed
+**All16 chips are taking updates in the remaining common-FP32 fits:** ordinary's
+1.700B resource control and fixed recurrence's1.005B endpoint. The
+inexpensive-connection resource control has completed
 1,699,926,288 targets and its planned decay. Independent full-DEV NLL is
 2.477058137,7.13e-7 above native; full-state copy/readback passes. Fixed's
-four-candidate LR screen is complete; selected6e-4 awaits its independent CPU
-audit. The queue then pairs ordinary's resource control with the selected fixed model's
-1B fit. Same initialization, natural target order, FP32 arithmetic and optimizer
+four-candidate LR screen and selected6e-4 independent CPU audit pass. Same
+initialization, natural target order, FP32 arithmetic and optimizer
 recipe isolate the extra core execution beyond the trained cheap connection.
 The estimated window is6.78hours, with23:00 UTC training /00:00 hard cutoffs.
 No fresh confirmation panel or terminal alpha is used.
@@ -148,7 +148,7 @@ gradients incorrectly. Its repaired, independently checked fixture gives5.13e-7
 relative gradient error and zero loss difference, with the original failure and
 a regression test preserved. These are numerical diagnostics, not learning gains.
 
-The 125-test CPU suite passes after the latest source changes. Natural sources
+The 130-test CPU suite passes after the latest source changes. Natural sources
 only; no synthetic research corpus, external teacher, RL or larger model.
 All failed/stopped jobs, tuning, qualification, compilation, data preparation
 and CPU tails retain separate receipts. Concurrent intervals must not be added
@@ -221,3 +221,20 @@ family, alongside strong ordinary controls. Unique parameter matching alone
 does not match this allocation of capacity or executed work. The meta inventory
 uses the default positional capacity2048; native qualification remains1024.
 [Unique inventory and optimizer families](results/parcae_work_accounting_20261024/parameter-inventory.json).
+
+A separate Parcae FP16-autocast body/FP32-head CPU screen passes on eight
+natural TRAIN windows:0.07089% ordinary and0.06823% recurrent gradient error,
+with every named family below2%. Three CPU tests cover disabled-policy function
+identity, master/head/gradient dtypes and static-stage AOT. Wall time143.435s,
+zero chips/updates. No scientific model or running precision policy changed.
+
+Its zero-update native gradient queue waits for the preceding FP32-gradient
+and optimizer/recovery gates to pass, then uses all16 chips with a30-minute
+cap and latest start03:00 UTC October25. Waiting assigns no chips. Original
+CPU references remain authoritative; full global/local gradient families,
+replicas, weight identity and fallbacks are checked. This prospective route
+does not yet qualify mixed-precision training, optimizer integration, mature
+states, trainer recovery or100 warm updates. The47 scientific source hashes
+and the12/16/28 separately frozen qualification bundles are unchanged.
+[CPU FP16 screen](results/parcae_cpu_fp16_20261024/REPORT.md) ·
+[Conditional native plan](results/parcae_native_fp16_20261024/REPORT.md).
