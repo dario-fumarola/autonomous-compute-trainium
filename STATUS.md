@@ -3,9 +3,10 @@
 **All three mixture 1B endpoints are complete.** Fresh DEV NLL is
 2.587427 / 2.590665 / 2.587213 for seeds103 / 211 / 307, after planned decay.
 Their earlier100M/301M stable scores were3.808420/3.013947 and
-3.814483/3.019806. Both endpoints have passed independent whole-DEV FP32
-audits and full optimizer-state copy/readback: CPU-minus-native deltas are
--0.00001469 and-0.00000106 nats. Ten model audits remain pending.
+3.814483/3.019806. Mixture103/211 and both ordinary103 endpoints have passed
+independent whole-DEV FP32 audits and full optimizer-state copy/readback.
+The two mixture CPU-minus-native deltas are-0.00001469 and-0.00000106 nats.
+Four of twelve primary-model audits are complete; mixture307 is pending.
 [Partial audit](results/variable_depth_20261023/partial-independent-cpu-verification.json).
 The first ordinary pair is also ready: at equal data, ordinary103 scores
 2.599135 versus mixture103 at2.587427, a **0.011708-nat** gain. At matched
