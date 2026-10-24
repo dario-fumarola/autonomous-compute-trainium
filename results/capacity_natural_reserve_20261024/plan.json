@@ -1,0 +1,49 @@
+{
+  "identity": "capacity-balanced-natural-reserve-v4",
+  "purpose": "DATA_FINALIZATION_ONLY_NO_TRAINING",
+  "started_unix": 1792811749.9112322,
+  "deadline_unix": 1792813500.0,
+  "synthetic_generation": false,
+  "parent_manifest_sha256": "61dac8f7d6c3df53041ea194e7732d5db7a9d50324bd406f8bc5475f570feae1",
+  "generation_manifest_sha256": [
+    "454f4730dfb6aa752ae241a5dc33404728c8e577e94b2ea8f1634ef639206af9",
+    "a4b9aa1fdf2570d38b2f24743d5c907724b8db8dd0847251d101f59f499b7d52",
+    "61dac8f7d6c3df53041ea194e7732d5db7a9d50324bd406f8bc5475f570feae1"
+  ],
+  "prior_database_sha256": [
+    "99a32bf7bbcec496db4ca581ac024653f80186a19e4a7ad14a00882dc1335911",
+    "6f11de3a7c16df42897b1de0d2bde26de0b40477e2cd677b62cf98a8c621c5e4",
+    "2f91b555ea7003462e6051461993a4bbbf684f8cb1f48acbaee5593fa5b3cfcb"
+  ],
+  "protected_panel_sha256": [
+    "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+    "3cbcc34976752ff61906a89fd441b60c861967eabfdd3f08f39f6fe6a00d3670"
+  ],
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "failed_attempt_plan_sha256": "444033dc93f7db1af6b40f5badc8a872f070b73b94b2b271e693894a797ed382",
+  "failed_attempt_failure_sha256": "0fef818ed956661c8d911b59912babddd4dddf7ae31dfe9ccaf0bcb3cc3f0a95",
+  "failed_attempt_accepted_database_sha256": "241edebd73b7dd27bac1603da6b905882adf854fe4263355952077e8862ce28a",
+  "available_accepted_targets": {
+    "code": 2001261346,
+    "math": 2100000336,
+    "web": 6300001219
+  },
+  "balanced_target_quotas": {
+    "web": 6003784038,
+    "math": 2001261346,
+    "code": 2001261346
+  },
+  "whole_document_selected_targets": {
+    "web": 6003784438,
+    "math": 2001265314,
+    "code": 2001261346
+  },
+  "selection": "Let unit=min(web//3,math,code). Keep original accepted admission-order whole-document prefixes with starting offset below3*unit/unit/unit. No model loss, new filter or source admission.",
+  "source_sha256": {
+    "scripts/finalize_capacity_reserve.py": "26ee3fefcaba0d29cddfd3b2f1fe740b97fa3f1ddfc2efc21e63675c2557c272",
+    "scripts/audit_chained_extension.py": "f273f4d23b10fecb85fd3b4c3846d5ed972126d8edc4aa7660c8571fd3d2bbb6",
+    "scripts/prepare_chained_extension.py": "4f498882a94c1091ccff734d767444b38c500273450093cb19028b70f5450ed6",
+    "scripts/prepare_extension_corpus.py": "d5823b0421684e00894605197e11a43cab6f26f7b0d590411ade533bd48b6955",
+    "scripts/prepare_learning_corpus.py": "6f2f43a38a040939d08d61411ee6fd30c196d6750f6030266fed0765d89f199f"
+  }
+}
