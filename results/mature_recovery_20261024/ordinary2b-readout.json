@@ -1,0 +1,76 @@
+{
+  "status": "TWO_ORDINARY_STABLE_2B_ENDPOINTS_COMPLETED",
+  "readouts": [
+    {
+      "seed": 211,
+      "real_targets": 2009762680,
+      "weighted_nll": 2.549743987846038,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 766269.4524154663,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0366908238406034
+          },
+          "code": {
+            "nll_sum": 354411.2648086548,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.411800206380205
+          },
+          "math": {
+            "nll_sum": 559780.4108581543,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2268472613281762
+          }
+        },
+        "weighted_nll": 2.549743987846038,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "independent_full_panel_fp32_audit": "not yet run"
+    },
+    {
+      "seed": 307,
+      "real_targets": 2009762680,
+      "weighted_nll": 2.5491474601556883,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 766039.2247543335,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.035778442140207
+          },
+          "code": {
+            "nll_sum": 353954.14418792725,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4099792626045262
+          },
+          "math": {
+            "nll_sum": 560176.4444351196,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.228422711753294
+          }
+        },
+        "weighted_nll": 2.5491474601556883,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "independent_full_panel_fp32_audit": "not yet run"
+    }
+  ],
+  "scope": "Unannealed DEV curves; no3B or equal-compute endpoint. Original trainer and local numerical gate unchanged. These completed fits predate the new global gradient diagnosis; no new fits authorized by it."
+}

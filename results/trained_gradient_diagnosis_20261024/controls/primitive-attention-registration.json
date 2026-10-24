@@ -1,0 +1,31 @@
+{
+  "identity": "trained-gradient-primitive-attention-v1",
+  "registered_unix": 1792820004.3368886,
+  "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "optimizer_updates": 0,
+  "source_update": 7680,
+  "global_windows": 256,
+  "global_real_targets": 261640,
+  "world": 32,
+  "batch": 1,
+  "accumulation": 8,
+  "precisions": [
+    "fp32",
+    "bf16"
+  ],
+  "environment_before_torch_import": {
+    "TORCH_NEURONX_ENABLE_NKI_SDPA": "0"
+  },
+  "source_sha256": {
+    "scripts/capture_primitive_attention_gradient.py": "33509748d53098627b485b30ba6fbb14ef584b8b6718447d36e5b49d4a630d90",
+    "scripts/capture_gradient_precision_control.py": "d7de07e15a0b361fe37a52a798d078801748d2577ec57996274560a21ff8d59d",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd",
+    "compute_trainium/preln_recurrence.py": "3c959efdb138fee2f66074e99c314e509cf0e5f30092b411b6d31dac0570f9eb"
+  },
+  "global_fp32_reference_gate": {
+    "relative_l2": 0.02,
+    "loss_absolute": 0.003
+  },
+  "deadline_seconds_per_attempt": 1200,
+  "scope": "Same trained checkpoint and full natural TRAIN batch as original diagnostic. Execution-route control, not a model or optimization intervention. No TEST or optimizer steps. Disabling NKI SDPA selects the SDK primitive attention decomposition. Source inspection is a lead, not proof of a defect. Both failures and successes will be preserved."
+}
