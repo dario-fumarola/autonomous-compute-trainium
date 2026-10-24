@@ -44,7 +44,9 @@ def main():
     axes[1].axhline(control,color=colors['ordinary'],label='ordinary, matched train matmuls',linestyle='--',linewidth=1.2)
     axes[1].axvspan(3.5,4.4,color='#eef0f3');axes[1].set(xlabel='Inference core applications',ylabel=f"Fresh {summary['split'].upper()} weighted NLL",
         title='1B endpoints: same weights, different depths',xticks=[1,2,3,4],xlim=(.85,4.35))
-    axes[1].legend(frameon=False,fontsize=8);axes[1].text(.02,.02,'Intervals: seed95%, df=2. Fixed trains at2; mixture at1/2/3.\nDepth4 extrapolates; ordinary matched control sees1.7B targets.',transform=axes[1].transAxes,fontsize=7.5)
+    axes[1].legend(frameon=False,fontsize=8)
+    axes[1].text(.35,.63,'Intervals: nominal seed 95%, df=2\nFixed trains at2; mixture at1/2/3\nDepth4 extrapolates. Matched ordinary:1.7B.',
+                 transform=axes[1].transAxes,fontsize=7.5,va='top')
     fig.suptitle('Variable-depth pretraining on natural text — 150M parameters',fontsize=13)
     for suffix in ['png','svg','pdf']:fig.savefig(a.output/f"learning-and-depth-{summary['split']}.{suffix}")
     (a.output/'learning-curve-data.json').write_text(json.dumps(table,indent=2)+'\n');plt.close(fig)

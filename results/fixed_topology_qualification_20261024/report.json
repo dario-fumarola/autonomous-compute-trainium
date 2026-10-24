@@ -1,0 +1,29 @@
+{
+  "status": "STOPPED_DEPTH_TOPOLOGY_QUALIFICATION",
+  "error": "Native qualification failed: fixedtop-q-v1-tiny-w16",
+  "launched": [
+    "fixedtop-q-v1-tiny-w32",
+    "fixedtop-q-v1-tiny-w16"
+  ],
+  "execution_wall_seconds": 156.17607855796814,
+  "execution_costs": {
+    "closed_attempts": [
+      {
+        "identity": "fixedtop-q-v1-tiny-w32",
+        "wall_seconds": 154.15716767311096,
+        "assigned_chip_hours": 0.34257148371802437,
+        "exit_code": 0
+      },
+      {
+        "identity": "fixedtop-q-v1-tiny-w16",
+        "wall_seconds": 23.476194381713867,
+        "assigned_chip_hours": 0.052169320848253035,
+        "exit_code": 1
+      }
+    ],
+    "missing_closures": [],
+    "assigned_chip_hours": 0.3947408045662774,
+    "execution_opportunity_chip_hours": 0.6941162363688151,
+    "scope": "All qualification attempts, including setup, CPU probes, compilation, updates and recovery. Prerequisite waits overlap the prior campaign and are not charged again here. Not the entire instance bill."
+  }
+}

@@ -1,0 +1,1337 @@
+{
+  "status": "COMPLETE_VARIABLE_DEPTH_TEST",
+  "split": "test",
+  "rows": [
+    {
+      "identity": "vdepth-v1-ordinary-s103-u3840",
+      "arm": "ordinary",
+      "seed": 103,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1098412116148224000,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 778953.0483856201,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1105243022286917
+          },
+          "code": {
+            "nll_sum": 342921.2325248718,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3407301523422104
+          },
+          "math": {
+            "nll_sum": 569082.2553749084,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2579672319692596
+          }
+        },
+        "weighted_nll": 2.586054058199509,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-ordinary-s103-u6496",
+      "arm": "ordinary",
+      "seed": 103,
+      "endpoint": "matched",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858147163150745600,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 751123.409236908,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 2.9993946660154056
+          },
+          "code": {
+            "nll_sum": 320361.4309654236,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.2525273718992838
+          },
+          "math": {
+            "nll_sum": 545405.1251144409,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.164022668120607
+          }
+        },
+        "weighted_nll": 2.4829468076132213,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1699926288,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-fixed-s103-u3840",
+      "arm": "fixed",
+      "seed": 103,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 951384.4726257324,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.799079455428701
+          },
+          "code": {
+            "nll_sum": 475805.3433742523,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.8602714267951626
+          },
+          "math": {
+            "nll_sum": 726769.928902626,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.8836300361564797
+          }
+        },
+        "weighted_nll": 3.228227965847549,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-fixed-s103-u3840",
+      "arm": "fixed",
+      "seed": 103,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 765416.2556381226,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.056469025209634
+          },
+          "code": {
+            "nll_sum": 334446.6399269104,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3075967655838419
+          },
+          "math": {
+            "nll_sum": 557255.9685592651,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2110436671359115
+          }
+        },
+        "weighted_nll": 2.537609501669731,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 630152232960
+    },
+    {
+      "identity": "vdepth-v1-fixed-s103-u3840",
+      "arm": "fixed",
+      "seed": 103,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 3,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 782630.671535492,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1252098294319337
+          },
+          "code": {
+            "nll_sum": 346309.6622543335,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3539780048415522
+          },
+          "math": {
+            "nll_sum": 573314.7311954498,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2747605718118256
+          }
+        },
+        "weighted_nll": 2.6008736129898358,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 887850270720
+    },
+    {
+      "identity": "vdepth-v1-fixed-s103-u3840",
+      "arm": "fixed",
+      "seed": 103,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 4,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 808755.6928062439,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.2295325658630083
+          },
+          "code": {
+            "nll_sum": 363907.4592247009,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.4227806766366176
+          },
+          "math": {
+            "nll_sum": 595604.1210231781,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.3631989502294464
+          }
+        },
+        "weighted_nll": 2.6949154648910176,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 1145548308480
+    },
+    {
+      "identity": "vdepth-v1-mixture-s103-u3840",
+      "arm": "mixture",
+      "seed": 103,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 784246.1362915039,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1316607219387196
+          },
+          "code": {
+            "nll_sum": 345819.3837509155,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3520611472362711
+          },
+          "math": {
+            "nll_sum": 572789.9305515289,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.272678302252201
+          }
+        },
+        "weighted_nll": 2.6039443230609263,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-mixture-s103-u3840",
+      "arm": "mixture",
+      "seed": 103,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 775966.0238609314,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.0985964814253024
+          },
+          "code": {
+            "nll_sum": 340361.7781677246,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.33072337147039
+          },
+          "math": {
+            "nll_sum": 565138.8180332184,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.242320720037528
+          }
+        },
+        "weighted_nll": 2.573766707156765,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 630152232960
+    },
+    {
+      "identity": "vdepth-v1-mixture-s103-u3840",
+      "arm": "mixture",
+      "seed": 103,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 3,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 776652.6082077026,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1013381579622745
+          },
+          "code": {
+            "nll_sum": 341344.52771759033,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3345656589368278
+          },
+          "math": {
+            "nll_sum": 565899.4494342804,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2453387034010643
+          }
+        },
+        "weighted_nll": 2.576783767244943,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 887850270720
+    },
+    {
+      "identity": "vdepth-v1-mixture-s103-u3840",
+      "arm": "mixture",
+      "seed": 103,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 4,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 779312.7698402405,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1119607460926044
+          },
+          "code": {
+            "nll_sum": 343704.31680488586,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3437918020928243
+          },
+          "math": {
+            "nll_sum": 568468.8503036499,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2555334035767136
+          }
+        },
+        "weighted_nll": 2.5870414887894704,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 1145548308480
+    },
+    {
+      "identity": "vdepth-v1-ordinary-s211-u3840",
+      "arm": "ordinary",
+      "seed": 211,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1098412116148224000,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 779324.5345306396,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1120077249900753
+          },
+          "code": {
+            "nll_sum": 342333.04766464233,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3384305071104043
+          },
+          "math": {
+            "nll_sum": 569551.6372852325,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2598296147140755
+          }
+        },
+        "weighted_nll": 2.586856659358941,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-ordinary-s211-u6496",
+      "arm": "ordinary",
+      "seed": 211,
+      "endpoint": "matched",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858147163150745600,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 751422.5027389526,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.0005890096394237
+          },
+          "code": {
+            "nll_sum": 319466.85967826843,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.2490298378175424
+          },
+          "math": {
+            "nll_sum": 545995.9247245789,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.1663668040477986
+          }
+        },
+        "weighted_nll": 2.483432734156722,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1699926288,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-fixed-s211-u3840",
+      "arm": "fixed",
+      "seed": 211,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 920258.4702987671,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.674786743730726
+          },
+          "code": {
+            "nll_sum": 462932.7045650482,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.8099428575647383
+          },
+          "math": {
+            "nll_sum": 697930.9635877609,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.7692046818780116
+          }
+        },
+        "weighted_nll": 3.1207015541269856,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-fixed-s211-u3840",
+      "arm": "fixed",
+      "seed": 211,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 764736.7669334412,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.0537556830725414
+          },
+          "code": {
+            "nll_sum": 333161.71167755127,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3025730403545004
+          },
+          "math": {
+            "nll_sum": 556476.6825628281,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2079516672928867
+          }
+        },
+        "weighted_nll": 2.5343583513730024,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 630152232960
+    },
+    {
+      "identity": "vdepth-v1-fixed-s211-u3840",
+      "arm": "fixed",
+      "seed": 211,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 3,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 781396.0088844299,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1202795602852347
+          },
+          "code": {
+            "nll_sum": 344284.9639492035,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3460619768747302
+          },
+          "math": {
+            "nll_sum": 571240.7723731995,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.266531654081805
+          }
+        },
+        "weighted_nll": 2.5946864623624477,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 887850270720
+    },
+    {
+      "identity": "vdepth-v1-fixed-s211-u3840",
+      "arm": "fixed",
+      "seed": 211,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 4,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 806524.8893318176,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.2206244956846066
+          },
+          "code": {
+            "nll_sum": 360693.3936481476,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.4102145412638896
+          },
+          "math": {
+            "nll_sum": 592663.0293140411,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.351529479528638
+          }
+        },
+        "weighted_nll": 2.684723501569269,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 1145548308480
+    },
+    {
+      "identity": "vdepth-v1-mixture-s211-u3840",
+      "arm": "mixture",
+      "seed": 211,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 785055.8623924255,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.134894129549468
+          },
+          "code": {
+            "nll_sum": 347811.332195282,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3598491320210264
+          },
+          "math": {
+            "nll_sum": 574802.0356750488,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.280661800934992
+          }
+        },
+        "weighted_nll": 2.6090386643208845,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-mixture-s211-u3840",
+      "arm": "mixture",
+      "seed": 211,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 776619.9881134033,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1012078990252703
+          },
+          "code": {
+            "nll_sum": 341826.0545024872,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3364482996672318
+          },
+          "math": {
+            "nll_sum": 566634.6716661453,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.248255869930308
+          }
+        },
+        "weighted_nll": 2.57766557333467,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 630152232960
+    },
+    {
+      "identity": "vdepth-v1-mixture-s211-u3840",
+      "arm": "mixture",
+      "seed": 211,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 3,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 777494.9253044128,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1047017083135184
+          },
+          "code": {
+            "nll_sum": 342769.46563339233,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3401367844540932
+          },
+          "math": {
+            "nll_sum": 567451.6357421875,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.251497366385305
+          }
+        },
+        "weighted_nll": 2.5811478551559905,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 887850270720
+    },
+    {
+      "identity": "vdepth-v1-mixture-s211-u3840",
+      "arm": "mixture",
+      "seed": 211,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 4,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 780339.0265846252,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.116058806367676
+          },
+          "code": {
+            "nll_sum": 345147.35022354126,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3494336761785546
+          },
+          "math": {
+            "nll_sum": 570105.6376934052,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.262027741182326
+          }
+        },
+        "weighted_nll": 2.5919275672927817,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 1145548308480
+    },
+    {
+      "identity": "vdepth-v1-ordinary-s307-u3840",
+      "arm": "ordinary",
+      "seed": 307,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1098412116148224000,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 780013.0337677002,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.114757048089049
+          },
+          "code": {
+            "nll_sum": 343718.73726272583,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3438481822198123
+          },
+          "math": {
+            "nll_sum": 571049.6146469116,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.265773190998447
+          }
+        },
+        "weighted_nll": 2.590778503497081,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-ordinary-s307-u6496",
+      "arm": "ordinary",
+      "seed": 307,
+      "endpoint": "matched",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858147163150745600,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 751597.1271018982,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.0012863216607695
+          },
+          "code": {
+            "nll_sum": 320166.2109184265,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.2517641138139692
+          },
+          "math": {
+            "nll_sum": 547140.5657052994,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.170908435424327
+          }
+        },
+        "weighted_nll": 2.485306302844121,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1699926288,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-fixed-s307-u3840",
+      "arm": "fixed",
+      "seed": 307,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 933275.3563270569,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.726765923238722
+          },
+          "code": {
+            "nll_sum": 457840.9619369507,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.790035507940473
+          },
+          "math": {
+            "nll_sum": 703338.7504415512,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.7906613437190813
+          }
+        },
+        "weighted_nll": 3.152198924275144,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-fixed-s307-u3840",
+      "arm": "fixed",
+      "seed": 307,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 764439.8684387207,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.052570104577102
+          },
+          "code": {
+            "nll_sum": 332979.4472103119,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3018604351153054
+          },
+          "math": {
+            "nll_sum": 556461.505311966,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2078914479927865
+          }
+        },
+        "weighted_nll": 2.5334924393678797,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 630152232960
+    },
+    {
+      "identity": "vdepth-v1-fixed-s307-u3840",
+      "arm": "fixed",
+      "seed": 307,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 3,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 781223.2025146484,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.119589507895172
+          },
+          "code": {
+            "nll_sum": 344376.4949989319,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.346419838758472
+          },
+          "math": {
+            "nll_sum": 572051.9782867432,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2697503036774673
+          }
+        },
+        "weighted_nll": 2.594987733224291,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 887850270720
+    },
+    {
+      "identity": "vdepth-v1-fixed-s307-u3840",
+      "arm": "fixed",
+      "seed": 307,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 4,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 807058.1558570862,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.222753941727408
+          },
+          "code": {
+            "nll_sum": 361526.1124649048,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.4134702487563329
+          },
+          "math": {
+            "nll_sum": 594381.8275222778,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.3583492142785976
+          }
+        },
+        "weighted_nll": 2.6880162576434308,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 1145548308480
+    },
+    {
+      "identity": "vdepth-v1-mixture-s307-u3840",
+      "arm": "mixture",
+      "seed": 307,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 1,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 784245.8374481201,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.131659528593871
+          },
+          "code": {
+            "nll_sum": 346702.55767822266,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3555141206943007
+          },
+          "math": {
+            "nll_sum": 574349.8278398514,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2788675603585697
+          }
+        },
+        "weighted_nll": 2.6058720533668964,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 372454195200
+    },
+    {
+      "identity": "vdepth-v1-mixture-s307-u3840",
+      "arm": "mixture",
+      "seed": 307,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 776167.8388977051,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.0994023715591696
+          },
+          "code": {
+            "nll_sum": 341067.3597831726,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.333482006565115
+          },
+          "math": {
+            "nll_sum": 566204.5987262726,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.2465494547391516
+          }
+        },
+        "weighted_nll": 2.575647715196355,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 630152232960
+    },
+    {
+      "identity": "vdepth-v1-mixture-s307-u3840",
+      "arm": "mixture",
+      "seed": 307,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 3,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 777145.0276985168,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1033044931557026
+          },
+          "code": {
+            "nll_sum": 342054.0897293091,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.337339856314644
+          },
+          "math": {
+            "nll_sum": 566862.4089012146,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.249159470788407
+          }
+        },
+        "weighted_nll": 2.5792825613140318,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 887850270720
+    },
+    {
+      "identity": "vdepth-v1-mixture-s307-u3840",
+      "arm": "mixture",
+      "seed": 307,
+      "endpoint": "1B",
+      "parameters": 150436608,
+      "training_matmul_flops": 1858394553266995200,
+      "depth": 4,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 780029.227180481,
+            "real_targets": 250425,
+            "documents": 234,
+            "nll": 3.1148217118118438
+          },
+          "code": {
+            "nll_sum": 344443.12737083435,
+            "real_targets": 255772,
+            "documents": 136,
+            "nll": 1.3466803534821417
+          },
+          "math": {
+            "nll_sum": 569431.6324615479,
+            "real_targets": 252033,
+            "documents": 171,
+            "nll": 2.259353467448897
+          }
+        },
+        "weighted_nll": 2.590099791273314,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "training_real_targets": 1004887590,
+      "inference_forward_flops_per_window": 1145548308480
+    }
+  ],
+  "primary": {
+    "mechanism_mixture_depth1_to_depth3": {
+      "mean_gain_nats": 0.027213619011247303,
+      "interval_95": [
+        0.025593267311441334,
+        0.028833970711053272
+      ],
+      "paired_seed_gains": {
+        "103": 0.02716055581598331,
+        "211": 0.027890809164893948,
+        "307": 0.02658949205286465
+      },
+      "degrees_of_freedom": 2,
+      "decision": "USEFUL_GAIN_SUPPORTED",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats.",
+      "family_comparisons": 3,
+      "bonferroni_family_interval_95": [
+        0.02433312801179367,
+        0.030094110010700937
+      ],
+      "family_decision": "USEFUL_GAIN_SUPPORTED"
+    },
+    "architecture_fixed2_to_mixture2": {
+      "mean_gain_nats": -0.04053990109239244,
+      "interval_95": [
+        -0.050076453856194254,
+        -0.03100334832859062
+      ],
+      "paired_seed_gains": {
+        "103": -0.03615720548703427,
+        "211": -0.0433072219616677,
+        "307": -0.042155275828475336
+      },
+      "degrees_of_freedom": 2,
+      "decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats.",
+      "family_comparisons": 3,
+      "bonferroni_family_interval_95": [
+        -0.05749298257787192,
+        -0.023586819606912952
+      ],
+      "family_decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE"
+    },
+    "compute_ordinary_matched_to_mixture2": {
+      "mean_gain_nats": -0.09179805035790863,
+      "interval_95": [
+        -0.09706968379308856,
+        -0.0865264169227287
+      ],
+      "paired_seed_gains": {
+        "103": -0.09081989954354386,
+        "211": -0.09423283917794789,
+        "307": -0.09034141235223414
+      },
+      "degrees_of_freedom": 2,
+      "decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats.",
+      "family_comparisons": 3,
+      "bonferroni_family_interval_95": [
+        -0.10116940638158729,
+        -0.08242669433422996
+      ],
+      "family_decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE"
+    }
+  },
+  "secondary_exploratory": {
+    "mixture2_to_mixture3": {
+      "mean_gain_nats": -0.0033780626757250096,
+      "interval_95": [
+        -0.0041774808759780305,
+        -0.0025786444754719883
+      ],
+      "paired_seed_gains": {
+        "103": -0.0030170600881778142,
+        "211": -0.0034822818213204876,
+        "307": -0.0036348461176767266
+      },
+      "degrees_of_freedom": 2,
+      "decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats."
+    },
+    "ordinary1_to_mixture2_equal_data": {
+      "mean_gain_nats": 0.012203075122580268,
+      "interval_95": [
+        0.004823328432113945,
+        0.01958282181304659
+      ],
+      "paired_seed_gains": {
+        "103": 0.012287351042743921,
+        "211": 0.009191086024270767,
+        "307": 0.015130788300726117
+      },
+      "degrees_of_freedom": 2,
+      "decision": "INCONCLUSIVE",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats."
+    },
+    "ordinary1_to_fixed2_equal_data": {
+      "mean_gain_nats": 0.0527429762149727,
+      "interval_95": [
+        0.04174860784711541,
+        0.06373734458283
+      ],
+      "paired_seed_gains": {
+        "103": 0.04844455652977819,
+        "211": 0.052498307985938464,
+        "307": 0.05728606412920145
+      },
+      "degrees_of_freedom": 2,
+      "decision": "USEFUL_GAIN_SUPPORTED",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats."
+    },
+    "mixture3_to_mixture4_extrapolation": {
+      "mean_gain_nats": -0.010618221213533582,
+      "interval_95": [
+        -0.011395172386292198,
+        -0.009841270040774966
+      ],
+      "paired_seed_gains": {
+        "103": -0.01025772154452742,
+        "211": -0.010779712136791186,
+        "307": -0.010817229959282137
+      },
+      "degrees_of_freedom": 2,
+      "decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats."
+    }
+  },
+  "longer_single_seed": {},
+  "inventory_sha256": "eab41727815b634a6bc84fd4a73ce8b1c66110b10f1b7706929990e975cae377",
+  "analysis_sha256": "2eda4bcac097293cc8247a9e4b3650bb74920263ea85b3dfb0b6544ab7ce66f8",
+  "scope": "Fresh held-out groups; ordinary/fixed/mixture rerun with identical optimizer/topology/routing. Three primary seed contrasts use Bonferroni family intervals. All inference depths predeclared; no exit selection. Depth4 extrapolates training support. One-seed3B intervals condition on weights."
+}
