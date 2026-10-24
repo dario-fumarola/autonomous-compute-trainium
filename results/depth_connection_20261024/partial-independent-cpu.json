@@ -1,0 +1,49 @@
+{
+  "status": "PARTIAL_INDEPENDENT_CPU_ENDPOINT_AUDITS",
+  "records": [
+    {
+      "identity": "depth-connection-v1-reinjection-s419-u6496",
+      "arm": "reinjection",
+      "seed": 419,
+      "endpoint": "matched",
+      "depth": 1,
+      "training_real_targets": 1699926288,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 745910.8480816466,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.956010605189277
+          },
+          "code": {
+            "nll_sum": 340287.27392789774,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3555371718202551
+          },
+          "math": {
+            "nll_sum": 543409.2769242722,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.16172169769937
+          }
+        },
+        "weighted_nll": 2.477058137017491,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": 7.134845740885964e-07,
+      "checkpoint_sha256": "ae6d231ac86c4a3384eace6b9daa103ee59463bb20cd8b83bede211471f69b27",
+      "full_state_serialized_digest": "45809a15930c7b29696e6e17e68d1136305515188ef4ae0684a6ed64aef1b43d",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 754750,
+      "active_seconds": 245.22836422920227
+    }
+  ],
+  "scope": "One completed canonical endpoint so far; remaining registered endpoints are pending. Active CPU seconds are per record; observer wall time includes waiting and overlaps native training. No new scoring panel or terminal attempt."
+}

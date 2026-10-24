@@ -1,0 +1,119 @@
+{
+  "status": "PASS_ACTUAL_SHAPE_CPU_RELEASE_OPTIMIZER_VECTORS",
+  "records": [
+    {
+      "arm": "ordinary",
+      "parameters": 140781888,
+      "initial_checkpoint_sha256": "3a12816088f15d56dfdc76608a1a5da45cff069387275c448be5ed1f38064aba",
+      "prescribed_gradient_sha256": "876c11610292861161a0c5f640d3f5f3fce7a5831e34372f69d9c602a8759e72",
+      "vectors": [
+        {
+          "update": 1,
+          "update_comparison": {
+            "relative_l2": 6.496447699998836e-07,
+            "maximum_absolute_error": 4.76837158203125e-07,
+            "reference_l2": 61.3640622786997,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 2.7056649512403343e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 1.1111438959038058
+          },
+          "checkpoint_sha256": "c0ab5fb16f79b4781d92bb943ae1cfa1eb2aa209d941d19fd990ba16a2fb00da"
+        },
+        {
+          "update": 2,
+          "update_comparison": {
+            "relative_l2": 7.583666356238476e-07,
+            "maximum_absolute_error": 4.76837158203125e-07,
+            "reference_l2": 41.9245701151123,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 2.7351896756922504e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 1.574208960039629
+          },
+          "checkpoint_sha256": "5f3f53b4fa438c8cd866160f650561e35f559d0da4fc90d8897ffc6f4bbf7155"
+        },
+        {
+          "update": 3,
+          "update_comparison": {
+            "relative_l2": 1.6520388557828626e-06,
+            "maximum_absolute_error": 4.76837158203125e-07,
+            "reference_l2": 11.829501806071342,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 1.93443287444253e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 1.2523614666653553
+          },
+          "checkpoint_sha256": "03d66533f43fd8bb26ceac026c5e8f34786378afba698aa0fc08a7a7b3b7b25c"
+        }
+      ],
+      "active_seconds": 61.863192558288574
+    },
+    {
+      "arm": "recurrent",
+      "parameters": 141963840,
+      "initial_checkpoint_sha256": "f80d995cc34411f0f0f5f6cc86fcda2f637be91b106b426cc20b95c4723a2363",
+      "prescribed_gradient_sha256": "34d6968e78cb2439ad8dd3f249657249e35112dc7866fd23ece2ee42dc09982d",
+      "vectors": [
+        {
+          "update": 1,
+          "update_comparison": {
+            "relative_l2": 6.39244770634015e-07,
+            "maximum_absolute_error": 4.76837158203125e-07,
+            "reference_l2": 61.08654715361066,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 4.7222103714029293e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 0.8326080191654825
+          },
+          "checkpoint_sha256": "37981360ec7a060458bdbe21b8921999be05d390d4216804cc2d6d475c2f7550"
+        },
+        {
+          "update": 2,
+          "update_comparison": {
+            "relative_l2": 7.521250022954903e-07,
+            "maximum_absolute_error": 2.384185791015625e-07,
+            "reference_l2": 41.69409798198994,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 4.654603589010637e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 1.206913817164394
+          },
+          "checkpoint_sha256": "af3aa6b1fc9fda23b70bbbcd2cee33147dbde1500c4962b11e36681fda1dd22d"
+        },
+        {
+          "update": 3,
+          "update_comparison": {
+            "relative_l2": 1.6312538010342593e-06,
+            "maximum_absolute_error": 2.384185791015625e-07,
+            "reference_l2": 11.751770322968987,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.6397835955662206e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 0.87388443658442
+          },
+          "checkpoint_sha256": "b9c8648afe660454bde5174bf28d1012f2bfea6b695857eb85f3c7872472f17e"
+        }
+      ],
+      "active_seconds": 60.23456645011902
+    }
+  ],
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "prescribed_software_updates_per_implementation": 3,
+  "research_optimizer_updates": 0,
+  "wall_seconds_after_imports": 122.43676924705505,
+  "scope": "Actual-shape optimizer numerical fixtures derived from already qualified TRAIN gradient vectors. No model forward, corpus generation, held-out scoring or research training."
+}

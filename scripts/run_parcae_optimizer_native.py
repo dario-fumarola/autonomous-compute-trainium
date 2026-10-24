@@ -1,0 +1,256 @@
+"""Queue a bounded optimizer-only check after the native gradient gate passes."""
+import argparse
+import concurrent.futures as cf
+import datetime as dt
+import json
+import os
+import subprocess
+import threading
+import time
+from pathlib import Path
+
+import torch
+
+from compute_trainium.execution_isolation import cancel_worker_container, managed_running
+from compute_trainium.owned_native_phase import create_worker
+from compute_trainium.parcae_update_qualification import compare_moments, compare_update
+from compute_trainium.queue import write_state
+from compute_trainium.training import file_sha256
+
+
+def launch_ready(terminal, managed_active, now, latest):
+    if now > latest:
+        raise TimeoutError('Optimizer latest-start window expired')
+    if terminal and terminal['status'] != 'PASS_PAIRED_NATIVE_PARCAE_STATIC_STAGE_GLOBAL_GRADIENTS':
+        raise RuntimeError('Native gradient gate failed; optimizer check does not launch')
+    return bool(terminal) and not managed_active
+
+
+def step_comparison(expected_before, expected, actual_before, actual):
+    result = {'update_comparison': compare_update(expected_before, expected['model'], actual_before, actual['model']),
+              'moment_comparison': compare_moments(expected['moments'], actual['moments'])}
+    families = {}
+    for family in ['adamw', 'muon']:
+        names = [n for n, v in expected['moments'].items() if ('step' in v) == (family == 'adamw')]
+        if not names:
+            raise AssertionError('Optimizer family is missing from reference vectors')
+        families[family] = {'update_comparison': compare_update(expected_before, expected['model'],
+            actual_before, actual['model'], names=names),
+            'moment_comparison': compare_moments({n: expected['moments'][n] for n in names},
+                                                {n: actual['moments'][n] for n in names})}
+    result['families'] = families
+    return result
+
+
+def step_passes(row):
+    return all(r[key]['relative_l2'] <= .02 for r in [row, *row['families'].values()]
+               for key in ['update_comparison', 'moment_comparison'])
+
+
+def comparison(root, gradient_root, runs_root, arm, *, include_replay=True):
+    proof = json.loads((root / 'report.json').read_text())
+    vectors = next(r for r in proof['records'] if r['arm'] == arm)['vectors']
+    initial_state = torch.load(gradient_root / arm / 'qualification-state.pt', map_location='cpu', mmap=True, weights_only=False)['model']
+    first = torch.load(root / arm / 'cpu-step-1.pt', map_location='cpu', mmap=True, weights_only=False)
+    if set(first['model']) != set(first['moments']):
+        raise AssertionError('Independent update/moment trainable inventories differ')
+    initial = {name: initial_state[name] for name in first['model']}
+    actual_before = initial
+    expected_before = initial
+    rows = []
+    for update in range(1, 4):
+        expected_file = root / arm / f'cpu-step-{update}.pt'
+        if file_sha256(expected_file) != vectors[update-1]['checkpoint_sha256']:
+            raise AssertionError('Independent optimizer vector changed')
+        expected = torch.load(expected_file, map_location='cpu', mmap=True, weights_only=False)
+        actual = torch.load(runs_root / 'primary' / f'native-step-{update}.pt', map_location='cpu', mmap=True, weights_only=False)
+        rows.append({'update': update, **step_comparison(expected_before, expected, actual_before, actual)})
+        expected_before, actual_before = expected['model'], actual['model']
+    if not include_replay:
+        return {'updates': rows}
+    replay = torch.load(runs_root / 'replay' / 'native-step-3.pt', map_location='cpu', mmap=True, weights_only=False)
+    expected2 = torch.load(root / arm / 'cpu-step-2.pt', map_location='cpu', mmap=True, weights_only=False)
+    actual2 = torch.load(runs_root / 'primary' / 'native-step-2.pt', map_location='cpu', mmap=True, weights_only=False)
+    replay_comparison = step_comparison(expected2['model'], expected, actual2['model'], replay)
+    # Compare resumed against uninterrupted updates in units of that update,
+    # rather than silently requiring an exact future trajectory.
+    continuation_delta = compare_update(actual2['model'], actual['model'], actual2['model'], replay['model'])
+    return {'updates': rows, 'replay_vs_cpu': replay_comparison,
+        'replay_vs_uninterrupted_update': continuation_delta}
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--root', type=Path, required=True)
+    parser.add_argument('--prepare-only', action='store_true')
+    args = parser.parse_args()
+    out = args.root / 'parcae-optimizer-global-v1' / 'attempt2'
+    gradient_root = args.root / 'parcae-native-global-v1'
+    public = Path('results/parcae_optimizer_global_20261024/attempt2')
+    cpu = json.loads((out / 'report.json').read_text())
+    if cpu['status'] != 'PASS_ACTUAL_SHAPE_CPU_RELEASE_OPTIMIZER_VECTORS':
+        raise ValueError('Complete actual-shape independent CPU vectors required')
+    cpu_plan = json.loads((out / 'plan.json').read_text())
+    files = ['scripts/run_parcae_optimizer_native.py', 'scripts/capture_parcae_optimizer_native.py',
+        'compute_trainium/parcae_candidate.py', 'compute_trainium/execution_isolation.py',
+        'compute_trainium/owned_native_phase.py', 'scripts/supervise_isolated.py',
+        'scripts/run_native_isolated.sh', 'docs/PARCAE_NATIVE_OPTIMIZER_PROTOCOL_20261024.md',
+        'scripts/qualify_parcae_optimizer_cpu.py', 'scripts/qualify_native.py',
+        'compute_trainium/training.py', 'compute_trainium/queue.py']
+    plan_file = out / 'native-plan.json'
+    if not plan_file.exists():
+        plan = {'identity': 'parcae-native-opt-v1', 'execution_revision': 2, 'registered_unix': time.time(),
+            'source_sha256': {**cpu_plan['source_sha256'], **{f: file_sha256(f) for f in files}},
+            'cpu_plan_sha256': file_sha256(out / 'plan.json'), 'cpu_report_sha256': file_sha256(out / 'report.json'),
+            'gradient_cpu_report_sha256': file_sha256(gradient_root / 'report.json'),
+            'latest_start_unix': dt.datetime(2026, 10, 25, 2, tzinfo=dt.timezone.utc).timestamp(),
+            'native_seconds_limit': 1800, 'update_relative_gate': .02, 'moment_relative_gate': .02,
+            'next_update_replay_relative_gate': 2e-4, 'test_accessed': False,
+            'scope': 'All16 chips for paired actual-shape prescribed optimizer arithmetic and fresh-process complete-state recovery. Zero research updates, no source or held-out scoring, no training-throughput claim.'}
+        write_state(plan_file, plan); write_state(public / 'native-plan.json', plan)
+    plan = json.loads(plan_file.read_text())
+
+    def frozen():
+        if any(file_sha256(f) != sha for f, sha in plan['source_sha256'].items()):
+            raise AssertionError('Optimizer qualification source changed')
+        for file, key in [('plan.json', 'cpu_plan_sha256'), ('report.json', 'cpu_report_sha256')]:
+            if file_sha256(out / file) != plan[key]:
+                raise AssertionError('Independent CPU optimizer preparation changed')
+        if file_sha256(gradient_root / 'report.json') != plan['gradient_cpu_report_sha256']:
+            raise AssertionError('Independent CPU gradient preparation changed')
+    frozen()
+    if args.prepare_only:
+        return
+    if (out / 'native-report.json').exists():
+        raise FileExistsError('No silent optimizer native rerun')
+    waiting = time.time()
+    started = None
+    active = {}
+    costs, records = [], []
+    lock = threading.Lock()
+    failed = threading.Event()
+
+    def phase(arm, half, mode, deadline):
+        frozen()
+        if time.time() > plan['latest_start_unix']:
+            raise TimeoutError('Optimizer launch is past the registered latest start')
+        identity = 'parcae-native-opt-v1-r2-' + arm + '-' + mode
+        container = create_worker(args.root, identity, half)
+        with lock:
+            active[identity] = container
+        proc = None
+        try:
+            env = dict(os.environ, RESEARCH_ROOT=str(args.root), RESEARCH_CONTAINER_ROOT='/work/instance-nvme',
+                RESEARCH_RUN=identity, RESEARCH_OWNER=identity, RESEARCH_CONTAINER=container,
+                RESEARCH_ENTRY_MODULE='scripts.capture_parcae_optimizer_native', RESEARCH_DDP_RANKS='32',
+                NEURON_RT_VISIBLE_CORES=','.join(map(str, range(half*32, half*32+32))),
+                RESEARCH_TIMEOUT_SECONDS=str(max(1, int(deadline-time.time()))))
+            command = [os.sys.executable, '-u', '-m', 'scripts.supervise_isolated',
+                '--optimizer-root', '/work/instance-nvme/parcae-optimizer-global-v1/attempt2',
+                '--gradient-root', '/work/instance-nvme/parcae-native-global-v1', '--arm', arm, '--mode', mode]
+            if mode == 'replay':
+                command += ['--primary-root', '/work/instance-nvme/runs/parcae-native-opt-v1-r2-'+arm+'-primary']
+            with (out / (identity+'.log')).open('x') as log:
+                if time.time() > plan['latest_start_unix']:
+                    raise TimeoutError('Container setup crossed the optimizer latest start')
+                proc = subprocess.Popen(command, env=env, stdout=log, stderr=subprocess.STDOUT)
+            while proc.poll() is None:
+                if time.time() > deadline:
+                    raise TimeoutError('Native optimizer thirty-minute deadline')
+                if failed.is_set():
+                    raise RuntimeError('Peer optimizer check failed; cancel this qualification-owned worker')
+                time.sleep(5)
+            if proc.returncode:
+                raise RuntimeError('Native optimizer phase failed: '+identity)
+            report = json.loads((args.root / 'runs' / identity / 'report.json').read_text())
+            if report['status'] != 'CAPTURED_NATIVE_PARCAE_OPTIMIZER_UPDATES' or not report['all_complete_replica_states_equal']:
+                raise AssertionError('Native optimizer replica gate failed')
+            if mode == 'replay' and not report['complete_state_on_load_exact']:
+                raise AssertionError('Native optimizer complete-state recovery gate failed')
+            return args.root / 'runs' / identity
+        finally:
+            cancel_worker_container(container, identity, 'optimizer_phase_complete')
+            if proc is not None and proc.poll() is None:
+                try:
+                    proc.wait(timeout=30)
+                except subprocess.TimeoutExpired:
+                    proc.terminate()
+            closure = args.root / 'snapshots' / identity / 'closure.json'
+            with lock:
+                active.pop(identity, None)
+                costs.append({'identity': identity, **json.loads(closure.read_text())} if closure.exists() else {'identity': identity, 'closure_missing': True})
+
+    def arm_check(arm, half, deadline):
+        try:
+            primary = phase(arm, half, 'primary', deadline)
+            # Link only private run directories, avoiding duplicate large artifacts.
+            arm_root = out / arm / 'native'
+            arm_root.mkdir(exist_ok=False)
+            (arm_root / 'primary').symlink_to(primary, target_is_directory=True)
+            first = comparison(out, gradient_root, arm_root, arm, include_replay=False)
+            write_state(public / (arm+'-primary.json'), first)
+            if not all(step_passes(r) for r in first['updates']):
+                raise AssertionError('Native optimizer primary arithmetic gate failed: '+arm)
+            if failed.is_set():
+                raise RuntimeError('Peer optimizer check failed; no replay starts')
+            replay = phase(arm, half, 'replay', deadline)
+            (arm_root / 'replay').symlink_to(replay, target_is_directory=True)
+            deltas = comparison(out, gradient_root, arm_root, arm)
+            passed = all(step_passes(r) for r in deltas['updates']) and step_passes(deltas['replay_vs_cpu'])
+            passed &= deltas['replay_vs_uninterrupted_update']['relative_l2'] <= 2e-4
+            row = {'arm': arm, **deltas, 'complete_state_on_load_exact': True,
+                'all_complete_replica_states_equal': True, 'passes_registered_gates': passed,
+                'prescribed_optimizer_calls_per_replica_including_replay': 4}
+            with lock:
+                records.append(row); write_state(public / 'native-progress.json', {'records': records})
+            if not passed:
+                raise AssertionError('Native optimizer numerical update/recovery gate failed: '+arm)
+            return row
+        except BaseException:
+            failed.set()
+            raise
+
+    try:
+        while True:
+            frozen()
+            file = gradient_root / 'native-report.json'
+            terminal = json.loads(file.read_text()) if file.exists() else None
+            if launch_ready(terminal, bool(managed_running()) if terminal else True, time.time(), plan['latest_start_unix']):
+                break
+            write_state(public / 'native-status.json', {'status': 'WAITING_FOR_NATIVE_GRADIENT_GATE',
+                'observed_unix': time.time(), 'assigned_chips': 0})
+            time.sleep(30)
+        started = time.time()
+        deadline = started + plan['native_seconds_limit']
+        write_state(public / 'native-status.json', {'status': 'RUNNING_PAIRED_NATIVE_OPTIMIZER_QUALIFICATION',
+            'started_unix': started, 'maximum_chips': 16})
+        with cf.ThreadPoolExecutor(2) as pool:
+            futures = [pool.submit(arm_check, arm, half, deadline) for half, arm in enumerate(['ordinary', 'recurrent'])]
+            for future in cf.as_completed(futures):
+                future.result()
+        frozen()
+        if time.time() > deadline:
+            raise TimeoutError('Optimizer final comparisons exceeded the registered native window')
+        result = {'status': 'PASS_PAIRED_NATIVE_PARCAE_OPTIMIZER_AND_RECOVERY', 'records': records}
+    except BaseException as error:
+        result = {'status': 'STOPPED_NATIVE_PARCAE_OPTIMIZER_QUALIFICATION', 'records': records, 'error': str(error)}
+        raise
+    finally:
+        for identity, container in list(active.items()):
+            try:
+                cancel_worker_container(container, identity, 'optimizer_qualification_stop')
+            except BaseException:
+                pass
+        now = time.time()
+        result.update(execution_revision=2, waiting_seconds=(started or now)-waiting,
+            active_execution_seconds=now-started if started else 0., research_optimizer_updates=0,
+            test_accessed=False, scope=plan['scope'])
+        write_state(out / 'native-report.json', result); write_state(public / 'native-report.json', result)
+        write_state(public / 'native-status.json', {'status': result['status'], 'observed_unix': now, 'assigned_chips': 0})
+        write_state(public / 'native-execution-costs.json', {'status': result['status'], 'attempts': costs,
+            'waiting_seconds': result['waiting_seconds'], 'active_execution_seconds': result['active_execution_seconds'],
+            'scope': 'Waiting assigns zero chips. Closed native receipts include compilation, actual prescribed optimizer steps and failures. Concurrent intervals are not sequential reservation time.'})
+
+
+if __name__ == '__main__':
+    main()

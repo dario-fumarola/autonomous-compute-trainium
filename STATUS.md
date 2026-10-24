@@ -1,9 +1,11 @@
-# Status — 2026-10-24, 18:10 UTC
+# Status — 2026-10-24, 18:43 UTC
 
-**All16 chips are taking scientific updates in the registered common-FP32
-depth/connection comparison.** Eight chips continue the inexpensive-connection
-resource control; eight run fixed recurrence's four-candidate LR screen. The
-queue then pairs ordinary's resource control with the selected fixed model's
+**The registered common-FP32 depth/connection comparison is at its audit
+handoff.** The inexpensive-connection resource control has completed
+1,699,926,288 targets and its planned decay. Independent full-DEV NLL is
+2.477058137,7.13e-7 above native; full-state copy/readback passes. Fixed's
+four-candidate LR screen is complete; selected6e-4 awaits its independent CPU
+audit. The queue then pairs ordinary's resource control with the selected fixed model's
 1B fit. Same initialization, natural target order, FP32 arithmetic and optimizer
 recipe isolate the extra core execution beyond the trained cheap connection.
 The estimated window is6.78hours, with23:00 UTC training /00:00 hard cutoffs.
@@ -14,10 +16,11 @@ No fresh confirmation panel or terminal alpha is used.
 The independent-audit observer and registered descriptive readout are running;
 they will write the endpoint comparison automatically after all audits pass.
 All47 frozen scientific source hashes remain unchanged.
-Three fixed LR candidates completed301M targets and native TUNE scoring:
-3.072932 at3e-4,2.946779 at6e-4 and2.974434 at1e-3. The1.5e-3 candidate is
-pending. This is not the selected recipe or a new endpoint comparison. The
-connection resource control and fourth LR candidate are taking updates.
+All four fixed LR candidates completed301M targets and native TUNE scoring:
+3.072932 at3e-4,2.946779 at6e-4,2.974434 at1e-3 and2.997060 at1.5e-3.
+The independent endpoint readout is partial: ordinary1.7B and fixed1B remain
+pending. No gain or significance is inferred from the completed control alone.
+[Partial independent audit](results/depth_connection_20261024/partial-independent-cpu.json).
 
 **The paired 3B FP32 continuation is complete and independently audited.** At
 3,014,637,826 real targets, ordinary DEV NLL is **2.405907** and fixed two-pass
@@ -145,7 +148,7 @@ gradients incorrectly. Its repaired, independently checked fixture gives5.13e-7
 relative gradient error and zero loss difference, with the original failure and
 a regression test preserved. These are numerical diagnostics, not learning gains.
 
-The 120-test CPU suite passes after the latest source changes. Natural sources
+The 125-test CPU suite passes after the latest source changes. Natural sources
 only; no synthetic research corpus, external teacher, RL or larger model.
 All failed/stopped jobs, tuning, qualification, compilation, data preparation
 and CPU tails retain separate receipts. Concurrent intervals must not be added
@@ -196,3 +199,25 @@ overhead. This is matrix work, not a latency estimate. New budgets must include
 optimizer matmuls and measured time; old reports retain their declared scopes.
 [Preparation, receipts and accounting](docs/PARCAE_OPTIMIZER_AND_STAGES_20261024.md) ·
 [Native queue status](results/parcae_native_global_20261024/native-status.json).
+
+Actual-shape Parcae CPU optimizer vectors now pass for both models: three
+prescribed updates against the independent released algorithm, maximum update
+relative error1.65204e-6 and named-moment error4.72221e-8. This takes124.485s
+with zero chips and zero research updates. An initial report-directory failure
+is preserved. A separate bounded native optimizer/recovery queue waits behind
+the native-gradient pass; it cannot displace the scientific campaign. Revision2
+corrects an unstarted capture's buffer/tied-alias inventory before any native
+attempt. CPU vectors and optimizer algorithm are unchanged. Its update/moment
+gates apply separately to Muon and AdamW. Fresh-process full-state load/replay,
+replica equality and ownership-scoped cancellation are required.
+[Exact preparation and canceled attempt](results/parcae_optimizer_global_20261024/REPORT.md) ·
+[Optimizer hardware protocol](docs/PARCAE_NATIVE_OPTIMIZER_PROTOCOL_20261024.md).
+
+The data-free inventory audit identifies73.728M lookup-only value-embedding
+parameters, about52% of the Parcae inventories. Another24.576M form the tied
+input/output table; its dense output projection still counts as matrix work.
+A recurrence comparison therefore needs the same-parameter depth-one Parcae
+family, alongside strong ordinary controls. Unique parameter matching alone
+does not match this allocation of capacity or executed work. The meta inventory
+uses the default positional capacity2048; native qualification remains1024.
+[Unique inventory and optimizer families](results/parcae_work_accounting_20261024/parameter-inventory.json).

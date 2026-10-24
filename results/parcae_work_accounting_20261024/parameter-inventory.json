@@ -1,0 +1,65 @@
+{
+  "status": "COMPLETE_DATA_FREE_PARCAE_PARAMETER_INVENTORY",
+  "config": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "records": [
+    {
+      "arm": "ordinary",
+      "unique_parameters": 140781888,
+      "categories": {
+        "tied_input_output": 24576000,
+        "remaining_transformations_and_gates": 42477888,
+        "lookup_only_value_embeddings": 73728000
+      },
+      "fractions": {
+        "tied_input_output": 0.17456791032664656,
+        "remaining_transformations_and_gates": 0.30172835869341375,
+        "lookup_only_value_embeddings": 0.5237037309799397
+      },
+      "optimizer_parameter_families": {
+        "adamw": 98313984,
+        "muon": 42467904
+      },
+      "head_tied_to_input": true,
+      "recurrent_depth_changes_unique_parameters": false
+    },
+    {
+      "arm": "recurrent",
+      "unique_parameters": 141963840,
+      "categories": {
+        "tied_input_output": 24576000,
+        "remaining_transformations_and_gates": 43659840,
+        "lookup_only_value_embeddings": 73728000
+      },
+      "fractions": {
+        "tied_input_output": 0.17311450577837287,
+        "remaining_transformations_and_gates": 0.3075419768865086,
+        "lookup_only_value_embeddings": 0.5193435173351186
+      },
+      "optimizer_parameter_families": {
+        "adamw": 99495936,
+        "muon": 42467904
+      },
+      "head_tied_to_input": true,
+      "recurrent_depth_changes_unique_parameters": false
+    }
+  ],
+  "source_sha256": {
+    "scripts/audit_parcae_inventory.py": "e9f6c0ff2b125fd2b11b9ddf3bd4cd6d524ba8585dab37cdd64452bd67c52b4f",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7"
+  },
+  "assigned_chips": 0,
+  "research_optimizer_updates": 0,
+  "scope": "Meta tensors only. Lookup-only tables have gather/scatter costs, not dense projection FLOPs. The tied input table also supplies the dense vocabulary head, whose work must be counted. Recurrent depth-one is the same-parameter family control; plain ordinary omits injection/readout parameters. No source data, learning or performance measurement."
+}

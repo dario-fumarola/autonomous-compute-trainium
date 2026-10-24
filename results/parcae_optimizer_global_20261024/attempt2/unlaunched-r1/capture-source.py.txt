@@ -1,0 +1,138 @@
+"""Native actual-shape prescribed optimizer updates and separate-process replay."""
+import argparse
+import gc
+import json
+import os
+import time
+from pathlib import Path
+
+os.environ['TORCH_NEURONX_ENABLE_NKI_SDPA'] = '0'
+os.environ['NEURON_RT_VISIBLE_CORES'] = os.environ['RESEARCH_VISIBLE_CORES'].split(',')[int(os.environ.get('LOCAL_RANK', '0'))]
+
+import torch
+import torch.distributed as dist
+
+from compute_trainium.parcae_candidate import ParcaeCandidate, ParcaeCandidateConfig
+from compute_trainium.parcae_optimizer_candidate import ParcaeOptimizerCandidate
+from compute_trainium.parcae_update_qualification import assign_gradient, configure_step, named_moments
+from compute_trainium.training import atomic_checkpoint, cpu_tree, file_sha256
+from scripts.qualify_native import digest
+
+
+def state(model, optimizer):
+    # digest() streams tensors to CPU one at a time. Avoid materializing the
+    # complete CPU optimizer state on every replica at every update.
+    return {'model': dict(sorted(model.state_dict().items())), 'optimizer': optimizer.state_dict()}
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--corpus')  # Common isolated launcher; never read here.
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--gradient-root', type=Path, required=True)
+    parser.add_argument('--optimizer-root', type=Path, required=True)
+    parser.add_argument('--arm', choices=['ordinary', 'recurrent'], required=True)
+    parser.add_argument('--mode', choices=['primary', 'replay'], required=True)
+    parser.add_argument('--primary-root', type=Path)
+    args = parser.parse_args()
+    import torch_neuronx
+    torch.set_num_threads(2)
+    torch.neuron.set_device(0)
+    dist.init_process_group('neuron')
+    rank, world = dist.get_rank(), dist.get_world_size()
+    if world != 32:
+        raise ValueError('Registered half-node32-rank optimizer check required')
+    args.output.mkdir(exist_ok=True)
+    started = time.time()
+    reference = json.loads((args.gradient_root / 'report.json').read_text())
+    proof = next(r for r in reference['records'] if r['arm'] == args.arm)
+    checkpoint = args.gradient_root / args.arm / 'qualification-state.pt'
+    gradient = args.gradient_root / args.arm / 'global-cpu-fp32.pt'
+    if rank == 0 and (file_sha256(checkpoint) != proof['checkpoint_sha256'] or file_sha256(gradient) != proof['global_gradient_file_sha256']):
+        raise AssertionError('Pinned optimizer inputs changed')
+    dist.barrier()
+    initial = torch.load(checkpoint, map_location='cpu', mmap=True, weights_only=False)
+    if not initial['qualification_only']:
+        raise ValueError('Optimizer-only qualification weights required')
+    model = ParcaeCandidate(ParcaeCandidateConfig(**initial['config']),
+        recurrent=initial['recurrent'], initialize=False)
+    model.load_state_dict(initial['model'])
+    expected_digest = digest(dict(sorted(model.state_dict().items())))
+    model.to('neuron')
+    optimizer = ParcaeOptimizerCandidate(model, gate_policy='release_muon',
+        fused_adamw=True, muon_backend='neuron')
+    if digest(dict(sorted(model.state_dict().items()))) != expected_digest:
+        raise AssertionError('Moving FP32 masters changed values')
+    del initial
+    source = torch.load(gradient, map_location='cpu', mmap=True, weights_only=False)
+    if args.mode == 'replay':
+        if args.primary_root is None:
+            raise ValueError('Separate-process replay requires primary checkpoint')
+        primary = json.loads((args.primary_root / 'report.json').read_text())
+        restored_file = args.primary_root / 'after-two-full-state.pt'
+        if rank == 0 and file_sha256(restored_file) != primary['recovery_checkpoint_sha256']:
+            raise AssertionError('Native recovery checkpoint changed')
+        dist.barrier()
+        restored = torch.load(restored_file, map_location='cpu', mmap=True, weights_only=False)
+        model.load_state_dict(restored['model'])
+        optimizer.load_state_dict(restored['optimizer'])
+        if digest(state(model, optimizer)) != primary['recovery_state_digest']:
+            raise AssertionError('Complete native model/optimizer state changed on load')
+        del restored
+    steps = [2] if args.mode == 'replay' else range(3)
+    timings = []
+    recovery_digest = recovery_sha = None
+    gc.collect()
+    for update in steps:
+        scale = configure_step(optimizer, update)
+        assign_gradient(model, source['gradients'], scale)
+        torch.neuron.synchronize()
+        begin = time.time()
+        optimizer.step()
+        torch.neuron.synchronize()
+        elapsed = time.time() - begin
+        full_digest = digest(state(model, optimizer))
+        if rank == 0:
+            moments = named_moments(model, optimizer)
+            weights = cpu_tree(model.state_dict())
+            if not all(torch.isfinite(p).all() for p in weights.values()):
+                raise FloatingPointError('Native optimizer produced nonfinite weights')
+            atomic_checkpoint(args.output / f'native-step-{update+1}.pt',
+                {'model': weights, 'moments': moments, 'update': update+1})
+            if update == 1:
+                atomic_checkpoint(args.output / 'after-two-full-state.pt', state(model, optimizer))
+                recovery_digest = full_digest
+                recovery_sha = file_sha256(args.output / 'after-two-full-state.pt')
+            del moments, weights
+        row = {'update': update+1, 'optimizer_seconds': elapsed, 'full_state_digest': full_digest}
+        timings.append(row)
+        (args.output / f'replica-{rank}-step-{update+1}.json').write_text(json.dumps(row)+'\n')
+        print(json.dumps({'rank': rank, **row}), flush=True)
+        dist.barrier()
+        optimizer.zero_grad(set_to_none=True)
+        gc.collect()
+    (args.output / f'replica-{rank}-fallbacks.json').write_text(json.dumps(list(torch_neuronx.get_fallback_ops()))+'\n')
+    dist.barrier()
+    if rank == 0:
+        for update in steps:
+            replicas = [json.loads((args.output / f'replica-{i}-step-{update+1}.json').read_text()) for i in range(world)]
+            if len({r['full_state_digest'] for r in replicas}) != 1:
+                raise AssertionError('Complete optimizer/model states differ across replicas')
+        fallbacks = set().union(*(set(json.loads((args.output / f'replica-{i}-fallbacks.json').read_text())) for i in range(world)))
+        if fallbacks - {'aten::_to_copy'}:
+            raise AssertionError('Unexpected optimizer fallback: '+str(sorted(fallbacks)))
+        report = {'status': 'CAPTURED_NATIVE_PARCAE_OPTIMIZER_UPDATES', 'arm': args.arm,
+            'mode': args.mode, 'actual_optimizer_calls_per_replica': len(timings),
+            'all_complete_replica_states_equal': True,
+            'complete_state_on_load_exact': args.mode == 'replay',
+            'recovery_state_digest': recovery_digest, 'recovery_checkpoint_sha256': recovery_sha,
+            'timings': timings, 'fallback_ops': sorted(fallbacks), 'wall_seconds': time.time()-started,
+            'research_optimizer_updates': 0, 'test_accessed': False,
+            'scope': 'Prescribed actual-shape optimizer numerical check; no model forward/backward, source exposure, learning, full training recovery or steady training throughput qualification.'}
+        (args.output / 'report.json').write_text(json.dumps(report, indent=2)+'\n')
+    dist.barrier()
+    dist.destroy_process_group()
+
+
+if __name__ == '__main__':
+    main()

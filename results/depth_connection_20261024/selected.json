@@ -1,0 +1,37 @@
+{
+  "identity": "depth-connection-v1-fixed-tune-lr1-s11",
+  "evaluation_identity": "depth-connection-v1-fixed-tune-lr1-s11-tune-r2",
+  "arm": "fixed",
+  "seed": 11,
+  "endpoint": "tune301M",
+  "lr": 0.0006,
+  "metrics": {
+    "domains": {
+      "math": {
+        "nll_sum": 652694.2096652985,
+        "real_targets": 252312,
+        "documents": 176,
+        "nll": 2.5868536164165734
+      },
+      "web": {
+        "nll_sum": 888516.0385551453,
+        "real_targets": 257141,
+        "documents": 251,
+        "nll": 3.455365105351326
+      },
+      "code": {
+        "nll_sum": 445272.072265625,
+        "real_targets": 250020,
+        "documents": 129,
+        "nll": 1.7809458133974283
+      }
+    },
+    "weighted_nll": 2.946778949173596,
+    "weights": {
+      "web": 0.6,
+      "math": 0.2,
+      "code": 0.2
+    },
+    "unit": "nats per real source token"
+  }
+}

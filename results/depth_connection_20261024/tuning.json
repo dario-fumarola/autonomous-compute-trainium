@@ -110,6 +110,43 @@
         },
         "unit": "nats per real source token"
       }
+    },
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr3-s11",
+      "evaluation_identity": "depth-connection-v1-fixed-tune-lr3-s11-tune-r2",
+      "arm": "fixed",
+      "seed": 11,
+      "endpoint": "tune301M",
+      "lr": 0.0015,
+      "metrics": {
+        "domains": {
+          "math": {
+            "nll_sum": 663747.2629699707,
+            "real_targets": 252312,
+            "documents": 176,
+            "nll": 2.6306607017104646
+          },
+          "web": {
+            "nll_sum": 902153.21708107,
+            "real_targets": 257141,
+            "documents": 251,
+            "nll": 3.5083989604188752
+          },
+          "code": {
+            "nll_sum": 457397.33749961853,
+            "real_targets": 250020,
+            "documents": 129,
+            "nll": 1.8294429945589095
+          }
+        },
+        "weighted_nll": 2.9970601155052,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "status": "LIVE_OBSERVATION",
-  "observed_unix": 1792865421.9285614,
+  "observed_unix": 1792867372.332828,
   "closed_attempts": [
     {
       "identity": "depth-connection-v1-fixed-tune-lr0-s11",
@@ -49,38 +49,42 @@
       "assigned_chip_hours": 0.183438597785102,
       "whole_instance_opportunity_chip_hours": 0.366877195570204,
       "report_exists": true
-    }
-  ],
-  "open_attempts": [
+    },
     {
       "identity": "depth-connection-v1-fixed-tune-lr3-s11",
-      "assigned_chips": 8,
-      "observed_launch_seconds": 395.75765562057495,
-      "last_logged_training_update": {
-        "update": 140,
-        "real_tokens": 36636094,
-        "lr": 0.0015,
-        "rank0_scaled_nll": 5.240636798942203,
-        "gradient_norm": 0.44181951880455017,
-        "elapsed_seconds": 360.0384166869335
-      }
+      "exit_code": 0,
+      "wall_seconds": 2018.8916897773743,
+      "assigned_chip_hours": 4.486425977283054,
+      "whole_instance_opportunity_chip_hours": 8.972851954566108,
+      "report_exists": true
+    },
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr3-s11-tune-r2",
+      "exit_code": 0,
+      "wall_seconds": 84.19472479820251,
+      "assigned_chip_hours": 0.18709938844045004,
+      "whole_instance_opportunity_chip_hours": 0.3741987768809001,
+      "report_exists": true
     },
     {
       "identity": "depth-connection-v1-reinjection-s419-u6496",
-      "assigned_chips": 8,
-      "observed_launch_seconds": 6748.122123241425,
-      "last_logged_training_update": {
-        "update": 5552,
-        "real_tokens": 1452894502,
-        "lr": 0.001,
-        "rank0_scaled_nll": 2.6143888472796473,
-        "gradient_norm": 0.1457819938659668,
-        "elapsed_seconds": 6711.0854467469035
-      },
-      "rolling200_update_targets_per_second": 176279.68169565374
+      "exit_code": 0,
+      "wall_seconds": 8152.037714481354,
+      "assigned_chip_hours": 18.11563936551412,
+      "whole_instance_opportunity_chip_hours": 36.23127873102824,
+      "report_exists": true
+    },
+    {
+      "identity": "depth-connection-v1-reinjection-s419-u6496-curve-r1",
+      "exit_code": 0,
+      "wall_seconds": 76.54325199127197,
+      "assigned_chip_hours": 0.17009611553615994,
+      "whole_instance_opportunity_chip_hours": 0.3401922310723199,
+      "report_exists": true
     }
   ],
-  "closed_assigned_chip_hours": 14.013532275623746,
-  "open_assigned_chip_hours_so_far": 15.87528839747111,
+  "open_attempts": [],
+  "closed_assigned_chip_hours": 36.972793122397526,
+  "open_assigned_chip_hours_so_far": 0,
   "scope": "Read-only receipt/update observations, not new training or held-out evidence. Rank-zero logged NLL is not aggregate DEV. Rolling rates are not controlled performance qualification. Other campaigns overlap; do not add their wall intervals as sequential reservation time. CPU work has separate receipts."
 }
