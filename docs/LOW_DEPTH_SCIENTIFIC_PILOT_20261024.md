@@ -71,6 +71,14 @@ grid and selection budget;300M-target screening is the provisional minimum.
 No scientific run starts from these conservative1e-4 qualification schedules.
 Reduce the common main budget before outcomes if the full allocation does not fit.
 
+The pinned small-model release launch files use8e-3 for both AdamW and Muon,
+not the generic optimizer helper's3e-4/2e-2 defaults. Preserve the1:1 rate ratio
+when specifying the new family's common LR grid; select an arm-specific scalar
+rate under equal opportunities. The exact grid, warmup, cautious-decay schedule
+and completed cooldown are still to be frozen before the scientific screen.
+The old20-block AdamW grid and the conservative qualification rate are not
+automatically suitable scientific settings for this family.
+
 Precompute exact endpoints from the frozen depth/source stream. Round to whole
 global updates and disclose the realized work discrepancy. Complete each arm's
 own cooldown. Also reserve a1.005B-real-target equal-data branch per arm with

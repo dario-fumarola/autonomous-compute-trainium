@@ -1,6 +1,6 @@
 {
-  "status": "LIVE_OBSERVATION",
-  "observed_unix": 1792875504.09291,
+  "status": "CLOSED_OBSERVATION",
+  "observed_unix": 1792875984.145467,
   "closed_attempts": [
     {
       "identity": "depth-connection-v1-fixed-s419-u3840",
@@ -83,6 +83,22 @@
       "report_exists": true
     },
     {
+      "identity": "depth-connection-v1-ordinary-s419-u6496",
+      "exit_code": 0,
+      "wall_seconds": 8145.911903381348,
+      "assigned_chip_hours": 18.10202645195855,
+      "whole_instance_opportunity_chip_hours": 36.2040529039171,
+      "report_exists": true
+    },
+    {
+      "identity": "depth-connection-v1-ordinary-s419-u6496-curve-r1",
+      "exit_code": 0,
+      "wall_seconds": 71.40224981307983,
+      "assigned_chip_hours": 0.1586716662512885,
+      "whole_instance_opportunity_chip_hours": 0.317343332502577,
+      "report_exists": true
+    },
+    {
       "identity": "depth-connection-v1-reinjection-s419-u6496",
       "exit_code": 0,
       "wall_seconds": 8152.037714481354,
@@ -99,23 +115,9 @@
       "report_exists": true
     }
   ],
-  "open_attempts": [
-    {
-      "identity": "depth-connection-v1-ordinary-s419-u6496",
-      "assigned_chips": 8,
-      "observed_launch_seconds": 7995.910320520401,
-      "last_logged_training_update": {
-        "update": 6392,
-        "real_tokens": 1672711256,
-        "lr": 9.339654063186229e-05,
-        "rank0_scaled_nll": 2.779972379121635,
-        "gradient_norm": 0.1513320952653885,
-        "elapsed_seconds": 7957.260277378024
-      },
-      "rolling200_update_targets_per_second": 177332.4614808024
-    }
-  ],
-  "closed_assigned_chip_hours": 51.24015542295244,
-  "open_assigned_chip_hours_so_far": 17.768689601156446,
-  "scope": "Read-only receipt/update observations, not new training or held-out evidence. Rank-zero logged NLL is not aggregate DEV. Rolling rates are not controlled performance qualification. Other campaigns overlap; do not add their wall intervals as sequential reservation time. CPU work has separate receipts."
+  "open_attempts": [],
+  "closed_assigned_chip_hours": 69.50085354116229,
+  "open_assigned_chip_hours_so_far": 0,
+  "scope": "Read-only receipt/update observations, not new training or held-out evidence. Rank-zero logged NLL is not aggregate DEV. Rolling rates are not controlled performance qualification. Other campaigns overlap; do not add their wall intervals as sequential reservation time. CPU work has separate receipts.",
+  "campaign_status": "COMPLETE_COMMON_FP32_DEPTH_CONNECTION_COMPARISON"
 }

@@ -1,0 +1,119 @@
+{
+  "status": "PASS_ACTUAL_SHAPE_CPU_FP32_POLAR_OPTIMIZER_VECTORS",
+  "records": [
+    {
+      "arm": "ordinary",
+      "parameters": 140781888,
+      "initial_checkpoint_sha256": "3a12816088f15d56dfdc76608a1a5da45cff069387275c448be5ed1f38064aba",
+      "prescribed_gradient_sha256": "876c11610292861161a0c5f640d3f5f3fce7a5831e34372f69d9c602a8759e72",
+      "vectors": [
+        {
+          "update": 1,
+          "update_comparison": {
+            "relative_l2": 6.496453552346089e-07,
+            "maximum_absolute_error": 4.76837158203125e-07,
+            "reference_l2": 61.36400699872295,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 2.7056899945162994e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 1.1111336113984565
+          },
+          "checkpoint_sha256": "e428fa916b91966ad46e7c24f4d37505d92f0e566e85b93c5a0ad1b7cfb4450a"
+        },
+        {
+          "update": 2,
+          "update_comparison": {
+            "relative_l2": 7.583688014005622e-07,
+            "maximum_absolute_error": 4.76837158203125e-07,
+            "reference_l2": 41.92445038542727,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 2.7352355440233496e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 1.5741825614583604
+          },
+          "checkpoint_sha256": "5b2e78374fc7df2d000658374775b6597bce8827a6f01528ae3f828676acec21"
+        },
+        {
+          "update": 3,
+          "update_comparison": {
+            "relative_l2": 1.6520319034408961e-06,
+            "maximum_absolute_error": 4.76837158203125e-07,
+            "reference_l2": 11.829551588851976,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 1.934538338845749e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 1.2522931922083211
+          },
+          "checkpoint_sha256": "1f6304177000a0f2914d8caf9d947af855a444eeef34343db0b24cfd53026d2d"
+        }
+      ],
+      "active_seconds": 76.49940347671509
+    },
+    {
+      "arm": "recurrent",
+      "parameters": 141963840,
+      "initial_checkpoint_sha256": "f80d995cc34411f0f0f5f6cc86fcda2f637be91b106b426cc20b95c4723a2363",
+      "prescribed_gradient_sha256": "34d6968e78cb2439ad8dd3f249657249e35112dc7866fd23ece2ee42dc09982d",
+      "vectors": [
+        {
+          "update": 1,
+          "update_comparison": {
+            "relative_l2": 6.392454550779077e-07,
+            "maximum_absolute_error": 4.76837158203125e-07,
+            "reference_l2": 61.08648174788302,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 4.7222475462999624e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 0.8326014646345992
+          },
+          "checkpoint_sha256": "b1361c96a89d014e75495bcf38dd0a91146ac4f4ab528dc2ba779e0eca7ffa8a"
+        },
+        {
+          "update": 2,
+          "update_comparison": {
+            "relative_l2": 7.521272987417422e-07,
+            "maximum_absolute_error": 2.384185791015625e-07,
+            "reference_l2": 41.69397067873264,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 4.654706941916916e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 1.206887018903582
+          },
+          "checkpoint_sha256": "b94e2ff6619d857f804d647f89fe449ea434f69b4d2dd810ec6ae68703ab40a4"
+        },
+        {
+          "update": 3,
+          "update_comparison": {
+            "relative_l2": 1.6312492494446817e-06,
+            "maximum_absolute_error": 2.384185791015625e-07,
+            "reference_l2": 11.751803113319903,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.640106813815252e-08,
+            "maximum_absolute_error": 1.862645149230957e-09,
+            "reference_l2": 0.8738068412247518
+          },
+          "checkpoint_sha256": "e15321841b1b52716c4505b555ea96777096e898bcb499c5cea4948efbf0a7bf"
+        }
+      ],
+      "active_seconds": 75.37134885787964
+    }
+  ],
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "prescribed_software_updates_per_implementation": 3,
+  "research_optimizer_updates": 0,
+  "wall_seconds_after_imports": 152.37380504608154,
+  "scope": "Explicitly changed FP32-polar recipe, checked against the pinned released algorithm with one audited dtype substitution. Actual-shape prescribed optimizer fixtures, no language-model forward, new source exposure, held-out scoring or research training. Original BF16 failures and 2% native gates remain unchanged."
+}

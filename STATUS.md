@@ -1,20 +1,26 @@
-# Status — 2026-10-24, 20:58 UTC
+# Status — 2026-10-24, 21:23 UTC
 
-**The common-FP32 fixed endpoint and inexpensive-connection compute control are
-complete and independently audited; ordinary1.700B is still taking updates.**
-Fixed two-pass NLL is2.578226554 at1,004,887,590 natural targets. At the same
-exposure and initial seed419, the earlier cheap connection scores2.574477293
-and ordinary2.606832753. Thus fixed improves ordinary by0.028606199 but is
-0.003749261 worse than the cheap connection in this one paired descriptive DEV
-comparison. No training-seed significance or broad architectural negative follows.
-The cheap1.700B control scores2.477058137. Both new endpoint copy/readback audits
-pass; native/CPU differences are below7.25e-7. The remaining ordinary resource
-control is completing its own decay. All47 frozen scientific files are unchanged.
-The registered final readout waits for its endpoint and audit; no fresh panel or
-terminal alpha is used.
-[Protocol](docs/DEPTH_CONNECTION_PROTOCOL_20261024.md) ·
-[Live work](results/depth_connection_20261024/live-observation.json) ·
-[Independent audits](results/depth_connection_20261024/partial-independent-cpu.json).
+**The common-FP32 depth/connection campaign is complete and independently audited.**
+All endpoints finish their own decay, share seed419/original weights/natural
+source order, and pass full-state copy/readback. Maximum native/CPU score error
+is7.25e-7; all47 frozen scientific sources remain unchanged.
+
+| Model | Targets | DEV NLL |
+| --- | ---: | ---: |
+| Ordinary | 1.005B | 2.606833 |
+| Cheap connection | 1.005B | 2.574477 |
+| Large-core fixed recurrence | 1.005B | 2.578227 |
+| Ordinary, matched estimated work | 1.700B | 2.497956 |
+| Cheap connection, matched estimated work | 1.700B | 2.477058 |
+
+The repeated core improves ordinary at equal data by0.028606 nats but loses to
+cheap connection by0.003749. At matched estimated matmuls it loses by0.080271
+and0.101168 respectively. The cheap connection remains the stronger control.
+One consumed-DEV pair, no training-seed significance, fresh TEST or terminal
+alpha. This closes the expensive-core recipe at this budget.
+[Completed report](results/depth_connection_20261024/REPORT.md) ·
+[Exact summary](results/depth_connection_20261024/summary.json) ·
+[Receipts](results/depth_connection_20261024/execution-costs.json).
 
 **Next experiment: a small2-block core at low depth, with strong one-pass
 controls.** CPU preparation passes for recipe-matched ordinary, true one-pass
@@ -34,22 +40,39 @@ scientific use.** Three prescribed actual-shape updates agree across32 replicas,
 with AdamW error below6.14e-6, but Muon updates differ from independent CPU by
 10.26–10.44%, above the frozen2% family gate. The unstarted optimizer, FP16 and
 training-engine queues are suspended with zero native phases; all source freezes
-are preserved. The separate FP32 zero-update gradient queue remains waiting
-behind the scientific campaign.
+are preserved. The separate FP32 zero-update gradient queue subsequently completed and passed.
 
 A same-version CPU/native eager/compiled numerical trace narrows the discrepancy
-to BF16 polar arithmetic: compiled normalization already differs, and subsequent
-polynomial steps amplify the difference. FP32 polar tracing agrees closely.
-This is not evidence of a training-quality effect or a diagnosed compiler pass.
-The bounded eager-BF16 check improves errors to1.05%,0.94%,2.32% but still fails
-the unchanged gate on its signed third step. An explicitly changed FP32-polar
-variant now has passing CPU unit/recovery checks; independent actual-shape CPU
-vectors are being prepared before native use. Every future arm would use that
-same qualified policy, with the deviation and measured costs disclosed. The ordinary scientific run
-uses its unchanged, previously qualified optimizer on the other eight chips.
-[Early failure](results/parcae_early_optimizer_20261024/REPORT.md) ·
-[Checkpoint-free diagnosis](results/muon_polar_diagnosis_20261024/REPORT.md) ·
-[Eager failure](results/parcae_eager_optimizer_20261024/REPORT.md).
+to BF16 polar arithmetic; eager reduces the error but still misses the signed
+third-step gate at2.32%. No gate is relaxed. The explicit FP32-polar variant now
+passes independent actual-shape CPU updates: maximum1.65e-6 step-relative error,
+4.72e-8 moment error,152.374s after imports, zero chips/research updates. The
+pinned reference changes exactly one dtype; the candidate is separate code.
+All future arms would share the qualified policy and report its cost/deviation.
+
+**All16 chips are now in the new qualification pipeline.** The paired native
+FP32 complete256-window gradients pass with relative errors4.18e-7 ordinary
+and5.19e-7 recurrent, identical replicas and unchanged weights;151.612s active,
+zero optimizer updates. The explicit FP32-polar optimizer arithmetic and recovery now also pass for
+both models. Maximum primary Muon update error is0.13855%; exact state loads
+and complete replicas agree. Recovery-only resumed updates equal uninterrupted
+ones in this fixture, with no implication for complete future trajectories.
+
+The initial replay was stopped by the unchanged host reserve before it was
+qualified. The correction retained both passing primary captures, replayed only
+the third update, reduced owned workload caps to128GiB each/256GiB aggregate,
+and passed in92.135s. Every failure and original source is preserved. No gate,
+SDK or scientific arithmetic was weakened.
+
+All16 chips are now in the FP16-gradient stage. The complete low-depth engine
+waits behind that precision result, with frozen25/37/48-file recovery/precision/
+profile bundles and zero chip reservation while waiting. Model, initialization,
+source/noise/depth tables and numerical thresholds are unchanged. Earlier
+BF16-dependent and stopped admission revisions remain preserved. No scientific
+fit launches automatically from a software qualification.
+[Native gradient pass](results/parcae_native_global_20261024/native-report.json) ·
+[Optimizer/recovery pass](results/parcae_optimizer_precise_20261024/REPORT.md) ·
+[Current engine](results/parcae_low_depth_qualification_20261024/attempt3/REPORT.md).
 
 **The paired 3B FP32 continuation is complete and independently audited.** At
 3,014,637,826 real targets, ordinary DEV NLL is **2.405907** and fixed two-pass
@@ -177,7 +200,8 @@ gradients incorrectly. Its repaired, independently checked fixture gives5.13e-7
 relative gradient error and zero loss difference, with the original failure and
 a regression test preserved. These are numerical diagnostics, not learning gains.
 
-The 143-test CPU suite passes after the latest source changes. Natural sources
+The 148-test CPU suite passes after the latest source changes; targeted
+recovery/admission tests also pass after the final input-integrity guard. Natural sources
 only; no synthetic research corpus, external teacher, RL or larger model.
 All failed/stopped jobs, tuning, qualification, compilation, data preparation
 and CPU tails retain separate receipts. Concurrent intervals must not be added

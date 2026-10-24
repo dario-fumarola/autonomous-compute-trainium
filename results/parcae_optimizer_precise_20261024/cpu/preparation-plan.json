@@ -1,0 +1,41 @@
+{
+  "identity": "parcae-optimizer-precise-v1",
+  "attempt": "cpu-v1",
+  "polar_dtype": "fp32",
+  "modified_release_reference": "Only upstream g.bfloat16() is changed to g.float(); decorators unwrapped for independent eager CPU execution",
+  "registered_unix": 1792875480.1977499,
+  "source_sha256": {
+    "scripts/prepare_parcae_precise_reference.py": "a7e51d1b2defba8cc1d40bad014911b2fba12ec56fc7947cbc0c6babb4956128",
+    "compute_trainium/parcae_update_qualification.py": "f5bfaf4039db9d022cd740723e90239fcc1c6255d4651798cb82a7e82af47e38",
+    "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7",
+    "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+    "third_party/parcae_reference/muon_adamw.py": "c01b2c54a65e0102b5fa546ae9e8423194daa549619454438b3c9ae38d41a053"
+  },
+  "cpu_global_report_sha256": "9665e8005dec89a1dc0a3f211b180483b96c8afa6e87aacb1a981117b33d215d",
+  "gate_policy": "release_muon",
+  "updates": [
+    {
+      "lr": 0.008,
+      "momentum": 0.85,
+      "weight_decay": 0.2,
+      "gradient_scale": 1.0
+    },
+    {
+      "lr": 0.0056,
+      "momentum": 0.9,
+      "weight_decay": 0.16,
+      "gradient_scale": 0.75
+    },
+    {
+      "lr": 0.00392,
+      "momentum": 0.95,
+      "weight_decay": 0.12,
+      "gradient_scale": -0.5
+    }
+  ],
+  "cpu_update_relative_gate": 2e-05,
+  "cpu_moment_relative_gate": 2e-06,
+  "cpu_seconds_limit": 1200,
+  "test_accessed": false,
+  "scope": "Explicitly changed FP32-polar recipe, checked against the pinned released algorithm with one audited dtype substitution. Actual-shape prescribed optimizer fixtures, no language-model forward, new source exposure, held-out scoring or research training. Original BF16 failures and 2% native gates remain unchanged."
+}

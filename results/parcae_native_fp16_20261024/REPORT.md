@@ -2,6 +2,9 @@
 
 **Suspended before any native phase; zero chips reserved.** No native result is established.
 
+A separately frozen [revision2](attempt2/REPORT.md) waits on the explicit
+FP32-polar optimizer gate. The original revision below remains suspended.
+
 The preceding optimizer implementation fails the separate early Muon update
 screen. This unstarted queue is suspended while that arithmetic is diagnosed;
 all original frozen sources remain unchanged. The original requirements below

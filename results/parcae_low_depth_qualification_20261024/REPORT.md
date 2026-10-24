@@ -1,5 +1,10 @@
 # Low-depth training engine: prepared, native execution suspended
 
+The original execution below remains suspended. A separately frozen
+[FP32-polar revision2](attempt2/REPORT.md) now queues the same low-depth engine
+behind the corrected optimizer's independent gates; no native training result
+is established by either registration.
+
 CPU preparation completes in13.669s from launch,12.190s after imports, with zero
 chips, optimizer updates or held-out scoring. Every shared backbone tensor is
 cloned across the140,781,888-parameter ordinary and141,963,840-parameter family.

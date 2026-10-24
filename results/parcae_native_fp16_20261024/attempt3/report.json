@@ -1,0 +1,132 @@
+{
+  "status": "PASS_PAIRED_NATIVE_PARCAE_FP16_BODY_GRADIENTS",
+  "records": [
+    {
+      "arm": "recurrent",
+      "local": {
+        "global_gradient": {
+          "relative_l2": 0.0008312323581078218,
+          "maximum_absolute_error": 9.553134441375732e-05,
+          "reference_l2": 7.649486170221924
+        },
+        "gradient_groups": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0006790791767592467,
+            "maximum_absolute_error": 1.3139331713318825e-05,
+            "reference_l2": 2.319194176105465
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0008868011972137744,
+            "maximum_absolute_error": 9.553134441375732e-05,
+            "reference_l2": 2.467708932900735
+          },
+          "transformer_body": {
+            "relative_l2": 0.0008395606459110098,
+            "maximum_absolute_error": 3.277137875556946e-05,
+            "reference_l2": 6.859032312263051
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0008271348445264531,
+            "maximum_absolute_error": 3.5094853956252337e-07,
+            "reference_l2": 0.00808725839083768
+          }
+        },
+        "native_minus_cpu_nll": -2.288818359375e-05,
+        "passes_registered_gates": true
+      },
+      "global": {
+        "global_gradient": {
+          "relative_l2": 0.0005549571127156644,
+          "maximum_absolute_error": 5.691498517990112e-05,
+          "reference_l2": 5.150000338810486
+        },
+        "gradient_groups": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.00046906375382578687,
+            "maximum_absolute_error": 1.0433606803417206e-05,
+            "reference_l2": 1.6707185370055329
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0005354096701331153,
+            "maximum_absolute_error": 5.691498517990112e-05,
+            "reference_l2": 1.6422263708122773
+          },
+          "transformer_body": {
+            "relative_l2": 0.0005677872320080797,
+            "maximum_absolute_error": 1.6799196600914e-05,
+            "reference_l2": 4.586312476401775
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0004822163192816699,
+            "maximum_absolute_error": 1.8450373318046331e-07,
+            "reference_l2": 0.005785815790413794
+          }
+        },
+        "native_minus_cpu_nll": -2.4743982276476117e-06,
+        "passes_registered_gates": true
+      },
+      "passes_registered_gates": true
+    },
+    {
+      "arm": "ordinary",
+      "local": {
+        "global_gradient": {
+          "relative_l2": 0.0008706377399148945,
+          "maximum_absolute_error": 0.0001140981912612915,
+          "reference_l2": 11.591923937690002
+        },
+        "gradient_groups": {
+          "tied_input_output": {
+            "relative_l2": 0.000895293793660881,
+            "maximum_absolute_error": 0.0001140981912612915,
+            "reference_l2": 2.907252640295898
+          },
+          "transformer_body": {
+            "relative_l2": 0.0008689577508272598,
+            "maximum_absolute_error": 5.7894736528396606e-05,
+            "reference_l2": 11.221425528221413
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0008391625442086596,
+            "maximum_absolute_error": 4.511130100581795e-07,
+            "reference_l2": 0.013848366824896461
+          }
+        },
+        "native_minus_cpu_nll": -8.0108642578125e-05,
+        "passes_registered_gates": true
+      },
+      "global": {
+        "global_gradient": {
+          "relative_l2": 0.0005822404448063917,
+          "maximum_absolute_error": 4.985742270946503e-05,
+          "reference_l2": 7.233683727235841
+        },
+        "gradient_groups": {
+          "tied_input_output": {
+            "relative_l2": 0.000555227881088874,
+            "maximum_absolute_error": 4.985742270946503e-05,
+            "reference_l2": 1.8023582100593951
+          },
+          "transformer_body": {
+            "relative_l2": 0.0005839844573230515,
+            "maximum_absolute_error": 2.2685155272483826e-05,
+            "reference_l2": 7.005541281860812
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0005049531769700868,
+            "maximum_absolute_error": 2.3331085685640574e-07,
+            "reference_l2": 0.008746225019295532
+          }
+        },
+        "native_minus_cpu_nll": -2.706163128074479e-05,
+        "passes_registered_gates": true
+      },
+      "passes_registered_gates": true
+    }
+  ],
+  "waiting_seconds": 120.03475499153137,
+  "active_execution_seconds": 146.46306824684143,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "Paired all16-chip FP16-autocast body/FP32-head gradient qualification after native FP32 gradient and optimizer/recovery pass. No research training, throughput claim or precision adoption."
+}

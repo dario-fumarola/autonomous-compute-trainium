@@ -1,0 +1,114 @@
+{
+  "records": [
+    {
+      "arm": "ordinary",
+      "replay_vs_cpu": {
+        "update_comparison": {
+          "relative_l2": 5.070048761014473e-05,
+          "maximum_absolute_error": 7.262080907821655e-05,
+          "reference_l2": 11.829551588851976,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 5.101875754419474e-07,
+          "maximum_absolute_error": 8.509960025548935e-08,
+          "reference_l2": 1.2522931922083211
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 5.598108227997574e-06,
+              "maximum_absolute_error": 4.76837158203125e-07,
+              "reference_l2": 11.809573301586354,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 1.2584433976252324e-07,
+              "maximum_absolute_error": 2.7939677238464355e-09,
+              "reference_l2": 0.26702169772785267
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 0.0008674231552680868,
+              "maximum_absolute_error": 7.262080907821655e-05,
+              "reference_l2": 0.6872184716442662,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 5.214738433326558e-07,
+              "maximum_absolute_error": 8.509960025548935e-08,
+              "reference_l2": 1.2234940343924208
+            }
+          }
+        }
+      },
+      "replay_vs_uninterrupted_update": {
+        "relative_l2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "reference_l2": 11.829554569107806,
+        "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+      },
+      "passes_registered_gates": true,
+      "complete_state_on_load_exact": true,
+      "all_complete_replica_states_equal": true,
+      "new_optimizer_calls_per_replica": 1,
+      "retained_primary_calls_per_replica": 3
+    },
+    {
+      "arm": "recurrent",
+      "replay_vs_cpu": {
+        "update_comparison": {
+          "relative_l2": 4.8348764138413175e-05,
+          "maximum_absolute_error": 7.222592830657959e-05,
+          "reference_l2": 11.751803113319903,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 1.0486959910168667e-06,
+          "maximum_absolute_error": 1.1957308743149042e-07,
+          "reference_l2": 0.8738068412247518
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 6.1373479999876724e-06,
+              "maximum_absolute_error": 4.76837158203125e-07,
+              "reference_l2": 11.731722396236892,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 1.2654520773844643e-07,
+              "maximum_absolute_error": 2.7939677238464355e-09,
+              "reference_l2": 0.3468791422781397
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 0.000820735584971614,
+              "maximum_absolute_error": 7.222592830657959e-05,
+              "reference_l2": 0.686706656345426,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 1.1412707959054268e-06,
+              "maximum_absolute_error": 1.1957308743149042e-07,
+              "reference_l2": 0.8020057708168693
+            }
+          }
+        }
+      },
+      "replay_vs_uninterrupted_update": {
+        "relative_l2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "reference_l2": 11.7518058643948,
+        "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+      },
+      "passes_registered_gates": true,
+      "complete_state_on_load_exact": true,
+      "all_complete_replica_states_equal": true,
+      "new_optimizer_calls_per_replica": 1,
+      "retained_primary_calls_per_replica": 3
+    }
+  ]
+}

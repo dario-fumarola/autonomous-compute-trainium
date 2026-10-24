@@ -1,0 +1,131 @@
+{
+  "status": "COMPLETE_AUDITED_COMMON_FP32_DEPTH_CONNECTION_READOUT",
+  "seed": 419,
+  "models": {
+    "ordinary1B": {
+      "identity": "reinjection-pilot-v1-ordinary-s419-u3840",
+      "nll": 2.606832752691017,
+      "domain_nll": {
+        "web": 3.0953795482102584,
+        "math": 2.2865979984184595,
+        "code": 1.4614271204058489
+      },
+      "training_real_targets": 1004887590,
+      "parameters": 150436608,
+      "cumulative_estimated_training_matmuls": 1098412116148224000,
+      "inference_full1024_window_matmuls": 372454195200,
+      "checkpoint_sha256": "0958310647bb7e1efc49ed3f39956392b679f1eeac1eb3a44a4cca09af1a3f75",
+      "independent_native_cpu_nll_difference": 7.163436128720946e-07
+    },
+    "connection1B": {
+      "identity": "reinjection-pilot-v1-reinjection-s419-u3840",
+      "nll": 2.5744772929827513,
+      "domain_nll": {
+        "web": 3.0613206808892315,
+        "math": 2.254098166409378,
+        "code": 1.4343262558366843
+      },
+      "training_real_targets": 1004887590,
+      "parameters": 150436608,
+      "cumulative_estimated_training_matmuls": 1098412116148224000,
+      "inference_full1024_window_matmuls": 372454195200,
+      "checkpoint_sha256": "731ca6f3e8c1ee05c98cdc10e52e6523e97af0f6c6fc34b7aa9cae19dc1b4b7b",
+      "independent_native_cpu_nll_difference": 7.098454548604138e-07
+    },
+    "fixed1B": {
+      "identity": "depth-connection-v1-fixed-s419-u3840",
+      "nll": 2.5782265537788738,
+      "domain_nll": {
+        "web": 3.0668472616079643,
+        "math": 2.2548099469185394,
+        "code": 1.435781037151937
+      },
+      "training_real_targets": 1004887590,
+      "parameters": 150436608,
+      "cumulative_estimated_training_matmuls": 1858394553266995200,
+      "inference_full1024_window_matmuls": 630152232960,
+      "checkpoint_sha256": "df0626e0486a9aea52dbea38287cb4ed9cd80cfc33f167fa2357127c19aaf597",
+      "independent_native_cpu_nll_difference": 7.240568100641553e-07
+    },
+    "ordinaryMatched": {
+      "identity": "depth-connection-v1-ordinary-s419-u6496",
+      "nll": 2.497955532143002,
+      "domain_nll": {
+        "web": 2.977154891465913,
+        "math": 2.184119145401835,
+        "code": 1.3741938409154344
+      },
+      "training_real_targets": 1699926288,
+      "parameters": 150436608,
+      "cumulative_estimated_training_matmuls": 1858147163150745600,
+      "inference_full1024_window_matmuls": 372454195200,
+      "checkpoint_sha256": "ab96d92fe67d273f8cef1931b1e8e2ba259b6147bc627971c1582733ddee64cd",
+      "independent_native_cpu_nll_difference": 7.229118841323157e-07
+    },
+    "connectionMatched": {
+      "identity": "depth-connection-v1-reinjection-s419-u6496",
+      "nll": 2.477058137017491,
+      "domain_nll": {
+        "web": 2.956010605189277,
+        "math": 2.16172169769937,
+        "code": 1.3555371718202551
+      },
+      "training_real_targets": 1699926288,
+      "parameters": 150436608,
+      "cumulative_estimated_training_matmuls": 1858147163150745600,
+      "inference_full1024_window_matmuls": 372454195200,
+      "checkpoint_sha256": "ae6d231ac86c4a3384eace6b9daa103ee59463bb20cd8b83bede211471f69b27",
+      "independent_native_cpu_nll_difference": 7.134845740885964e-07
+    }
+  },
+  "contrasts": {
+    "ordinary1B": {
+      "baseline_minus_fixed_nll": 0.02860619891214311,
+      "domain_gains": {
+        "web": 0.02853228660229412,
+        "math": 0.031788051499920034,
+        "code": 0.025646083253911822
+      },
+      "fixed_over_baseline_estimated_training_matmuls": 1.691891891891892,
+      "interpretation": "Positive favors fixed; one development pair, no seed interval or significance."
+    },
+    "connection1B": {
+      "baseline_minus_fixed_nll": -0.0037492607961224778,
+      "domain_gains": {
+        "web": -0.005526580718732799,
+        "math": -0.0007117805091612084,
+        "code": -0.0014547813152527844
+      },
+      "fixed_over_baseline_estimated_training_matmuls": 1.691891891891892,
+      "interpretation": "Positive favors fixed; one development pair, no seed interval or significance."
+    },
+    "ordinaryMatched": {
+      "baseline_minus_fixed_nll": -0.08027102163587196,
+      "domain_gains": {
+        "web": -0.08969237014205111,
+        "math": -0.07069080151670448,
+        "code": -0.06158719623650266
+      },
+      "fixed_over_baseline_estimated_training_matmuls": 1.0001331380641725,
+      "interpretation": "Positive favors fixed; one development pair, no seed interval or significance."
+    },
+    "connectionMatched": {
+      "baseline_minus_fixed_nll": -0.10116841676138266,
+      "domain_gains": {
+        "web": -0.11083665641868734,
+        "math": -0.09308824921916958,
+        "code": -0.08024386533168193
+      },
+      "fixed_over_baseline_estimated_training_matmuls": 1.0001331380641725,
+      "interpretation": "Positive favors fixed; one development pair, no seed interval or significance."
+    }
+  },
+  "dev_domain_targets": {
+    "web": 252337,
+    "math": 251378,
+    "code": 251035
+  },
+  "test_accessed": false,
+  "new_terminal_attempt": false,
+  "scope": "One reused consumed-DEV pair. Same FP32-from-initialization recipe and original weights/source order. Estimated matmuls include head/backward; hardware time, optimizer work and parent campaign costs remain separately reported. No significance, mechanism universality or goal completion."
+}

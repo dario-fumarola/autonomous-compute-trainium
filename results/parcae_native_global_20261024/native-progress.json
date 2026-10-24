@@ -1,0 +1,250 @@
+{
+  "records": [
+    {
+      "arm": "recurrent",
+      "local": {
+        "relative_l2": 1.0618131094168587e-06,
+        "cosine": 0.9999999999994675,
+        "maximum_absolute_error": 1.2665987014770508e-07,
+        "native_minus_cpu_nll": 9.5367431640625e-07,
+        "largest_error_contributors": [
+          {
+            "parameter": "transformer.prelude.0.mlp.proj.weight",
+            "squared_error": 1.5912822270831544e-11,
+            "reference_squared_norm": 13.960954416431147
+          },
+          {
+            "parameter": "transformer.prelude.0.attn.c_proj.weight",
+            "squared_error": 1.2981737802711374e-11,
+            "reference_squared_norm": 7.861630487175345
+          },
+          {
+            "parameter": "transformer.wte.weight",
+            "squared_error": 9.101166552800739e-12,
+            "reference_squared_norm": 6.089587377518084
+          },
+          {
+            "parameter": "transformer.prelude.1.attn.c_proj.weight",
+            "squared_error": 4.582562854468507e-12,
+            "reference_squared_norm": 8.153292680738756
+          },
+          {
+            "parameter": "transformer.prelude.1.mlp.proj.weight",
+            "squared_error": 4.457823461071306e-12,
+            "reference_squared_norm": 5.849525019608197
+          },
+          {
+            "parameter": "transformer.prelude.0.attn.c_v.weight",
+            "squared_error": 3.1814672027793262e-12,
+            "reference_squared_norm": 1.1905309634846257
+          },
+          {
+            "parameter": "transformer.prelude.0.mlp.fc.weight",
+            "squared_error": 2.5825721114847477e-12,
+            "reference_squared_norm": 1.5102702158959125
+          },
+          {
+            "parameter": "transformer.C.weight",
+            "squared_error": 2.0391230663174394e-12,
+            "reference_squared_norm": 4.178493473837729
+          },
+          {
+            "parameter": "transformer.prelude.0.attn.c_q.weight",
+            "squared_error": 1.7601033714518165e-12,
+            "reference_squared_norm": 0.23405842421783418
+          },
+          {
+            "parameter": "transformer.prelude.0.attn.c_k.weight",
+            "squared_error": 1.7419136472704085e-12,
+            "reference_squared_norm": 0.23112188522223803
+          }
+        ]
+      },
+      "global": {
+        "relative_l2": 5.193682771022998e-07,
+        "cosine": 0.999999999999896,
+        "maximum_absolute_error": 6.705522537231445e-08,
+        "native_minus_cpu_nll": -1.5189744768662194e-06,
+        "largest_error_contributors": [
+          {
+            "parameter": "transformer.prelude.0.mlp.proj.weight",
+            "squared_error": 1.583082811717444e-12,
+            "reference_squared_norm": 6.427891973794944
+          },
+          {
+            "parameter": "transformer.prelude.1.attn.c_proj.weight",
+            "squared_error": 1.1156916781315283e-12,
+            "reference_squared_norm": 4.290144208607018
+          },
+          {
+            "parameter": "transformer.prelude.1.mlp.proj.weight",
+            "squared_error": 9.05755681929558e-13,
+            "reference_squared_norm": 3.222127188193925
+          },
+          {
+            "parameter": "transformer.prelude.0.attn.c_proj.weight",
+            "squared_error": 8.852064707674549e-13,
+            "reference_squared_norm": 2.2684096405542107
+          },
+          {
+            "parameter": "transformer.wte.weight",
+            "squared_error": 5.078134748951336e-13,
+            "reference_squared_norm": 2.6969074529912636
+          },
+          {
+            "parameter": "transformer.C.weight",
+            "squared_error": 3.5988407097228595e-13,
+            "reference_squared_norm": 2.168169520067946
+          },
+          {
+            "parameter": "transformer.coda.1.attn.c_proj.weight",
+            "squared_error": 1.738181798929704e-13,
+            "reference_squared_norm": 0.366571258112458
+          },
+          {
+            "parameter": "transformer.coda.0.attn.c_proj.weight",
+            "squared_error": 1.7272114574505604e-13,
+            "reference_squared_norm": 0.35387150216796337
+          },
+          {
+            "parameter": "transformer.adapter.B",
+            "squared_error": 1.6885411023904496e-13,
+            "reference_squared_norm": 0.6226799083171418
+          },
+          {
+            "parameter": "transformer.coda.0.mlp.proj.weight",
+            "squared_error": 1.493090242921327e-13,
+            "reference_squared_norm": 0.3005238461502793
+          }
+        ]
+      },
+      "passes_registered_gates": true,
+      "weights_unchanged": true,
+      "all_replica_gradients_equal": true,
+      "optimizer_updates": 0
+    },
+    {
+      "arm": "ordinary",
+      "local": {
+        "relative_l2": 1.0441893616081366e-06,
+        "cosine": 0.9999999999994668,
+        "maximum_absolute_error": 1.2665987014770508e-07,
+        "native_minus_cpu_nll": -9.5367431640625e-07,
+        "largest_error_contributors": [
+          {
+            "parameter": "transformer.h.0.mlp.proj.weight",
+            "squared_error": 3.100819370627103e-11,
+            "reference_squared_norm": 24.219912364564408
+          },
+          {
+            "parameter": "transformer.h.0.attn.c_proj.weight",
+            "squared_error": 2.644609311803602e-11,
+            "reference_squared_norm": 14.451855193168832
+          },
+          {
+            "parameter": "transformer.h.1.attn.c_proj.weight",
+            "squared_error": 1.3930700742279403e-11,
+            "reference_squared_norm": 13.776116676397159
+          },
+          {
+            "parameter": "transformer.wte.weight",
+            "squared_error": 1.2461253891833557e-11,
+            "reference_squared_norm": 8.452117914507468
+          },
+          {
+            "parameter": "transformer.h.1.mlp.proj.weight",
+            "squared_error": 9.87479429125794e-12,
+            "reference_squared_norm": 9.806955797826326
+          },
+          {
+            "parameter": "transformer.h.2.attn.c_proj.weight",
+            "squared_error": 6.837650184132566e-12,
+            "reference_squared_norm": 9.521238621616453
+          },
+          {
+            "parameter": "transformer.h.2.mlp.proj.weight",
+            "squared_error": 5.787111770097389e-12,
+            "reference_squared_norm": 7.472413973988514
+          },
+          {
+            "parameter": "transformer.h.0.attn.c_v.weight",
+            "squared_error": 5.770254275461107e-12,
+            "reference_squared_norm": 2.0536473966457733
+          },
+          {
+            "parameter": "transformer.h.0.mlp.fc.weight",
+            "squared_error": 4.391294974834406e-12,
+            "reference_squared_norm": 2.318862413532054
+          },
+          {
+            "parameter": "transformer.h.3.attn.c_proj.weight",
+            "squared_error": 3.671836312481913e-12,
+            "reference_squared_norm": 7.5026148304952365
+          }
+        ]
+      },
+      "global": {
+        "relative_l2": 4.1840416517093724e-07,
+        "cosine": 0.9999999999999221,
+        "maximum_absolute_error": 5.21540641784668e-08,
+        "native_minus_cpu_nll": -3.097662926165867e-07,
+        "largest_error_contributors": [
+          {
+            "parameter": "transformer.h.0.mlp.proj.weight",
+            "squared_error": 2.082217804519598e-12,
+            "reference_squared_norm": 9.43937552019115
+          },
+          {
+            "parameter": "transformer.h.0.attn.c_proj.weight",
+            "squared_error": 1.3831512296924487e-12,
+            "reference_squared_norm": 3.5449027388932963
+          },
+          {
+            "parameter": "transformer.h.1.attn.c_proj.weight",
+            "squared_error": 9.122285129756797e-13,
+            "reference_squared_norm": 5.245187315430442
+          },
+          {
+            "parameter": "transformer.h.1.mlp.proj.weight",
+            "squared_error": 6.655690244523577e-13,
+            "reference_squared_norm": 4.513501679254233
+          },
+          {
+            "parameter": "transformer.h.2.attn.c_proj.weight",
+            "squared_error": 5.086361318670244e-13,
+            "reference_squared_norm": 3.723725107828926
+          },
+          {
+            "parameter": "transformer.wte.weight",
+            "squared_error": 4.952696301165913e-13,
+            "reference_squared_norm": 3.2484951173685066
+          },
+          {
+            "parameter": "transformer.h.2.mlp.proj.weight",
+            "squared_error": 4.159910963791803e-13,
+            "reference_squared_norm": 3.286484239419198
+          },
+          {
+            "parameter": "transformer.h.3.attn.c_proj.weight",
+            "squared_error": 3.71888848587733e-13,
+            "reference_squared_norm": 3.332788646237983
+          },
+          {
+            "parameter": "transformer.h.4.attn.c_proj.weight",
+            "squared_error": 2.6760349674499723e-13,
+            "reference_squared_norm": 2.6286160293021235
+          },
+          {
+            "parameter": "transformer.h.3.mlp.proj.weight",
+            "squared_error": 2.666690779399736e-13,
+            "reference_squared_norm": 2.3053220256000735
+          }
+        ]
+      },
+      "passes_registered_gates": true,
+      "weights_unchanged": true,
+      "all_replica_gradients_equal": true,
+      "optimizer_updates": 0
+    }
+  ]
+}

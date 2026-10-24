@@ -1,0 +1,69 @@
+{
+  "status": "PASS_DEPTH_MATRIX_READOUT",
+  "split": "dev",
+  "cohort": "curve",
+  "training_real_tokens": 1699926288,
+  "training_repetitions": 1,
+  "training_depth_policy": "ordinary",
+  "inference_repetitions": 1,
+  "parameters": 150436608,
+  "world": 8,
+  "documents": 603,
+  "targets": 754750,
+  "scored_windows": 1050,
+  "native_probe_windows": 8,
+  "metrics": {
+    "domains": {
+      "web": {
+        "nll_sum": 751246.1786994934,
+        "real_targets": 252337,
+        "documents": 291,
+        "nll": 2.9771542766201287
+      },
+      "code": {
+        "nll_sum": 344970.5190010071,
+        "real_targets": 251035,
+        "documents": 153,
+        "nll": 1.3741929173262974
+      },
+      "math": {
+        "nll_sum": 549039.2897582054,
+        "real_targets": 251378,
+        "documents": 159,
+        "nll": 2.184118298968905
+      }
+    },
+    "weighted_nll": 2.4979548092311177,
+    "weights": {
+      "web": 0.6,
+      "math": 0.2,
+      "code": 0.2
+    },
+    "unit": "nats per real source token"
+  },
+  "cpu_probe": {
+    "native_nll": 1.7803884989907297,
+    "cpu_nll": 1.7803892290763308
+  },
+  "weights_unchanged_all_replicas": true,
+  "scalar_calibration_delta_nats": null,
+  "corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+  "forward_flops_per_window": 372454195200,
+  "wall_seconds": 64.1576300059678,
+  "runtime_config": {
+    "dim": 768,
+    "layers": 20,
+    "heads": 12,
+    "kv_heads": 4,
+    "ffn_dim": 2048,
+    "vocab_size": 32000,
+    "max_seq": 4096,
+    "prelude": 2,
+    "core": 16,
+    "coda": 2,
+    "repetitions": 1,
+    "untied": false,
+    "normalization": "pre"
+  },
+  "scope": "Predeclared depth-distribution readout; depth four is out-of-support extrapolation. No optimizer update or exit selection."
+}
