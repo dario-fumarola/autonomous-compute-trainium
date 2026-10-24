@@ -1,0 +1,53 @@
+{
+  "status": "RUNNING_EXPLORATORY_SELECTED_TUNE_DEV_REFERENCE",
+  "updated_unix": 1792807066.8661582,
+  "records": [
+    {
+      "arm": "ordinary",
+      "identity": "vdepth-v1-tune-ordinary-lr600",
+      "seed": 11,
+      "depth": 1,
+      "training_real_targets": 301465908,
+      "schedule": {
+        "peak": 0.0006,
+        "warmup_tokens": 7589026,
+        "decay_start": 271371476,
+        "decay_end": 301465908,
+        "floor_ratio": 0.1
+      },
+      "checkpoint_sha256": "c1fef2a515147a9a9d3e7c4ec2c893a484baf1fe36272103ed6c76aece3e19dc",
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 879309.3702809508,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.4846628527760526
+          },
+          "code": {
+            "nll_sum": 437349.25493988284,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.7421843764410654
+          },
+          "math": {
+            "nll_sum": 656817.4499611991,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.6128676732299527
+          }
+        },
+        "weighted_nll": 2.961808121599835,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "targets": 754750,
+      "active_seconds": 245.25010108947754
+    }
+  ],
+  "scope": "Read all three previously selected seed11 completed-decay 301M models on common DEV. No new fit, LR/exit/model selection, TEST scoring or primary-analysis change. Different seeds and schedules prevent treating these and the main curves as one uninterrupted trajectory. Three exposure points cannot validate a long-horizon scaling law."
+}

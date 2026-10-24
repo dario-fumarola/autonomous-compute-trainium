@@ -1,12 +1,12 @@
-# Status — 2026-10-24, 01:36 UTC
+# Status — 2026-10-24, 01:58 UTC
 
 **The first two fixed-depth 1B endpoints are complete.** DEV NLL is
 2.548269 /2.545188 for seeds103 /211. They improve over equal-data ordinary
 by0.050866 /0.053408 nats, and over mixture by0.039158 /0.045477.
 Both still lose to ordinary's matched-compute endpoints, by0.052991 /0.050024.
-These are two paired seeds; the third fixed fit remains pending. Fixed103
-has passed its independent whole-DEV FP32 and full-state readback audit,
-with CPU-minus-native loss-0.00001227 nats. Fixed211/307 audits remain pending.
+These are two paired seeds; the third fixed fit remains pending. Fixed103/211
+have passed independent whole-DEV FP32 and full-state readback audits,
+with CPU-minus-native losses-0.00001227 /-0.00002880 nats. Fixed307 remains pending.
 No new TEST score has been opened.
 
 The completed seed103 comparison is:
@@ -23,8 +23,9 @@ Source/order/execution signatures and full-state lineage are verified.
 [First three-arm endpoint readout](results/variable_depth_20261023/first-three-arm-dev.json).
 
 All three mixture 1B endpoints are complete:2.587427 /2.590665 /2.587213.
-Ten of twelve primary-model audits are complete, including every mixture and
-ordinary endpoint and fixed103. The largest CPU/native difference is0.00004622 nats.
+Eleven of twelve primary-model audits are complete, including every mixture,
+ordinary endpoint and both completed fixed models. The largest CPU/native
+difference is0.00004622 nats.
 [Partial audit](results/variable_depth_20261023/partial-independent-cpu-verification.json).
 The third fixed fit occupies one eight-chip half. The frozen controller has
 one model chain left; its other half is temporarily idle until the complete
@@ -67,6 +68,13 @@ seed interval[-0.000256,0.019440]. These descriptive checks measure different
 uncertainty and do not replace the frozen final analysis.
 [Conditional readout](results/variable_depth_20261023/first-pair-curve/REPORT.md) ·
 [Early seed variation](results/variable_depth_20261023/early-paired-curves.json).
+An additional DEV-only CPU readout is evaluating all three previously
+TUNE-selected, completed-decay301M checkpoints. Ordinary's first result is
+**2.961808**. Fixed and mixture readouts are pending. This single-seed11
+reference differs from the main stable301M curves and does not change the
+primary analysis, model selection or TEST. It cannot validate a long-horizon
+scaling law by itself.
+[Exploratory short-exposure reference](results/selected_tune_reference_20261024/progress.json).
 At301M stable targets, ordinary103 scores3.024108 versus mixture103
 3.013947: a0.010160-nat equal-data gain in one pair, with additional compute.
 Mixture307 scores3.015378 after its worse100M point3.868176. These are
@@ -156,6 +164,15 @@ running model, source stream or held-out analysis and launches no longer fit.
 [Separate data registration](results/future_natural_extension_20261024/registration.json) ·
 [Source plan](results/future_natural_extension_20261024/plan.json) ·
 [Data-only scope](docs/NATURAL_RESERVE_20261024.md).
+
+A separate CPU-only source-copy check passed for ordinary/fixed103 stable
+checkpoints. Both derived copies preserve every model, optimizer-moment and
+RNG tensor, completed update/exposure/work counter, topology and schedule;
+the original files remain unchanged. Only the source fingerprint advances
+from the3.25B parent to its independently audited6.5B descendant. The check
+took107.62 seconds. These same-instance copies do not establish native
+continued-update equivalence or constitute off-instance backups.
+[Exact stored-state proof](results/source_state_copy_qualification_20261024/report.json).
 
 A separate35-minute, at-most-eight-attempt topology qualification is prepared
 to wait for successful scientific and read-only annex completion. It compares

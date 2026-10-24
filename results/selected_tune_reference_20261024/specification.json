@@ -1,0 +1,22 @@
+{
+  "identity": "selected-tune-decay-reference-v1",
+  "started_unix": 1792806604.4805405,
+  "deadline_unix": 1792808400.0,
+  "selected_by": "Previously frozen TUNE only",
+  "selection_sha256": "1495eb8fc3c0f3a64da9869573a4f76e624d4b17b9a226349bae39889e4914e1",
+  "corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+  "models": {
+    "ordinary": "vdepth-v1-tune-ordinary-lr600",
+    "fixed": "vdepth-v1-tune-fixed-lr1000",
+    "mixture": "vdepth-v1-tune-mixture-lr600"
+  },
+  "source_sha256": {
+    "scripts/readout_selected_tunes.py": "95655453c14a8d054b88a35d58e2c6e6801269d29fcd8c3a41b1d2422d47c5cc",
+    "compute_trainium/independent.py": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba",
+    "compute_trainium/model.py": "4a2edc5034ccff94ac1817f5b8529f031f4b6ef63cf1da4bc8e1f2e09cc53eb0",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20",
+    "compute_trainium/metrics.py": "0296fee74cd632e0dfc04d8ee129a7235f984691eb3f211c968d681e6af38275"
+  },
+  "configured_threads": 12,
+  "scope": "Read all three previously selected seed11 completed-decay 301M models on common DEV. No new fit, LR/exit/model selection, TEST scoring or primary-analysis change. Different seeds and schedules prevent treating these and the main curves as one uninterrupted trajectory. Three exposure points cannot validate a long-horizon scaling law."
+}
