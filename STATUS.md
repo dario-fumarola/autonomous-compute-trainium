@@ -1,4 +1,4 @@
-# Status — 2026-10-24, 00:56 UTC
+# Status — 2026-10-24, 01:08 UTC
 
 **All three mixture 1B endpoints are complete.** Fresh DEV NLL is
 2.587427 / 2.590665 / 2.587213 for seeds103 / 211 / 307, after planned decay.
@@ -16,6 +16,11 @@ beating mixture at1.005B by **0.092150 nats**. This pair's equal-data gain
 does not repay the extra compute. The remaining paired seeds are now complete;
 fixed-depth controls are running on both eight-chip halves. All16 chips remain
 assigned.
+At301M stable targets, the first two fixed-depth controls score
+2.968422 /2.965343, versus mixture3.013947 /3.019806 in those same seeds.
+Fixed currently leads by0.045525 /0.054463 nats. These are early development
+curves under independently selected LRs, not completed primary endpoints;
+the remaining fits and inference-depth matrix continue unchanged.
 [First-pair DEV comparison](results/variable_depth_20261023/first-pair-dev.json).
 All three data-matched pairs are now complete. Ordinary211/307 score
 2.598596/2.601686, giving mixture gains0.007931/0.014472 in those pairs.
@@ -69,6 +74,9 @@ its frozen04:15 cutoff; the broader research goal remains active afterward.
 A final positive needs a useful gain against a strong baseline and independent
 confirmation, with repeated-testing accounting.
 [Ongoing charter](docs/ONGOING_RESEARCH_CHARTER.md).
+[Primary-literature check](docs/LOOP_COMPUTE_LITERATURE_CHECK_20261024.md)
+distinguishes loop-mechanism improvements from extra-data, generation and KV
+cache benefits; it changes no running intervention.
 [Protocol](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md) ·
 [Frozen measured plan](results/variable_depth_20261023/plan.json).
 

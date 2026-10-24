@@ -1,19 +1,19 @@
 {
-  "updated_unix": 1792803374.9618921,
+  "updated_unix": 1792803908.4182537,
   "status": "RUNNING",
   "active_phases": [
     {
-      "identity": "vdepth-v1-fixed-s103-u1152",
+      "identity": "vdepth-v1-fixed-s103-u3456",
       "assigned_chips": 8,
       "module": "scripts.train_variable_depth",
-      "update": 714,
-      "real_tokens": 186845606,
+      "update": 1402,
+      "real_tokens": 366888782,
       "lr": 0.001,
-      "gradient_norm": 0.2216455340385437,
-      "elapsed_seconds": 255.2967130910838
+      "gradient_norm": 0.1716705560684204,
+      "elapsed_seconds": 210.97267411102075
     },
     {
-      "identity": "vdepth-v1-fixed-s211-u1152",
+      "identity": "vdepth-v1-fixed-s211-u3456",
       "assigned_chips": 8,
       "module": "scripts.train_variable_depth"
     }
@@ -94,6 +94,40 @@
   ],
   "completed_learning_curve_cells": [
     {
+      "identity": "vdepth-v1-fixed-s103-u1152-dev-r2",
+      "training_real_targets": 301465908,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 880611.4181861877,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.48982280912505
+          },
+          "code": {
+            "nll_sum": 439449.63550567627,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.7505512598071036
+          },
+          "math": {
+            "nll_sum": 659135.5972332954,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.6220894319840853
+          }
+        },
+        "weighted_nll": 2.9684218238332676,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
       "identity": "vdepth-v1-fixed-s103-u384-dev-r2",
       "training_real_targets": 100488104,
       "depth": 2,
@@ -119,6 +153,40 @@
           }
         },
         "weighted_nll": 3.6285260103465395,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
+      "identity": "vdepth-v1-fixed-s211-u1152-dev-r2",
+      "training_real_targets": 301465908,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 880651.6599655151,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.489982285457603
+          },
+          "code": {
+            "nll_sum": 438044.7429008484,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.744954858489248
+          },
+          "math": {
+            "nll_sum": 656552.182518959,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.611812420016704
+          }
+        },
+        "weighted_nll": 2.965342826975752,
         "weights": {
           "web": 0.6,
           "math": 0.2,
