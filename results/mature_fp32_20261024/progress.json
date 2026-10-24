@@ -184,6 +184,43 @@
         "unit": "nats per real source token"
       },
       "independent_cpu_audit": "pending; primary once completed"
+    },
+    {
+      "arm": "fixed",
+      "seed": 103,
+      "update": 11520,
+      "real_targets": 3014637826,
+      "phase": "annealed",
+      "native_fp32_metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 716182.6208572388,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.8381989991845775
+          },
+          "code": {
+            "nll_sum": 320893.87379837036,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.278283401909576
+          },
+          "math": {
+            "nll_sum": 516926.49469280243,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.0563712603839734
+          }
+        },
+        "weighted_nll": 2.3698503319694564,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "independent_cpu_audit": "pending; primary once completed"
     }
   ],
   "scope": "One existing paired seed, BF16 history below2B then qualified FP32. DEV only. No new confirmation, exact future-bit or compute-efficiency claim."
