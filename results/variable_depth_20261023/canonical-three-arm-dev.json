@@ -1,0 +1,588 @@
+{
+  "status": "COMPLETE_CANONICAL_THREE_ARM_DEV_READOUT",
+  "updated_unix": 1792808105.2733138,
+  "split": "dev",
+  "rows": [
+    {
+      "seed": 103,
+      "models": {
+        "ordinary": {
+          "identity": "vdepth-v1-ordinary-s103-u3840",
+          "depth": 1,
+          "weighted_nll": 2.599135219362705,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 779461.4906387329,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 3.0889702684851326
+              },
+              "code": {
+                "nll_sum": 364770.8504066467,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.4530677013430269
+              },
+              "math": {
+                "nll_sum": 572060.3087828159,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.2756975900151004
+              }
+            },
+            "weighted_nll": 2.599135219362705,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1004887590,
+          "training_update_matmul_flops": 1098412116148224000
+        },
+        "fixed": {
+          "identity": "vdepth-v1-fixed-s103-u3840",
+          "depth": 2,
+          "weighted_nll": 2.548268973595386,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 765022.4418334961,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 3.031748977888681
+              },
+              "code": {
+                "nll_sum": 355714.0429611206,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.416989833932004
+              },
+              "math": {
+                "nll_sum": 560348.7360570431,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.229108100378884
+              }
+            },
+            "weighted_nll": 2.548268973595386,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1004887590,
+          "training_update_matmul_flops": 1858394553266995200
+        },
+        "mixture": {
+          "identity": "vdepth-v1-mixture-s103-u3840",
+          "depth": 2,
+          "weighted_nll": 2.587427428264647,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 776194.9958381653,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 3.076025298858928
+              },
+              "code": {
+                "nll_sum": 362610.5272254944,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.4444620360726368
+              },
+              "math": {
+                "nll_sum": 569270.419878006,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.264599208673814
+              }
+            },
+            "weighted_nll": 2.587427428264647,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1004887590,
+          "training_update_matmul_flops": 1858394553266995200
+        },
+        "ordinary_matched": {
+          "identity": "vdepth-v1-ordinary-s103-u6496",
+          "depth": 1,
+          "weighted_nll": 2.495277617647256,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 751083.3483543396,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 2.976508987403114
+              },
+              "code": {
+                "nll_sum": 343670.1198158264,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.3690127664103668
+              },
+              "math": {
+                "nll_sum": 547463.1649436951,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.177848359616574
+              }
+            },
+            "weighted_nll": 2.495277617647256,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1699926288,
+          "training_update_matmul_flops": 1858147163150745600
+        }
+      },
+      "verified_common_source_and_execution_signature": {
+        "corpus_sha256": "5c9b04ddbc15fa2b5f81b3e9bf738b0c8fb3a6dbaf97d7730d7f31f52585d789",
+        "packing_sha256": "3073088bad9ae89116be3ddb78b26414fa0d10df371909cccaaafdf12597b71b",
+        "data_seed": 23,
+        "routing": "splitmix64_fisher_yates_v1",
+        "routing_seed": 271828,
+        "context": 1024,
+        "world": 32,
+        "batch": 4,
+        "accumulation": 2
+      }
+    },
+    {
+      "seed": 211,
+      "models": {
+        "ordinary": {
+          "identity": "vdepth-v1-ordinary-s211-u3840",
+          "depth": 1,
+          "weighted_nll": 2.5985962220435086,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 779191.6807937622,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 3.0879010243989673
+              },
+              "code": {
+                "nll_sum": 364367.8609352112,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.451462389448528
+              },
+              "math": {
+                "nll_sum": 572592.7418553829,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.277815647572114
+              }
+            },
+            "weighted_nll": 2.5985962220435086,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1004887590,
+          "training_update_matmul_flops": 1098412116148224000
+        },
+        "fixed": {
+          "identity": "vdepth-v1-fixed-s211-u3840",
+          "depth": 2,
+          "weighted_nll": 2.5451884013056603,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 764334.0443954468,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 3.0290208902992695
+              },
+              "code": {
+                "nll_sum": 355077.37296295166,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.4144536537253836
+              },
+              "math": {
+                "nll_sum": 559171.6790659428,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.2244256819051103
+              }
+            },
+            "weighted_nll": 2.5451884013056603,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1004887590,
+          "training_update_matmul_flops": 1858394553266995200
+        },
+        "mixture": {
+          "identity": "vdepth-v1-mixture-s211-u3840",
+          "depth": 2,
+          "weighted_nll": 2.5906649092990124,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 777070.6219711304,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 3.0794953652105335
+              },
+              "code": {
+                "nll_sum": 363455.13540649414,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.4478265397514058
+              },
+              "math": {
+                "nll_sum": 569876.9201915264,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.267011911112056
+              }
+            },
+            "weighted_nll": 2.5906649092990124,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1004887590,
+          "training_update_matmul_flops": 1858394553266995200
+        },
+        "ordinary_matched": {
+          "identity": "vdepth-v1-ordinary-s211-u6496",
+          "depth": 1,
+          "weighted_nll": 2.4951640496764247,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 750678.1296386719,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 2.9749031241501322
+              },
+              "code": {
+                "nll_sum": 343897.6438179016,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.3699191101555623
+              },
+              "math": {
+                "nll_sum": 548303.6236972809,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.1811917657761652
+              }
+            },
+            "weighted_nll": 2.4951640496764247,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1699926288,
+          "training_update_matmul_flops": 1858147163150745600
+        }
+      },
+      "verified_common_source_and_execution_signature": {
+        "corpus_sha256": "5c9b04ddbc15fa2b5f81b3e9bf738b0c8fb3a6dbaf97d7730d7f31f52585d789",
+        "packing_sha256": "3073088bad9ae89116be3ddb78b26414fa0d10df371909cccaaafdf12597b71b",
+        "data_seed": 23,
+        "routing": "splitmix64_fisher_yates_v1",
+        "routing_seed": 271828,
+        "context": 1024,
+        "world": 32,
+        "batch": 4,
+        "accumulation": 2
+      }
+    },
+    {
+      "seed": 307,
+      "models": {
+        "ordinary": {
+          "identity": "vdepth-v1-ordinary-s307-u3840",
+          "depth": 1,
+          "weighted_nll": 2.6016855464058746,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 779506.9146232605,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 3.0891502816600833
+              },
+              "code": {
+                "nll_sum": 366040.7543067932,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.4581263740386528
+              },
+              "math": {
+                "nll_sum": 573858.3962595463,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.2828505130104713
+              }
+            },
+            "weighted_nll": 2.6016855464058746,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1004887590,
+          "training_update_matmul_flops": 1098412116148224000
+        },
+        "fixed": {
+          "identity": "vdepth-v1-fixed-s307-u3840",
+          "depth": 2,
+          "weighted_nll": 2.546694272390678,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 764989.1817207336,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 3.031617169581685
+              },
+              "code": {
+                "nll_sum": 354853.8288154602,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.4135631637638584
+              },
+              "math": {
+                "nll_sum": 559330.3004791737,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.2250566894444765
+              }
+            },
+            "weighted_nll": 2.546694272390678,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1004887590,
+          "training_update_matmul_flops": 1858394553266995200
+        },
+        "mixture": {
+          "identity": "vdepth-v1-mixture-s307-u3840",
+          "depth": 2,
+          "weighted_nll": 2.587213301724508,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 775956.6707191467,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 3.075080827302959
+              },
+              "code": {
+                "nll_sum": 362611.28884506226,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.4444650699904884
+              },
+              "math": {
+                "nll_sum": 569712.7818231583,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.2663589567231748
+              }
+            },
+            "weighted_nll": 2.587213301724508,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1004887590,
+          "training_update_matmul_flops": 1858394553266995200
+        },
+        "ordinary_matched": {
+          "identity": "vdepth-v1-ordinary-s307-u6496",
+          "depth": 1,
+          "weighted_nll": 2.496952377926541,
+          "metrics": {
+            "domains": {
+              "web": {
+                "nll_sum": 751011.0310821533,
+                "real_targets": 252337,
+                "documents": 291,
+                "nll": 2.9762223973581095
+              },
+              "code": {
+                "nll_sum": 344348.36183929443,
+                "real_targets": 251035,
+                "documents": 153,
+                "nll": 1.3717145491238052
+              },
+              "math": {
+                "nll_sum": 549105.112953186,
+                "real_targets": 251378,
+                "documents": 159,
+                "nll": 2.1843801484345726
+              }
+            },
+            "weighted_nll": 2.496952377926541,
+            "weights": {
+              "web": 0.6,
+              "math": 0.2,
+              "code": 0.2
+            },
+            "unit": "nats per real source token"
+          },
+          "parameters": 150436608,
+          "real_targets": 1699926288,
+          "training_update_matmul_flops": 1858147163150745600
+        }
+      },
+      "verified_common_source_and_execution_signature": {
+        "corpus_sha256": "5c9b04ddbc15fa2b5f81b3e9bf738b0c8fb3a6dbaf97d7730d7f31f52585d789",
+        "packing_sha256": "3073088bad9ae89116be3ddb78b26414fa0d10df371909cccaaafdf12597b71b",
+        "data_seed": 23,
+        "routing": "splitmix64_fisher_yates_v1",
+        "routing_seed": 271828,
+        "context": 1024,
+        "world": 32,
+        "batch": 4,
+        "accumulation": 2
+      }
+    }
+  ],
+  "canonical_mean_nll": {
+    "ordinary": 2.5998056626040293,
+    "fixed": 2.546717215763908,
+    "mixture": 2.5884352130960555,
+    "ordinary_matched": 2.495798015083407
+  },
+  "completed_predeclared_primary": {
+    "architecture_fixed2_to_mixture2": {
+      "mean_gain_nats": -0.041717997332147615,
+      "interval_95": [
+        -0.04997849021489905,
+        -0.03345750444939618
+      ],
+      "paired_seed_gains": {
+        "103": -0.039158454669260934,
+        "211": -0.04547650799335212,
+        "307": -0.04051902933382978
+      },
+      "degrees_of_freedom": 2,
+      "decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats.",
+      "family_comparisons": 3,
+      "bonferroni_family_interval_95": [
+        -0.05640263363836778,
+        -0.02703336102592745
+      ],
+      "family_decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE"
+    },
+    "compute_ordinary_matched_to_mixture2": {
+      "mean_gain_nats": -0.09263719801264836,
+      "interval_95": [
+        -0.0992294797075592,
+        -0.08604491631773752
+      ],
+      "paired_seed_gains": {
+        "103": -0.09214981061739058,
+        "211": -0.0955008596225877,
+        "307": -0.0902609237979668
+      },
+      "degrees_of_freedom": 2,
+      "decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats.",
+      "family_comparisons": 3,
+      "bonferroni_family_interval_95": [
+        -0.1043562637502456,
+        -0.08091813227505111
+      ],
+      "family_decision": "USEFUL_GAIN_RULED_OUT_AT_THIS_EXPOSURE"
+    }
+  },
+  "predeclared_secondary_exploratory": {
+    "ordinary1_to_fixed2_equal_data": {
+      "mean_gain_nats": 0.053088446840121296,
+      "interval_95": [
+        0.04791901399271777,
+        0.05825787968752482
+      ],
+      "paired_seed_gains": {
+        "103": 0.05086624576731902,
+        "211": 0.05340782073784833,
+        "307": 0.054991274015196545
+      },
+      "degrees_of_freedom": 2,
+      "decision": "USEFUL_GAIN_SUPPORTED",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats."
+    },
+    "ordinary1_to_mixture2_equal_data": {
+      "mean_gain_nats": 0.011370449507973687,
+      "interval_95": [
+        0.0032138117351658956,
+        0.01952708728078148
+      ],
+      "paired_seed_gains": {
+        "103": 0.011707791098058085,
+        "211": 0.00793131274449621,
+        "307": 0.014472244681366764
+      },
+      "degrees_of_freedom": 2,
+      "decision": "INCONCLUSIVE",
+      "assumption": "Independent paired training seeds, approximately normal differences; threshold 0.01 nats."
+    }
+  },
+  "additional_descriptive_fixed_compute_gains": {
+    "103": -0.05299135594812965,
+    "211": -0.050024351629235575,
+    "307": -0.049741894464137015
+  },
+  "additional_descriptive_fixed_compute_mean": -0.050919200680500744,
+  "scope": "Canonical DEV only. Two of three predeclared primary contrasts are now available, using the original three-comparison Bonferroni family. The mechanism primary and full matrix are now in the separate complete DEV report. Equal-data contrasts are the declared secondary exploratory readouts with nominal seed intervals; no terminal positive claim. Fixed-versus-matched-ordinary arithmetic is an additional descriptive comparison, not an added primary. All twelve canonical independent audits now pass. Sealed TEST confirmation is in progress."
+}

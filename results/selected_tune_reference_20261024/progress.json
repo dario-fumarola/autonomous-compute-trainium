@@ -1,6 +1,6 @@
 {
-  "status": "RUNNING_EXPLORATORY_SELECTED_TUNE_DEV_REFERENCE",
-  "updated_unix": 1792807066.8661582,
+  "status": "COMPLETE_SELECTED_TUNE_DECAY_DEV_REFERENCE",
+  "updated_unix": 1792808765.465939,
   "records": [
     {
       "arm": "ordinary",
@@ -47,7 +47,99 @@
       },
       "targets": 754750,
       "active_seconds": 245.25010108947754
+    },
+    {
+      "arm": "fixed",
+      "identity": "vdepth-v1-tune-fixed-lr1000",
+      "seed": 11,
+      "depth": 2,
+      "training_real_targets": 301465908,
+      "schedule": {
+        "peak": 0.001,
+        "warmup_tokens": 7589026,
+        "decay_start": 271371476,
+        "decay_end": 301465908,
+        "floor_ratio": 0.1
+      },
+      "checkpoint_sha256": "6b5529decbde8931755a3c7f60bcc9ffbd20e8db1fc7eb981d3e9b8af8b3a5a1",
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 871704.0912492916,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.4545234795107
+          },
+          "code": {
+            "nll_sum": 431455.9088825571,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.7187081836499178
+          },
+          "math": {
+            "nll_sum": 649956.3812365911,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.5855738419296483
+          }
+        },
+        "weighted_nll": 2.933570492822333,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "targets": 754750,
+      "active_seconds": 394.0636291503906
+    },
+    {
+      "arm": "mixture",
+      "identity": "vdepth-v1-tune-mixture-lr600",
+      "seed": 11,
+      "depth": 2,
+      "training_real_targets": 301465908,
+      "schedule": {
+        "peak": 0.0006,
+        "warmup_tokens": 7589026,
+        "decay_start": 271371476,
+        "decay_end": 301465908,
+        "floor_ratio": 0.1
+      },
+      "checkpoint_sha256": "cc9a60aab14252097151bb6472cca1dad54383efcc03707e47be45b1af127205",
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 876447.3100568017,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.4733206388948177
+          },
+          "code": {
+            "nll_sum": 434170.57049987465,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.7295220606683317
+          },
+          "math": {
+            "nll_sum": 653613.5111816027,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.6001221713181053
+          }
+        },
+        "weighted_nll": 2.949921229734178,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "targets": 754750,
+      "active_seconds": 401.5398087501526
     }
   ],
-  "scope": "Read all three previously selected seed11 completed-decay 301M models on common DEV. No new fit, LR/exit/model selection, TEST scoring or primary-analysis change. Different seeds and schedules prevent treating these and the main curves as one uninterrupted trajectory. Three exposure points cannot validate a long-horizon scaling law."
+  "scope": "Read all three previously selected seed11 completed-decay 301M models on common DEV. No new fit, LR/exit/model selection, TEST scoring or primary-analysis change. Different seeds and schedules prevent treating these and the main curves as one uninterrupted trajectory. Three exposure points cannot validate a long-horizon scaling law. CPU work overlaps the live campaign; elapsed times are not added to node time."
 }

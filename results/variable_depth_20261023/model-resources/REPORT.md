@@ -14,8 +14,9 @@ Per-model retained training paths only, including launch/CPU-probe/checkpoint wa
 | mixture | 211 | 1B | 1,004,887,590 | 1.85839e+18 | 50.14 | 2.590665 |
 | ordinary | 307 | 1B | 1,004,887,590 | 1.09841e+18 | 26.71 | 2.601686 |
 | ordinary | 307 | matched | 1,699,926,288 | 1.85815e+18 | 42.32 | 2.496952 |
+| fixed | 307 | 1B | 1,004,887,590 | 1.85839e+18 | 38.45 | 2.546694 |
 | mixture | 307 | 1B | 1,004,887,590 | 1.85839e+18 | 49.66 | 2.587213 |
 
-11 completed training paths; 1 still pending.
+12 completed training paths; 0 still pending.
 
 [Machine-readable paths](summary.json) · [Whole-campaign execution ledger](../execution-costs.json).

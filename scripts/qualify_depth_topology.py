@@ -48,14 +48,21 @@ def live_native_workers():
 def main():
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True)
     p.add_argument('--campaign',type=Path,required=True);p.add_argument('--annex',type=Path,required=True)
-    p.add_argument('--output',type=Path,required=True);a=p.parse_args();a.output.mkdir(exist_ok=False)
-    croot='/work/instance-nvme';public=Path('results/depth_topology_qualification_20261024');public.mkdir(exist_ok=True)
+    p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--comparison-arm',choices=['mixture','fixed'],default='mixture')
+    a=p.parse_args();a.output.mkdir(exist_ok=False)
+    arms=['ordinary',a.comparison_arm]
+    prefix='fixedtop-q-v1' if a.comparison_arm=='fixed' else 'depthtop-q-v1'
+    croot='/work/instance-nvme'
+    public=Path('results/fixed_topology_qualification_20261024' if a.comparison_arm=='fixed'
+                else 'results/depth_topology_qualification_20261024');public.mkdir(exist_ok=True)
     sources=json.loads((a.campaign/'plan.json').read_text())['source_sha256'].copy()
     for f in ['scripts/qualify_depth_topology.py','scripts/supervise.py','scripts/run_native.sh',
               'scripts/qualify_native.py','compute_trainium/depth_topology.py']:
         sources[f]=file_sha256(f)
     wait_deadline=dt.datetime(2026,10,24,4,25,tzinfo=dt.timezone.utc).timestamp()
-    plan={'identity':'depth-topology-q-v1','purpose':'SOFTWARE_QUALIFICATION_ONLY',
+    plan={'identity':'fixed-topology-q-v1' if a.comparison_arm=='fixed' else 'depth-topology-q-v1',
+          'comparison_arm':a.comparison_arm,'purpose':'SOFTWARE_QUALIFICATION_ONLY',
           'declared_unix':time.time(),'wait_deadline_unix':wait_deadline,'execution_budget_seconds':2100,
           'maximum_native_attempts':8,'source_sha256':sources,'physical_chips_per_job':8,
           'layouts':[{'world':32,'batch':4},{'world':16,'batch':8}],'accumulation':2,'context':1024,
@@ -133,34 +140,34 @@ def main():
             time.sleep(10)
         frozen();execution_started=time.time();deadline=execution_started+2100
         write_state(a.output/'execution-start.json',{'started_unix':execution_started,'deadline_unix':deadline})
-        tiny=finish([phase('depthtop-q-v1-tiny-w32',32,4,'mixture',0,8,tiny=True,check_global=True),
-                     phase('depthtop-q-v1-tiny-w16',16,8,'mixture',1,8,tiny=True,check_global=True)])
+        tiny=finish([phase(prefix+'-tiny-w32',32,4,a.comparison_arm,0,8,tiny=True,check_global=True),
+                     phase(prefix+'-tiny-w16',16,8,a.comparison_arm,1,8,tiny=True,check_global=True)])
         if any(not math.isfinite(r['global_gradient_check']['gradient_relative_l2']) or r['global_gradient_check']['gradient_relative_l2']>.01 for r in tiny.values()):
             raise AssertionError('Global objective agreement failed')
         full={};pairs={}
         for world,batch in [(32,4),(16,8)]:
-            peers=[f'depthtop-q-v1-full-{arm}-w{world}' for arm in ['ordinary','mixture']]
+            peers=[f'{prefix}-full-{arm}-w{world}' for arm in arms]
             found=finish([phase(name,world,batch,arm,half,104,peers=peers)
-                          for half,(name,arm) in enumerate(zip(peers,['ordinary','mixture']))])
+                          for half,(name,arm) in enumerate(zip(peers,arms))])
             if any(r['parameters']!=150436608 or r['warm_updates']!=100 for r in found.values()):
                 raise AssertionError('Full-size warm benchmark differs')
             full.update(found);pairs[str(world)]=paired_warm_rate(list(found.values()))
         if len({r['initial_model_digest'] for r in full.values()})!=1:
             raise AssertionError('Benchmark initial weights differ')
-        restored=finish([phase(f'depthtop-q-v1-restore-{arm}-w16',16,8,arm,half,8,
-                            resume=f'depthtop-q-v1-full-{arm}-w16')
-                         for half,arm in enumerate(['ordinary','mixture'])])
-        for arm in ['ordinary','mixture']:
-            old=full[f'depthtop-q-v1-full-{arm}-w16'];new=restored[f'depthtop-q-v1-restore-{arm}-w16']
+        restored=finish([phase(f'{prefix}-restore-{arm}-w16',16,8,arm,half,8,
+                            resume=f'{prefix}-full-{arm}-w16')
+                         for half,arm in enumerate(arms)])
+        for arm in arms:
+            old=full[f'{prefix}-full-{arm}-w16'];new=restored[f'{prefix}-restore-{arm}-w16']
             if new['recovered_model_optimizer_digest']!=old['state_digest']:
                 raise AssertionError('Full optimizer recovery differs')
-        for arm in ['ordinary','mixture']:
-            x,y=[full[f'depthtop-q-v1-full-{arm}-w{w}'] for w in [32,16]]
+        for arm in arms:
+            x,y=[full[f'{prefix}-full-{arm}-w{w}'] for w in [32,16]]
             if (x['phase_real_targets'],x['total_training_matmul_flops'])!=(y['phase_real_targets'],y['total_training_matmul_flops']):
                 raise AssertionError('Resized source or compute budget differs')
         ratio=pairs['16']['real_targets_per_second']/pairs['32']['real_targets_per_second']
-        arm_ratios={arm:full[f'depthtop-q-v1-full-{arm}-w16']['warm_global_real_targets_per_second']/
-                         full[f'depthtop-q-v1-full-{arm}-w32']['warm_global_real_targets_per_second'] for arm in ['ordinary','mixture']}
+        arm_ratios={arm:full[f'{prefix}-full-{arm}-w16']['warm_global_real_targets_per_second']/
+                         full[f'{prefix}-full-{arm}-w32']['warm_global_real_targets_per_second'] for arm in arms}
         report={'status':'PASS_DEPTH_TOPOLOGY_QUALIFICATION','execution_wall_seconds':time.time()-execution_started,
                 'source_plan_sha256':file_sha256(a.output/'plan.json'),'tiny_global_gradient_checks':{k:r['global_gradient_check'] for k,r in tiny.items()},
                 'cpu_probes':cpu_checks,'execution_costs':costs(),

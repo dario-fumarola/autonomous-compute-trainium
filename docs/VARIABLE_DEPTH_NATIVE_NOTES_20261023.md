@@ -134,3 +134,31 @@ read-only mechanism-audit children, including the spawn-before-PID-receipt
 case, and writes an explicit stopped record. A subprocess integration fixture
 exercises orphan cleanup and terminal reporting; it scores no research data.
 The running annex and its two frozen source hashes are preserved.
+## October24: benchmark the stronger fixed-depth control
+
+The three-seed canonical DEV comparison favors fixed depth over the mixture
+at equal parameters, source exposure and estimated update work. The queued
+mixture topology benchmark was therefore superseded **before any native
+attempt**. Its original plan and explicit unexecuted receipt remain preserved
+in `results/depth_topology_qualification_20261024`. No running scientific
+model, recipe, endpoint or analysis changed.
+
+The replacement benchmarks ordinary/fixed with `--comparison-arm fixed` under
+a new identity. It retains the eight-attempt/35-minute limit,100 warm updates,
+CPU/global-gradient/replica/recovery checks,32-rank batch4 versus16-rank batch8
+layouts and original promotion thresholds. It still waits for successful main
+and read-only-annex closure and verified absence of native science workers.
+
+A short read-only warm snapshot observed20 optimizer updates advancing and
+up to44.76GiB of reported device allocations per active chip. This is not a
+certified peak or throughput qualification. Raw telemetry stays private.
+See `results/variable_depth_20261023/warm-memory-snapshot.json`.
+
+Budget memory **per logical core**, rather than dividing aggregate free HBM
+among the remaining workers. In LNC2 each logical core has an approximately
+24GiB HBM bank; leaving other logical cores unused does not pool those banks
+into a larger per-rank budget. The larger local batch must pass the actual
+qualification. Four concurrent four-chip jobs have not been qualified.
+[AWS training layout guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/training/best-practices.html) ·
+[LNC architecture](https://awsdocs-neuron.readthedocs-hosted.com/en/v2.32.0/about-neuron/arch/neuron-features/logical-neuroncore-config.html).
+

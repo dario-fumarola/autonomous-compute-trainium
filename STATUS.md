@@ -1,37 +1,46 @@
-# Status — 2026-10-24, 01:58 UTC
+# Status — 2026-10-24, 02:25 UTC
 
-**The first two fixed-depth 1B endpoints are complete.** DEV NLL is
-2.548269 /2.545188 for seeds103 /211. They improve over equal-data ordinary
-by0.050866 /0.053408 nats, and over mixture by0.039158 /0.045477.
-Both still lose to ordinary's matched-compute endpoints, by0.052991 /0.050024.
-These are two paired seeds; the third fixed fit remains pending. Fixed103/211
-have passed independent whole-DEV FP32 and full-state readback audits,
-with CPU-minus-native losses-0.00001227 /-0.00002880 nats. Fixed307 remains pending.
-No new TEST score has been opened.
+**All twelve scientific training endpoints and the full DEV inference-depth
+matrix are complete.** All twelve canonical models pass independent whole-DEV
+FP32 evaluation and full-state copy/readback. The sealed TEST matrix is now
+running after checkpoint identities, depths, sources and analysis were frozen.
+No model or exit is selected from TEST.
 
-The completed seed103 comparison is:
+The three-seed canonical DEV means are:
 
-| Model | Real targets | Relative update matmuls | DEV NLL |
+| Model | Real targets | Relative update matmuls | Mean DEV NLL |
 | --- | ---: | ---: | ---: |
-| Ordinary | 1.005B | 1.000 | 2.599135 |
-| Fixed two passes | 1.005B | 1.692 | 2.548269 |
-| Variable-depth mixture, scored at two passes | 1.005B | 1.692 | 2.587427 |
-| Ordinary, matched estimated work | 1.700B | 1.692 | 2.495278 |
+| Ordinary | 1.005B | 1.000 | 2.599806 |
+| Fixed two passes | 1.005B | 1.692 | 2.546717 |
+| Variable-depth mixture, scored at two passes | 1.005B | 1.692 | 2.588435 |
+| Ordinary, matched estimated work | 1.700B | 1.692 | 2.495798 |
 
-All have150,436,608 parameters and matched starting weights within the seed.
-Source/order/execution signatures and full-state lineage are verified.
-[First three-arm endpoint readout](results/variable_depth_20261023/first-three-arm-dev.json).
+All have150,436,608 parameters, with matched initial weights within each seed.
+Fixed depth improves equal-data NLL by **0.053088 [0.047919,0.058258]**,
+a nominal paired-seed95% interval for the declared secondary comparison.
+It remains worse than matched-compute ordinary by0.050919 nats on average.
+This substantial equal-data positive does not establish compute efficiency
+or satisfy the ongoing objective's independent confirmation requirement.
+[Canonical three-arm readout](results/variable_depth_20261023/canonical-three-arm-dev.json).
 
-All three mixture 1B endpoints are complete:2.587427 /2.590665 /2.587213.
-Eleven of twelve primary-model audits are complete, including every mixture,
-ordinary endpoint and both completed fixed models. The largest CPU/native
-difference is0.00004622 nats.
-[Partial audit](results/variable_depth_20261023/partial-independent-cpu-verification.json).
-The third fixed fit occupies one eight-chip half. The frozen controller has
-one model chain left; its other half is temporarily idle until the complete
-evaluation matrix starts. The separate12-worker CPU data preparation remains
-active. This tail is recorded in node-opportunity cost, not hidden as useful
-accelerator work. Do not resize a scientific fit without qualification.
+The full matrix supports a useful within-model computation effect: mixture
+improves from one to three passes by **0.028108**, with the original family95%
+interval **[0.024727,0.031490]**. However, its second-to-third pass worsens
+NLL by0.003013, and its third-to-fourth pass worsens it by0.010395. These are
+separate declared secondary/extrapolation checks. More passes are not
+monotonically better. Mixture also loses to fixed depth by0.041718 nats under
+equal parameters, data and update work; the family interval for mixture's
+advantage is[-0.056403,-0.027033]. Its matched-compute primary remains negative.
+[Complete DEV analysis](results/variable_depth_20261023/dev/REPORT.md) ·
+[Frozen TEST release](results/variable_depth_20261023/test-release.json).
+
+The largest canonical CPU/native difference is0.00004622 nats. All copies
+are on the same instance-local NVMe, not off-instance backups.
+[Complete independent audit](results/variable_depth_20261023/independent-cpu-verification.json).
+The final fit left one half temporarily idle under the frozen whole-chain
+queue. That tail is retained in node-opportunity cost. Both eight-chip halves
+are now evaluating the declared matrix; no scientific fit was resized.
+
 At301M stable targets, the first two fixed-depth controls score
 2.968422 /2.965343, versus mixture3.013947 /3.019806 in those same seeds.
 Fixed currently leads by0.045525 /0.054463 nats. These are early development
@@ -49,8 +58,8 @@ The matched-compute primary DEV contrast is now complete across all three
 seeds. Ordinary at1.700B targets scores2.495278 /2.495164 /2.496952, beating
 mixture at1.005B by a mean **0.092637 nats**. The three-comparison family95%
 interval for mixture's gain is **[-0.104356,-0.080918]**, ruling out the declared
-useful gain at this exposure on DEV. The other two primary contrasts and
-sealed TEST confirmation remain pending. This is a substantive efficiency
+useful gain at this exposure on DEV. All three primary DEV contrasts are now complete;
+sealed TEST confirmation is in progress. This is a substantive efficiency
 negative for this recipe, not a universal claim about latent computation.
 [Primary compute DEV contrast](results/variable_depth_20261023/primary-compute-dev.json).
 The [retained model resource paths](results/variable_depth_20261023/model-resources/REPORT.md)
@@ -69,12 +78,12 @@ uncertainty and do not replace the frozen final analysis.
 [Conditional readout](results/variable_depth_20261023/first-pair-curve/REPORT.md) ·
 [Early seed variation](results/variable_depth_20261023/early-paired-curves.json).
 An additional DEV-only CPU readout is evaluating all three previously
-TUNE-selected, completed-decay301M checkpoints. Ordinary's first result is
-**2.961808**. Fixed and mixture readouts are pending. This single-seed11
+TUNE-selected, completed-decay301M checkpoints. The completed losses are **2.961808 ordinary /2.933570 fixed /2.949921
+mixture**. This single-seed11
 reference differs from the main stable301M curves and does not change the
 primary analysis, model selection or TEST. It cannot validate a long-horizon
 scaling law by itself.
-[Exploratory short-exposure reference](results/selected_tune_reference_20261024/progress.json).
+[Completed exploratory short-exposure reference](results/selected_tune_reference_20261024/report.json).
 At301M stable targets, ordinary103 scores3.024108 versus mixture103
 3.013947: a0.010160-nat equal-data gain in one pair, with additional compute.
 Mixture307 scores3.015378 after its worse100M point3.868176. These are
@@ -174,8 +183,10 @@ took107.62 seconds. These same-instance copies do not establish native
 continued-update equivalence or constitute off-instance backups.
 [Exact stored-state proof](results/source_state_copy_qualification_20261024/report.json).
 
-A separate35-minute, at-most-eight-attempt topology qualification is prepared
-to wait for successful scientific and read-only annex completion. It compares
+The original queued mixture topology benchmark was superseded before any
+native launch. Its plan and unexecuted receipt remain preserved. A replacement
+35-minute, at-most-eight-attempt ordinary/fixed topology qualification waits
+for successful scientific and read-only annex completion. It compares
 32 ranks/batch4 with16 ranks/batch8 at the same source/depth assignments,
 global batch, parameters and NN work. No native benchmark has launched yet.
 It requires numerical/replica/recovery checks and100 warm updates per full
