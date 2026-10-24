@@ -83,6 +83,34 @@
       },
       "training_matmul_flops": 5017665293820887040,
       "checkpoint_sha256": "822dcb64343ed4401bf490d4badf5e2a0a0da09f489ca2fb95d48fdf11026c2c"
+    },
+    {
+      "arm": "ordinary",
+      "update": 11520,
+      "real_targets": 3014637826,
+      "phase": "completed decay",
+      "cpu_fp32_nll": 2.4059070425402767,
+      "domains": {
+        "web": 2.8792280928932246,
+        "code": 1.3006295404264063,
+        "math": 2.0912213935953026
+      },
+      "training_matmul_flops": 3295236348444672000,
+      "checkpoint_sha256": "cd5e388a928f5b9c03009852bf034298480ba53415ba6fd13510fc8dfbc1226c"
+    },
+    {
+      "arm": "fixed",
+      "update": 11520,
+      "real_targets": 3014637826,
+      "phase": "completed decay",
+      "cpu_fp32_nll": 2.3698511025989113,
+      "domains": {
+        "web": 2.838199716852234,
+        "code": 1.2782842646387536,
+        "math": 2.0563720977991005
+      },
+      "training_matmul_flops": 5575183659800985600,
+      "checkpoint_sha256": "bc0c3d5076f81355e6efca6aa2dae9cc9141468354b9a6069796c0599e2a4f7a"
     }
   ],
   "paired_points": [
@@ -103,6 +131,12 @@
       "real_targets": 2713176594,
       "phase": "stable",
       "equal_data_gain": 0.02369856805060344
+    },
+    {
+      "update": 11520,
+      "real_targets": 3014637826,
+      "phase": "completed decay",
+      "equal_data_gain": 0.036055939941365356
     }
   ],
   "scope": "Only completed independent CPU FP32 existing-DEV scores; unpaired partial points excluded from gain curve."

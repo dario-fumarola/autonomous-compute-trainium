@@ -180,3 +180,15 @@ respect a requested FP32 accuracy policy, or document and warn about the
 automatic downcast. A gating change must also validate backward selection,
 cache policy and performance. This is a local reproducer and contribution
 candidate only. No upstream issue, message or PR has been sent.
+
+
+### Prospective precision optimization, not a qualified replacement
+
+The CPU-only FP32-head/BF16-body screen still misses the registered2% gradient
+criterion (3.37% on eight fixed TRAIN windows), so the active execution stays
+FP32. [TorchNeuron's official type documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/torch/about-pytorch-neuron.html)
+also advertises FP16 support, while [its best-practice guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/torch/reference/best-practices-pytorch-neuron.html)
+recommends BF16. FP16 with explicit loss scaling could be a bounded future
+CPU-gradient screen; actual operator accuracy, underflow/overflow, native support,
+complete-state recovery and throughput are unqualified. No FP16 model update,
+backend change or new qualification is launched by this note.

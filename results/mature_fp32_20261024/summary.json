@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_DESCRIPTIVE_ONE_PAIR_3B_FP32_DEV_READOUT",
+  "seed": 103,
+  "parameters_per_arm": 150436608,
+  "real_targets_per_arm": 3014637826,
+  "weighted_cpu_fp32_nll": {
+    "ordinary": 2.4059070425402767,
+    "fixed": 2.3698511025989113
+  },
+  "equal_data_gain": 0.036055939941365356,
+  "domains": {
+    "web": {
+      "ordinary_nll": 2.8792280928932246,
+      "fixed_nll": 2.838199716852234,
+      "gain": 0.04102837604099063
+    },
+    "math": {
+      "ordinary_nll": 2.0912213935953026,
+      "fixed_nll": 2.0563720977991005,
+      "gain": 0.03484929579620211
+    },
+    "code": {
+      "ordinary_nll": 1.3006295404264063,
+      "fixed_nll": 1.2782842646387536,
+      "gain": 0.022345275787652774
+    }
+  },
+  "fixed_to_ordinary_estimated_training_matmul_ratio": 1.691891891891892,
+  "maximum_native_cpu_nll_difference": 8.080098901075417e-07,
+  "independent_full_panel_audits": 6,
+  "full_state_copy_audits": 6,
+  "frozen_source_files_verified": 37,
+  "native_attempts": 12,
+  "closed_native_assigned_chip_hours": 30.174797677993773,
+  "wall_seconds_including_cpu_tail": 7460.611651182175,
+  "new_compute_control": "Registered ordinary5.100B path is currently training from the stable2.713B parent. No efficiency readout yet.",
+  "test_accessed": false,
+  "new_terminal_attempt": false,
+  "scope": "One existing paired seed, BF16 history below2B then qualified FP32. DEV only. No new confirmation, exact future-bit or compute-efficiency claim."
+}

@@ -1,81 +1,129 @@
-# Status — 2026-10-24, 08:40 UTC
+# Status — 2026-10-24, 09:14 UTC
 
-**The new paired FP32 development run is now taking actual updates on all16 chips.** Both arms have passed their full local CPU-gradient probes and advanced beyond2B real targets with matched source counters. At the first new2.211B point, independent whole-DEV FP32 scores are **2.526843 ordinary /2.498792 fixed**, a0.028051-nat equal-data gain in this one pair. Both full-panel scores agree with native within0.00000081 nats and their serialized full-state copies pass. Both2.713B stable trunks have completed and final decay is training on all16 chips. Native2.713B scores are2.495956 ordinary /2.472258 fixed; the ordinary independent CPU score is2.495957 and the fixed independent score is2.472259; both whole-panel audits pass. Ordinary has completed decay at3.015B (native DEV2.405906, independent audit pending); the fixed endpoint is still training. [Live observation](results/mature_fp32_20261024/live-observation.json) · [Frozen new protocol](docs/MATURE_FP32_PROTOCOL_20261024.md).
+**The paired 3B FP32 continuation is complete and independently audited.** At
+3,014,637,826 real targets, ordinary DEV NLL is **2.405907** and fixed two-pass
+NLL is **2.369851**: a **0.036056-nat equal-data gain**. Both models have
+150,436,608 parameters and completed the registered learning-rate decay.
 
-**The earlier BF16 mature3B execution stopped at a numerical qualification guard.** Fixed seed103's next-phase local BF16 gradient differed from CPU by0.100189, above the unchanged0.08 limit. Attempting ordinary103's exact periodic-state recovery also stopped at0.099066. No threshold was raised and no failed run is relabeled as successful. The interrupted ordinary checkpoint at update9216 passes full model/optimizer digest validation.
+| Domain | Ordinary NLL | Fixed NLL | Gain |
+| --- | ---: | ---: | ---: |
+| Web | 2.879228 | 2.838200 | +0.041028 |
+| Math | 2.091221 | 2.056372 | +0.034849 |
+| Code | 1.300630 | 1.278284 | +0.022345 |
 
-Both completed2B stable DEV checkpoints remain available: ordinary103 **2.549277**, fixed103 **2.529008**, a one-pair0.020269-nat equal-data gain before final decay. These are development curves, not completed3B or matched-compute outcomes.
+This is one reused paired seed103 on consumed DEV, with BF16 history below
+2.010B and qualified FP32 thereafter. It is a descriptive longer learning
+curve, not fresh significance, a pure timing effect or an efficiency win.
+All six whole-DEV independent FP32 scores and full optimizer/model copy audits
+pass. Maximum native/CPU NLL difference is 0.000000808; all 37 frozen scientific
+source hashes remain unchanged. Copies are on this instance.
 
-Ordinary211 and307 have both completed their2B stable phases under the unchanged trainer/guard; DEV NLL is2.549744 and2.549147. Their whole-panel independent FP32 audits have not run. Those BF16 fits are closed; the separate FP32 continuation above is now running. No new3B endpoint has completed.
+[Completed report](results/mature_fp32_20261024/REPORT.md) ·
+[Exact summary](results/mature_fp32_20261024/summary.json) ·
+[Standalone learning curve](results/mature_fp32_20261024/figures/paired-learning-curve.png)
+([SVG](results/mature_fp32_20261024/figures/paired-learning-curve.svg),
+[PDF](results/mature_fp32_20261024/figures/paired-learning-curve.pdf)).
 
-**The full-global gradient diagnostic also fails.** At the fixed2B checkpoint, native BF16 differs from full CPU FP32 by20.93% relativeL2; at ordinary2.41B the discrepancy is20.33%. All32 native replica gradients are identical. CPU BF16 itself differs from CPU FP32 by8.54% and4.96%, respectively. Scalar loss differences are small, so forward-loss agreement alone is insufficient. The unchanged prospective global gate is2% gradient error and0.003 loss error; no threshold was raised.
+## Active work on the instance
 
-The native fixed-model capture repeats bit for bit. Separately reducing each microbatch and summing on CPU reproduces the original accumulated gradient to1.12e-7 relativeL2, weakening accumulation/communication as the cause. At the same exact global source batch, native FP32 brings the discrepancy down to2.93%, still above the gate. Changing microbatch size from4 to1 barely changes the BF16 gradient. The primitive FP32 attention control reduces global gradient error to0.00012068 and passes the unchanged gate; BF16 remains at0.208629. A public checkpoint-free SDPA reproducer confirms the fast FP32 route's precision loss at increasing input scale. This localizes the FP32 gap, without establishing a separate BF16 operator bug. The repaired numerical/update/performance measurements are complete. Both models pass independent full-global FP32 gradients; a new one-pair3B precision-continuation protocol and source-copy/budget gates are prepared. This is a separate execution; the old BF16 campaign stays stopped.
-Concurrent100-warm-update throughput is **162,899 fixed /176,468 ordinary real targets/second** on eight chips each, with99.985% timing overlap. Batch2 did not improve throughput. Every phase verifies exact complete state on load and identical final replicas. The additional108-update future-trajectory bit test failed; it remains failed. Fresh uninterrupted108-update repeats are bit-identical. A4+4 restart differs from uninterrupted8 by4.12e-8 parameter relativeL2; the longer restart's independent whole-DEV NLL differs by **0.00001295**, below its separately registered0.0001 sensitivity limit. RNG, cursor, schedule and counts agree. The new [numerical policy](docs/FP32_NUMERICAL_QUALIFICATION_20261024.md) states that exact loaded state does not promise bit-identical later arithmetic. The earlier redundant2-thread CPU-check attempts and their costs stay preserved.
+**Half0, eight chips:** the missing ordinary 5.100B resource control is training
+from the independently audited **stable 2.713B** checkpoint. It retains the
+qualified FP32 path and completes its own 4.590B→5.100B decay. Its estimated
+training matmul budget matches fixed3B within 0.003051%, including the vocabulary
+head. This is the still-pending efficiency comparison. The registered measured
+window is 5.60 hours including 30% margin and CPU tail; training cutoff14:45 UTC,
+hard cutoff15:30 UTC. No numerical threshold changed.
 
-The [new one-pair protocol](docs/MATURE_FP32_PROTOCOL_20261024.md) continues the paired seed1032B states through stable2.211B/2.713B points and completed-decay3.015B endpoints, using FP32 and primitive SDPA. Prepared source copies preserve every model/optimizer/RNG tensor and counter. The launched execution’s measured budget is3.05 node-hours including launch/eval allowances,30% margin and a30-minute CPU tail; training cutoff09:40 UTC, hard cutoff10:30. This is DEV development on one reused seed, with no new TEST, fresh significance or compute-efficiency claim. The separate5.1B ordinary compute control has not launched. [Frozen prepared plan](results/mature_fp32_20261024/plan.json) · [Numerical report](results/trained_gradient_diagnosis_20261024/REPORT.md) · [Measured concurrent qualification](results/trained_gradient_diagnosis_20261024/controls/fp32-final-qualification-report.json).
+[Control protocol](docs/MATURE_FP32_COMPUTE_CONTROL_20261024.md) ·
+[Frozen plan](results/mature_fp32_compute_20261024/plan.json) ·
+[Live observations](results/mature_fp32_compute_20261024/live-observation.json).
 
-[Completed ordinary controls](results/mature_recovery_20261024/ordinary2b-readout.json) · [Global precision results](results/trained_gradient_diagnosis_20261024/reference.json) · [Partition controls](results/trained_gradient_diagnosis_20261024/controls/precision-partition-comparison.json) · [Attention-route registration](results/trained_gradient_diagnosis_20261024/controls/primitive-attention-registration.json).
-[Stopped execution](results/mature_fixed_20261024/report.json) · [2B curves](results/mature_fixed_20261024/progress.json) · [Numerical registration](results/trained_gradient_diagnosis_20261024/registration.json) · [Preserved-state recovery](results/mature_recovery_20261024/ordinary-recovery-registration.json).
+**Half1, eight chips:** a separately registered pilot is starting its four-LR
+selection for ordinary versus an inexpensive trained reinjection connection.
+Each model uses every block once; the control adds the prelude state at the
+core boundary. Parameters and estimated matmuls match ordinary. This tests a
+missing architectural control, not a new latent-depth success claim.
 
-**The earlier1B three-seed study, sealed TEST evaluation and read-only diagnostics are complete.** Fixed recurrence improves prediction at equal text exposure. Ordinary training still wins at matched estimated compute. No efficiency success is claimed.
+Native qualification passed actual updates, a 32-window global-gradient check
+(relative error 0.000000708), 100 warm updates at the intended 256-window batch
+(**176,832 targets/s**), and eight full-state restored updates. All replicas agree.
+The whole native sequence took 15.35 minutes, within its 25-minute bound.
 
-| Model | Real targets | Relative training matmuls | Mean TEST NLL |
+Both pilot arms receive LRs {0.0003,0.0006,0.001,0.0015}, 301M-target tuning,
+seed11, matched weights/source order, FP32 and the same AdamW recipe. Selected
+TUNE models receive independent CPU audits. A predeclared >0.02-nat cheap-model
+TUNE penalty stops the main fits; otherwise both train seed419 to1.005B with
+stable learning-curve points and completed decay. Half0 can take remaining
+predeclared tuning trials after the strong resource control closes. The
+conservative measured pilot budget is9.10 hours including margin/tails; training
+cutoff18:00 UTC and hard cutoff19:00 UTC. Existing consumed TUNE/DEV only.
+
+[Pilot protocol](docs/REINJECTION_PILOT_PROTOCOL_20261024.md) ·
+[Measured frozen pilot plan](results/reinjection_pilot_20261024/plan.json) ·
+[Live observations](results/reinjection_pilot_20261024/live-observation.json) ·
+[Completed native qualification](results/reinjection_control_20261024/native-v1/report.json).
+
+No fresh TEST is opened and no terminal alpha is spent. A future positive still
+requires a frozen candidate and strong controls, at least five fresh paired
+training seeds, new held-out groups and the charter's repeated-test allocation.
+The research objective remains active.
+
+## The established three-seed result
+
+The earlier 1B experiment and sealed TEST analysis remain unchanged:
+
+| Model | Targets | Relative estimated matmuls | Mean TEST NLL |
 | --- | ---: | ---: | ---: |
 | Ordinary | 1.005B | 1.000 | 2.587896 |
 | Fixed two passes | 1.005B | 1.692 | 2.535153 |
-| Variable-depth mixture, evaluated at two passes | 1.005B | 1.692 | 2.575693 |
+| Variable-depth mixture at two passes | 1.005B | 1.692 | 2.575693 |
 | Ordinary, matched estimated work | 1.700B | 1.692 | 2.483895 |
 
-All models have150,436,608 parameters, matched initial weights and source order within each seed. Fixed's equal-data TEST gain is **0.052743 nats**, with nominal paired-seed95% interval **[0.041749,0.063737]**. This declared secondary contrast is positive in all three seeds. Its descriptive deficit against compute-matched ordinary is0.051258 nats. Estimated work includes the vocabulary projection; these are not wall-time-matched endpoints.
+Fixed's equal-data gain is0.052743 nats, with nominal paired-seed95% interval
+[0.041749,0.063737], positive in all three seeds. Its compute-matched deficit is
+0.051258. Variable depth loses to fixed at depth two; supported-depth dependence
+does not establish monotonic refinement or learned halting. The original TEST
+panel is consumed. [Frozen TEST report](results/variable_depth_20261023/test/REPORT.md).
 
-The original three primary TEST contrasts give:
+## Qualified fresh data and preserved numerical findings
 
-| Contrast, positive favors candidate | Gain | Family95% interval | Decision at0.01 |
-| --- | ---: | --- | --- |
-| Mixture, one to three passes | +0.027214 | [0.024333,0.030094] | Useful within-model gain supported |
-| Fixed two to mixture two | -0.040540 | [-0.057493,-0.023587] | Useful gain ruled out |
-| Matched-work ordinary to mixture two | -0.091798 | [-0.101169,-0.082427] | Useful gain ruled out |
+The new natural-source confirmation reserve is complete: 1,697 documents and
+2,261,216 targets across TUNE/DEV/TEST. All14,700,735 prior accepted IDs were
+screened. Independent raw-row/full-token reconstruction, coverage, exact-ID and
+source-group checks pass. No model has scored these panels. The auditor did not
+independently rerun every approximate minhash comparison; that limitation remains
+explicit. The memory repair reuses the exact frozen candidate pool and leaves
+both stopped predecessors and costs preserved.
 
-Mixture's second-to-third pass worsens TEST NLL by0.003378; third-to-fourth worsens it by0.010618. It learns a useful supported computation path, without monotonically improving at every depth. This is not learned halting, a timing-from-initialization comparison, or an efficiency win.
+[Fresh-reserve report](results/fresh_confirmation_reserve_20261024/v3/REPORT.md).
 
-[Complete frozen TEST report](results/variable_depth_20261023/test/REPORT.md) · [DEV analysis](results/variable_depth_20261023/dev/REPORT.md) · [Standalone learning/depth figure](results/variable_depth_20261023/figures/learning-and-depth-test.png) ([SVG](results/variable_depth_20261023/figures/learning-and-depth-test.svg), [PDF](results/variable_depth_20261023/figures/learning-and-depth-test.pdf)).
+The earlier BF16 mature run stays stopped at its unchanged numerical guards.
+The full-model gradient controls distinguish BF16 error from the native fast
+FP32 SDPA precision gap. Disabling that attention route reduces the fixed
+full-global FP32 gradient error from0.029312 to0.00012068. The public checkpoint-free
+reproducer and upstream contribution notes are preserved; nothing was sent
+upstream. The failed strict future-trajectory bit test remains failed; the
+prospective numerical policy promises exact state on load and qualified
+arithmetic, not bit-identical future process-restart trajectories.
 
-All twelve canonical models pass independent whole-DEV FP32 evaluation and serialized full optimizer/model copy recovery; the largest CPU/native NLL difference is0.00004622. All six mixture mechanism cells at depths1/3 also pass independent whole-DEV FP32 audits. Thirty DEV and thirty TEST evaluations closed successfully. The frozen release preceded the first TEST launch; all thirty original scientific source hashes and checkpoint identities remain unchanged. Independent numeric scoring is on DEV, not a separate whole-TEST CPU reproduction. Copies are on this instance, not off-instance backups.
+[Numerical diagnosis](results/trained_gradient_diagnosis_20261024/REPORT.md) ·
+[Numerical recovery policy](docs/FP32_NUMERICAL_QUALIFICATION_20261024.md) ·
+[OSS notes](docs/OSS_NOTES.md).
 
-[Canonical independent audits](results/variable_depth_20261023/independent-cpu-verification.json) · [Mechanism audits](results/variable_depth_20261023/independent-mechanism-verification.json) · [Frozen-record audit](results/variable_depth_20261023/frozen-record-audit.json) · [Completed read-only annex](results/variable_depth_20261023/readonly-diagnostics.json) · [Resource paths](results/variable_depth_20261023/model-resources/REPORT.md).
+The historical fixed2B scoring audit stays failed at−0.000201372 nats against
+its old BF16 readout. Its independent FP32 remeasurement supplies a common-precision
+parent anchor without waiving that failure. An FP32-head/BF16-body CPU gradient
+screen reduced error to3.37%, still above2%; no native adoption followed.
+The first cheap-control CPU checker also failed: it packed reference Q/K/V
+gradients incorrectly. Its repaired, independently checked fixture gives5.13e-7
+relative gradient error and zero loss difference, with the original failure and
+a regression test preserved. These are numerical diagnostics, not learning gains.
 
-The additional completed-decay301M reference is **2.961808 ordinary /2.933570 fixed /2.949921 mixture** on DEV. This uses the previously TUNE-selected checkpoints of one different seed,11. It differs from the stable-phase301M main curves and cannot validate a long-horizon scaling law. Selected peaks remain6e-4 ordinary,1e-3 fixed,6e-4 mixture. Fixed wins at the upper edge of the bounded grid; its optimum is not bracketed.
-[Exploratory short-exposure reference](results/selected_tune_reference_20261024/report.json).
+The 96-test CPU suite passes after the latest source changes. Natural sources
+only; no synthetic research corpus, external teacher, RL or larger model.
+All failed/stopped jobs, tuning, qualification, compilation, data preparation
+and CPU tails retain separate receipts. Concurrent intervals must not be added
+as sequential reservation time. Existing old results/checkpoints are preserved.
 
-The optional3B continuation did not launch under the completed campaign's time gate. The broader research goal remains active. The next question is whether the fixed recipe's equal-data advantage can repay its compute cost at a more mature exposure. The registered mature-exposure execution is stopped as described above; its original immutable outcomes and source freeze are preserved. Ordinary controls reached2B; all further fits wait while precision is investigated. Future confirmation needs a newly registered protocol, fresh held-out groups, independently replicated seeds and the ongoing charter's repeated-testing accounting. Existing TEST is consumed.
-[Ongoing charter](docs/ONGOING_RESEARCH_CHARTER.md) · [Original frozen protocol](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md).
-
-A separate CPU source-copy qualification preserves every model, optimizer-moment and RNG tensor from ordinary/fixed seed103 stable904M checkpoints while advancing their source fingerprint to the audited6.5B descendant. Counters and schedules remain unchanged. This is metadata/copy qualification only; native continued-update equivalence has passed. After eight updates, old-source and appended-source runs have bit-identical model, optimizer and RNG states for both arms. All replicas agree. The first stricter1% CPU-gradient attempt remains stopped; the successful retry uses the frozen trainer's existing8% BF16 gradient tolerance (the observed trained-model discrepancy was1.65% for ordinary), with the separate stringent state-equivalence gate unchanged. Qualification repeats are costs, not scientific exposure. [Native qualification and failed predecessor](results/source_native_qualification_20261024/v2/report.json).
-[Copy qualification](results/source_state_copy_qualification_20261024/report.json).
-
-The queued mixture topology benchmark was explicitly superseded before any native launch. Its fixed-depth replacement attempted two tiny distributed jobs. The established32-rank layout passed; the16-rank layout spread over noncontiguous cores failed at collective initialization (`no_hier no_mesh`), before any model updates. No speedup or resized scientific run is established. Both attempts and idle opportunity time are charged. The established eight-chip/32-rank layout remains the fallback; no driver/environment changes are planned.
-[Bounded failed qualification](results/fixed_topology_qualification_20261024/report.json).
-
-Natural-data preparation toward17B stopped honestly: the pinned eligible code source exhausted at2,001,261,346 new targets, short of the2.1B domain quota. Prior duplicate reconstruction and accepted records remain preserved. The failed attempt is not a qualified corpus. A separate capacity-balanced finalization retained whole accepted-document prefixes, producing **16,506,320,261 targets** at approximately60/20/20 without new sources or relaxed filters. Independent whole-parent, all-window count, checksum and SQLite group/identity audits pass; the additional every-field/every-byte accepted-prefix subset proof also passes (374.96 seconds, one CPU thread). [Complete reserve qualification](results/capacity_natural_reserve_20261024/qualification.json). This reserve is not the data stream for the active3B study and has no native model-source migration qualification. Existing independently audited6.5B data already suffices for a3B-versus-compute-control screening run.
-[Failed preparation costs](results/future_natural_extension_20261024/execution-costs.json) · [Existing6.5B audit](results/future_natural_extension_20261023/independent-audit.json).
-
-The **92-test CPU suite passes** after the data-streaming repair; frozen scientific sources remain unchanged. The new [mature-exposure protocol](docs/MATURE_FIXED_PROTOCOL_20261024.md) fixes three paired seeds,3.014638B equal-data endpoints and5.100221B ordinary matched-work controls, all completed decay. The measured budget is6.19 node-hours including margin/readout; training cutoff10:15 UTC and hard cutoff11:00. All six immutable stable source copies and a saved-path resume preflight pass. The queued work is a DEV development screen; no consumed TEST is rescored. [Frozen plan](results/mature_fixed_20261024/plan.json). A [registered CPU boundary-injection diagnostic](results/injection_only_dev_20261024/REPORT.md) is complete: the second core improves these same-weight predictions beyond the cheap reinjection-only ablation, with the limitations of an untrained intervention. Natural sources only: no synthetic research data, external teacher, RL or larger model. Failed attempts, compilation, tuning, CPU tails and overlapping elapsed intervals remain in separate resource ledgers. The prior full status is [archived](docs/archive/STATUS_BEFORE_FINAL_VARIABLE_DEPTH_READOUT_20261024.md).
-
-A [prospective literature check](docs/LATE_RECURRENCE_LITERATURE_CHECK_20261024.md) identifies late-introduction schedules and trained inexpensive reinjection controls as distinct future questions. It changes no active intervention. The [live receipt collector](results/mature_fixed_20261024/execution-costs.json) separates open-job observations, completed launch costs and CPU waiting; rolling training rates are not held-out scores or a new performance qualification.
-
-The fresh confirmation-group preparation is implemented with mapped accepted-ID arrays and a small inverted candidate-sketch index. Its first execution stopped before any indexing because the native container was down (`/proc/0/cgroup`), costing1.42 seconds. No fresh panel or terminal attempt was created. The failed attempt is preserved; a new execution will wait for the numerical/resource prerequisites. [Data-only registration](results/fresh_confirmation_reserve_20261024/registration.json).
-
-Fresh confirmation-reserve executionv2 also stopped: its extra conservative memory allowance fell below4GiB during the prior-sketch scan. The512GiB host reserve was preserved. Its candidate pool and indices remain private and immutable; no panel is qualified and no model scored TEST. The next data-only repair should bound simultaneous Parquet readers and reuse the hashed frozen candidate pool while redoing all prior-neighbor coverage, under a new registration. [Preserved failure costs](results/fresh_confirmation_reserve_20261024/v2/execution-costs.json).
-
-**Fresh confirmation-reserve executionv3 is complete and independently data-audited.** All14,700,735 prior accepted IDs were screened, and the auditor reconstructed every raw row and complete token sequence for all1,697 selected documents. The TUNE/DEV/TEST reserve contains2,261,216 real targets. Prior exact-ID overlap, prior source-group overlap and cross-role source-group overlap are all zero. The approximate minhash comparisons were not independently all repeated; that limitation stays in the report. Preparation took2,692 seconds and the independent audit163 seconds, overlapping native training with zero chips assigned. The extra conservative memory margin stayed above32.45GiB. No model has scored these panels; TEST remains sealed and no terminal alpha has been spent. [Independent data audit](results/fresh_confirmation_reserve_20261024/v3/independent-audit.json) · [Complete costs](results/fresh_confirmation_reserve_20261024/v3/execution-costs.json).
-
-The historical2B parent audit passed for ordinary training and stopped at the fixed model's old BF16-native versus FP32-CPU0.0002-nat scoring limit. Remeasurement gives fixed FP32 NLL2.528806685, a difference of−0.000201372 from the old BF16 score; this stays a failed agreement check. Common FP32 parent scores are2.549253915 ordinary /2.528806685 fixed, giving a descriptive0.020447-nat equal-data gain. This supplies a common-precision curve anchor without waiving the old failure. [Parent readouts](results/mature_fp32_parent_audit_20261024/common-fp32-parents.json) · [Preserved failure](results/mature_fp32_parent_audit_20261024/stopped-audit.json).
-
-A bounded, CPU-only TRAIN-gradient screen tests whether retaining an FP32 vocabulary head while using BF16 inside the model could be worth native qualification later. It uses eight preselected existing TRAIN windows, no updates or held-out scores, and leaves every frozen active scientific source unchanged. The screen completed in88.45 seconds: BF16 full-gradient error is5.34%, reduced to3.37% with an FP32 head, still above the2% screen. No native follow-up is launched and the qualified all-FP32 path remains in use. A subset pass would not constitute global/native qualification. [Prospective screen](results/cpu_head_precision_screen_20261024/registration.json).
-
-The [standalone current learning curve](results/mature_fp32_20261024/figures/paired-learning-curve.png) uses completed independent FP32 scores only. It distinguishes stable and completed-decay checkpoints, one reused seed, BF16 history before2B, and the extra1.692× estimated matmul cost. Unpaired pending audits do not enter the gain curve.
-
-The missing5.100B ordinary compute control is now prospectively registered and budgeted under a separate identity. It restores the independently audited stable2.713B parent and completes its own4.590B→5.100B decay, with unchanged FP32 numerical gates. The exact matmul totals differ by0.003051%; the first prelaunch draft's prose inherited an old rounding percentage, corrected explicitly before any new update. The measured window is5.60 hours including30% margin and a30-minute CPU tail. This is one-pair consumed-DEV development, not TEST or an efficiency success. [Protocol](docs/MATURE_FP32_COMPUTE_CONTROL_20261024.md) · [Frozen resource-control plan](results/mature_fp32_compute_20261024/plan.json).
-
-The inexpensive trained reinjection control has a separate implementation and distinct checkpoint marker. It uses each core block once plus the same boundary addition, keeping ordinary parameters and estimated matmuls. Its independent full150M CPU fixture passes (gradient relative error5.13e-7, zero loss difference); the first checker's incorrect Q/K/V-gradient packing is preserved as a failed diagnostic, repaired with a regression test and both layouts reported. A bounded25-minute native qualification is prepared for half1 after the prior fixed readout closes. It includes actual updates, a32-window global gradient check,100 warm updates at the intended256-window batch, and complete-state restored updates. No new scientific pilot or LR sweep is launched by that qualification. [Control and qualification](docs/TRAINED_REINJECTION_CONTROL_20261024.md) · [CPU qualification](results/reinjection_control_20261024/cpu-fixture-v2-report.json).
+[Previous full status and historical links](docs/archive/STATUS_BEFORE_FP32_3B_COMPLETION_20261024.md) ·
+[Ongoing research charter](docs/ONGOING_RESEARCH_CHARTER.md).
