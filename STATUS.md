@@ -1,4 +1,4 @@
-# Status — 2026-10-24, 01:08 UTC
+# Status — 2026-10-24, 01:20 UTC
 
 **All three mixture 1B endpoints are complete.** Fresh DEV NLL is
 2.587427 / 2.590665 / 2.587213 for seeds103 / 211 / 307, after planned decay.
@@ -86,7 +86,8 @@ global batch and per-arm four-LR selection budget. Mixed depths have mean two
 and exactly match fixed-depth estimated neural training work. No pass signal,
 separate norms, teacher, synthetic examples or RL is added.
 
-The **77-test CPU suite passes**. Added tests cover operational recovery,
+The **81-test CPU suite passes**. Added tests cover chained source lineage and
+every-window target-count auditing, operational recovery,
 verified orphan-audit cleanup, the separate future
 five-seed confirmation helper, source exclusions for a longer natural stream,
 and a prospective topology resize; the running trainer, analysis and all30
@@ -123,6 +124,19 @@ audit took76 seconds. It changes no running data stream or model, and model-
 source migration is not yet qualified.
 [Data manifest](results/future_natural_extension_20261023/manifest.json) ·
 [Independent audit](results/future_natural_extension_20261023/independent-audit.json).
+
+A separate low-priority CPU preparation is now running toward a roughly
+**17B-target natural reserve**, preserving the entire6.5B packed prefix.
+It verifies all three prior corpus generations and62 existing raw checksums,
+then adds natural sources at the same pinned revisions. The frozen source
+plan covers42 web shards across three crawls,64 math shards and54 code shards;
+actual accepted targets and duplicate reconstruction are still pending.
+Preparation uses12 workers with a03:50 cutoff, followed by an independent
+full-prefix/window-count/provenance audit bounded to04:10. This changes no
+running model, source stream or held-out analysis and launches no longer fit.
+[Separate data registration](results/future_natural_extension_20261024/registration.json) ·
+[Source plan](results/future_natural_extension_20261024/plan.json) ·
+[Data-only scope](docs/NATURAL_RESERVE_20261024.md).
 
 A separate35-minute, at-most-eight-attempt topology qualification is prepared
 to wait for successful scientific and read-only annex completion. It compares
