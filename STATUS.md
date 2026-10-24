@@ -1,4 +1,19 @@
-# Status — 2026-10-24, 15:42 UTC
+# Status — 2026-10-24, 16:43 UTC
+
+**All16 chips are taking scientific updates in the registered common-FP32
+depth/connection comparison.** Eight chips continue the inexpensive-connection
+resource control; eight run fixed recurrence's four-candidate LR screen. The
+queue then pairs ordinary's resource control with the selected fixed model's
+1B fit. Same initialization, natural target order, FP32 arithmetic and optimizer
+recipe isolate the extra core execution beyond the trained cheap connection.
+The estimated window is6.78hours, with23:00 UTC training /00:00 hard cutoffs.
+No fresh confirmation panel or terminal alpha is used.
+[Protocol](docs/DEPTH_CONNECTION_PROTOCOL_20261024.md) ·
+[Frozen plan](results/depth_connection_20261024/plan.json) ·
+[Actual-update observations](results/depth_connection_20261024/live-observation.json).
+The independent-audit observer and registered descriptive readout are running;
+they will write the endpoint comparison automatically after all audits pass.
+All47 frozen scientific source hashes remain unchanged.
 
 **The paired 3B FP32 continuation is complete and independently audited.** At
 3,014,637,826 real targets, ordinary DEV NLL is **2.405907** and fixed two-pass
@@ -24,7 +39,7 @@ source hashes remain unchanged. Copies are on this instance.
 ([SVG](results/mature_fp32_20261024/figures/paired-learning-curve.svg),
 [PDF](results/mature_fp32_20261024/figures/paired-learning-curve.pdf)).
 
-## Completed follow-ups and next bounded qualification
+## Completed follow-ups and precision qualification
 
 The **5.100B ordinary compute control is complete and independently audited**:
 ordinary2.342369879 versus fixed3B2.369851103. Ordinary wins by0.027481223 nats.
@@ -50,15 +65,16 @@ emergencies can stop managed workers globally. A real CPU-worker test verified
 that cancellation preserves the other container and its existing worker.
 [Isolation proof](results/native_execution_isolation_20261024/report.json).
 
-A new30-minute, zero-update native FP16 full-gradient qualification is registered
-for all16 chips after the scientific native readouts closed. It uses an exact
-local copy of the existing SDK root filesystem, two160GiB caps (320GiB total),
-unchanged host drivers/XLA, FP32 master gradients, an FP32 vocabulary head and
-manual loss scale8192. Compare both complete256-window mature objectives with
-pinned CPU FP32 references. Numerical gates remain2% gradient /0.003 NLL.
-No optimizer, recovery, throughput or learning adoption is implied by this test.
+The zero-update native FP16 full-gradient qualification **passed both complete
+256-window mature objectives**: ordinary gradient relativeL2 error0.423%, fixed
+1.173%, against the pinned CPU FP32 references. Maximum NLL discrepancy is
+0.00002049; replica gradients agree and weights stay unchanged. This took182s
+using all16 chips in separate containers, an FP32 vocabulary head, FP32 master
+gradients and manual loss scale8192. Host drivers/XLA and SDK are unchanged.
+No optimizer, recovery, throughput or learning adoption is implied. The active
+scientific campaign deliberately retains its qualified FP32 path.
 [Qualification protocol](docs/FP16_NATIVE_GRADIENT_PROTOCOL_20261024.md) ·
-[Prepared plan](results/fp16_native_gradient_20261024/plan.json).
+[Completed evidence](results/fp16_native_gradient_20261024/report.json).
 
 The CPU feasibility screen passed0.7251% scaled-gradient error; unscaled FP16
 failed at8.86%. All active scientific comparisons kept their frozen FP32 path.
@@ -71,8 +87,8 @@ says nothing universal about token routing or new architectures.
 
 The research goal stays active. Fresh confirmation panels remain unscored, no
 terminal alpha is spent, and no latent-computation efficiency win is claimed.
-The next scientific comparison must retain the inexpensive connection as a
-strong control and distinguish its gain from the value of another core pass.
+The active scientific comparison retains the inexpensive connection as a
+strong control and distinguishes its gain from the value of another core pass.
 
 ## The established three-seed result
 
@@ -125,7 +141,7 @@ gradients incorrectly. Its repaired, independently checked fixture gives5.13e-7
 relative gradient error and zero loss difference, with the original failure and
 a regression test preserved. These are numerical diagnostics, not learning gains.
 
-The 101-test CPU suite passes after the latest source changes. Natural sources
+The 108-test CPU suite passes after the latest source changes. Natural sources
 only; no synthetic research corpus, external teacher, RL or larger model.
 All failed/stopped jobs, tuning, qualification, compilation, data preparation
 and CPU tails retain separate receipts. Concurrent intervals must not be added
@@ -135,3 +151,11 @@ as sequential reservation time. Existing old results/checkpoints are preserved.
 [Ongoing research charter](docs/ONGOING_RESEARCH_CHARTER.md).
 
 An unapplied local SDPA dtype-policy contribution draft now has seven CPU gate fixtures and clean patch-application checks. It was neither installed nor submitted upstream. Patched native/cache/performance validation remains pending. [Draft](contributions/sdpa_dtype_policy/README.md).
+
+The independent Parcae/RINS source review and pinned release-code audit are
+complete. CPU candidate injection/all-gradient, finite-difference and truncated-
+tail checks pass. The review identifies baseline-depth and executed-work
+accounting choices that must be resolved for a faithful reproduction. This is
+preparation, not another trained result; the active trainer does not import the
+candidate. [Research triage](docs/PARCAE_RINS_REPRODUCTION_TRIAGE_20261024.md) ·
+[CPU audit](results/parcae_reference_readiness_20261024/REPORT.md).

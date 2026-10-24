@@ -1,0 +1,82 @@
+{
+  "status": "COMPLETE_PUBLIC_REFERENCE_READINESS_AUDIT",
+  "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+  "upstream_repository": "https://github.com/sandyresearch/parcae",
+  "source_sha256": {
+    "LICENSE": "27f751cdf3dba895ca1a5c50fc29b56f725e5845da638dbb85b0cc99e2215543",
+    "parcae_lm/modules/injection.py": "a163acbf86824ba58fb741cae9e1b04c51eb0a4b3cb5d354492b412670a74f48",
+    "parcae_lm/models/parcae/init.py": "46b5a24f697f3375bbd8b388314ea96d1c1a75c522240354768f48faeb19594b",
+    "parcae_lm/models/parcae/config.py": "e9a5e7515b8f5261191491964e4ea45fdb09f633bd55835d604fd544f41e0d18",
+    "parcae_lm/models/parcae/parcae.py": "c0d792379c3e965ec75bbe88dbdcf500392a12fd0c67f8a484543b2398470c3d",
+    "parcae_lm/configs/parcae/parcae-small-140m.py": "9f3d479cb3945ec4fb6c42d154c3e25a71422e691467959929d20434ad05d497",
+    "parcae_lm/configs/gpt/gpt-small-140m.py": "a1045d80847ac696a5ad1c0153b18b7f49d44dd300e06a838116af3dc5724c05",
+    "launch_configs/parcae-small-140m.yaml": "e718199d6840d0eeef27f9519985baea11ee712afbfb05b8552d13ec4f000e78",
+    "runs/sweep_recurrence.sh": "ab6408f02dfcd8b2d92794a09ed7bd76a1741a9b7e9cefeaa20eaf0e76883e5d",
+    "scripts/cost.py": "62045bf313d8ee7b72be425c7e68c4889e9eb313a4b76348f6bb4bda7668a46e",
+    "scripts/train.py": "12dcac1587fe67569d38cef3c47150e7670ddc82429256a13531a049f6a63520"
+  },
+  "sampling": [
+    {
+      "requested_mean": 1,
+      "backward_cap": 1,
+      "software_draws": 131072,
+      "actual_expected_forward": 1.3678794411714423,
+      "actual_expected_backward": 1.0,
+      "observed_mean_forward": 1.3684844970703125,
+      "observed_mean_backward": 1.0,
+      "fraction_with_more_than_one_pass": 0.2651214599609375,
+      "observed_mean_dense_forward_calls_at_microbatch32": 3.51220703125,
+      "scope": "Pinned sampler and masked-loop execution semantics, not measured hardware work or a reconstruction of paper runs."
+    },
+    {
+      "requested_mean": 2,
+      "backward_cap": 1,
+      "software_draws": 131072,
+      "actual_expected_forward": 2.135335283236613,
+      "actual_expected_backward": 1.0,
+      "observed_mean_forward": 2.13323974609375,
+      "observed_mean_backward": 1.0,
+      "fraction_with_more_than_one_pass": 0.5934524536132812,
+      "observed_mean_dense_forward_calls_at_microbatch32": 5.395263671875,
+      "scope": "Pinned sampler and masked-loop execution semantics, not measured hardware work or a reconstruction of paper runs."
+    },
+    {
+      "requested_mean": 4,
+      "backward_cap": 2,
+      "software_draws": 131072,
+      "actual_expected_forward": 4.018315638888734,
+      "actual_expected_backward": 1.9084218055563291,
+      "observed_mean_forward": 4.013160705566406,
+      "observed_mean_backward": 1.9065399169921875,
+      "fraction_with_more_than_one_pass": 0.9065399169921875,
+      "observed_mean_dense_forward_calls_at_microbatch32": 8.654296875,
+      "scope": "Pinned sampler and masked-loop execution semantics, not measured hardware work or a reconstruction of paper runs."
+    },
+    {
+      "requested_mean": 8,
+      "backward_cap": 4,
+      "software_draws": 131072,
+      "actual_expected_forward": 8.000335462627902,
+      "actual_expected_backward": 3.9408467566131904,
+      "observed_mean_forward": 7.978034973144531,
+      "observed_mean_backward": 3.9399948120117188,
+      "fraction_with_more_than_one_pass": 0.9969024658203125,
+      "observed_mean_dense_forward_calls_at_microbatch32": 14.361572265625,
+      "scope": "Pinned sampler and masked-loop execution semantics, not measured hardware work or a reconstruction of paper runs."
+    }
+  ],
+  "tied_head_fixture": {
+    "unique_parameters": 312,
+    "reference_estimated_dense_training_flops_per_position": 384,
+    "dense_core_plus_tied_output_projection_training_flops_per_position": 1872,
+    "omitted_tied_output_projection_matmuls": 1488,
+    "scope": "Isolated software fixture proves tied-head omission in the release estimator. It does not quantify net error in the released140M model: value-embedding gathers and other operations require separate accounting."
+  },
+  "source_transfer_note": "Pinned sources fetched through the GitHub connector. A first oversized shell argument was rejected before writing train.py; it was transferred in three checked chunks. No package installation or accelerator use.",
+  "prior_preparation_failure": "The first CPU audit completed its calculations but could not save because the output directory was missing. The writer now creates the directory; no training, datasets or held-out scores were involved. That failed attempt has no exact wall receipt.",
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "scope": "Resolve implementation/accounting details before a faithful future reproduction. Does not invalidate or remeasure published model results and changes no active experiment.",
+  "wall_seconds_after_imports": 0.7322268486022949
+}

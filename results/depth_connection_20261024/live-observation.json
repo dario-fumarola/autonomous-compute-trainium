@@ -1,0 +1,38 @@
+{
+  "status": "LIVE_OBSERVATION",
+  "observed_unix": 1792860200.9849367,
+  "closed_attempts": [],
+  "open_attempts": [
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr0-s11",
+      "assigned_chips": 8,
+      "observed_launch_seconds": 1528.606858253479,
+      "last_logged_training_update": {
+        "update": 860,
+        "real_tokens": 225052598,
+        "lr": 0.0003,
+        "rank0_scaled_nll": 2.9978446134918695,
+        "gradient_norm": 0.48937100172042847,
+        "elapsed_seconds": 1502.6092616319656
+      },
+      "rolling200_update_targets_per_second": 163698.45816764876
+    },
+    {
+      "identity": "depth-connection-v1-reinjection-s419-u6496",
+      "assigned_chips": 8,
+      "observed_launch_seconds": 1527.178498506546,
+      "last_logged_training_update": {
+        "update": 2052,
+        "real_tokens": 536987178,
+        "lr": 0.001,
+        "rank0_scaled_nll": 2.6546898407166224,
+        "gradient_norm": 0.17110197246074677,
+        "elapsed_seconds": 1501.9515982809244
+      },
+      "rolling200_update_targets_per_second": 173728.92842874548
+    }
+  ],
+  "closed_assigned_chip_hours": 0,
+  "open_assigned_chip_hours_so_far": 6.790634126133389,
+  "scope": "Read-only receipt/update observations, not new training or held-out evidence. Rank-zero logged NLL is not aggregate DEV. Rolling rates are not controlled performance qualification. Other campaigns overlap; do not add their wall intervals as sequential reservation time. CPU work has separate receipts."
+}
