@@ -106,3 +106,33 @@ updates, throughput rises from 353,879 to 695,948 real targets/sec. The source
 gate and speedup motivate an arbitrary-length backward-attention contribution;
 they still do not constitute a kernel profile isolating the entire speedup.
 The scientific budget counts all 1536 positions, including unused padding.
+
+## October24: topology qualification stopped before model execution
+
+The separate fixed-topology qualification's16-rank mask selected two LNC2
+cores per chip over eight chips. It failed in process-group initialization
+with `failed to init a collective algorithm: no_hier no_mesh`; its32-rank
+contiguous control passed. This is not a model, optimizer or loss failure.
+No speedup was established, and the current scientific continuation retains
+the established contiguous32-rank halves. The failed receipts remain in
+[the qualification report](../results/fixed_topology_qualification_20261024/report.json).
+
+The pinned2.33 documentation has a potentially useful clarification target:
+the [environment-variable catalog](https://awsdocs-neuron.readthedocs-hosted.com/en/v2.33.0/neuron-runtime/api/nrt-env-var-reference.html)
+shows a noncontiguous core-list example, while the
+[runtime developer guide](https://awsdocs-neuron.readthedocs-hosted.com/en/v2.33.0/neuron-runtime/guides/nrt-developer-guide.html)
+requires consecutive indices in its allocation discussion. Neither page, as
+inspected, establishes support for the particular distributed replica group
+we attempted. In our one-core-per-process setup, each process's individual
+allocation is contiguous; the collective group is not. Thus the guide alone
+does not prove that our cross-process group must work or must fail.
+
+Our inference is an unsupported/undocumented placement constraint until a
+minimal init-plus-allreduce reproducer distinguishes allocation from collective
+group support. An improvement could be an explicit supported-placement table
+and an early actionable error identifying the offending group, rather than
+a generic algorithm-initialization failure. This is a local documentation and
+error-message opportunity, not an established runtime correctness defect or
+an upstream submission. No extra hardware test was launched while all sixteen
+chips train the mature-exposure comparison. A contiguous16-rank/four-chip
+placement remains unqualified; no throughput or memory-fit claim is made.
