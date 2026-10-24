@@ -1,0 +1,33 @@
+{
+  "status": "PASS_INDEPENDENT_CAPACITY_SUBSET_PROOF",
+  "manifest_sha256": "a0a521bbceb5e01a9daeb74f3ec3672d1f5aceb856af53d6967df8799cd9b733",
+  "auditor_sha256": "4e2703ea17b694723e3d097af0d89cae238c0e807ec68817ca75fdca136f6b50",
+  "exact_record_subset": true,
+  "complete_admission_order_prefixes": true,
+  "original_failure_and_accepted_metadata_unchanged": true,
+  "records": [
+    {
+      "domain": "web",
+      "documents": 6274510,
+      "real_targets": 6003784438,
+      "entire_token_prefix_equal": true,
+      "token_prefix_sha256": "8c5e585c567df35619f4a2a673f6baebf713e67b6d2694822d46a374aabc3142"
+    },
+    {
+      "domain": "math",
+      "documents": 1517432,
+      "real_targets": 2001265314,
+      "entire_token_prefix_equal": true,
+      "token_prefix_sha256": "d99d4e20a663c042d4faeb24ea61a3649de3b9bf50b92550be171b9d1cc3003b"
+    },
+    {
+      "domain": "code",
+      "documents": 1180331,
+      "real_targets": 2001261346,
+      "entire_token_prefix_equal": true,
+      "token_prefix_sha256": "0a9c0f5cf8267992dc87c7fb854f5d67bfe61366f9cd6d63a73afc6a5aab481f"
+    }
+  ],
+  "wall_seconds": 374.9591546058655,
+  "scope": "Checks every metadata field through independent SQL set differences and every selected token byte against the preserved failed attempt. Complements the independent all-generation packing/provenance audit. Does not rerun raw lexical near-duplicate screening or qualify a model-source migration."
+}

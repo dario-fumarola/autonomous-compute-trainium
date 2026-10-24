@@ -1,0 +1,45 @@
+{
+  "status": "LIVE_CAMPAIGN_RECEIPTS",
+  "collected_unix": 1792813655.642429,
+  "closed_attempts": [],
+  "open_attempts": [
+    {
+      "identity": "mature-fixed-v1-fixed-s103-u7680",
+      "assigned_physical_chips": 8,
+      "observed_launch_wall_seconds": 766.021641254425,
+      "last_logged_update": {
+        "update": 4806,
+        "real_tokens": 1257676406,
+        "lr": 0.001,
+        "rank0_scaled_nll": 2.393121770963896,
+        "gradient_norm": 0.17531262338161469,
+        "elapsed_seconds": 737.6357685429975
+      },
+      "observed_200_update_targets_per_second": 576788.8793931358
+    },
+    {
+      "identity": "mature-fixed-v1-ordinary-s103-u7680",
+      "assigned_physical_chips": 8,
+      "observed_launch_wall_seconds": 766.0216240882874,
+      "last_logged_update": {
+        "update": 5626,
+        "real_tokens": 1472259168,
+        "lr": 0.0006,
+        "rank0_scaled_nll": 2.5469124957966494,
+        "gradient_norm": 0.213033065199852,
+        "elapsed_seconds": 740.278577051009
+      },
+      "observed_200_update_targets_per_second": 881783.0556840438
+    }
+  ],
+  "closed_assigned_chip_hours": 0,
+  "open_attempt_opportunity_chip_hours_observed": 3.404540589650472,
+  "declared_window_through_collection_opportunity_chip_hours": 3.9807830460866294,
+  "closed_successful_training_updates": 0,
+  "closed_successful_training_matmul_flops": 0,
+  "scope": "Launch-to-closure costs include setup/compile/checkpoint overhead and failed attempts. Open durations are observations, not successful results. Rolling200-update rates include any checkpoint/timing stalls, exclude earlier setup, and are not a new matched performance qualification. Rank-zero logged NLL is a training diagnostic, not held-out or globally aggregated loss. CPU preparation, prior studies/qualification and parent-copy costs are separate; overlapping intervals must not be added as sequential node time. This is not an entire-instance billing receipt.",
+  "independent_cpu": {
+    "status": "WAITING_REGISTERED_ENDPOINTS",
+    "completed_endpoint_audits": 0
+  }
+}
