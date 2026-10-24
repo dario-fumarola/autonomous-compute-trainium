@@ -1,0 +1,26 @@
+{
+  "identity": "source-state-copy-q-v1",
+  "purpose": "CPU_METADATA_COPY_ONLY_NO_NATIVE_TRAINING",
+  "started_unix": 1792806199.2740207,
+  "deadline_unix": 1792807099.2740207,
+  "seeds": [
+    103
+  ],
+  "arms": [
+    "ordinary",
+    "fixed"
+  ],
+  "source_updates": 3456,
+  "world": 32,
+  "batch": 4,
+  "accumulation": 2,
+  "optimizer": "fused",
+  "derived_schedule_unchanged": true,
+  "source_sha256": {
+    "scripts/migrate_checkpoint.py": "4e67dd3e80fcd5e4d0d894307043742d714aa4698b09c2dec09ae2f198ea0c58",
+    "compute_trainium/checkpoint_migration.py": "f58c9153dff74b7e2a9210537ecf05ac35ec4ca4f78578fc630df04975762061",
+    "compute_trainium/continuation.py": "96556245f26af9215f2ad7cf3a6fa899e98d9cc1e2775dfa159f36ffc9d8604b",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd"
+  },
+  "scope": "Same-instance derived copies of stable 904M-target checkpoints. Source changes only from the existing3.25B parent to its independently audited6.5B descendant. No model, optimizer, topology, schedule, evaluation or TEST choice changes. Native continued-update equivalence is not established by this CPU check."
+}
