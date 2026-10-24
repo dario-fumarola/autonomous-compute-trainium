@@ -136,3 +136,47 @@ error-message opportunity, not an established runtime correctness defect or
 an upstream submission. No extra hardware test was launched while all sixteen
 chips train the mature-exposure comparison. A contiguous16-rank/four-chip
 placement remains unqualified; no throughput or memory-fit claim is made.
+
+## October24: reproduced FP32 SDPA precision gap
+
+The mature-model backward guard exposed a precision gap worth upstream review.
+The installed native backend accepts FP32 Q/K/V in its default NKI SDPA path.
+The underlying `nkilib/core/attention/attention_cte.py` documentation says it
+uses FP32 for softmax and BF16 for other operations, including when input dtype
+is FP32. This is a documented kernel design; whether automatic selection under
+PyTorch's `highest` FP32 policy should use it is the upstream question.
+
+The public [checkpoint-free reproducer](../scripts/repro_sdpa_fp32_precision.py)
+uses eight independent one-core processes, causal GQA with12 query/4 KV heads,
+sequence1024, head dimension64, seed87319 and `highest` matmul precision.
+HLO caches are disabled. Each pair uses identical numerical Q/K/V and upstream
+derivatives, with NKI enabled or disabled before torch import. CPU FP32 and
+FP64 references agree closely. These arrays are software fixtures, never
+research examples.
+
+| Q/K input standard deviation | NKI gradient error vs CPU FP64 | Primitive gradient error vs CPU FP64 |
+| --- | ---: | ---: |
+| 1 | 0.001162 | 0.00000207 |
+| 2 | 0.009754 | 0.00000171 |
+| 4 | 0.046955 | 0.00000334 |
+| 8 | 0.197181 | 0.00001255 |
+
+These are full Q/K/V gradient relativeL2 errors, not training-quality metrics.
+[Aggregate receipts](../results/trained_gradient_diagnosis_20261024/controls/sdpa-fp32-reproducer-report.json)
+contain forward and backward measurements for every case. No private model,
+source text or activations are needed to reproduce them.
+
+In the separate full trained-model control, native FP32 global gradient error
+falls from0.029312 to0.00012068 when the NKI attention route is disabled. All
+256 natural TRAIN windows, weights and target normalization remain identical.
+This is a practical workaround for FP32 qualification. BF16 full-model error
+remains large, so this finding does not explain that entire discrepancy or
+retroactively invalidate all fitted-model comparisons. Isolated primitive
+RMSNorm, linear, SwiGLU and SDPA fixtures are numerically healthy; the current
+evidence does not establish a separate BF16 operator bug.
+
+A useful contribution would make SDPA route/precision selection explicit,
+respect a requested FP32 accuracy policy, or document and warn about the
+automatic downcast. A gating change must also validate backward selection,
+cache policy and performance. This is a local reproducer and contribution
+candidate only. No upstream issue, message or PR has been sent.

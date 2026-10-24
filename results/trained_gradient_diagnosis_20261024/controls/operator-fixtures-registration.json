@@ -1,0 +1,29 @@
+{
+  "identity": "trained-amp-operators-v1",
+  "registered_unix": 1792820574.8210287,
+  "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "source_sha256": "52ebe22ce66c3890f86f024e236e2fe68cfa1fc0e27ccf25d4e3b1e6ec2dd239",
+  "cases": [
+    "RMSNorm with trained non-unit gain",
+    "trained QKV linear projection",
+    "trained SwiGLU",
+    "GQA causal SDPA with larger-logit seeded inputs"
+  ],
+  "native_precisions": [
+    "fp32",
+    "bf16"
+  ],
+  "cpu_precisions": [
+    "fp32",
+    "bf16",
+    "fp64"
+  ],
+  "environment_before_torch_import": {
+    "TORCH_NEURONX_ENABLE_NKI_SDPA": "0"
+  },
+  "fixture_seed": 41729,
+  "sequence": 1024,
+  "deadline_seconds": 600,
+  "optimizer_updates": 0,
+  "scope": "Numerical arrays only, not generated training or evaluation examples. Operator diagnosis, no research effect-size claim or TEST. Eight independent single-core cases use8 chips; no collective-topology qualification claimed."
+}

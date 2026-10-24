@@ -38,12 +38,12 @@ def compare_gradients(left,right):
             'largest_error_contributors':sorted(rows,key=lambda x:-x['squared_error'])[:12]}
 
 
-def main():
+def main(*, batch_choices=(1,4), accumulation_choices=(2,8)):
     p=argparse.ArgumentParser();p.add_argument('--corpus',type=Path,required=True)
     p.add_argument('--packed-corpus',type=Path,required=True);p.add_argument('--checkpoint',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True);p.add_argument('--mode',choices=['capture','reference'],required=True)
     p.add_argument('--capture',type=Path);p.add_argument('--native-precision',choices=['bf16','fp32'],default='bf16')
-    p.add_argument('--capture-batch',type=int,choices=[1,4],default=4);p.add_argument('--capture-accumulation',type=int,choices=[2,8],default=2)
+    p.add_argument('--capture-batch',type=int,choices=batch_choices,default=4);p.add_argument('--capture-accumulation',type=int,choices=accumulation_choices,default=2)
     p.add_argument('--deadline-unix',type=float,required=True)
     a=p.parse_args();a.output.mkdir(exist_ok=True);started=time.time();torch.set_num_threads(2 if a.mode=='capture' else 48)
     saved=torch.load(a.checkpoint,map_location='cpu',mmap=True,weights_only=False);sig=saved['signature']

@@ -1,0 +1,543 @@
+{
+  "status": "COMPLETE_FP32_SDPA_PRECISION_REPRODUCER",
+  "cases": [
+    {
+      "qk_input_standard_deviation": 1,
+      "nki_sdpa_enabled": false,
+      "dtype": "float32",
+      "matmul_precision": "highest",
+      "hlo_caches_disabled": true,
+      "metrics": {
+        "torch.float32": {
+          "gradient": {
+            "relative_l2": 2.119289076571817e-06,
+            "cosine": 0.9999999999977657,
+            "reference_norm": 0.1948570250130215,
+            "candidate_norm": 0.19485705433933997,
+            "maximum_absolute_error": 1.0531948646530509e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "2",
+                "squared_error": 6.121144706511692e-14,
+                "reference_squared_norm": 0.015495879860841989
+              },
+              {
+                "parameter": "1",
+                "squared_error": 5.478313268666074e-14,
+                "reference_squared_norm": 0.011192476813647979
+              },
+              {
+                "parameter": "0",
+                "squared_error": 5.454003114411862e-14,
+                "reference_squared_norm": 0.011280903522435317
+              }
+            ]
+          },
+          "output_relative_l2": 7.200972049759002e-07,
+          "loss_difference": 7.264316082000732e-08
+        },
+        "torch.float64": {
+          "gradient": {
+            "relative_l2": 2.0748369290362255e-06,
+            "cosine": 0.99999999999786,
+            "reference_norm": 0.19485702351069079,
+            "candidate_norm": 0.19485705433933997,
+            "maximum_absolute_error": 9.313225746154785e-09,
+            "largest_error_contributors": [
+              {
+                "parameter": "2",
+                "squared_error": 5.863761220372482e-14,
+                "reference_squared_norm": 0.015495879705689308
+              },
+              {
+                "parameter": "0",
+                "squared_error": 5.267215966275658e-14,
+                "reference_squared_norm": 0.011280903357042257
+              },
+              {
+                "parameter": "1",
+                "squared_error": 5.214592707013583e-14,
+                "reference_squared_norm": 0.011192476548714336
+              }
+            ]
+          },
+          "output_relative_l2": 6.585714800166897e-07,
+          "loss_difference": 8.33260917834644e-08
+        }
+      },
+      "wall_seconds": 10.637241840362549,
+      "fallback_ops": []
+    },
+    {
+      "qk_input_standard_deviation": 1,
+      "nki_sdpa_enabled": true,
+      "dtype": "float32",
+      "matmul_precision": "highest",
+      "hlo_caches_disabled": true,
+      "metrics": {
+        "torch.float32": {
+          "gradient": {
+            "relative_l2": 0.0011619276184825582,
+            "cosine": 0.9999993251040732,
+            "reference_norm": 0.1948570250130215,
+            "candidate_norm": 0.19486017956055682,
+            "maximum_absolute_error": 1.2664473615586758e-05,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 1.9915955626257287e-08,
+                "reference_squared_norm": 0.011280903522435317
+              },
+              {
+                "parameter": "1",
+                "squared_error": 1.8258839052704544e-08,
+                "reference_squared_norm": 0.011192476813647979
+              },
+              {
+                "parameter": "2",
+                "squared_error": 1.3086584299616302e-08,
+                "reference_squared_norm": 0.015495879860841989
+              }
+            ]
+          },
+          "output_relative_l2": 0.002919181017205119,
+          "loss_difference": -0.00013977102935314178
+        },
+        "torch.float64": {
+          "gradient": {
+            "relative_l2": 0.0011619257446764356,
+            "cosine": 0.9999993251063803,
+            "reference_norm": 0.19485702351069079,
+            "candidate_norm": 0.19486017956055682,
+            "maximum_absolute_error": 1.2663542293012142e-05,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 1.991591205083527e-08,
+                "reference_squared_norm": 0.011280903357042257
+              },
+              {
+                "parameter": "1",
+                "squared_error": 1.8258860835401957e-08,
+                "reference_squared_norm": 0.011192476548714336
+              },
+              {
+                "parameter": "2",
+                "squared_error": 1.3086439966631776e-08,
+                "reference_squared_norm": 0.015495879705689308
+              }
+            ]
+          },
+          "output_relative_l2": 0.0029191800858825445,
+          "loss_difference": -0.00013976034642217833
+        }
+      },
+      "wall_seconds": 8.701961994171143,
+      "fallback_ops": []
+    },
+    {
+      "qk_input_standard_deviation": 2,
+      "nki_sdpa_enabled": false,
+      "dtype": "float32",
+      "matmul_precision": "highest",
+      "hlo_caches_disabled": true,
+      "metrics": {
+        "torch.float32": {
+          "gradient": {
+            "relative_l2": 1.971562237049814e-06,
+            "cosine": 0.9999999999980758,
+            "reference_norm": 1.02384399827345,
+            "candidate_norm": 1.0238441985943403,
+            "maximum_absolute_error": 3.6670826375484467e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 1.6755822573864366e-12,
+                "reference_squared_norm": 0.3566999538515101
+              },
+              {
+                "parameter": "1",
+                "squared_error": 1.5793072107352866e-12,
+                "reference_squared_norm": 0.359312734375859
+              },
+              {
+                "parameter": "2",
+                "squared_error": 8.197441116441452e-13,
+                "reference_squared_norm": 0.33224384457319545
+              }
+            ]
+          },
+          "output_relative_l2": 1.0592514172458323e-06,
+          "loss_difference": -7.152557373046875e-07
+        },
+        "torch.float64": {
+          "gradient": {
+            "relative_l2": 1.709582663556991e-06,
+            "cosine": 0.9999999999985587,
+            "reference_norm": 1.0238439931391767,
+            "candidate_norm": 1.0238441985943403,
+            "maximum_absolute_error": 3.436434781178832e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 1.2866369862079464e-12,
+                "reference_squared_norm": 0.35669995283181366
+              },
+              {
+                "parameter": "1",
+                "squared_error": 1.1707308786608699e-12,
+                "reference_squared_norm": 0.35931273623691934
+              },
+              {
+                "parameter": "2",
+                "squared_error": 6.063430478082094e-13,
+                "reference_squared_norm": 0.33224383321844164
+              }
+            ]
+          },
+          "output_relative_l2": 7.556195669167209e-07,
+          "loss_difference": 1.079949425442095e-07
+        }
+      },
+      "wall_seconds": 10.076324462890625,
+      "fallback_ops": []
+    },
+    {
+      "qk_input_standard_deviation": 2,
+      "nki_sdpa_enabled": true,
+      "dtype": "float32",
+      "matmul_precision": "highest",
+      "hlo_caches_disabled": true,
+      "metrics": {
+        "torch.float32": {
+          "gradient": {
+            "relative_l2": 0.009753928224346207,
+            "cosine": 0.999952443068577,
+            "reference_norm": 1.02384399827345,
+            "candidate_norm": 1.0236254769459678,
+            "maximum_absolute_error": 0.0002371435984969139,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 3.962781277206163e-05,
+                "reference_squared_norm": 0.3566999538515101
+              },
+              {
+                "parameter": "1",
+                "squared_error": 3.585915315120988e-05,
+                "reference_squared_norm": 0.359312734375859
+              },
+              {
+                "parameter": "2",
+                "squared_error": 2.42432337449204e-05,
+                "reference_squared_norm": 0.33224384457319545
+              }
+            ]
+          },
+          "output_relative_l2": 0.0054915957152843475,
+          "loss_difference": -0.001806795597076416
+        },
+        "torch.float64": {
+          "gradient": {
+            "relative_l2": 0.009753939450716339,
+            "cosine": 0.9999524429582204,
+            "reference_norm": 1.0238439931391767,
+            "candidate_norm": 1.0236254769459678,
+            "maximum_absolute_error": 0.00023714732378721237,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 3.962794497176846e-05,
+                "reference_squared_norm": 0.35669995283181366
+              },
+              {
+                "parameter": "1",
+                "squared_error": 3.585928678433458e-05,
+                "reference_squared_norm": 0.35931273623691934
+              },
+              {
+                "parameter": "2",
+                "squared_error": 2.424319648269837e-05,
+                "reference_squared_norm": 0.33224383321844164
+              }
+            ]
+          },
+          "output_relative_l2": 0.0054915971122682095,
+          "loss_difference": -0.0018059723463965671
+        }
+      },
+      "wall_seconds": 9.324496269226074,
+      "fallback_ops": []
+    },
+    {
+      "qk_input_standard_deviation": 4,
+      "nki_sdpa_enabled": false,
+      "dtype": "float32",
+      "matmul_precision": "highest",
+      "hlo_caches_disabled": true,
+      "metrics": {
+        "torch.float32": {
+          "gradient": {
+            "relative_l2": 4.602205140382554e-06,
+            "cosine": 0.9999999999894168,
+            "reference_norm": 1.5628158668129166,
+            "candidate_norm": 1.5628160526369055,
+            "maximum_absolute_error": 2.0675361156463623e-07,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 2.2153833677623245e-11,
+                "reference_squared_norm": 0.8148529381597611
+              },
+              {
+                "parameter": "1",
+                "squared_error": 2.1651039898227323e-11,
+                "reference_squared_norm": 0.8147047631717503
+              },
+              {
+                "parameter": "2",
+                "squared_error": 7.925732902407772e-12,
+                "reference_squared_norm": 0.8128357322306965
+              }
+            ]
+          },
+          "output_relative_l2": 1.642650545363722e-06,
+          "loss_difference": -1.2516975402832031e-06
+        },
+        "torch.float64": {
+          "gradient": {
+            "relative_l2": 3.3387042954505173e-06,
+            "cosine": 0.9999999999944289,
+            "reference_norm": 1.5628159448605432,
+            "candidate_norm": 1.5628160526369055,
+            "maximum_absolute_error": 1.0570511221885681e-07,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 1.0607397643925332e-11,
+                "reference_squared_norm": 0.8148530657021931
+              },
+              {
+                "parameter": "1",
+                "squared_error": 1.0005867696448374e-11,
+                "reference_squared_norm": 0.8147049474450523
+              },
+              {
+                "parameter": "2",
+                "squared_error": 6.611966003268909e-12,
+                "reference_squared_norm": 0.812835664363107
+              }
+            ]
+          },
+          "output_relative_l2": 8.976529102255881e-07,
+          "loss_difference": -1.308603211569448e-06
+        }
+      },
+      "wall_seconds": 9.909042835235596,
+      "fallback_ops": []
+    },
+    {
+      "qk_input_standard_deviation": 4,
+      "nki_sdpa_enabled": true,
+      "dtype": "float32",
+      "matmul_precision": "highest",
+      "hlo_caches_disabled": true,
+      "metrics": {
+        "torch.float32": {
+          "gradient": {
+            "relative_l2": 0.04695440776249853,
+            "cosine": 0.9988971003003089,
+            "reference_norm": 1.5628158668129166,
+            "candidate_norm": 1.5616630329021925,
+            "maximum_absolute_error": 0.0017785569652915,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 0.002047655474827691,
+                "reference_squared_norm": 0.8148529381597611
+              },
+              {
+                "parameter": "1",
+                "squared_error": 0.0019082430493881828,
+                "reference_squared_norm": 0.8147047631717503
+              },
+              {
+                "parameter": "2",
+                "squared_error": 0.0014288863543488047,
+                "reference_squared_norm": 0.8128357322306965
+              }
+            ]
+          },
+          "output_relative_l2": 0.010096580721437931,
+          "loss_difference": 8.893013000488281e-05
+        },
+        "torch.float64": {
+          "gradient": {
+            "relative_l2": 0.046954517118142275,
+            "cosine": 0.998897095143544,
+            "reference_norm": 1.5628159448605432,
+            "candidate_norm": 1.5616630329021925,
+            "maximum_absolute_error": 0.0017785271629691124,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 0.0020476692926221524,
+                "reference_squared_norm": 0.8148530657021931
+              },
+              {
+                "parameter": "1",
+                "squared_error": 0.0019082564525202397,
+                "reference_squared_norm": 0.8147049474450523
+              },
+              {
+                "parameter": "2",
+                "squared_error": 0.0014288847533496414,
+                "reference_squared_norm": 0.812835664363107
+              }
+            ]
+          },
+          "output_relative_l2": 0.010096599347889423,
+          "loss_difference": 8.887322433359657e-05
+        }
+      },
+      "wall_seconds": 9.584654808044434,
+      "fallback_ops": []
+    },
+    {
+      "qk_input_standard_deviation": 8,
+      "nki_sdpa_enabled": false,
+      "dtype": "float32",
+      "matmul_precision": "highest",
+      "hlo_caches_disabled": true,
+      "metrics": {
+        "torch.float32": {
+          "gradient": {
+            "relative_l2": 1.7372752485039187e-05,
+            "cosine": 0.9999999998491756,
+            "reference_norm": 1.685584489694063,
+            "candidate_norm": 1.6855838077327996,
+            "maximum_absolute_error": 9.648501873016357e-07,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 3.83532256488401e-10,
+                "reference_squared_norm": 0.9459563820778305
+              },
+              {
+                "parameter": "1",
+                "squared_error": 3.6515238628676816e-10,
+                "reference_squared_norm": 0.946341738941398
+              },
+              {
+                "parameter": "2",
+                "squared_error": 1.0882362699062424e-10,
+                "reference_squared_norm": 0.9488969508779665
+              }
+            ]
+          },
+          "output_relative_l2": 3.2042389648268e-06,
+          "loss_difference": 1.9669532775878906e-06
+        },
+        "torch.float64": {
+          "gradient": {
+            "relative_l2": 1.254775626381562e-05,
+            "cosine": 0.9999999999212937,
+            "reference_norm": 1.6855841171791042,
+            "candidate_norm": 1.6855838077327996,
+            "maximum_absolute_error": 8.344650268554688e-07,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 1.7529789684390947e-10,
+                "reference_squared_norm": 0.9459558700288987
+              },
+              {
+                "parameter": "1",
+                "squared_error": 1.6539563262341778e-10,
+                "reference_squared_norm": 0.9463413086922577
+              },
+              {
+                "parameter": "2",
+                "squared_error": 1.066416041311634e-10,
+                "reference_squared_norm": 0.9488966373653034
+              }
+            ]
+          },
+          "output_relative_l2": 1.6751658904468059e-06,
+          "loss_difference": 4.0083223074027785e-08
+        }
+      },
+      "wall_seconds": 10.837651014328003,
+      "fallback_ops": []
+    },
+    {
+      "qk_input_standard_deviation": 8,
+      "nki_sdpa_enabled": true,
+      "dtype": "float32",
+      "matmul_precision": "highest",
+      "hlo_caches_disabled": true,
+      "metrics": {
+        "torch.float32": {
+          "gradient": {
+            "relative_l2": 0.19718080418872758,
+            "cosine": 0.9812039957422702,
+            "reference_norm": 1.685584489694063,
+            "candidate_norm": 1.7221954721783492,
+            "maximum_absolute_error": 0.011121477000415325,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 0.040960406986948625,
+                "reference_squared_norm": 0.9459563820778305
+              },
+              {
+                "parameter": "1",
+                "squared_error": 0.03942850678267744,
+                "reference_squared_norm": 0.946341738941398
+              },
+              {
+                "parameter": "2",
+                "squared_error": 0.03007751644291501,
+                "reference_squared_norm": 0.9488969508779665
+              }
+            ]
+          },
+          "output_relative_l2": 0.019855041056871414,
+          "loss_difference": -0.013452529907226562
+        },
+        "torch.float64": {
+          "gradient": {
+            "relative_l2": 0.19718110263446867,
+            "cosine": 0.981203947099565,
+            "reference_norm": 1.6855841171791042,
+            "candidate_norm": 1.7221954721783492,
+            "maximum_absolute_error": 0.01112164743244648,
+            "largest_error_contributors": [
+              {
+                "parameter": "0",
+                "squared_error": 0.04096053702238324,
+                "reference_squared_norm": 0.9459558700288987
+              },
+              {
+                "parameter": "1",
+                "squared_error": 0.03942866586715563,
+                "reference_squared_norm": 0.9463413086922577
+              },
+              {
+                "parameter": "2",
+                "squared_error": 0.030077512892842852,
+                "reference_squared_norm": 0.9488966373653034
+              }
+            ]
+          },
+          "output_relative_l2": 0.019855163991451263,
+          "loss_difference": -0.013454456777281076
+        }
+      },
+      "wall_seconds": 9.1656973361969,
+      "fallback_ops": []
+    }
+  ],
+  "wall_seconds": 11.638447523117065,
+  "scope": "Numerical fixtures only. No private source data, model weights, optimizer steps, training result or TEST."
+}

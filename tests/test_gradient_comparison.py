@@ -22,6 +22,7 @@ def test_global_gradient_comparison_has_reference_scale_and_direction():
 def test_precision_control_repartitions_exactly_the_same_global_source_windows():
     for cursor in [0,1966080]:
         usual=[i for micro in range(2) for rank in range(32) for i in routed_indices(cursor,micro,rank,32,4,2,271828)]
-        smaller=[i for micro in range(8) for rank in range(32) for i in routed_indices(cursor,micro,rank,32,1,8,271828)]
-        assert len(set(usual))==len(set(smaller))==256
-        assert sorted(usual)==sorted(smaller)==list(range(cursor,cursor+256))
+        for batch,accumulation in [(1,8),(2,4)]:
+            smaller=[i for micro in range(accumulation) for rank in range(32) for i in routed_indices(cursor,micro,rank,32,batch,accumulation,271828)]
+            assert len(set(usual))==len(set(smaller))==256
+            assert sorted(usual)==sorted(smaller)==list(range(cursor,cursor+256))

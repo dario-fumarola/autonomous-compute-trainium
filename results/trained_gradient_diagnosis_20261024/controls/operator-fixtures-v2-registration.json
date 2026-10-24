@@ -1,0 +1,41 @@
+{
+  "identity": "trained-amp-operators-v2",
+  "registered_unix": 1792820695.776576,
+  "checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "source_sha256": "4bb4f57ede19b30e8f09bf6473b38403f1eb45de70e7d78a94146527cfd027b4",
+  "cases": [
+    "RMSNorm with trained non-unit gain",
+    "trained QKV linear projection",
+    "trained SwiGLU",
+    "GQA causal SDPA with larger-logit seeded inputs"
+  ],
+  "native_precisions": [
+    "fp32",
+    "bf16"
+  ],
+  "cpu_precisions": [
+    "fp32",
+    "bf16",
+    "fp64"
+  ],
+  "environment_before_torch_import": {
+    "TORCH_NEURONX_ENABLE_NKI_SDPA": "0"
+  },
+  "fixture_seed": 41729,
+  "sequence": 1024,
+  "deadline_seconds": 600,
+  "optimizer_updates": 0,
+  "scope": "Numerical arrays only, not generated training or evaluation examples. Operator diagnosis, no research effect-size claim or TEST. Eight independent single-core cases use8 chips; no collective-topology qualification claimed.",
+  "predecessor": {
+    "identity": "trained-amp-operators-v1",
+    "status": "FAILED_BEFORE_COMPLETE_FIXTURES",
+    "cause": "Harness expected a fused state_dict key; TorchTitan exports Q/K/V separately. Corrected explicit Q,K,V concatenation, CPU forward/backward checked for all four cases/precisions. No scientific run or update affected.",
+    "closure": {
+      "exit_code": 1,
+      "wall_seconds": 12.160005331039429,
+      "assigned_chip_hours": 0.027022234068976508,
+      "whole_instance_opportunity_chip_hours": 0.054044468137953015,
+      "report_exists": false
+    }
+  }
+}

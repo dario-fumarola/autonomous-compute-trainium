@@ -1,0 +1,62 @@
+{
+  "identity": "primitive-fp32-updates-v1",
+  "registered_unix": 1792820445.681781,
+  "source_checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "source_update": 7680,
+  "source_real_targets": 2009762680,
+  "precondition": "The preceding full-global native FP32 primitive SDPA capture passes unchanged2% gradient/0.003 loss gate. Observed relativeL2 0.000120684.",
+  "copy_changes": {
+    "signature.precision": [
+      "bf16",
+      "fp32"
+    ],
+    "signature.batch": [
+      4,
+      1
+    ],
+    "signature.accumulation": [
+      2,
+      8
+    ]
+  },
+  "copy_requirement": "All weights, optimizer tensors, RNG, counters and schedules bit-identical. Only explicitly listed execution metadata changes. Original checkpoint immutable.",
+  "topology": {
+    "world": 32,
+    "batch": 1,
+    "accumulation": 8,
+    "global_windows": 256
+  },
+  "environment_before_torch_import": {
+    "TORCH_NEURONX_ENABLE_NKI_SDPA": "0"
+  },
+  "updates": [
+    {
+      "identity": "primitive-fp32-q-v1-direct108",
+      "steps": 108,
+      "warmup": 8,
+      "scope": "100 measured warm updates; qualification only"
+    },
+    {
+      "identity": "primitive-fp32-q-v1-prefix4",
+      "steps": 4,
+      "warmup": 1,
+      "check_global": true
+    },
+    {
+      "identity": "primitive-fp32-q-v1-restored104",
+      "steps": 104,
+      "warmup": 4,
+      "requires": "prefix4 closes successfully, exact optimizer recovery into a fresh process"
+    }
+  ],
+  "recovery_requirement": "Direct108 and prefix4+restored104 have bit-identical model, optimizer, RNG, data cursor and counters; initial weights unchanged. Every process retains original2% FP32 local probe; prefix4 checks the full global CPU gradient.",
+  "deadline_unix": 1792822245.6817832,
+  "source_sha256": {
+    "scripts/train_primitive_attention_qualification.py": "8c63ec656ad17fb66186524b90f7e08c7e76eb9dbdb7839d9d1092dc4720d86e",
+    "scripts/train_variable_depth.py": "ab0b0e6ed343f2bcfa75f125aa65a6420e1d1b88bd706d6a492535a4786fa732",
+    "scripts/capture_primitive_attention_gradient.py": "33509748d53098627b485b30ba6fbb14ef584b8b6718447d36e5b49d4a630d90",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd",
+    "compute_trainium/pretraining_optimizer.py": "7de23c6d8c080ddaf0aa825c4a33727a96f4b985f3731026101149726d931f7c"
+  },
+  "scope": "Bounded numerical/throughput qualification, not a3B continuation or a new scientific outcome. Derived FP32 states do not replace or relabel stopped BF16 fits. All source targets used in qualification are costed and remain outside scientific exposure. No TEST. If gates fail, stop and preserve receipts."
+}

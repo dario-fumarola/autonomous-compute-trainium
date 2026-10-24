@@ -1,0 +1,26 @@
+{
+  "identity": "primitive-fp32-recovery-v2",
+  "registered_unix": 1792821503.844041,
+  "source_copy_sha256": "ca542fadb5d192db32014b3992da1795acd26e900d81617e4e46712bda2ca590",
+  "direct108_checkpoint_sha256": "8a77d6622b010cd6e5cb7fe81ab565478ba6ffd1298b2ff14f685d55aaa3ee44",
+  "source_sha256": {
+    "scripts/train_primitive_attention_qualification.py": "8c63ec656ad17fb66186524b90f7e08c7e76eb9dbdb7839d9d1092dc4720d86e",
+    "scripts/train_variable_depth.py": "ab0b0e6ed343f2bcfa75f125aa65a6420e1d1b88bd706d6a492535a4786fa732"
+  },
+  "stages": [
+    {
+      "updates": 4,
+      "cpu_local_gradient_limit": 0.02
+    },
+    {
+      "updates": 104,
+      "resume_from": "preceding full checkpoint",
+      "cpu_local_gradient_limit": 0.02
+    }
+  ],
+  "deadline_unix": 1792822705.9955535,
+  "requirements": "Exact model, optimizer, RNG, source counters and scheduler equality against the already completed direct108 trajectory; every replica equal. No global CPU model is constructed inside either trajectory.",
+  "global_reference_basis": "Existing exact full256-window CPU FP32 reference, native primitive32x1x8 relativeL2 .000120684 and unchanged2% gate, separately captured before optimizer updates.",
+  "predecessor": "v1 global reference stages intentionally stopped before updates for impractical2-thread CPU execution and RNG observer effect; receipts remain preserved.",
+  "scope": "Operational qualification repair only; no numerical threshold/model/optimizer change, no TEST, no scientific fit."
+}

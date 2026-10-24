@@ -1,0 +1,11 @@
+{
+  "status": "REGISTERED_OPERATIONAL_STOP_BEFORE_OPTIMIZER_UPDATES",
+  "registered_unix": 1792821416.366037,
+  "attempts": [
+    "primitive-fp32-q-v1-prefix4",
+    "primitive-fp32-b2-v1-warm100"
+  ],
+  "reason": "The existing trainer resets CPU global-reference work to2 threads while holding a distributed allocation. The full480TFLOP reference cannot fit this qualification budget. Independent complete FP32 CPU gradients already exist. Also, reference model construction changes CPU RNG, predicting a strict RNG mismatch against the no-reference direct path. Preserve original failed/stopped attempt; replace only qualification execution, not numerical thresholds.",
+  "completed_direct108_remains_valid_throughput": true,
+  "future_gate": "Compare newly captured native globals to the existing exact CPU reference outside accelerator processes, then use matching no-reference trajectories for restart checks. No long scientific fit before that qualification."
+}

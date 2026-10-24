@@ -1,0 +1,769 @@
+{
+  "status": "COMPLETE_EIGHT_OPERATOR_FIXTURES",
+  "cases": [
+    {
+      "status": "COMPLETE_NUMERICAL_OPERATOR_FIXTURE",
+      "kind": "rms",
+      "precision": "fp32",
+      "native_output_dtype": "torch.float32",
+      "metrics": {
+        "fp32": {
+          "gradient": {
+            "relative_l2": 1.8331280062319847e-07,
+            "cosine": 0.9999999999999832,
+            "reference_norm": 0.9965654438730777,
+            "candidate_norm": 0.9965654480065712,
+            "maximum_absolute_error": 2.2351741790771484e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 3.3329269248996707e-14,
+                "reference_squared_norm": 0.990690320207364
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 4.388323421316911e-17,
+                "reference_squared_norm": 0.002452363714580407
+              }
+            ]
+          },
+          "output_relative_l2": 2.1222855650648853e-07,
+          "loss_difference": -1.862645149230957e-08,
+          "reference_output_dtype": "torch.float32"
+        },
+        "bf16": {
+          "gradient": {
+            "relative_l2": 1.8331280062319847e-07,
+            "cosine": 0.9999999999999832,
+            "reference_norm": 0.9965654438730777,
+            "candidate_norm": 0.9965654480065712,
+            "maximum_absolute_error": 2.2351741790771484e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 3.3329269248996707e-14,
+                "reference_squared_norm": 0.990690320207364
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 4.388323421316911e-17,
+                "reference_squared_norm": 0.002452363714580407
+              }
+            ]
+          },
+          "output_relative_l2": 2.1222855650648853e-07,
+          "loss_difference": -1.862645149230957e-08,
+          "reference_output_dtype": "torch.float32"
+        },
+        "fp64": {
+          "gradient": {
+            "relative_l2": 1.3836055624915771e-07,
+            "cosine": 0.9999999999999905,
+            "reference_norm": 0.9965654483854007,
+            "candidate_norm": 0.9965654480065712,
+            "maximum_absolute_error": 1.862645149230957e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 1.8974281078149306e-14,
+                "reference_squared_norm": 0.9906903291703465
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 3.808860505776521e-17,
+                "reference_squared_norm": 0.0024523637452482693
+              }
+            ]
+          },
+          "output_relative_l2": 2.0443413006887567e-07,
+          "loss_difference": -1.862645149230957e-08,
+          "reference_output_dtype": "torch.float64"
+        }
+      },
+      "native_fallback_ops": [],
+      "wall_seconds": 8.929713010787964,
+      "optimizer_updates": 0,
+      "scope": "Seeded numerical fixtures, not research data. Primitive SDPA route in every case. Trained layer0 weights are private. No model evaluation or optimizer updates."
+    },
+    {
+      "status": "COMPLETE_NUMERICAL_OPERATOR_FIXTURE",
+      "kind": "rms",
+      "precision": "bf16",
+      "native_output_dtype": "torch.float32",
+      "metrics": {
+        "fp32": {
+          "gradient": {
+            "relative_l2": 1.8331280062319847e-07,
+            "cosine": 0.9999999999999832,
+            "reference_norm": 0.9965654438730777,
+            "candidate_norm": 0.9965654480065712,
+            "maximum_absolute_error": 2.2351741790771484e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 3.3329269248996707e-14,
+                "reference_squared_norm": 0.990690320207364
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 4.388323421316911e-17,
+                "reference_squared_norm": 0.002452363714580407
+              }
+            ]
+          },
+          "output_relative_l2": 2.1222855650648853e-07,
+          "loss_difference": -1.862645149230957e-08,
+          "reference_output_dtype": "torch.float32"
+        },
+        "bf16": {
+          "gradient": {
+            "relative_l2": 1.8331280062319847e-07,
+            "cosine": 0.9999999999999832,
+            "reference_norm": 0.9965654438730777,
+            "candidate_norm": 0.9965654480065712,
+            "maximum_absolute_error": 2.2351741790771484e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 3.3329269248996707e-14,
+                "reference_squared_norm": 0.990690320207364
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 4.388323421316911e-17,
+                "reference_squared_norm": 0.002452363714580407
+              }
+            ]
+          },
+          "output_relative_l2": 2.1222855650648853e-07,
+          "loss_difference": -1.862645149230957e-08,
+          "reference_output_dtype": "torch.float32"
+        },
+        "fp64": {
+          "gradient": {
+            "relative_l2": 1.3836055624915771e-07,
+            "cosine": 0.9999999999999905,
+            "reference_norm": 0.9965654483854007,
+            "candidate_norm": 0.9965654480065712,
+            "maximum_absolute_error": 1.862645149230957e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 1.8974281078149306e-14,
+                "reference_squared_norm": 0.9906903291703465
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 3.808860505776521e-17,
+                "reference_squared_norm": 0.0024523637452482693
+              }
+            ]
+          },
+          "output_relative_l2": 2.0443413006887567e-07,
+          "loss_difference": -1.862645149230957e-08,
+          "reference_output_dtype": "torch.float64"
+        }
+      },
+      "native_fallback_ops": [],
+      "wall_seconds": 9.496188879013062,
+      "optimizer_updates": 0,
+      "scope": "Seeded numerical fixtures, not research data. Primitive SDPA route in every case. Trained layer0 weights are private. No model evaluation or optimizer updates."
+    },
+    {
+      "status": "COMPLETE_NUMERICAL_OPERATOR_FIXTURE",
+      "kind": "linear",
+      "precision": "fp32",
+      "native_output_dtype": "torch.float32",
+      "metrics": {
+        "fp32": {
+          "gradient": {
+            "relative_l2": 3.6347239845988037e-07,
+            "cosine": 0.9999999999999339,
+            "reference_norm": 27.85303487522567,
+            "candidate_norm": 27.853034890060364,
+            "maximum_absolute_error": 1.0058283805847168e-07,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 1.0126655671389761e-10,
+                "reference_squared_norm": 767.9294148635946
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 1.2249598609740165e-12,
+                "reference_squared_norm": 7.8621368969428245
+              }
+            ]
+          },
+          "output_relative_l2": 3.77813449858877e-07,
+          "loss_difference": 3.337860107421875e-06,
+          "reference_output_dtype": "torch.float32"
+        },
+        "bf16": {
+          "gradient": {
+            "relative_l2": 0.00287675099804439,
+            "cosine": 0.9999958621563542,
+            "reference_norm": 27.853007750949786,
+            "candidate_norm": 27.853034890060364,
+            "maximum_absolute_error": 0.0005009770393371582,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 0.006356059142770248,
+                "reference_squared_norm": 767.9283133405161
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 6.414363092840727e-05,
+                "reference_squared_norm": 7.861727433952846
+              }
+            ]
+          },
+          "output_relative_l2": 0.002902436535805464,
+          "loss_difference": -0.005582332611083984,
+          "reference_output_dtype": "torch.bfloat16"
+        },
+        "fp64": {
+          "gradient": {
+            "relative_l2": 1.3698574028132181e-07,
+            "cosine": 0.9999999999999907,
+            "reference_norm": 27.85303488652823,
+            "candidate_norm": 27.853034890060364,
+            "maximum_absolute_error": 2.9802322387695312e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 1.441763162891051e-11,
+                "reference_squared_norm": 767.9294154946433
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 1.4016903166404516e-13,
+                "reference_squared_norm": 7.862136895515359
+              }
+            ]
+          },
+          "output_relative_l2": 1.3358308592614776e-07,
+          "loss_difference": 1.430511474609375e-06,
+          "reference_output_dtype": "torch.float64"
+        }
+      },
+      "native_fallback_ops": [],
+      "wall_seconds": 10.600817203521729,
+      "optimizer_updates": 0,
+      "scope": "Seeded numerical fixtures, not research data. Primitive SDPA route in every case. Trained layer0 weights are private. No model evaluation or optimizer updates."
+    },
+    {
+      "status": "COMPLETE_NUMERICAL_OPERATOR_FIXTURE",
+      "kind": "linear",
+      "precision": "bf16",
+      "native_output_dtype": "torch.bfloat16",
+      "metrics": {
+        "fp32": {
+          "gradient": {
+            "relative_l2": 0.0023465905127648926,
+            "cosine": 0.9999972467577203,
+            "reference_norm": 27.85303487522567,
+            "candidate_norm": 27.853046513203626,
+            "maximum_absolute_error": 0.00031737517565488815,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 0.004229551688747481,
+                "reference_squared_norm": 767.9294148635946
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 4.233443257273739e-05,
+                "reference_squared_norm": 7.8621368969428245
+              }
+            ]
+          },
+          "output_relative_l2": 0.0029025874100625515,
+          "loss_difference": -0.003810882568359375,
+          "reference_output_dtype": "torch.float32"
+        },
+        "bf16": {
+          "gradient": {
+            "relative_l2": 0.0016588861122401257,
+            "cosine": 0.9999986240513166,
+            "reference_norm": 27.853007750949786,
+            "candidate_norm": 27.853046513203626,
+            "maximum_absolute_error": 0.0004850029945373535,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 0.002113242385913162,
+                "reference_squared_norm": 767.9283133405161
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 2.1656658141547395e-05,
+                "reference_squared_norm": 7.861727433952846
+              }
+            ]
+          },
+          "output_relative_l2": 1.3108232451486401e-05,
+          "loss_difference": -0.009396553039550781,
+          "reference_output_dtype": "torch.bfloat16"
+        },
+        "fp64": {
+          "gradient": {
+            "relative_l2": 0.00234659043628606,
+            "cosine": 0.9999972467578987,
+            "reference_norm": 27.85303488652823,
+            "candidate_norm": 27.853046513203626,
+            "maximum_absolute_error": 0.0003173733130097389,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 0.004229551409321829,
+                "reference_squared_norm": 767.9294154946433
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 4.2334437011306094e-05,
+                "reference_squared_norm": 7.862136895515359
+              }
+            ]
+          },
+          "output_relative_l2": 0.002902588341385126,
+          "loss_difference": -0.0038127899169921875,
+          "reference_output_dtype": "torch.float64"
+        }
+      },
+      "native_fallback_ops": [],
+      "wall_seconds": 9.4180006980896,
+      "optimizer_updates": 0,
+      "scope": "Seeded numerical fixtures, not research data. Primitive SDPA route in every case. Trained layer0 weights are private. No model evaluation or optimizer updates."
+    },
+    {
+      "status": "COMPLETE_NUMERICAL_OPERATOR_FIXTURE",
+      "kind": "swiglu",
+      "precision": "fp32",
+      "native_output_dtype": "torch.float32",
+      "metrics": {
+        "fp32": {
+          "gradient": {
+            "relative_l2": 6.690484373772017e-07,
+            "cosine": 0.9999999999997762,
+            "reference_norm": 106.61568882707941,
+            "candidate_norm": 106.61568936600233,
+            "maximum_absolute_error": 2.980232238769531e-07,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 1.7799248893608519e-09,
+                "reference_squared_norm": 3731.5327957835475
+              },
+              {
+                "parameter": "weights.1",
+                "squared_error": 1.7032959750991674e-09,
+                "reference_squared_norm": 4058.9952494936297
+              },
+              {
+                "parameter": "weights.2",
+                "squared_error": 1.5951417205151637e-09,
+                "reference_squared_norm": 3544.0297623319893
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 9.757537125313669e-12,
+                "reference_squared_norm": 32.34729646345762
+              }
+            ]
+          },
+          "output_relative_l2": 3.345079448990873e-07,
+          "loss_difference": -7.748603820800781e-07,
+          "reference_output_dtype": "torch.float32"
+        },
+        "bf16": {
+          "gradient": {
+            "relative_l2": 0.005401769030174933,
+            "cosine": 0.9999854144613105,
+            "reference_norm": 106.60756469532907,
+            "candidate_norm": 106.61568936600233,
+            "maximum_absolute_error": 0.002053365111351013,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.1",
+                "squared_error": 0.11357245745722586,
+                "reference_squared_norm": 4058.1092273597205
+              },
+              {
+                "parameter": "weights.0",
+                "squared_error": 0.11357202344865178,
+                "reference_squared_norm": 3731.3554289499043
+              },
+              {
+                "parameter": "weights.2",
+                "squared_error": 0.10370260068128241,
+                "reference_squared_norm": 3543.363319155959
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 0.0007785318977463115,
+                "reference_squared_norm": 32.344874803191836
+              }
+            ]
+          },
+          "output_relative_l2": 0.00300217280164361,
+          "loss_difference": 0.0006706714630126953,
+          "reference_output_dtype": "torch.bfloat16"
+        },
+        "fp64": {
+          "gradient": {
+            "relative_l2": 2.4634232691597226e-07,
+            "cosine": 0.9999999999999699,
+            "reference_norm": 106.61568894551002,
+            "candidate_norm": 106.61568936600233,
+            "maximum_absolute_error": 8.940696716308594e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 2.377851109597005e-10,
+                "reference_squared_norm": 3731.5327989782463
+              },
+              {
+                "parameter": "weights.1",
+                "squared_error": 2.3320611769741936e-10,
+                "reference_squared_norm": 4058.9952740696835
+              },
+              {
+                "parameter": "weights.2",
+                "squared_error": 2.1746635969152064e-10,
+                "reference_squared_norm": 3544.0297600287777
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 1.3378437272214941e-12,
+                "reference_squared_norm": 32.3472962490404
+              }
+            ]
+          },
+          "output_relative_l2": 1.2606868438069796e-07,
+          "loss_difference": -1.430511474609375e-06,
+          "reference_output_dtype": "torch.float64"
+        }
+      },
+      "native_fallback_ops": [],
+      "wall_seconds": 9.509647607803345,
+      "optimizer_updates": 0,
+      "scope": "Seeded numerical fixtures, not research data. Primitive SDPA route in every case. Trained layer0 weights are private. No model evaluation or optimizer updates."
+    },
+    {
+      "status": "COMPLETE_NUMERICAL_OPERATOR_FIXTURE",
+      "kind": "swiglu",
+      "precision": "bf16",
+      "native_output_dtype": "torch.bfloat16",
+      "metrics": {
+        "fp32": {
+          "gradient": {
+            "relative_l2": 0.004776977900927179,
+            "cosine": 0.9999885901787542,
+            "reference_norm": 106.61568882707941,
+            "candidate_norm": 106.61472372146127,
+            "maximum_absolute_error": 0.0015201214700937271,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 0.10334012082927974,
+                "reference_squared_norm": 3731.5327957835475
+              },
+              {
+                "parameter": "weights.2",
+                "squared_error": 0.0798039222834207,
+                "reference_squared_norm": 3544.0297623319893
+              },
+              {
+                "parameter": "weights.1",
+                "squared_error": 0.07568571286927486,
+                "reference_squared_norm": 4058.9952494936297
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 0.0005575381209299338,
+                "reference_squared_norm": 32.34729646345762
+              }
+            ]
+          },
+          "output_relative_l2": 0.0027427184395492077,
+          "loss_difference": 0.013342201709747314,
+          "reference_output_dtype": "torch.float32"
+        },
+        "bf16": {
+          "gradient": {
+            "relative_l2": 0.003527859100719975,
+            "cosine": 0.9999937797775579,
+            "reference_norm": 106.60756469532907,
+            "candidate_norm": 106.61472372146127,
+            "maximum_absolute_error": 0.0023667514324188232,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.1",
+                "squared_error": 0.08172312731488705,
+                "reference_squared_norm": 4058.1092273597205
+              },
+              {
+                "parameter": "weights.2",
+                "squared_error": 0.0491937014348805,
+                "reference_squared_norm": 3543.363319155959
+              },
+              {
+                "parameter": "weights.0",
+                "squared_error": 0.010242913164949971,
+                "reference_squared_norm": 3731.3554289499043
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 0.0002888108128651549,
+                "reference_squared_norm": 32.344874803191836
+              }
+            ]
+          },
+          "output_relative_l2": 0.002671628026291728,
+          "loss_difference": 0.01401364803314209,
+          "reference_output_dtype": "torch.bfloat16"
+        },
+        "fp64": {
+          "gradient": {
+            "relative_l2": 0.004776977199801165,
+            "cosine": 0.9999885901821008,
+            "reference_norm": 106.61568894551002,
+            "candidate_norm": 106.61472372146127,
+            "maximum_absolute_error": 0.0015201419591903687,
+            "largest_error_contributors": [
+              {
+                "parameter": "weights.0",
+                "squared_error": 0.1033401236294139,
+                "reference_squared_norm": 3731.5327989782463
+              },
+              {
+                "parameter": "weights.2",
+                "squared_error": 0.07980387327208041,
+                "reference_squared_norm": 3544.0297600287777
+              },
+              {
+                "parameter": "weights.1",
+                "squared_error": 0.07568568367376113,
+                "reference_squared_norm": 4058.9952740696835
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 0.0005575379623991396,
+                "reference_squared_norm": 32.3472962490404
+              }
+            ]
+          },
+          "output_relative_l2": 0.002742717508226633,
+          "loss_difference": 0.013341546058654785,
+          "reference_output_dtype": "torch.float64"
+        }
+      },
+      "native_fallback_ops": [],
+      "wall_seconds": 11.524860620498657,
+      "optimizer_updates": 0,
+      "scope": "Seeded numerical fixtures, not research data. Primitive SDPA route in every case. Trained layer0 weights are private. No model evaluation or optimizer updates."
+    },
+    {
+      "status": "COMPLETE_NUMERICAL_OPERATOR_FIXTURE",
+      "kind": "sdpa",
+      "precision": "fp32",
+      "native_output_dtype": "torch.float32",
+      "metrics": {
+        "fp32": {
+          "gradient": {
+            "relative_l2": 1.9681345147050417e-06,
+            "cosine": 0.9999999999980795,
+            "reference_norm": 1.0229817640992571,
+            "candidate_norm": 1.022981949464097,
+            "maximum_absolute_error": 3.91155481338501e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "input_0",
+                "squared_error": 1.6650154226875089e-12,
+                "reference_squared_norm": 0.35620057349151457
+              },
+              {
+                "parameter": "input_1",
+                "squared_error": 1.5617455319852183e-12,
+                "reference_squared_norm": 0.36146290543320414
+              },
+              {
+                "parameter": "input_2",
+                "squared_error": 8.268805590909824e-13,
+                "reference_squared_norm": 0.3288282107549093
+              }
+            ]
+          },
+          "output_relative_l2": 1.0523147011554101e-06,
+          "loss_difference": -2.980232238769531e-07,
+          "reference_output_dtype": "torch.float32"
+        },
+        "bf16": {
+          "gradient": {
+            "relative_l2": 0.008047506212783037,
+            "cosine": 0.9999676233491867,
+            "reference_norm": 1.0229122519442717,
+            "candidate_norm": 1.022981949464097,
+            "maximum_absolute_error": 0.00012554507702589035,
+            "largest_error_contributors": [
+              {
+                "parameter": "input_1",
+                "squared_error": 2.7707054572918685e-05,
+                "reference_squared_norm": 0.36138235929415174
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 2.365740060979853e-05,
+                "reference_squared_norm": 0.3561353547443581
+              },
+              {
+                "parameter": "input_2",
+                "squared_error": 1.6399602285281313e-05,
+                "reference_squared_norm": 0.3288317611391915
+              }
+            ]
+          },
+          "output_relative_l2": 0.005846659652888775,
+          "loss_difference": 0.0022731125354766846,
+          "reference_output_dtype": "torch.bfloat16"
+        },
+        "fp64": {
+          "gradient": {
+            "relative_l2": 1.7262493488381052e-06,
+            "cosine": 0.9999999999985292,
+            "reference_norm": 1.0229817496622484,
+            "candidate_norm": 1.022981949464097,
+            "maximum_absolute_error": 3.5390257835388184e-08,
+            "largest_error_contributors": [
+              {
+                "parameter": "input_0",
+                "squared_error": 1.307098151963153e-12,
+                "reference_squared_norm": 0.3562005675725463
+              },
+              {
+                "parameter": "input_1",
+                "squared_error": 1.197262083405687e-12,
+                "reference_squared_norm": 0.3614628991858668
+              },
+              {
+                "parameter": "input_2",
+                "squared_error": 6.141187886132915e-13,
+                "reference_squared_norm": 0.3288281933836219
+              }
+            ]
+          },
+          "output_relative_l2": 7.503899155381077e-07,
+          "loss_difference": -2.682209014892578e-07,
+          "reference_output_dtype": "torch.float64"
+        }
+      },
+      "native_fallback_ops": [],
+      "wall_seconds": 10.984431743621826,
+      "optimizer_updates": 0,
+      "scope": "Seeded numerical fixtures, not research data. Primitive SDPA route in every case. Trained layer0 weights are private. No model evaluation or optimizer updates."
+    },
+    {
+      "status": "COMPLETE_NUMERICAL_OPERATOR_FIXTURE",
+      "kind": "sdpa",
+      "precision": "bf16",
+      "native_output_dtype": "torch.bfloat16",
+      "metrics": {
+        "fp32": {
+          "gradient": {
+            "relative_l2": 0.007406986079415897,
+            "cosine": 0.9999725703664557,
+            "reference_norm": 1.0229817640992571,
+            "candidate_norm": 1.022881890496973,
+            "maximum_absolute_error": 0.00012924824841320515,
+            "largest_error_contributors": [
+              {
+                "parameter": "input_1",
+                "squared_error": 2.3473404253169856e-05,
+                "reference_squared_norm": 0.36146290543320414
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 2.1999160715927702e-05,
+                "reference_squared_norm": 0.35620057349151457
+              },
+              {
+                "parameter": "input_2",
+                "squared_error": 1.1941571968077852e-05,
+                "reference_squared_norm": 0.3288282107549093
+              }
+            ]
+          },
+          "output_relative_l2": 0.006019011605530977,
+          "loss_difference": -0.002084493637084961,
+          "reference_output_dtype": "torch.float32"
+        },
+        "bf16": {
+          "gradient": {
+            "relative_l2": 0.005076177740632464,
+            "cosine": 0.9999871162678579,
+            "reference_norm": 1.0229122519442717,
+            "candidate_norm": 1.022881890496973,
+            "maximum_absolute_error": 0.0001220703125,
+            "largest_error_contributors": [
+              {
+                "parameter": "input_1",
+                "squared_error": 1.228445365072157e-05,
+                "reference_squared_norm": 0.36138235929415174
+              },
+              {
+                "parameter": "input_2",
+                "squared_error": 7.930866493070058e-06,
+                "reference_squared_norm": 0.3288317611391915
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 6.746574141365802e-06,
+                "reference_squared_norm": 0.3561353547443581
+              }
+            ]
+          },
+          "output_relative_l2": 0.0027412802446633577,
+          "loss_difference": 0.00018891692161560059,
+          "reference_output_dtype": "torch.bfloat16"
+        },
+        "fp64": {
+          "gradient": {
+            "relative_l2": 0.007407004441830249,
+            "cosine": 0.9999725702294415,
+            "reference_norm": 1.0229817496622484,
+            "candidate_norm": 1.022881890496973,
+            "maximum_absolute_error": 0.0001292515080422163,
+            "largest_error_contributors": [
+              {
+                "parameter": "input_1",
+                "squared_error": 2.347353083157862e-05,
+                "reference_squared_norm": 0.3614628991858668
+              },
+              {
+                "parameter": "input_0",
+                "squared_error": 2.1999268162915915e-05,
+                "reference_squared_norm": 0.3562005675725463
+              },
+              {
+                "parameter": "input_2",
+                "squared_error": 1.194162098946976e-05,
+                "reference_squared_norm": 0.3288281933836219
+              }
+            ]
+          },
+          "output_relative_l2": 0.006019013002514839,
+          "loss_difference": -0.0020844638347625732,
+          "reference_output_dtype": "torch.float64"
+        }
+      },
+      "native_fallback_ops": [],
+      "wall_seconds": 12.011849164962769,
+      "optimizer_updates": 0,
+      "scope": "Seeded numerical fixtures, not research data. Primitive SDPA route in every case. Trained layer0 weights are private. No model evaluation or optimizer updates."
+    }
+  ],
+  "wall_seconds": 12.93268895149231,
+  "scope": "Numerical qualification only, no synthetic research corpus."
+}

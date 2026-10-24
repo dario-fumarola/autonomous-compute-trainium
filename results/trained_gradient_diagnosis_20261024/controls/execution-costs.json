@@ -1,6 +1,6 @@
 {
-  "status": "OPEN_PRIMITIVE_ATTENTION_CONTROLS",
-  "collected_unix": 1792820046.0428176,
+  "status": "UPDATE_RECOVERY_AND_BATCH2_QUALIFICATIONS_OPEN",
+  "collected_unix": 1792821253.424753,
   "attempts": [
     {
       "identity": "trained-gradient-v1-fixed-repeat",
@@ -57,18 +57,96 @@
     {
       "identity": "trained-gradient-v1-primitive-fp32",
       "started_unix": 1792820004.5245528,
-      "ended_unix": null,
-      "closure": null,
-      "open_wall_seconds": 41.518189907073975
+      "ended_unix": 1792820171.8598049,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 167.33525204658508,
+        "assigned_chip_hours": 0.37185611565907795,
+        "whole_instance_opportunity_chip_hours": 0.7437122313181559,
+        "report_exists": true
+      },
+      "open_wall_seconds": null
     },
     {
       "identity": "trained-gradient-v1-primitive-bf16",
       "started_unix": 1792820004.5260193,
+      "ended_unix": 1792820180.2321787,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 175.70615935325623,
+        "assigned_chip_hours": 0.39045813189612494,
+        "whole_instance_opportunity_chip_hours": 0.7809162637922499,
+        "report_exists": true
+      },
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "trained-amp-operators-v1",
+      "started_unix": 1792820575.024869,
+      "ended_unix": 1792820587.1848743,
+      "closure": {
+        "exit_code": 1,
+        "wall_seconds": 12.160005331039429,
+        "assigned_chip_hours": 0.027022234068976508,
+        "whole_instance_opportunity_chip_hours": 0.054044468137953015,
+        "report_exists": false
+      },
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "trained-amp-operators-v2",
+      "started_unix": 1792820695.975629,
+      "ended_unix": 1792820716.1057436,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 20.130114555358887,
+        "assigned_chip_hours": 0.044733587900797525,
+        "whole_instance_opportunity_chip_hours": 0.08946717580159505,
+        "report_exists": true
+      },
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "sdpa-fp32-precision-v1",
+      "started_unix": 1792821032.2337005,
+      "ended_unix": 1792821050.457215,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 18.223514556884766,
+        "assigned_chip_hours": 0.04049669901529948,
+        "whole_instance_opportunity_chip_hours": 0.08099339803059896,
+        "report_exists": true
+      },
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "primitive-fp32-q-v1-direct108",
+      "started_unix": 1792820503.64348,
+      "ended_unix": 1792820840.0524323,
+      "closure": {
+        "exit_code": 0,
+        "wall_seconds": 336.40895223617554,
+        "assigned_chip_hours": 0.7475754494137234,
+        "whole_instance_opportunity_chip_hours": 1.495150898827447,
+        "report_exists": true
+      },
+      "open_wall_seconds": null
+    },
+    {
+      "identity": "primitive-fp32-q-v1-prefix4",
+      "started_unix": 1792820841.9714193,
       "ended_unix": null,
       "closure": null,
-      "open_wall_seconds": 41.51679468154907
+      "open_wall_seconds": 411.453236579895
+    },
+    {
+      "identity": "primitive-fp32-b2-v1-warm100",
+      "started_unix": 1792821170.5999246,
+      "ended_unix": null,
+      "closure": null,
+      "open_wall_seconds": 82.82482552528381
     }
   ],
-  "closed_assigned_chip_hours": 1.2580558088090683,
-  "scope": "No optimizer updates. Compile, launch, local probe and global capture included. Overlapping whole-node opportunity intervals must be unioned, not summed."
+  "closed_assigned_chip_hours": 2.8801980267630682,
+  "scope": "All no-update controls plus bounded update/recovery/throughput qualifications; includes failed harness predecessor and CPU waits inside native allocation. Overlapping whole-node opportunity intervals must be unioned, not summed."
 }

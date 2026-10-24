@@ -1,0 +1,28 @@
+{
+  "identity": "primitive-fp32-batch2-v1",
+  "registered_unix": 1792821161.8770611,
+  "source_checkpoint_sha256": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539",
+  "checkpoint_update": 7680,
+  "precision": "fp32",
+  "nki_sdpa_enabled": false,
+  "source_copy_only_changed_signature_fields": [
+    "precision",
+    "batch",
+    "accumulation"
+  ],
+  "world": 32,
+  "batch": 2,
+  "accumulation": 4,
+  "global_windows": 256,
+  "total_updates": 108,
+  "warm_updates": 100,
+  "global_cpu_gradient_relative_l2_limit": 0.02,
+  "local_cpu_gradient_relative_l2_limit": 0.02,
+  "local_loss_absolute_limit": 0.003,
+  "deadline_unix": 1792822361.8770626,
+  "source_sha256": {
+    "scripts/train_primitive_attention_qualification.py": "8c63ec656ad17fb66186524b90f7e08c7e76eb9dbdb7839d9d1092dc4720d86e",
+    "scripts/train_variable_depth.py": "ab0b0e6ed343f2bcfa75f125aa65a6420e1d1b88bd706d6a492535a4786fa732"
+  },
+  "scope": "One bounded performance/correctness attempt at larger local batch after FP32 primitive global agreement. Same trained source, model/optimizer/RNG/counters/schedule, no scientific outcome or TEST. Keep failures. Does not replace full batch1 restart qualification."
+}
