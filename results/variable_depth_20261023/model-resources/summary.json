@@ -1,6 +1,6 @@
 {
   "status": "PARTIAL_RETAINED_PATH_RESOURCES",
-  "updated_unix": 1792803141.7063997,
+  "updated_unix": 1792805739.9844403,
   "models": [
     {
       "arm": "ordinary",
@@ -89,6 +89,48 @@
           "phase_targets": 170095656,
           "phase_updates": 650,
           "launch_wall_seconds": 310.9269742965698
+        }
+      ]
+    },
+    {
+      "arm": "fixed",
+      "seed": 103,
+      "endpoint": "1B",
+      "unique_parameters": 150436608,
+      "real_targets": 1004887590,
+      "optimizer_updates": 3840,
+      "training_update_matmul_flops": 1858394553266995200,
+      "known_native_probe_matmul_flops": 967913829826560,
+      "retained_training_launch_seconds": 2309.851223707199,
+      "retained_training_warm_seconds": 1749.267754875007,
+      "retained_assigned_chip_hours": 5.1330027193493315,
+      "real_targets_per_training_launch_second": 435044.29189478455,
+      "dev_nll": 2.548268973595386,
+      "native_inference_forward_matmul_flops_per_window": 630152232960,
+      "phases": [
+        {
+          "identity": "vdepth-v1-fixed-s103-u384",
+          "phase_targets": 100488104,
+          "phase_updates": 384,
+          "launch_wall_seconds": 317.4652364253998
+        },
+        {
+          "identity": "vdepth-v1-fixed-s103-u1152",
+          "phase_targets": 200977804,
+          "phase_updates": 768,
+          "launch_wall_seconds": 494.4646816253662
+        },
+        {
+          "identity": "vdepth-v1-fixed-s103-u3456",
+          "phase_targets": 602932674,
+          "phase_updates": 2304,
+          "launch_wall_seconds": 1183.6958456039429
+        },
+        {
+          "identity": "vdepth-v1-fixed-s103-u3840",
+          "phase_targets": 100489008,
+          "phase_updates": 384,
+          "launch_wall_seconds": 314.22546005249023
         }
       ]
     },
@@ -221,6 +263,48 @@
           "phase_targets": 170095656,
           "phase_updates": 650,
           "launch_wall_seconds": 308.3804349899292
+        }
+      ]
+    },
+    {
+      "arm": "fixed",
+      "seed": 211,
+      "endpoint": "1B",
+      "unique_parameters": 150436608,
+      "real_targets": 1004887590,
+      "optimizer_updates": 3840,
+      "training_update_matmul_flops": 1858394553266995200,
+      "known_native_probe_matmul_flops": 967913829826560,
+      "retained_training_launch_seconds": 2332.19131064415,
+      "retained_training_warm_seconds": 1750.6529452021932,
+      "retained_assigned_chip_hours": 5.182647356986999,
+      "real_targets_per_training_launch_second": 430876.9977032676,
+      "dev_nll": 2.5451884013056603,
+      "native_inference_forward_matmul_flops_per_window": 630152232960,
+      "phases": [
+        {
+          "identity": "vdepth-v1-fixed-s211-u384",
+          "phase_targets": 100488104,
+          "phase_updates": 384,
+          "launch_wall_seconds": 331.2386038303375
+        },
+        {
+          "identity": "vdepth-v1-fixed-s211-u1152",
+          "phase_targets": 200977804,
+          "phase_updates": 768,
+          "launch_wall_seconds": 495.58312916755676
+        },
+        {
+          "identity": "vdepth-v1-fixed-s211-u3456",
+          "phase_targets": 602932674,
+          "phase_updates": 2304,
+          "launch_wall_seconds": 1187.84245967865
+        },
+        {
+          "identity": "vdepth-v1-fixed-s211-u3840",
+          "phase_targets": 100489008,
+          "phase_updates": 384,
+          "launch_wall_seconds": 317.5271179676056
         }
       ]
     },
@@ -402,16 +486,6 @@
   "pending": [
     {
       "arm": "fixed",
-      "seed": 103,
-      "endpoint": "1B"
-    },
-    {
-      "arm": "fixed",
-      "seed": 211,
-      "endpoint": "1B"
-    },
-    {
-      "arm": "fixed",
       "seed": 307,
       "endpoint": "1B"
     }
@@ -439,6 +513,6 @@
       "mixture_dev_gain_nats": -0.0902609237979668
     }
   ],
-  "unique_retained_phase_union_assigned_chip_hours": 38.46535332361857,
+  "unique_retained_phase_union_assigned_chip_hours": 48.781003399954905,
   "scope": "Per-model retained training paths only, including launch/CPU-probe/checkpoint wall overhead but excluding separate DEV/TEST scoring. The ordinary1B decay branch is not an ancestor of its1.7B control. Shared prefixes appear in both model rows; DO NOT sum those rows as campaign cost. The phase union deduplicates shared ancestors but still excludes unused/stopped attempts, tuning, readouts and CPU-only tails, all recorded in the separate execution ledger. Update matmuls and known native-probe work are separate; elementwise/optimizer/communication/compiler/CPU math is not in those FLOP counters. Inference figures are estimated executed forward matmuls, not generation latency."
 }

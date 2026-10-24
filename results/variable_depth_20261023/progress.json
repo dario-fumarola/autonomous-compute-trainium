@@ -1,19 +1,9 @@
 {
-  "updated_unix": 1792803908.4182537,
+  "updated_unix": 1792805740.014448,
   "status": "RUNNING",
   "active_phases": [
     {
-      "identity": "vdepth-v1-fixed-s103-u3456",
-      "assigned_chips": 8,
-      "module": "scripts.train_variable_depth",
-      "update": 1402,
-      "real_tokens": 366888782,
-      "lr": 0.001,
-      "gradient_norm": 0.1716705560684204,
-      "elapsed_seconds": 210.97267411102075
-    },
-    {
-      "identity": "vdepth-v1-fixed-s211-u3456",
+      "identity": "vdepth-v1-fixed-s307-u1152",
       "assigned_chips": 8,
       "module": "scripts.train_variable_depth"
     }
@@ -162,6 +152,40 @@
       }
     },
     {
+      "identity": "vdepth-v1-fixed-s103-u3840-dev-r2",
+      "training_real_targets": 1004887590,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 765022.4418334961,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.031748977888681
+          },
+          "code": {
+            "nll_sum": 355714.0429611206,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.416989833932004
+          },
+          "math": {
+            "nll_sum": 560348.7360570431,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.229108100378884
+          }
+        },
+        "weighted_nll": 2.548268973595386,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
       "identity": "vdepth-v1-fixed-s211-u1152-dev-r2",
       "training_real_targets": 301465908,
       "depth": 2,
@@ -221,6 +245,74 @@
           }
         },
         "weighted_nll": 3.61637085394441,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
+      "identity": "vdepth-v1-fixed-s211-u3840-dev-r2",
+      "training_real_targets": 1004887590,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 764334.0443954468,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0290208902992695
+          },
+          "code": {
+            "nll_sum": 355077.37296295166,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4144536537253836
+          },
+          "math": {
+            "nll_sum": 559171.6790659428,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2244256819051103
+          }
+        },
+        "weighted_nll": 2.5451884013056603,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    },
+    {
+      "identity": "vdepth-v1-fixed-s307-u384-dev-r2",
+      "training_real_targets": 100488104,
+      "depth": 2,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 1056427.1472167969,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 4.1865725090525645
+          },
+          "code": {
+            "nll_sum": 592655.8369178772,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 2.3608494310270567
+          },
+          "math": {
+            "nll_sum": 810404.3545322418,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 3.223847570321356
+          }
+        },
+        "weighted_nll": 3.628882905701221,
         "weights": {
           "web": 0.6,
           "math": 0.2,

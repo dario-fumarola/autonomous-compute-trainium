@@ -1,0 +1,168 @@
+{
+  "status": "COMPLETE_FIRST_SEED_THREE_ARM_DEV_READOUT",
+  "updated_unix": 1792805356.8956869,
+  "seed": 103,
+  "models": {
+    "ordinary": {
+      "identity": "vdepth-v1-ordinary-s103-u3840",
+      "weighted_nll": 2.599135219362705,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 779461.4906387329,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0889702684851326
+          },
+          "code": {
+            "nll_sum": 364770.8504066467,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4530677013430269
+          },
+          "math": {
+            "nll_sum": 572060.3087828159,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2756975900151004
+          }
+        },
+        "weighted_nll": 2.599135219362705,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "parameters": 150436608,
+      "real_targets": 1004887590,
+      "training_update_matmul_flops": 1098412116148224000
+    },
+    "fixed": {
+      "identity": "vdepth-v1-fixed-s103-u3840",
+      "weighted_nll": 2.548268973595386,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 765022.4418334961,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.031748977888681
+          },
+          "code": {
+            "nll_sum": 355714.0429611206,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.416989833932004
+          },
+          "math": {
+            "nll_sum": 560348.7360570431,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.229108100378884
+          }
+        },
+        "weighted_nll": 2.548268973595386,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "parameters": 150436608,
+      "real_targets": 1004887590,
+      "training_update_matmul_flops": 1858394553266995200
+    },
+    "mixture": {
+      "identity": "vdepth-v1-mixture-s103-u3840",
+      "weighted_nll": 2.587427428264647,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 776194.9958381653,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.076025298858928
+          },
+          "code": {
+            "nll_sum": 362610.5272254944,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4444620360726368
+          },
+          "math": {
+            "nll_sum": 569270.419878006,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.264599208673814
+          }
+        },
+        "weighted_nll": 2.587427428264647,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "parameters": 150436608,
+      "real_targets": 1004887590,
+      "training_update_matmul_flops": 1858394553266995200
+    },
+    "ordinary_matched": {
+      "identity": "vdepth-v1-ordinary-s103-u6496",
+      "weighted_nll": 2.495277617647256,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 751083.3483543396,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.976508987403114
+          },
+          "code": {
+            "nll_sum": 343670.1198158264,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3690127664103668
+          },
+          "math": {
+            "nll_sum": 547463.1649436951,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.177848359616574
+          }
+        },
+        "weighted_nll": 2.495277617647256,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "parameters": 150436608,
+      "real_targets": 1699926288,
+      "training_update_matmul_flops": 1858147163150745600
+    }
+  },
+  "gains_nats_positive_favors_named_candidate": {
+    "fixed_vs_ordinary_equal_data": 0.05086624576731902,
+    "mixture_vs_fixed_equal_update_work": -0.039158454669260934,
+    "fixed_vs_ordinary_matched_update_work": -0.05299135594812965
+  },
+  "scope": "Completed canonical DEV endpoints in one paired training seed. No seed interval or sealed TEST claim. Per-arm LRs were selected independently under the same declared four-trial budget. Fixed and mixture have equal unique parameters, source exposure and update matmuls; equal-data ordinary costs less. The matched ordinary sees more source text. First fixed endpoint now passes whole-DEV independent FP32 and full-state copy/readback audit (CPU-minus-native -0.00001227 nats). No inference depth or model chosen using TEST.",
+  "verified_common_source_and_execution_signature": {
+    "corpus_sha256": "5c9b04ddbc15fa2b5f81b3e9bf738b0c8fb3a6dbaf97d7730d7f31f52585d789",
+    "packing_sha256": "3073088bad9ae89116be3ddb78b26414fa0d10df371909cccaaafdf12597b71b",
+    "data_seed": 23,
+    "routing": "splitmix64_fisher_yates_v1",
+    "routing_seed": 271828,
+    "context": 1024,
+    "world": 32,
+    "batch": 4,
+    "accumulation": 2
+  }
+}

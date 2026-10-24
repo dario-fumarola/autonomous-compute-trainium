@@ -1,27 +1,42 @@
-# Status — 2026-10-24, 01:20 UTC
+# Status — 2026-10-24, 01:36 UTC
 
-**All three mixture 1B endpoints are complete.** Fresh DEV NLL is
-2.587427 / 2.590665 / 2.587213 for seeds103 / 211 / 307, after planned decay.
-Their earlier100M/301M stable scores were3.808420/3.013947 and
-3.814483/3.019806. Mixture103/211 and both ordinary103 endpoints have passed
-independent whole-DEV FP32 audits and full optimizer-state copy/readback.
-The two mixture CPU-minus-native deltas are-0.00001469 and-0.00000106 nats.
-Nine of twelve primary-model audits are complete, including every mixture and
-ordinary endpoint. The largest CPU/native difference is0.00004622 nats.
+**The first two fixed-depth 1B endpoints are complete.** DEV NLL is
+2.548269 /2.545188 for seeds103 /211. They improve over equal-data ordinary
+by0.050866 /0.053408 nats, and over mixture by0.039158 /0.045477.
+Both still lose to ordinary's matched-compute endpoints, by0.052991 /0.050024.
+These are two paired seeds; the third fixed fit remains pending. Fixed103
+has passed its independent whole-DEV FP32 and full-state readback audit,
+with CPU-minus-native loss-0.00001227 nats. Fixed211/307 audits remain pending.
+No new TEST score has been opened.
+
+The completed seed103 comparison is:
+
+| Model | Real targets | Relative update matmuls | DEV NLL |
+| --- | ---: | ---: | ---: |
+| Ordinary | 1.005B | 1.000 | 2.599135 |
+| Fixed two passes | 1.005B | 1.692 | 2.548269 |
+| Variable-depth mixture, scored at two passes | 1.005B | 1.692 | 2.587427 |
+| Ordinary, matched estimated work | 1.700B | 1.692 | 2.495278 |
+
+All have150,436,608 parameters and matched starting weights within the seed.
+Source/order/execution signatures and full-state lineage are verified.
+[First three-arm endpoint readout](results/variable_depth_20261023/first-three-arm-dev.json).
+
+All three mixture 1B endpoints are complete:2.587427 /2.590665 /2.587213.
+Ten of twelve primary-model audits are complete, including every mixture and
+ordinary endpoint and fixed103. The largest CPU/native difference is0.00004622 nats.
 [Partial audit](results/variable_depth_20261023/partial-independent-cpu-verification.json).
-The first ordinary pair is also ready: at equal data, ordinary103 scores
-2.599135 versus mixture103 at2.587427, a **0.011708-nat** gain. At matched
-estimated training matmuls, ordinary at1.700B targets scores **2.495278**,
-beating mixture at1.005B by **0.092150 nats**. This pair's equal-data gain
-does not repay the extra compute. The remaining paired seeds are now complete;
-fixed-depth controls are running on both eight-chip halves. All16 chips remain
-assigned.
+The third fixed fit occupies one eight-chip half. The frozen controller has
+one model chain left; its other half is temporarily idle until the complete
+evaluation matrix starts. The separate12-worker CPU data preparation remains
+active. This tail is recorded in node-opportunity cost, not hidden as useful
+accelerator work. Do not resize a scientific fit without qualification.
 At301M stable targets, the first two fixed-depth controls score
 2.968422 /2.965343, versus mixture3.013947 /3.019806 in those same seeds.
 Fixed currently leads by0.045525 /0.054463 nats. These are early development
 curves under independently selected LRs, not completed primary endpoints;
 the remaining fits and inference-depth matrix continue unchanged.
-[First-pair DEV comparison](results/variable_depth_20261023/first-pair-dev.json).
+[Original first-pair readout](results/variable_depth_20261023/first-pair-dev.json).
 All three data-matched pairs are now complete. Ordinary211/307 score
 2.598596/2.601686, giving mixture gains0.007931/0.014472 in those pairs.
 The mean gain is **0.011370 [0.003214,0.019527]**, a nominal paired-seed95%
@@ -130,7 +145,11 @@ A separate low-priority CPU preparation is now running toward a roughly
 It verifies all three prior corpus generations and62 existing raw checksums,
 then adds natural sources at the same pinned revisions. The frozen source
 plan covers42 web shards across three crawls,64 math shards and54 code shards;
-actual accepted targets and duplicate reconstruction are still pending.
+All98 new source files have now downloaded. Duplicate sketches have been
+reconstructed for all5,728,462 prior and protected identities, including
+every generation and protected panel. New TRAIN admission has begun; the
+target quota and final independent audit remain pending. This is not yet a
+usable frozen corpus.
 Preparation uses12 workers with a03:50 cutoff, followed by an independent
 full-prefix/window-count/provenance audit bounded to04:10. This changes no
 running model, source stream or held-out analysis and launches no longer fit.
