@@ -1,0 +1,1040 @@
+{
+  "status": "PASS_FRESH_CONFIRMATION_RESERVE_PREPARATION_AUDIT_PENDING",
+  "plan_sha256": "94e2b632961eeef3dc58f9cd1200e8d06355df547579ebce44f0755e7c58a8a0",
+  "synthetic_generation": false,
+  "counts": {
+    "web/tune": {
+      "real_targets": 250299,
+      "documents": 251,
+      "source_groups": 247
+    },
+    "web/curve": {
+      "real_targets": 250335,
+      "documents": 246,
+      "source_groups": 238
+    },
+    "web/test": {
+      "real_targets": 250327,
+      "documents": 275,
+      "source_groups": 263
+    },
+    "math/tune": {
+      "real_targets": 250342,
+      "documents": 165,
+      "source_groups": 164
+    },
+    "math/curve": {
+      "real_targets": 250134,
+      "documents": 145,
+      "source_groups": 140
+    },
+    "math/test": {
+      "real_targets": 251396,
+      "documents": 149,
+      "source_groups": 145
+    },
+    "code/tune": {
+      "real_targets": 256212,
+      "documents": 147,
+      "source_groups": 146
+    },
+    "code/curve": {
+      "real_targets": 250341,
+      "documents": 173,
+      "source_groups": 170
+    },
+    "code/test": {
+      "real_targets": 251830,
+      "documents": 146,
+      "source_groups": 144
+    }
+  },
+  "sources": {
+    "web": [
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00000-of-00014.parquet",
+        "sha256": "fb989c566f6fba00ab61decc5f7aa1538a07d9b142e58a52ff790154528ffd03"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00001-of-00014.parquet",
+        "sha256": "90105b41a509da93651a4364127c83451f97de61e438074f86ece09dfd86961e"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00002-of-00014.parquet",
+        "sha256": "14fc9ec030a8f3a6dfee9a3286ab8eb979ec4cab3df1ad503779dc8dac631261"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00003-of-00014.parquet",
+        "sha256": "145d0a0d25d7f441febc08abc46fcff2c95bab8ebafbc1f96f343f9ca2b83285"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00004-of-00014.parquet",
+        "sha256": "1dce281f2924512c3f4c7ef9f39a6521bc04ca30b7fdcf7121ea9825316ff6de"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00005-of-00014.parquet",
+        "sha256": "ea40c90b2ef3565c3382c9954f3d80584ff81daf6ad65606b54265d9125962ec"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00006-of-00014.parquet",
+        "sha256": "0acdafc24aa73112ee78f1c5f136e924b490a5d88f36677c1c444caa8507142b"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00007-of-00014.parquet",
+        "sha256": "68852a8748a3707e2eb5cb1bee0e4cb243588fc82d0552cfebf5741d42bbda92"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00008-of-00014.parquet",
+        "sha256": "11748c3f363cfa4aa456e59608222dd8fd6ee301ff9bdeb7eac57a46ed7bd5ab"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00009-of-00014.parquet",
+        "sha256": "4b02eb37467007501a9bb06284023222d4991e0a5f7960778bcca24f6a7be2cb"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00010-of-00014.parquet",
+        "sha256": "4f0fb9098157edb573d38a0cf9d27d6bf7718b13b0fb8a99e4bd8564434ba69c"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00011-of-00014.parquet",
+        "sha256": "6e719a6f913aa3753e490f5170b1da5d82b5c82c8c82de2887530f2d82a9c874"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00012-of-00014.parquet",
+        "sha256": "d7b0850b29f91c0bdfb0f3668379cd541d5c334bc23045e8aa89d31eeaacd7fc"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-20/train-00013-of-00014.parquet",
+        "sha256": "71c607b1a2bc3cd304009b5601ac662041af1e0879506fd360c47d32de967d56"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00000-of-00014.parquet",
+        "sha256": "29db96009ac1de5a42336ec0ae4ec6fee3e8dd8aec4de1d1b50aa2b38478caec"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00001-of-00014.parquet",
+        "sha256": "db5fce1225d1b17bde6d3cd4f0148ae04e8580b7b8cd048c65f8d6414503e493"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00002-of-00014.parquet",
+        "sha256": "7c16a52b1c352d4a70aef14721f72a3886ab3a4a6a1c252ff285dc9fa5ade402"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00003-of-00014.parquet",
+        "sha256": "424a7bee659a160dc2d3a80e703e36439589850c126ebd1a4af8d010b840dd0f"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00004-of-00014.parquet",
+        "sha256": "1137697278aa528361f2e6fe241f299738949cabba15ce7e74990eeff682f0e5"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00005-of-00014.parquet",
+        "sha256": "aac083d0117e2b4e78d2b69b73c764020f26d6087d8a92bccb4a7a5c1ac2bbfd"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00006-of-00014.parquet",
+        "sha256": "3a15ec6b424d336be9a4c704fa85e8fe46407123bc6ccea6053057c4634ef165"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00007-of-00014.parquet",
+        "sha256": "5c0787aa05d46cc647796246b0fc93e2501bf0b53d9da45539d93c9184c20460"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00008-of-00014.parquet",
+        "sha256": "008397de104732df8a08417815510d27d9daa5ddea5d1f4409c39f527b442a10"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00009-of-00014.parquet",
+        "sha256": "a994524b8aba4f1423b17cd1552c5c08fa77f5c086129c5ba7a86d72210c0738"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00010-of-00014.parquet",
+        "sha256": "126a0f67008354d253786f887e6dd65accf99b5414821d7454f893d4c187a36c"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00011-of-00014.parquet",
+        "sha256": "d355beaec4969f4de01cc5c250ca6fe6f474b4e527d6e64219cb15fc2d885875"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00012-of-00014.parquet",
+        "sha256": "1d26c7bb689d9f5581baabd33d440e30096a68811f6e95358b858bbbad405541"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2013-48/train-00013-of-00014.parquet",
+        "sha256": "8b4b9e8f331117c7210f967ddbc10decdebb3bd5267a5fbca9129ebe25be463e"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00000-of-00014.parquet",
+        "sha256": "301b3805b7b505ccb899f1ffab25f7d06e1d19d8ae221f4177044e04a1943e2b"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00001-of-00014.parquet",
+        "sha256": "73ccd40928affce688bcc23e19a9288eda67f20762850d7ed08fb8848657aad3"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00002-of-00014.parquet",
+        "sha256": "10d45b5276fd3f0b984bcb8e8079892aa169a11bdb0cccc7b92eed2b7bf1419d"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00003-of-00014.parquet",
+        "sha256": "03d6f43cae56c3747c49480167122782466a879b724cd2e473f2c736dcc41f2f"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00004-of-00014.parquet",
+        "sha256": "d2356a49dc4bae1c726b3bc27f2e1fb93955f5393b12e987faf79702d72c1168"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00005-of-00014.parquet",
+        "sha256": "48bd01b21e42d698e77a7cd025b3ce63298e686a00786968d68dca743fd9bba5"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00006-of-00014.parquet",
+        "sha256": "4f091b04c2d26f7d39eb8ac5fef323798a2280276bd1a43d295038a35945935d"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00007-of-00014.parquet",
+        "sha256": "3be423a243289bc7afcaaa3566d9ceea9c027fd9daec6713040cae02ed3f6d8f"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00008-of-00014.parquet",
+        "sha256": "ef5afa503b1606af25c5e9d83a4a86974e27a0f58ef0db6f1a0ae493dfaee373"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00009-of-00014.parquet",
+        "sha256": "f6a9cabfbbbb018ada4c4f33d9bd00e0f82faf70b9c8c9c607f0d4f8671be3fa"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00010-of-00014.parquet",
+        "sha256": "9fc7c2d1cca1cb60cde18fe6c647edee6e69a5e0d187297430d43ae06752a241"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00011-of-00014.parquet",
+        "sha256": "b3d3a1ff655881b616b5bea1ccd120cbaffd5d0b0e1c5f587b86c24207a7a84a"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00012-of-00014.parquet",
+        "sha256": "67c4321416ea340f0aa9f42dbdbec5a002e17b67790d5d70f7483297b9bb0978"
+      },
+      {
+        "repository": "HuggingFaceFW/fineweb-edu",
+        "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+        "file": "data/CC-MAIN-2014-10/train-00013-of-00014.parquet",
+        "sha256": "f0820fe329bc52566cdaf591499a5432bbfd932bdd972bfe1018d7e39b03f668"
+      }
+    ],
+    "math": [
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00000-of-00064.parquet",
+        "sha256": "5d0b26114b4cf309c82a4ba8f6f45857480b27812e23a46b61b45e8bbed61fe5"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00001-of-00064.parquet",
+        "sha256": "4f38efdb251638c1a71be4ed380119bdd9966b1d6f200f6ff637e4768cc3930c"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00002-of-00064.parquet",
+        "sha256": "aed5a2aed72e2683c6c967f669b12214c3a2370738a75b83fb92f6194217ab04"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00003-of-00064.parquet",
+        "sha256": "b20b6da635493e3c7e151880db612bdf1bab2e6bc2fe87ed5cd21910f590aada"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00004-of-00064.parquet",
+        "sha256": "9644be6589159f9ab85a147f71a48b4ea40ed712cb7c7b5b42bf91b1bb844973"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00005-of-00064.parquet",
+        "sha256": "bc0e109357245f5bf91c956ec98e7d8f88e6356c08b25196e8760fe5839b2f99"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00006-of-00064.parquet",
+        "sha256": "7afa1e173e27a492e0527fc82eb8859ff0040b79eae9aa39851c9b57aad0c95d"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00007-of-00064.parquet",
+        "sha256": "b63045b1d32f7b10664e5e8cea9a4dfcd972cbc92e3d6eb9aa56c677ea9863b7"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00008-of-00064.parquet",
+        "sha256": "39224cfcc751afbc04671bc9491266a90d58c30c27fd58f93551db8766ca96c6"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00009-of-00064.parquet",
+        "sha256": "5e2b8db60462621ac0e45dd9865103f685915b09eee577f505b35f95ff601ea5"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00010-of-00064.parquet",
+        "sha256": "9d9b4481659d3b24cc9913f2025f323bafb0d19c0e2f33f6eeb0fd82a230a018"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00011-of-00064.parquet",
+        "sha256": "cc1f03a25f744f3595bc808a93b40ed5aa0f2b4976c0eebbadf693fe1ae9f7c9"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00012-of-00064.parquet",
+        "sha256": "8357ab429ac19c08290ae78ee8280d75140a3d82c4f18b1e747607b70eeece93"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00013-of-00064.parquet",
+        "sha256": "2188e377ec460f443a169d22cd44672282e5a5ea10b70ef67b66733d3e897ff2"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00014-of-00064.parquet",
+        "sha256": "7418045311f2bac739b79175654fa97b394645d42548d7cf52ed7787ffd9883f"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00015-of-00064.parquet",
+        "sha256": "7af8c5bcd8728514ec8bb4dd4aeeeec3cc0778818b8be6878d6a84e6b0c2c6eb"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00016-of-00064.parquet",
+        "sha256": "4d086cac2cd42a82979903d532d39c7e87ad0088f86409f6a7c2f9e8e290e3af"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00017-of-00064.parquet",
+        "sha256": "7188aa08c9a3a9e6f217fad9bd752a170282a3b029c158eab0e68df1927b83f1"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00018-of-00064.parquet",
+        "sha256": "6234f2ef80ca281d8b3818e22269ab5b5a0cc72c38083b608d115d807440e2ff"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00019-of-00064.parquet",
+        "sha256": "a6f24a84c01f792ca02c5bdbc2eff17749331be49b442a9428b916860ae8b60a"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00020-of-00064.parquet",
+        "sha256": "938e6ffcf290d7925df11239d67fc953791c361f1d3db37527fcb5468a371a95"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00021-of-00064.parquet",
+        "sha256": "38a5262c389a1b04cdebe2eaf7654c2c0a03e894e2a0b35e26a450682cf3651b"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00022-of-00064.parquet",
+        "sha256": "d8f0548f5e73166ff60535ba2f219d85ab96eba23dff659411ea2876a66bd058"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00023-of-00064.parquet",
+        "sha256": "661164ca586963621968df1ed20bb2f103ab4c5c4bd32c9a53ea020694b92ed3"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00024-of-00064.parquet",
+        "sha256": "d1042d40e62790e2e265e9986ee2e88359e2e294d0e3e7b31fa2b1562edc3cb4"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00025-of-00064.parquet",
+        "sha256": "d50e43d1c4523c72a1e578c0b5aeb0a52ad7da2fa2cca6184da9c359a68bbae8"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00026-of-00064.parquet",
+        "sha256": "993f12c563bb3ad4eb6c7313434227a6df316ebb763c56e242000613316b71f3"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00027-of-00064.parquet",
+        "sha256": "52df8a5db9e19df1b66c4db22bcffa27976c896db7f599a595e28359833bcd16"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00028-of-00064.parquet",
+        "sha256": "e2fcc0241110c215bb69291d5acc3a36cb963a4421547065341372989196d87e"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00029-of-00064.parquet",
+        "sha256": "33af174dbce679c11a11210e314c1da8bb0c905f352173d7a4f9c1e253752792"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00030-of-00064.parquet",
+        "sha256": "eebf8fa736b3d01a39ffdc527f237b97515508d1d0f891c37b4b7b66e881f8ad"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00031-of-00064.parquet",
+        "sha256": "173378335be37fecc53badf18b8d9e3751b36deca83192d656e46d283a0b790b"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00032-of-00064.parquet",
+        "sha256": "3908b3a7770116230dc9b33fb8cdedf7e2e201bddf91c85dd67d604ef042cbeb"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00033-of-00064.parquet",
+        "sha256": "59c396794e2a3beaf424cd38a300054f70e81f5241dabca1833d0ae8774a94bf"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00034-of-00064.parquet",
+        "sha256": "82b84eec9e9ef34dce9161c0309038b26ed44269a8bd1d0e0b03702cccfbbbe5"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00035-of-00064.parquet",
+        "sha256": "460fb500ce95a04c649a5defa26465fd202dac8be102c93ad008a4ff413c9125"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00036-of-00064.parquet",
+        "sha256": "210ed04eef3f67f69e8b33af70169ffa675ead7040fda5ff752dcfd53cb3f3c0"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00037-of-00064.parquet",
+        "sha256": "3f1f800ad82dbd58f76d8bf614132e021c0966cd474563458758f4f4ff8ef431"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00038-of-00064.parquet",
+        "sha256": "79ec06e3c4178bbe530bcf513787cf983c8194cd71ef68a059190d1e88cd09d8"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00039-of-00064.parquet",
+        "sha256": "2b893fdc56c818f601f100d4e7b4ee5183ab337b97e041f870ede9ff434b0d91"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00040-of-00064.parquet",
+        "sha256": "84eef483837d4d4cdf68512eac5b18eb8f2b19dc98c9518c31454fc96daa48a0"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00041-of-00064.parquet",
+        "sha256": "a80a637295c6ca4084d508615f68e40fa7d5d99653014a049132a4067b96a17f"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00042-of-00064.parquet",
+        "sha256": "209b4839e8324cd849e58355092d12884a32f049201aaa1fb5072d6ea8232afe"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00043-of-00064.parquet",
+        "sha256": "d6e5706cc53f79015065308877cedf33e82c17197cbf1be0b937c3a47270d391"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00044-of-00064.parquet",
+        "sha256": "aeb894d1d5c9fe7b7f92bc3a90d0bade32987846ec56ffccedf1588f8634f0b5"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00045-of-00064.parquet",
+        "sha256": "2c3e25eccc80c71af05c1c27a260fb25d5743169dbace5e3ecdd18e6b96c277e"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00046-of-00064.parquet",
+        "sha256": "2d0803166fa42fbe1237bbc36d7348c6ab210a2958684b6ad2b1a1e2fffb0960"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00047-of-00064.parquet",
+        "sha256": "072dd4aee4e5f09e647109b0155edeed9364417f891f64b60ae9453a8f57543f"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00048-of-00064.parquet",
+        "sha256": "d30c8f3681b94bb799d4c64feea211ef2e85a398f3cd0d7ae2802468653d0231"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00049-of-00064.parquet",
+        "sha256": "844b6c543e8493b8570fc83f5f152ebaa4a324f36f86ded5c8b22158242f5976"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00050-of-00064.parquet",
+        "sha256": "493e3155e54f0b43e350cbd732f2733949d9237b6e65025f473d8aec81bb631b"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00051-of-00064.parquet",
+        "sha256": "79e67c3d2bea7331f5c0d0def3aded21a2101852e26feddcda2f87491119e6d8"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00052-of-00064.parquet",
+        "sha256": "f43826fecf00f41cdf78f3c4d1b17bd80b8c816f5b53414ee2bf0fd51c55a0f0"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00053-of-00064.parquet",
+        "sha256": "e91ed59b94cab8cd1a763c6e768eca1fe52183c4029a9f81896836cf8df8332c"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00054-of-00064.parquet",
+        "sha256": "fbe428def745237f8c4d7c175ed07700bfd043018b4ffb72f52f6308e737b3e9"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00055-of-00064.parquet",
+        "sha256": "a097663e3e928e36c2713aedfa1b48c6784e6874ebd57570c1b591c9cf2a4247"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00056-of-00064.parquet",
+        "sha256": "e06d3ada6b375560cff610049221a23df5cd881cd8463d5b18841d09daf420c3"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00057-of-00064.parquet",
+        "sha256": "2c4652d889bfb0ae24464c05c9d77cd2cff4e69f8f6ade0062acc67eac35ab2f"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00058-of-00064.parquet",
+        "sha256": "2a66a63e3f1a431bc08b67cdd3a4e3bf74c21efadf5632df8a0179968bedc8cd"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00059-of-00064.parquet",
+        "sha256": "db590431963f0915340b87a00ef011e0c837b088b7b15e992bc22fb7c3b85c95"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00060-of-00064.parquet",
+        "sha256": "d8ee743cf9f6eaa336b99c50b556c6aea1fa34a8209bbd3220716444485aa27f"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00061-of-00064.parquet",
+        "sha256": "c78473e2f04cefe953ebe26c8d5fdee1b1a4b70c4b95a0210314304a9ba175e7"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00062-of-00064.parquet",
+        "sha256": "0ac3a1f547029023ddc36661cc334fd67c220b0863808d589f23bd9b724fefd3"
+      },
+      {
+        "repository": "HuggingFaceTB/finemath",
+        "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+        "file": "finemath-4plus/train-00063-of-00064.parquet",
+        "sha256": "ca21ff1b4127b1da10243f7e675f752c5c6cb9b6f7e57448ba01bb1a1824dfee"
+      }
+    ],
+    "code": [
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000001.json.gz",
+        "sha256": "3726a0239b5cb7d0ef3ea36886c533d0becc7404217763015559edb546d53c94"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000002.json.gz",
+        "sha256": "90a573501de640c3e0e6f1b3508306febc96faf6061bb33c67894c168a1879c6"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000003.json.gz",
+        "sha256": "ac36d12d37c1dc8ee8d3b8f0eae93966ae73482ef725615bb1a715802ddd4dd4"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000004.json.gz",
+        "sha256": "fae6b44a24c1c35f15053a19a6b2b2af5cc9fb8bdaf0da409068a2a1f333f28e"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000005.json.gz",
+        "sha256": "55b6989a41ae296337356153e6081c61484d0b6734b6905683823e7317d01c42"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000006.json.gz",
+        "sha256": "efe1759837b74b5b5ed3df1a09d4c880f9ad20413d958f79d35bf1cb6a2a09d4"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000007.json.gz",
+        "sha256": "5460223b92bb118814a7777a939f4005b7426a7e4a068c193c10d1b86eeb862b"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000008.json.gz",
+        "sha256": "15ac016e4cd702bb184457cbf5674d71b632fc34c29611ba4de549b85c67acfb"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000009.json.gz",
+        "sha256": "b6ce495492aedfc91b66efdfd214b2dfe44867c719d51590e1868e42f4e9b6dd"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000010.json.gz",
+        "sha256": "2a7e50bbdb90d6c4cec534c3f1dc7ec0e6a0dada15c07cfd94615940c632ce02"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000011.json.gz",
+        "sha256": "7431977a8e3a6eb0348b821009495f85d9373c1f730f4a74b0db43326568f77d"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000012.json.gz",
+        "sha256": "0f7a67cd83c1c069995f0f2510ebf818dcc71d9658f189de1231d2b7aac8883c"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000013.json.gz",
+        "sha256": "b68a74f9784402dcb311f4db72a873035e47b98b185a1813ab2c1645cb7255a2"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000014.json.gz",
+        "sha256": "9b1b8e52b9262f03f1719d3950dc8dfa2b9719dc2e273603023f6f329c1b2068"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000015.json.gz",
+        "sha256": "df0840d1657530c8fa9f82864be5999c515f54341d926c430a82528a6bb83740"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000016.json.gz",
+        "sha256": "ae45741df674456bc63bad91374d2ba5ef988d33d6e2a322ef0a5ac8af040371"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000017.json.gz",
+        "sha256": "a46b5c08d39691524b46fadf78eab5efefa29978edfee799ec3587d928dc1302"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000018.json.gz",
+        "sha256": "56803c607a19ccb576c90bdb10a02cfa7b3affc67dd150fa41b00cc22213b174"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000019.json.gz",
+        "sha256": "737327c2b47693e00050aa3410c5eb402c66211a79740ab57f1c763a1e557563"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000020.json.gz",
+        "sha256": "3ef240d0b394384803ae1bbe3b30974e11eb9b1b6ad4f49afc2ed0f7c9eae0d6"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000021.json.gz",
+        "sha256": "053944e1daead0b6de8e46ea2e0bc68b9247604c63a55d444ac3b9adb12e2cd2"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000022.json.gz",
+        "sha256": "14089cad26037080ee900bede2fd42d5cac70738b2e77402b36681e1d2a521f6"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000023.json.gz",
+        "sha256": "ace3ac440b380d604ab198cf8e838a2a375e7b0a6b5699ec74a8c79648f4bab8"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000024.json.gz",
+        "sha256": "2eaa21b832ed1496fb7f0b259666dbfc36ed483d81494d1e8705f9d601509c12"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000025.json.gz",
+        "sha256": "cd339656799518495d23aedf1503459be6d3086e22672e80edab8403d12ded1c"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000026.json.gz",
+        "sha256": "67f1ff0d590fbf4aa9afa161c290fe9be17538d4b723278bb21fd6408b0e6a3e"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000027.json.gz",
+        "sha256": "dcacb03d8f43f7879c5eab4422644d7b3797b47dbb0c9c84d88cbc85822d8306"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000028.json.gz",
+        "sha256": "32beb30e381ff02fb71854b5534306f395ef00f51f02b62da1f027c8c7fab26f"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000029.json.gz",
+        "sha256": "5d42ba9f195510757a3699005a7c43ddede4b598caf8a5f2f8c84d1125fa6324"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000030.json.gz",
+        "sha256": "d49f1929644619c39cff677367ff2e18223a8046ec8f61e224954a10aa2ccf8f"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000031.json.gz",
+        "sha256": "d0024828eece6d4d1c25cb4e539328be97fa28ce66a3b8d2374a117711cfd520"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000032.json.gz",
+        "sha256": "0bf3cd1320065c163f47a112458dc107650e3e862094b703b76073bd0b68663d"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000033.json.gz",
+        "sha256": "f162b06b5dca01aa85ef9a675d396c0fbab1d009b5bee1c5b7ea6b415c6f12a4"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000034.json.gz",
+        "sha256": "55c9c0b2f26de96e0311ee43e8eaa78ad1af387d0c59a26f22c5ebd507dda321"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000035.json.gz",
+        "sha256": "fb84ca8000808f62718994e4b44e79d88a05b345e9638d9f6cf6c8a5472da01f"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000036.json.gz",
+        "sha256": "eec1a9546aac0444a706c09f6aab67cd64403940657417e30212b7ff1e16665c"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000037.json.gz",
+        "sha256": "b4836655e350f0796acd2b1a206e657c2808d9f136afae095e0b94a790c704e1"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000038.json.gz",
+        "sha256": "f1a7a250e1f6164a7fb602131ff54b69deb305258792f2358075403769d58fe5"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000039.json.gz",
+        "sha256": "e6484a578778beccab26c8549608ec13970e6bcdb9541cdccad20f4d984e8181"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000040.json.gz",
+        "sha256": "128d56e09d9d741b2778d733e595838a50a5e82fdc9adbb0aa8645457716b97e"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000041.json.gz",
+        "sha256": "503872def2ac44733fbefc2602ab16224caca0896aa1eba045025ef2d60efcdc"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000042.json.gz",
+        "sha256": "5fd1bb56db810b65d1fd3866dc43d9c7b690c8f52b9ca8119b2a5f4c49d13eec"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000043.json.gz",
+        "sha256": "2f628d890bceee216f87edb3c45d2e384ee2501ce41a4c4169efaa3363bef1d2"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000044.json.gz",
+        "sha256": "175e7375d6f65993071aa653bdd4e8b117cc02d1d2353cd7bcdbaaf7fe8b3c9c"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000045.json.gz",
+        "sha256": "1796f12729d0407cc57500c9c87959e0e7becd729f37374702868ed8765015f4"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000046.json.gz",
+        "sha256": "e7a9ccbfe6bd92476f83eba205c47ed23732ace4c1bd7458d76d666ebbba3b1c"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000047.json.gz",
+        "sha256": "7c0ef87edb0e556939282c859c7c893a91b5b0f931394ca4cca4f4ec98a61951"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000048.json.gz",
+        "sha256": "604177fe5560efd99d93091fadab6293afe7cd7d12f81638c301de1c937c1583"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000049.json.gz",
+        "sha256": "5a5fbc19e0e76787f668ada7235203c10b0cbcdea0ecf8f873f8ec281cfe3494"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000050.json.gz",
+        "sha256": "4e392fcaae564652d234d07b4f71eeed90efe51b1b714831e39d77f3e537d3df"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000051.json.gz",
+        "sha256": "9f7e18a3980d4b3d5ed9469ab7a2d67b608e8aa6fff38d876f86719c8f2a7a82"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000052.json.gz",
+        "sha256": "860eda34e90456533e9dd41a5c0fdb74c54dc8d9cf43d6c60b887b2c858be831"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000053.json.gz",
+        "sha256": "cc58b22515c4fd7d891287ee717c2054290b20c17b1c34693fd8964ab730687b"
+      },
+      {
+        "repository": "codeparrot/codeparrot-clean",
+        "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+        "file": "file-000000000054.json.gz",
+        "sha256": "7f8c20a737c9084779bcdb853325ad4774d0db52c74aa2a63fd658d6787eb35b"
+      }
+    ]
+  },
+  "old_documents_reconstructed": 14700735,
+  "all_prior_raw_sketches_checked": true,
+  "candidate_count": 10800,
+  "rejected": {
+    "near_duplicate": 158,
+    "crowded_near_duplicate_bucket": 19
+  },
+  "dev_sha256": "05b515a69e15085b3fcc33df6d7ebd11a79b1ddb79656e7eff4288e73b9f369c",
+  "test_sha256": "04411b0fd84dd61a564951f31f59301e362c5c937c9b28554ea7ca40f9b60246",
+  "source_group_overlap_with_prior": 0,
+  "cross_role_source_group_overlap": 0,
+  "preparation_wall_seconds": 2690.420315027237,
+  "minimum_sampled_conservative_memory_margin_bytes": 34842845184,
+  "cpu_seconds": {
+    "parent_user": 1821.09828,
+    "parent_system": 321.050351,
+    "reaped_workers_user": 24650.706881,
+    "reaped_workers_system": 381.219306
+  },
+  "scope": "Natural-data-only fresh source-group reserve with the existing approximate near-duplicate rule and every-prior-ID coverage. Small candidate index replaces a corpus-sized Python sketch index. Independent SQL/provenance/raw-token audit remains required. No model/exit/LR selection, terminal registration, alpha spending or TEST scoring."
+}

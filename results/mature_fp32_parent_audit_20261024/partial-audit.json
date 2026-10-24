@@ -1,0 +1,48 @@
+{
+  "records": [
+    {
+      "identity": "mature-fixed-v1-ordinary-s103-u7680",
+      "arm": "ordinary",
+      "seed": 103,
+      "endpoint": "stable2B_parent",
+      "depth": 1,
+      "training_real_targets": 2009762680,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 766297.8098283482,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.0368032029720107
+          },
+          "code": {
+            "nll_sum": 354018.66684231226,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4102362891322415
+          },
+          "math": {
+            "nll_sum": 559472.8287875503,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.225623677440151
+          }
+        },
+        "weighted_nll": 2.549253915097685,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": -2.3055640043345704e-05,
+      "checkpoint_sha256": "04fc4d7e9dcdbc4e3940acb4b5a440e2936f9d0a689b62dc53e49d93dbcf03a9",
+      "full_state_serialized_digest": "4fde0a803ce124ce7dad828e7c64103245db63a0eba4951fcca2d6916e7fbaec",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 754750,
+      "active_seconds": 347.1056945323944
+    }
+  ],
+  "wall_seconds": 347.24653339385986
+}

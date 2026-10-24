@@ -10,6 +10,7 @@ import json
 import multiprocessing as mp
 import os
 import resource
+import shutil
 import sqlite3
 import subprocess
 import time
@@ -50,6 +51,74 @@ def indexed_batches(domain,paths):
             values=list(itertools.islice(reader,256))
             if values:yield domain,shard,start,values;following.append((shard,reader,start+len(values)))
         readers=following
+
+
+def sequential_batches(domain,paths):
+    """Bound live Parquet row-group buffers; preserve each source row locator."""
+    import gc
+    import itertools
+    import pyarrow as pa
+    for shard,path in enumerate(paths):
+        reader=iter(rows(path));start=0
+        try:
+            while True:
+                values=list(itertools.islice(reader,256))
+                if not values:break
+                yield domain,shard,start,values
+                start+=len(values)
+        finally:
+            close=getattr(reader,'close',None)
+            if close:close()
+            gc.collect()
+            pa.default_memory_pool().release_unused()
+
+
+POOL_FILES={'private-candidate-pool.json','pool-signatures.npy','pool-sketches.npy','pool-sketch-lengths.npy'}
+
+
+def restore_candidate_pool(origin,expected,plan,output,protected_groups):
+    """Reuse a hashed pre-score pool; never reuse partial rejection/coverage state."""
+    if set(expected['files'])!=POOL_FILES:raise ValueError('Frozen pool file set differs')
+    if file_sha256(origin/'plan.json')!=expected['plan_sha256']:raise AssertionError('Origin plan changed')
+    old=json.loads((origin/'plan.json').read_text())
+    for key in ['generation_manifest_sha256','prior_database_sha256','protected_panel_sha256',
+                'tokenizer_sha256','selection','real_target_quota_per_domain_role',
+                'minimum_groups_per_domain_role','near_duplicate_rule']:
+        if old[key]!=plan[key]:raise AssertionError('Frozen pool inputs/rule changed: '+key)
+    for name,sha in old['source_sha256'].items():
+        if name!='scripts/prepare_confirmation_reserve.py' and plan['source_sha256'].get(name)!=sha:
+            raise AssertionError('Frozen pool selection helper changed: '+name)
+    if file_sha256(origin/'raw-source-map.json')!=expected['raw_source_map_sha256'] or file_sha256(output/'raw-source-map.json')!=expected['raw_source_map_sha256']:
+        raise AssertionError('Frozen raw source map changed')
+    actual_index={p.name for p in (output/'index').glob('*.npy') if p.name.startswith(('ids-','domains-'))}
+    if actual_index!=set(expected['prior_index_files']):raise AssertionError('Prior ID index set changed')
+    for name,sha in expected['prior_index_files'].items():
+        if Path(name).name!=name or file_sha256(origin/'index'/name)!=sha or file_sha256(output/'index'/name)!=sha:
+            raise AssertionError('Prior ID index changed')
+    for name,sha in expected['files'].items():
+        if file_sha256(origin/name)!=sha:raise AssertionError('Frozen candidate pool changed: '+name)
+        shutil.copyfile(origin/name,output/name)
+        if file_sha256(output/name)!=sha:raise AssertionError('Candidate pool copy differs')
+    pool=json.loads((output/'private-candidate-pool.json').read_text())
+    signatures=np.load(output/'pool-signatures.npy',mmap_mode='r')
+    padded=np.load(output/'pool-sketches.npy',mmap_mode='r')
+    lengths=np.load(output/'pool-sketch-lengths.npy',mmap_mode='r')
+    if signatures.shape!=(len(pool),32) or signatures.dtype!=np.uint64 or padded.shape!=(len(pool),256) or padded.dtype!=np.uint64 or lengths.shape!=(len(pool),) or lengths.dtype!=np.int16:
+        raise ValueError('Frozen pool array shape/dtype differs')
+    if np.any(lengths<1) or np.any(lengths>256):raise ValueError('Invalid frozen sketch lengths')
+    ids=[d['id'] for d in pool]
+    if ids!=sorted(set(ids)):raise ValueError('Frozen pool identities not unique/sorted')
+    counts=Counter()
+    for d in pool:
+        if d['domain'] not in DOMAINS or d['role']!=panel_role(d['group']) or d['group'] in protected_groups:
+            raise ValueError('Frozen pool domain/role/group differs')
+        if len(d['id'])!=64 or len(d['group'])!=64 or not d['tokens'] or any(not isinstance(t,int) or not 0<=t<32000 for t in d['tokens']):
+            raise ValueError('Frozen candidate content encoding differs')
+        key=(d['domain'],d['role'],d['group']);counts[key]+=1
+        if counts[key]>2:raise ValueError('Frozen pool source-group cap differs')
+    arrays=[np.load(p,mmap_mode='r') for p in sorted((output/'index').glob('ids-*.npy'))]
+    if np.any(locate_hashes(arrays,ids)[0]>=0):raise AssertionError('Frozen candidate overlaps prior accepted IDs')
+    return pool,signatures,[padded[i,:int(n)] for i,n in enumerate(lengths)]
 
 
 def candidates(batch):
@@ -121,13 +190,13 @@ def run(a):
     def margin():
         available=int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')))*1024
         return available-512*1024**3-max(0,limit-int((memory/'memory.current').read_text()))
-    minimum_margin=margin()
+    minimum_margin=margin();a.minimum_sampled_margin=minimum_margin
     if minimum_margin<(8+1.5*a.workers)*1024**3:raise RuntimeError('Insufficient conservative CPU-work memory allowance')
     def guard():
         nonlocal minimum_margin
         reserve(a.output)
         if time.time()>a.deadline_unix:raise TimeoutError('Fresh data reserve deadline')
-        latest=margin();minimum_margin=min(minimum_margin,latest)
+        latest=margin();minimum_margin=min(minimum_margin,latest);a.minimum_sampled_margin=minimum_margin
         if latest<4*1024**3:raise RuntimeError('Fresh data preparation must yield the native memory allowance')
     tokenizer=Path('/run/user/1000/autonomous-compute/data-v1/tokenizer.json')
     protected=[a.heldout/'dev.json',a.heldout/'test-sealed.json']
@@ -143,6 +212,10 @@ def run(a):
         'real_target_quota_per_domain_role':250000,'minimum_groups_per_domain_role':100,
         'near_duplicate_rule':'Same32 minhash/8x4 bands, bottom256 Jaccard0.8 and distinct-prior-neighbor cutoff256. Inverted small candidate index, mapped accepted IDs and boolean reconstruction coverage.',
         'terminal_attempt_registered':False,'test_scored':False}
+    if a.resume_pool:
+        expected=json.loads(a.resume_pool_hashes.read_text())
+        plan['frozen_pool_reference']={'manifest_sha256':file_sha256(a.resume_pool_hashes),**expected}
+    plan['prior_scan_order']='One raw Parquet reader at a time; every result consumed. Candidate selection order unchanged or exact frozen pool reused.'
     write_state(a.output/'plan.json',plan);guard();index=a.output/'index';index.mkdir();groups=set()
     for number,path in enumerate(databases):
         db=sqlite3.connect(f'file:{path}?mode=ro',uri=True);count=db.execute('select count(*) from documents').fetchone()[0]
@@ -163,39 +236,45 @@ def run(a):
         for domain in DOMAINS for path,receipt in zip(paths[domain],receipts[domain])])
     print(json.dumps({'event':'mapped_prior_indices_ready','old_documents':sum(len(x) for x in arrays)+len(extra_rows),
         'protected_groups':len(groups),'seconds':time.time()-started}),flush=True)
-    pools=defaultdict(list);group_counts=Counter();seen=set()
-    with cf.ProcessPoolExecutor(a.workers,mp_context=mp.get_context('spawn'),initializer=collect_init,
-            initargs=(str(a.output),str(tokenizer),groups)) as executor:
-        for domain in DOMAINS:
-            for batch in bounded_map(executor,candidates,indexed_batches(domain,paths[domain]),a.workers*2):
-                guard()
-                for doc in batch:
-                    key=(domain,doc['role']);group_key=(*key,doc['group'])
-                    if len(pools[key])>=1200 or group_counts[group_key]>=2 or doc['id'] in seen:continue
-                    pools[key].append(doc);group_counts[group_key]+=1;seen.add(doc['id'])
-                if all(len(pools[domain,role])>=1200 for role in ROLES):break
-            if any(sum(len(d['tokens']) for d in pools[domain,role])<250000 or len({d['group'] for d in pools[domain,role]})<100 for role in ROLES):
-                raise ValueError('Insufficient raw fresh candidate pool: '+domain)
-    pool=sorted([d for values in pools.values() for d in values],key=lambda d:d['id']);del pools
-    signatures=np.stack([d.pop('signature') for d in pool]);sketches=[d.pop('sketch') for d in pool]
-    np.save(a.output/'pool-signatures.npy',signatures)
-    padded=np.full((len(pool),256),np.iinfo(np.uint64).max,dtype=np.uint64)
-    for i,sketch in enumerate(sketches):padded[i,:len(sketch)]=sketch
-    np.save(a.output/'pool-sketches.npy',padded);np.save(a.output/'pool-sketch-lengths.npy',np.asarray(list(map(len,sketches)),dtype=np.int16))
-    write_state(a.output/'private-candidate-pool.json',pool)
+    if a.resume_pool:
+        pool,signatures,sketches=restore_candidate_pool(a.resume_pool,expected,plan,a.output,groups)
+    else:
+        pools=defaultdict(list);group_counts=Counter();seen=set()
+        with cf.ProcessPoolExecutor(a.workers,mp_context=mp.get_context('spawn'),initializer=collect_init,
+                initargs=(str(a.output),str(tokenizer),groups)) as executor:
+            for domain in DOMAINS:
+                for batch in bounded_map(executor,candidates,indexed_batches(domain,paths[domain]),a.workers*2):
+                    guard()
+                    for doc in batch:
+                        key=(domain,doc['role']);group_key=(*key,doc['group'])
+                        if len(pools[key])>=1200 or group_counts[group_key]>=2 or doc['id'] in seen:continue
+                        pools[key].append(doc);group_counts[group_key]+=1;seen.add(doc['id'])
+                    if all(len(pools[domain,role])>=1200 for role in ROLES):break
+                if any(sum(len(d['tokens']) for d in pools[domain,role])<250000 or len({d['group'] for d in pools[domain,role]})<100 for role in ROLES):
+                    raise ValueError('Insufficient raw fresh candidate pool: '+domain)
+        pool=sorted([d for values in pools.values() for d in values],key=lambda d:d['id']);del pools
+        signatures=np.stack([d.pop('signature') for d in pool]);sketches=[d.pop('sketch') for d in pool]
+        np.save(a.output/'pool-signatures.npy',signatures)
+        padded=np.full((len(pool),256),np.iinfo(np.uint64).max,dtype=np.uint64)
+        for i,sketch in enumerate(sketches):padded[i,:len(sketch)]=sketch
+        np.save(a.output/'pool-sketches.npy',padded);np.save(a.output/'pool-sketch-lengths.npy',np.asarray(list(map(len,sketches)),dtype=np.int16))
+        write_state(a.output/'private-candidate-pool.json',pool)
     rejected=np.lib.format.open_memmap(a.output/'pool-rejected.npy',mode='w+',dtype=bool,shape=(len(pool),));rejected[:]=False;rejected.flush()
     prior=PriorNeighborhoods(len(pool));found=[np.load(p,mmap_mode='r') for p in sorted(index.glob('found-*.npy'))]
     labels=[np.load(p,mmap_mode='r') for p in sorted(index.glob('domains-*.npy'))]
     print(json.dumps({'event':'candidate_pool_frozen','candidates':len(pool),'pool_sha256':file_sha256(a.output/'private-candidate-pool.json'),'seconds':time.time()-started}),flush=True)
     with cf.ProcessPoolExecutor(a.workers,mp_context=mp.get_context('spawn'),initializer=scan_init,initargs=(str(a.output),)) as executor:
         for domain in DOMAINS:
-            for iteration,batch in enumerate(bounded_map(executor,scan_old,indexed_batches(domain,paths[domain]),a.workers*2)):
+            for iteration,batch in enumerate(bounded_map(executor,scan_old,sequential_batches(domain,paths[domain]),a.workers*2)):
                 guard()
                 for candidate,gen,where,near in batch['hits']:
                     prior.observe(candidate,(gen,where),near)
                     if prior.reason(candidate):rejected[candidate]=True
                 # Consume every submitted result before trusting shared coverage.
                 # A worker may set its bitmap before its neighbor hits reach us.
+                if (iteration+1)%500==0:
+                    print(json.dumps({'event':'prior_scan_progress','domain':domain,'batches':iteration+1,
+                        'seconds':time.time()-started,'minimum_sampled_conservative_memory_margin_bytes':a.minimum_sampled_margin}),flush=True)
             if not all(np.all(f[d==DOMAINS.index(domain)+1]) for f,d in zip(found,labels)):
                 raise ValueError('Prior raw near-duplicate reconstruction incomplete: '+domain)
             print(json.dumps({'event':'prior_reconstruction_complete','domain':domain,'found':sum(int(f.sum()) for f in found),
@@ -241,13 +320,21 @@ def run(a):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--generations',nargs='+',type=Path,required=True)
     p.add_argument('--heldout',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--resume-pool',type=Path);p.add_argument('--resume-pool-hashes',type=Path)
     p.add_argument('--workers',type=int,default=8);p.add_argument('--deadline-unix',type=float,required=True);a=p.parse_args()
     if not 1<=a.workers<=12 or not time.time()+600<a.deadline_unix<=time.time()+7200:raise ValueError('Bounded8-worker/2-hour preparation required')
+    if bool(a.resume_pool)!=bool(a.resume_pool_hashes):raise ValueError('Frozen pool reuse needs its independent input-hash manifest')
     if Path.cwd().resolve() in a.output.resolve().parents:raise ValueError('Private data must remain outside Git')
     a.output.mkdir(mode=0o700,exist_ok=False);started=time.time();os.nice(10)
     try:run(a)
     except BaseException as error:
-        write_state(a.output/'failure.json',{'status':'STOPPED_FRESH_RESERVE_PREPARATION','error':repr(error),'wall_seconds':time.time()-started});raise
+        write_state(a.output/'failure.json',{'status':'STOPPED_FRESH_RESERVE_PREPARATION','error':repr(error),'wall_seconds':time.time()-started,
+            'minimum_sampled_conservative_memory_margin_bytes':getattr(a,'minimum_sampled_margin',None),
+            'peak_parent_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
+            'cpu_seconds':{'parent_user':resource.getrusage(resource.RUSAGE_SELF).ru_utime,
+                'parent_system':resource.getrusage(resource.RUSAGE_SELF).ru_stime,
+                'reaped_workers_user':resource.getrusage(resource.RUSAGE_CHILDREN).ru_utime,
+                'reaped_workers_system':resource.getrusage(resource.RUSAGE_CHILDREN).ru_stime}});raise
 
 
 if __name__=='__main__':main()

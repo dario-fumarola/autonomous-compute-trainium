@@ -1,0 +1,29 @@
+{
+  "identity": "fresh-confirmation-reserve-v3",
+  "registered_unix": 1792826001.6030107,
+  "purpose": "DATA_ONLY_NO_MODEL_SCORING",
+  "workers": 12,
+  "preparation_deadline_unix": 1792832601.6030114,
+  "audit_deadline_unix": 1792833501.6030123,
+  "native_chips_assigned": 0,
+  "synthetic_generation": false,
+  "preflight_conservative_memory_margin_gib": 39.570770263671875,
+  "source_sha256": {
+    "scripts/prepare_confirmation_reserve.py": "97be2e81c372ba7985fd9454759727a9ea9fb5354aaca7ae7dfa3125f5ad118e",
+    "scripts/audit_confirmation_reserve.py": "8be9073d3908c1a0f285be14050b32e7697ee37928b6e85bb473e662a8a8ceee",
+    "compute_trainium/heldout_screen.py": "fdf5ce4c54e666371a40582d15a7dbdffc8a8047357d55d2e6f3375098b9bbbd",
+    "scripts/prepare_chained_extension.py": "4f498882a94c1091ccff734d767444b38c500273450093cb19028b70f5450ed6",
+    "scripts/prepare_learning_corpus.py": "6f2f43a38a040939d08d61411ee6fd30c196d6750f6030266fed0765d89f199f",
+    "scripts/prepare_natural.py": "b7bc340b26689250ccfbc70b51740ec2c752b91568135988a354a19b85f356ef",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20",
+    "compute_trainium/corpus_audit.py": "7e132c5d3aa7535e593175e4ce2377d0eff040db39cba64ff4d055ac763dc532"
+  },
+  "frozen_pool_reference_sha256": "662deaded9e18aeb3fa03ab51a34a874b5789354575dd4ae1cca3d15c9f41f10",
+  "reused_pool": "Exactly the10800 candidates frozen at283.24s in failedv2, pinned by its pre-score12823a65... hash; unchanged token arrays/signatures/sketches/selection inputs.",
+  "prior_scan": "One Parquet reader at a time, with reader close and Arrow allocator release at file boundaries. Rebuild all14,700,735 prior-ID coverage bits and rejected flags from zero; consume all submitted results. No duplicate-filter relaxation.",
+  "gates": "Same source filters, exclusions, deterministic role hashes,250k targets and100 groups per domain/role,max2 docs/group; independent SQL/raw-row/full-token/coverage audit required.",
+  "numerical_software_tests": "92 CPU tests PASS19.21s; cover reader lifetime/row locators, pinned pool reuse/tamper rejection, and order-invariant duplicate acceptance.",
+  "active_scientific_source_freeze": "All saved mature-fp32-v1 source hashes checked unchanged; data driver and new tests are outside that freeze.",
+  "memory_policy": "Keep512GiB host MemAvailable plus entire remaining320GiB native-container allowance and35GiB disk.12worker preflight26GiB extra; yield below4GiB.",
+  "scope": "Separate CPU natural holdout reserve, no native model change, terminal attempt, alpha spending or TEST score. Preserve both failed predecessors. Benchmark results are read-only resource fixtures, not research examples."
+}

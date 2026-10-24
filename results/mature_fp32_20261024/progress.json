@@ -1,0 +1,79 @@
+{
+  "rows": [
+    {
+      "arm": "ordinary",
+      "seed": 103,
+      "update": 8448,
+      "real_targets": 2210737866,
+      "phase": "stable",
+      "native_fp32_metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 760028.0158309937,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.01195629587018
+          },
+          "code": {
+            "nll_sum": 348682.7667770386,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3889806870637105
+          },
+          "math": {
+            "nll_sum": 555384.424369812,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2093597067755013
+          }
+        },
+        "weighted_nll": 2.52684185628995,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "independent_cpu_audit": "pending; primary once completed"
+    },
+    {
+      "arm": "fixed",
+      "seed": 103,
+      "update": 8448,
+      "real_targets": 2210737866,
+      "phase": "stable",
+      "native_fp32_metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 751735.6136550903,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.979093884983535
+          },
+          "code": {
+            "nll_sum": 344687.4991378784,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3730655053593261
+          },
+          "math": {
+            "nll_sum": 548911.11581707,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.1836084136920095
+          }
+        },
+        "weighted_nll": 2.498791114800388,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "independent_cpu_audit": "pending; primary once completed"
+    }
+  ],
+  "scope": "One existing paired seed, BF16 history below2B then qualified FP32. DEV only. No new confirmation, exact future-bit or compute-efficiency claim."
+}

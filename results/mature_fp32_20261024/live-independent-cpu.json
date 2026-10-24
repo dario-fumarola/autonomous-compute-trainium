@@ -1,0 +1,95 @@
+{
+  "status": "PARTIAL_COMPLETED_AUDIT_ROWS",
+  "observed_unix": 1792828760.277374,
+  "records": [
+    {
+      "identity": "mature-fp32-v1-ordinary-s103-u8448",
+      "arm": "ordinary",
+      "seed": 103,
+      "endpoint": "stable",
+      "depth": 1,
+      "training_real_targets": 2210737866,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 760028.1922739452,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.011956995105534
+          },
+          "code": {
+            "nll_sum": 348683.00810189924,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3889816483832902
+          },
+          "math": {
+            "nll_sum": 555384.6421206271,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2093605730041097
+          }
+        },
+        "weighted_nll": 2.5268426413408003,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": 7.850508501050513e-07,
+      "checkpoint_sha256": "50f6e21c8af6126c7c8014322ae1325bad2fae33b64cf776168ed97a6556c099",
+      "full_state_serialized_digest": "20f68e047fac7ed64d95e5c16db74ddb55ce551018566886410fab63f99b981d",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 754750,
+      "active_seconds": 282.7842733860016
+    },
+    {
+      "identity": "mature-fp32-v1-fixed-s103-u8448",
+      "arm": "fixed",
+      "seed": 103,
+      "endpoint": "stable",
+      "depth": 2,
+      "training_real_targets": 2210737866,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 751735.8004909606,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.9790946254055513
+          },
+          "code": {
+            "nll_sum": 344687.73551497934,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3730664469694638
+          },
+          "math": {
+            "nll_sum": 548911.3363191305,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.1836092908652724
+          }
+        },
+        "weighted_nll": 2.498791922810278,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "cpu_minus_native_nll": 8.080098901075417e-07,
+      "checkpoint_sha256": "54c765b036134650f0fe9ace8dfed61699a529128a282c04b58417d61c03b139",
+      "full_state_serialized_digest": "cf4823e1b6a32005acab771787f7bc9670bc2e9986ef2d74e696d4f8c40ed5b1",
+      "copy_checksum_and_full_state_readback": true,
+      "targets": 754750,
+      "active_seconds": 555.1501698493958
+    }
+  ],
+  "expected_records": 6,
+  "private_progress_sha256": "e2541b274b7c72b1c09b29ad67b697dba5af3c5878484c14b51d3e2a133d6730",
+  "scope": "Read-only copy of completed whole-DEV independent FP32 scores and full-state serialized recovery checks. No new fit, source change or TEST. Official campaign closure remains separate."
+}

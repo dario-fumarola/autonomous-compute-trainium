@@ -1,0 +1,64 @@
+{
+  "identity": "fresh-confirmation-reserve-v1",
+  "purpose": "DATA_ONLY_NO_MODEL_SELECTION_OR_SCORING",
+  "registered_unix": 1792826002.899744,
+  "deadline_unix": 1792832601.6030114,
+  "workers": 12,
+  "synthetic_generation": false,
+  "generation_manifest_sha256": [
+    "454f4730dfb6aa752ae241a5dc33404728c8e577e94b2ea8f1634ef639206af9",
+    "a4b9aa1fdf2570d38b2f24743d5c907724b8db8dd0847251d101f59f499b7d52",
+    "61dac8f7d6c3df53041ea194e7732d5db7a9d50324bd406f8bc5475f570feae1",
+    "a0a521bbceb5e01a9daeb74f3ec3672d1f5aceb856af53d6967df8799cd9b733"
+  ],
+  "prior_database_sha256": [
+    "99a32bf7bbcec496db4ca581ac024653f80186a19e4a7ad14a00882dc1335911",
+    "6f11de3a7c16df42897b1de0d2bde26de0b40477e2cd677b62cf98a8c621c5e4",
+    "2f91b555ea7003462e6051461993a4bbbf684f8cb1f48acbaee5593fa5b3cfcb",
+    "d651ea3855a99a606392986c94120dca80f39d8094d3c4f2fdc8fcfee76081ce"
+  ],
+  "protected_panel_sha256": [
+    "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+    "3cbcc34976752ff61906a89fd441b60c861967eabfdd3f08f39f6fe6a00d3670"
+  ],
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "source_sha256": {
+    "scripts/prepare_confirmation_reserve.py": "97be2e81c372ba7985fd9454759727a9ea9fb5354aaca7ae7dfa3125f5ad118e",
+    "compute_trainium/heldout_screen.py": "fdf5ce4c54e666371a40582d15a7dbdffc8a8047357d55d2e6f3375098b9bbbd",
+    "scripts/prepare_chained_extension.py": "4f498882a94c1091ccff734d767444b38c500273450093cb19028b70f5450ed6",
+    "scripts/prepare_learning_corpus.py": "6f2f43a38a040939d08d61411ee6fd30c196d6750f6030266fed0765d89f199f",
+    "scripts/prepare_natural.py": "b7bc340b26689250ccfbc70b51740ec2c752b91568135988a354a19b85f356ef",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20",
+    "compute_trainium/corpus_audit.py": "7e132c5d3aa7535e593175e4ce2377d0eff040db39cba64ff4d055ac763dc532"
+  },
+  "selection": "Unused global natural-v1 heldout groups, exclude all prior accepted IDs and protected groups; content hash mod8=0; confirmation-reserve-v1 group hash assigns tune/curve/test; at most2 documents/group/domain/role. Keep up to1200 candidates/domain/role in raw receipt/interleaved-row order, then admit in content-hash order.",
+  "real_target_quota_per_domain_role": 250000,
+  "minimum_groups_per_domain_role": 100,
+  "near_duplicate_rule": "Same32 minhash/8x4 bands, bottom256 Jaccard0.8 and distinct-prior-neighbor cutoff256. Inverted small candidate index, mapped accepted IDs and boolean reconstruction coverage.",
+  "terminal_attempt_registered": false,
+  "test_scored": false,
+  "frozen_pool_reference": {
+    "manifest_sha256": "662deaded9e18aeb3fa03ab51a34a874b5789354575dd4ae1cca3d15c9f41f10",
+    "plan_sha256": "36295b068fbe55d08e12e429b964186f9c565e64eea781986aa5a6002338983a",
+    "raw_source_map_sha256": "6467ba48481d6b55e5993002e2ec73a5ce8e9824293e89ff06516811e2f16ea0",
+    "files": {
+      "pool-signatures.npy": "f87b48112ed2e3c25ffbdb31c8e83573a376c7229da5aa4d75e592bff4b5d7a7",
+      "pool-sketch-lengths.npy": "58d17f4c6692729b68c5b75954719840a4d129c91c439ff6cafa206b4145f14e",
+      "pool-sketches.npy": "3bd3e98e596183b01a609ee77d22da9115aad7a76133e35f42baffe98743ada5",
+      "private-candidate-pool.json": "12823a65f1fb539bfdce3e78e829c27616cc67eb5518512058e61a259554e56e"
+    },
+    "prior_index_files": {
+      "domains-00.npy": "73f6d926b91da3a12e89c5f0e0ba99f433de81e918e891ed2fa2ec090810a5c4",
+      "domains-01.npy": "783d9993b2d03737592d934f1881b4a2afb4a99ef7ce120a52903eff51fe0310",
+      "domains-02.npy": "7727d63b1aee4cb1a78d6a5eacd6dc570d40d9c3ef309e121d520c89da875422",
+      "domains-03.npy": "7a91c5981dedc5b298088171894f53e13f18e16f6ac6012f74b5e48db883a050",
+      "domains-04.npy": "e0d860ef782c2ab65485353f9f0fbdd54d4254d514b0dba57bc3fc46a556db4e",
+      "ids-00.npy": "f9c23ed747f4c4e78aebc02bf4759d112cead48c0960e084277201eeb636d677",
+      "ids-01.npy": "6eaa8be1ef224c34bf0872fbfc04e1e6dc6376db12b8fcc4a33e2ef07fdb8630",
+      "ids-02.npy": "407f360af2a2f7dd18710acf7f9f3e7c48a8615f5d604565356c9408f5730a2c",
+      "ids-03.npy": "50b281314695926a53d6afa3c6bf395e78eb3477f5e025f4b816528597bb8ed2",
+      "ids-04.npy": "580047e1d0485bc37fc18bdcd2c01c9c78929de269ea1aa61ad5ec96b32bfd5a"
+    }
+  },
+  "prior_scan_order": "One raw Parquet reader at a time; every result consumed. Candidate selection order unchanged or exact frozen pool reused."
+}

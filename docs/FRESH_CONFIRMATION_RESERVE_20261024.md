@@ -43,3 +43,35 @@ Only source receipts, code hashes, counts, qualification and cost aggregates
 are public. Reserved TEST receives no model scores until a future candidate,
 controls, fresh seeds, sample size and analysis have been registered. This
 data job neither claims a positive result nor substitutes for that experiment.
+
+## Memory repair, executionv3
+
+Executionv2 stopped at its extra conservative memory guard during prior-raw
+screening. Its pre-score10800-candidate pool had already been frozen. The
+original pool hash, source-input plan, token/sketch arrays and prior-ID index
+hashes are pinned in the [v3 reference manifest](../results/fresh_confirmation_reserve_20261024/v3/frozen-pool-reference.json).
+The new execution reuses those exact candidates, rebuilds prior-ID indices,
+and starts **new zeroed coverage/rejection maps**. No partial rejection state
+or uncollected neighbor results are trusted.
+
+The prior scan now keeps one Parquet reader open at a time and releases Arrow
+allocator buffers at file boundaries. Candidate collection retains its
+original interleaved order when used; this repair does not reselect the frozen
+pool. Early skipping occurs only after definitive rejection. All non-rejected
+candidates retain every old neighbor, and final admission remains in fixed
+content-hash order. Changing the prior scan order therefore preserves the
+acceptance rule; rejection-reason bookkeeping need not have identical order.
+
+The [read-only resource probe](../scripts/profile_reader_memory.py) on the
+first256 rows of the same16 pinned web files measured about853MiB RSS growth
+with readers retained versus37MiB with sequential close/release. This is a
+bounded resource measurement, not a full-corpus peak-memory guarantee.
+Numerical CPU tests cover reader lifetime/row coordinates, pinned-pool tamper
+rejection and order-invariant admission. The92-test suite passes.
+
+Executionv3 uses12 low-priority CPU workers with26GiB conservative startup
+allowance, yielding below4GiB while retaining the512GiB host reserve and the
+remaining native-container allowance. Every prior raw identity is screened
+again. The independent SQL, coverage and raw-row/full-token audit is unchanged
+and remains required. [Registration](../results/fresh_confirmation_reserve_20261024/v3/registration.json).
+No model has scored these new panels and no terminal alpha has been spent.

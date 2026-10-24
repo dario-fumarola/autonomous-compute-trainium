@@ -1,0 +1,28 @@
+{
+  "identity": "mature-fp32-parent-independent-audit-v1",
+  "registered_unix": 1792826990.895731,
+  "deadline_unix": 1792828790.8957312,
+  "models": [
+    {
+      "identity": "mature-fixed-v1-ordinary-s103-u7680",
+      "arm": "ordinary",
+      "seed": 103,
+      "endpoint": "stable2B_parent"
+    },
+    {
+      "identity": "mature-fixed-v1-fixed-s103-u7680",
+      "arm": "fixed",
+      "seed": 103,
+      "endpoint": "stable2B_parent"
+    }
+  ],
+  "parent_sha256": {
+    "ordinary": "04fc4d7e9dcdbc4e3940acb4b5a440e2936f9d0a689b62dc53e49d93dbcf03a9",
+    "fixed": "77912d5ed69f7a11bd35b126cdec9a160e7ec7846eab67658c5fa0fccd17b539"
+  },
+  "source_sha256": {
+    "scripts/audit_variable_depth.py": "cb6477c176416277ac41062a1b40b955533134048692a01e09148d6036e66dac",
+    "compute_trainium/independent.py": "5af9cdc179369e57c193ed91398b7c4d0ef6f9201e1bba543bae105860c379ba"
+  },
+  "scope": "Read-only independent FP32 whole existing DEV and serialized optimizer/model copy audit of the2B parents. Anchors the new learning curve without treating old BF16 readout as its independent FP32 anchor. No optimizer update, new hypothesis endpoint, TEST or fresh-panel score."
+}
