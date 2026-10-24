@@ -131,11 +131,13 @@ def main():
             def result(path):return json.loads(path.read_text()) if path.exists() else None
             state=prerequisite_state(result(a.campaign/'report.json'),result(a.annex/'report.json'))
             if state.startswith('STOP_'):
-                write_state(a.output/'report.json',{'status':'UNEXECUTED_'+state,'launched':[]});return
+                report={'status':'UNEXECUTED_'+state,'launched':[],'execution_costs':costs()}
+                write_state(a.output/'report.json',report);write_state(public/'report.json',report);return
             monitor=result(a.campaign/'liveness.json')
             if state=='READY' and monitor and monitor['status']=='CAMPAIGN_CLOSED' and not live_native_workers():break
             if time.time()>wait_deadline:
-                write_state(a.output/'report.json',{'status':'UNEXECUTED_WAIT_DEADLINE','launched':[]});return
+                report={'status':'UNEXECUTED_WAIT_DEADLINE','launched':[],'execution_costs':costs()}
+                write_state(a.output/'report.json',report);write_state(public/'report.json',report);return
             write_state(a.output/'state.json',{'status':'WAITING_FOR_SCIENCE_AND_ANNEX','checked_unix':time.time()})
             time.sleep(10)
         frozen();execution_started=time.time();deadline=execution_started+2100

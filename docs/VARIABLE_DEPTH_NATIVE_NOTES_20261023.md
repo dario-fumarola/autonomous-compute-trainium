@@ -161,4 +161,3 @@ into a larger per-rank budget. The larger local batch must pass the actual
 qualification. Four concurrent four-chip jobs have not been qualified.
 [AWS training layout guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/training/best-practices.html) ·
 [LNC architecture](https://awsdocs-neuron.readthedocs-hosted.com/en/v2.32.0/about-neuron/arch/neuron-features/logical-neuroncore-config.html).
-
