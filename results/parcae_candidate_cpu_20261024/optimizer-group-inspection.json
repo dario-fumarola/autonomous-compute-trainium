@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETE_PINNED_RELEASE_GROUP_INSPECTION",
+  "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+  "upstream_path": "recpre/optim/muon_adamw.py",
+  "upstream_source_sha256": "c01b2c54a65e0102b5fa546ae9e8423194daa549619454438b3c9ae38d41a053",
+  "groups": [
+    {
+      "kind": "adamw",
+      "parameter_count": 101855232,
+      "gates": []
+    },
+    {
+      "kind": "muon",
+      "parameter_count": 14155776,
+      "gates": []
+    },
+    {
+      "kind": "muon",
+      "parameter_count": 14155776,
+      "gates": []
+    },
+    {
+      "kind": "muon",
+      "parameter_count": 14155776,
+      "gates": []
+    },
+    {
+      "kind": "muon",
+      "parameter_count": 576,
+      "gates": [
+        "transformer.prelude.1.attn.ve_gate.weight",
+        "transformer.core_block.1.attn.ve_gate.weight",
+        "transformer.coda.1.attn.ve_gate.weight"
+      ]
+    }
+  ],
+  "observation": "Released grouping assigns ve_gate matrices to Muon, while paper table20 lists them under AdamW. This is a reproduction choice, not evidence that either historical result is wrong. No optimizer adopted or executed.",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false
+}

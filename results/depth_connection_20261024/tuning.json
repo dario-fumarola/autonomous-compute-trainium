@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr0-s11",
+      "evaluation_identity": "depth-connection-v1-fixed-tune-lr0-s11-tune-r2",
+      "arm": "fixed",
+      "seed": 11,
+      "endpoint": "tune301M",
+      "lr": 0.0003,
+      "metrics": {
+        "domains": {
+          "math": {
+            "nll_sum": 680721.2154655457,
+            "real_targets": 252312,
+            "documents": 176,
+            "nll": 2.6979343648559944
+          },
+          "web": {
+            "nll_sum": 923560.8061714172,
+            "real_targets": 257141,
+            "documents": 251,
+            "nll": 3.5916512970371013
+          },
+          "code": {
+            "nll_sum": 472980.847032547,
+            "real_targets": 250020,
+            "documents": 129,
+            "nll": 1.8917720463664787
+          }
+        },
+        "weighted_nll": 3.0729320604667554,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      }
+    }
+  ]
+}

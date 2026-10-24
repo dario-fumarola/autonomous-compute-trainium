@@ -1,4 +1,4 @@
-# Status — 2026-10-24, 16:43 UTC
+# Status — 2026-10-24, 17:09 UTC
 
 **All16 chips are taking scientific updates in the registered common-FP32
 depth/connection comparison.** Eight chips continue the inexpensive-connection
@@ -14,6 +14,10 @@ No fresh confirmation panel or terminal alpha is used.
 The independent-audit observer and registered descriptive readout are running;
 they will write the endpoint comparison automatically after all audits pass.
 All47 frozen scientific source hashes remain unchanged.
+The first fixed LR candidate completed301M targets and native TUNE scoring
+(3.072932 nats at3e-4); the remaining candidates are pending. This is not the
+selected recipe or a new endpoint comparison. The connection control and
+second LR candidate are taking updates on the two eight-chip halves.
 
 **The paired 3B FP32 continuation is complete and independently audited.** At
 3,014,637,826 real targets, ordinary DEV NLL is **2.405907** and fixed two-pass
@@ -141,7 +145,7 @@ gradients incorrectly. Its repaired, independently checked fixture gives5.13e-7
 relative gradient error and zero loss difference, with the original failure and
 a regression test preserved. These are numerical diagnostics, not learning gains.
 
-The 108-test CPU suite passes after the latest source changes. Natural sources
+The 111-test CPU suite passes after the latest source changes. Natural sources
 only; no synthetic research corpus, external teacher, RL or larger model.
 All failed/stopped jobs, tuning, qualification, compilation, data preparation
 and CPU tails retain separate receipts. Concurrent intervals must not be added
@@ -159,3 +163,14 @@ accounting choices that must be resolved for a faithful reproduction. This is
 preparation, not another trained result; the active trainer does not import the
 candidate. [Research triage](docs/PARCAE_RINS_REPRODUCTION_TRIAGE_20261024.md) ·
 [CPU audit](results/parcae_reference_readiness_20261024/REPORT.md).
+
+The **whole Parcae architecture candidate now passes CPU reference checks**,
+including actual143M/144M parameter widths at128 positions. All logits and
+gradients match the pinned reference exactly in seven checked cases, with
+causal masking and an independently counted, head-inclusive matmul ledger.
+The final measured CPU attempt takes22.07s,3.47GiB peak RSS and zero chips or
+optimizer updates. This is numerical preparation, not a learning result.
+The111-test suite includes inventory, truncation, causality and executed-work
+regressions. Native graphs, sampled-depth DDP, optimizer, recovery and throughput
+remain qualification gates; the active trainer does not import this candidate.
+[Port scope and evidence](docs/PARCAE_CPU_PORT_20261024.md).

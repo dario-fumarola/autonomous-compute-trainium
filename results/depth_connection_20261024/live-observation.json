@@ -1,38 +1,55 @@
 {
   "status": "LIVE_OBSERVATION",
-  "observed_unix": 1792860200.9849367,
-  "closed_attempts": [],
-  "open_attempts": [
+  "observed_unix": 1792861791.229083,
+  "closed_attempts": [
     {
       "identity": "depth-connection-v1-fixed-tune-lr0-s11",
+      "exit_code": 0,
+      "wall_seconds": 2011.5918786525726,
+      "assigned_chip_hours": 4.470204174783495,
+      "whole_instance_opportunity_chip_hours": 8.94040834956699,
+      "report_exists": true
+    },
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr0-s11-tune-r2",
+      "exit_code": 0,
+      "wall_seconds": 87.17456579208374,
+      "assigned_chip_hours": 0.19372125731574164,
+      "whole_instance_opportunity_chip_hours": 0.38744251463148327,
+      "report_exists": true
+    }
+  ],
+  "open_attempts": [
+    {
+      "identity": "depth-connection-v1-fixed-tune-lr1-s11",
       "assigned_chips": 8,
-      "observed_launch_seconds": 1528.606858253479,
+      "observed_launch_seconds": 1002.5063364505768,
       "last_logged_training_update": {
-        "update": 860,
-        "real_tokens": 225052598,
-        "lr": 0.0003,
-        "rank0_scaled_nll": 2.9978446134918695,
-        "gradient_norm": 0.48937100172042847,
-        "elapsed_seconds": 1502.6092616319656
+        "update": 520,
+        "real_tokens": 136078208,
+        "lr": 0.0006,
+        "rank0_scaled_nll": 3.754028182228133,
+        "gradient_norm": 0.3908151388168335,
+        "elapsed_seconds": 962.6920187290525
       },
-      "rolling200_update_targets_per_second": 163698.45816764876
+      "rolling200_update_targets_per_second": 163600.2454764288
     },
     {
       "identity": "depth-connection-v1-reinjection-s419-u6496",
       "assigned_chips": 8,
-      "observed_launch_seconds": 1527.178498506546,
+      "observed_launch_seconds": 3117.422644853592,
       "last_logged_training_update": {
-        "update": 2052,
-        "real_tokens": 536987178,
+        "update": 3112,
+        "real_tokens": 814377954,
         "lr": 0.001,
-        "rank0_scaled_nll": 2.6546898407166224,
-        "gradient_norm": 0.17110197246074677,
-        "elapsed_seconds": 1501.9515982809244
+        "rank0_scaled_nll": 2.380098698034062,
+        "gradient_norm": 0.17087610065937042,
+        "elapsed_seconds": 3078.2127358589787
       },
-      "rolling200_update_targets_per_second": 173728.92842874548
+      "rolling200_update_targets_per_second": 173870.35771217305
     }
   ],
-  "closed_assigned_chip_hours": 0,
-  "open_assigned_chip_hours_so_far": 6.790634126133389,
+  "closed_assigned_chip_hours": 4.663925432099237,
+  "open_assigned_chip_hours_so_far": 9.155397736231485,
   "scope": "Read-only receipt/update observations, not new training or held-out evidence. Rank-zero logged NLL is not aggregate DEV. Rolling rates are not controlled performance qualification. Other campaigns overlap; do not add their wall intervals as sequential reservation time. CPU work has separate receipts."
 }
