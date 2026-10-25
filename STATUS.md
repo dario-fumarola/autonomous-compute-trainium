@@ -1,9 +1,13 @@
-# Status — 2026-10-25, 00:41 UTC
+# Status — 2026-10-25, 00:56 UTC
 
-Six of12 rate trials are independently scored. At0.004,ordinary scores
-2.994108,one-pass3.082854 and recurrence3.105910. Recurrence remains behind
-one-pass at both completed rates. The remaining0.008/0.016 trials are running
-on all16 chips; no rate selection,main fit or new positive claim yet.
+Ten of12 rate trials are independently scored. At0.008,ordinary scores
+2.926390,true one-pass2.993713 and recurrence3.013839. Recurrence is0.020126
+worse than its parameter-exact one-pass control at this rate. Ordinary reaches
+2.884985 at0.016; the one-pass/recurrent0.016 fits continue on all16 chips.
+Every score follows301,465,908 natural targets and completed cooldown. These
+are single-seed TUNE results,not main-fit or confirmation findings. No rates
+are selected until all registered opportunities finish. Selected checkpoints
+then require independent complete-batch gradient checks before the main pilot.
 
 Independent actual-size upstream operator counts agree exactly with the
 inference ledger: at1024 positions,one family pass costs159.049GFLOPs and two
