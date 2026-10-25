@@ -51,9 +51,16 @@ def main():
         seen = {r[key] for r in train}
         coverage[key] = dict(dev_seen_in_train=sum(r[key] in seen for r in dev), dev_total=len(dev),
                              train_unique=len(seen), dev_unique=len({r[key] for r in dev}))
+    frequencies = Counter(r['answer_value'] for r in train)
+    largest = max(frequencies.values())
+    modes = sorted(k for k, count in frequencies.items() if count == largest)
+    constant = dict(train_count=largest, tied_train_modes=len(modes),
+                    dev_correct=sum(r['answer_value'] == modes[0] for r in dev),
+                    dev_total=len(dev), tie_rule='Lexicographically smallest canonical TRAIN answer')
     write_state(a.output, dict(status='COMPLETE_POSTHOC_SOURCE_SPLIT_DESCRIPTION',
                 training_views_sha256=file_sha256(a.training_views), dev_panel_sha256=file_sha256(a.dev_panel),
                 source_sha256=file_sha256(__file__), train=summarize(train), dev=summarize(dev), coverage=coverage,
+                posthoc_constant_training_answer_reference=constant,
                 assigned_chips=0, research_updates=0, test_accessed=False,
                 scope='Post-hoc aggregate description after the original pilot failed. No model scores, new split, '
                       'task selection, synthetic labels or changes to the running foundation-history comparison. '

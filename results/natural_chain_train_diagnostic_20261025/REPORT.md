@@ -43,3 +43,10 @@ This is a model-free descriptive audit performed after the negative pilot,
 with zero accelerator use or learning updates. It changes no running task or
 evaluation. [Aggregate counts](split-description.json) can be reproduced with
 `scripts.describe_natural_chain_split` using the two frozen content hashes.
+
+A separate post-hoc constant reference, always predicting the most frequent
+TRAIN answer, solves 3/135 DEV tasks. Its single TRAIN mode occurs 37/1,618
+times. This reference uses no input computation and no DEV-based answer
+selection. The original R's 4/135 result is therefore also small compared with
+this trivial reference; these exploratory counts carry no significance claim.
+No literal answer or source content is published.

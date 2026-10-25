@@ -23,3 +23,21 @@ Do not change the live curriculum protocol or automatically launch a larger NTP
 run from this note. After its fixed readouts,a longer full-gradient comparison
 would need its own falsifiable budget/exposure hypothesis,strong lean one-pass
 controls and measured cost. Preserve both domain and broad-source negatives.
+
+## Batch and update-count qualification
+
+Rechecking appendix F adds another regime difference. Around its 1B-token
+setting, the paper uses 64 sequences of 2,048 positions per update. Our earlier
+small-core comparison uses 512 sequences of 1,024 positions: four times as
+many positions and roughly one quarter as many updates at the same exposure.
+That is a concrete optimization variable, not proof that batch size caused
+our deficit. Its learning-rate/batch rule cannot be copied directly into our
+different Muon recipe. A smaller batch also repeats our replicated optimizer
+matmuls more often; charge that work and retune both arms if it is investigated.
+No change to the live curriculum, no new run admission or guaranteed crossover.
+
+Similarly, the older 150M connection control consumes about 1.098e18 declared
+neural training matmuls at 1B targets, whereas the newer small-core one-pass
+study uses about 0.528e18 including its declared optimizer accounting. Their
+same-data NLLs alone cannot rank their compute efficiency. A future candidate
+must face strong controls at the resource budget it actually spends.
