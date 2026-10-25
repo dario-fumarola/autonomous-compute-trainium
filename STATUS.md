@@ -1,3 +1,98 @@
+# Status — 2026-10-25 17:18 UTC
+
+**The first cheap-control equal-data fit completes its cooled1.005B-target
+endpoint.** Its numerical capture and independent scoring remain required;
+no MAIN held-out quality result is published yet. The matched-work branch
+continues;the second seed's branches remain in the fixed queue. All16 chips
+are assigned while these native phases run. Original integration gates and
+both stable prefixes pass;the exact152-path source freeze is unchanged.
+
+The README now leads with the completed October25 result:recurrence improves
+equal-data DEV prediction,but loses to the same-size one-pass control trained
+at matched nominal matrix work. The future auxiliary objective stays closed.
+
+A real packaging failure was reproduced:default setuptools discovery rejects
+the flat layout. Explicit package discovery and direct NumPy/xxhash requirements
+now build a wheel and pass installed imports outside the checkout. SciPy and
+Matplotlib were already declared optional dependencies;their extras remain.
+No live Python environment or frozen trainer was changed. This local check
+uses existing CPU dependencies,not a fresh dependency-resolution install.
+[Packaging receipt](results/packaging_check_20261025/report.json).
+
+**249 CPU tests pass.** The CPU-only owner/broadcast optimizer candidate stays
+unadopted and has no native throughput result. No TEST,reserve or terminal
+confirmation allocation is opened. The research objective remains unachieved.
+
+# Status — 2026-10-25 17:06 UTC
+
+**Both MAIN integration gates pass,and both stable502.4M-target prefixes are
+complete.** The first seed's separately cooled equal-data/matched-work
+branches are past680M targets on all16 chips. Peak LR remains0.032. Complete
+model/optimizer/RNG recovery is enforced before every branch;no endpoint
+quality result exists yet. Main identity v2 freezes152 exact source paths.
+
+Cheap-control tuning is complete:all three301.5M-target cooled fits and all
+six512-window gates pass. Best tested LR0.032 yields2.948586 NLL;the optimum
+is unbracketed. On the same TUNE seed/panel,the existing one-pass NTP scores
+2.938677 and recurrence2.917065. This selected development point does not
+replace the prespecified two-seed MAIN comparison.
+[Complete score recovery](results/small_core_mixing_tune_20261025/scoring-recovery-v4/tune-family-comparison.json).
+
+The training fits were preserved through two scoring-wrapper errors. V4
+recovers only independent read-only scores,using the correct prefix+tail
+inference convention and the original TUNE cutoff. No retraining,rate search,
+source change or deadline extension. Original failed attempts and costs remain.
+The replacement MAIN queue explicitly binds successful recovery evidence.
+[Admission audit](results/small_core_mixing_main_20261025/recovery-v2/admission-audit.json).
+
+A separate **CPU-only optimizer candidate** computes independent Muon groups
+on owners and broadcasts complete state. Two-process tests match the existing
+weights/moments exactly,including recovery. **249 CPU tests pass.** Native
+correctness and throughput remain unqualified;the active trainer stays frozen.
+[Performance preparation](docs/OWNER_BROADCAST_MUON_PREPARATION_20261025.md).
+
+The original recurrence matched-work negative remains unchanged. No source
+reserve,TEST panel or terminal alpha is opened. The research goal stays active
+and unachieved;these are development controls,not independent confirmation.
+
+# Status — 2026-10-25 16:35 UTC
+
+**All three cheap-control TUNE scores are complete.** Best tested LR is0.032,
+at the unbracketed upper grid edge. Each model completes301.5M authentic
+training targets and its own cooldown;all six full512-window numerical gates
+pass. Same three-rate allowance and source/initialization as the original family.
+
+| Best tested arm,shared TUNE seed4127 | NLL |
+| --- | ---: |
+| One-pass NTP | 2.938677 |
+| Recurrent NTP,depth2 | 2.917065 |
+| Cheap mixing,one core execution | 2.948586 |
+
+At this TUNE point the cheap control does not recover recurrence's gain.
+These selected one-seed scores are development evidence,not confirmation or
+matched-work results. The two-seed MAIN remains necessary.
+[All nine scores](results/small_core_mixing_tune_20261025/scoring-recovery-v4/tune-family-comparison.json).
+
+**The prescribed MAIN is admitted under identity v2.** Both seeds complete
+their two counted native updates and full-gradient captures;independent CPU
+integration gates are running before either proceeds to long training. A
+separate metadata audit verifies original random initializers,exact source/
+work counts,stable960 parents and independent cooldowns for all four endpoints.
+It freezes152 source paths and retains its own measured3-hour cap.
+[Admission audit](results/small_core_mixing_main_20261025/recovery-v2/admission-audit.json).
+
+Two scoring integration errors were corrected without retraining:Path+str
+construction prevented launches;then the prediction adapter rejected the
+shared evaluator's prefix+tail convention. All fits,gates and failed attempts
+remain intact. Read-only recovery v4 scores the same original checkpoints
+under the original16:50:26 UTC TUNE cutoff. Its actual-API test matches the
+trained function exactly at supported depths1/2/3. The full-gradient training
+reference is unchanged. **247 CPU tests pass.** The original MAIN queue stopped
+correctly;the replacement consumes the successful recovery evidence explicitly.
+
+The existing matched-work efficiency negative remains. No new source groups,
+TEST panel or terminal alpha are opened. The research goal stays unachieved.
+
 # Status — 2026-10-25 15:55 UTC
 
 **The first two cheap-control TUNE fits complete their301.5M-target cooled

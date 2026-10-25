@@ -1,85 +1,78 @@
 # Autonomous computation during pretraining
 
-Can a randomly initialized language model learn to use additional computation
-to predict unseen natural text better?
+Can a randomly initialized language model learn to use additional internal
+computation to predict unseen natural text better?
 
-The [ongoing research charter](docs/ONGOING_RESEARCH_CHARTER.md) records the
-owner's multi-day authorization, independent-confirmation standard and repeated-
-testing rules. Individual experiments remain bounded and falsifiable.
+Training uses authentic web text, mathematical web text and repository code.
+There are no generated research examples, external teachers, reasoning traces
+or reinforcement learning. Real-token negative log likelihood (NLL) is the
+primary outcome. Equal-data and training-work comparisons answer different
+questions and are reported separately.
 
-A separately [predeclared variable-depth follow-up](docs/VARIABLE_DEPTH_PROTOCOL_20261023.md)
-has passed qualification and completed its300M-target LR screens. Three-seed
-main fits now use all16 chips, with fresh held-out groups and an explicit common
-optimizer recipe. No primary endpoint result is established yet; the
-completed results below remain unchanged. [Live status](STATUS.md).
+The latest completed small-core study finds **useful additional computation at
+equal data, but no training-efficiency win**. These are two paired development
+seeds, with independently scored, cooled endpoints:
 
-The completed Trainium2 study compares ordinary pretraining with a fixed,
-differentiable recurrent core available from initialization. Training and
-evaluation use natural web text, mathematical web text and repository code.
-There are no generated research examples, teacher traces or RL. Held-out
-negative log likelihood on real source targets is primary; equal-data and
-estimated training-compute comparisons are reported separately.
-
-The [sealed twelve-model TEST confirmation](results/frozen_test_20261023/REPORT.md)
-is complete. At 1.005B targets, three paired seeds give:
-
-| Model | Unique parameters | Mean TEST NLL, lower is better |
+| Model | Authentic training targets | Mean DEV NLL ↓ |
 | --- | ---: | ---: |
-| Ordinary | 150.4M | 2.578753 |
-| Shared two-pass | 150.4M | 2.610307 |
-| Untied two-pass | 251.1M | 2.549910 |
+| One pass, next-token prediction | 1.005B | 2.614841 |
+| Recurrence, next-token prediction, two-pass exit | 1.005B | **2.591095** |
+| One pass, approximately matched training matrix work | 1.238B | **2.581336** |
 
-Shared recurrence loses by **0.031554 nats/token**, with training-seed 95%
-interval **[0.024888, 0.038220]** for its deficit. Untying improves every
-observed equal-data run, but adds 67% more parameters. Its mean gain is
-**0.028842 [0.002752, 0.054932]**, inconclusive at the predeclared 0.01-nat
-useful-gain threshold. This combined interval includes the discovery seed;
-the separate two-fresh-seed interval is much wider.
+All have **141.96M deployed parameters**. Recurrence improves equal-data NLL by
+0.023747 nats, but loses to longer one-pass training by 0.009759. The work
+match is within 0.02153%; it includes the common training-only head and
+replicated matrix-optimizer work, and does not imply equal chip-hours.
+[Completed comparison](results/future_span_work_controls_20261025/REPORT.md) ·
+[Original study](results/future_span_main_20261025/primitive-v2/REPORT.md).
 
-At nearly matched estimated dense training matmul work, a separately annealed
-ordinary seed23 endpoint at 1.700B targets beats untied at 1.005B by
-**0.071734 [0.065560, 0.077985]** on TEST. This is a single fitted pair and
-does not match wall time exactly. A separate unchanged 3.015B ordinary/shared
-continuation is nearly tied: **2.391002 / 2.393539 TEST NLL**, also one pair.
-**This recipe has no demonstrated compute-efficiency advantage.**
-[Resource accounting](results/confirmation_followup_20261023/RESOURCES.md) ·
-[Longer-exposure curve](results/sharing_exposure_20261023/learning-curve-seed23.png).
+The same recurrent checkpoints improve when evaluated with two supported
+passes instead of one. This establishes useful dependence on additional
+computation; it does not establish reasoning, learned stopping or superiority
+over the strongest ordinary architecture. The proposed future-span auxiliary
+objective failed its declared interaction test and is closed.
+[Mechanism readout](results/ntp_secondary_discovery_20261025/report.json).
 
-The [original three-seed DEV study](results/recurrent_learning_20261023/REPORT.md),
-[same-weight mechanism diagnostics](results/recurrent_mechanism_20261023/REPORT.md),
-[untied replications](results/confirmation_followup_20261023/REPORT.md) and
-[one-seed longer continuation](results/sharing_exposure_20261023/REPORT.md)
-remain preserved. The shared model depends on its trained second pass;
-further repeated passes hurt. The untied control starts with the same two-pass
-function, then learns separate core weights. It tests sharing plus capacity,
-not autonomous reasoning or learned allocation of computation. Independent
-full-panel FP32 audits, all-replica equality and full optimizer recovery pass.
-Checkpoint identities and evaluation sources were frozen before TEST access.
+The measured two-pass path takes about **17% longer** than one pass in a
+synchronized, preloaded 1,024-position prefill benchmark. Cached decoding and
+end-to-end serving were not measured. Even a free, target-informed selector
+among these saved whole-document depth paths fails to beat the work-matched
+one-pass control.
+[Prefill costs](results/future_span_prefill_20261025/REPORT.md) ·
+[Oracle bound](results/future_span_depth_oracle_20261025/REPORT.md).
 
-After scientific scoring closed, [software qualification](results/fast_path_20261023/REPORT.md)
-validated unscaled fused AdamW and two concurrent eight-chip jobs, each with
-100 warm updates: **874k ordinary / 576k shared real targets/sec**. The actual
-paired completion rate is **1.152M targets/sec**; the individual rates must not
-be summed. These are warm qualification rates without periodic scientific
-checkpoint overhead. A separate [operator-contract reproducer](docs/OSS_FUSED_ADAMW_METADATA_20261023.md)
-documents ignored optional AMP metadata; neither the completed science nor
-the qualified unscaled candidate uses it. No upstream submission was made.
+The current experiment tests whether repeated inexpensive input mixing can
+recover the benefit while executing the transformer core only once. Its fair
+three-rate screen is complete; the best tested rate is 0.032, at the grid's
+unbracketed upper edge. The prescribed two-seed equal-data and matched-work
+fits are running. **Their MAIN quality results are pending.**
+[Control protocol](docs/SMALL_CORE_MIXING_CONTROL_PROTOCOL_20261025.md) ·
+[Tuning readout](results/small_core_mixing_tune_20261025/scoring-recovery-v4/tune-family-comparison.json) ·
+[Live status](STATUS.md).
 
-The earlier [fixed-pause study](results/learning_curve_20261022/REPORT.md)
-and [position diagnostic](results/pause_locality_20261023/REPORT.md) are
-preserved negative results. The [existing 1.7B checkpoint readout](results/transfer_probe_20261023/REPORT.md)
-finds initial trace-versus-raw exam gains that disappear after common
-linear-readout adaptation; full backbone fine-tuning remains untested.
-Previous [1.7B evidence](https://github.com/dario-fumarola/useful-thoughts-trainium)
-and the [closed pause pilot](https://github.com/dario-fumarola/pause-pretraining-trainium)
-remain intact.
+Earlier studies remain preserved, including the
+[original shared/untied TEST comparison](results/frozen_test_20261023/REPORT.md),
+[revised fixed/variable-depth TEST comparison](results/variable_depth_20261023/test/REPORT.md),
+[longer-exposure compute control](results/mature_fp32_compute_20261024/REPORT.md),
+[cheap-connection comparison](results/depth_connection_20261024/REPORT.md),
+[small-core pilot](results/parcae_low_depth_pilot_20261024/REPORT.md) and
+[fixed-pause negative](results/learning_curve_20261022/REPORT.md).
+The previous [1.7B repository](https://github.com/dario-fumarola/useful-thoughts-trainium)
+and [archived pause pilot](https://github.com/dario-fumarola/pause-pretraining-trainium)
+remain intact. None of the completed recipes has established a competitive
+training-compute advantage.
 
-Read [current status](STATUS.md), the [recurrent protocol](docs/PRELN_RECURRENT_PROTOCOL.md),
-[follow-up protocol](docs/CONFIRMATION_FOLLOWUP_20261023.md),
-[reproduction guide](docs/REPRODUCE_CURVE.md), [data rules](docs/DATA.md),
-[execution ledger](results/sharing_exposure_20261023/execution-costs.json) and
-[Trainium notes](docs/OSS_NOTES.md). The fixed-depth campaign is complete. The variable-depth follow-up uses its
-own fresh panel and bounded protocol. Further variants require another held-out panel.
+A terminal positive claim requires a frozen candidate, fresh source groups,
+at least five fresh paired training seeds, the declared useful-effect threshold
+and correction for repeated confirmation attempts. No such confirmation has
+been opened for the latest candidate.
+[Ongoing charter](docs/ONGOING_RESEARCH_CHARTER.md) ·
+[Data rules](docs/DATA.md) · [Trainium notes](docs/OSS_NOTES.md).
 
-Run CPU correctness tests with `python -m pytest -q`. Source contents, weights
-and full optimizer states stay outside this public repository.
+Install CPU test and analysis dependencies with
+`python -m pip install -e '.[test,analysis]'`, then run
+`python -m pytest -q`. Some reference-parity tests additionally require the
+pinned upstream checkout specified in their preparation documents. Numerical
+software fixtures are not research examples. Source contents, weights, full
+optimizer states and native environments stay outside this public repository;
+CPU tests do not independently reproduce the scientific training runs.

@@ -1,0 +1,123 @@
+{
+  "status": "COMPLETE_EQUAL_DATA_TUNE_CONTROL_READOUT",
+  "observed_utc": "2026-10-25T16:43:50.674362+00:00",
+  "records": [
+    {
+      "arm": "one-ntp",
+      "peak_lr": 0.008,
+      "nll": 2.993821463207375,
+      "depth": 1,
+      "complete_training_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "4c57df7fdef187cbc61e95862d4cbcf6e256971e9ee6aeb56a94b528a44f1e7d"
+    },
+    {
+      "arm": "one-ntp",
+      "peak_lr": 0.016,
+      "nll": 2.9490289676386383,
+      "depth": 1,
+      "complete_training_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "556007a9722ae831d4d31c9f84c5c663a049f4e059f8ae6f49881680231a6c21"
+    },
+    {
+      "arm": "one-ntp",
+      "peak_lr": 0.032,
+      "nll": 2.9386766324009748,
+      "depth": 1,
+      "complete_training_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "e1841ab54a0c92744eee30df1acffb897fe128755a514aaaeb35e9da774b0a06"
+    },
+    {
+      "arm": "recurrent-ntp",
+      "peak_lr": 0.008,
+      "nll": 2.990029653469279,
+      "depth": 2,
+      "complete_training_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "f64abe6173e69d2e975137a86ae34451d859a234e1424af1c1ba577aaa765209"
+    },
+    {
+      "arm": "recurrent-ntp",
+      "peak_lr": 0.016,
+      "nll": 2.9352994715945,
+      "depth": 2,
+      "complete_training_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "5052c6051beb80c26201417c606faf63ed856192902e01451a8955de24ccaba2"
+    },
+    {
+      "arm": "recurrent-ntp",
+      "peak_lr": 0.032,
+      "nll": 2.9170647592560797,
+      "depth": 2,
+      "complete_training_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "5f2b78b0b44f412717c0f8f964afaaf6196ccc3d1c66161aa242d1e203d1d56c"
+    },
+    {
+      "arm": "cheap-mixing-ntp",
+      "peak_lr": 0.008,
+      "nll": 2.998614786466194,
+      "depth": 2,
+      "complete_training_matrix_ops": 159697328805937152,
+      "checkpoint_sha256": "0aa6337a33c12554be6f30f6d01fefe21de9ae92bdb845bf842d2b7ace3616ed"
+    },
+    {
+      "arm": "cheap-mixing-ntp",
+      "peak_lr": 0.016,
+      "nll": 2.9570609298164796,
+      "depth": 2,
+      "complete_training_matrix_ops": 159697328805937152,
+      "checkpoint_sha256": "f80ec64dce901c715056ce7519e1b4c16a5564468e98018339056dbec2f164c9"
+    },
+    {
+      "arm": "cheap-mixing-ntp",
+      "peak_lr": 0.032,
+      "nll": 2.94858633992324,
+      "depth": 2,
+      "complete_training_matrix_ops": 159697328805937152,
+      "checkpoint_sha256": "8079b2d0864f11996ddb3bf6ebcec91392ea4042a557595511c8905626499c3f"
+    }
+  ],
+  "best_tested": {
+    "one-ntp": {
+      "arm": "one-ntp",
+      "peak_lr": 0.032,
+      "nll": 2.9386766324009748,
+      "depth": 1,
+      "complete_training_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "e1841ab54a0c92744eee30df1acffb897fe128755a514aaaeb35e9da774b0a06"
+    },
+    "recurrent-ntp": {
+      "arm": "recurrent-ntp",
+      "peak_lr": 0.032,
+      "nll": 2.9170647592560797,
+      "depth": 2,
+      "complete_training_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "5f2b78b0b44f412717c0f8f964afaaf6196ccc3d1c66161aa242d1e203d1d56c"
+    },
+    "cheap-mixing-ntp": {
+      "arm": "cheap-mixing-ntp",
+      "peak_lr": 0.032,
+      "nll": 2.94858633992324,
+      "depth": 2,
+      "complete_training_matrix_ops": 159697328805937152,
+      "checkpoint_sha256": "8079b2d0864f11996ddb3bf6ebcec91392ea4042a557595511c8905626499c3f"
+    }
+  },
+  "recurrent_gain_over_cheap": 0.031521580667160265,
+  "recurrent_gain_over_one": 0.0216118731448951,
+  "cheap_gain_over_one": -0.009909707522265165,
+  "source_report_sha256": {
+    "original_tune": "8747a64ec8356526011a2cb574a8ceb29c8861bf7b89dea3646abaef56c4e314",
+    "cheap_tune_recovery": "3bb722fd9b54ac331d8bbe731df528168f388c3d708aed4ae1d86c73f89b7b06"
+  },
+  "training_seed": 4127,
+  "training_targets": 301465908,
+  "scored_targets": 759473,
+  "deployed_parameters": 141963840,
+  "training_parameters": 166571840,
+  "source_panel_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+  "new_model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "terminal_success": false,
+  "scope": "One shared tuning seed/panel,all three rates per arm,each endpoint separately cooled. Selected scores are not independent confirmation or a matched-work comparison. The cheap control has not recovered recurrence's equal-data gain at this tuning horizon;the prespecified two-seed MAIN remains required. Do not infer its endpoint from this early point."
+}

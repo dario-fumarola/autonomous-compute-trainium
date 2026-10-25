@@ -257,6 +257,63 @@
       "test_accessed": false,
       "wall_seconds": 727.1197397708893,
       "scope": "Finite registered future-span scientific segment. Same original real targets and source order;separate global auxiliary normalization. Dense matrix counts include every head slot and replica Muon work,not hardware padding or chip-time equivalence. No quality or significance claim without independent readouts."
+    },
+    {
+      "identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr32000-finish",
+      "model_variant": "all_mixes_then_one_core_fullgrad",
+      "status": "COMPLETE_REGISTERED_FUTURE_SPAN_SCIENTIFIC_SEGMENT",
+      "purpose": "natural_future_span_scientific_pilot",
+      "case_id": "recurrent-ntp-s4127-lr32000",
+      "plan_sha256": "20a39e1c8104d3fc990944ec31f6fa7a0aaded6322280ffa2f9357a131acacb7",
+      "cell": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "seed": 4127,
+      "update": 576,
+      "cursor": 294912,
+      "real_targets": 301465908,
+      "domain_targets": [
+        180878087,
+        60295034,
+        60292787
+      ],
+      "valid_anchors": 18031448,
+      "estimated_dense_matrix_ops": 159697328805937152,
+      "segment_real_targets": 300419198,
+      "segment_valid_anchors": 17968887,
+      "segment_estimated_dense_matrix_ops": 159142713500150784,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "actual_optimizer_calls_per_replica": 574,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "6c76b087f15646df9df9b215b3fc8f74c136c54a9680f209d49d0b309a016dad",
+      "cpu_rng_on_load_exact": true,
+      "checkpoint_records": [
+        {
+          "update": 288,
+          "checkpoint_sha256": "d909bb45fce8e69246f2b5e423e54341849a6cd22449399ec8e34c3fdbebb60a",
+          "full_state_digest": "b8a3c4cefb8933376bf9d6574ad560bb6f85dd1c4915b5e7205d011098f98fca",
+          "real_targets": 150732802,
+          "valid_anchors": 9015591,
+          "estimated_dense_matrix_ops": 79849452596576256,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 576,
+          "checkpoint_sha256": "8079b2d0864f11996ddb3bf6ebcec91392ea4042a557595511c8905626499c3f",
+          "full_state_digest": "4ef567832e17723da4eed190724f3ad6b53e232bce31638ec4a5340901806dd4",
+          "real_targets": 301465908,
+          "valid_anchors": 18031448,
+          "estimated_dense_matrix_ops": 159697328805937152,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "first_update_sha256": null,
+      "qualification_only": false,
+      "research_optimizer_updates": 574,
+      "test_accessed": false,
+      "wall_seconds": 714.5398299694061,
+      "scope": "Finite registered future-span scientific segment. Same original real targets and source order;separate global auxiliary normalization. Dense matrix counts include every head slot and replica Muon work,not hardware padding or chip-time equivalence. No quality or significance claim without independent readouts."
     }
   ]
 }

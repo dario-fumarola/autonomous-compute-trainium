@@ -1,0 +1,28 @@
+{
+  "status": "PASS_CPU_ONLY_OWNER_BROADCAST_CANDIDATE",
+  "observed_utc": "2026-10-25T17:07:42.933748+00:00",
+  "tests_passed": 249,
+  "test_wall_seconds": 41.27,
+  "source_sha256": {
+    "compute_trainium/owner_broadcast_muon_candidate.py": "dfc23ac6aba682844ceeb067a98a522474a045cdc34da765aa8344e42bb6d615",
+    "tests/test_owner_broadcast_muon_candidate.py": "bf9462284717db427baa123da002c85d86a35136d3e694dc0386013c69599f7b"
+  },
+  "checks": [
+    "Real two-process Gloo broadcasts",
+    "Five changing-LR/momentum/decay updates",
+    "Square,tall and wide batched matrix groups",
+    "Zero gradients and nonzero gradient history",
+    "Exact weights and every optimizer state against qualified unsharded FP32 arithmetic",
+    "State-dictionary reload",
+    "Complete state equality between replicas",
+    "Missing process group fails before mutation"
+  ],
+  "native_qualified": false,
+  "native_performance_measured": false,
+  "scientific_adoption": false,
+  "assigned_chips": 0,
+  "research_optimizer_updates": 0,
+  "research_examples": 0,
+  "test_accessed": false,
+  "scope": "Numerical software fixtures only. Independent group owners compute concurrently before ordered broadcasts of weights and both moments. All state stays replicated;existing mathematical optimizer recipe/schema is preserved. Native correctness,recovery and actual optimizer/full-training throughput must pass before adoption. No changes to frozen scientific jobs."
+}

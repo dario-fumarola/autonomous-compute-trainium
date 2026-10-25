@@ -1,0 +1,32 @@
+{
+  "status": "PASS_LOCAL_WHEEL_BUILD_AND_INSTALLED_IMPORTS",
+  "observed_unix": 1792948698.8676736,
+  "original_failure": "Ambiguous flat-layout package discovery:third_party and compute_trainium",
+  "fixes": [
+    "Explicit setuptools package discovery",
+    "Direct NumPy and xxhash requirements",
+    "Existing SciPy test/analysis and Matplotlib analysis extras retained",
+    "Vendored reference license/provenance included"
+  ],
+  "wheel_sha256": "9ac9a74f0035a872e3e06d2c12b01bc25570e27bde52ba460b97b7caa2aca679",
+  "wheel_bytes": 972944,
+  "files": 388,
+  "setuptools_version": "84.0.0",
+  "source_sha256": {
+    "pyproject.toml": "f60c1bf0a59109cd8407118a18d972a77a7eec6dc785b418089231dbd924fa49",
+    "README.md": "8b37b5be590f2990324fc44cbd19e4045995086aa978adfff47f20d36581af0f"
+  },
+  "checks": [
+    "No-dependency wheel build from private staging copy",
+    "No-dependency installation into private target",
+    "Imports from installed target outside checkout",
+    "Core and scripts namespace included",
+    "Vendored reference and license included",
+    "No results,tests,docs,source data or model artifacts in wheel"
+  ],
+  "downloaded_dependencies": false,
+  "live_python_environments_changed": false,
+  "assigned_chips": 0,
+  "research_updates": 0,
+  "scope": "Packaging and imports verified against existing CPU dependencies;this is not a clean dependency-resolution install or accelerator environment reproduction. No training source changes."
+}

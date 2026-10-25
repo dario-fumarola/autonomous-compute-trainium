@@ -1,0 +1,810 @@
+{
+  "status": "STOPPED_CHEAP_MIXING_TUNE",
+  "error": "unsupported operand type(s) for +: 'PosixPath' and 'str'",
+  "scores": [],
+  "gradient_gates": [
+    {
+      "case_id": "recurrent-ntp-s4127-lr8000",
+      "update": 2,
+      "native_identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr8000-preflight-gradient",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-ntp-s4127-lr8000",
+        "cell": "recurrent-ntp",
+        "training_update": 2,
+        "checkpoint_sha256": "a6058164957fc504db192594bcebb2a6aa1c5c165283adef6a2a64ae7d81f5b8",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.00037596280316155417,
+              "maximum_absolute_error": 4.8257410526275635e-05,
+              "reference_l2": 20.500815596413375
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.00036122795519116937,
+                "maximum_absolute_error": 2.373242750763893e-06,
+                "reference_l2": 0.5442873702751245
+              },
+              "tied_input_output": {
+                "relative_l2": 0.00048168297556643367,
+                "maximum_absolute_error": 2.240086905658245e-05,
+                "reference_l2": 0.6658742261357214
+              },
+              "transformer_body": {
+                "relative_l2": 0.0003758455478151154,
+                "maximum_absolute_error": 4.8257410526275635e-05,
+                "reference_l2": 20.482768438096784
+              },
+              "value_embeddings": {
+                "relative_l2": 0.001661314778469738,
+                "maximum_absolute_error": 7.519815881096292e-09,
+                "reference_l2": 5.4581750682382695e-05
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 0.00029203537431854443,
+          "future_mean": 3.3888910113688553e-06
+        },
+        "cpu_ntp_nll": 10.412606555227656,
+        "cpu_future_mean": 6.860578298233397,
+        "windows": 512,
+        "real_targets": 523344,
+        "valid_anchors": 31284,
+        "diagnostic_matrix_ops": 251212100272128,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 345.92284631729126,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    },
+    {
+      "case_id": "recurrent-ntp-s4127-lr16000",
+      "update": 2,
+      "native_identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr16000-preflight-gradient",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-ntp-s4127-lr16000",
+        "cell": "recurrent-ntp",
+        "training_update": 2,
+        "checkpoint_sha256": "659d7373110f1572bd203c0af077744b9dab15a9e78133fed15d56588173a6e8",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.0004407009104243528,
+              "maximum_absolute_error": 5.8673322200775146e-05,
+              "reference_l2": 20.721853371633717
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0004312593167290528,
+                "maximum_absolute_error": 2.637971192598343e-06,
+                "reference_l2": 0.506015351251505
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0005466471599984436,
+                "maximum_absolute_error": 2.277456223964691e-05,
+                "reference_l2": 0.6499143747032031
+              },
+              "transformer_body": {
+                "relative_l2": 0.0004405895455257999,
+                "maximum_absolute_error": 5.8673322200775146e-05,
+                "reference_l2": 20.705476737167018
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0008811417002323717,
+                "maximum_absolute_error": 7.893028453054285e-09,
+                "reference_l2": 0.00010943062315271088
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 0.00020883207913868773,
+          "future_mean": 3.0094210625719597e-06
+        },
+        "cpu_ntp_nll": 10.23956366937306,
+        "cpu_future_mean": 6.860108689051,
+        "windows": 512,
+        "real_targets": 523344,
+        "valid_anchors": 31284,
+        "diagnostic_matrix_ops": 251212100272128,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 345.3107371330261,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    },
+    {
+      "case_id": "recurrent-ntp-s4127-lr32000",
+      "update": 2,
+      "native_identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr32000-preflight-gradient",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-ntp-s4127-lr32000",
+        "cell": "recurrent-ntp",
+        "training_update": 2,
+        "checkpoint_sha256": "def22131fdf3b61a52c2de511fdf6a978c0e5f0ae7bb47d05af8e81a21a7e283",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.0003002309675949098,
+              "maximum_absolute_error": 3.254786133766174e-05,
+              "reference_l2": 21.731209671890106
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.00039888204038518557,
+                "maximum_absolute_error": 1.7386628314852715e-06,
+                "reference_l2": 0.42117614708768814
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0004489897989933084,
+                "maximum_absolute_error": 1.8538907170295715e-05,
+                "reference_l2": 0.5791104593866645
+              },
+              "transformer_body": {
+                "relative_l2": 0.00030005576780632625,
+                "maximum_absolute_error": 3.254786133766174e-05,
+                "reference_l2": 21.71940872786067
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0004959033718270475,
+                "maximum_absolute_error": 8.581764632253908e-09,
+                "reference_l2": 0.00021150231419592662
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 0.00010589578150366208,
+          "future_mean": -5.521336534641819e-07
+        },
+        "cpu_ntp_nll": 9.961501574639481,
+        "cpu_future_mean": 6.859212729284913,
+        "windows": 512,
+        "real_targets": 523344,
+        "valid_anchors": 31284,
+        "diagnostic_matrix_ops": 251212100272128,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 377.0953164100647,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    },
+    {
+      "case_id": "recurrent-ntp-s4127-lr8000",
+      "update": 576,
+      "native_identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr8000-final-gradient",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-ntp-s4127-lr8000",
+        "cell": "recurrent-ntp",
+        "training_update": 576,
+        "checkpoint_sha256": "0aa6337a33c12554be6f30f6d01fefe21de9ae92bdb845bf842d2b7ace3616ed",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.0034447513013981866,
+              "maximum_absolute_error": 3.458265564404428e-05,
+              "reference_l2": 0.16785742019752617
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.004092092744838415,
+                "maximum_absolute_error": 2.0483072148635983e-05,
+                "reference_l2": 0.02387179215376539
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0017268247725493735,
+                "maximum_absolute_error": 1.2097647413611412e-05,
+                "reference_l2": 0.026006524358531607
+              },
+              "transformer_body": {
+                "relative_l2": 0.0034621179504453975,
+                "maximum_absolute_error": 3.458265564404428e-05,
+                "reference_l2": 0.16410261009580868
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0022757101352724415,
+                "maximum_absolute_error": 9.822997526498511e-08,
+                "reference_l2": 0.0004950810725325203
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 6.859575446771515e-06,
+          "future_mean": 1.6885044500369872e-06
+        },
+        "cpu_ntp_nll": 2.890206202093512,
+        "cpu_future_mean": 6.7052955530177325,
+        "windows": 512,
+        "real_targets": 523440,
+        "valid_anchors": 31376,
+        "diagnostic_matrix_ops": 251056273489920,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 458.3591368198395,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    },
+    {
+      "case_id": "recurrent-ntp-s4127-lr16000",
+      "update": 576,
+      "native_identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr16000-final-gradient",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-ntp-s4127-lr16000",
+        "cell": "recurrent-ntp",
+        "training_update": 576,
+        "checkpoint_sha256": "f80ec64dce901c715056ce7519e1b4c16a5564468e98018339056dbec2f164c9",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.0031100045091589333,
+              "maximum_absolute_error": 9.00292070582509e-06,
+              "reference_l2": 0.09992549262195717
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0031709762162931087,
+                "maximum_absolute_error": 4.022513167001307e-06,
+                "reference_l2": 0.010703477601769065
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0015895362627027588,
+                "maximum_absolute_error": 4.216330125927925e-06,
+                "reference_l2": 0.013188820882960296
+              },
+              "transformer_body": {
+                "relative_l2": 0.003129847225298295,
+                "maximum_absolute_error": 9.00292070582509e-06,
+                "reference_l2": 0.09846995412733088
+              },
+              "value_embeddings": {
+                "relative_l2": 0.00198460922243329,
+                "maximum_absolute_error": 8.713413990335539e-08,
+                "reference_l2": 0.000512621544402381
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 3.854575806538918e-06,
+          "future_mean": -7.080825108474187e-07
+        },
+        "cpu_ntp_nll": 2.8472546659805134,
+        "cpu_future_mean": 6.678787340381083,
+        "windows": 512,
+        "real_targets": 523440,
+        "valid_anchors": 31376,
+        "diagnostic_matrix_ops": 251056273489920,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 458.9566206932068,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    },
+    {
+      "case_id": "recurrent-ntp-s4127-lr32000",
+      "update": 576,
+      "native_identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr32000-final-gradient",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-ntp-s4127-lr32000",
+        "cell": "recurrent-ntp",
+        "training_update": 576,
+        "checkpoint_sha256": "8079b2d0864f11996ddb3bf6ebcec91392ea4042a557595511c8905626499c3f",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.002566142015606933,
+              "maximum_absolute_error": 1.72262080013752e-05,
+              "reference_l2": 0.05556953107480255
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0022217114433520356,
+                "maximum_absolute_error": 6.74896000418812e-07,
+                "reference_l2": 0.004205893661988256
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0022024313268462843,
+                "maximum_absolute_error": 5.505222361534834e-06,
+                "reference_l2": 0.006180652203248305
+              },
+              "transformer_body": {
+                "relative_l2": 0.0025723289478500762,
+                "maximum_absolute_error": 1.72262080013752e-05,
+                "reference_l2": 0.05506215280287185
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0016177395375640972,
+                "maximum_absolute_error": 5.7489842220093124e-08,
+                "reference_l2": 0.0004920461697511844
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 2.751852528515286e-06,
+          "future_mean": 4.795119199485498e-07
+        },
+        "cpu_ntp_nll": 2.8376250087313015,
+        "cpu_future_mean": 6.673935211780788,
+        "windows": 512,
+        "real_targets": 523440,
+        "valid_anchors": 31376,
+        "diagnostic_matrix_ops": 251056273489920,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 378.11061668395996,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    }
+  ],
+  "training_records": [
+    {
+      "identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr16000-preflight",
+      "model_variant": "all_mixes_then_one_core_fullgrad",
+      "status": "COMPLETE_REGISTERED_FUTURE_SPAN_SCIENTIFIC_SEGMENT",
+      "purpose": "natural_future_span_scientific_pilot",
+      "case_id": "recurrent-ntp-s4127-lr16000",
+      "plan_sha256": "20a39e1c8104d3fc990944ec31f6fa7a0aaded6322280ffa2f9357a131acacb7",
+      "cell": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "seed": 4127,
+      "update": 2,
+      "cursor": 1024,
+      "real_targets": 1046710,
+      "domain_targets": [
+        627567,
+        209522,
+        209621
+      ],
+      "valid_anchors": 62561,
+      "estimated_dense_matrix_ops": 554615305786368,
+      "segment_real_targets": 1046710,
+      "segment_valid_anchors": 62561,
+      "segment_estimated_dense_matrix_ops": 554615305786368,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "actual_optimizer_calls_per_replica": 2,
+      "complete_state_on_load_exact": false,
+      "recovered_state_digest": null,
+      "cpu_rng_on_load_exact": false,
+      "checkpoint_records": [
+        {
+          "update": 2,
+          "checkpoint_sha256": "659d7373110f1572bd203c0af077744b9dab15a9e78133fed15d56588173a6e8",
+          "full_state_digest": "5b48ac6ceea68ea4048f9867b15f6a19d052115d8248a0033b5415f59990a356",
+          "real_targets": 1046710,
+          "valid_anchors": 62561,
+          "estimated_dense_matrix_ops": 554615305786368,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "first_update_sha256": null,
+      "qualification_only": false,
+      "research_optimizer_updates": 2,
+      "test_accessed": false,
+      "wall_seconds": 94.94195556640625,
+      "scope": "Finite registered future-span scientific segment. Same original real targets and source order;separate global auxiliary normalization. Dense matrix counts include every head slot and replica Muon work,not hardware padding or chip-time equivalence. No quality or significance claim without independent readouts."
+    },
+    {
+      "identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr8000-preflight",
+      "model_variant": "all_mixes_then_one_core_fullgrad",
+      "status": "COMPLETE_REGISTERED_FUTURE_SPAN_SCIENTIFIC_SEGMENT",
+      "purpose": "natural_future_span_scientific_pilot",
+      "case_id": "recurrent-ntp-s4127-lr8000",
+      "plan_sha256": "20a39e1c8104d3fc990944ec31f6fa7a0aaded6322280ffa2f9357a131acacb7",
+      "cell": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "seed": 4127,
+      "update": 2,
+      "cursor": 1024,
+      "real_targets": 1046710,
+      "domain_targets": [
+        627567,
+        209522,
+        209621
+      ],
+      "valid_anchors": 62561,
+      "estimated_dense_matrix_ops": 554615305786368,
+      "segment_real_targets": 1046710,
+      "segment_valid_anchors": 62561,
+      "segment_estimated_dense_matrix_ops": 554615305786368,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "actual_optimizer_calls_per_replica": 2,
+      "complete_state_on_load_exact": false,
+      "recovered_state_digest": null,
+      "cpu_rng_on_load_exact": false,
+      "checkpoint_records": [
+        {
+          "update": 2,
+          "checkpoint_sha256": "a6058164957fc504db192594bcebb2a6aa1c5c165283adef6a2a64ae7d81f5b8",
+          "full_state_digest": "57d36cffa9601eb47cde3589f619eaa9f129083410886d2508015a5459b3d6e1",
+          "real_targets": 1046710,
+          "valid_anchors": 62561,
+          "estimated_dense_matrix_ops": 554615305786368,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "first_update_sha256": null,
+      "qualification_only": false,
+      "research_optimizer_updates": 2,
+      "test_accessed": false,
+      "wall_seconds": 95.2483217716217,
+      "scope": "Finite registered future-span scientific segment. Same original real targets and source order;separate global auxiliary normalization. Dense matrix counts include every head slot and replica Muon work,not hardware padding or chip-time equivalence. No quality or significance claim without independent readouts."
+    },
+    {
+      "identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr32000-preflight",
+      "model_variant": "all_mixes_then_one_core_fullgrad",
+      "status": "COMPLETE_REGISTERED_FUTURE_SPAN_SCIENTIFIC_SEGMENT",
+      "purpose": "natural_future_span_scientific_pilot",
+      "case_id": "recurrent-ntp-s4127-lr32000",
+      "plan_sha256": "20a39e1c8104d3fc990944ec31f6fa7a0aaded6322280ffa2f9357a131acacb7",
+      "cell": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "seed": 4127,
+      "update": 2,
+      "cursor": 1024,
+      "real_targets": 1046710,
+      "domain_targets": [
+        627567,
+        209522,
+        209621
+      ],
+      "valid_anchors": 62561,
+      "estimated_dense_matrix_ops": 554615305786368,
+      "segment_real_targets": 1046710,
+      "segment_valid_anchors": 62561,
+      "segment_estimated_dense_matrix_ops": 554615305786368,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "actual_optimizer_calls_per_replica": 2,
+      "complete_state_on_load_exact": false,
+      "recovered_state_digest": null,
+      "cpu_rng_on_load_exact": false,
+      "checkpoint_records": [
+        {
+          "update": 2,
+          "checkpoint_sha256": "def22131fdf3b61a52c2de511fdf6a978c0e5f0ae7bb47d05af8e81a21a7e283",
+          "full_state_digest": "6c76b087f15646df9df9b215b3fc8f74c136c54a9680f209d49d0b309a016dad",
+          "real_targets": 1046710,
+          "valid_anchors": 62561,
+          "estimated_dense_matrix_ops": 554615305786368,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "first_update_sha256": null,
+      "qualification_only": false,
+      "research_optimizer_updates": 2,
+      "test_accessed": false,
+      "wall_seconds": 93.99323463439941,
+      "scope": "Finite registered future-span scientific segment. Same original real targets and source order;separate global auxiliary normalization. Dense matrix counts include every head slot and replica Muon work,not hardware padding or chip-time equivalence. No quality or significance claim without independent readouts."
+    },
+    {
+      "identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr16000-finish",
+      "model_variant": "all_mixes_then_one_core_fullgrad",
+      "status": "COMPLETE_REGISTERED_FUTURE_SPAN_SCIENTIFIC_SEGMENT",
+      "purpose": "natural_future_span_scientific_pilot",
+      "case_id": "recurrent-ntp-s4127-lr16000",
+      "plan_sha256": "20a39e1c8104d3fc990944ec31f6fa7a0aaded6322280ffa2f9357a131acacb7",
+      "cell": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "seed": 4127,
+      "update": 576,
+      "cursor": 294912,
+      "real_targets": 301465908,
+      "domain_targets": [
+        180878087,
+        60295034,
+        60292787
+      ],
+      "valid_anchors": 18031448,
+      "estimated_dense_matrix_ops": 159697328805937152,
+      "segment_real_targets": 300419198,
+      "segment_valid_anchors": 17968887,
+      "segment_estimated_dense_matrix_ops": 159142713500150784,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "actual_optimizer_calls_per_replica": 574,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "5b48ac6ceea68ea4048f9867b15f6a19d052115d8248a0033b5415f59990a356",
+      "cpu_rng_on_load_exact": true,
+      "checkpoint_records": [
+        {
+          "update": 288,
+          "checkpoint_sha256": "7364ca7427c472f76f38c65f106b29160fb9011910c083b5d7480af1e1539316",
+          "full_state_digest": "140a237d8bb70bad4f3ec925aa1c649de806e1f51acb73355405746215f09db3",
+          "real_targets": 150732802,
+          "valid_anchors": 9015591,
+          "estimated_dense_matrix_ops": 79849452596576256,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 576,
+          "checkpoint_sha256": "f80ec64dce901c715056ce7519e1b4c16a5564468e98018339056dbec2f164c9",
+          "full_state_digest": "551ceaa356a850882f52bfb6c93ced19fc5637586a2a7a5752e3639d307bd1cc",
+          "real_targets": 301465908,
+          "valid_anchors": 18031448,
+          "estimated_dense_matrix_ops": 159697328805937152,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "first_update_sha256": null,
+      "qualification_only": false,
+      "research_optimizer_updates": 574,
+      "test_accessed": false,
+      "wall_seconds": 725.980874300003,
+      "scope": "Finite registered future-span scientific segment. Same original real targets and source order;separate global auxiliary normalization. Dense matrix counts include every head slot and replica Muon work,not hardware padding or chip-time equivalence. No quality or significance claim without independent readouts."
+    },
+    {
+      "identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr8000-finish",
+      "model_variant": "all_mixes_then_one_core_fullgrad",
+      "status": "COMPLETE_REGISTERED_FUTURE_SPAN_SCIENTIFIC_SEGMENT",
+      "purpose": "natural_future_span_scientific_pilot",
+      "case_id": "recurrent-ntp-s4127-lr8000",
+      "plan_sha256": "20a39e1c8104d3fc990944ec31f6fa7a0aaded6322280ffa2f9357a131acacb7",
+      "cell": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "seed": 4127,
+      "update": 576,
+      "cursor": 294912,
+      "real_targets": 301465908,
+      "domain_targets": [
+        180878087,
+        60295034,
+        60292787
+      ],
+      "valid_anchors": 18031448,
+      "estimated_dense_matrix_ops": 159697328805937152,
+      "segment_real_targets": 300419198,
+      "segment_valid_anchors": 17968887,
+      "segment_estimated_dense_matrix_ops": 159142713500150784,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "actual_optimizer_calls_per_replica": 574,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "57d36cffa9601eb47cde3589f619eaa9f129083410886d2508015a5459b3d6e1",
+      "cpu_rng_on_load_exact": true,
+      "checkpoint_records": [
+        {
+          "update": 288,
+          "checkpoint_sha256": "01afddb7ed1af38c5ac3eeebe16712ecbb65668591eecc83e10758e27b42ba5e",
+          "full_state_digest": "b07f706a0289e43c43f65c89e9bb172ab9a3008673697f6b58c91defbc80ab1c",
+          "real_targets": 150732802,
+          "valid_anchors": 9015591,
+          "estimated_dense_matrix_ops": 79849452596576256,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 576,
+          "checkpoint_sha256": "0aa6337a33c12554be6f30f6d01fefe21de9ae92bdb845bf842d2b7ace3616ed",
+          "full_state_digest": "5eeb99689bb6302fdab5bbe813e3f670a6f4758de9b30416ee60708789734f03",
+          "real_targets": 301465908,
+          "valid_anchors": 18031448,
+          "estimated_dense_matrix_ops": 159697328805937152,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "first_update_sha256": null,
+      "qualification_only": false,
+      "research_optimizer_updates": 574,
+      "test_accessed": false,
+      "wall_seconds": 727.1197397708893,
+      "scope": "Finite registered future-span scientific segment. Same original real targets and source order;separate global auxiliary normalization. Dense matrix counts include every head slot and replica Muon work,not hardware padding or chip-time equivalence. No quality or significance claim without independent readouts."
+    },
+    {
+      "identity": "small-core-mixing-tune-v2-recurrent-ntp-s4127-lr32000-finish",
+      "model_variant": "all_mixes_then_one_core_fullgrad",
+      "status": "COMPLETE_REGISTERED_FUTURE_SPAN_SCIENTIFIC_SEGMENT",
+      "purpose": "natural_future_span_scientific_pilot",
+      "case_id": "recurrent-ntp-s4127-lr32000",
+      "plan_sha256": "20a39e1c8104d3fc990944ec31f6fa7a0aaded6322280ffa2f9357a131acacb7",
+      "cell": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "seed": 4127,
+      "update": 576,
+      "cursor": 294912,
+      "real_targets": 301465908,
+      "domain_targets": [
+        180878087,
+        60295034,
+        60292787
+      ],
+      "valid_anchors": 18031448,
+      "estimated_dense_matrix_ops": 159697328805937152,
+      "segment_real_targets": 300419198,
+      "segment_valid_anchors": 17968887,
+      "segment_estimated_dense_matrix_ops": 159142713500150784,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "actual_optimizer_calls_per_replica": 574,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "6c76b087f15646df9df9b215b3fc8f74c136c54a9680f209d49d0b309a016dad",
+      "cpu_rng_on_load_exact": true,
+      "checkpoint_records": [
+        {
+          "update": 288,
+          "checkpoint_sha256": "d909bb45fce8e69246f2b5e423e54341849a6cd22449399ec8e34c3fdbebb60a",
+          "full_state_digest": "b8a3c4cefb8933376bf9d6574ad560bb6f85dd1c4915b5e7205d011098f98fca",
+          "real_targets": 150732802,
+          "valid_anchors": 9015591,
+          "estimated_dense_matrix_ops": 79849452596576256,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 576,
+          "checkpoint_sha256": "8079b2d0864f11996ddb3bf6ebcec91392ea4042a557595511c8905626499c3f",
+          "full_state_digest": "4ef567832e17723da4eed190724f3ad6b53e232bce31638ec4a5340901806dd4",
+          "real_targets": 301465908,
+          "valid_anchors": 18031448,
+          "estimated_dense_matrix_ops": 159697328805937152,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "first_update_sha256": null,
+      "qualification_only": false,
+      "research_optimizer_updates": 574,
+      "test_accessed": false,
+      "wall_seconds": 714.5398299694061,
+      "scope": "Finite registered future-span scientific segment. Same original real targets and source order;separate global auxiliary normalization. Dense matrix counts include every head slot and replica Muon work,not hardware padding or chip-time equivalence. No quality or significance claim without independent readouts."
+    }
+  ],
+  "plan_sha256": "20a39e1c8104d3fc990944ec31f6fa7a0aaded6322280ffa2f9357a131acacb7",
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "model_variant": "all_mixes_then_one_core_fullgrad",
+  "scope": "# Does the extra core earn its gain over cheap mixing?\n\nThis is a new development control after the completed two-seed work comparison\nand depth bound. Both favored longer one-pass training. Preserve those results;\nthe new control cannot rescue the closed future objective or establish an\nefficiency win for the existing recurrent models.\n\nTrain the CPU/native-qualified adapter-only repetition control from the same\noriginal random weights and natural-source order. Keep all parameters,heads,\ntokenizer,context,precision,noise/depth assignments and optimizer grouping.\nDifferentiate every mixing application,but execute the core once after mixing.\nNo teacher,generated research corpus,RL,router or new prediction objective.\n\n## Frozen selection and endpoints\n\nFirst independently tune the control on the same seed4127,TUNE panel,three\nrates{0.008,0.016,0.032} and301.5M-target cooled horizon as the prior family.\nEvery trial gets576 updates with its own cooldown from288. Every trial takes\ntwo counted scientific integration updates and passes an independent full512-\nwindow gradient gate before any trial continues. Final full512 gradient gates\nand independent cooled TUNE scoring are required for all three opportunities.\nSelect minimum TUNE NLL;ties prefer the lower rate. Record edge selection;\ndo not add rates after looking. This is not a claim of an optimal recipe.\n\nTuning has a5400-second cap from admission,including setup,audits and scoring.\nAdmission requires the complete cheap-control numerical/recovery pass and100\nwarm-update measurements. Bound training at1.35 times measured warm step,\ncharge every planned phase its measured cold allowance,plus900 seconds for\nparallel CPU tails. Fail admission if this does not fit. Each native phase\nis capped at1800 seconds and each CPU audit/score at1200. Resume retains the\nsaved deadline and exact source list;ordinary failures cancel owned workers.\n\nThen prepare a separate two-seed control comparison,using the already declared\n5231/7283 random initializers and one selected rate. Predeclare both endpoints:\n\n| Endpoint per seed | Updates | Real source targets | Complete nominal matrix work |\n| --- | ---: | ---: | ---: |\n| Equal data | 1920 | 1,004,887,590 | 532,324,901,665,308,672 |\n| Match original recurrent budget | 2347 | 1,228,367,660 | 650,710,029,135,859,200 |\n\nThe latter is0.023765% below recurrence's650,864,708,520,837,120 operations.\nEvery endpoint owns its full50% cooldown. Share only an untouched stable960\nprefix,with complete model/optimizer/RNG restoration into independent branches.\nThe longer endpoint starts cooling at1173. Record branch training as actual\ncampaign work and charge the common prefix to each conceptual model budget.\nDo not continue an annealed endpoint. MAIN needs its own measured budget,\nregistration and complete integration/numerical gates;TUNE does not admit it.\n\nScore the control at mixing count2,with the auxiliary head removed,on the\nsame consumed DEV panel. Compare the existing recurrent depth2 checkpoint\nagainst the control at equal data and matched nominal work;also retain the\ntrained one-pass NTP results. Use paired source-group uncertainty separately\nfrom two-seed variation. Supported count1 is a prespecified descriptive readout,\nnot a replacement primary. No source groups or seeds are fresh confirmation.\n\nIf cheap mixing recovers the equal-data gain,retain it as a stronger baseline\nand withhold credit from extra core executions. If recurrence beats cheap\nmixing,that identifies value beyond this control;the already measured negative\nagainst work-matched one-pass training still stands. Keep the0.01-nat useful\neffect threshold. No new rate search,depth change,longer exposure or terminal\nconfirmation is automatic from any outcome. No TEST or terminal alpha.\n"
+}
