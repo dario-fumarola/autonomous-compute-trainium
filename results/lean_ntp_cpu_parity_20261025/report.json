@@ -1,0 +1,72 @@
+{
+  "status": "PASS_LEAN_NTP_CPU_PARITY",
+  "plan_sha256": "07f41a3e08f3f15b9c73b70cb295c62369cc678ce946ae8e80fcc7c0a82ef42c",
+  "initializer_sha256": "4b8a1a60c0b9ba37f9cae68ec7a3020a313e1f0f3e6f998387b9333e1a1ec31c",
+  "source_sha256": "26cbf67a0bf11e41c7c235b1175a7abb37522770798109703eea6d5bc5f096ca",
+  "records": [
+    {
+      "case": "one-2b",
+      "depth": 1,
+      "natural_training_windows": 4,
+      "real_targets": 4088,
+      "full_loss": 10.569453239440918,
+      "lean_loss": 10.569453239440918,
+      "prediction_gradients_bit_equal": true,
+      "zero_auxiliary_gradients": true,
+      "full_gradient_norm": 31.805450439453125,
+      "lean_gradient_norm": 31.805450439453125,
+      "maximum_updated_parameter_absolute_error": 0.0,
+      "deployed_parameters": 141963840,
+      "training_parameters_removed": 24608000,
+      "lean_global_update_work": {
+        "model_forward_backward_matmuls": 244299551735808,
+        "one_replica_optimizer_matmuls": 815372773200,
+        "executed_optimizer_matmuls_all_replicas": 26091928742400,
+        "total_executed_matmuls": 270391480478208,
+        "optimizer_over_model_matmul_ratio": 0.10680301522049661,
+        "world": 32,
+        "batch": 1,
+        "accumulation": 16,
+        "global_windows": 512,
+        "positions_per_window": 1024,
+        "scope": "Executed dense matrix multiplies, FMA=2, full-square attention. Counts redundant optimizer work on every DDP replica. Excludes embedding gathers, elementwise/AdamW work, communication, idle time and compilation; not chip time or a hardware counter."
+      },
+      "qualification_only": true
+    },
+    {
+      "case": "fixed-2b",
+      "depth": 2,
+      "natural_training_windows": 4,
+      "real_targets": 4088,
+      "full_loss": 10.569634437561035,
+      "lean_loss": 10.569634437561035,
+      "prediction_gradients_bit_equal": true,
+      "zero_auxiliary_gradients": true,
+      "full_gradient_norm": 31.791112899780273,
+      "lean_gradient_norm": 31.791112899780273,
+      "maximum_updated_parameter_absolute_error": 0.0,
+      "deployed_parameters": 141963840,
+      "training_parameters_removed": 24608000,
+      "lean_global_update_work": {
+        "model_forward_backward_matmuls": 300581407162368,
+        "one_replica_optimizer_matmuls": 815372773200,
+        "executed_optimizer_matmuls_all_replicas": 26091928742400,
+        "total_executed_matmuls": 326673335904768,
+        "optimizer_over_model_matmul_ratio": 0.08680486590544727,
+        "world": 32,
+        "batch": 1,
+        "accumulation": 16,
+        "global_windows": 512,
+        "positions_per_window": 1024,
+        "scope": "Executed dense matrix multiplies, FMA=2, full-square attention. Counts redundant optimizer work on every DDP replica. Excludes embedding gathers, elementwise/AdamW work, communication, idle time and compilation; not chip time or a hardware counter."
+      },
+      "qualification_only": true
+    }
+  ],
+  "assigned_chips": 0,
+  "actual_qualification_optimizer_updates": 4,
+  "scientific_updates": 0,
+  "test_accessed": false,
+  "wall_seconds": 67.06872129440308,
+  "scope": "Four original TRAIN windows per arm,CPU FP32 objective/gradient and one optimizer update per full/lean model. No native,FP16,full512-window,optimizer-state-recovery,throughput or trajectory qualification. No scientific state is saved or adopted;no new quality result."
+}

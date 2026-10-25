@@ -1,3 +1,24 @@
+# Status — 2026-10-25 23:44 UTC
+
+**The frozen fixed-two MAIN continues on all16 chips.** Both arms saved their
+first502,444,236-target stable checkpoints with all32 complete replica states
+equal;both are continuing toward the2B comparison. No new cooled DEV quality
+result is available. Preserve the original04:15:35 UTC deadline and all six
+endpoints,including completed cooldowns and independent audits.
+
+A separate CPU-only lean-head check passes on four original TRAIN windows
+per arm:removing the zero-weight auxiliary head leaves NTP losses,gradients,
+clipping norms and first updated prediction parameters exactly unchanged.
+It removes1.72865% of One's nominal matrix work. A prospective lean One
+challenger would therefore receive2.4630B targets against fixed2 at2.0098B,
+instead of the running full-head One2.4206B. No such fit is admitted or launched;
+native precision,complete gradients,recovery and throughput still need gates.
+[CPU result and scope](results/lean_ntp_cpu_parity_20261025/REPORT.md).
+
+The active scientific recipe and source hashes remain unchanged.278 CPU tests
+pass. Bridge and future-span objective branches stay closed. No new TEST,
+reserve access,terminal alpha or terminal success;the broad goal remains active.
+
 # Status — 2026-10-25 23:24 UTC
 
 **The fixed-two main learning curve is executing on all16 chips.**
