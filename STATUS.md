@@ -1,3 +1,33 @@
+# Status — 2026-10-25 12:13 UTC
+
+**The second discovery seed is completing its one-pass models;the unchanged
+MAIN queue then trains its recurrent pair.** The first complete seed's plain
+NTP recurrence gain is0.022430 nats at equal data. Its future-objective
+interaction is only0.002281. Both seeds and all original numerical/readout
+gates remain required. No conclusion from a partial second seed.
+
+A separate **conditional work-control queue is now registered and waiting**.
+It owns no chips until complete MAIN plus the pre-MAIN NTP secondary reproduce
+all three useful-gain point gates in both seeds. If they pass,four one-pass
+continuations give both objectives comparable complete training matrix work.
+Each branches from its own stable960 parent,preserves full model/optimizer/RNG,
+and finishes its own cooldown at2365 updates/1.238B targets. All four must pass
+two counted continued updates and independent full512-window gradient audits
+before any long continuation. The admitted execution has a separate measured
+three-hour cap and individually owned workers. No control learning result
+exists yet. [Prospective protocol](docs/FUTURE_SPAN_WORK_CONTROLS_20261025.md).
+
+All **232 CPU tests pass**. The new queue freezes132 exact source paths;
+original MAIN119 and code-context127 files remain unchanged. Its conservative
+estimate is8,809 seconds including numerical audits,scoring and transport,
+below the10,800-second cap. Resume preserves that original clock and frozen
+path list. No TEST access,terminal allocation or confirmation admission.
+
+This remains a two-seed development screen,with unbracketed selected rates.
+Within-family controls do not replace stronger ordinary/cheap challengers,
+inference costs or at least five fresh paired confirmation seeds/source groups.
+The research goal remains active and unachieved.
+
 # Status — 2026-10-25, 11:41 UTC
 
 **The first complete seed supports a plain-recurrence discovery candidate at
