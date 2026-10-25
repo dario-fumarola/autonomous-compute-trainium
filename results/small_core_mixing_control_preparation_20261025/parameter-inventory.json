@@ -1,0 +1,31 @@
+{
+  "status": "COMPLETE_METADATA_ONLY_UNIQUE_PARAMETER_INVENTORY",
+  "parent_plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+  "source_sha256": {
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02"
+  },
+  "unique_deployed_parameters": 141963840,
+  "category_parameters": {
+    "token_table_tied_to_output": 24576000,
+    "once_backbone_and_readout": 28909440,
+    "shared_core": 14159040,
+    "shared_input_adapter": 591360,
+    "value_embedding_tables": 73728000
+  },
+  "all_lookup_table_parameters": 98304000,
+  "all_lookup_fraction": 0.6924580231134915,
+  "excluding_all_lookup_tables": 43659840,
+  "excluding_only_tied_token_table": 117387840,
+  "tied_output_shares_input_parameter": true,
+  "training_only_auxiliary_head_parameters": 24608000,
+  "current_candidate_source_targets": 1004887590,
+  "current_candidate_targets_per_deployed_parameter": 7.078475687893481,
+  "current_long_one_pass_targets_per_nonlookup_parameter": 28.35072877042151,
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "source_examples_read": 0,
+  "test_accessed": false,
+  "wall_seconds": 1.0466821193695068,
+  "scope": "Meta-device shapes only,no weights or corpus read. Excluding all four lookup tables differs from excluding only the tied token table. Papers without value embeddings do not directly share these definitions. Describes the existing fixed inventory;does not identify the cause of measured quality differences or authorize a tokenizer/architecture/budget change."
+}

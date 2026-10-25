@@ -1,3 +1,30 @@
+# Status — 2026-10-25 15:55 UTC
+
+**The first two cheap-control TUNE fits complete their301.5M-target cooled
+endpoints.** All three counted scientific integration gates pass. Final
+full512-window gradient audits are active for the first two rates;the third
+rate is training. No held-out tuning quality score is reported yet. All three
+opportunities and all six numerical gates remain required under the original
+16:50:26 UTC cutoff. No rate or endpoint change.
+
+The two-seed equal-data/matched-work MAIN remains a zero-chip conditional
+queue. Its admission requires complete TUNE,exact selection,source integrity,
+independent endpoint budgets and idle native ownership. It does not silently
+end the campaign after tuning,or launch on a favorable partial result.
+[Registered queue](results/small_core_mixing_main_queue_20261025/plan.json).
+
+A metadata-only inventory confirms141,963,840 deployed parameters,including
+98,304,000 in four lookup tables. Excluding all lookups gives43,659,840;
+excluding only the tied token table gives117,387,840. This distinction limits
+cross-paper token/parameter comparisons;it neither explains the observed loss
+gap nor changes the model or budget.
+[Inventory](results/small_core_mixing_control_preparation_20261025/parameter-inventory.json).
+
+The original result stays unchanged:mean0.023747-nat equal-data improvement,
+negative matched-work gains in both development seeds,and approximately17%
+extra measured two-pass prefill latency. The future objective is closed.
+**244 CPU tests pass.** No TEST or terminal alpha;the goal remains unachieved.
+
 # Status — 2026-10-25 15:39 UTC
 
 **All three counted scientific integration gates pass;longer control tuning
