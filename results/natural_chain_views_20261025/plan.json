@@ -1,0 +1,21 @@
+{
+  "identity": "natural-chain-views-v1",
+  "registered_unix": 1792957363.223055,
+  "source_sha256": {
+    "scripts/prepare_natural_chain_views.py": "7c096bf38f7f10701f391f4ff19fad8d8b94e57bf88a3de4e90a1bc179b2948d",
+    "compute_trainium/natural_chain_views.py": "40d87b221ce97c65f8dbba0ea85d8a09cd95c194bac6d03a9982d99d51439552",
+    "tests/test_natural_chain_views.py": "a2e268c157c06a1fad1c058b986bf5e5f8548079b37c40cd8756d07a81912211",
+    "docs/NATURAL_CHAIN_VIEW_PREPARATION_20261025.md": "cd4166a8d7d7b50c5c226cfb26b4935ed837b7314577d886e32bf99b378274ef"
+  },
+  "parent_report_sha256": "3715d19b528355b7a9a551d08a3153ff7cf0d630965261dd6524973182df672b",
+  "source_candidates_sha256": "ed0e16ad1bff1b4d14c38df9a81e8a2b8a1f8894a33c72598135c2f7f2679028",
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "context": 128,
+  "bos": 1,
+  "eos": 2,
+  "seconds_limit": 600,
+  "scope": "# Original arithmetic conclusion views\n\nConstruct a TRAIN-only data view from the1,727 frozen source-chain candidates.\nThis instantiates the owner's bridge-hiding proposal in a narrower,exactly\ncheckable domain. No new numeric premise,worked step or answer is generated.\nEvery mathematical string is an unchanged original source substring;fixed\nEnglish task delimiters only specify what the model must predict.\n\nRetain one document per literal-valued canonical arithmetic AST,chosen by\nascending content ID. Require a scalar conclusion,exact original equalities,\nat least two premise operations and an original simplifying intermediate.\nReject answer literals already present in any original retained fragment.\nPrepare every visible original-work prefix from all steps down to none. All\nviews of one problem belong to the same task;none are independent samples.\n\nUse the existing pinned32k tokenizer. The normal decoder predicts the ordered\noriginal conclusion;mask every premise,visible worked step and task delimiter.\nRequire stable tokenization at the answer boundary and sufficient context128\nfor all views,including explicit EOS. Never truncate a premise or target to\nfit. Score original answer tokens separately from a single task-EOS target;\nEOS is formatting supervision,not an authentic source token. A prospective\ntraining objective may weight EOS separately and must declare that weight.\nNo hidden work is encoded,cached or supplied to the model.\n\nThe exact-rational evaluator only verifies scalar outputs and source equality.\nIt never supplies the decoder's answer labels. Reject unsupported scalar\nformatting;do not repair documents or rewrite targets. Hash all private views\nand retain source character/UTF8 spans,identity and parent manifest links.\n\nThis preparation opens no DEV,TEST,reserve or model scores and admits no fit.\nTRAIN-only reconstruction can support a bounded training learnability check,\nnot held-out scientific efficacy. Any continuation pilot must disclose its\npretrained history/reset optimizer and cannot establish from-scratch learning.\nA later curriculum study needs paired one-pass/recurrence training,stronger\nwork-matched baselines,fresh eligible evaluation groups and free generation.\n\nCPU-only preparation is bounded to600 seconds,four readers at most,512GiB\nMemAvailable and35GiB free output filesystems. Keep source contents,token arrays,\nviews and states private. Publish aggregate counts,hashes and failures only.\n",
+  "assigned_chips": 0,
+  "research_optimizer_updates": 0,
+  "test_accessed": false
+}

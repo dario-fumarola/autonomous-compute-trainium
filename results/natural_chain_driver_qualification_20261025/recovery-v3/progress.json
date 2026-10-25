@@ -1,0 +1,1074 @@
+{
+  "records": [
+    {
+      "case": "one",
+      "native": {
+        "warm": {
+          "status": "CAPTURED_NATURAL_CHAIN_DRIVER_QUALIFICATION",
+          "case": "one",
+          "mode": "warm",
+          "signature": {
+            "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+            "arm": "one",
+            "context": 128,
+            "global_examples": 32,
+            "source_views_sha256": "f1b44eeaa25b7a7cf3c222ba788401a99d4d26672eb85a8b853b2bdecb4dda81",
+            "initial_sha256": "1658b1fb173902d6a090478b0bad85cdbc7afd0cb3bbc021fd4644bd01685066"
+          },
+          "probes": [
+            {
+              "update": 0,
+              "stage": 0,
+              "n": 1,
+              "answer_tokens": 104,
+              "gradient_file": "gradient-u0.pt",
+              "gradient_sha256": "aa3b60d3afb46c6777da74831bddb3040055989024732db956b2b682c7083630",
+              "gradient_digest": "8600360c7d450eb31617d66434ab4485bc0bcce666c2e5af020569574cce9ad4",
+              "raw_gradient_norm": 10.699233055114746
+            },
+            {
+              "update": 120,
+              "stage": 2,
+              "n": 1,
+              "answer_tokens": 104,
+              "gradient_file": "gradient-u120.pt",
+              "gradient_sha256": "bc32474cf84aa5e94fb2c269f9173bacc3f84d41e728a550fe408aca906b9095",
+              "gradient_digest": "c265823044527fe52ef41c560b5e1236a8f197482594a406d13d41355ccc5a4a",
+              "raw_gradient_norm": 5.225358486175537
+            }
+          ],
+          "full_checkpoint_sha256": "e87161e17da448282d97467af4258a36b8ec5b30c4239b59e14b5f0d3bed9f01",
+          "full_checkpoint_state_digest": "46d0eb6f01aa47c205214f3c5f8163792b61a2359f162f1102add834e821ae66",
+          "final_model_optimizer_digest": "dead55bda1dbaf275b6c93a561f5e996b728d89883731dad5ea8b90990d967ff",
+          "full_state_on_load_exact": false,
+          "rng_on_load_exact": false,
+          "recovered_state_digest": null,
+          "first_update_sha256": "e200c89bec1abae0ebd142dc038b49703d4f47bfefebc5230b83795af1abb2ea",
+          "final_sha256": "0f02a224ef0017a6bc458a8b2a1e6b1ce3ed5af451f568188f25209ddfa1fa47",
+          "all_complete_replica_states_equal": true,
+          "actual_optimizer_calls_per_replica": 121,
+          "answer_token_exposures": 12584,
+          "nominal_model_matrix_ops": 206384018227200,
+          "nominal_optimizer_matrix_ops_all_replicas": 3157123377830400,
+          "warm_updates": 100,
+          "warm_seconds": 12.88022494316101,
+          "qualification_only": true,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "wall_seconds": 74.79238533973694,
+          "progress": [
+            {
+              "update": 1,
+              "n": 1,
+              "stage": 0,
+              "answer_nll": 2.941134526179387,
+              "eos_nll": 14.194794654846191,
+              "gradient_norm_before_clip": 10.699233055114746,
+              "lr": 5e-06,
+              "elapsed_seconds": 43.79874587059021
+            },
+            {
+              "update": 10,
+              "n": 1,
+              "stage": 0,
+              "answer_nll": 2.8074258657602162,
+              "eos_nll": 14.066492080688477,
+              "gradient_norm_before_clip": 9.952802658081055,
+              "lr": 5e-05,
+              "elapsed_seconds": 45.54965043067932
+            },
+            {
+              "update": 20,
+              "n": 1,
+              "stage": 0,
+              "answer_nll": 2.4476859752948465,
+              "eos_nll": 13.61581802368164,
+              "gradient_norm_before_clip": 7.965494155883789,
+              "lr": 0.0001,
+              "elapsed_seconds": 46.85216403007507
+            },
+            {
+              "update": 30,
+              "n": 1,
+              "stage": 0,
+              "answer_nll": 2.0931078103872447,
+              "eos_nll": 12.860782623291016,
+              "gradient_norm_before_clip": 6.350952625274658,
+              "lr": 9.824819231794262e-05,
+              "elapsed_seconds": 48.15200901031494
+            },
+            {
+              "update": 40,
+              "n": 1,
+              "stage": 0,
+              "answer_nll": 1.853529269878681,
+              "eos_nll": 11.983203887939453,
+              "gradient_norm_before_clip": 5.573633670806885,
+              "lr": 9.236745922441589e-05,
+              "elapsed_seconds": 49.455238580703735
+            },
+            {
+              "update": 50,
+              "n": 1,
+              "stage": 1,
+              "answer_nll": 1.9423207503098707,
+              "eos_nll": 11.416669845581055,
+              "gradient_norm_before_clip": 5.443168640136719,
+              "lr": 8.29004296357349e-05,
+              "elapsed_seconds": 50.73106122016907
+            },
+            {
+              "update": 60,
+              "n": 1,
+              "stage": 1,
+              "answer_nll": 1.8158048483041616,
+              "eos_nll": 10.608513832092285,
+              "gradient_norm_before_clip": 5.176027774810791,
+              "lr": 7.075569021361259e-05,
+              "elapsed_seconds": 52.020036458969116
+            },
+            {
+              "update": 70,
+              "n": 1,
+              "stage": 1,
+              "answer_nll": 1.7320267603947566,
+              "eos_nll": 9.835456848144531,
+              "gradient_norm_before_clip": 5.1060919761657715,
+              "lr": 5.7098817567433805e-05,
+              "elapsed_seconds": 53.302144289016724
+            },
+            {
+              "update": 80,
+              "n": 1,
+              "stage": 1,
+              "answer_nll": 1.6742386451134315,
+              "eos_nll": 9.1676607131958,
+              "gradient_norm_before_clip": 5.115869522094727,
+              "lr": 4.324051345542129e-05,
+              "elapsed_seconds": 54.59286141395569
+            },
+            {
+              "update": 90,
+              "n": 1,
+              "stage": 2,
+              "answer_nll": 1.6460750286395733,
+              "eos_nll": 8.669759750366211,
+              "gradient_norm_before_clip": 5.156823635101318,
+              "lr": 3.051081177597877e-05,
+              "elapsed_seconds": 55.87819981575012
+            },
+            {
+              "update": 100,
+              "n": 1,
+              "stage": 2,
+              "answer_nll": 1.6193560086763823,
+              "eos_nll": 8.300345420837402,
+              "gradient_norm_before_clip": 5.184057712554932,
+              "lr": 2.0131430180369964e-05,
+              "elapsed_seconds": 57.16422629356384
+            },
+            {
+              "update": 110,
+              "n": 1,
+              "stage": 2,
+              "answer_nll": 1.60252805856558,
+              "eos_nll": 8.051278114318848,
+              "gradient_norm_before_clip": 5.206597805023193,
+              "lr": 1.3098517205605332e-05,
+              "elapsed_seconds": 58.45402216911316
+            },
+            {
+              "update": 120,
+              "n": 1,
+              "stage": 2,
+              "answer_nll": 1.5911595271183894,
+              "eos_nll": 7.87872314453125,
+              "gradient_norm_before_clip": 5.22359037399292,
+              "lr": 1.0087048128988257e-05,
+              "elapsed_seconds": 59.73239302635193
+            },
+            {
+              "update": 121,
+              "n": 1,
+              "stage": 2,
+              "answer_nll": 1.5900789407583384,
+              "eos_nll": 7.863518714904785,
+              "gradient_norm_before_clip": 5.225358486175537,
+              "lr": 1.0021767296860541e-05,
+              "elapsed_seconds": 67.95794582366943
+            }
+          ],
+          "scope": "32 fixed original TRAIN tasks,three bridge stages,normal decoder and explicit EOS loss. Initial body is a previously trained one-pass model;optimizer reset. Qualification updates only,not from-scratch or held-out efficacy. CPU gradients/optimizer audits and replay remain mandatory."
+        },
+        "replay": {
+          "status": "CAPTURED_NATURAL_CHAIN_DRIVER_QUALIFICATION",
+          "case": "one",
+          "mode": "replay",
+          "signature": {
+            "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+            "arm": "one",
+            "context": 128,
+            "global_examples": 32,
+            "source_views_sha256": "f1b44eeaa25b7a7cf3c222ba788401a99d4d26672eb85a8b853b2bdecb4dda81",
+            "initial_sha256": "1658b1fb173902d6a090478b0bad85cdbc7afd0cb3bbc021fd4644bd01685066"
+          },
+          "probes": [
+            {
+              "update": 120,
+              "stage": 2,
+              "n": 1,
+              "answer_tokens": 104,
+              "gradient_file": "gradient-u120.pt",
+              "gradient_sha256": "f1b663b568bb98ac2c6e6912d8770c0b5a4320155452d02973c1f534b7c5dcd3",
+              "gradient_digest": "5b6da6e63c74be2fad92174e9a6e3a7fb345a148f83e8b8a5a3493a40782f11d",
+              "raw_gradient_norm": 5.225358486175537
+            }
+          ],
+          "full_checkpoint_sha256": "94ab0b83f9fc407a94d4b9dde4eabcb2c2858687605c7e8e678556bb558ef298",
+          "full_checkpoint_state_digest": "46d0eb6f01aa47c205214f3c5f8163792b61a2359f162f1102add834e821ae66",
+          "final_model_optimizer_digest": "9bcbb8ade7c5a9b4699440e8a0a414ccbd3b926b7f933a52477df0dfd48d66f9",
+          "full_state_on_load_exact": true,
+          "rng_on_load_exact": true,
+          "recovered_state_digest": "46d0eb6f01aa47c205214f3c5f8163792b61a2359f162f1102add834e821ae66",
+          "first_update_sha256": null,
+          "final_sha256": "16629265d2721e981f7dde6b68e2cc47537f7ed360008131f8aa9fb8c790ac1c",
+          "all_complete_replica_states_equal": true,
+          "actual_optimizer_calls_per_replica": 1,
+          "answer_token_exposures": 104,
+          "nominal_model_matrix_ops": 1705653043200,
+          "nominal_optimizer_matrix_ops_all_replicas": 26091928742400,
+          "warm_updates": 0,
+          "warm_seconds": null,
+          "qualification_only": true,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "wall_seconds": 61.38425135612488,
+          "progress": [
+            {
+              "update": 121,
+              "n": 1,
+              "stage": 2,
+              "answer_nll": 1.5900789407583384,
+              "eos_nll": 7.863518714904785,
+              "gradient_norm_before_clip": 5.225358486175537,
+              "lr": 1.0021767296860541e-05,
+              "elapsed_seconds": 55.73450517654419
+            }
+          ],
+          "scope": "32 fixed original TRAIN tasks,three bridge stages,normal decoder and explicit EOS loss. Initial body is a previously trained one-pass model;optimizer reset. Qualification updates only,not from-scratch or held-out efficacy. CPU gradients/optimizer audits and replay remain mandatory."
+        }
+      },
+      "independent_audits": [
+        {
+          "status": "PASS_INDEPENDENT_NATURAL_CHAIN_AUDIT",
+          "case": "one",
+          "mode": "warm",
+          "update": 0,
+          "examples": 32,
+          "n": 1,
+          "gradient": {
+            "overall": {
+              "relative_l2": 0.0007821034610404369,
+              "maximum_absolute_error": 0.0008165836334228516,
+              "reference_l2": 10.700654720953333
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0008319182758580177,
+                "maximum_absolute_error": 3.472156822681427e-05,
+                "reference_l2": 0.39334166690399736
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0005353325652126353,
+                "maximum_absolute_error": 4.4034793972969055e-05,
+                "reference_l2": 0.5373540054439252
+              },
+              "transformer_body": {
+                "relative_l2": 0.0007825579136705987,
+                "maximum_absolute_error": 0.0008165836334228516,
+                "reference_l2": 10.679498933038031
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0008060221744060831,
+                "maximum_absolute_error": 5.820533260703087e-06,
+                "reference_l2": 0.09405850419252212
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "loss_differences": {
+            "answer": -0.0002505022745866725,
+            "eos": 0.0005731582641601562
+          },
+          "optimizer_step": {
+            "update_comparison": {
+              "relative_l2": 0.0005999236347096453,
+              "maximum_absolute_error": 5.066394805908203e-07,
+              "reference_l2": 0.01591934240153437,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 9.085543509573362e-05,
+              "maximum_absolute_error": 5.619600415229797e-06,
+              "reference_l2": 0.16176263032354993
+            },
+            "families": {
+              "adamw": {
+                "update_comparison": {
+                  "relative_l2": 0.0005281241205983952,
+                  "maximum_absolute_error": 2.384185791015625e-07,
+                  "reference_l2": 0.015900754753956633,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 8.182812979798703e-05,
+                  "maximum_absolute_error": 3.915280103683472e-06,
+                  "reference_l2": 0.10093437311335694
+                }
+              },
+              "muon": {
+                "update_comparison": {
+                  "relative_l2": 0.005914593603822334,
+                  "maximum_absolute_error": 5.066394805908203e-07,
+                  "reference_l2": 0.0007690648554026794,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 9.61695054298539e-05,
+                  "maximum_absolute_error": 5.619600415229797e-06,
+                  "reference_l2": 0.1264096550640303
+                }
+              }
+            }
+          },
+          "optimizer_step_passes_two_percent_gate": true,
+          "cpu_raw_gradient_norm": 10.698357582092285,
+          "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+          "wall_seconds": 25.09760332107544,
+          "assigned_chips": 0,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "scope": "Independent pinned upstream FP32 model and independent scalar original-answer/EOS masks;all32 TRAIN tasks and independent observed-gradient optimizer step. No held-out result or curriculum efficacy claim."
+        },
+        {
+          "status": "PASS_INDEPENDENT_NATURAL_CHAIN_AUDIT",
+          "case": "one",
+          "mode": "warm",
+          "update": 120,
+          "examples": 32,
+          "n": 1,
+          "gradient": {
+            "overall": {
+              "relative_l2": 0.0008429682837331406,
+              "maximum_absolute_error": 0.0007748007774353027,
+              "reference_l2": 5.225181167668325
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0011502581418939943,
+                "maximum_absolute_error": 1.4412449672818184e-05,
+                "reference_l2": 0.15713099597817579
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0009333397860153121,
+                "maximum_absolute_error": 6.484054028987885e-05,
+                "reference_l2": 0.25490168746086916
+              },
+              "transformer_body": {
+                "relative_l2": 0.000842394454068016,
+                "maximum_absolute_error": 0.0007748007774353027,
+                "reference_l2": 5.2165027086076545
+              },
+              "value_embeddings": {
+                "relative_l2": 0.001229844663666325,
+                "maximum_absolute_error": 3.3295946195721626e-06,
+                "reference_l2": 0.030865933927564322
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "loss_differences": {
+            "answer": 1.0940891045807533e-05,
+            "eos": -0.0004129260778427124
+          },
+          "optimizer_step": {
+            "update_comparison": {
+              "relative_l2": 0.00023946720371607904,
+              "maximum_absolute_error": 4.172325134277344e-07,
+              "reference_l2": 0.03292065043660736,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 5.875390270764148e-06,
+              "maximum_absolute_error": 4.76837158203125e-06,
+              "reference_l2": 1.1133903389273
+            },
+            "families": {
+              "adamw": {
+                "update_comparison": {
+                  "relative_l2": 0.00022649792701053264,
+                  "maximum_absolute_error": 2.384185791015625e-07,
+                  "reference_l2": 0.032899686255533495,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 7.354826402959411e-06,
+                  "maximum_absolute_error": 4.76837158203125e-06,
+                  "reference_l2": 0.8717298756567416
+                }
+              },
+              "muon": {
+                "update_comparison": {
+                  "relative_l2": 0.0021903746775719145,
+                  "maximum_absolute_error": 4.172325134277344e-07,
+                  "reference_l2": 0.0011746784482389988,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 1.8748345805966984e-06,
+                  "maximum_absolute_error": 1.6408739611506462e-07,
+                  "reference_l2": 0.6926218814794478
+                }
+              }
+            }
+          },
+          "optimizer_step_passes_two_percent_gate": true,
+          "cpu_raw_gradient_norm": 5.225152015686035,
+          "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+          "wall_seconds": 28.167397260665894,
+          "assigned_chips": 0,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "scope": "Independent pinned upstream FP32 model and independent scalar original-answer/EOS masks;all32 TRAIN tasks and independent observed-gradient optimizer step. No held-out result or curriculum efficacy claim."
+        },
+        {
+          "status": "PASS_INDEPENDENT_NATURAL_CHAIN_AUDIT",
+          "case": "one",
+          "mode": "replay",
+          "update": 120,
+          "examples": 32,
+          "n": 1,
+          "gradient": {
+            "overall": {
+              "relative_l2": 0.0008429756076248377,
+              "maximum_absolute_error": 0.0007749199867248535,
+              "reference_l2": 5.225181167668325
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.001150258659578563,
+                "maximum_absolute_error": 1.441256608814001e-05,
+                "reference_l2": 0.15713099597817579
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0009333413851487138,
+                "maximum_absolute_error": 6.483960896730423e-05,
+                "reference_l2": 0.25490168746086916
+              },
+              "transformer_body": {
+                "relative_l2": 0.0008424018026034534,
+                "maximum_absolute_error": 0.0007749199867248535,
+                "reference_l2": 5.2165027086076545
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0012298422949845983,
+                "maximum_absolute_error": 3.329565515741706e-06,
+                "reference_l2": 0.030865933927564322
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "loss_differences": {
+            "answer": 1.0940891045807533e-05,
+            "eos": -0.0004129260778427124
+          },
+          "optimizer_step": {
+            "update_comparison": {
+              "relative_l2": 0.00023950291645520095,
+              "maximum_absolute_error": 4.172325134277344e-07,
+              "reference_l2": 0.03292065068048257,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 5.87711927103872e-06,
+              "maximum_absolute_error": 4.76837158203125e-06,
+              "reference_l2": 1.1133903409148984
+            },
+            "families": {
+              "adamw": {
+                "update_comparison": {
+                  "relative_l2": 0.00022653795957551577,
+                  "maximum_absolute_error": 2.384185791015625e-07,
+                  "reference_l2": 0.032899686499468624,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 7.356634821779607e-06,
+                  "maximum_absolute_error": 4.76837158203125e-06,
+                  "reference_l2": 0.8717298769894629
+                }
+              },
+              "muon": {
+                "update_comparison": {
+                  "relative_l2": 0.002190194001874722,
+                  "maximum_absolute_error": 4.172325134277344e-07,
+                  "reference_l2": 0.001174678450913397,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 1.8775968655418207e-06,
+                  "maximum_absolute_error": 1.641456037759781e-07,
+                  "reference_l2": 0.6926218829971584
+                }
+              }
+            }
+          },
+          "optimizer_step_passes_two_percent_gate": true,
+          "cpu_raw_gradient_norm": 5.225151538848877,
+          "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+          "wall_seconds": 22.917502641677856,
+          "assigned_chips": 0,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "scope": "Independent pinned upstream FP32 model and independent scalar original-answer/EOS masks;all32 TRAIN tasks and independent observed-gradient optimizer step. No held-out result or curriculum efficacy claim."
+        }
+      ],
+      "exact_future_trajectory_equal": false
+    },
+    {
+      "case": "recurrent",
+      "native": {
+        "warm": {
+          "status": "CAPTURED_NATURAL_CHAIN_DRIVER_QUALIFICATION",
+          "case": "recurrent",
+          "mode": "warm",
+          "signature": {
+            "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+            "arm": "recurrent",
+            "context": 128,
+            "global_examples": 32,
+            "source_views_sha256": "f1b44eeaa25b7a7cf3c222ba788401a99d4d26672eb85a8b853b2bdecb4dda81",
+            "initial_sha256": "1658b1fb173902d6a090478b0bad85cdbc7afd0cb3bbc021fd4644bd01685066"
+          },
+          "probes": [
+            {
+              "update": 0,
+              "stage": 0,
+              "n": 4,
+              "answer_tokens": 104,
+              "gradient_file": "gradient-u0.pt",
+              "gradient_sha256": "4ee7fe4a88431c4822577ef802143a527902fa38eba7494be24b854e1aa76649",
+              "gradient_digest": "17df229eec7b79b8e1980e89076ba84d6a48c28ad16aaa54342a127da2d8344f",
+              "raw_gradient_norm": 10.832537651062012
+            },
+            {
+              "update": 120,
+              "stage": 2,
+              "n": 4,
+              "answer_tokens": 104,
+              "gradient_file": "gradient-u120.pt",
+              "gradient_sha256": "bcfc4ad5bb64ebd1ff7c45df92f08c6d9020b3b6028e4732ff14344b9585064f",
+              "gradient_digest": "bc9ac18b783d660cc1ff1ea22f51f48cd71791fccb8ff1b101090872d271fd72",
+              "raw_gradient_norm": 5.242109775543213
+            }
+          ],
+          "full_checkpoint_sha256": "78a56dfb47322ef2025edb7801d3dce03cd30e7311e7646c4d0d8d1ec3787a62",
+          "full_checkpoint_state_digest": "22572219dbce7865d1586f86f3eba3789066c8e1761e0cb95c6581dd54a929e6",
+          "final_model_optimizer_digest": "e91125bd81a2dd8d56b969cf1849d6c59697bc54272284a97090af98225ec684",
+          "full_state_on_load_exact": false,
+          "rng_on_load_exact": false,
+          "recovered_state_digest": null,
+          "first_update_sha256": "0c1e74ec80f32f6e6ac18d7fbb6ea0f5a07b056a256fc2ef48a2be65b72228f7",
+          "final_sha256": "9874f5ba756d60453ad253bb40795afa61b543c91a4b028173c285f73bec401d",
+          "all_complete_replica_states_equal": true,
+          "actual_optimizer_calls_per_replica": 121,
+          "answer_token_exposures": 12584,
+          "nominal_model_matrix_ops": 267029188706304,
+          "nominal_optimizer_matrix_ops_all_replicas": 3157123377830400,
+          "warm_updates": 100,
+          "warm_seconds": 13.578084945678711,
+          "qualification_only": true,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "wall_seconds": 84.50233149528503,
+          "progress": [
+            {
+              "update": 1,
+              "n": 4,
+              "stage": 0,
+              "answer_nll": 2.9536672738882213,
+              "eos_nll": 14.203454971313477,
+              "gradient_norm_before_clip": 10.832537651062012,
+              "lr": 5e-06,
+              "elapsed_seconds": 52.91908550262451
+            },
+            {
+              "update": 10,
+              "n": 4,
+              "stage": 0,
+              "answer_nll": 2.816540057842548,
+              "eos_nll": 14.078401565551758,
+              "gradient_norm_before_clip": 10.064088821411133,
+              "lr": 5e-05,
+              "elapsed_seconds": 54.78149914741516
+            },
+            {
+              "update": 20,
+              "n": 1,
+              "stage": 0,
+              "answer_nll": 2.4510728395902195,
+              "eos_nll": 13.627367973327637,
+              "gradient_norm_before_clip": 7.979541301727295,
+              "lr": 0.0001,
+              "elapsed_seconds": 56.12499213218689
+            },
+            {
+              "update": 30,
+              "n": 2,
+              "stage": 0,
+              "answer_nll": 2.09003653893104,
+              "eos_nll": 12.883329391479492,
+              "gradient_norm_before_clip": 6.377686500549316,
+              "lr": 9.824819231794262e-05,
+              "elapsed_seconds": 57.46881723403931
+            },
+            {
+              "update": 40,
+              "n": 4,
+              "stage": 0,
+              "answer_nll": 1.8481970566969652,
+              "eos_nll": 12.006357192993164,
+              "gradient_norm_before_clip": 5.559016227722168,
+              "lr": 9.236745922441589e-05,
+              "elapsed_seconds": 58.82724642753601
+            },
+            {
+              "update": 50,
+              "n": 1,
+              "stage": 1,
+              "answer_nll": 1.9463729858398438,
+              "eos_nll": 11.43077278137207,
+              "gradient_norm_before_clip": 5.463119983673096,
+              "lr": 8.29004296357349e-05,
+              "elapsed_seconds": 60.168701171875
+            },
+            {
+              "update": 60,
+              "n": 2,
+              "stage": 1,
+              "answer_nll": 1.811060538658729,
+              "eos_nll": 10.62948989868164,
+              "gradient_norm_before_clip": 5.20522403717041,
+              "lr": 7.075569021361259e-05,
+              "elapsed_seconds": 61.522345542907715
+            },
+            {
+              "update": 70,
+              "n": 4,
+              "stage": 1,
+              "answer_nll": 1.7249456552358775,
+              "eos_nll": 9.857460021972656,
+              "gradient_norm_before_clip": 5.1297287940979,
+              "lr": 5.7098817567433805e-05,
+              "elapsed_seconds": 62.917531967163086
+            },
+            {
+              "update": 80,
+              "n": 1,
+              "stage": 1,
+              "answer_nll": 1.6775562579815204,
+              "eos_nll": 9.190322875976562,
+              "gradient_norm_before_clip": 5.130134105682373,
+              "lr": 4.324051345542129e-05,
+              "elapsed_seconds": 64.27889204025269
+            },
+            {
+              "update": 90,
+              "n": 2,
+              "stage": 2,
+              "answer_nll": 1.6378658001239483,
+              "eos_nll": 8.674637794494629,
+              "gradient_norm_before_clip": 5.175543785095215,
+              "lr": 3.051081177597877e-05,
+              "elapsed_seconds": 65.60813212394714
+            },
+            {
+              "update": 100,
+              "n": 4,
+              "stage": 2,
+              "answer_nll": 1.610289793748122,
+              "eos_nll": 8.305798530578613,
+              "gradient_norm_before_clip": 5.201977252960205,
+              "lr": 2.0131430180369964e-05,
+              "elapsed_seconds": 66.96017503738403
+            },
+            {
+              "update": 110,
+              "n": 1,
+              "stage": 2,
+              "answer_nll": 1.6060716188870943,
+              "eos_nll": 8.077289581298828,
+              "gradient_norm_before_clip": 5.2215962409973145,
+              "lr": 1.3098517205605332e-05,
+              "elapsed_seconds": 68.32662272453308
+            },
+            {
+              "update": 120,
+              "n": 2,
+              "stage": 2,
+              "answer_nll": 1.5822309347299428,
+              "eos_nll": 7.873664379119873,
+              "gradient_norm_before_clip": 5.240318775177002,
+              "lr": 1.0087048128988257e-05,
+              "elapsed_seconds": 69.7031078338623
+            },
+            {
+              "update": 121,
+              "n": 4,
+              "stage": 2,
+              "answer_nll": 1.5806808471679688,
+              "eos_nll": 7.8643341064453125,
+              "gradient_norm_before_clip": 5.242109775543213,
+              "lr": 1.0021767296860541e-05,
+              "elapsed_seconds": 77.7724404335022
+            }
+          ],
+          "scope": "32 fixed original TRAIN tasks,three bridge stages,normal decoder and explicit EOS loss. Initial body is a previously trained one-pass model;optimizer reset. Qualification updates only,not from-scratch or held-out efficacy. CPU gradients/optimizer audits and replay remain mandatory."
+        },
+        "replay": {
+          "status": "CAPTURED_NATURAL_CHAIN_DRIVER_QUALIFICATION",
+          "case": "recurrent",
+          "mode": "replay",
+          "signature": {
+            "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+            "arm": "recurrent",
+            "context": 128,
+            "global_examples": 32,
+            "source_views_sha256": "f1b44eeaa25b7a7cf3c222ba788401a99d4d26672eb85a8b853b2bdecb4dda81",
+            "initial_sha256": "1658b1fb173902d6a090478b0bad85cdbc7afd0cb3bbc021fd4644bd01685066"
+          },
+          "probes": [
+            {
+              "update": 120,
+              "stage": 2,
+              "n": 4,
+              "answer_tokens": 104,
+              "gradient_file": "gradient-u120.pt",
+              "gradient_sha256": "04ca2023dfdb576ced393045d526fac5da08d03c2f3028ff93c8eb71d03ee4b8",
+              "gradient_digest": "7780407f470e48cff6345d8661ad51633ef68e44c6fad78b63d9a61fae4bde74",
+              "raw_gradient_norm": 5.242109775543213
+            }
+          ],
+          "full_checkpoint_sha256": "8ea2d1488a8ccc4e1c18db79b00a74ea01275845b1900dbde437e6c17b1a2f0b",
+          "full_checkpoint_state_digest": "22572219dbce7865d1586f86f3eba3789066c8e1761e0cb95c6581dd54a929e6",
+          "final_model_optimizer_digest": "ade45876bb3f46182a12f09fbd0670aab98576e0345f941f1c2d45598e800272",
+          "full_state_on_load_exact": true,
+          "rng_on_load_exact": true,
+          "recovered_state_digest": "22572219dbce7865d1586f86f3eba3789066c8e1761e0cb95c6581dd54a929e6",
+          "first_update_sha256": null,
+          "final_sha256": "f4a58f7fd77d13c7ae34ee7c19abdbd3c2fc82b08f5b7e6c40bc53cb655f90aa",
+          "all_complete_replica_states_equal": true,
+          "actual_optimizer_calls_per_replica": 1,
+          "answer_token_exposures": 104,
+          "nominal_model_matrix_ops": 2821821825024,
+          "nominal_optimizer_matrix_ops_all_replicas": 26091928742400,
+          "warm_updates": 0,
+          "warm_seconds": null,
+          "qualification_only": true,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "wall_seconds": 67.16317701339722,
+          "progress": [
+            {
+              "update": 121,
+              "n": 4,
+              "stage": 2,
+              "answer_nll": 1.5806808471679688,
+              "eos_nll": 7.8643341064453125,
+              "gradient_norm_before_clip": 5.242109775543213,
+              "lr": 1.0021767296860541e-05,
+              "elapsed_seconds": 61.62025451660156
+            }
+          ],
+          "scope": "32 fixed original TRAIN tasks,three bridge stages,normal decoder and explicit EOS loss. Initial body is a previously trained one-pass model;optimizer reset. Qualification updates only,not from-scratch or held-out efficacy. CPU gradients/optimizer audits and replay remain mandatory."
+        }
+      },
+      "independent_audits": [
+        {
+          "status": "PASS_INDEPENDENT_NATURAL_CHAIN_AUDIT",
+          "case": "recurrent",
+          "mode": "warm",
+          "update": 0,
+          "examples": 32,
+          "n": 4,
+          "gradient": {
+            "overall": {
+              "relative_l2": 0.0008802854699613375,
+              "maximum_absolute_error": 0.001010894775390625,
+              "reference_l2": 10.834248050284453
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.000936028886756508,
+                "maximum_absolute_error": 5.1954761147499084e-05,
+                "reference_l2": 0.4047034242618439
+              },
+              "tied_input_output": {
+                "relative_l2": 0.000628038063619762,
+                "maximum_absolute_error": 6.724894046783447e-05,
+                "reference_l2": 0.5426839020369275
+              },
+              "transformer_body": {
+                "relative_l2": 0.0008807471907593672,
+                "maximum_absolute_error": 0.001010894775390625,
+                "reference_l2": 10.812651627318646
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0009049354839299177,
+                "maximum_absolute_error": 6.536487489938736e-06,
+                "reference_l2": 0.09594228575870169
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "loss_differences": {
+            "answer": -0.00024829919521618393,
+            "eos": 0.0010086297988891602
+          },
+          "optimizer_step": {
+            "update_comparison": {
+              "relative_l2": 0.0006160505448984718,
+              "maximum_absolute_error": 4.172325134277344e-07,
+              "reference_l2": 0.01581616835144939,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 8.316940849187519e-05,
+              "maximum_absolute_error": 3.7886202335357666e-06,
+              "reference_l2": 0.1617184688399752
+            },
+            "families": {
+              "adamw": {
+                "update_comparison": {
+                  "relative_l2": 0.000541268714155344,
+                  "maximum_absolute_error": 2.384185791015625e-07,
+                  "reference_l2": 0.01579727432976386,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 8.347743607776716e-05,
+                  "maximum_absolute_error": 3.7886202335357666e-06,
+                  "reference_l2": 0.10081679502229406
+                }
+              },
+              "muon": {
+                "update_comparison": {
+                  "relative_l2": 0.0060447166889190515,
+                  "maximum_absolute_error": 4.172325134277344e-07,
+                  "reference_l2": 0.0007728551426839914,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 8.297300233500612e-05,
+                  "maximum_absolute_error": 3.67872416973114e-07,
+                  "reference_l2": 0.12644697309694197
+                }
+              }
+            }
+          },
+          "optimizer_step_passes_two_percent_gate": true,
+          "cpu_raw_gradient_norm": 10.831633567810059,
+          "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+          "wall_seconds": 29.631402492523193,
+          "assigned_chips": 0,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "scope": "Independent pinned upstream FP32 model and independent scalar original-answer/EOS masks;all32 TRAIN tasks and independent observed-gradient optimizer step. No held-out result or curriculum efficacy claim."
+        },
+        {
+          "status": "PASS_INDEPENDENT_NATURAL_CHAIN_AUDIT",
+          "case": "recurrent",
+          "mode": "warm",
+          "update": 120,
+          "examples": 32,
+          "n": 4,
+          "gradient": {
+            "overall": {
+              "relative_l2": 0.0007415470318592941,
+              "maximum_absolute_error": 0.00031065940856933594,
+              "reference_l2": 5.24241283750823
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.001021014574453773,
+                "maximum_absolute_error": 1.7588958144187927e-05,
+                "reference_l2": 0.15896996510875586
+              },
+              "tied_input_output": {
+                "relative_l2": 0.00078388085183479,
+                "maximum_absolute_error": 4.246644675731659e-05,
+                "reference_l2": 0.2578217330977762
+              },
+              "transformer_body": {
+                "relative_l2": 0.0007411209081218166,
+                "maximum_absolute_error": 0.00031065940856933594,
+                "reference_l2": 5.2335615425222475
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0010603428232622205,
+                "maximum_absolute_error": 2.4545770429540426e-06,
+                "reference_l2": 0.03134395697766367
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "loss_differences": {
+            "answer": -5.89180451173732e-05,
+            "eos": -4.79966402053833e-05
+          },
+          "optimizer_step": {
+            "update_comparison": {
+              "relative_l2": 0.00023921569674032758,
+              "maximum_absolute_error": 4.76837158203125e-07,
+              "reference_l2": 0.03253377205534852,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 5.966920354734706e-06,
+              "maximum_absolute_error": 4.827976226806641e-06,
+              "reference_l2": 1.1104366616836427
+            },
+            "families": {
+              "adamw": {
+                "update_comparison": {
+                  "relative_l2": 0.00022704660286048918,
+                  "maximum_absolute_error": 4.76837158203125e-07,
+                  "reference_l2": 0.032512388064741216,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 7.467105490919317e-06,
+                  "maximum_absolute_error": 4.827976226806641e-06,
+                  "reference_l2": 0.86942975134791
+                }
+              },
+              "muon": {
+                "update_comparison": {
+                  "relative_l2": 0.002090262058459119,
+                  "maximum_absolute_error": 1.9371509552001953e-07,
+                  "reference_l2": 0.0011793839396265604,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 1.917653022407613e-06,
+                  "maximum_absolute_error": 1.5576370060443878e-07,
+                  "reference_l2": 0.690768765276937
+                }
+              }
+            }
+          },
+          "optimizer_step_passes_two_percent_gate": true,
+          "cpu_raw_gradient_norm": 5.241899490356445,
+          "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+          "wall_seconds": 32.40311098098755,
+          "assigned_chips": 0,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "scope": "Independent pinned upstream FP32 model and independent scalar original-answer/EOS masks;all32 TRAIN tasks and independent observed-gradient optimizer step. No held-out result or curriculum efficacy claim."
+        },
+        {
+          "status": "PASS_INDEPENDENT_NATURAL_CHAIN_AUDIT",
+          "case": "recurrent",
+          "mode": "replay",
+          "update": 120,
+          "examples": 32,
+          "n": 4,
+          "gradient": {
+            "overall": {
+              "relative_l2": 0.0007415466957814705,
+              "maximum_absolute_error": 0.00031065940856933594,
+              "reference_l2": 5.24241283750823
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.001021015502147725,
+                "maximum_absolute_error": 1.7589889466762543e-05,
+                "reference_l2": 0.15896996510875586
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0007838917749737337,
+                "maximum_absolute_error": 4.2469240725040436e-05,
+                "reference_l2": 0.2578217330977762
+              },
+              "transformer_body": {
+                "relative_l2": 0.0007411205414854938,
+                "maximum_absolute_error": 0.00031065940856933594,
+                "reference_l2": 5.2335615425222475
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0010603430003622728,
+                "maximum_absolute_error": 2.4545843189116567e-06,
+                "reference_l2": 0.03134395697766367
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "loss_differences": {
+            "answer": -5.89180451173732e-05,
+            "eos": -4.79966402053833e-05
+          },
+          "optimizer_step": {
+            "update_comparison": {
+              "relative_l2": 0.0002391623369836868,
+              "maximum_absolute_error": 4.76837158203125e-07,
+              "reference_l2": 0.032533771977624415,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 5.966660773752419e-06,
+              "maximum_absolute_error": 4.827976226806641e-06,
+              "reference_l2": 1.1104366642159025
+            },
+            "families": {
+              "adamw": {
+                "update_comparison": {
+                  "relative_l2": 0.00022698652018895372,
+                  "maximum_absolute_error": 4.76837158203125e-07,
+                  "reference_l2": 0.032512387986659785,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 7.466684878668982e-06,
+                  "maximum_absolute_error": 4.827976226806641e-06,
+                  "reference_l2": 0.8694297507888853
+                }
+              },
+              "muon": {
+                "update_comparison": {
+                  "relative_l2": 0.002090574647879939,
+                  "maximum_absolute_error": 1.9371509552001953e-07,
+                  "reference_l2": 0.0011793839480677476,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moment_comparison": {
+                  "relative_l2": 1.9181603837639234e-06,
+                  "maximum_absolute_error": 1.5576370060443878e-07,
+                  "reference_l2": 0.69076877005125
+                }
+              }
+            }
+          },
+          "optimizer_step_passes_two_percent_gate": true,
+          "cpu_raw_gradient_norm": 5.241899490356445,
+          "plan_sha256": "827a19325d47e2a3c528834b73dac3d5b193a1300563fa8a49b25c3ac74fda0d",
+          "wall_seconds": 28.635061740875244,
+          "assigned_chips": 0,
+          "research_optimizer_updates": 0,
+          "test_accessed": false,
+          "scope": "Independent pinned upstream FP32 model and independent scalar original-answer/EOS masks;all32 TRAIN tasks and independent observed-gradient optimizer step. No held-out result or curriculum efficacy claim."
+        }
+      ],
+      "exact_future_trajectory_equal": false
+    }
+  ]
+}

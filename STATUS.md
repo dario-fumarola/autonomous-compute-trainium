@@ -1,3 +1,54 @@
+# Status — 2026-10-25 20:15 UTC
+
+**The natural bridge-hiding data/driver pipeline now works.**1,618 deduplicated
+TRAIN arithmetic problems yield3,484 original-work views. Every mathematical
+premise,step and ordered conclusion remains a source substring;the calculator
+checks equalities but supplies no labels. Fixed task formatting and a separate
+EOS target are explicit procedural supervision. No scientific curriculum fit
+has run yet.
+[Source views](results/natural_chain_views_20261025/REPORT.md).
+
+All16 chips executed the actual task-driver qualification. Six complete32-task
+independent upstream FP32 gradient/optimizer audits pass;maximum body relative-
+L2 error0.08803%. All replicas and complete model/optimizer/RNG restores pass;
+future-step digests differ,so bit-exact future trajectories remain unestablished.
+244 actual qualification updates,zero research updates. The legacy CLI failure
+and native cross_entropy graph break are preserved with their costs;the recovered
+explicit-CE route finishes under the original deadline. These fitted qualification
+weights are not adopted for science.
+[Driver qualification](results/natural_chain_driver_qualification_20261025/recovery-v3/REPORT.md).
+
+**A new discovery DEV panel is frozen and now consumed for development.** It
+contains135 authentic tasks across115 unused source groups. The initial46-task
+scan failed its64-task minimum;the separately registered extension scans the
+remaining existing shards with unchanged selection. Global TEST hosts are not
+read;protected panel/reserve group metadata is excluded. No source-group or
+current TRAIN conservative-case overlap. This is not exhaustive approximate
+arithmetic duplication detection over every prior pretraining fragment.
+[Data gate and scope](results/natural_chain_discovery_dev_20261025/extension-v2/REPORT.md).
+
+The fixed before-training readout of existing One/R NTP models for both5231/7283
+is complete. All declared exits score0/135 valid terminated scalar answers,and
+none emits EOS within24 tokens. Outputs mostly repeat task labels,indicating
+an unlearned interface;this does not establish inability to perform arithmetic.
+All four independent full-panel FP32 audits pass,max aggregate difference
+0.000398 nats. Models/replicas remain unchanged. A later recurrence comparison
+must train One on the identical task format,curriculum and source answers.
+[Before-curriculum readout](results/natural_chain_baseline_20261025/REPORT.md).
+
+The prospective first continuation pilot retains ordinary NTP alongside the
+curriculum,paired One/R controls and a longer One work control. It has a fixed
+small adaptation recipe,no HPO or terminal claim,and still requires its mixed-
+objective integration gate/measured budget before admission. The new normal-
+decoder mixed loss and its global-count/gradient tests are implemented. No
+larger NTP scaling,router,teacher or additional architecture is admitted.
+[Prospective bounded pilot](docs/NATURAL_CHAIN_CONTINUATION_PILOT_PROPOSAL_20261025.md).
+
+No native jobs remain active after these completed readouts. Next:qualify the
+mixed NTP/task integration and execute the bounded paired continuation pilot.
+The original broad-text objective remains active and unachieved;no TEST or
+terminal alpha has been opened.270 CPU tests pass.
+
 # Status — 2026-10-25 19:44 UTC
 
 **A viable narrow natural-worked-task candidate pool is available.** Exact

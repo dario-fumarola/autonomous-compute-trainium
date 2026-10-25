@@ -1,0 +1,275 @@
+{
+  "status": "COMPLETE_ORIGINAL_CHAIN_BASELINE_READOUT",
+  "records": [
+    {
+      "case": "one-s5231",
+      "native": {
+        "status": "COMPLETE_READONLY_ORIGINAL_CHAIN_BASELINE",
+        "case": "one-s5231",
+        "plan_sha256": "60380d1c203038194621deff865e956ee75bfb0297e4bdb3f690220d0ce856db",
+        "checkpoint_sha256": "b321b18cd2d896fb2fa3659e3931cac09715d58223235159474412d1772186c2",
+        "depths": {
+          "1": {
+            "tasks": 135,
+            "answer_tokens": 398,
+            "answer_nll": 3.3795867110017555,
+            "correct": 0,
+            "terminated": 0,
+            "first_token_correct": 3,
+            "generated_tokens": 3240,
+            "forward_calls": 3375,
+            "summed_generation_seconds_across_replicas": 292.94584131240845
+          }
+        },
+        "records_sha256": "9f59e1b0e2f3a0fb30e08979dfcc79580c2930f5e0fdc9c0d482bc2a746de0d6",
+        "weights_unchanged": true,
+        "all_replicas_identical": true,
+        "nominal_forward_matrix_ops": 59964364800000,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 37.72335696220398,
+        "scope": "New discovery DEV only;prefix-only greedy original scalar conclusions,EOS required,24-token fixed budget. Teacher-forced answer loss scored afterward. Full128-position recomputation,no KV cache or serving-efficiency claim. No fit or terminal confirmation."
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_ORIGINAL_CHAIN_READOUT",
+        "case": "one-s5231",
+        "depths": {
+          "1": {
+            "answer_nll": 3.3797333156643203,
+            "native_minus_cpu": -0.00014660466256488647,
+            "maximum_document_mean_difference": 0.0016117095947265625,
+            "answer_tokens": 398
+          }
+        },
+        "plan_sha256": "60380d1c203038194621deff865e956ee75bfb0297e4bdb3f690220d0ce856db",
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 9.983256816864014,
+        "scope": "Complete new discovery DEV panel,independent pinned upstream FP32 forward and scalar original-answer target positions. Verifies teacher-forced answer NLL,not exact identity of every greedy argmax."
+      }
+    },
+    {
+      "case": "recurrent-s5231",
+      "native": {
+        "status": "COMPLETE_READONLY_ORIGINAL_CHAIN_BASELINE",
+        "case": "recurrent-s5231",
+        "plan_sha256": "60380d1c203038194621deff865e956ee75bfb0297e4bdb3f690220d0ce856db",
+        "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349",
+        "depths": {
+          "1": {
+            "tasks": 135,
+            "answer_tokens": 398,
+            "answer_nll": 3.472628568285075,
+            "correct": 0,
+            "terminated": 0,
+            "first_token_correct": 3,
+            "generated_tokens": 3240,
+            "forward_calls": 3375,
+            "summed_generation_seconds_across_replicas": 304.1194977760315
+          },
+          "2": {
+            "tasks": 135,
+            "answer_tokens": 398,
+            "answer_nll": 3.476325925271116,
+            "correct": 0,
+            "terminated": 0,
+            "first_token_correct": 3,
+            "generated_tokens": 3240,
+            "forward_calls": 3375,
+            "summed_generation_seconds_across_replicas": 12.325814247131348
+          },
+          "4": {
+            "tasks": 135,
+            "answer_tokens": 398,
+            "answer_nll": 3.4711058175743523,
+            "correct": 0,
+            "terminated": 0,
+            "first_token_correct": 3,
+            "generated_tokens": 3240,
+            "forward_calls": 3375,
+            "summed_generation_seconds_across_replicas": 15.078601837158203
+          }
+        },
+        "records_sha256": "0382a4acf08b21ffa36cf378155836efb1e61ea72c412cfb3b98647bd8bceb0b",
+        "weights_unchanged": true,
+        "all_replicas_identical": true,
+        "nominal_forward_matrix_ops": 232213506048000,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 36.87838006019592,
+        "scope": "New discovery DEV only;prefix-only greedy original scalar conclusions,EOS required,24-token fixed budget. Teacher-forced answer loss scored afterward. Full128-position recomputation,no KV cache or serving-efficiency claim. No fit or terminal confirmation."
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_ORIGINAL_CHAIN_READOUT",
+        "case": "recurrent-s5231",
+        "depths": {
+          "1": {
+            "answer_nll": 3.4728692871841353,
+            "native_minus_cpu": -0.00024071889906052135,
+            "maximum_document_mean_difference": 0.0030798912048339844,
+            "answer_tokens": 398
+          },
+          "2": {
+            "answer_nll": 3.4767236889307225,
+            "native_minus_cpu": -0.0003977636596066425,
+            "maximum_document_mean_difference": 0.0029120445251464844,
+            "answer_tokens": 398
+          },
+          "4": {
+            "answer_nll": 3.4714625600594373,
+            "native_minus_cpu": -0.0003567424850849932,
+            "maximum_document_mean_difference": 0.002110163370768229,
+            "answer_tokens": 398
+          }
+        },
+        "plan_sha256": "60380d1c203038194621deff865e956ee75bfb0297e4bdb3f690220d0ce856db",
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 23.117883443832397,
+        "scope": "Complete new discovery DEV panel,independent pinned upstream FP32 forward and scalar original-answer target positions. Verifies teacher-forced answer NLL,not exact identity of every greedy argmax."
+      }
+    },
+    {
+      "case": "one-s7283",
+      "native": {
+        "status": "COMPLETE_READONLY_ORIGINAL_CHAIN_BASELINE",
+        "case": "one-s7283",
+        "plan_sha256": "60380d1c203038194621deff865e956ee75bfb0297e4bdb3f690220d0ce856db",
+        "checkpoint_sha256": "4d640af7f3b895765dfee630deebee0aab4c78352d34fc09c969e93e085a094b",
+        "depths": {
+          "1": {
+            "tasks": 135,
+            "answer_tokens": 398,
+            "answer_nll": 3.37167986912943,
+            "correct": 0,
+            "terminated": 0,
+            "first_token_correct": 0,
+            "generated_tokens": 3240,
+            "forward_calls": 3375,
+            "summed_generation_seconds_across_replicas": 295.72545742988586
+          }
+        },
+        "records_sha256": "5050b6d06bcbb5618165ea70478e5e54ce93c149554f00176d26407e729209a8",
+        "weights_unchanged": true,
+        "all_replicas_identical": true,
+        "nominal_forward_matrix_ops": 59964364800000,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 33.29163122177124,
+        "scope": "New discovery DEV only;prefix-only greedy original scalar conclusions,EOS required,24-token fixed budget. Teacher-forced answer loss scored afterward. Full128-position recomputation,no KV cache or serving-efficiency claim. No fit or terminal confirmation."
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_ORIGINAL_CHAIN_READOUT",
+        "case": "one-s7283",
+        "depths": {
+          "1": {
+            "answer_nll": 3.371402526021603,
+            "native_minus_cpu": 0.00027734310782712157,
+            "maximum_document_mean_difference": 0.0020933151245117188,
+            "answer_tokens": 398
+          }
+        },
+        "plan_sha256": "60380d1c203038194621deff865e956ee75bfb0297e4bdb3f690220d0ce856db",
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 6.685908794403076,
+        "scope": "Complete new discovery DEV panel,independent pinned upstream FP32 forward and scalar original-answer target positions. Verifies teacher-forced answer NLL,not exact identity of every greedy argmax."
+      }
+    },
+    {
+      "case": "recurrent-s7283",
+      "native": {
+        "status": "COMPLETE_READONLY_ORIGINAL_CHAIN_BASELINE",
+        "case": "recurrent-s7283",
+        "plan_sha256": "60380d1c203038194621deff865e956ee75bfb0297e4bdb3f690220d0ce856db",
+        "checkpoint_sha256": "b791212f06f2f8884ca350d6a4d6f41ab4d0f5213f7d8f589746c57def3a429a",
+        "depths": {
+          "1": {
+            "tasks": 135,
+            "answer_tokens": 398,
+            "answer_nll": 3.437085896880183,
+            "correct": 0,
+            "terminated": 0,
+            "first_token_correct": 0,
+            "generated_tokens": 3240,
+            "forward_calls": 3375,
+            "summed_generation_seconds_across_replicas": 303.3034510612488
+          },
+          "2": {
+            "tasks": 135,
+            "answer_tokens": 398,
+            "answer_nll": 3.4470290454787826,
+            "correct": 0,
+            "terminated": 0,
+            "first_token_correct": 0,
+            "generated_tokens": 3240,
+            "forward_calls": 3375,
+            "summed_generation_seconds_across_replicas": 12.315303087234497
+          },
+          "4": {
+            "tasks": 135,
+            "answer_tokens": 398,
+            "answer_nll": 3.4352673082495455,
+            "correct": 0,
+            "terminated": 0,
+            "first_token_correct": 0,
+            "generated_tokens": 3240,
+            "forward_calls": 3375,
+            "summed_generation_seconds_across_replicas": 15.122161149978638
+          }
+        },
+        "records_sha256": "c933341031fd727c9d5c22f20edba55982a1566c01242b6f310d34ec8cb4b372",
+        "weights_unchanged": true,
+        "all_replicas_identical": true,
+        "nominal_forward_matrix_ops": 232213506048000,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 35.714946031570435,
+        "scope": "New discovery DEV only;prefix-only greedy original scalar conclusions,EOS required,24-token fixed budget. Teacher-forced answer loss scored afterward. Full128-position recomputation,no KV cache or serving-efficiency claim. No fit or terminal confirmation."
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_ORIGINAL_CHAIN_READOUT",
+        "case": "recurrent-s7283",
+        "depths": {
+          "1": {
+            "answer_nll": 3.4372782779099356,
+            "native_minus_cpu": -0.00019238102975238647,
+            "maximum_document_mean_difference": 0.0021753311157226562,
+            "answer_tokens": 398
+          },
+          "2": {
+            "answer_nll": 3.4471537060474033,
+            "native_minus_cpu": -0.00012466056862070474,
+            "maximum_document_mean_difference": 0.0024116039276123047,
+            "answer_tokens": 398
+          },
+          "4": {
+            "answer_nll": 3.435280665680392,
+            "native_minus_cpu": -1.3357430846294704e-05,
+            "maximum_document_mean_difference": 0.002658843994140625,
+            "answer_tokens": 398
+          }
+        },
+        "plan_sha256": "60380d1c203038194621deff865e956ee75bfb0297e4bdb3f690220d0ce856db",
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 17.0083429813385,
+        "scope": "Complete new discovery DEV panel,independent pinned upstream FP32 forward and scalar original-answer target positions. Verifies teacher-forced answer NLL,not exact identity of every greedy argmax."
+      }
+    }
+  ],
+  "plan_sha256": "60380d1c203038194621deff865e956ee75bfb0297e4bdb3f690220d0ce856db",
+  "optimizer_updates": 0,
+  "research_optimizer_updates": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "scope": "# Fixed baseline readout before a curriculum fit\n\nThe task driver passes all six independent full32-example FP32 gradient/\noptimizer checks with maximum relative-L2 error0.08803%. Its qualification is\nnot a science result. The source-view pool has1,618 deduplicated TRAIN problems;\nthe new discovery DEV panel has135 original tasks across115 unused groups.\nAll students and held-out outcomes remain unread at registration.\n\nBefore tuning or fitting the curriculum,measure existing plain-NTP one-pass\nand recurrent endpoints for seeds5231/7283 on this same new development panel.\nUse the completed1.005B checkpoints,remove only their training-only auxiliary\nhead and leave every prediction parameter unchanged. The one-pass checkpoint\nis evaluated at its supported depth1;the recurrent checkpoint at predeclared\nsupported depths1,2,4. No best-depth selection or terminal claim follows.\n\nUse only the no-work view at inference. Greedily generate at most24 new tokens,\nwith an additional cap based only on visible prompt length and context128.\nNever use original answer length,answer tokens or hidden work to decide inputs,\ntermination,budget or exit. Stop on EOS. Count a scalar answer correct only if\nEOS is reached and its entire decoded scalar matches the original source\nanswer under the bounded rational verifier. Fixed English task delimiters are\nshared. Special symbols/prose/calculations as outputs are invalid,not repaired.\n\nInitial latent noise is deterministic from the visible prompt token IDs only,\nwith the existing clipped-normal scale;reuse it across inference depths and\nall generated tokens. No input-dependent routing is learned. Report whole-\nanswer accuracy,termination,first-answer-token accuracy,original answer NLL\nand actual generated tokens/forward calls. Teacher-forced NLL uses the normal\ncausal decoder and is scored only after free generation for each example.\n\nIndependently audit full-panel answer NLL using pinned upstream FP32 forward\narithmetic. Require maximum aggregate difference0.003 nats. Predictions and\nsource strings stay private;public aggregates retain immutable hashes. Check\nprediction weights/replicas unchanged. Native full-window recomputation is\nuncached;these timings do not establish production serving efficiency.\n\nUse all16 chips as two owned eight-chip jobs per wave,two waves for the four\ncheckpoints. Cap each native phase at600 seconds,CPU audit at600,overall1,800.\nPreserve512GiB MemAvailable and35GiB disk. Charge failed attempts and CPU tails.\nNo fit,TEST or terminal alpha. This makes the explicitly designated DEV panel\nconsumed for development. Subsequent study choices must disclose that reuse.\n\nThis is a before-training capability readout. A curriculum experiment still\nneeds matched One/R training on the same source-derived task views,ordinary NTP\nretention,learning-rate opportunity and a longer One work control. A continuation\npilot cannot establish from-scratch or general-text efficacy;those original\nrequirements are preserved.\n"
+}

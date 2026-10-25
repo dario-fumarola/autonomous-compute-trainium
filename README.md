@@ -4,9 +4,9 @@ Can a randomly initialized language model learn to use additional internal
 computation to predict unseen natural text better?
 
 Training uses authentic web text, mathematical web text and repository code.
-There are no generated research examples, external teachers, reasoning traces
-or reinforcement learning. Real-token negative log likelihood (NLL) is the
-primary outcome. Equal-data and training-work comparisons answer different
+The completed main comparisons use no generated research examples,external
+teacher models,added reasoning traces or reinforcement learning. Real-token
+negative log likelihood (NLL) remains the broad-text primary outcome. Equal-data and training-work comparisons answer different
 questions and are reported separately.
 
 The latest completed small-core study finds **useful additional computation at
@@ -49,6 +49,15 @@ also beats recurrence. Extra core execution contributes useful prediction
 work,but still does not earn its training cost under these controls.
 [Completed control](results/small_core_mixing_main_20261025/recovery-v2/REPORT.md) ·
 [Live status](STATUS.md).
+
+The new bridge-hiding branch now has1,618 deduplicated source-authored arithmetic
+problems,a135-task/115-group discovery panel,and a passing numerical task-driver
+qualification. This is natural procedural supervision,not supervision-free raw
+text. Existing NTP models fail the new answer interface before adaptation,so
+both One/R controls must learn the same format. A bounded continuation pilot
+is proposed;no scientific curriculum fit or from-scratch result exists yet.
+[Source views](results/natural_chain_views_20261025/REPORT.md) ·
+[Fixed baseline readout](results/natural_chain_baseline_20261025/REPORT.md).
 
 A source-only feasibility scan now finds1,727 exactly checked,original
 arithmetic chains across668 source groups. These are candidates for hiding
