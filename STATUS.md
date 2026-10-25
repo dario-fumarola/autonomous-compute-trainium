@@ -1,19 +1,19 @@
-# Status — 2026-10-25 18:36 UTC
+# Status — 2026-10-25 18:46 UTC
 
 **The natural worked-reasoning feasibility inventory is complete.** It
 recovers20,000 accepted TRAIN math documents exactly,then freezes200 lexical
 candidates across134 source groups for eligibility inspection. No DEV,TEST or
 reserve panel is opened. This is candidate discovery,not valid training data.
 
-Ten complete documents have received agent inspection so far,with the
-nonrandom review order disclosed. There is one clean integer word-problem
-source-span candidate;other cases expose missing premises,answer-first
+Eighteen complete documents have received agent inspection so far,with the
+nonrandom review order disclosed. There are three clean integer word-problem
+source-span candidates;other cases expose missing premises,answer-first
 leakage,inconsistent steps,numeric precision errors or a need for a different
 symbolic extraction scope. No target,solution,paraphrase or training view is
-generated.190 documents and a proper extraction/verifier protocol remain.
+generated.182 documents and a proper extraction/verifier protocol remain.
 [Audit protocol](docs/NATURAL_WORKED_REASONING_AUDIT_20261025.md) ·
 [Inventory](results/natural_worked_reasoning_audit_20261025/report.json) ·
-[Partial inspection](results/natural_worked_reasoning_audit_20261025/first-inspection.json).
+[Partial inspection](results/natural_worked_reasoning_audit_20261025/latest-inspection.json).
 
 **The owner/broadcast optimizer is not adopted.** The100-warm-update
 whole-training screen takes110.170s replicated versus106.911s with owners:

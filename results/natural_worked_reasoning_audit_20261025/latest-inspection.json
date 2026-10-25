@@ -1,0 +1,32 @@
+{
+  "status": "PARTIAL_AGENT_ELIGIBILITY_INSPECTION",
+  "sampled_documents": 200,
+  "complete_documents_inspected": 18,
+  "review_order": "Initial complete documents followed by shortest documents;not a random yield estimate",
+  "decision_counts": {
+    "reject_no_standalone_problem": 1,
+    "reject_numeric_precision_inconsistency": 1,
+    "reject_missing_problem_answer_first": 1,
+    "needs_span_reconstruction": 2,
+    "reject_missing_premises_rendering": 2,
+    "plausible_symbolic_identity_pending_verifier": 1,
+    "clean_integer_word_problem_candidate": 3,
+    "reject_inconsistent_intermediate_work": 1,
+    "needs_mcq_label_and_span_qualification": 1,
+    "valid_mcq_outside_open_ended_scope": 1,
+    "needs_answer_first_span_extraction": 1,
+    "reject_missing_original_question": 1,
+    "reject_diagram_and_math_rendering_ambiguity": 1,
+    "needs_mcq_notation_and_span_qualification": 1
+  },
+  "exact_integer_word_problem_span_candidates": 3,
+  "training_views_created": 0,
+  "annotation_sha256": "093ad4ca78af7ceebd74847b462ae76026219ab56772742afd8afc372c10c2f2",
+  "candidate_spans_sha256": "bbcafb3a30de84df6b9df23562f138dfc5f805676780f41be841025ce78b9440",
+  "agent_inspection_not_independent_human_review": true,
+  "model_predictions_read": 0,
+  "assigned_chips": 0,
+  "research_optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "Source-span feasibility only. All targets and intermediate work remain original source substrings. Numeric consistency checks create no training labels. MCQ options are distinguished from accidental answer leakage.182 documents and an extraction/verifier/curriculum protocol remain;no training admission or source-population quality estimate."
+}
