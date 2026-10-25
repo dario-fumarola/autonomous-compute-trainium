@@ -1,0 +1,58 @@
+{
+  "identity": "natural-worked-reasoning-audit-v1",
+  "registered_unix": 1792952334.2394238,
+  "seconds_limit": 3600,
+  "maximum_readers": 4,
+  "selected_train_documents": 20000,
+  "selection": "Accepted TRAIN shards18..23,content-ID ascending",
+  "source_sha256": {
+    "scripts/audit_natural_worked_reasoning.py": "e10fef82e4a3761a84931fc7c9c91672b028358f6a0f42b95cd4d0676663b085",
+    "docs/NATURAL_WORKED_REASONING_AUDIT_20261025.md": "5430f4972bf73840a41d3d9dfdb9b2a47ebe4e5203b13ab7fc8012d6c2e5a0d5",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20"
+  },
+  "inputs": [
+    {
+      "shard": 18,
+      "relative": "natural-append-6500m-v2/raw/math-18.parquet",
+      "sha256": "6234f2ef80ca281d8b3818e22269ab5b5a0cc72c38083b608d115d807440e2ff"
+    },
+    {
+      "shard": 19,
+      "relative": "natural-append-6500m-v2/raw/math-19.parquet",
+      "sha256": "a6f24a84c01f792ca02c5bdbc2eff17749331be49b442a9428b916860ae8b60a"
+    },
+    {
+      "shard": 20,
+      "relative": "natural-append-6500m-v2/raw/math-20.parquet",
+      "sha256": "938e6ffcf290d7925df11239d67fc953791c361f1d3db37527fcb5468a371a95"
+    },
+    {
+      "shard": 21,
+      "relative": "natural-append-6500m-v2/raw/math-21.parquet",
+      "sha256": "38a5262c389a1b04cdebe2eaf7654c2c0a03e894e2a0b35e26a450682cf3651b"
+    },
+    {
+      "shard": 22,
+      "relative": "natural-append-6500m-v2/raw/math-22.parquet",
+      "sha256": "d8f0548f5e73166ff60535ba2f219d85ab96eba23dff659411ea2876a66bd058"
+    },
+    {
+      "shard": 23,
+      "relative": "natural-append-6500m-v2/raw/math-23.parquet",
+      "sha256": "661164ca586963621968df1ed20bb2f103ab4c5c4bd32c9a53ea020694b92ed3"
+    }
+  ],
+  "selected_metadata_sha256": "47579f9a0918d50f03581d827202e3e94331a2ec766ace83df0c183a64a1ef79",
+  "parent_manifest_sha256": "61dac8f7d6c3df53041ea194e7732d5db7a9d50324bd406f8bc5475f570feae1",
+  "database_sha256": "2f91b555ea7003462e6051461993a4bbbf684f8cb1f48acbaee5593fa5b3cfcb",
+  "candidate_classes": [
+    "explicit_problem_solution",
+    "math_conclusion"
+  ],
+  "max_per_class": 100,
+  "max_per_group": 5,
+  "research_optimizer_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "scope": "# Audit natural worked reasoning before changing the training task\n\nThe owner proposed withholding naturally occurring intermediate work while\npreserving its premises and ordered conclusion. This is worth investigating;\nit is not established by the existing NTP gains or the closed future-span loss.\nFinish and preserve the cheap-mixing comparison first. That comparison is now\ncomplete:extra core execution helps at equal data,but not at matched work.\n\nFirst perform a CPU-only feasibility audit,not another training campaign.\nUse only previously accepted TRAIN mathematics documents from the existing\n6.5B-source corpus extension. Restrict this initial convenience sample to raw\nshards18\u201323. Select20,000 accepted documents by deterministic content-ID order.\nRecover their exact original text using both URL and normalized-content hash;\nverify the recorded TRAIN source-group identity. Open no DEV,TEST or fresh\nreserve file. Do not publish source text,URLs,token arrays or answer strings.\n\nFreeze two high-recall candidate classes before scanning:explicit problem/\nsolution markers with mathematical material;or mathematical material with an\nexplicit conclusion cue. These are candidates for inspection,not valid worked\nexamples. Rank each class by a fixed hash,sample at most100 per class and at\nmost5 per source group overall. Preserve low yield rather than broadening the\npatterns after seeing outcomes. The audit has a3,600-second CPU cap,at most4\nraw readers,and the existing512GiB memory/35GiB disk reserves. Record every\nselected/recovered count,ambiguity and rejection;there are no optimizer steps.\n\nInspect the private sample for complete premises,derivable intermediate work,\na short original conclusion,absence of copied answers,diagram/reference\nrequirements,source diversity and fit within context. Agent inspection is not\nan independent human or formal mathematical verification. Do not generate a\nsolution,target,paraphrase or missing premise. Any accepted view must later\nretain original source spans and offset provenance;this scan creates no views.\nA mask must remove work,not information needed to determine the answer.\n\n[Coconut](https://arxiv.org/html/2412.06769) motivates a staged transition from\nvisible reasoning to latent work,but its reported setup uses pretrained models\nand procedural supervision. It does not demonstrate this natural-source-only\nfrom-scratch proposal. [The Pitfalls of Next-Token Prediction](https://arxiv.org/html/2403.06963)\nidentifies teacher-forcing shortcuts on constructed planning tasks;it does not\nestablish that ordinary language pretraining generally fails.\n\nNo curriculum is admitted by the audit. A later protocol must freeze the data\nview,curriculum,normalization and equally trained one-pass/recurrent controls,\nplus a separately cooled work-matched one-pass challenger. Measure generated\nconclusions as well as target loss,and retain broad-text NLL separately.\nExisting checkpoint screening cannot establish a from-scratch result. Evaluation\nmust exclude source groups seen during their original pretraining,including\nfull worked solutions. Fresh confirmation and the charter's five-seed/error-\nbudget rules remain intact. No architecture,RL,teacher or router is added.\n"
+}

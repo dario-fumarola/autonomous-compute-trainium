@@ -1,0 +1,472 @@
+{
+  "status": "COMPLETE_OWNER_FULL_TRAINING_SCREEN",
+  "records": {
+    "replicated": {
+      "status": "CAPTURED_FUTURE_SPAN_TRAINING_QUALIFICATION",
+      "case": {
+        "identity": "one-ntp",
+        "arm": "one",
+        "objective_weight": 0.0,
+        "gradient_rule": "all_sampled_steps"
+      },
+      "mode": "warm",
+      "signature": {
+        "plan_sha256": "cbc02d6a482b4c8636e77d1fbb1607d2cae4584ae480e5ad24b841146653d8a5",
+        "case": {
+          "identity": "one-ntp",
+          "arm": "one",
+          "objective_weight": 0.0,
+          "gradient_rule": "all_sampled_steps"
+        },
+        "preparation_manifest_sha256": "109860d9b1692a61598563f3d8347a3be197ed0b3e67a3a582c21d597ba2bd8d",
+        "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+        "initial_sha256": "30cbb12c185465757368ba2d5c576d678fdb4916f097404210dda36c1133167a",
+        "state_seed": 2009,
+        "routing_seed": 271828,
+        "precision": "fp16_body_fp32_heads_masters_moments",
+        "manual_loss_scale": 8192,
+        "world": 32,
+        "accumulation": 16,
+        "gradient_rule": "all_sampled_steps"
+      },
+      "qualification_only": true,
+      "research_optimizer_updates": 0,
+      "actual_optimizer_calls_per_replica": 121,
+      "phase_real_targets": 63328362,
+      "real_targets": 63328362,
+      "valid_anchors": 3787431,
+      "cursor": 61952,
+      "model_matmuls": 30135762989088768,
+      "optimizer_matmuls_all_replicas": 3157123377830400,
+      "model_matmul_scope": "Nominal dense autograd operators including zero-weight control head;native optimizer/dead-code/tile work and communication require separate profiling.",
+      "probes": [
+        {
+          "update": 0,
+          "cursor": 0,
+          "real_targets": 523314,
+          "valid_anchors": 31241,
+          "gradient_file": "gradient-u0.pt",
+          "gradient_sha256": "677090dff0f7f1c46860f95b961037209e60551c6a6898cdf99caad5d3c927f7",
+          "raw_gradient_norm": 21.15028953552246,
+          "source_window_count": 512,
+          "source_window_indices_contiguous": true
+        },
+        {
+          "update": 120,
+          "cursor": 61440,
+          "real_targets": 523312,
+          "valid_anchors": 31246,
+          "gradient_file": "gradient-u120.pt",
+          "gradient_sha256": "8983ca95d870148caca7a945ceeea208208069e177e35f94f5d289ed5de613d0",
+          "raw_gradient_norm": 3.0719480514526367,
+          "source_window_count": 512,
+          "source_window_indices_contiguous": true
+        }
+      ],
+      "full_checkpoint_sha256": "1d54244cbd81f8df80d9cecf004bf16b9cd71818f4618f7d2836ec1c9a1a8e74",
+      "full_checkpoint_state_digest": "7a28f6e10ac667ab527d1239b6747ef9159924665cb0bc796915b12a385b7efe",
+      "first_update_sha256": "30d8c6bbcac5e114db9e9779fcaba3fa419525e8d804607175c5e39821912f46",
+      "final_sha256": "aaffc4ee3e713b9d230bde7e8ca36990f27b4423d9c724f9b595d560321ecd05",
+      "final_model_optimizer_digest": "47541f3a78a3a3eaa79e2d6c304c65516c887ca3cee3f36683e308bc2e6a3a13",
+      "all_complete_replica_states_equal": true,
+      "recovered_state_digest": null,
+      "complete_state_on_load_exact": false,
+      "cpu_rng_on_load_exact": false,
+      "warm_updates": 100,
+      "warm_seconds": 110.17037558555603,
+      "warm_targets_per_second": 475059.06848212413,
+      "warm_model_matmuls": 24905589247180800,
+      "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+      "progress": [
+        {
+          "update": 1,
+          "real_targets": 523314,
+          "valid_anchors": 31241,
+          "global_train_nll": 10.561340801125137,
+          "global_future_loss": 6.87628086889024,
+          "gradient_norm_before_clip": 21.15028953552246,
+          "lr": 5e-06,
+          "elapsed_seconds": 95.04829621315002
+        },
+        {
+          "update": 10,
+          "real_targets": 5233798,
+          "valid_anchors": 313085,
+          "global_train_nll": 10.398222420092022,
+          "global_future_loss": 6.899895406693972,
+          "gradient_norm_before_clip": 21.258731842041016,
+          "lr": 5e-05,
+          "elapsed_seconds": 106.19883561134338
+        },
+        {
+          "update": 20,
+          "real_targets": 10467614,
+          "valid_anchors": 626164,
+          "global_train_nll": 9.887956664628554,
+          "global_future_loss": 6.8945291279199825,
+          "gradient_norm_before_clip": 25.430620193481445,
+          "lr": 0.0001,
+          "elapsed_seconds": 117.21014547348022
+        },
+        {
+          "update": 30,
+          "real_targets": 15701370,
+          "valid_anchors": 939182,
+          "global_train_nll": 9.293197893699057,
+          "global_future_loss": 6.844339537874189,
+          "gradient_norm_before_clip": 44.6089973449707,
+          "lr": 9.824819231794262e-05,
+          "elapsed_seconds": 128.23850345611572
+        },
+        {
+          "update": 40,
+          "real_targets": 20934888,
+          "valid_anchors": 1251957,
+          "global_train_nll": 8.601920776794005,
+          "global_future_loss": 6.853384002714788,
+          "gradient_norm_before_clip": 63.59494400024414,
+          "lr": 9.236745922441589e-05,
+          "elapsed_seconds": 139.25205492973328
+        },
+        {
+          "update": 50,
+          "real_targets": 26168398,
+          "valid_anchors": 1564695,
+          "global_train_nll": 7.8520557525911885,
+          "global_future_loss": 6.855054649729452,
+          "gradient_norm_before_clip": 50.89736557006836,
+          "lr": 8.29004296357349e-05,
+          "elapsed_seconds": 150.2632508277893
+        },
+        {
+          "update": 60,
+          "real_targets": 31402312,
+          "valid_anchors": 1877926,
+          "global_train_nll": 7.35864603832706,
+          "global_future_loss": 6.883839784517159,
+          "gradient_norm_before_clip": 20.737295150756836,
+          "lr": 7.075569021361259e-05,
+          "elapsed_seconds": 161.26636409759521
+        },
+        {
+          "update": 70,
+          "real_targets": 36636094,
+          "valid_anchors": 2190986,
+          "global_train_nll": 6.956803096711082,
+          "global_future_loss": 6.867043087347955,
+          "gradient_norm_before_clip": 4.924915790557861,
+          "lr": 5.7098817567433805e-05,
+          "elapsed_seconds": 172.2817680835724
+        },
+        {
+          "update": 80,
+          "real_targets": 41869746,
+          "valid_anchors": 2503921,
+          "global_train_nll": 6.814514911828203,
+          "global_future_loss": 6.874953643889367,
+          "gradient_norm_before_clip": 4.320165634155273,
+          "lr": 4.324051345542129e-05,
+          "elapsed_seconds": 183.29664754867554
+        },
+        {
+          "update": 90,
+          "real_targets": 47103690,
+          "valid_anchors": 2817102,
+          "global_train_nll": 6.69118669779634,
+          "global_future_loss": 6.836522034168929,
+          "gradient_norm_before_clip": 4.008744716644287,
+          "lr": 3.051081177597877e-05,
+          "elapsed_seconds": 194.30009007453918
+        },
+        {
+          "update": 100,
+          "real_targets": 52337398,
+          "valid_anchors": 3130071,
+          "global_train_nll": 6.655886398807818,
+          "global_future_loss": 6.854483340244991,
+          "gradient_norm_before_clip": 3.187747001647949,
+          "lr": 2.0131430180369964e-05,
+          "elapsed_seconds": 205.32758021354675
+        },
+        {
+          "update": 110,
+          "real_targets": 57571286,
+          "valid_anchors": 3443191,
+          "global_train_nll": 6.603572424888603,
+          "global_future_loss": 6.853194131421629,
+          "gradient_norm_before_clip": 3.5404865741729736,
+          "lr": 1.3098517205605332e-05,
+          "elapsed_seconds": 216.36700916290283
+        },
+        {
+          "update": 120,
+          "real_targets": 62805050,
+          "valid_anchors": 3756185,
+          "global_train_nll": 6.617494038793696,
+          "global_future_loss": 6.849264295064172,
+          "gradient_norm_before_clip": 3.1450817584991455,
+          "lr": 1.0087048128988257e-05,
+          "elapsed_seconds": 227.38050818443298
+        },
+        {
+          "update": 121,
+          "real_targets": 63328362,
+          "valid_anchors": 3787431,
+          "global_train_nll": 6.585529760448834,
+          "global_future_loss": 6.893894918549575,
+          "gradient_norm_before_clip": 3.0719480514526367,
+          "lr": 1.0021767296860541e-05,
+          "elapsed_seconds": 242.94151306152344
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 251.30937886238098,
+      "scope": "Full one-pass training throughput screen on existing natural TRAIN qualification windows. Same original body,head,gradients,schedule and global batch;only optimizer execution differs. All reported updates are non-adopted qualification. Native full-state comparison is diagnostic;independent CPU updates,recovery and hardware-swapped timing are still required before adoption.",
+      "optimizer_physical_execution": "replicated",
+      "full_training_qualified": false,
+      "scientific_adoption": false
+    },
+    "owner": {
+      "status": "CAPTURED_FUTURE_SPAN_TRAINING_QUALIFICATION",
+      "case": {
+        "identity": "one-ntp",
+        "arm": "one",
+        "objective_weight": 0.0,
+        "gradient_rule": "all_sampled_steps"
+      },
+      "mode": "warm",
+      "signature": {
+        "plan_sha256": "cbc02d6a482b4c8636e77d1fbb1607d2cae4584ae480e5ad24b841146653d8a5",
+        "case": {
+          "identity": "one-ntp",
+          "arm": "one",
+          "objective_weight": 0.0,
+          "gradient_rule": "all_sampled_steps"
+        },
+        "preparation_manifest_sha256": "109860d9b1692a61598563f3d8347a3be197ed0b3e67a3a582c21d597ba2bd8d",
+        "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+        "initial_sha256": "30cbb12c185465757368ba2d5c576d678fdb4916f097404210dda36c1133167a",
+        "state_seed": 2009,
+        "routing_seed": 271828,
+        "precision": "fp16_body_fp32_heads_masters_moments",
+        "manual_loss_scale": 8192,
+        "world": 32,
+        "accumulation": 16,
+        "gradient_rule": "all_sampled_steps"
+      },
+      "qualification_only": true,
+      "research_optimizer_updates": 0,
+      "actual_optimizer_calls_per_replica": 121,
+      "phase_real_targets": 63328362,
+      "real_targets": 63328362,
+      "valid_anchors": 3787431,
+      "cursor": 61952,
+      "model_matmuls": 30135762989088768,
+      "optimizer_matmuls_all_replicas": 98660105557200,
+      "model_matmul_scope": "Nominal dense autograd operators including zero-weight control head;native optimizer/dead-code/tile work and communication require separate profiling.",
+      "probes": [
+        {
+          "update": 0,
+          "cursor": 0,
+          "real_targets": 523314,
+          "valid_anchors": 31241,
+          "gradient_file": "gradient-u0.pt",
+          "gradient_sha256": "677090dff0f7f1c46860f95b961037209e60551c6a6898cdf99caad5d3c927f7",
+          "raw_gradient_norm": 21.15028953552246,
+          "source_window_count": 512,
+          "source_window_indices_contiguous": true
+        },
+        {
+          "update": 120,
+          "cursor": 61440,
+          "real_targets": 523312,
+          "valid_anchors": 31246,
+          "gradient_file": "gradient-u120.pt",
+          "gradient_sha256": "8983ca95d870148caca7a945ceeea208208069e177e35f94f5d289ed5de613d0",
+          "raw_gradient_norm": 3.0719480514526367,
+          "source_window_count": 512,
+          "source_window_indices_contiguous": true
+        }
+      ],
+      "full_checkpoint_sha256": "4f8620472fa96e2fb2331c7796a804ca7dd8b8c0ada2f7472a5a9c3d97d85ab1",
+      "full_checkpoint_state_digest": "7a28f6e10ac667ab527d1239b6747ef9159924665cb0bc796915b12a385b7efe",
+      "first_update_sha256": "30d8c6bbcac5e114db9e9779fcaba3fa419525e8d804607175c5e39821912f46",
+      "final_sha256": "aaffc4ee3e713b9d230bde7e8ca36990f27b4423d9c724f9b595d560321ecd05",
+      "final_model_optimizer_digest": "47541f3a78a3a3eaa79e2d6c304c65516c887ca3cee3f36683e308bc2e6a3a13",
+      "all_complete_replica_states_equal": true,
+      "recovered_state_digest": null,
+      "complete_state_on_load_exact": false,
+      "cpu_rng_on_load_exact": false,
+      "warm_updates": 100,
+      "warm_seconds": 106.91114401817322,
+      "warm_targets_per_second": 489541.4456616745,
+      "warm_model_matmuls": 24905589247180800,
+      "warm_optimizer_matmuls_all_replicas": 81537277320000,
+      "progress": [
+        {
+          "update": 1,
+          "real_targets": 523314,
+          "valid_anchors": 31241,
+          "global_train_nll": 10.561340801125137,
+          "global_future_loss": 6.87628086889024,
+          "gradient_norm_before_clip": 21.15028953552246,
+          "lr": 5e-06,
+          "elapsed_seconds": 93.7383165359497
+        },
+        {
+          "update": 10,
+          "real_targets": 5233798,
+          "valid_anchors": 313085,
+          "global_train_nll": 10.398222420092022,
+          "global_future_loss": 6.899895406693972,
+          "gradient_norm_before_clip": 21.258731842041016,
+          "lr": 5e-05,
+          "elapsed_seconds": 104.50998425483704
+        },
+        {
+          "update": 20,
+          "real_targets": 10467614,
+          "valid_anchors": 626164,
+          "global_train_nll": 9.887956664628554,
+          "global_future_loss": 6.8945291279199825,
+          "gradient_norm_before_clip": 25.430620193481445,
+          "lr": 0.0001,
+          "elapsed_seconds": 115.2199776172638
+        },
+        {
+          "update": 30,
+          "real_targets": 15701370,
+          "valid_anchors": 939182,
+          "global_train_nll": 9.293197893699057,
+          "global_future_loss": 6.844339537874189,
+          "gradient_norm_before_clip": 44.6089973449707,
+          "lr": 9.824819231794262e-05,
+          "elapsed_seconds": 125.89978885650635
+        },
+        {
+          "update": 40,
+          "real_targets": 20934888,
+          "valid_anchors": 1251957,
+          "global_train_nll": 8.601920776794005,
+          "global_future_loss": 6.853384002714788,
+          "gradient_norm_before_clip": 63.59494400024414,
+          "lr": 9.236745922441589e-05,
+          "elapsed_seconds": 136.61228799819946
+        },
+        {
+          "update": 50,
+          "real_targets": 26168398,
+          "valid_anchors": 1564695,
+          "global_train_nll": 7.8520557525911885,
+          "global_future_loss": 6.855054649729452,
+          "gradient_norm_before_clip": 50.89736557006836,
+          "lr": 8.29004296357349e-05,
+          "elapsed_seconds": 147.2935755252838
+        },
+        {
+          "update": 60,
+          "real_targets": 31402312,
+          "valid_anchors": 1877926,
+          "global_train_nll": 7.35864603832706,
+          "global_future_loss": 6.883839784517159,
+          "gradient_norm_before_clip": 20.737295150756836,
+          "lr": 7.075569021361259e-05,
+          "elapsed_seconds": 157.96492838859558
+        },
+        {
+          "update": 70,
+          "real_targets": 36636094,
+          "valid_anchors": 2190986,
+          "global_train_nll": 6.956803096711082,
+          "global_future_loss": 6.867043087347955,
+          "gradient_norm_before_clip": 4.924915790557861,
+          "lr": 5.7098817567433805e-05,
+          "elapsed_seconds": 168.65379905700684
+        },
+        {
+          "update": 80,
+          "real_targets": 41869746,
+          "valid_anchors": 2503921,
+          "global_train_nll": 6.814514911828203,
+          "global_future_loss": 6.874953643889367,
+          "gradient_norm_before_clip": 4.320165634155273,
+          "lr": 4.324051345542129e-05,
+          "elapsed_seconds": 179.35288619995117
+        },
+        {
+          "update": 90,
+          "real_targets": 47103690,
+          "valid_anchors": 2817102,
+          "global_train_nll": 6.69118669779634,
+          "global_future_loss": 6.836522034168929,
+          "gradient_norm_before_clip": 4.008744716644287,
+          "lr": 3.051081177597877e-05,
+          "elapsed_seconds": 190.02522706985474
+        },
+        {
+          "update": 100,
+          "real_targets": 52337398,
+          "valid_anchors": 3130071,
+          "global_train_nll": 6.655886398807818,
+          "global_future_loss": 6.854483340244991,
+          "gradient_norm_before_clip": 3.187747001647949,
+          "lr": 2.0131430180369964e-05,
+          "elapsed_seconds": 200.66659712791443
+        },
+        {
+          "update": 110,
+          "real_targets": 57571286,
+          "valid_anchors": 3443191,
+          "global_train_nll": 6.603572424888603,
+          "global_future_loss": 6.853194131421629,
+          "gradient_norm_before_clip": 3.5404865741729736,
+          "lr": 1.3098517205605332e-05,
+          "elapsed_seconds": 211.38342261314392
+        },
+        {
+          "update": 120,
+          "real_targets": 62805050,
+          "valid_anchors": 3756185,
+          "global_train_nll": 6.617494038793696,
+          "global_future_loss": 6.849264295064172,
+          "gradient_norm_before_clip": 3.1450817584991455,
+          "lr": 1.0087048128988257e-05,
+          "elapsed_seconds": 222.13114047050476
+        },
+        {
+          "update": 121,
+          "real_targets": 63328362,
+          "valid_anchors": 3787431,
+          "global_train_nll": 6.585529760448834,
+          "global_future_loss": 6.893894918549575,
+          "gradient_norm_before_clip": 3.0719480514526367,
+          "lr": 1.0021767296860541e-05,
+          "elapsed_seconds": 239.93440508842468
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 248.58189225196838,
+      "scope": "Full one-pass training throughput screen on existing natural TRAIN qualification windows. Same original body,head,gradients,schedule and global batch;only optimizer execution differs. All reported updates are non-adopted qualification. Native full-state comparison is diagnostic;independent CPU updates,recovery and hardware-swapped timing are still required before adoption.",
+      "optimizer_physical_execution": "owner",
+      "full_training_qualified": false,
+      "scientific_adoption": false,
+      "replicated_recipe_optimizer_matmuls_all_replicas": 3157123377830400,
+      "replicated_recipe_warm_optimizer_matmuls_all_replicas": 2609192874240000
+    }
+  },
+  "owner_to_replicated_warm_time": 0.970416443167594,
+  "clears_five_percent_screen": false,
+  "native_final_model_optimizer_digests_equal": true,
+  "independent_cpu_numerics_complete": false,
+  "full_recovery_qualified": false,
+  "hardware_swapped_replication_complete": false,
+  "scientific_adoption": false,
+  "plan_sha256": "cbc02d6a482b4c8636e77d1fbb1607d2cae4584ae480e5ad24b841146653d8a5",
+  "qualification_only": true,
+  "research_optimizer_updates": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "scope": "Two simultaneous eight-chip one-pass full-training throughput screens using existing qualification-only initialization,natural TRAIN windows and100 warm updates. No scientific weights,held-out data,teacher or new objective. Physical execution only;no adoption. Less than5% observed whole-training improvement closes this performance proposal at this stage. A larger gain still requires swapped-hardware timing,CPU numerical and complete recovery gates before adoption.",
+  "canonical_private_report_sha256": "9a62374e3a4e7069183957bf95c002adc3699a742301038f4eb95abbd84c1499",
+  "public_compaction": "Per-window routing/noise rows omitted;complete originals remain private. Counts,global numerical-capture hashes,full-state equality,100-step timing and scope preserved."
+}

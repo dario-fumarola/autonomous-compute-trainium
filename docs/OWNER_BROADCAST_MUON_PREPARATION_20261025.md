@@ -27,3 +27,19 @@ CPU agreement,then full-training throughput,under its own finite budget. Keep
 it behind completed scientific work and reject it if it is slower. Do not
 change the running trainer or submit anything upstream without human review.
 [CPU evidence](../results/owner_broadcast_muon_preparation_20261025/cpu-report.json).
+
+## Completed native performance screens
+
+The separate matrix-fixture screen completes120 updates per variant,including
+100 warm timed updates:on all actual Muon matrix shapes,replicated takes7.074s
+and owner/broadcast4.191s. First/final weights and moments match bit for bit
+across variants and all32 replicas. This is one concurrent hardware pair,not
+full-training speed or independent CPU/recovery qualification.
+[Matrix-only evidence](../results/owner_muon_fixture_native_20261025/report.json).
+
+The subsequent full one-pass training screen completes121 qualification
+updates per variant with100 warm measurements. Replicated takes110.170s
+versus106.911s owner/broadcast,only2.96% lower time. Final model/optimizer
+states match exactly. This fails the predeclared5% performance screen. Close
+the proposal at this stage;no further adoption work or scientific use follows.
+[Full-training evidence](../results/owner_full_training_screen_20261025/report.json).
