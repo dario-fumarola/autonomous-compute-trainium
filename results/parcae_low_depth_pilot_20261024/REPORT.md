@@ -1,6 +1,10 @@
 # Low-depth pilot progress
 
-All12 registered rate trials completed301,465,908 natural targets and their own cooldown. Independent pinned-upstream FP32 CPU scoring selected each arm separately on consumed TUNE. No main or fresh-confirmation scores are available yet.
+The main pilot has independent stable-phase DEV scores; completed-decay endpoints remain pending. At301M targets,true one-pass scores3.032445 versus recurrence3.045218; at1.005B they score2.773757 versus2.780522. Recurrence is0.006765 worse at stable1B. These are one fresh training seed1231 on consumed DEV,not a cooled comparison or a positive result. [Current scores](main-recovery-v2/scores-progress.json) · [Observed curves](figures/learning-curves.png).
+
+The original controller failed when its uppercase `stable1B` execution identity was rejected by the lowercase worker guard. Both completed1B checkpoints survived; the ordinary prefix was canceled after70 logged updates with no checkpoint. The new recovery execution adopts all scientific state bit-exactly,changes only execution signatures/identities and preserves the original09:21 UTC deadline. Ordinary replays the same initialization/data. All interrupted work stays in costs; no model/loss/schedule or numerical threshold changes. [Failure](main/report.json) · [Exact adoption](main-recovery-v2/adoption.json) · [Recovery plan](main-recovery-v2/plan.json).
+
+All12 registered rate trials completed301,465,908 natural targets and their own cooldown. Independent pinned-upstream FP32 CPU scoring selected each arm separately on consumed TUNE. No fresh-confirmation scores are available.
 
 | Peak LR | Ordinary | True one-pass | Sampled recurrence,exit2 |
 | --- | ---: | ---: | ---: |
@@ -11,7 +15,7 @@ All12 registered rate trials completed301,465,908 natural targets and their own 
 
 All three arms selected0.016,the upper boundary of the finite grid. Their optima are not bracketed. The candidate is0.006193 nats behind its parameter-exact one-pass control at this horizon; ordinary is0.072194 better than the candidate. These screen results do not determine the longer pilot. No extra rate is added after seeing them.
 
-All three selected301M checkpoints pass independent full512-window gradient checks: overall errors0.223%,0.257%,0.264% for ordinary,one-pass and recurrence,with maximum loss discrepancy0.00000460 nats. Fresh-seed1231 main training now performs actual updates on all16 chips. The one-pass/recurrent first segments are active; ordinary waits for an eight-chip slot. Every main1B/endpoint is checked again. Qualification and tuning weights never initialize a main fit. [Gradient gate](../low-depth-gradient-selected-v1/report.json) · [Frozen main plan](main/plan.json).
+All three selected301M checkpoints pass independent full512-window gradient checks: overall errors0.223%,0.257%,0.264% for ordinary,one-pass and recurrence,with maximum loss discrepancy0.00000460 nats. First1B one-pass/recurrent gradients independently pass0.176%/0.113%. Fresh-seed1231 main training performs actual updates on all16 chips;ordinary first1B and one-pass continuation are active. Every main1B/endpoint is checked again. Qualification and tuning weights never initialize a main fit. [Selected-gradient gate](../low-depth-gradient-selected-v1/report.json) · [First1B gates](../low-depth-recovery-v2-gradient-gates/report.json).
 
 Ordinary has140,781,888 parameters; both Parcae paths have141,963,840. Recurrence versus true one-pass is the exact parameter-control comparison. Keep the strongest eligible one-pass/cheap-connection challenger for later fresh confirmation.
 
@@ -25,6 +29,8 @@ A short read-only runtime sample during the final eight-chip fit observed85.0% a
 
 A separate prospective CPU-only audit will repeat the completed main endpoints with latent randomness keyed solely by original window position. The frozen pooled evaluator uses a whole-document content-hash-derived seed; this is unavailable before prediction,although no decoding of that hash or effect on the ranking is established. Preserve the frozen scores and report the policy sensitivity separately. The natural-code context diagnostic already uses position-only randomness. No training recipe or fresh reserve changes.
 
-The full-gradient follow-up remains conditional and unlaunched. No fresh TEST/reserve or terminal alpha has been used. The research goal remains unachieved.
+The full-gradient follow-up remains conditional and unlaunched. A teacher-free future-span objective study is being investigated prospectively;it has not launched or changed this pilot. No fresh TEST/reserve or terminal alpha has been used. The research goal remains unachieved.
 
 A separate TRAIN-only numerical screen at the301M main checkpoint finds bit-identical forward outputs under last-one versus full gradients. The raw FP32 gradients differ by15.1% on the8 prespecified windows;this is the intentional gradient-rule difference,not a failed precision gate. FP16 body with8192 scaling and an FP32 head agrees with independent FP32 gradients to0.108% overall and0.111% in the worst named family under full backpropagation. Both numerical precision comparisons pass. The diagnostic took94.8 CPU seconds,17.907e12 estimated matrix FLOPs and zero accelerators/optimizer updates. It cannot establish native throughput,recovery,complete-batch fidelity or a learning benefit. [Full-gradient CPU evidence](../low_depth_full_gradient_cpu_20261025/report.json).
+
+Algebra from those same raw norms gives a full/tail gradient cosine of0.991912 (7.29degrees),with the tail norm90.96% of the full norm. Thus the15.1% gradient change is largely a norm difference,not evidence of opposing aggregate updates. This adds no model forwards or held-out access. [Derived geometry](../low_depth_full_gradient_cpu_20261025/derived-gradient-geometry.json).

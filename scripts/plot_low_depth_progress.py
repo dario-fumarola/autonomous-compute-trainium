@@ -57,6 +57,7 @@ def main():
     parser.add_argument('--results', type=Path,
                         default=Path('results/parcae_low_depth_pilot_20261024'))
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--main-folder', default='main', choices=['main', 'main-recovery-v2'])
     args = parser.parse_args()
     output = args.output or args.results / 'figures'
     output.mkdir(parents=True, exist_ok=True)
@@ -90,7 +91,7 @@ def main():
                       'nll': r['metrics']['weighted_nll'], 'checkpoint_sha256': r['checkpoint_sha256']}
                      for r in rows)
 
-    main_file = args.results / 'main/scores-progress.json'
+    main_file = args.results / args.main_folder / 'scores-progress.json'
     if main_file.exists():
         rows, inputs[str(main_file)] = load_scores(main_file)
         points = [r for r in rows if r['depth'] == (2 if r['arm'] == 'poisson2' else 1)]

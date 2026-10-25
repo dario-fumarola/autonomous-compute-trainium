@@ -1,0 +1,55 @@
+{
+  "status": "STOPPED_REGISTERED_LOW_DEPTH_PILOT_QUEUE",
+  "error": "Registered child failed: run-main",
+  "records": [
+    {
+      "stage": "runtime-qualification",
+      "status": "PASS_COMPLETE_PARCAE_RUNTIME_SCALAR_QUALIFICATION",
+      "receipt_sha256": "e0670bbcc6cf0dba3722852656cdce2340d132c44e2ab00fec82a41f09c7319d"
+    },
+    {
+      "stage": "prepare-tuning",
+      "exit_code": 0,
+      "wall_seconds": 5.001681804656982
+    },
+    {
+      "stage": "run-tuning",
+      "exit_code": 0,
+      "wall_seconds": 5940.809485197067
+    },
+    {
+      "stage": "tuning-complete",
+      "status": "COMPLETE_FROZEN_LOW_DEPTH_LR_SCREEN",
+      "receipt_sha256": "63d573fcb0e9d9c8cd079b87bd7960dbd18578a2be3b8092721c84266d49fcd0"
+    },
+    {
+      "stage": "probe-driver",
+      "status": "PASS_LOW_DEPTH_GRADIENT_VALIDATION",
+      "receipt_sha256": "ad55d81be2687803956ef63795fd6d873a237433276ced97fdfdb4b7d37fb651"
+    },
+    {
+      "stage": "selected-gradient-validation",
+      "exit_code": 0,
+      "wall_seconds": 585.0787343978882
+    },
+    {
+      "stage": "selected-gradients",
+      "status": "PASS_LOW_DEPTH_GRADIENT_VALIDATION",
+      "receipt_sha256": "5c73689a0ddd68d85d6e094c7d54a7ba15eb7933cd4a8c1b1a9914ceaf50876e"
+    },
+    {
+      "stage": "prepare-main",
+      "exit_code": 0,
+      "wall_seconds": 5.001526355743408
+    },
+    {
+      "stage": "run-main",
+      "exit_code": 1,
+      "wall_seconds": 2665.3732092380524
+    }
+  ],
+  "wall_seconds": 9991.376079320908,
+  "test_accessed": false,
+  "new_terminal_attempt": false,
+  "scope": "Fixed approved finite stages; every child ends in verified success or failed prerequisite. No gate relaxation,window reset,budget expansion,qualification/tuning-weight reuse,fresh confirmation or automatic significant-result claim. Each child retains independent cap/receipts."
+}

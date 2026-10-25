@@ -1,0 +1,58 @@
+{
+  "status": "DERIVED_SAME_OBJECTIVE_TRAIN_GRADIENT_GEOMETRY",
+  "input_report_sha256": "e33cfbb4a6f238f1b70358e4a6096151e4ddf2fe3d8b0cdfad9b067cd8e64d45",
+  "formula": "cosine=(full_norm^2+truncated_norm^2-difference_norm^2)/(2*full_norm*truncated_norm)",
+  "rows": [
+    {
+      "family": "overall",
+      "full_fp32_gradient_l2": 0.7212269294893028,
+      "truncated_fp32_gradient_l2": 0.6560362691473045,
+      "difference_l2": 0.10910396084435414,
+      "truncated_over_full_norm": 0.909611444503106,
+      "full_vs_truncated_cosine": 0.991911829746348,
+      "angle_degrees": 7.292155618117634
+    },
+    {
+      "family": "recurrent_injection_readout",
+      "full_fp32_gradient_l2": 0.07131106201016718,
+      "truncated_fp32_gradient_l2": 0.06495703330919433,
+      "difference_l2": 0.010543511489494608,
+      "truncated_over_full_norm": 0.9108970120222453,
+      "full_vs_truncated_cosine": 0.9923586372505753,
+      "angle_degrees": 7.087612690532103
+    },
+    {
+      "family": "tied_input_output",
+      "full_fp32_gradient_l2": 0.08158704852846205,
+      "truncated_fp32_gradient_l2": 0.0802124210836601,
+      "difference_l2": 0.005651830879242389,
+      "truncated_over_full_norm": 0.9831514012383669,
+      "full_vs_truncated_cosine": 0.9977038326441491,
+      "angle_degrees": 3.88349307892219
+    },
+    {
+      "family": "transformer_body",
+      "full_fp32_gradient_l2": 0.713027688527598,
+      "truncated_fp32_gradient_l2": 0.6478545909638356,
+      "difference_l2": 0.10844358563833255,
+      "truncated_over_full_norm": 0.9085966805884567,
+      "full_vs_truncated_cosine": 0.991868525248701,
+      "angle_degrees": 7.311677318985262
+    },
+    {
+      "family": "value_embeddings",
+      "full_fp32_gradient_l2": 0.0042526651590473145,
+      "truncated_fp32_gradient_l2": 0.0038166387517772735,
+      "difference_l2": 0.0007444320058533226,
+      "truncated_over_full_norm": 0.8974698475043542,
+      "full_vs_truncated_cosine": 0.9887849631545346,
+      "angle_degrees": 8.58904158524723
+    }
+  ],
+  "additional_model_forwards": 0,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "wall_seconds": 0.00019121170043945312,
+  "scope": "Algebra from released norms on the same8 TRAIN windows and same immutable301M checkpoint. The15.1% relative difference is intentional truncation bias;vectors remain strongly aligned. This is not the cosine between individual recurrent applications,an optimizer-update comparison,training-seed evidence or a prediction of improved generalization. Muon/Adam can respond differently to per-matrix direction and scaling."
+}

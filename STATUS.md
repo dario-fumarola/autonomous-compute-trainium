@@ -1,4 +1,55 @@
-# Status — 2026-10-25, 01:48 UTC
+# Status — 2026-10-25, 02:42 UTC
+
+**The unchanged small-core pilot is running on all16 chips after an execution
+failure.** The original controller constructed an uppercase `stable1B` worker
+identity,which the launcher's lowercase-only guard rejected. Its paired-stop
+canceled ordinary after70 logged updates; there was no OOM. Both completed
+one-pass/recurrent1B checkpoints survived. The original failure and costs remain
+visible. [Failed execution](results/parcae_low_depth_pilot_20261024/main/report.json).
+
+The recovery copies preserve every scientific tensor,moment,RNG state,cursor,
+schedule and work counter exactly. Only the execution-plan signature changes;
+disk readback verifies all non-signature state. One-pass and recurrence resume
+their retained histories; ordinary replays the same original initialization and
+source order because its interrupted prefix had no checkpoint. The original
+09:21 UTC deadline remains fixed. New owned identities avoid the rejected label.
+[Exact adoption](results/parcae_low_depth_pilot_20261024/main-recovery-v2/adoption.json)
+· [Recovery plan](results/parcae_low_depth_pilot_20261024/main-recovery-v2/plan.json).
+
+Independent first1B complete512-window gradient gates pass: one-pass0.176%
+and recurrence0.113% relative L2 error. Both new native fits are making actual
+updates. CPU context/noise watchers carry their original preregistrations and
+deadline into explicit recovery executions; their stopped predecessors remain.
+[Gradient evidence](results/low-depth-recovery-v2-gradient-gates/report.json).
+
+The first independent main learning-curve scores are available:
+
+| Stable-phase natural targets | True one-pass DEV NLL | Recurrence,exit2 DEV NLL |
+| --- | ---: | ---: |
+| 301,465,908 | 3.032445 | 3.045218 |
+| 1,004,887,590 | 2.773757 | 2.780522 |
+
+Recurrence is0.006765 nats behind at stable1B. These are seed1231 curves on
+consumed DEV,not cooled endpoints,seed significance or an efficiency result.
+Ordinary and the completed-decay equal-data/matched-work endpoints remain
+pending. No new positive is established. [Actual scores](results/parcae_low_depth_pilot_20261024/main-recovery-v2/scores-progress.json)
+· [Observed curves](results/parcae_low_depth_pilot_20261024/figures/learning-curves.png).
+
+The owner proposed a prospective objective study: one-pass/recurrence crossed
+with ordinary prediction/future-span supervision. Primary literature is being
+checked while the frozen pilot runs. No new objective or gradient-rule training
+has launched. A useful objective interaction and absolute prediction gains are
+different requirements; improvements shared equally by both models would not
+establish an additional-computation benefit. Prior efficiency negatives stand.
+
+The CPU suite passes175 tests after recovery helpers,watcher restoration and
+interrupted-work accounting.
+Fresh confirmation remains unscored and no terminal alpha is spent. The overall
+research objective remains unachieved.
+
+## Earlier progress, retained chronologically
+
+### 01:48 UTC
 
 **Fresh-seed main training is running on all16 chips.** True one-pass and
 recurrence have performed more than60 real updates; ordinary is waiting for

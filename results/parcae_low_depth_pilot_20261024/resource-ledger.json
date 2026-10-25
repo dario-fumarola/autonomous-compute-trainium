@@ -1,20 +1,20 @@
 {
   "status": "OBSERVED_LOW_DEPTH_RESOURCE_LEDGER",
-  "observed_unix": 1792891661.598811,
+  "observed_unix": 1792895757.7947268,
   "window_started_unix": 1792874531.0405765,
-  "window_seconds": 17130.5582344532,
-  "sixteen_chip_opportunity_hours": 76.13581437534756,
-  "new_family_assigned_chip_hours": 47.44877832518684,
-  "all_project_native_unique_assigned_chip_hours_within_window": 50.16313949214088,
-  "unassigned_native_chip_hours_within_window": 25.972674883206686,
-  "new_family_native_attempts": 81,
-  "closed_attempts": 79,
-  "failed_closed_attempts": 6,
-  "exact_completed_scientific_segment_matrix_operations": 1920164178765189120,
-  "exact_completed_scientific_target_presentations": 3638526124,
+  "window_seconds": 21226.754150390625,
+  "sixteen_chip_opportunity_hours": 94.34112955729167,
+  "new_family_assigned_chip_hours": 61.75432039578756,
+  "all_project_native_unique_assigned_chip_hours_within_window": 64.4686815627416,
+  "unassigned_native_chip_hours_within_window": 29.87244799455007,
+  "new_family_native_attempts": 86,
+  "closed_attempts": 84,
+  "failed_closed_attempts": 7,
+  "exact_completed_scientific_segment_matrix_operations": 2999327761064693760,
+  "exact_completed_scientific_target_presentations": 5648301304,
   "additional_interrupted_scientific_matrix_operations_bounds": [
-    150380190579548160,
-    156287983780887552
+    504625131555287040,
+    519374204874044928
   ],
   "native_attempts": [
     {
@@ -161,32 +161,118 @@
       "assigned_chip_hours": 0.22220422744750976
     },
     {
-      "identity": "low-depth-main-v1-fixed1-first",
-      "started_unix": 1792891288.4002612,
-      "finished_unix": 1792891661.598811,
+      "identity": "low-depth-main-r2-fixed1-finish",
+      "started_unix": 1792894917.0697608,
+      "finished_unix": 1792895757.7947268,
       "closed": false,
       "exit_code": null,
       "report_status": null,
       "scientific_work": {
-        "status": "INCOMPLETE_WORK_NOT_EXACTLY_COUNTED",
-        "matrix_operations": null
+        "status": "BOUNDED_INTERRUPTED_WORK_FROM_IMMUTABLE_SCHEDULE_AND_LOGS",
+        "logged_completed_update": 2520,
+        "segment_origin_update": 1920,
+        "completed_optimizer_updates_lower_bound": 600,
+        "completed_optimizer_updates_upper_bound": 610,
+        "matrix_operations_lower_bound": 162234888286924800,
+        "matrix_operations_upper_bound": 165209194572185088,
+        "scope": "Progress logs occur after every10th update. Upper work also allows a partly executed next objective. No claim of exact unseen work after termination."
       },
       "assigned_chips": 8,
-      "assigned_chip_hours": 0.8293301105499268
+      "assigned_chip_hours": 1.8682777023315429
+    },
+    {
+      "identity": "low-depth-main-r2-ordinary-first",
+      "started_unix": 1792894913.320698,
+      "finished_unix": 1792895757.7947268,
+      "closed": false,
+      "exit_code": null,
+      "report_status": null,
+      "scientific_work": {
+        "status": "BOUNDED_INTERRUPTED_WORK_FROM_IMMUTABLE_SCHEDULE_AND_LOGS",
+        "logged_completed_update": 650,
+        "segment_origin_update": 0,
+        "completed_optimizer_updates_lower_bound": 650,
+        "completed_optimizer_updates_upper_bound": 660,
+        "matrix_operations_lower_bound": 173342408677401600,
+        "matrix_operations_upper_bound": 176275895593480704,
+        "scope": "Progress logs occur after every10th update. Upper work also allows a partly executed next objective. No claim of exact unseen work after termination."
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 1.8766089529461332
+    },
+    {
+      "identity": "low-depth-main-v1-fixed1-first",
+      "started_unix": 1792891288.4002612,
+      "finished_unix": 1792893740.262698,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 1920,
+        "real_target_presentations": 1004887590,
+        "matrix_operations": 519151642518159360
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 5.448583192825318
+    },
+    {
+      "identity": "low-depth-main-v1-ordinary-first",
+      "started_unix": 1792893749.1486213,
+      "finished_unix": 1792893949.7370074,
+      "closed": true,
+      "exit_code": 137,
+      "report_status": null,
+      "scientific_work": {
+        "status": "BOUNDED_INTERRUPTED_WORK_FROM_IMMUTABLE_SCHEDULE_AND_LOGS",
+        "logged_completed_update": 70,
+        "segment_origin_update": 0,
+        "completed_optimizer_updates_lower_bound": 70,
+        "completed_optimizer_updates_upper_bound": 80,
+        "matrix_operations_lower_bound": 18667644011412480,
+        "matrix_operations_upper_bound": 21601130927491584,
+        "scope": "Progress logs occur after every10th update. Upper work also allows a partly executed next objective. No claim of exact unseen work after termination."
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.4457519690195719
     },
     {
       "identity": "low-depth-main-v1-poisson2-first",
       "started_unix": 1792891288.0692747,
-      "finished_unix": 1792891661.598811,
-      "closed": false,
-      "exit_code": null,
-      "report_status": null,
+      "finished_unix": 1792893934.7179754,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
       "scientific_work": {
-        "status": "INCOMPLETE_WORK_NOT_EXACTLY_COUNTED",
-        "matrix_operations": null
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 1920,
+        "real_target_presentations": 1004887590,
+        "matrix_operations": 560011939781345280
       },
       "assigned_chips": 8,
-      "assigned_chip_hours": 0.8300656361050076
+      "assigned_chip_hours": 5.88144155714247
+    },
+    {
+      "identity": "low-depth-recovery-v2-gradient-gates-fixed1",
+      "started_unix": 1792894319.7773652,
+      "finished_unix": 1792894418.9738007,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": null,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.22043652322557236
+    },
+    {
+      "identity": "low-depth-recovery-v2-gradient-gates-poisson2",
+      "started_unix": 1792894320.1196322,
+      "finished_unix": 1792894420.8466961,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": null,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.22383791976504855
     },
     {
       "identity": "low-depth-tune-v1-fixed1-lr0-s11-first",
@@ -1063,7 +1149,7 @@
       "assigned_chip_hours": 0.6211273140377469
     }
   ],
-  "source_sha256": "25582632b6a1abd66693cdee2489d0857f9264fb2c53d6e7626baddcd1c918e8",
+  "source_sha256": "97b73d7ff08b67947f333d9f86a72a0bdf841ae7fcff1b506673cea9d00f54c5",
   "test_accessed": false,
   "scope": "All parcae-/low-depth- launch attempts,including failed/stopped native work,each immutable identity once; retained phases are not charged twice. Window also reports other project occupancy without double-counting overlapping chip intervals. Assigned chips are resource reservations,not hardware utilization. Launch intervals omit earlier uninstrumented container bootstrap; whole opportunity window includes gaps/CPU-only waiting. CPU preparation/audit/eval task costs remain in their execution receipts. Scientific matrix totals exclude qualification/evaluation matrix work,which is charged in chip time and individual receipts. Target presentations across models/repeated branches are not unique corpus tokens. Matrix-operation matching is not wall-time matching."
 }

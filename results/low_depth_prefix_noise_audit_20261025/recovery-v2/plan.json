@@ -1,0 +1,69 @@
+{
+  "identity": "low-depth-prefix-noise-audit-v2",
+  "registered_unix": 1792890969.871244,
+  "deadline_unix": 1792948569.871244,
+  "cpu_seconds_limit": 1200,
+  "cpu_parallelism": 2,
+  "source_sha256": {
+    "scripts/run_low_depth_noise_audit.py": "f14b142183dfff1817e461f2022c3cfc32d3321e4420d51dda73b90cfef050cd",
+    "scripts/evaluate_low_depth_prefix_noise.py": "3333951a67bee24bb1e1e6c1ada90abd0ebbad4307ef767950f370a07e684031",
+    "compute_trainium/prefix_noise_policy.py": "e7146c36cebeae8c752deb1c41267be24c87e5a32652b72a65160245fa6a854a",
+    "tests/test_prefix_noise_policy.py": "2eaf336f5664d52c6b70f2066618c2dadf84340a4167d2b696888fbc1e881c34",
+    "scripts/evaluate_low_depth_cpu.py": "79ef359101cba0ca4c7aaea7582797719a5b570abc3bbdf5fc8ef54f1d6d0964",
+    "scripts/prepare_low_depth_main.py": "5164f6939eff4e995eefe865b8a3034c7f216b6895ecc0ec6b6aaf2568a597db",
+    "scripts/run_low_depth_main.py": "9195bd89b67bd5636662ab3bf539059e6267cba2f5b09fd5a6e1a13a54f64690",
+    "compute_trainium/metrics.py": "0296fee74cd632e0dfc04d8ee129a7235f984691eb3f211c968d681e6af38275",
+    "scripts/run_low_depth_noise_audit_recovery.py": "4319f11d698b6558859b6b7fae28125980fd638af687467f6e860dc7397f79bc"
+  },
+  "preparation_plan_sha256": "040007546f4b9372b896b288a7b6e90a7a1e328b2a5f064cd94f1b105e491ac7",
+  "tuning_plan_sha256": "db8fde0472eb99fc8885b23d03b8c40ed6af4c589cfd1c8291e4dde2e28a0503",
+  "queries": [
+    {
+      "arm": "fixed1",
+      "readout": "matched",
+      "depth": 1
+    },
+    {
+      "arm": "poisson2",
+      "readout": "matched",
+      "depth": 1
+    },
+    {
+      "arm": "poisson2",
+      "readout": "matched",
+      "depth": 2
+    },
+    {
+      "arm": "poisson2",
+      "readout": "matched",
+      "depth": 3
+    },
+    {
+      "arm": "fixed1",
+      "readout": "equal",
+      "depth": 1
+    },
+    {
+      "arm": "poisson2",
+      "readout": "equal",
+      "depth": 1
+    },
+    {
+      "arm": "poisson2",
+      "readout": "equal",
+      "depth": 2
+    },
+    {
+      "arm": "poisson2",
+      "readout": "equal",
+      "depth": 3
+    }
+  ],
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "selection_policy": "No model,rate,exit,seed or endpoint selection from these outcomes.",
+  "scope": "Supplementary same-checkpoint consumed-DEV audit. Frozen primary scoring uses a whole-document content-hash-derived random-state key,which is not available before prediction. This audit ignores document identity and keys only the original window position with the unchanged registered model state seed. No demonstrated decoding of hash information or explanation of the existing quality gaps is assumed. Preserve the frozen main readout separately; use prefix-available randomness for any future deployment/confirmation. Eight endpoint forwards after the complete main DAG; zero training,heldout-reserve access or terminal alpha.",
+  "recovery_registered_unix": 1792895013.1745613,
+  "recovery_of_plan_sha256": "d2be399633011a18b0148f3300a234921fbc2924735d808b9b4036728d75bf0a"
+}

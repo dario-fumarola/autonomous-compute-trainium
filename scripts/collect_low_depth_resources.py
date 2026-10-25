@@ -20,28 +20,42 @@ def union_seconds(intervals):
 
 
 def scientific_work(root,identity,report,cutoff):
-    if not identity.startswith(('low-depth-tune-','low-depth-main-v1-')):return None
+    if not identity.startswith(('low-depth-tune-','low-depth-main-v1-','low-depth-main-r2-')):return None
     if report and report.get('status')=='COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT':
         return {'status':'COMPLETE_EXACT_SEGMENT_COUNTER','updates':report['actual_optimizer_calls_per_replica'],
                 'real_target_presentations':report['segment_real_targets'],
                 'matrix_operations':report['segment_executed_matmuls']}
-    # Only the preserved tuning-v1 stop has an interrupted scientific phase so
-    # far. Future incomplete identities remain explicitly uncounted,not zero.
-    if not identity.startswith('low-depth-tune-v1-'):return {'status':'INCOMPLETE_WORK_NOT_EXACTLY_COUNTED','matrix_operations':None}
+    known_tune=identity.startswith('low-depth-tune-v1-')
+    known_main=identity.startswith(('low-depth-main-v1-','low-depth-main-r2-'))
+    if not (known_tune or known_main):return {'status':'INCOMPLETE_WORK_NOT_EXACTLY_COUNTED','matrix_operations':None}
     log=root/'logs'/(identity+'.log')
     rows=[json.loads(s) for s in log.read_text().splitlines() if s.startswith('{"update":')] if log.exists() else []
     if not rows:return {'status':'NO_COMPLETED_UPDATE_LOG_AVAILABLE','matrix_operations':None}
     arm=next(a for a in ['ordinary','fixed1','poisson2'] if '-'+a+'-' in identity)
-    experiment=root/'parcae-low-depth-pilot-v1';plan=json.loads((experiment/'tuning-plan.json').read_text())
-    case=next(c for c in plan['cases'].values() if c['arm']==arm)
+    experiment=root/'parcae-low-depth-pilot-v1'
+    plan_name=('tuning-plan.json' if known_tune else
+               'main-plan-recovery-v2.json' if identity.startswith('low-depth-main-r2-') else 'main-plan.json')
+    plan=json.loads((experiment/plan_name).read_text())
+    if known_tune:
+        case=next(c for c in plan['cases'].values() if c['arm']==arm)
+        origin=20 if identity.endswith('-fit') else 0
+        end=case['total_updates']
+    else:
+        phase=identity.rsplit('-',1)[1]
+        if phase not in ['first','finish','equal']:
+            return {'status':'INCOMPLETE_WORK_NOT_EXACTLY_COUNTED','matrix_operations':None}
+        case=plan['cases'][arm+('-equal-s1231' if phase=='equal' else '-main-s1231')]
+        origin={'first':0,'finish':1920,'equal':960}[phase]
+        end=1920 if phase in ['first','equal'] else case['total_updates']
     work=np.load(experiment/case['work_table'],mmap_mode='r')
     if file_sha256(experiment/case['work_table'])!=case['work_table_sha256']:raise AssertionError('Interrupted-work bound table changed')
-    origin=20 if identity.endswith('-fit') else 0;last=rows[-1]['update']
-    upper=min(last+11,case['total_updates']) # Up to10 completed unlogged updates plus a partial next update.
+    last=rows[-1]['update']
+    if not origin<=last<=end:raise AssertionError('Progress outside declared segment')
+    upper=min(last+11,end) # Up to10 completed unlogged updates plus a partial next update.
     return {'status':'BOUNDED_INTERRUPTED_WORK_FROM_IMMUTABLE_SCHEDULE_AND_LOGS',
         'logged_completed_update':last,'segment_origin_update':origin,
         'completed_optimizer_updates_lower_bound':max(0,last-origin),
-        'completed_optimizer_updates_upper_bound':max(0,min(last+10,case['total_updates'])-origin),
+        'completed_optimizer_updates_upper_bound':max(0,min(last+10,end)-origin),
         'matrix_operations_lower_bound':int(work[origin:last].sum()),
         'matrix_operations_upper_bound':int(work[origin:upper].sum()),
         'scope':'Progress logs occur after every10th update. Upper work also allows a partly executed next objective. No claim of exact unseen work after termination.'}
