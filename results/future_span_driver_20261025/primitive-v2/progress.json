@@ -1,0 +1,664 @@
+{
+  "records": [
+    {
+      "status": "PASS_FUTURE_SPAN_SCIENTIFIC_DRIVER_INTEGRATION",
+      "cell": "one-ntp",
+      "initial_full_gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 0.00034513353016347884,
+            "maximum_absolute_error": 6.510317325592041e-05,
+            "reference_l2": 21.150209228432452
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.00023575881328946868,
+              "maximum_absolute_error": 1.3033859431743622e-06,
+              "reference_l2": 0.5835576943636668
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0002564711473559477,
+              "maximum_absolute_error": 1.4372402802109718e-05,
+              "reference_l2": 0.6953565131825522
+            },
+            "transformer_body": {
+              "relative_l2": 0.00034528737512008647,
+              "maximum_absolute_error": 6.510317325592041e-05,
+              "reference_l2": 21.13071911089144
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "future_head": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.0
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "initial_loss_differences": {
+        "ntp_nll": 1.9948736564856517e-06,
+        "future_mean": 3.1259002586381257e-07
+      },
+      "first_independent_optimizer_update": {
+        "update_comparison": {
+          "relative_l2": 1.0263347297477726e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.050629901427906195,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.828488991106011e-05,
+          "maximum_absolute_error": 3.1781382858753204e-08,
+          "reference_l2": 0.14016716360877016
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.0204773511276255e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.05062299145171242,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.8212284300395914e-05,
+              "maximum_absolute_error": 1.635635271668434e-08,
+              "reference_l2": 0.008586748326805732
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 6.705694654371297e-05,
+              "maximum_absolute_error": 1.7890045000967802e-10,
+              "reference_l2": 0.0008364538716198126,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.8285163157458935e-05,
+              "maximum_absolute_error": 3.1781382858753204e-08,
+              "reference_l2": 0.1399039009724169
+            }
+          }
+        },
+        "future_head": {
+          "update": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moments": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          }
+        }
+      },
+      "replay": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.36805566573029525,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.7869727853364746
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.3676658154338689,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.023180538830913068
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.016935797516477367,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.7866313161066991
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "all_checkpoint_readbacks_exact": true,
+      "all_actual_state_rng_loads_exact": true,
+      "stable_prefix_branch_completed_own_decay": true,
+      "actual_native_optimizer_calls_per_replica": 51,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "prescribed_cpu_reference_optimizer_steps": 1,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds": 40.435776472091675,
+      "scope": "Finite scientific-driver plumbing qualification. Exact initial neural gold reused only after matching512 source/depth/noise rows. Actual first optimizer update,all counters,full-state/RNG restore,21st-update numerical replay and independent shorter cooldown branch checked. No scientific quality result."
+    },
+    {
+      "status": "PASS_FUTURE_SPAN_SCIENTIFIC_DRIVER_INTEGRATION",
+      "cell": "one-future",
+      "initial_full_gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 0.00034538733420301965,
+            "maximum_absolute_error": 6.470084190368652e-05,
+            "reference_l2": 21.152841162210162
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.00023576199830211615,
+              "maximum_absolute_error": 1.3043172657489777e-06,
+              "reference_l2": 0.5836036963694535
+            },
+            "tied_input_output": {
+              "relative_l2": 0.00025648093023592725,
+              "maximum_absolute_error": 1.4354009181261063e-05,
+              "reference_l2": 0.6953799424787872
+            },
+            "transformer_body": {
+              "relative_l2": 0.00034554150300168093,
+              "maximum_absolute_error": 6.470084190368652e-05,
+              "reference_l2": 21.13335143073324
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "future_head": {
+          "relative_l2": 0.0002673520039035648,
+          "maximum_absolute_error": 1.7040292732417583e-07,
+          "reference_l2": 0.01397993911137074
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 0.00028800407833670666,
+            "maximum_absolute_error": 1.7040292732417583e-07,
+            "reference_l2": 0.012977423242525207
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 1.9619031438842307e-06,
+            "maximum_absolute_error": 5.105675882077776e-10,
+            "reference_l2": 0.00519857514536434
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "initial_loss_differences": {
+        "ntp_nll": 1.9948736564856517e-06,
+        "future_mean": 3.1259002586381257e-07
+      },
+      "first_independent_optimizer_update": {
+        "update_comparison": {
+          "relative_l2": 1.24259395400601e-05,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.07018124957957214,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.947131323894975e-05,
+          "maximum_absolute_error": 3.370223566889763e-08,
+          "reference_l2": 0.1401674495556446
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.240028201596444e-05,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.07017625810104247,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.940121824624163e-05,
+              "maximum_absolute_error": 1.6938429325819016e-08,
+              "reference_l2": 0.008587351218396487
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 6.805849688413885e-05,
+              "maximum_absolute_error": 1.9386448002478573e-10,
+              "reference_l2": 0.0008370134324277222,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.947157708889354e-05,
+              "maximum_absolute_error": 3.370223566889763e-08,
+              "reference_l2": 0.13990415045303722
+            }
+          }
+        },
+        "future_head": {
+          "update": {
+            "relative_l2": 1.4391258980734041e-05,
+            "maximum_absolute_error": 7.450580596923828e-09,
+            "reference_l2": 0.048600657101102576,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moments": {
+            "relative_l2": 3.939835490484149e-05,
+            "maximum_absolute_error": 8.349161362275481e-10,
+            "reference_l2": 0.00013218491089511227
+          }
+        }
+      },
+      "replay": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.5085142627739474,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.7854663114298241
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.508232842679627,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.02266681126877569
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.016915468255911132,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.7851391864237062
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "all_checkpoint_readbacks_exact": true,
+      "all_actual_state_rng_loads_exact": true,
+      "stable_prefix_branch_completed_own_decay": true,
+      "actual_native_optimizer_calls_per_replica": 51,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "prescribed_cpu_reference_optimizer_steps": 1,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds": 38.76958703994751,
+      "scope": "Finite scientific-driver plumbing qualification. Exact initial neural gold reused only after matching512 source/depth/noise rows. Actual first optimizer update,all counters,full-state/RNG restore,21st-update numerical replay and independent shorter cooldown branch checked. No scientific quality result."
+    },
+    {
+      "status": "PASS_FUTURE_SPAN_SCIENTIFIC_DRIVER_INTEGRATION",
+      "cell": "recurrent-ntp",
+      "initial_full_gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 0.0003458752095025217,
+            "maximum_absolute_error": 6.129592657089233e-05,
+            "reference_l2": 21.142795602670567
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.00023834135424209574,
+              "maximum_absolute_error": 1.1851079761981964e-06,
+              "reference_l2": 0.583570434209391
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0002578165665203885,
+              "maximum_absolute_error": 1.4591962099075317e-05,
+              "reference_l2": 0.6953864597089836
+            },
+            "transformer_body": {
+              "relative_l2": 0.00034602777675340037,
+              "maximum_absolute_error": 6.129592657089233e-05,
+              "reference_l2": 21.123297306913898
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "future_head": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.0
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "initial_loss_differences": {
+        "ntp_nll": 1.3921195023414157e-06,
+        "future_mean": 2.305351438636194e-07
+      },
+      "first_independent_optimizer_update": {
+        "update_comparison": {
+          "relative_l2": 1.025283544036173e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.0506299517311622,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.858649563280859e-05,
+          "maximum_absolute_error": 3.207242116332054e-08,
+          "reference_l2": 0.14016751219951187
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.0193242713316915e-05,
+              "maximum_absolute_error": 3.725290298461914e-09,
+              "reference_l2": 0.050623021635929445,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.8515115277460734e-05,
+              "maximum_absolute_error": 1.6560079529881477e-08,
+              "reference_l2": 0.00859006037850014
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 6.749105732508798e-05,
+              "maximum_absolute_error": 1.8822277070285054e-10,
+              "reference_l2": 0.0008376710261382466,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.8586764481043275e-05,
+              "maximum_absolute_error": 3.207242116332054e-08,
+              "reference_l2": 0.1399040468996306
+            }
+          }
+        },
+        "future_head": {
+          "update": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moments": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          }
+        }
+      },
+      "replay": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.36761904325979483,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.7871604325423623
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.36722915793470784,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.023188791645932655
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.016926503768124587,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.7868188015688748
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "all_checkpoint_readbacks_exact": true,
+      "all_actual_state_rng_loads_exact": true,
+      "stable_prefix_branch_completed_own_decay": true,
+      "actual_native_optimizer_calls_per_replica": 51,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "prescribed_cpu_reference_optimizer_steps": 1,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds": 44.19467878341675,
+      "scope": "Finite scientific-driver plumbing qualification. Exact initial neural gold reused only after matching512 source/depth/noise rows. Actual first optimizer update,all counters,full-state/RNG restore,21st-update numerical replay and independent shorter cooldown branch checked. No scientific quality result."
+    },
+    {
+      "status": "PASS_FUTURE_SPAN_SCIENTIFIC_DRIVER_INTEGRATION",
+      "cell": "recurrent-future",
+      "initial_full_gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 0.00034607844657959914,
+            "maximum_absolute_error": 6.123632192611694e-05,
+            "reference_l2": 21.145427238253657
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.00023806526231044247,
+              "maximum_absolute_error": 1.1967495083808899e-06,
+              "reference_l2": 0.5836164747092699
+            },
+            "tied_input_output": {
+              "relative_l2": 0.00025769408746986316,
+              "maximum_absolute_error": 1.4610239304602146e-05,
+              "reference_l2": 0.6954099080285805
+            },
+            "transformer_body": {
+              "relative_l2": 0.00034623152163457593,
+              "maximum_absolute_error": 6.123632192611694e-05,
+              "reference_l2": 21.125929327689786
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "future_head": {
+          "relative_l2": 0.0002685361590324535,
+          "maximum_absolute_error": 1.7329875845462084e-07,
+          "reference_l2": 0.013980534126545844
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 0.0002892777263087021,
+            "maximum_absolute_error": 1.7329875845462084e-07,
+            "reference_l2": 0.01297806438597214
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 1.970687152404289e-06,
+            "maximum_absolute_error": 6.984919309616089e-10,
+            "reference_l2": 0.005198574733239348
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "initial_loss_differences": {
+        "ntp_nll": 1.3921195023414157e-06,
+        "future_mean": 2.305351438636194e-07
+      },
+      "first_independent_optimizer_update": {
+        "update_comparison": {
+          "relative_l2": 1.2393600131656185e-05,
+          "maximum_absolute_error": 7.450580596923828e-09,
+          "reference_l2": 0.07018155903131358,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.9142579680329046e-05,
+          "maximum_absolute_error": 3.341119736433029e-08,
+          "reference_l2": 0.14016772028391014
+        },
+        "families": {
+          "adamw": {
+            "update_comparison": {
+              "relative_l2": 1.2367960170616849e-05,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.07017655308423108,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.9072258001062356e-05,
+              "maximum_absolute_error": 1.6763806343078613e-08,
+              "reference_l2": 0.008590658784504551
+            }
+          },
+          "muon": {
+            "update_comparison": {
+              "relative_l2": 6.784951552952098e-05,
+              "maximum_absolute_error": 1.8845014437829377e-10,
+              "reference_l2": 0.0008382274642645881,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 3.9142844584496245e-05,
+              "maximum_absolute_error": 3.341119736433029e-08,
+              "reference_l2": 0.13990421863273705
+            }
+          }
+        },
+        "future_head": {
+          "update": {
+            "relative_l2": 1.4351331189512452e-05,
+            "maximum_absolute_error": 7.450580596923828e-09,
+            "reference_l2": 0.04860096139108803,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moments": {
+            "relative_l2": 3.907278929292847e-05,
+            "maximum_absolute_error": 8.294591680169106e-10,
+            "reference_l2": 0.000132236906626409
+          }
+        }
+      },
+      "replay": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.5080872563586841,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.7859205457249789
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.5078059349260275,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.022675165419280288
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.016905399374114737,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.7855933687766573
+            }
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "all_checkpoint_readbacks_exact": true,
+      "all_actual_state_rng_loads_exact": true,
+      "stable_prefix_branch_completed_own_decay": true,
+      "actual_native_optimizer_calls_per_replica": 51,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "prescribed_cpu_reference_optimizer_steps": 1,
+      "research_optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds": 42.887656688690186,
+      "scope": "Finite scientific-driver plumbing qualification. Exact initial neural gold reused only after matching512 source/depth/noise rows. Actual first optimizer update,all counters,full-state/RNG restore,21st-update numerical replay and independent shorter cooldown branch checked. No scientific quality result."
+    }
+  ]
+}

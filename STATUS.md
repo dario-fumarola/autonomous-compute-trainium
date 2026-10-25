@@ -1,4 +1,30 @@
-# Status — 2026-10-25, 07:28 UTC
+# Status — 2026-10-25, scientific tuning admitted
+
+**The objective study is running real scientific updates on all16 chips.**
+The complete four-cell hardware qualification and all four scientific-driver
+integration audits pass. Continuation,replay,source/work counters and separately
+cooled branches are independently checked. The discovery queue admitted the
+12-case301M-target LR screen from fresh seed4127 weights. The first two trials
+have both passed120 optimizer updates and62.8M real targets. No new held-out
+scientific result is available yet.
+[Actual startup receipt](results/future_span_tune_20261025/primitive-v2/native-start-receipt.json)
+· [Driver pass](results/future_span_driver_20261025/primitive-v2/report.json).
+
+The four cells are deterministic-one/sample-recurrence × NTP/future-presence.
+All keep the same source order and initial parameter inventory. The future
+span is a training target only;no teacher,generated corpus or future input
+enters the predictor. Each cell has the same three LR opportunities and its
+own completed cooldown. Four distinct selected-checkpoint gradient gates
+precede the separate two-seed1.005B main study. Main remains conditional on
+that complete pass;fresh confirmation and terminal alpha remain untouched.
+
+Actual100-update measurements give a conservative3.28h TUNE projection under
+a4h cap,and6.63h main projection under the prospective8h cap. Caps and the
+pre-outcome amendment are public;they cannot renew after admission. The useful
+effect threshold and all absolute/interaction controls remain unchanged.
+All **214 CPU tests pass**. No positive scientific claim is established.
+
+# Earlier status — 2026-10-25, 07:28 UTC
 
 **The four-cell objective hardware qualification passes completely.** All four
 paths perform121 actual optimizer updates plus a fresh-process replay update;
