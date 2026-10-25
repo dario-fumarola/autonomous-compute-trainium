@@ -1,4 +1,23 @@
-# Status — 2026-10-25, 04:47 UTC
+# Status — 2026-10-25, 05:00 UTC
+
+The separate future-objective discovery queue is armed and waiting,with zero
+chips. It can register TUNE only after complete independent hardware and driver
+passes and a measured conservative budget fitting the four-hour cap. Main then
+requires all twelve frozen LR opportunities,four selected trained-gradient
+passes and its own measured six-hour cap. It keeps four cells,two fresh paired
+pilot seeds,completed cooldowns and all endpoint audits. It cannot launch fresh
+confirmation or claim terminal success. All **199 CPU tests pass**.
+[Registered waiting queue](results/future_span_science_queue_20261025/plan.json)
+· [Exact execution rules](docs/FUTURE_SPAN_OBJECTIVE_PROPOSAL_20261025.md).
+
+These are finite scientific caps after numerical qualification,not a prediction
+that either full allocation will be consumed. A non-fitting budget or failed
+prerequisite stops admission. Candidate advancement needs the objective
+interaction,absolute gains and supported depth benefit in both pilot seeds;
+stronger one-pass+future and compute controls remain outstanding obligations.
+No objective TUNE or main fit is running yet.
+
+## Earlier status — 04:47 UTC
 
 The first cooled matched-work endpoint is independently scored: true one-pass
 reaches **2.448818 DEV NLL at3.5966B natural targets**. Its complete512-window

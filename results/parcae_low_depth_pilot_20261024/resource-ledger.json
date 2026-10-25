@@ -1,20 +1,20 @@
 {
   "status": "OBSERVED_LOW_DEPTH_RESOURCE_LEDGER",
-  "observed_unix": 1792895757.7947268,
+  "observed_unix": 1792904328.658889,
   "window_started_unix": 1792874531.0405765,
-  "window_seconds": 21226.754150390625,
-  "sixteen_chip_opportunity_hours": 94.34112955729167,
-  "new_family_assigned_chip_hours": 61.75432039578756,
-  "all_project_native_unique_assigned_chip_hours_within_window": 64.4686815627416,
-  "unassigned_native_chip_hours_within_window": 29.87244799455007,
-  "new_family_native_attempts": 86,
-  "closed_attempts": 84,
+  "window_seconds": 29797.618312597275,
+  "sixteen_chip_opportunity_hours": 132.433859167099,
+  "new_family_assigned_chip_hours": 99.05951569928064,
+  "all_project_native_unique_assigned_chip_hours_within_window": 101.77387686623467,
+  "unassigned_native_chip_hours_within_window": 30.659982300864325,
+  "new_family_native_attempts": 91,
+  "closed_attempts": 89,
   "failed_closed_attempts": 7,
-  "exact_completed_scientific_segment_matrix_operations": 2999327761064693760,
-  "exact_completed_scientific_target_presentations": 5648301304,
+  "exact_completed_scientific_segment_matrix_operations": 6148376117180077056,
+  "exact_completed_scientific_target_presentations": 11573925888,
   "additional_interrupted_scientific_matrix_operations_bounds": [
-    504625131555287040,
-    519374204874044928
+    1055174699306280960,
+    1069923772625038848
   ],
   "native_attempts": [
     {
@@ -161,44 +161,120 @@
       "assigned_chip_hours": 0.22220422744750976
     },
     {
-      "identity": "low-depth-main-r2-fixed1-finish",
-      "started_unix": 1792894917.0697608,
-      "finished_unix": 1792895757.7947268,
+      "identity": "low-depth-main-r2-fixed1-equal",
+      "started_unix": 1792903119.7788086,
+      "finished_unix": 1792904328.658889,
       "closed": false,
       "exit_code": null,
       "report_status": null,
       "scientific_work": {
         "status": "BOUNDED_INTERRUPTED_WORK_FROM_IMMUTABLE_SCHEDULE_AND_LOGS",
-        "logged_completed_update": 2520,
-        "segment_origin_update": 1920,
-        "completed_optimizer_updates_lower_bound": 600,
-        "completed_optimizer_updates_upper_bound": 610,
-        "matrix_operations_lower_bound": 162234888286924800,
-        "matrix_operations_upper_bound": 165209194572185088,
+        "logged_completed_update": 1880,
+        "segment_origin_update": 960,
+        "completed_optimizer_updates_lower_bound": 920,
+        "completed_optimizer_updates_upper_bound": 930,
+        "matrix_operations_lower_bound": 248760162039951360,
+        "matrix_operations_upper_bound": 251734468325211648,
         "scope": "Progress logs occur after every10th update. Upper work also allows a partly executed next objective. No claim of exact unseen work after termination."
       },
       "assigned_chips": 8,
-      "assigned_chip_hours": 1.8682777023315429
+      "assigned_chip_hours": 2.686400178803338
+    },
+    {
+      "identity": "low-depth-main-r2-fixed1-finish",
+      "started_unix": 1792894917.0697608,
+      "finished_unix": 1792901042.193846,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 4952,
+        "real_target_presentations": 2591730101,
+        "matrix_operations": 1338978611328086016
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 13.611386855973137
+    },
+    {
+      "identity": "low-depth-main-r2-gradient-fixed1-matched-fixed1",
+      "started_unix": 1792901193.56578,
+      "finished_unix": 1792901305.567407,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": {
+        "status": "NO_COMPLETED_UPDATE_LOG_AVAILABLE",
+        "matrix_operations": null
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.2488925043741862
+    },
+    {
+      "identity": "low-depth-main-r2-gradient-ordinary-stable1b-ordinary",
+      "started_unix": 1792901052.934798,
+      "finished_unix": 1792901184.00422,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": {
+        "status": "NO_COMPLETED_UPDATE_LOG_AVAILABLE",
+        "matrix_operations": null
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.29126538223690457
+    },
+    {
+      "identity": "low-depth-main-r2-ordinary-finish",
+      "started_unix": 1792901623.7006598,
+      "finished_unix": 1792904328.658889,
+      "closed": false,
+      "exit_code": null,
+      "report_status": null,
+      "scientific_work": {
+        "status": "BOUNDED_INTERRUPTED_WORK_FROM_IMMUTABLE_SCHEDULE_AND_LOGS",
+        "logged_completed_update": 4310,
+        "segment_origin_update": 1920,
+        "completed_optimizer_updates_lower_bound": 2390,
+        "completed_optimizer_updates_upper_bound": 2400,
+        "matrix_operations_lower_bound": 637366702675368960,
+        "matrix_operations_upper_bound": 640300189591448064,
+        "scope": "Progress logs occur after every10th update. Upper work also allows a partly executed next objective. No claim of exact unseen work after termination."
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 6.0110182873408
     },
     {
       "identity": "low-depth-main-r2-ordinary-first",
       "started_unix": 1792894913.320698,
-      "finished_unix": 1792895757.7947268,
-      "closed": false,
-      "exit_code": null,
-      "report_status": null,
+      "finished_unix": 1792897126.8162434,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
       "scientific_work": {
-        "status": "BOUNDED_INTERRUPTED_WORK_FROM_IMMUTABLE_SCHEDULE_AND_LOGS",
-        "logged_completed_update": 650,
-        "segment_origin_update": 0,
-        "completed_optimizer_updates_lower_bound": 650,
-        "completed_optimizer_updates_upper_bound": 660,
-        "matrix_operations_lower_bound": 173342408677401600,
-        "matrix_operations_upper_bound": 176275895593480704,
-        "scope": "Progress logs occur after every10th update. Upper work also allows a partly executed next objective. No claim of exact unseen work after termination."
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 1920,
+        "real_target_presentations": 1004887590,
+        "matrix_operations": 512026807170170880
       },
       "assigned_chips": 8,
-      "assigned_chip_hours": 1.8766089529461332
+      "assigned_chip_hours": 4.9188789897494845
+    },
+    {
+      "identity": "low-depth-main-r2-poisson2-finish",
+      "started_unix": 1792897134.087612,
+      "finished_unix": 1792903111.095504,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 4450,
+        "real_target_presentations": 2329006893,
+        "matrix_operations": 1298042937617126400
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 13.282239760292901
     },
     {
       "identity": "low-depth-main-v1-fixed1-first",

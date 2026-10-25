@@ -330,6 +330,49 @@
       "qualification_only": false,
       "research_optimizer_updates": 4450,
       "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-main-r2-fixed1-equal",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "fixed1-equal-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "fixed1",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "actual_optimizer_calls_per_replica": 960,
+      "segment_real_targets": 502443354,
+      "segment_executed_matmuls": 259575821259079680,
+      "update": 1920,
+      "source_cursor": 983040,
+      "real_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "executed_matmuls": 519151642518159360,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "d3a201bed72fd9d2a3343af5f0c043b863f400435a12f7c360701311a200f06d",
+      "checkpoint_records": [
+        {
+          "update": 1920,
+          "checkpoint_sha256": "e9d8ae4d318644310ad27ba4498fff8b5b5c06ea1b2bbdde6078cc44238fd38a",
+          "full_state_digest": "462912181f719b8f00e7441f1b7e07bc0b9a8c8f842d4b96d44e338088838982",
+          "real_targets": 1004887590,
+          "executed_matmuls": 519151642518159360,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 1236.176448583603,
+      "qualification_only": false,
+      "research_optimizer_updates": 960,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
     }
   ]
 }

@@ -221,3 +221,54 @@ original within-document window position to choose latent noise. It draws the
 full fixed1024-position state before slicing;document IDs,content hashes and
 future length never choose the seed. Its discovery scope is restricted to the
 already consumed panel. Fresh confirmation remains separately gated.
+
+## Bounded execution queue,05:00 UTC
+
+The separate scientific queue may register a stage only after all four native
+hardware paths and their independent CPU audits pass,and the new scientific
+driver passes full-state/RNG recovery,numerical replay and independent shorter
+cooldown branches. A registered waiting process uses zero chips. The two
+qualification controllers themselves never launch science.
+
+Admission uses measured100-update times for each objective/architecture path.
+The conservative prediction allows50% slower warm execution,at least120seconds
+of setup per worker,and explicit full-gradient/native-probe/CPU-readout tails.
+It must fit the prospective four-hour TUNE cap or six-hour main cap before the
+corresponding scientific plan is written. A non-fitting budget stops admission;
+it does not remove a control or shorten a run after looking at quality.
+
+TUNE has twelve opportunities at301,465,908 natural targets,seed4127. Every
+cell gets exactly0.008/0.016/0.032 and its own50% cooldown. Choose its smallest
+finite consumed-TUNE NLL,breaking exact ties toward the smaller LR. An edge
+winner remains unbracketed. All twelve outcomes are retained;the four selected
+checkpoints require complete512-window independent trained-gradient checks
+before main admission. No TUNE weights initialize the main runs.
+
+Main has eight fresh fits:four cells paired at seeds5231/7283,each reaching
+1,004,887,590 natural targets. Save the stable960-update prefix and complete
+each own960-update cooldown. Both objective cells within each architecture
+use the same saved source/depth order and cloned body/head initialization.
+Every endpoint receives the full512-window trained-gradient gate. Score all
+one-pass cells at depth1 and recurrent cells at supported depths1/2/3;depth2
+is the fixed primary exit. Stable301M curves are descriptive,not replacements
+for cooled endpoints.
+
+The four point criteria above must clear0.01 in both pilot seeds to advance
+automatically as a candidate. Report their actual values and conditional paired
+source-group intervals regardless. This is a conservative discovery rule,not
+a test of training-seed significance or a statistical exclusion of smaller
+effects. Missing,failed or nonfinite trials remain failures and stop the queue;
+there are no dropped cells,seeds or added LR opportunities. A pilot that fails
+the rule does not automatically start another horizon/weight/depth experiment.
+
+The initial four-cell study is equal-data mechanism screening. Its nominal
+matrix work includes the head even at zero weight,all sampled backward paths
+and all32 replicas' optimizer work. Actual kernels,dead-code pruning,padding,
+communication,compile time and chip-hours are separate measurements. It does
+not establish that the training-only head or recurrence earns its cost against
+the strongest ordinary+future/cheap-connection alternative.
+
+No queue opens fresh confirmation or spends terminal alpha. Even a passing
+pilot must face that stronger baseline and properly annealed compute controls,
+then independently frozen confirmation on fresh source groups and at least
+five new paired seeds. The existing negative results stay unchanged.
