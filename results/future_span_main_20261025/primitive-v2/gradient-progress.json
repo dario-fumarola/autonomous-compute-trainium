@@ -58,10 +58,10 @@
         "test_accessed": false,
         "wall_seconds": 90.12921929359436,
         "scope": "Complete next512-window natural TRAIN objective at a registered fitted checkpoint. No clipping,optimizer update,cursor advancement or quality result. Independent FP32 reference gate required.",
-        "rows_manifest": {
-          "count": 512,
-          "canonical_json_sha256": "c69d8e10cd275b9ef26a601e37d04e0a0e4b584438a031fabfa59f759e308dc5",
-          "scope": "Full replay metadata remains in immutable private native reports."
+        "replay_manifest": {
+          "windows": 512,
+          "sha256": "c69d8e10cd275b9ef26a601e37d04e0a0e4b584438a031fabfa59f759e308dc5",
+          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
         }
       },
       "independent_cpu": {
@@ -198,10 +198,10 @@
         "test_accessed": false,
         "wall_seconds": 91.18452501296997,
         "scope": "Complete next512-window natural TRAIN objective at a registered fitted checkpoint. No clipping,optimizer update,cursor advancement or quality result. Independent FP32 reference gate required.",
-        "rows_manifest": {
-          "count": 512,
-          "canonical_json_sha256": "c69d8e10cd275b9ef26a601e37d04e0a0e4b584438a031fabfa59f759e308dc5",
-          "scope": "Full replay metadata remains in immutable private native reports."
+        "replay_manifest": {
+          "windows": 512,
+          "sha256": "c69d8e10cd275b9ef26a601e37d04e0a0e4b584438a031fabfa59f759e308dc5",
+          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
         }
       },
       "independent_cpu": {
@@ -338,10 +338,10 @@
         "test_accessed": false,
         "wall_seconds": 103.0080451965332,
         "scope": "Complete next512-window natural TRAIN objective at a registered fitted checkpoint. No clipping,optimizer update,cursor advancement or quality result. Independent FP32 reference gate required.",
-        "rows_manifest": {
-          "count": 512,
-          "canonical_json_sha256": "89fc3447a4ba762d5115ef6b85d2e23c67e5a8684072a56eb598b5ab4d6423f1",
-          "scope": "Full replay metadata remains in immutable private native reports."
+        "replay_manifest": {
+          "windows": 512,
+          "sha256": "89fc3447a4ba762d5115ef6b85d2e23c67e5a8684072a56eb598b5ab4d6423f1",
+          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
         }
       },
       "independent_cpu": {
@@ -478,10 +478,10 @@
         "test_accessed": false,
         "wall_seconds": 98.06867980957031,
         "scope": "Complete next512-window natural TRAIN objective at a registered fitted checkpoint. No clipping,optimizer update,cursor advancement or quality result. Independent FP32 reference gate required.",
-        "rows_manifest": {
-          "count": 512,
-          "canonical_json_sha256": "89fc3447a4ba762d5115ef6b85d2e23c67e5a8684072a56eb598b5ab4d6423f1",
-          "scope": "Full replay metadata remains in immutable private native reports."
+        "replay_manifest": {
+          "windows": 512,
+          "sha256": "89fc3447a4ba762d5115ef6b85d2e23c67e5a8684072a56eb598b5ab4d6423f1",
+          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
         }
       },
       "independent_cpu": {
@@ -559,7 +559,286 @@
         "wall_seconds": 369.9923300743103,
         "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
       }
+    },
+    {
+      "case_id": "one-ntp-s7283-lr32000",
+      "identity": "future-span-main-v2-one-ntp-s7283-lr32000-gradient",
+      "native": {
+        "status": "CAPTURED_ZERO_UPDATE_FUTURE_SPAN_GRADIENT",
+        "case_id": "one-ntp-s7283-lr32000",
+        "cell": "one-ntp",
+        "plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+        "checkpoint_sha256": "4d640af7f3b895765dfee630deebee0aab4c78352d34fc09c969e93e085a094b",
+        "full_state_digest": "e0d47900884f06075c2c4edb7f3b0be28ca89e7f02ffeb04006f3da2f451177f",
+        "training_update": 1920,
+        "source_cursor": 983040,
+        "real_targets": 523350,
+        "valid_anchors": 31277,
+        "windows": 512,
+        "gradient_sha256": "f014dcaff8349bd01184b14df04889157d5d8e1aa25aa16aa713f431a65728b1",
+        "model_unchanged": true,
+        "noise_sha256_by_rank": [
+          "507322fe4866dd9fd410225c008c7bb92c55249fffe27b92d8763fa05db919d0",
+          "42bbd9ce256983bb49c8964b18166755c56cf82303b73d9d8b180c3a8bd0b846",
+          "63b2edd75a1fb0f52ec47489d00051175505b7d283cbaf70a9f587790f895733",
+          "c21f3463fd3b11ff78c7d23973d97893cd7bef3ff4633fefda0cd112a7a61c2c",
+          "dcc85cb27102a696a7581dda06f84fb33f79f29369b8929553f53b7ffd0f5c70",
+          "461221af9a3c2a5a45e27821c51dc888c781d0ba5446285a0a872f253b64a1c2",
+          "8e54f24fd76c0aafc3af758b121c535421eebd09d1841224466dac277ecef25c",
+          "28a7f2203bbebf76691c6b0c57c7d160f1452c7e355b6b4ac99e0514a336dace",
+          "d59caef998ee9306b63cc3b1d2f35e98efabee0e1d619e250e1dfaa5cd5a606c",
+          "34968c2141e06ee3b69ca717114859dbe706d363826f46013a2b4c44129c552f",
+          "4ae2963ca7602ddcd11a86d06cf4ccc36dce7bcfc6b6c8242a2e435852c346be",
+          "2410e3130316ad5de0aadbc7a1ba81d676e3cebb9d69f4a427809659e085c127",
+          "d3ced1d43e46fddc95be3f9bdc7c0934f8c1703328fb3f2a5871364dbf83cb33",
+          "91d1afffd58423487fdc1e0c0c131af9873a50cac9afb5658d3976e6edc6d5ff",
+          "cbc06bbd43ec23d7fa3a8d36565dec074923c7e3285c31f6ab823a647a3dcf8c",
+          "c1d618cbc2349e1720e12f6e497c54530f449f24ba53c682342931a6f27f2b62",
+          "4dc7ea36cb1a1415a6cfdcf5f79b3d1af835f531b910bb7cd7ba7c1398a002cf",
+          "c0e2a274199d6a49f606a75fefa174fd1b3c37dcd9e79ceaaa9c86fba8d6083d",
+          "91dfc0b32874ae6aab4086b130aac625b161014848ec0a9e9e98669dd14b044c",
+          "225370c5197576e6765a193f3b878bb3839472d48df4c5b6f48498f6260ddfa9",
+          "f83f57eb0d20e06b2d7f34c5d4047a43aa8352f6ad2ca4f9b4eb7ef75c2def3c",
+          "e1c1a91d7b689590fd8e8be19c3856499eadf5ccd56a5bf1b1998e841bf63c0f",
+          "e0a4d0f4af6e3910a8c5fe72b4d7323a009cb6cf2aa3dfc0ffb156ba2a8f8e65",
+          "38cdc1d501997a5640b61c4b3c2a7a5639ceba9856de5e9d905940e35c202a67",
+          "f2ad1eb1904c590da068440bab723bda7e45b86dce77187b5676c4b9e1efab73",
+          "77ad339501daa1ed88ed2f7bba93b5e754d1eebfe6625b67442ec35e604572ae",
+          "a3af8b5547374e79dd37b27fa88225548c4adf1ae8c8e092d67560d5eb865e82",
+          "c8fabd74c505f31de2d64ba898201ae57441c92cd4d5b2acf366aec7dd6ca9b9",
+          "09f1728d7f02ed5c34cdf54120c837eea53428c036fe49e2936a6132a7c91d74",
+          "d01172a51233ff111558f44e28a106ad9f58a03e4a2a7af2de2c50376e0ba296",
+          "c7982189484e0ada6eefc5482baf4c8c1094f2b34105c0a2e33e76a4bc6307ff",
+          "3354c96a7ec876343a3dc08f2972ad53fa1ed7c347d1fa1a46e6a1416f52147b"
+        ],
+        "replica_gradients_equal": true,
+        "diagnostic_matrix_ops": 249055892471808,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 101.54157280921936,
+        "scope": "Complete next512-window natural TRAIN objective at a registered fitted checkpoint. No clipping,optimizer update,cursor advancement or quality result. Independent FP32 reference gate required.",
+        "replay_manifest": {
+          "windows": 512,
+          "sha256": "7744e42faf5201b901509bd02cadef11c1c8323e4410c4645b130f2aa5150320",
+          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
+        }
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "one-ntp-s7283-lr32000",
+        "cell": "one-ntp",
+        "training_update": 1920,
+        "checkpoint_sha256": "4d640af7f3b895765dfee630deebee0aab4c78352d34fc09c969e93e085a094b",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.002695951922344204,
+              "maximum_absolute_error": 2.1401792764663696e-05,
+              "reference_l2": 0.062152531075080474
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0026578090714196364,
+                "maximum_absolute_error": 6.927002687007189e-07,
+                "reference_l2": 0.0025829370248586976
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0027062350354086213,
+                "maximum_absolute_error": 3.3801552490331233e-06,
+                "reference_l2": 0.003240485468182577
+              },
+              "transformer_body": {
+                "relative_l2": 0.002696041123678673,
+                "maximum_absolute_error": 2.1401792764663696e-05,
+                "reference_l2": 0.062012251846904294
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0017047813915161375,
+                "maximum_absolute_error": 4.4876827587359e-08,
+                "reference_l2": 0.0004954090946584915
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": -2.3205255006431003e-07,
+          "future_mean": 6.942244086260985e-07
+        },
+        "cpu_ntp_nll": 2.5732060216770845,
+        "cpu_future_mean": 6.698393892852357,
+        "windows": 512,
+        "real_targets": 523350,
+        "valid_anchors": 31277,
+        "diagnostic_matrix_ops": 249055892471808,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 402.3588070869446,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    },
+    {
+      "case_id": "one-future-s7283-lr32000",
+      "identity": "future-span-main-v2-one-future-s7283-lr32000-gradient",
+      "native": {
+        "status": "CAPTURED_ZERO_UPDATE_FUTURE_SPAN_GRADIENT",
+        "case_id": "one-future-s7283-lr32000",
+        "cell": "one-future",
+        "plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+        "checkpoint_sha256": "53f857440e05fcade62c543b17c5238114ef8f264867b515859459e20cef0f0a",
+        "full_state_digest": "84a9f2f4de094e91d0f621e8b8b7c8bcd7aa5304f641f481dc447054d0170efa",
+        "training_update": 1920,
+        "source_cursor": 983040,
+        "real_targets": 523350,
+        "valid_anchors": 31277,
+        "windows": 512,
+        "gradient_sha256": "f151e4d0b361853910e4033e26aa96cf162fee569392a392bcda01c22345bff1",
+        "model_unchanged": true,
+        "noise_sha256_by_rank": [
+          "507322fe4866dd9fd410225c008c7bb92c55249fffe27b92d8763fa05db919d0",
+          "42bbd9ce256983bb49c8964b18166755c56cf82303b73d9d8b180c3a8bd0b846",
+          "63b2edd75a1fb0f52ec47489d00051175505b7d283cbaf70a9f587790f895733",
+          "c21f3463fd3b11ff78c7d23973d97893cd7bef3ff4633fefda0cd112a7a61c2c",
+          "dcc85cb27102a696a7581dda06f84fb33f79f29369b8929553f53b7ffd0f5c70",
+          "461221af9a3c2a5a45e27821c51dc888c781d0ba5446285a0a872f253b64a1c2",
+          "8e54f24fd76c0aafc3af758b121c535421eebd09d1841224466dac277ecef25c",
+          "28a7f2203bbebf76691c6b0c57c7d160f1452c7e355b6b4ac99e0514a336dace",
+          "d59caef998ee9306b63cc3b1d2f35e98efabee0e1d619e250e1dfaa5cd5a606c",
+          "34968c2141e06ee3b69ca717114859dbe706d363826f46013a2b4c44129c552f",
+          "4ae2963ca7602ddcd11a86d06cf4ccc36dce7bcfc6b6c8242a2e435852c346be",
+          "2410e3130316ad5de0aadbc7a1ba81d676e3cebb9d69f4a427809659e085c127",
+          "d3ced1d43e46fddc95be3f9bdc7c0934f8c1703328fb3f2a5871364dbf83cb33",
+          "91d1afffd58423487fdc1e0c0c131af9873a50cac9afb5658d3976e6edc6d5ff",
+          "cbc06bbd43ec23d7fa3a8d36565dec074923c7e3285c31f6ab823a647a3dcf8c",
+          "c1d618cbc2349e1720e12f6e497c54530f449f24ba53c682342931a6f27f2b62",
+          "4dc7ea36cb1a1415a6cfdcf5f79b3d1af835f531b910bb7cd7ba7c1398a002cf",
+          "c0e2a274199d6a49f606a75fefa174fd1b3c37dcd9e79ceaaa9c86fba8d6083d",
+          "91dfc0b32874ae6aab4086b130aac625b161014848ec0a9e9e98669dd14b044c",
+          "225370c5197576e6765a193f3b878bb3839472d48df4c5b6f48498f6260ddfa9",
+          "f83f57eb0d20e06b2d7f34c5d4047a43aa8352f6ad2ca4f9b4eb7ef75c2def3c",
+          "e1c1a91d7b689590fd8e8be19c3856499eadf5ccd56a5bf1b1998e841bf63c0f",
+          "e0a4d0f4af6e3910a8c5fe72b4d7323a009cb6cf2aa3dfc0ffb156ba2a8f8e65",
+          "38cdc1d501997a5640b61c4b3c2a7a5639ceba9856de5e9d905940e35c202a67",
+          "f2ad1eb1904c590da068440bab723bda7e45b86dce77187b5676c4b9e1efab73",
+          "77ad339501daa1ed88ed2f7bba93b5e754d1eebfe6625b67442ec35e604572ae",
+          "a3af8b5547374e79dd37b27fa88225548c4adf1ae8c8e092d67560d5eb865e82",
+          "c8fabd74c505f31de2d64ba898201ae57441c92cd4d5b2acf366aec7dd6ca9b9",
+          "09f1728d7f02ed5c34cdf54120c837eea53428c036fe49e2936a6132a7c91d74",
+          "d01172a51233ff111558f44e28a106ad9f58a03e4a2a7af2de2c50376e0ba296",
+          "c7982189484e0ada6eefc5482baf4c8c1094f2b34105c0a2e33e76a4bc6307ff",
+          "3354c96a7ec876343a3dc08f2972ad53fa1ed7c347d1fa1a46e6a1416f52147b"
+        ],
+        "replica_gradients_equal": true,
+        "diagnostic_matrix_ops": 249055892471808,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 95.1847631931305,
+        "scope": "Complete next512-window natural TRAIN objective at a registered fitted checkpoint. No clipping,optimizer update,cursor advancement or quality result. Independent FP32 reference gate required.",
+        "replay_manifest": {
+          "windows": 512,
+          "sha256": "7744e42faf5201b901509bd02cadef11c1c8323e4410c4645b130f2aa5150320",
+          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
+        }
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "one-future-s7283-lr32000",
+        "cell": "one-future",
+        "training_update": 1920,
+        "checkpoint_sha256": "53f857440e05fcade62c543b17c5238114ef8f264867b515859459e20cef0f0a",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.0026709918988369915,
+              "maximum_absolute_error": 2.052471973001957e-05,
+              "reference_l2": 0.0621643688441764
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.002487983588889921,
+                "maximum_absolute_error": 7.555936463177204e-07,
+                "reference_l2": 0.002543102629955641
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0018587168298661249,
+                "maximum_absolute_error": 1.3961398508399725e-06,
+                "reference_l2": 0.003046656138133212
+              },
+              "transformer_body": {
+                "relative_l2": 0.00267300204183371,
+                "maximum_absolute_error": 2.052471973001957e-05,
+                "reference_l2": 0.062035559591489126
+              },
+              "value_embeddings": {
+                "relative_l2": 0.001668000793868808,
+                "maximum_absolute_error": 6.169443622638937e-08,
+                "reference_l2": 0.000498613432529903
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.001470639322086328,
+            "maximum_absolute_error": 2.0447259885258973e-07,
+            "reference_l2": 0.00037389712605645487
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0013032675835420637,
+              "maximum_absolute_error": 1.1502197594381869e-07,
+              "reference_l2": 0.0003190861289749905
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0018458854123869087,
+              "maximum_absolute_error": 2.0447259885258973e-07,
+              "reference_l2": 0.00019489254262036878
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 7.0474117501717615e-06,
+          "future_mean": 1.366092645183059e-05
+        },
+        "cpu_ntp_nll": 2.5774263145830907,
+        "cpu_future_mean": 3.560947668484937,
+        "windows": 512,
+        "real_targets": 523350,
+        "valid_anchors": 31277,
+        "diagnostic_matrix_ops": 249055892471808,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 367.2125403881073,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
     }
-  ],
-  "publication_scope": "Only replay manifests summarized by count/digest;numerical results and gates retained. Private originals unchanged."
+  ]
 }

@@ -1,7 +1,8 @@
-# Status — 2026-10-25 12:13 UTC
+# Status — 2026-10-25 12:26 UTC
 
-**The second discovery seed is completing its one-pass models;the unchanged
-MAIN queue then trains its recurrent pair.** The first complete seed's plain
+**All16 chips are now training the second seed's recurrent pair.** Both second-
+seed one-pass endpoints are complete:NTP2.615013,future loss2.615944. Six of
+eight final full-batch gradient gates pass. The first complete seed's plain
 NTP recurrence gain is0.022430 nats at equal data. Its future-objective
 interaction is only0.002281. Both seeds and all original numerical/readout
 gates remain required. No conclusion from a partial second seed.
@@ -27,6 +28,11 @@ This remains a two-seed development screen,with unbracketed selected rates.
 Within-family controls do not replace stronger ordinary/cheap challengers,
 inference costs or at least five fresh paired confirmation seeds/source groups.
 The research goal remains active and unachieved.
+
+The earlier low-depth pilot and prefix-only sensitivity audit are complete. Its
+matched-work recurrence gain over one-pass is−0.001856 nats;its equal-data
+gain is0.000871. The corrected [completed pilot report](results/parcae_low_depth_pilot_20261024/REPORT.md)
+keeps the original outcomes and supersedes its historical pending-stage text.
 
 # Status — 2026-10-25, 11:41 UTC
 
