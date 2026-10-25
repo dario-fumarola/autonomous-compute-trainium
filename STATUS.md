@@ -1,3 +1,48 @@
+# Status — 2026-10-25 13:56 UTC
+
+**The four-cell objective study is complete. Plain NTP recurrence repeats its
+equal-data benefit in both development seeds;future-span supervision fails its
+original usefulness criteria.**
+
+| Plain-NTP candidate | Seed5231 | Seed7283 |
+| --- | ---: | ---: |
+| Gain over trained one-pass NTP | 0.022430 | 0.025063 |
+| Gain over trained one-pass future loss | 0.023373 | 0.025993 |
+| Supported same-weight depth-one→two gain | 0.033283 | 0.031864 |
+
+Mean equal-data gain is0.023747 nats;all three domains favor recurrence in both
+seeds. The fixed primary exit stays two. The future-objective interactions are
++0.002281/−0.003602,below the0.01 threshold. That bounded objective recipe is
+closed. The pre-MAIN registered NTP secondary advances a development candidate,
+not independent confirmation or a compute-efficiency claim.
+[Complete study](results/future_span_main_20261025/primitive-v2/REPORT.md).
+
+All eight final full512-window numerical gates pass,along with full model/
+optimizer recovery and32-replica equality. **The four work-matched controls are
+admitted.** All four native two-update recovery preflights and independent
+CPU audits pass. The first paired long continuations are running on all16 chips. Each finishes its own cooldown at2365
+updates/1.238B real targets. Original admission starts13:34:50 UTC and expires
+16:34:50 UTC. Neither favorable point scores nor an observation timeout renew
+that clock. [Controls](docs/FUTURE_SPAN_WORK_CONTROLS_20261025.md).
+
+**238 CPU tests pass.** Actual-size independent CPU prefill references also
+pass:256 read-only forwards,unchanged141.96M prediction weights at all supported
+exits,103.74 CPU seconds. Its separately frozen native queue waits behind the
+work controls. The total30-minute measurement budget includes this spent CPU
+preparation. It measures preloaded fixed-window prefills;cached autoregressive
+cost is not established. [Inference scope](docs/FUTURE_SPAN_PREFILL_20261025.md).
+
+The frequency-only diagnostic is complete;its constant reference scores4.483896
+and the trained future heads about3.55. Auxiliary-task learning does not rescue
+the failed NTP-transfer interaction. The original149-target natural-code
+readout is complete. Its context-interaction intervals remain inconclusive;
+positive points cannot override the primary.
+[Code diagnostic](results/future_span_code_context_20261025/REPORT.md).
+
+The overall goal remains active and unachieved. Strong ordinary/cheap controls,
+completed resource comparisons,inference costs and at least five fresh paired
+confirmation seeds/source groups remain required. No TEST or terminal allocation.
+
 # Status — 2026-10-25 12:39 UTC
 
 **All16 chips are now training the second seed's recurrent pair.** Both second-

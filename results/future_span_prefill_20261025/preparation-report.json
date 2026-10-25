@@ -1,0 +1,70 @@
+{
+  "status": "PASS_INDEPENDENT_HEAD_REMOVED_PREFILL_REFERENCES",
+  "plan_sha256": "6f65c4f6c4d9f18f303e23cc3c180bf6944c3961be7c9f096d63f4fb59ac2be5",
+  "records": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "depth": 1,
+      "logits_file": "one-ntp-s5231-lr32000-d1-logits.npy",
+      "nll_file": "one-ntp-s5231-lr32000-d1-nll.npy",
+      "prediction_state_digest": "fadc410af8c0a310f1f251e754adb0ab9e342a4d576e055a1137efaf88f0ff8c",
+      "deployed_parameters": 141963840,
+      "head_removed": true,
+      "model_unchanged": true
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 1,
+      "logits_file": "recurrent-ntp-s5231-lr32000-d1-logits.npy",
+      "nll_file": "recurrent-ntp-s5231-lr32000-d1-nll.npy",
+      "prediction_state_digest": "d5bdea585ed152e5f0fbfc3a16538d9faf8d9df612b45f4ed1402c0959ab3a14",
+      "deployed_parameters": 141963840,
+      "head_removed": true,
+      "model_unchanged": true
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 2,
+      "logits_file": "recurrent-ntp-s5231-lr32000-d2-logits.npy",
+      "nll_file": "recurrent-ntp-s5231-lr32000-d2-nll.npy",
+      "prediction_state_digest": "d5bdea585ed152e5f0fbfc3a16538d9faf8d9df612b45f4ed1402c0959ab3a14",
+      "deployed_parameters": 141963840,
+      "head_removed": true,
+      "model_unchanged": true
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 3,
+      "logits_file": "recurrent-ntp-s5231-lr32000-d3-logits.npy",
+      "nll_file": "recurrent-ntp-s5231-lr32000-d3-nll.npy",
+      "prediction_state_digest": "d5bdea585ed152e5f0fbfc3a16538d9faf8d9df612b45f4ed1402c0959ab3a14",
+      "deployed_parameters": 141963840,
+      "head_removed": true,
+      "model_unchanged": true
+    }
+  ],
+  "files_sha256": {
+    "inputs.npy": "f744483392aa15c20537e9bca70e2ae0cef56174b208901019999eb6ecbe42f4",
+    "targets.npy": "bf54aba4e5831e099733a26198ddc837acd07f02fb6ce90eb9c5f7e721ff55eb",
+    "real-mask.npy": "d2dad23623eaabe9c9fd8729a4adb7b64b21da7a06f3383014cb310bd9588b79",
+    "noise.npy": "d83e3bcfe940a502ef4edbd060a4249d794a768aea0eedb7faaf7b5bb7e55cc3",
+    "one-ntp-s5231-lr32000-d1-logits.npy": "d8e19d0f67b33b2eea160f60cb878431d1df3441da444063cf11dab165596d54",
+    "one-ntp-s5231-lr32000-d1-nll.npy": "2fb10884974570fcf255f33158a96f3bd4017277030ad0235583a7a2812228f0",
+    "recurrent-ntp-s5231-lr32000-d1-logits.npy": "4fd573f47e3bb482248805bf333bea35d29bdf66c688b56e8d28f82aa8be8cc2",
+    "recurrent-ntp-s5231-lr32000-d1-nll.npy": "5cb8ef0b3f8e6dce44aee0e437de8e548118bb8bd8262600485abe2545980ea3",
+    "recurrent-ntp-s5231-lr32000-d2-logits.npy": "cd4d9ca606dc0cd83c354dc38a5ce3d27cfc82d09e00d5cb6885736c1167b6ed",
+    "recurrent-ntp-s5231-lr32000-d2-nll.npy": "c949bad4cf5faf9853681014fd10ec8e01ae6a44028556827c07a9a562c70bfc",
+    "recurrent-ntp-s5231-lr32000-d3-logits.npy": "af38f3b24959ca3cb1404e2303d63d62829678bcc6cfdea2c1b08939897b848c",
+    "recurrent-ntp-s5231-lr32000-d3-nll.npy": "62c2c0fdfb63e1304cd226d994c15638311b5f7f86dab14c5b0a02781c0b67a6"
+  },
+  "windows": 64,
+  "unique_real_targets": 65434,
+  "model_forwards": 256,
+  "estimated_forward_matrix_ops": 47751823884288,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "wall_seconds": 103.7423415184021,
+  "scope": "Read-only full-logits fixed1024-window prefills,preloaded authentic TRAIN inputs,local batch1 per core. Two32-rank/eight-chip jobs per round;reverse submission order in round2 and retain actual hardware assignment. No future head,backward,optimizer,sampling or KV-cached decoding. Actual weights and original prefix-available latent noise. All cost and failed attempts retained;no TEST or terminal claim."
+}

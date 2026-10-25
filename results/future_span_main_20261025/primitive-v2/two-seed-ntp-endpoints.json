@@ -1,0 +1,120 @@
+{
+  "status": "OBSERVED_BOTH_NTP_ENDPOINT_PAIRS_ORIGINAL_MAIN_PENDING",
+  "observed_utc": "2026-10-25T13:30:45.707951+00:00",
+  "points_by_seed": {
+    "5231": {
+      "over_one_ntp": 0.022430407121181606,
+      "over_one_future": 0.023373244431633466,
+      "supported_depth1_to2": 0.033282810951971165
+    },
+    "7283": {
+      "over_one_ntp": 0.025062766938571457,
+      "over_one_future": 0.025993000555167622,
+      "supported_depth1_to2": 0.03186413640403618
+    }
+  },
+  "observed_ntp_point_rules": {
+    "decision": "NTP_CANDIDATE_FOR_STRONG_BASELINE_RESOURCE_CONTROLS_AND_FRESH_CONFIRMATION",
+    "all_point_gates_pass": true,
+    "minimum_useful_gain_nats": 0.01,
+    "terminal_success": false,
+    "scope": "Adaptive TUNE-selected secondary discovery,not independent confirmation or a primary future-objective success."
+  },
+  "nll_by_seed": {
+    "5231": {
+      "one-ntp-d1": 2.6146694677745974,
+      "one-future-d1": 2.6156123050850493,
+      "recurrent-ntp-d1": 2.625521871605387,
+      "recurrent-ntp-d2": 2.592239060653416
+    },
+    "7283": {
+      "one-ntp-d1": 2.615013358055876,
+      "one-future-d1": 2.615943591672472,
+      "recurrent-ntp-d1": 2.6218147275213406,
+      "recurrent-ntp-d2": 2.5899505911173044
+    }
+  },
+  "mean_ntp_equal_data_gain": 0.02374658702987653,
+  "per_domain_ntp_equal_data_gains": {
+    "5231": {
+      "web": 0.02466757045190837,
+      "math": 0.021867902908893733,
+      "code": 0.016281421341288738
+    },
+    "7283": {
+      "web": 0.02747956726123535,
+      "math": 0.02497049434183607,
+      "code": 0.01790463856731339
+    }
+  },
+  "full_development_targets_pair_exact": true,
+  "same_weights_at_supported_exits": true,
+  "maximum_aggregate_recomputation_error": 0.0,
+  "input_receipts": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "depth": 1,
+      "score_sha256": "bc3e929d0013edd81899af34838941717de344c198531c88ac788172ee6511a0",
+      "document_scores_sha256": "c9cea4ab9f19ed70d0cb7955d1f09a3f91cb0cd550010597a46babc92c4c0c4f",
+      "gradient_audit_sha256": "3e2c5da29a1b8281fcc60b35ed16c97a4d27c6cf0d9cf11b8a44c347dbb2b509"
+    },
+    {
+      "case_id": "one-future-s5231-lr32000",
+      "depth": 1,
+      "score_sha256": "45cce26a73916e72dbf6f7f2be40bb955ad2934a52f4daf78a35a207d0b04828",
+      "document_scores_sha256": "83d02f652180a93a7ead61cd2c2542e0890801bf52a202533e3b510303bf1880",
+      "gradient_audit_sha256": "d2c1db0f4c902c8a4842ba368080bc2be51f1c6e442f5af62b5b067cc8834093"
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 1,
+      "score_sha256": "f00b5a1a1f399105887c3750ff1b4027e2febd9eb20f770e7d103f50deb55acf",
+      "document_scores_sha256": "3211b4d2299b592db19479ae82e9ed8e06f9bbd17441fb015859ba67c4b5cabf",
+      "gradient_audit_sha256": "d903707f9f39b2fadc0fb94c8f28625626af081e0705b9542be9df26b1908b6a"
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 2,
+      "score_sha256": "79863f8c7407c9b6605afab07b2ae5cf8e8dd2d56b8711ea1e26524ec25fd6c7",
+      "document_scores_sha256": "098907c6a3418c3ee2f97a631ee0387cd614f6241b049f8c17d4615d2e1474d7",
+      "gradient_audit_sha256": "d903707f9f39b2fadc0fb94c8f28625626af081e0705b9542be9df26b1908b6a"
+    },
+    {
+      "case_id": "one-ntp-s7283-lr32000",
+      "depth": 1,
+      "score_sha256": "dc128cab5edea0b43885d48a2221f5d5d05dd1961d393b3cbf88e5f680a90292",
+      "document_scores_sha256": "ae6c00bb2cc76f90b007d6577f821c604a37a2f57205b43c78e14d884b98cf93",
+      "gradient_audit_sha256": "dc954e4286977e1a69ebf415bdfc015e5ecbeb12376f2dbe9786dd5268e4eaf2"
+    },
+    {
+      "case_id": "one-future-s7283-lr32000",
+      "depth": 1,
+      "score_sha256": "86dac075d3785353c6af048a4857a832769d24c7efe7db024c4fda90876407f2",
+      "document_scores_sha256": "679ac0ab6b5cf1ddd3f4741b83ed6a5e92045690ecc765ad617ad1c080206e12",
+      "gradient_audit_sha256": "98ef9821396de911323f1985c381fd8199f150a17736fe297185d0d6cef2e3f5"
+    },
+    {
+      "case_id": "recurrent-ntp-s7283-lr32000",
+      "depth": 1,
+      "score_sha256": "59d0f614c7d883052483e0d8b0a3f7fdd9964427705cda2477f571b703ded786",
+      "document_scores_sha256": "24244b670f516954d5d15f5f2de50517b81ca2c919b8038985fddf185091696a",
+      "gradient_audit_sha256": "471ed3a981d2c3fa368918c8efac97cd365bfd2acb69da2b7b529d9cc430ac1e"
+    },
+    {
+      "case_id": "recurrent-ntp-s7283-lr32000",
+      "depth": 2,
+      "score_sha256": "601591fa0e8f754f1bcfe57821065306a2bdb5fd442e092228de0dc3da90c64d",
+      "document_scores_sha256": "345d975835a70b9b5f0a6cb2a94f4e74ee520293eba002063e60e864811563d7",
+      "gradient_audit_sha256": "471ed3a981d2c3fa368918c8efac97cd365bfd2acb69da2b7b529d9cc430ac1e"
+    }
+  ],
+  "wall_seconds": 0.012264728546142578,
+  "new_model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "original_main_complete": false,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "Both completed NTP development endpoint pairs,registered secondary selected before MAIN. This point-only observation does not admit a run or replace the original future-objective analysis;the official observer still waits for all sixteen final paths. Two seeds on consumed DEV are not independent confirmation,seed significance,strong-ordinary superiority or compute efficiency."
+}

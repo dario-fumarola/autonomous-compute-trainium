@@ -1,0 +1,149 @@
+{
+  "status": "COMPLETE_NTP_SECONDARY_DISCOVERY_READOUT",
+  "points_by_pilot_seed": {
+    "5231": {
+      "over_one_ntp": 0.022430407121181606,
+      "over_one_future": 0.023373244431633466,
+      "supported_depth1_to2": 0.033282810951971165
+    },
+    "7283": {
+      "over_one_ntp": 0.025062766938571457,
+      "over_one_future": 0.025993000555167622,
+      "supported_depth1_to2": 0.03186413640403618
+    }
+  },
+  "conditional_source_intervals": {
+    "5231": {
+      "over_one_ntp": {
+        "gain_nats": 0.022430407121181606,
+        "interval_95": [
+          0.020277218424692232,
+          0.024634081569034585
+        ],
+        "source_groups": 518,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "over_one_future": {
+        "gain_nats": 0.023373244431633466,
+        "interval_95": [
+          0.021214882753633986,
+          0.025553141928722833
+        ],
+        "source_groups": 518,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "supported_depth1_to2": {
+        "gain_nats": 0.033282810951971165,
+        "interval_95": [
+          0.03222928466764638,
+          0.03438335578080546
+        ],
+        "source_groups": 518,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      }
+    },
+    "7283": {
+      "over_one_ntp": {
+        "gain_nats": 0.025062766938571457,
+        "interval_95": [
+          0.02266462233545173,
+          0.02736054794233238
+        ],
+        "source_groups": 518,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "over_one_future": {
+        "gain_nats": 0.025993000555167622,
+        "interval_95": [
+          0.02396104165767264,
+          0.02812410126451235
+        ],
+        "source_groups": 518,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "supported_depth1_to2": {
+        "gain_nats": 0.03186413640403618,
+        "interval_95": [
+          0.030883303058769865,
+          0.03283603587860191
+        ],
+        "source_groups": 518,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      }
+    }
+  },
+  "secondary_decision": {
+    "decision": "NTP_CANDIDATE_FOR_STRONG_BASELINE_RESOURCE_CONTROLS_AND_FRESH_CONFIRMATION",
+    "all_point_gates_pass": true,
+    "minimum_useful_gain_nats": 0.01,
+    "terminal_success": false,
+    "scope": "Adaptive TUNE-selected secondary discovery,not independent confirmation or a primary future-objective success."
+  },
+  "unchanged_primary_future_objective_decision": {
+    "both_seeds_clear_all_point_gates": false,
+    "decision": "CLOSE_THIS_BOUNDED_OBJECTIVE_RECIPE",
+    "useful_effect_threshold_nats": 0.01,
+    "terminal_success": false,
+    "terminal_alpha_spent": 0,
+    "scope": "Two discovery seeds on consumed DEV. Point gates are screening evidence,not statistical significance. A practical claim also requires the strongest eligible one-pass+future comparator and resource controls;terminal confirmation requires fresh sources/seeds and prospective alpha."
+  },
+  "parent_plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+  "parent_report_sha256": "a4cf56bc70243eb59f60624367daace1b17299937a07ceb9c484855ffe026d9e",
+  "input_document_score_hashes": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "depth": 1,
+      "sha256": "c9cea4ab9f19ed70d0cb7955d1f09a3f91cb0cd550010597a46babc92c4c0c4f"
+    },
+    {
+      "case_id": "one-future-s5231-lr32000",
+      "depth": 1,
+      "sha256": "83d02f652180a93a7ead61cd2c2542e0890801bf52a202533e3b510303bf1880"
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 1,
+      "sha256": "3211b4d2299b592db19479ae82e9ed8e06f9bbd17441fb015859ba67c4b5cabf"
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 2,
+      "sha256": "098907c6a3418c3ee2f97a631ee0387cd614f6241b049f8c17d4615d2e1474d7"
+    },
+    {
+      "case_id": "one-ntp-s7283-lr32000",
+      "depth": 1,
+      "sha256": "ae6c00bb2cc76f90b007d6577f821c604a37a2f57205b43c78e14d884b98cf93"
+    },
+    {
+      "case_id": "one-future-s7283-lr32000",
+      "depth": 1,
+      "sha256": "679ac0ab6b5cf1ddd3f4741b83ed6a5e92045690ecc765ad617ad1c080206e12"
+    },
+    {
+      "case_id": "recurrent-ntp-s7283-lr32000",
+      "depth": 1,
+      "sha256": "24244b670f516954d5d15f5f2de50517b81ca2c919b8038985fddf185091696a"
+    },
+    {
+      "case_id": "recurrent-ntp-s7283-lr32000",
+      "depth": 2,
+      "sha256": "345d975835a70b9b5f0a6cb2a94f4e74ee520293eba002063e60e864811563d7"
+    }
+  ],
+  "registration_sha256": "417646c81b69b9d082857d8e12138074e93f8bc115dd5fa4e6dd2383b5b32226",
+  "wall_seconds": 1.7584567070007324,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "extra_model_forwards": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "Secondary discovery selected after NTP TUNE gain and registered before MAIN admission/outcomes. Original four-cell primary future-objective decision remains unchanged and reported even if negative. Reuses all existing fixed MAIN readouts;no new training,forward,checkpoint selection or data. Both pilot seeds must clear all three point gates;strongest ordinary/cheap baselines,matched-work controls and >=5 fresh paired confirmation seeds/source groups with allocated alpha are still required."
+}

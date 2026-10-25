@@ -1,0 +1,137 @@
+{
+  "status": "COMPLETE_EXPLORATORY_FUTURE_SPAN_FREQUENCY_DIAGNOSTIC",
+  "frequency_reference": {
+    "fitted_frequency_mean": 4.483895563289346,
+    "initial_constant_prior_mean": 6.696829029831642,
+    "fit_windows": 16384,
+    "fit_real_targets": 16747994,
+    "fit_valid_anchors": 1001657,
+    "probe_valid_anchors": 31277,
+    "probe_real_targets": 523350,
+    "fit_counts_sha256": "b80eb7053f169fd26800f4b4f2be8f8ec2617f5d2faf23ce8786bdd21250d0d8",
+    "probe_counts_sha256": "1ff89ee1d34fad690a7ca5e32a4bb6ca02f4dc8eb052207a2ddee120adf0e74b",
+    "wall_seconds": 28.645846843719482,
+    "assigned_chips": 0,
+    "model_forwards": 0,
+    "optimizer_updates": 0
+  },
+  "records": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "cell": "one-ntp",
+      "seed": 5231,
+      "next_train_batch_ntp_nll": 2.5748450336509143,
+      "future_mean": 6.698019962022344,
+      "future_gain_over_constant_frequency": -2.2141243987329977
+    },
+    {
+      "case_id": "one-future-s5231-lr32000",
+      "cell": "one-future",
+      "seed": 5231,
+      "next_train_batch_ntp_nll": 2.5745788200730475,
+      "future_mean": 3.557238914535361,
+      "future_gain_over_constant_frequency": 0.9266566487539851
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "cell": "recurrent-ntp",
+      "seed": 5231,
+      "next_train_batch_ntp_nll": 2.5640400937649743,
+      "future_mean": 6.697812634317543,
+      "future_gain_over_constant_frequency": -2.213917071028197
+    },
+    {
+      "case_id": "recurrent-future-s5231-lr32000",
+      "cell": "recurrent-future",
+      "seed": 5231,
+      "next_train_batch_ntp_nll": 2.5642259519968262,
+      "future_mean": 3.554641765070399,
+      "future_gain_over_constant_frequency": 0.929253798218947
+    },
+    {
+      "case_id": "one-ntp-s7283-lr32000",
+      "cell": "one-ntp",
+      "seed": 7283,
+      "next_train_batch_ntp_nll": 2.5732060216770845,
+      "future_mean": 6.698393892852357,
+      "future_gain_over_constant_frequency": -2.2144983295630105
+    },
+    {
+      "case_id": "one-future-s7283-lr32000",
+      "cell": "one-future",
+      "seed": 7283,
+      "next_train_batch_ntp_nll": 2.5774263145830907,
+      "future_mean": 3.560947668484937,
+      "future_gain_over_constant_frequency": 0.9229478948044094
+    },
+    {
+      "case_id": "recurrent-ntp-s7283-lr32000",
+      "cell": "recurrent-ntp",
+      "seed": 7283,
+      "next_train_batch_ntp_nll": 2.561668321619155,
+      "future_mean": 6.698837777402511,
+      "future_gain_over_constant_frequency": -2.214942214113165
+    },
+    {
+      "case_id": "recurrent-future-s7283-lr32000",
+      "cell": "recurrent-future",
+      "seed": 7283,
+      "next_train_batch_ntp_nll": 2.5661677795159417,
+      "future_mean": 3.560706235816893,
+      "future_gain_over_constant_frequency": 0.9231893274724534
+    }
+  ],
+  "input_audits": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "audit_sha256": "3e2c5da29a1b8281fcc60b35ed16c97a4d27c6cf0d9cf11b8a44c347dbb2b509",
+      "checkpoint_sha256": "b321b18cd2d896fb2fa3659e3931cac09715d58223235159474412d1772186c2"
+    },
+    {
+      "case_id": "one-future-s5231-lr32000",
+      "audit_sha256": "d2c1db0f4c902c8a4842ba368080bc2be51f1c6e442f5af62b5b067cc8834093",
+      "checkpoint_sha256": "ae2b8d92d1f2cf932ef0205c76a2a57a7d5e7efc4d4dde8eaeb7b7275b546742"
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "audit_sha256": "d903707f9f39b2fadc0fb94c8f28625626af081e0705b9542be9df26b1908b6a",
+      "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349"
+    },
+    {
+      "case_id": "recurrent-future-s5231-lr32000",
+      "audit_sha256": "f7bf78c40e54c6b72988a1a49ddb456dd1d7301d5cc36d4a50bfdb5318fc8817",
+      "checkpoint_sha256": "83f462a15247450548ff07f5a789f6f739a216a728fe56ce33af4164c7fb06b9"
+    },
+    {
+      "case_id": "one-ntp-s7283-lr32000",
+      "audit_sha256": "dc954e4286977e1a69ebf415bdfc015e5ecbeb12376f2dbe9786dd5268e4eaf2",
+      "checkpoint_sha256": "4d640af7f3b895765dfee630deebee0aab4c78352d34fc09c969e93e085a094b"
+    },
+    {
+      "case_id": "one-future-s7283-lr32000",
+      "audit_sha256": "98ef9821396de911323f1985c381fd8199f150a17736fe297185d0d6cef2e3f5",
+      "checkpoint_sha256": "53f857440e05fcade62c543b17c5238114ef8f264867b515859459e20cef0f0a"
+    },
+    {
+      "case_id": "recurrent-ntp-s7283-lr32000",
+      "audit_sha256": "471ed3a981d2c3fa368918c8efac97cd365bfd2acb69da2b7b529d9cc430ac1e",
+      "checkpoint_sha256": "b791212f06f2f8884ca350d6a4d6f41ab4d0f5213f7d8f589746c57def3a429a"
+    },
+    {
+      "case_id": "recurrent-future-s7283-lr32000",
+      "audit_sha256": "05a1431967acfd8a9f94a1f54ca57f4361e97d805a3247c5d7dda61ea18d427d",
+      "checkpoint_sha256": "a38634fc44b022455ac137ff653bf098f1cbe4ce0803975db0a360b6c3674c18"
+    }
+  ],
+  "main_report_sha256": "a4cf56bc70243eb59f60624367daace1b17299937a07ceb9c484855ffe026d9e",
+  "registration_sha256": "cd00995b5d32e47fd914cd5264ed99ede7e189b355c515b0117239cc86232401",
+  "wall_seconds_including_wait": 3489.820132255554,
+  "assigned_chips": 0,
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "Fit one constant Bernoulli frequency per token on the first16384 original TRAIN windows,with fixed Jeffreys smoothing. Score the already registered next512-window TRAIN gradient-probe targets,disjoint from that prefix. Reuse all eight original independent model objective audits only after complete MAIN. Sampled training-depth forward losses,not fixed-depth DEV predictions. No teacher,extra model training/forwards,held-out selection or success claim.",
+  "interpretation": "Auxiliary-loss learning and NTP transfer are separate. The constant-frequency predictor measures an inexpensive alternative for this auxiliary target. It does not causally partition the network gain,identify the learned representation,or rescue a failed primary objective interaction."
+}

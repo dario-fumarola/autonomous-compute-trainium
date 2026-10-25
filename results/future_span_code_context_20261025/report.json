@@ -1,0 +1,577 @@
+{
+  "status": "COMPLETE_EXPLORATORY_FOUR_CELL_NATURAL_CODE_CONTEXT",
+  "per_training_seed": {
+    "5231": {
+      "by_objective": {
+        "ntp": {
+          "within_model": {
+            "bands": {
+              "129-256": {
+                "nll": {
+                  "full1": 1.212379589393519,
+                  "full2": 1.1003923511563072,
+                  "short1": 1.9742507543164856,
+                  "short2": 1.9325538806047415
+                },
+                "full_gain": 0.1119872382372118,
+                "short_gain": 0.04169687371174402,
+                "interaction": 0.07029036452546777,
+                "real_targets": 114,
+                "identifiers": 60
+              },
+              "257-512": {
+                "nll": {
+                  "full1": 0.9256546671771609,
+                  "full2": 0.902966359736317,
+                  "short1": 1.7993699952972988,
+                  "short2": 1.770620193483109
+                },
+                "full_gain": 0.022688307440843936,
+                "short_gain": 0.028749801814189846,
+                "interaction": -0.00606149437334591,
+                "real_targets": 129,
+                "identifiers": 60
+              },
+              "513-900": {
+                "nll": {
+                  "full1": 1.101089299732328,
+                  "full2": 1.0394275558215604,
+                  "short1": 2.9706626155073033,
+                  "short2": 2.977988849278057
+                },
+                "full_gain": 0.06166174391076762,
+                "short_gain": -0.0073262337707538094,
+                "interaction": 0.06898797768152143,
+                "real_targets": 65,
+                "identifiers": 29
+              }
+            },
+            "full_gain": 0.06544576319627445,
+            "interaction": 0.04440561594454776,
+            "aggregation": "Equal one-third distance bands; real identifier-token NLL within each band."
+          },
+          "conditional_repository_uncertainty": {
+            "intervals_95": {
+              "full_gain": [
+                0.01704139813192851,
+                0.11182990004562836
+              ],
+              "interaction": [
+                -0.00256388903871461,
+                0.08359485111439985
+              ]
+            },
+            "repository_groups": 40,
+            "accepted_draws": 5000,
+            "warning": "Nominal within-fitted-model repository uncertainty only. Not independent training-seed significance,terminal alpha or a new confirmation panel."
+          },
+          "trained_onepass_comparison": {
+            "trained_onepass_full_nll": 1.0615299250824188,
+            "candidate_two_pass_full_nll": 1.014262088904728,
+            "trained_onepass_short_nll": 2.2310807546359,
+            "candidate_two_pass_short_nll": 2.2270543077886362,
+            "candidate_gain_full": {
+              "gain_nats": 0.047267836177690814,
+              "interval_95": [
+                -0.03005140046600896,
+                0.1284399277960409
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "candidate_gain_short": {
+              "gain_nats": 0.0040264468472637205,
+              "interval_95": [
+                -0.060886531969143586,
+                0.07846739863472155
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "cross_model_context_interaction": {
+              "gain_nats": 0.043241389330426205,
+              "interval_95": [
+                -0.03650522219277616,
+                0.1104597403643002
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "identifier_targets": 149,
+            "real_target_tokens": 308,
+            "aggregation": "Original equal one-third distance-band weights;tokens pooled within each band.",
+            "scope": "Same-objective trained one-pass control in this four-cell exploratory readout. Unchanged consumed targets and repository intervals;not independent training-seed confirmation."
+          },
+          "exploratory_joint_signs_only": false
+        },
+        "future": {
+          "within_model": {
+            "bands": {
+              "129-256": {
+                "nll": {
+                  "full1": 1.1545399454579073,
+                  "full2": 1.0124594924063335,
+                  "short1": 1.9165704974269921,
+                  "short2": 1.8434815408192202
+                },
+                "full_gain": 0.1420804530515738,
+                "short_gain": 0.07308895660777193,
+                "interaction": 0.06899149644380187,
+                "real_targets": 114,
+                "identifiers": 60
+              },
+              "257-512": {
+                "nll": {
+                  "full1": 0.9328759194357763,
+                  "full2": 0.845803426060308,
+                  "short1": 1.784755949817105,
+                  "short2": 1.7291979371992456
+                },
+                "full_gain": 0.0870724933754683,
+                "short_gain": 0.05555801261785942,
+                "interaction": 0.031514480757608876,
+                "real_targets": 129,
+                "identifiers": 60
+              },
+              "513-900": {
+                "nll": {
+                  "full1": 1.3672667377460042,
+                  "full2": 1.2843651579059292,
+                  "short1": 3.200312569635832,
+                  "short2": 3.2000871123037804
+                },
+                "full_gain": 0.08290157984007496,
+                "short_gain": 0.00022545733205170393,
+                "interaction": 0.08267612250802325,
+                "real_targets": 65,
+                "identifiers": 29
+              }
+            },
+            "full_gain": 0.10401817542237235,
+            "interaction": 0.061060699903144666,
+            "aggregation": "Equal one-third distance bands; real identifier-token NLL within each band."
+          },
+          "conditional_repository_uncertainty": {
+            "intervals_95": {
+              "full_gain": [
+                0.05196938836552989,
+                0.16276115593105175
+              ],
+              "interaction": [
+                0.000802140704830682,
+                0.12948868746207884
+              ]
+            },
+            "repository_groups": 40,
+            "accepted_draws": 5000,
+            "warning": "Nominal within-fitted-model repository uncertainty only. Not independent training-seed significance,terminal alpha or a new confirmation panel."
+          },
+          "trained_onepass_comparison": {
+            "trained_onepass_full_nll": 1.0880387388305222,
+            "candidate_two_pass_full_nll": 1.0475426921241902,
+            "trained_onepass_short_nll": 2.2413853886016835,
+            "candidate_two_pass_short_nll": 2.257588863440748,
+            "candidate_gain_full": {
+              "gain_nats": 0.040496046706332,
+              "interval_95": [
+                -0.02704331431435258,
+                0.12245702865661881
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "candidate_gain_short": {
+              "gain_nats": -0.01620347483906448,
+              "interval_95": [
+                -0.1126239321945183,
+                0.09256174231916048
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "cross_model_context_interaction": {
+              "gain_nats": 0.05669952154539626,
+              "interval_95": [
+                -0.03660076700718649,
+                0.15169019293358868
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "identifier_targets": 149,
+            "real_target_tokens": 308,
+            "aggregation": "Original equal one-third distance-band weights;tokens pooled within each band.",
+            "scope": "Same-objective trained one-pass control in this four-cell exploratory readout. Unchanged consumed targets and repository intervals;not independent training-seed confirmation."
+          },
+          "exploratory_joint_signs_only": false
+        }
+      },
+      "future_objective_interaction_on_full_context": {
+        "gain_nats": -0.006771789471358147,
+        "interval_95": [
+          -0.09843867391414132,
+          0.10002540167776544
+        ],
+        "source_groups": 40,
+        "accepted_draws": 5000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "identifier_targets": 149,
+      "real_identifier_tokens": 308,
+      "terminal_success": false,
+      "overrides_primary_nll_decision": false,
+      "scope": "Exploratory consumed-panel context-use readout. Nominal repository uncertainty conditional on one fitted training seed;not training-seed significance,reasoning,terminal alpha or a replacement for pooled NLL/resource controls."
+    },
+    "7283": {
+      "by_objective": {
+        "ntp": {
+          "within_model": {
+            "bands": {
+              "129-256": {
+                "nll": {
+                  "full1": 1.2079000425304565,
+                  "full2": 1.0992055960336096,
+                  "short1": 1.8681622860042795,
+                  "short2": 1.847756837981619
+                },
+                "full_gain": 0.1086944464968469,
+                "short_gain": 0.020405448022660533,
+                "interaction": 0.08828899847418636,
+                "real_targets": 114,
+                "identifiers": 60
+              },
+              "257-512": {
+                "nll": {
+                  "full1": 0.8902575691723196,
+                  "full2": 0.8158164371235291,
+                  "short1": 1.7971203219762903,
+                  "short2": 1.7662525181512887
+                },
+                "full_gain": 0.07444113204879044,
+                "short_gain": 0.03086780382500165,
+                "interaction": 0.04357332822378879,
+                "real_targets": 129,
+                "identifiers": 60
+              },
+              "513-900": {
+                "nll": {
+                  "full1": 1.2345839093410873,
+                  "full2": 1.2105841888998679,
+                  "short1": 2.926889332610329,
+                  "short2": 2.8922751533057114
+                },
+                "full_gain": 0.023999720441219452,
+                "short_gain": 0.03461417930461774,
+                "interaction": -0.01061445886339829,
+                "real_targets": 65,
+                "identifiers": 29
+              }
+            },
+            "full_gain": 0.0690450996622856,
+            "interaction": 0.04041595594485895,
+            "aggregation": "Equal one-third distance bands; real identifier-token NLL within each band."
+          },
+          "conditional_repository_uncertainty": {
+            "intervals_95": {
+              "full_gain": [
+                0.008135786609549353,
+                0.13312624665033287
+              ],
+              "interaction": [
+                -0.005544758212943572,
+                0.09173053689864104
+              ]
+            },
+            "repository_groups": 40,
+            "accepted_draws": 5000,
+            "warning": "Nominal within-fitted-model repository uncertainty only. Not independent training-seed significance,terminal alpha or a new confirmation panel."
+          },
+          "trained_onepass_comparison": {
+            "trained_onepass_full_nll": 1.1245096929721692,
+            "candidate_two_pass_full_nll": 1.0418687406856688,
+            "trained_onepass_short_nll": 2.209137122086666,
+            "candidate_two_pass_short_nll": 2.1687615031462064,
+            "candidate_gain_full": {
+              "gain_nats": 0.08264095228650037,
+              "interval_95": [
+                0.013534892362098464,
+                0.19224182601997564
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "candidate_gain_short": {
+              "gain_nats": 0.04037561894045938,
+              "interval_95": [
+                -0.0437452549475905,
+                0.1384503771292412
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "cross_model_context_interaction": {
+              "gain_nats": 0.042265333346040546,
+              "interval_95": [
+                -0.06218858244529181,
+                0.1593769137273099
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "identifier_targets": 149,
+            "real_target_tokens": 308,
+            "aggregation": "Original equal one-third distance-band weights;tokens pooled within each band.",
+            "scope": "Same-objective trained one-pass control in this four-cell exploratory readout. Unchanged consumed targets and repository intervals;not independent training-seed confirmation."
+          },
+          "exploratory_joint_signs_only": false
+        },
+        "future": {
+          "within_model": {
+            "bands": {
+              "129-256": {
+                "nll": {
+                  "full1": 1.175593722217255,
+                  "full2": 1.1314465226791945,
+                  "short1": 1.971463451058207,
+                  "short2": 1.8834262436818499
+                },
+                "full_gain": 0.044147199538060455,
+                "short_gain": 0.08803720737635712,
+                "interaction": -0.04389000783829666,
+                "real_targets": 114,
+                "identifiers": 60
+              },
+              "257-512": {
+                "nll": {
+                  "full1": 0.9047338071686681,
+                  "full2": 0.8362513802924719,
+                  "short1": 1.7777966124699307,
+                  "short2": 1.742884428943786
+                },
+                "full_gain": 0.06848242687619621,
+                "short_gain": 0.03491218352614478,
+                "interaction": 0.03357024335005143,
+                "real_targets": 129,
+                "identifiers": 60
+              },
+              "513-900": {
+                "nll": {
+                  "full1": 1.2740478871125938,
+                  "full2": 1.1877717663344876,
+                  "short1": 3.035473902344885,
+                  "short2": 2.9961297396365887
+                },
+                "full_gain": 0.0862761207781062,
+                "short_gain": 0.03934416270829644,
+                "interaction": 0.046931958069809765,
+                "real_targets": 65,
+                "identifiers": 29
+              }
+            },
+            "full_gain": 0.06630191573078763,
+            "interaction": 0.012204064527188177,
+            "aggregation": "Equal one-third distance bands; real identifier-token NLL within each band."
+          },
+          "conditional_repository_uncertainty": {
+            "intervals_95": {
+              "full_gain": [
+                0.03194063842380316,
+                0.10190496248890901
+              ],
+              "interaction": [
+                -0.039587138375958064,
+                0.06511287923045117
+              ]
+            },
+            "repository_groups": 40,
+            "accepted_draws": 5000,
+            "warning": "Nominal within-fitted-model repository uncertainty only. Not independent training-seed significance,terminal alpha or a new confirmation panel."
+          },
+          "trained_onepass_comparison": {
+            "trained_onepass_full_nll": 1.1089850501652223,
+            "candidate_two_pass_full_nll": 1.0518232231020512,
+            "trained_onepass_short_nll": 2.2076612925647376,
+            "candidate_two_pass_short_nll": 2.2074801374207413,
+            "candidate_gain_full": {
+              "gain_nats": 0.05716182706317108,
+              "interval_95": [
+                -0.02488842708303735,
+                0.1472780421451238
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "candidate_gain_short": {
+              "gain_nats": 0.00018115514399630328,
+              "interval_95": [
+                -0.08124723983191262,
+                0.0829736568146774
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "cross_model_context_interaction": {
+              "gain_nats": 0.056980671919174775,
+              "interval_95": [
+                -0.05655875228491696,
+                0.15720451732478996
+              ],
+              "source_groups": 40,
+              "accepted_draws": 5000,
+              "warning": "Within-seed uncertainty only; report paired training seeds separately."
+            },
+            "identifier_targets": 149,
+            "real_target_tokens": 308,
+            "aggregation": "Original equal one-third distance-band weights;tokens pooled within each band.",
+            "scope": "Same-objective trained one-pass control in this four-cell exploratory readout. Unchanged consumed targets and repository intervals;not independent training-seed confirmation."
+          },
+          "exploratory_joint_signs_only": false
+        }
+      },
+      "future_objective_interaction_on_full_context": {
+        "gain_nats": -0.02547912522332929,
+        "interval_95": [
+          -0.15867545527573837,
+          0.07641570985779078
+        ],
+        "source_groups": 40,
+        "accepted_draws": 5000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "identifier_targets": 149,
+      "real_identifier_tokens": 308,
+      "terminal_success": false,
+      "overrides_primary_nll_decision": false,
+      "scope": "Exploratory consumed-panel context-use readout. Nominal repository uncertainty conditional on one fitted training seed;not training-seed significance,reasoning,terminal alpha or a replacement for pooled NLL/resource controls."
+    }
+  },
+  "model_receipts": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "checkpoint_sha256": "b321b18cd2d896fb2fa3659e3931cac09715d58223235159474412d1772186c2",
+      "private_paired_scores_sha256": "88d6c68f7697a05c2ff54704f504234a097ae6b808d37e6787705944623c80ca",
+      "full_state_readback_exact": true,
+      "head_removed": true,
+      "model_unchanged": true,
+      "training_real_targets": 1004887590,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "wall_seconds": 48.866051197052
+    },
+    {
+      "case_id": "one-future-s5231-lr32000",
+      "checkpoint_sha256": "ae2b8d92d1f2cf932ef0205c76a2a57a7d5e7efc4d4dde8eaeb7b7275b546742",
+      "private_paired_scores_sha256": "9c3afca0978476b8fc67eb5216aa60a58eda3aa3b3f6c3fc2821696e54ed8d08",
+      "full_state_readback_exact": true,
+      "head_removed": true,
+      "model_unchanged": true,
+      "training_real_targets": 1004887590,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "wall_seconds": 51.42257857322693
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349",
+      "private_paired_scores_sha256": "ba223fca90e17ae88d82ad94d4f93d6109630c6be9d59854b1cb30c964484f29",
+      "full_state_readback_exact": true,
+      "head_removed": true,
+      "model_unchanged": true,
+      "training_real_targets": 1004887590,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "wall_seconds": 105.20352125167847
+    },
+    {
+      "case_id": "recurrent-future-s5231-lr32000",
+      "checkpoint_sha256": "83f462a15247450548ff07f5a789f6f739a216a728fe56ce33af4164c7fb06b9",
+      "private_paired_scores_sha256": "94f9318dfce796fa268b15b286c2542605aaa5ac2fe164947ce6018f1d3e174f",
+      "full_state_readback_exact": true,
+      "head_removed": true,
+      "model_unchanged": true,
+      "training_real_targets": 1004887590,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "wall_seconds": 106.90977168083191
+    },
+    {
+      "case_id": "one-ntp-s7283-lr32000",
+      "checkpoint_sha256": "4d640af7f3b895765dfee630deebee0aab4c78352d34fc09c969e93e085a094b",
+      "private_paired_scores_sha256": "cb278ef2315dfcb7f8f9d33acd34b1104ac778a098637a2b49e8ff96c01dc32d",
+      "full_state_readback_exact": true,
+      "head_removed": true,
+      "model_unchanged": true,
+      "training_real_targets": 1004887590,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "wall_seconds": 54.78641867637634
+    },
+    {
+      "case_id": "one-future-s7283-lr32000",
+      "checkpoint_sha256": "53f857440e05fcade62c543b17c5238114ef8f264867b515859459e20cef0f0a",
+      "private_paired_scores_sha256": "e33409e9a160472ef981b074ff882dd812e5b3ac5f4bcff080332a5004bb8b29",
+      "full_state_readback_exact": true,
+      "head_removed": true,
+      "model_unchanged": true,
+      "training_real_targets": 1004887590,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "wall_seconds": 55.14368915557861
+    },
+    {
+      "case_id": "recurrent-ntp-s7283-lr32000",
+      "checkpoint_sha256": "b791212f06f2f8884ca350d6a4d6f41ab4d0f5213f7d8f589746c57def3a429a",
+      "private_paired_scores_sha256": "3deb07634184a0dcf436b0f04bcc9e87d54a0c33770415911728d3e3b14fbbbd",
+      "full_state_readback_exact": true,
+      "head_removed": true,
+      "model_unchanged": true,
+      "training_real_targets": 1004887590,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "wall_seconds": 111.94758677482605
+    },
+    {
+      "case_id": "recurrent-future-s7283-lr32000",
+      "checkpoint_sha256": "a38634fc44b022455ac137ff653bf098f1cbe4ce0803975db0a360b6c3674c18",
+      "private_paired_scores_sha256": "14bb8d1c8448921c1502610b120e609581aa04c9b285973b12d25978c15212df",
+      "full_state_readback_exact": true,
+      "head_removed": true,
+      "model_unchanged": true,
+      "training_real_targets": 1004887590,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "wall_seconds": 106.2185709476471
+    }
+  ],
+  "forward_calls": 3576,
+  "estimated_forward_matrix_ops": 296009735417856,
+  "parent_report_sha256": "a4cf56bc70243eb59f60624367daace1b17299937a07ceb9c484855ffe026d9e",
+  "unchanged_primary_nll_decision": {
+    "both_seeds_clear_all_point_gates": false,
+    "decision": "CLOSE_THIS_BOUNDED_OBJECTIVE_RECIPE",
+    "useful_effect_threshold_nats": 0.01,
+    "terminal_success": false,
+    "terminal_alpha_spent": 0,
+    "scope": "Two discovery seeds on consumed DEV. Point gates are screening evidence,not statistical significance. A practical claim also requires the strongest eligible one-pass+future comparator and resource controls;terminal confirmation requires fresh sources/seeds and prospective alpha."
+  },
+  "panel_sha256": "0896bce9a52b39c3fb6a53969f8b4706b5e326569319d84a6ca754ad287cf3d5",
+  "wall_seconds": 644.8697760105133,
+  "attempt_wall_seconds_including_wait": 11319.040324926376,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "All eight cooled MAIN models and exact endpoint gradient gates required. Unchanged149 authentic identifier targets,1008/128-prefix views,positions and prefix-only noise. Report within-model full benefit plus context interaction and independently trained one-pass controls in both objectives. Equal original distance-band weights. Repository intervals are conditional on each fitted seed. No new targets,teacher,synthetic corpus,primary-rule change or terminal claim."
+}

@@ -61,7 +61,7 @@
         "replay_manifest": {
           "windows": 512,
           "sha256": "c69d8e10cd275b9ef26a601e37d04e0a0e4b584438a031fabfa59f759e308dc5",
-          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
+          "scope": "Full content-free replay manifest is retained in the original final report and private native receipt."
         }
       },
       "independent_cpu": {
@@ -201,7 +201,7 @@
         "replay_manifest": {
           "windows": 512,
           "sha256": "c69d8e10cd275b9ef26a601e37d04e0a0e4b584438a031fabfa59f759e308dc5",
-          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
+          "scope": "Full content-free replay manifest is retained in the original final report and private native receipt."
         }
       },
       "independent_cpu": {
@@ -341,7 +341,7 @@
         "replay_manifest": {
           "windows": 512,
           "sha256": "89fc3447a4ba762d5115ef6b85d2e23c67e5a8684072a56eb598b5ab4d6423f1",
-          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
+          "scope": "Full content-free replay manifest is retained in the original final report and private native receipt."
         }
       },
       "independent_cpu": {
@@ -481,7 +481,7 @@
         "replay_manifest": {
           "windows": 512,
           "sha256": "89fc3447a4ba762d5115ef6b85d2e23c67e5a8684072a56eb598b5ab4d6423f1",
-          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
+          "scope": "Full content-free replay manifest is retained in the original final report and private native receipt."
         }
       },
       "independent_cpu": {
@@ -621,7 +621,7 @@
         "replay_manifest": {
           "windows": 512,
           "sha256": "7744e42faf5201b901509bd02cadef11c1c8323e4410c4645b130f2aa5150320",
-          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
+          "scope": "Full content-free replay manifest is retained in the original final report and private native receipt."
         }
       },
       "independent_cpu": {
@@ -761,7 +761,7 @@
         "replay_manifest": {
           "windows": 512,
           "sha256": "7744e42faf5201b901509bd02cadef11c1c8323e4410c4645b130f2aa5150320",
-          "scope": "Complete512-window content-free replay metadata retained unchanged in the private native report;public aggregate is its canonical hash."
+          "scope": "Full content-free replay manifest is retained in the original final report and private native receipt."
         }
       },
       "independent_cpu": {
@@ -837,6 +837,286 @@
         "research_optimizer_updates": 0,
         "test_accessed": false,
         "wall_seconds": 367.2125403881073,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    },
+    {
+      "case_id": "recurrent-ntp-s7283-lr32000",
+      "identity": "future-span-main-v2-recurrent-ntp-s7283-lr32000-gradient",
+      "native": {
+        "status": "CAPTURED_ZERO_UPDATE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-ntp-s7283-lr32000",
+        "cell": "recurrent-ntp",
+        "plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+        "checkpoint_sha256": "b791212f06f2f8884ca350d6a4d6f41ab4d0f5213f7d8f589746c57def3a429a",
+        "full_state_digest": "25da8afa595db7f213f0ef4589f7ba59f71386da4558d92e78f67fcbfac56d01",
+        "training_update": 1920,
+        "source_cursor": 983040,
+        "real_targets": 523350,
+        "valid_anchors": 31277,
+        "windows": 512,
+        "gradient_sha256": "aca841538fe7fa6d2f1747822506b6824c0e1e52d8142cf7db89c6e6fc95cff4",
+        "model_unchanged": true,
+        "noise_sha256_by_rank": [
+          "507322fe4866dd9fd410225c008c7bb92c55249fffe27b92d8763fa05db919d0",
+          "42bbd9ce256983bb49c8964b18166755c56cf82303b73d9d8b180c3a8bd0b846",
+          "63b2edd75a1fb0f52ec47489d00051175505b7d283cbaf70a9f587790f895733",
+          "c21f3463fd3b11ff78c7d23973d97893cd7bef3ff4633fefda0cd112a7a61c2c",
+          "dcc85cb27102a696a7581dda06f84fb33f79f29369b8929553f53b7ffd0f5c70",
+          "461221af9a3c2a5a45e27821c51dc888c781d0ba5446285a0a872f253b64a1c2",
+          "8e54f24fd76c0aafc3af758b121c535421eebd09d1841224466dac277ecef25c",
+          "28a7f2203bbebf76691c6b0c57c7d160f1452c7e355b6b4ac99e0514a336dace",
+          "d59caef998ee9306b63cc3b1d2f35e98efabee0e1d619e250e1dfaa5cd5a606c",
+          "34968c2141e06ee3b69ca717114859dbe706d363826f46013a2b4c44129c552f",
+          "4ae2963ca7602ddcd11a86d06cf4ccc36dce7bcfc6b6c8242a2e435852c346be",
+          "2410e3130316ad5de0aadbc7a1ba81d676e3cebb9d69f4a427809659e085c127",
+          "d3ced1d43e46fddc95be3f9bdc7c0934f8c1703328fb3f2a5871364dbf83cb33",
+          "91d1afffd58423487fdc1e0c0c131af9873a50cac9afb5658d3976e6edc6d5ff",
+          "cbc06bbd43ec23d7fa3a8d36565dec074923c7e3285c31f6ab823a647a3dcf8c",
+          "c1d618cbc2349e1720e12f6e497c54530f449f24ba53c682342931a6f27f2b62",
+          "4dc7ea36cb1a1415a6cfdcf5f79b3d1af835f531b910bb7cd7ba7c1398a002cf",
+          "c0e2a274199d6a49f606a75fefa174fd1b3c37dcd9e79ceaaa9c86fba8d6083d",
+          "91dfc0b32874ae6aab4086b130aac625b161014848ec0a9e9e98669dd14b044c",
+          "225370c5197576e6765a193f3b878bb3839472d48df4c5b6f48498f6260ddfa9",
+          "f83f57eb0d20e06b2d7f34c5d4047a43aa8352f6ad2ca4f9b4eb7ef75c2def3c",
+          "e1c1a91d7b689590fd8e8be19c3856499eadf5ccd56a5bf1b1998e841bf63c0f",
+          "e0a4d0f4af6e3910a8c5fe72b4d7323a009cb6cf2aa3dfc0ffb156ba2a8f8e65",
+          "38cdc1d501997a5640b61c4b3c2a7a5639ceba9856de5e9d905940e35c202a67",
+          "f2ad1eb1904c590da068440bab723bda7e45b86dce77187b5676c4b9e1efab73",
+          "77ad339501daa1ed88ed2f7bba93b5e754d1eebfe6625b67442ec35e604572ae",
+          "a3af8b5547374e79dd37b27fa88225548c4adf1ae8c8e092d67560d5eb865e82",
+          "c8fabd74c505f31de2d64ba898201ae57441c92cd4d5b2acf366aec7dd6ca9b9",
+          "09f1728d7f02ed5c34cdf54120c837eea53428c036fe49e2936a6132a7c91d74",
+          "d01172a51233ff111558f44e28a106ad9f58a03e4a2a7af2de2c50376e0ba296",
+          "c7982189484e0ada6eefc5482baf4c8c1094f2b34105c0a2e33e76a4bc6307ff",
+          "3354c96a7ec876343a3dc08f2972ad53fa1ed7c347d1fa1a46e6a1416f52147b"
+        ],
+        "replica_gradients_equal": true,
+        "diagnostic_matrix_ops": 311273724837888,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 107.72216796875,
+        "scope": "Complete next512-window natural TRAIN objective at a registered fitted checkpoint. No clipping,optimizer update,cursor advancement or quality result. Independent FP32 reference gate required.",
+        "replay_manifest": {
+          "windows": 512,
+          "sha256": "25db331c19963f87ed084aefd13348e16e55b74ac43fbb811bb56abf118f821c",
+          "scope": "Full content-free replay manifest is retained in the original final report and private native receipt."
+        }
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-ntp-s7283-lr32000",
+        "cell": "recurrent-ntp",
+        "training_update": 1920,
+        "checkpoint_sha256": "b791212f06f2f8884ca350d6a4d6f41ab4d0f5213f7d8f589746c57def3a429a",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.002913512824953547,
+              "maximum_absolute_error": 3.513449337333441e-05,
+              "reference_l2": 0.06134587986990242
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.002597984921807445,
+                "maximum_absolute_error": 1.2237742339493707e-06,
+                "reference_l2": 0.002690990773034678
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0022978705774547785,
+                "maximum_absolute_error": 3.427063347771764e-06,
+                "reference_l2": 0.0033407340195232165
+              },
+              "transformer_body": {
+                "relative_l2": 0.0029157935860639685,
+                "maximum_absolute_error": 3.513449337333441e-05,
+                "reference_l2": 0.06119381224863274
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0015879125636769564,
+                "maximum_absolute_error": 3.5070570447715e-08,
+                "reference_l2": 0.00048206261193637
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 4.555040824083534e-06,
+          "future_mean": -1.5718840788991884e-06
+        },
+        "cpu_ntp_nll": 2.561668321619155,
+        "cpu_future_mean": 6.698837777402511,
+        "windows": 512,
+        "real_targets": 523350,
+        "valid_anchors": 31277,
+        "diagnostic_matrix_ops": 311273724837888,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 396.5053451061249,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    },
+    {
+      "case_id": "recurrent-future-s7283-lr32000",
+      "identity": "future-span-main-v2-recurrent-future-s7283-lr32000-gradient",
+      "native": {
+        "status": "CAPTURED_ZERO_UPDATE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-future-s7283-lr32000",
+        "cell": "recurrent-future",
+        "plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+        "checkpoint_sha256": "a38634fc44b022455ac137ff653bf098f1cbe4ce0803975db0a360b6c3674c18",
+        "full_state_digest": "8f794cd596e2ec29ca82771334d1c76498b84f0b9ab3b06561820aac2f109901",
+        "training_update": 1920,
+        "source_cursor": 983040,
+        "real_targets": 523350,
+        "valid_anchors": 31277,
+        "windows": 512,
+        "gradient_sha256": "890e4554a63adae615f2b84429bb7e32bfbe80a01485a0e1007ee63b35b51aad",
+        "model_unchanged": true,
+        "noise_sha256_by_rank": [
+          "507322fe4866dd9fd410225c008c7bb92c55249fffe27b92d8763fa05db919d0",
+          "42bbd9ce256983bb49c8964b18166755c56cf82303b73d9d8b180c3a8bd0b846",
+          "63b2edd75a1fb0f52ec47489d00051175505b7d283cbaf70a9f587790f895733",
+          "c21f3463fd3b11ff78c7d23973d97893cd7bef3ff4633fefda0cd112a7a61c2c",
+          "dcc85cb27102a696a7581dda06f84fb33f79f29369b8929553f53b7ffd0f5c70",
+          "461221af9a3c2a5a45e27821c51dc888c781d0ba5446285a0a872f253b64a1c2",
+          "8e54f24fd76c0aafc3af758b121c535421eebd09d1841224466dac277ecef25c",
+          "28a7f2203bbebf76691c6b0c57c7d160f1452c7e355b6b4ac99e0514a336dace",
+          "d59caef998ee9306b63cc3b1d2f35e98efabee0e1d619e250e1dfaa5cd5a606c",
+          "34968c2141e06ee3b69ca717114859dbe706d363826f46013a2b4c44129c552f",
+          "4ae2963ca7602ddcd11a86d06cf4ccc36dce7bcfc6b6c8242a2e435852c346be",
+          "2410e3130316ad5de0aadbc7a1ba81d676e3cebb9d69f4a427809659e085c127",
+          "d3ced1d43e46fddc95be3f9bdc7c0934f8c1703328fb3f2a5871364dbf83cb33",
+          "91d1afffd58423487fdc1e0c0c131af9873a50cac9afb5658d3976e6edc6d5ff",
+          "cbc06bbd43ec23d7fa3a8d36565dec074923c7e3285c31f6ab823a647a3dcf8c",
+          "c1d618cbc2349e1720e12f6e497c54530f449f24ba53c682342931a6f27f2b62",
+          "4dc7ea36cb1a1415a6cfdcf5f79b3d1af835f531b910bb7cd7ba7c1398a002cf",
+          "c0e2a274199d6a49f606a75fefa174fd1b3c37dcd9e79ceaaa9c86fba8d6083d",
+          "91dfc0b32874ae6aab4086b130aac625b161014848ec0a9e9e98669dd14b044c",
+          "225370c5197576e6765a193f3b878bb3839472d48df4c5b6f48498f6260ddfa9",
+          "f83f57eb0d20e06b2d7f34c5d4047a43aa8352f6ad2ca4f9b4eb7ef75c2def3c",
+          "e1c1a91d7b689590fd8e8be19c3856499eadf5ccd56a5bf1b1998e841bf63c0f",
+          "e0a4d0f4af6e3910a8c5fe72b4d7323a009cb6cf2aa3dfc0ffb156ba2a8f8e65",
+          "38cdc1d501997a5640b61c4b3c2a7a5639ceba9856de5e9d905940e35c202a67",
+          "f2ad1eb1904c590da068440bab723bda7e45b86dce77187b5676c4b9e1efab73",
+          "77ad339501daa1ed88ed2f7bba93b5e754d1eebfe6625b67442ec35e604572ae",
+          "a3af8b5547374e79dd37b27fa88225548c4adf1ae8c8e092d67560d5eb865e82",
+          "c8fabd74c505f31de2d64ba898201ae57441c92cd4d5b2acf366aec7dd6ca9b9",
+          "09f1728d7f02ed5c34cdf54120c837eea53428c036fe49e2936a6132a7c91d74",
+          "d01172a51233ff111558f44e28a106ad9f58a03e4a2a7af2de2c50376e0ba296",
+          "c7982189484e0ada6eefc5482baf4c8c1094f2b34105c0a2e33e76a4bc6307ff",
+          "3354c96a7ec876343a3dc08f2972ad53fa1ed7c347d1fa1a46e6a1416f52147b"
+        ],
+        "replica_gradients_equal": true,
+        "diagnostic_matrix_ops": 311273724837888,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 99.01683807373047,
+        "scope": "Complete next512-window natural TRAIN objective at a registered fitted checkpoint. No clipping,optimizer update,cursor advancement or quality result. Independent FP32 reference gate required.",
+        "replay_manifest": {
+          "windows": 512,
+          "sha256": "25db331c19963f87ed084aefd13348e16e55b74ac43fbb811bb56abf118f821c",
+          "scope": "Full content-free replay manifest is retained in the original final report and private native receipt."
+        }
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "recurrent-future-s7283-lr32000",
+        "cell": "recurrent-future",
+        "training_update": 1920,
+        "checkpoint_sha256": "a38634fc44b022455ac137ff653bf098f1cbe4ce0803975db0a360b6c3674c18",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.003180626015270986,
+              "maximum_absolute_error": 4.746392369270325e-05,
+              "reference_l2": 0.06607281625608859
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0029974105312065955,
+                "maximum_absolute_error": 8.112983778119087e-07,
+                "reference_l2": 0.0027256123994641
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0018946955635632252,
+                "maximum_absolute_error": 1.474618329666555e-06,
+                "reference_l2": 0.0029892977898842393
+              },
+              "transformer_body": {
+                "relative_l2": 0.003183095723530134,
+                "maximum_absolute_error": 4.746392369270325e-05,
+                "reference_l2": 0.06594704541475235
+              },
+              "value_embeddings": {
+                "relative_l2": 0.001827489475932118,
+                "maximum_absolute_error": 4.564049049804453e-08,
+                "reference_l2": 0.0004892697075404129
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0012043081222746456,
+            "maximum_absolute_error": 7.870585250202566e-08,
+            "reference_l2": 0.0003674196065166257
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0011001957869762014,
+              "maximum_absolute_error": 5.763922672485933e-08,
+              "reference_l2": 0.00031229749642668785
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0014404518164125343,
+              "maximum_absolute_error": 7.870585250202566e-08,
+              "reference_l2": 0.00019356508202270095
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 2.8042234299086033e-06,
+          "future_mean": 1.629991223728311e-05
+        },
+        "cpu_ntp_nll": 2.5661677795159417,
+        "cpu_future_mean": 3.560706235816893,
+        "windows": 512,
+        "real_targets": 523350,
+        "valid_anchors": 31277,
+        "diagnostic_matrix_ops": 311273724837888,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 373.92512035369873,
         "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
       }
     }
