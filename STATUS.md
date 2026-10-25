@@ -1,4 +1,21 @@
-# Status — 2026-10-25, 10:39 UTC
+# Status — 2026-10-25, 10:55 UTC
+
+**The first fresh-seed four-cell learning-curve point is complete.** At301M
+real targets,all before cooldown,on the same603 CURVE DEV documents:
+
+| Cell | Stable301M NLL |
+| --- | ---: |
+| One-pass NTP | 3.071810 |
+| One-pass future loss | 3.054320 |
+| Recurrent NTP,two-pass readout | 3.037836 |
+| Recurrent future loss,two-pass readout | 3.027938 |
+
+Plain recurrence gains0.033974 nats over its trained one-pass control. The
+future objective gains0.009898 within recurrence versus0.017489 within one
+pass,so its interaction is-0.007591 at this early point. Recurrence uses1.232×
+estimated training matrix work. These are descriptive stable-phase scores,
+not independently cooled endpoints,training-seed significance or efficiency.
+[Four-cell curve readout](results/future_span_main_20261025/primitive-v2/first-four-cell-stable301m.json).
 
 **The first two MAIN1.005B-target endpoints are complete and scored.** On the
 same603 consumed CURVE DEV documents,seed5231 one-pass NTP scores2.614669 and

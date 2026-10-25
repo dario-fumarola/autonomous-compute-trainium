@@ -1,0 +1,81 @@
+{
+  "status": "PARTIAL_FOUR_CELL_STABLE301M_MAIN_CURVE",
+  "observed_utc": "2026-10-25T10:55:45.435624+00:00",
+  "seed": 5231,
+  "training_real_targets": 301465908,
+  "training_update": 576,
+  "schedule_phase": "stable_before_cooldown",
+  "evaluation_documents": 603,
+  "evaluation_real_targets": 754750,
+  "loss_by_cell": {
+    "one-ntp": 3.0718096658202145,
+    "one-future": 3.054320211785628,
+    "recurrent-ntp": 3.037835831829468,
+    "recurrent-future": 3.027937563538026
+  },
+  "point_contrasts": {
+    "ntp_recurrence_advantage": 0.033973833990746716,
+    "future_recurrence_advantage": 0.026382648247601725,
+    "future_objective_gain_in_one_pass": 0.017489454034586682,
+    "future_objective_gain_in_recurrence": 0.009898268291441692,
+    "future_objective_recurrence_interaction": -0.00759118574314499
+  },
+  "per_domain_point_contrasts": {
+    "web": {
+      "ntp_recurrence_advantage": 0.034271244958813174,
+      "future_recurrence_advantage": 0.025150526154530173
+    },
+    "math": {
+      "ntp_recurrence_advantage": 0.04162666020613637,
+      "future_recurrence_advantage": 0.028248379564866255
+    },
+    "code": {
+      "ntp_recurrence_advantage": 0.025428774871158577,
+      "future_recurrence_advantage": 0.02821328320955252
+    }
+  },
+  "training_parameters": 166571840,
+  "deployed_parameters": 141963840,
+  "estimated_training_matrix_ops": {
+    "one-ntp": 158485145019383808,
+    "one-future": 158485145019383808,
+    "recurrent-ntp": 195255114469244928,
+    "recurrent-future": 195255114469244928
+  },
+  "recurrent_over_one_training_matrix_ratio": 1.2320089333632114,
+  "source_pairing_exact": true,
+  "input_receipts": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "depth": 1,
+      "checkpoint_sha256": "7dd76003ca54874e9e5f1784f33ec6f02f120915d30a6011265c287fa821497c",
+      "document_scores_sha256": "72d421172bf7c4d8d8360e0d7334b3d8b6d709718c8b6353ec77ed527f6f3c08"
+    },
+    {
+      "case_id": "one-future-s5231-lr32000",
+      "depth": 1,
+      "checkpoint_sha256": "1a06bc99ec9d3d02089ee115e2097dddc347da77c71c6d3c93fef7d0aa4be3a0",
+      "document_scores_sha256": "4bfb4166d7eefc6ef78ef0e078ccbea462ecdc7457bc7f526015d2d2461146f5"
+    },
+    {
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 2,
+      "checkpoint_sha256": "e34ac20b4cf3464520a09670bd0d59cd7567b3b62c7f5cde9b49b92f09678307",
+      "document_scores_sha256": "40b96726c87dece9fa6f0190a1d3fbd20a7484a9758418dd91900bb5a0d7b2d7"
+    },
+    {
+      "case_id": "recurrent-future-s5231-lr32000",
+      "depth": 2,
+      "checkpoint_sha256": "5e610e20ffd6a28a1c92c7e9a3575f5e9088cd7d600a38677175492c2a61ecd8",
+      "document_scores_sha256": "513d02ef2ea5c82fe193a9d4b2406b23e0a4cab343c8a2673e9d924309cf3282"
+    }
+  ],
+  "cooled_recurrent_endpoints_and_depth_responses_pending": true,
+  "this_point_has_its_own_final_gradient_gate": false,
+  "assigned_chips": 0,
+  "model_forwards": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "Complete early factorial point from one fresh training seed on consumed CURVE DEV. All four checkpoints are stable-phase,not completed independent endpoints. Different TUNE panel/schedule phase. Final1B comparisons,all exact endpoint numerical gates,supported depth responses and second seed remain required. No efficiency,significance,primary decision or criterion change."
+}

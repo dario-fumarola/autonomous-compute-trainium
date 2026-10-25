@@ -259,6 +259,136 @@
       "scope": "Independent FP32 causal development readout with the training-only head removed. Consumed panel only,no fresh confirmation,TEST access or seed-significance claim.",
       "peak_lr": 0.032,
       "readout": "cooled1b"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_FUTURE_SPAN_DEVELOPMENT_SCORE",
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "cell": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "seed": 5231,
+      "depth": 2,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 576,
+      "training_real_targets": 301465908,
+      "training_valid_anchors": 18031448,
+      "estimated_training_dense_matrix_ops": 195255114469244928,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 902361.5084147447,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.576017422790731
+          },
+          "code": {
+            "nll_sum": 447306.74838110094,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.781850133969769
+          },
+          "math": {
+            "nll_sum": 673511.2325722222,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.6792767568053777
+          }
+        },
+        "weighted_nll": 3.037835831829468,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "e34ac20b4cf3464520a09670bd0d59cd7567b3b62c7f5cde9b49b92f09678307",
+      "full_state_readback_exact": true,
+      "full_state_digest": "983a03da1fff89c5bd7ec9cd19b170baaa19a4d1716d3f68dbc4fe9fe39249bb",
+      "head_removed": true,
+      "model_unchanged": true,
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "latent_noise_policy": "Original zero-based window position only;fixed1024 draw before prefix slicing;no document/content/length key.",
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds": 294.16105341911316,
+      "peak_rss_gib": 3.2525177001953125,
+      "scope": "Independent FP32 causal development readout with the training-only head removed. Consumed panel only,no fresh confirmation,TEST access or seed-significance claim.",
+      "peak_lr": 0.032,
+      "readout": "stable301m"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_FUTURE_SPAN_DEVELOPMENT_SCORE",
+      "case_id": "recurrent-future-s5231-lr32000",
+      "cell": "recurrent-future",
+      "arm": "recurrent",
+      "objective_weight": 0.1,
+      "seed": 5231,
+      "depth": 2,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 576,
+      "training_real_targets": 301465908,
+      "training_valid_anchors": 18031448,
+      "estimated_training_dense_matrix_ops": 195255114469244928,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 899214.9199597625,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.563547636532742
+          },
+          "code": {
+            "nll_sum": 446162.67903968063,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.7772927242802026
+          },
+          "math": {
+            "nll_sum": 671619.7204622185,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.6717521838117038
+          }
+        },
+        "weighted_nll": 3.027937563538026,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "5e610e20ffd6a28a1c92c7e9a3575f5e9088cd7d600a38677175492c2a61ecd8",
+      "full_state_readback_exact": true,
+      "full_state_digest": "20eb93d7c00cba915a720f4d6a3b4266e5d0555b4b36d2fb397f8d4432dcb535",
+      "head_removed": true,
+      "model_unchanged": true,
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "latent_noise_policy": "Original zero-based window position only;fixed1024 draw before prefix slicing;no document/content/length key.",
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds": 310.3437979221344,
+      "peak_rss_gib": 3.260791778564453,
+      "scope": "Independent FP32 causal development readout with the training-only head removed. Consumed panel only,no fresh confirmation,TEST access or seed-significance claim.",
+      "peak_lr": 0.032,
+      "readout": "stable301m"
     }
   ]
 }
