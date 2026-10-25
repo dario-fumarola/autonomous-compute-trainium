@@ -20,3 +20,29 @@ effect cannot complete the research goal or reverse the running pilot's
 primary comparison. The entire panel and both views are mandatory; no favorable
 subset, new difficulty rule or training follow-up is selected here. Conditional
 counts from one seed are descriptive, with no terminal alpha or TEST access.
+
+## Completed result
+
+| Fixed model | No worked steps | All original work visible |
+| --- | ---: | ---: |
+| Strong One, longer matched-work curriculum | 4/135 | 9/135 |
+| Recurrent curriculum, declared depth two | 3/135 | 11/135 |
+
+Showing the original steps helps somewhat, but neither model solves even 10%
+of the panel with all work supplied. This weakens the premise that the easier
+scaffolded task was already learned well enough to support reliable removal of
+its steps. It does not uniquely diagnose curriculum failure, prove recurrence
+cannot learn arithmetic or establish an autonomous-computation success.
+
+All 135 source problems remain in both views. Final original intermediate
+operation counts are {1: 109, 2: 19, 3: 7}. Numeric answers and problem text remain
+private. The same complete fitted states are unchanged after generation. This
+is the pinned upstream **CPU FP32** predictor; both no-work accuracy counts agree with
+the completed native default-exit counts. This does not establish identical
+generated tokens or argmax trajectories across precisions. No native serving-speed claim.
+
+Wall time: **88.21 seconds**. Zero assigned chips and learning updates, no TEST,
+no terminal alpha. CPU time overlaps the separate native pilot and must not be
+added again to its whole-instance opportunity interval. The one-pair discovery
+counts are descriptive; no independent-seed or general-text claim.
+[Exact aggregates](report.json) · [Frozen specification](plan.json).
