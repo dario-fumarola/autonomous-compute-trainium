@@ -1,42 +1,66 @@
-# Registered foundation-history pilot
+# Foundation-history bridge pilot: closed negative
 
-The preceding common-One bridge curriculum remains negative. This new bounded
-comparison tests whether an already trained recurrent foundation transfers
-better. It uses one original pretrained seed and consumed discovery DEV;
-there is no independent confirmation, TEST access or terminal alpha.
+All seven cooled fits, six complete first-update gradient/optimizer audits,
+seven independent full answer-panel FP32 audits and seven broad-source
+retention scores are complete. All replicas, full-state/RNG restores and
+registered source/task/matrix counters pass. No scientific case was dropped.
 
-Seven independently cooled endpoints retain three original foundations:
-source-matched One and R at 1.005B targets, and the stronger One at 1.238B
-approximately matched to R's retained pretraining work. Every foundation traces
-to the same random initializer. Optimizers are reset for adaptation.
+| Condition | Declared depth | Held-out answers | Broad-source NLL |
+| --- | ---: | ---: | ---: |
+| one-source-ntp | 1 | 0/135 | 2.614532 |
+| one-source-bridge | 1 | 3/135 | 2.625300 |
+| one-ntp | 1 | 0/135 | 2.582336 |
+| one-bridge | 1 | 2/135 | 2.592805 |
+| recurrent-ntp | 2 | 0/135 | 2.591858 |
+| recurrent-bridge | 2 | 3/135 | 2.604242 |
+| one-bridge-work | 1 | 4/135 | 2.590359 |
 
-All basic cases receive 200 updates and the same new 26,168,332 original NTP
-targets. The four bridge cases also see unchanged natural worked problems,
-with 77,021 original-answer token exposures in each basic bridge case. The
-longer strong-One bridge control receives 245 updates, 32,056,308 NTP targets
-and 94,364 original-answer exposures, with its own complete cooldown.
+The primary R/bridge minus longer strong-One/bridge accuracy difference is
+**−0.7407 percentage points**, conditional source-group 95% interval
+**[−3.8168, +2.2901] pp**. It fails the prespecified 5pp useful-effect screen.
+The source-matched One and R curriculum models each solve 3/135. Within R,
+exits one/two/four solve 2/3/2 tasks; the supported one-to-two gain is only
+0.7407pp, interval [−1.5152, +3.2000]pp. These are conditional one-seed discovery
+intervals, not independent training-seed confirmation.
 
-The primary domain contrast is R/bridge at two passes versus the longer
-strong-One/bridge at one. Their retained-history-plus-adaptation matrix work
-differs by 0.0096105%; that accounting excludes prior tuning and discarded
-branches, whose receipts remain preserved separately. It does not match
-chip-hours. Source-matched and equal-continuation comparisons remain secondary.
-The useful domain screen is 5 percentage points; the broad-text goal still
-requires its original 0.01-nat threshold and fresh confirmation.
+Relative to their own NTP-only continuations, curriculum harms broad-source
+NLL by 0.010768 for source-matched One, 0.010469 for stronger One and 0.012384
+for R. Lower teacher-forced answer loss cannot replace the free-generation
+result. No prediction-efficiency or general-text success is claimed.
 
-Six complete first-update gradient/loss/optimizer gates precede the remaining
-fits. All seven fits finish before any new held-out readout. Every R exit is
-reported, with depth two prespecified. Each answer panel receives an independent
-FP32 loss audit and every model a common broad-source retention score.
+## What this rules out and what remains
 
-The execution clock is the new `execution-start.json` record, with a 7,200-second
-cap from admission and 1,200-second native/CPU phase caps. The frozen plan also
-retains predecessor recovery metadata copied for provenance (`original_deadline_unix`,
-`failed_plan_sha256`, `failed_report_sha256`, `recovery_scope`). Those fields
-describe the closed predecessor and do not set this new execution's clock.
-No predecessor deadline was extended.
+The first common-One pilot remains negative. Retaining the already trained
+recurrent foundation does not rescue the same bridge recipe: the late
+introduction of recurrence was not a sufficient explanation. The registered
+stopping rule now closes this bridge family at this scale. No additional
+weight/rate/epoch/difficulty sweep or scaling follows from these results.
 
-No model, task, source, rate or stopping rule changes after admission. If this
-bounded follow-up also lacks useful held-out generalization and supported-pass
-benefit, close the bridge family at this scale. CPU suite: **275 passed** before
-admission. All failed and successful updates remain in the cost ledger.
+A separately frozen CPU FP32 diagnostic supplies the original human work:
+strong One improves 4→9/135 and R 3→11/135. Even the easier scaffolded task
+remains poorly generalized. That oracle result is not autonomous thinking.
+[Scaffold diagnostic](../natural_chain_scaffold_readout_20261025/REPORT.md).
+
+## Resources and scope
+
+**1,444 actual research updates**, 188,935,438 new NTP
+target exposures, 325,045 original-answer token exposures and
+108,032 explicit artificial EOS exposures. All 20 native phases exit cleanly.
+Maximum initial global gradient relative error is 0.18318%;
+maximum whole-answer-panel native/CPU loss difference is
+0.000614665 nats. This is panel agreement, not
+identity of every document score or greedy argmax.
+
+Assigned native cost: **5.7678 chip-hours**. Whole-instance
+opportunity: **7.9667 chip-hours**, separately/nonadditively,
+including CPU tails. Retained pretraining trajectories are counted in model
+budgets; tuning, discarded branches and historical campaign receipts remain
+preserved separately. The longer One leaves 0.0096105% of R's retained-history-
+plus-adaptation nominal matrix budget unused, with its own complete cooldown.
+This does not match wall time.
+
+One reused pretrained seed, consumed 135-task/115-group discovery DEV,
+no TEST/reserve access, no terminal alpha and no terminal success. 275 CPU
+tests pass. The original broad natural-text goal remains active and unachieved.
+[Exact analysis](analysis.json) · [Resources](resource-summary.json) ·
+[All receipts](execution-costs.json) · [Frozen plan](plan.json).

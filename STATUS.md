@@ -1,3 +1,34 @@
+# Status — 2026-10-25 22:08 UTC
+
+**The seven-endpoint foundation-history study is complete and negative.**
+R/bridge solves3/135 held-out answers,source-matched One3/135,and the stronger
+full-history work-matched One4/135. The primary gain is−0.7407pp,conditional
+source-group95% interval[−3.8168,+2.2901]pp,below the5pp screen. R's supported
+one/two/four exits solve2/3/2 tasks. No favorable exit selection.
+
+The curriculum harms broad-source NLL by0.0105–0.0124 nats relative to each
+NTP-only continuation. All seven independent answer audits,seven natural-source
+retention readouts,six complete mixed-update gradient/optimizer gates,full-state
+restores,replica equality and frozen counters pass. Maximum overall gradient
+error0.18318%;maximum whole-answer-panel native/CPU difference0.000614665nats.
+[Complete controlled result](results/natural_chain_foundation_pilot_20261025/REPORT.md).
+
+**This bridge family is closed at this scale.** Retaining the already trained
+recurrent foundation does not rescue the prior common-One failure. No further
+curriculum weight/rate/epoch/difficulty sweep. A separate CPU-only fixed-weight
+oracle diagnostic supplies the original human work:One4→9/135,R3→11/135.
+Even the easier scaffolded task generalizes poorly;this is not autonomous
+computation or a positive broad-text result.
+[Oracle diagnosis](results/natural_chain_scaffold_readout_20261025/REPORT.md).
+
+1,444 actual new research updates;5.7678 assigned native chip-hours and
+7.9667 whole-instance opportunity chip-hours,separately/nonadditively.
+The88.21-second CPU oracle overlaps this interval. All native jobs are terminal.
+275 CPU tests pass. No TEST,terminal alpha or terminal success. The broad goal
+remains active. Next:the missing fixed-two-pass small-core plain-NTP control,
+with original-source training from initialization,strong One/resource controls
+and a finite measured budget;no architectural or auxiliary-objective rewrite.
+
 # Status — 2026-10-25 21:44 UTC
 
 **The bounded foundation-history follow-up is running on all 16 chips.** It
