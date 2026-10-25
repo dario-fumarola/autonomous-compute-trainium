@@ -1,3 +1,42 @@
+# Status — 2026-10-25 20:43 UTC
+
+**The bounded mixed NTP/bridge-hiding pilot is executing.** All four complete
+first-update integration audits pass against independent upstream FP32:128
+natural NTP windows plus applicable128 ordered source-answer tasks,all named
+gradient families and observed-gradient optimizer/moments. Maximum overall
+relative gradient error0.16575%. No other scientific source,loss or recipe was
+changed after those gates.
+
+The200-update One/bridge and244-update One/bridge-work endpoints are complete,
+with exact full model/optimizer/RNG restores,all32 replicas equal,and frozen
+source/task/work counters matching.100 actual mixed warm updates take51.13s
+and51.03s,respectively. The R/bridge and NTP-only conditions continue in the
+fixed queue on all16 chips. No pilot held-out quality readout has started;
+all five fits finish before those readouts. A one-pair continuation is not a
+from-scratch or terminal result.
+[Pilot protocol](docs/NATURAL_CHAIN_CONTINUATION_PILOT_20261025.md) ·
+[Frozen endpoints/resources](results/natural_chain_continuation_pilot_20261025/recovery-v2/RESOURCES.md).
+
+The One/R bridge pair gets the same26.169M new authentic NTP targets and77,021
+original answer-token exposures,plus explicit artificial EOS supervision.
+The longer One gets31.926M NTP targets and93,987 answer exposures. Its nominal
+matrix-work shortfall versus R is0.081191%,with its own complete cooldown;
+this is not a chip-time match. Each starts from the exact same prior1.005B-target
+One/NTP body with freshly reset optimizers. All cases keep141.96M parameters.
+
+The first admission hit inode exhaustion before a native entry,although214GiB
+remained free. Bytecode-only cleanup from closed worker snapshots recovered
+130,930 inodes;no source,model,optimizer,NEFF or HLO files were removed. Recovery
+adds a10,000-inode host reserve,changes owned identities only,and preserves the
+original22:28 UTC deadline. Failure/startup opportunity remains accounted.
+[Cleanup evidence](results/instance_inode_recovery_20261025/report.json).
+
+**273 CPU tests pass.** No TEST or terminal alpha is opened. The original broad
+research objective remains active and unachieved. Next:finish all cooled fits,
+then fixed free-generation/independent answer-NLL and broad-source retention
+readouts. Report the registered default R depth2,all secondary exits,and the
+longer One control without selecting a favorable result.
+
 # Status — 2026-10-25 20:15 UTC
 
 **The natural bridge-hiding data/driver pipeline now works.**1,618 deduplicated
