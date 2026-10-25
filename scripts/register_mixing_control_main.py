@@ -39,7 +39,8 @@ def register(root):
     # continuations. Two halves run paired seeds;four endpoint branches follow.
     estimate=3307*step*1.35+8*(cold+20)+1200
     if not 0<estimate<10800:raise RuntimeError('Measured complete MAIN cannot fit its3-hour cap')
-    additions=['scripts/register_mixing_control_main.py','scripts/run_mixing_control_main.py']
+    additions=['scripts/register_mixing_control_main.py','scripts/run_mixing_control_main.py',
+               'scripts/queue_mixing_control_main.py']
     sources={**source['source_sha256'],**{p:file_sha256(p) for p in additions}}
     if any(file_sha256(p)!=h for p,h in sources.items()):raise AssertionError('Exact original sources changed')
     worker,host=split_snapshot_sources(sources)
@@ -78,6 +79,9 @@ def register(root):
         labels=['preflight','preflight-gradient','stable','endpoint','final-gradient'] if key.endswith('equal-data') else ['endpoint','final-gradient']
         phases.update({IDENTITY+'-'+key+'-'+phase:phase for phase in labels})
     plan=copy.deepcopy(source)
+    for old_recovery_field in ['original_absolute_deadline_unix','stopped_plan_sha256',
+                               'stopped_report_sha256','recovery_scope']:
+        plan.pop(old_recovery_field,None)
     plan.update(identity=IDENTITY,registered_unix=time.time(),stage='cheap_control_main',cases=cases,
         initial_states=original['initial_states'],source_sha256=sources,worker_source_sha256=worker,
         host_only_source_sha256=host,root_comm_ports=reserve_ports(root,list(phases)),seconds_limit=10800,

@@ -1,3 +1,30 @@
+# Status — 2026-10-25 15:39 UTC
+
+**All three counted scientific integration gates pass;longer control tuning
+fits are running.** Full512-window CPU gradient relative errors are0.0376%,
+0.0441% and0.0300%. Each trial retains its two actual scientific updates in the
+576-update cooled endpoint. All three rates and final numerical/scoring gates
+remain required. No control learning result exists yet. Recovery keeps the
+original16:50:26 UTC deadline and139-file freeze.
+
+The separately registered **two-seed MAIN queue owns zero chips**. It will
+admit the already declared equal-data/matched-work cheap-control endpoints
+only after all three TUNE opportunities and six numerical gates complete,
+the selected rate reproduces,and its independent measured3-hour budget fits.
+It freezes142 exact paths and fails closed on any stopped prerequisite or
+source change. No favorable TUNE-loss threshold selects whether to run this
+control. MAIN is not admitted yet.
+[Queue](results/small_core_mixing_main_queue_20261025/plan.json) ·
+[Protocol](docs/SMALL_CORE_MIXING_CONTROL_PROTOCOL_20261025.md).
+
+The completed original comparison remains negative at matched training work,
+with useful equal-data gains. No router can close its gap using only the saved
+whole-document forwards,even with free target-informed selection. The measured
+two-pass prefill costs approximately17% extra latency. A new cheap-control win
+would strengthen the baseline,not establish that extra core executions caused
+its gain. **244 CPU tests pass**. All original failures/results are preserved;
+the research goal remains active and unachieved. No TEST or terminal alpha.
+
 # Status — 2026-10-25 15:33 UTC
 
 **The cheap-control learning-rate screen is running counted scientific

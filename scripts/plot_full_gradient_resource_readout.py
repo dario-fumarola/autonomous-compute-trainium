@@ -55,7 +55,10 @@ def main():
         ha='center',fontsize=8)
     fig.subplots_adjust(bottom=.23,wspace=.30,top=.82)
     out=Path('results/future_span_work_controls_20261025/figures');out.mkdir(exist_ok=True)
-    for extension in ['png','svg','pdf']:fig.savefig(out/('completed-resource-readout.'+extension),dpi=180)
+    for extension in ['png','svg','pdf']:
+        target=out/('completed-resource-readout.'+extension)
+        fig.savefig(target,dpi=180)
+        if extension=='svg':target.write_text('\n'.join(line.rstrip() for line in target.read_text().splitlines())+'\n')
     plt.close(fig)
     (out/'provenance.json').write_text(json.dumps({'source_sha256':file_sha256(source),
         'control_sha256':file_sha256(work),'script_sha256':file_sha256(__file__),
