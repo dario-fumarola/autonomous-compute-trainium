@@ -1,0 +1,178 @@
+{
+  "status": "COMPLETE_FIRST_SEED_COOLED1B_FOUR_CELL_READOUT",
+  "observed_utc": "2026-10-25T11:39:31.795356+00:00",
+  "seed": 5231,
+  "training_updates": 1920,
+  "training_real_targets": 1004887590,
+  "schedule_phase": "all_compared_endpoints_completed_cooldown",
+  "evaluation_documents": 603,
+  "evaluation_real_targets": 754750,
+  "training_parameters": 166571840,
+  "deployed_parameters": 141963840,
+  "loss_by_cell_at_primary_exit": {
+    "one-ntp": 2.6146694677745974,
+    "one-future": 2.6156123050850493,
+    "recurrent-ntp": 2.592239060653416,
+    "recurrent-future": 2.5909005193675263
+  },
+  "supported_inference_depth_losses": {
+    "recurrent-ntp": {
+      "1": 2.625521871605387,
+      "2": 2.592239060653416,
+      "3": 2.586512653682531
+    },
+    "recurrent-future": {
+      "1": 2.6232319149232617,
+      "2": 2.5909005193675263,
+      "3": 2.585254063547279
+    }
+  },
+  "extra_third_pass_gain": {
+    "recurrent-ntp": 0.005726406970884668,
+    "recurrent-future": 0.005646455820247365
+  },
+  "primary_future_objective_point_contrasts": {
+    "objective_recurrence_interaction": 0.0022813785963413657,
+    "recurrent_future_over_one_future": 0.02471178571752297,
+    "recurrent_future_over_recurrent_ntp": 0.0013385412858895052,
+    "recurrent_future_depth1_to2": 0.03233139555573539,
+    "ordinary_future_objective_gain": -0.0009428373104518606,
+    "recurrent_future_objective_gain": 0.0013385412858895052,
+    "recurrence_without_future_gain": 0.022430407121181606,
+    "recurrence_with_future_gain": 0.02471178571752297
+  },
+  "primary_future_objective_first_seed_point_gates": {
+    "objective_recurrence_interaction": {
+      "gain_nats": 0.0022813785963413657,
+      "clears_pilot_point_threshold": false
+    },
+    "recurrent_future_over_one_future": {
+      "gain_nats": 0.02471178571752297,
+      "clears_pilot_point_threshold": true
+    },
+    "recurrent_future_over_recurrent_ntp": {
+      "gain_nats": 0.0013385412858895052,
+      "clears_pilot_point_threshold": false
+    },
+    "recurrent_future_depth1_to2": {
+      "gain_nats": 0.03233139555573539,
+      "clears_pilot_point_threshold": true
+    }
+  },
+  "first_seed_clears_all_future_objective_point_gates": false,
+  "secondary_ntp_first_seed_point_contrasts": {
+    "over_one_ntp": 0.022430407121181606,
+    "over_one_future": 0.023373244431633466,
+    "supported_depth1_to2": 0.033282810951971165
+  },
+  "first_seed_clears_all_ntp_secondary_point_gates": true,
+  "per_domain_ntp_recurrence_advantage": {
+    "web": 0.02466757045190837,
+    "math": 0.021867902908893733,
+    "code": 0.016281421341288738
+  },
+  "estimated_training_matrix_ops": {
+    "one-ntp": 528283816731279360,
+    "one-future": 528283816731279360,
+    "recurrent-ntp": 650864708520837120,
+    "recurrent-future": 650864708520837120
+  },
+  "source_pairing_exact": true,
+  "same_weights_across_supported_depths": true,
+  "independent_gradient_gates": [
+    {
+      "cell": "one-ntp",
+      "checkpoint_sha256": "b321b18cd2d896fb2fa3659e3931cac09715d58223235159474412d1772186c2",
+      "gradient_report_sha256": "3e2c5da29a1b8281fcc60b35ed16c97a4d27c6cf0d9cf11b8a44c347dbb2b509",
+      "overall_body_gradient_relative_l2": 0.00262668563787828,
+      "all_family_and_head_gates_pass": true
+    },
+    {
+      "cell": "one-future",
+      "checkpoint_sha256": "ae2b8d92d1f2cf932ef0205c76a2a57a7d5e7efc4d4dde8eaeb7b7275b546742",
+      "gradient_report_sha256": "d2c1db0f4c902c8a4842ba368080bc2be51f1c6e442f5af62b5b067cc8834093",
+      "overall_body_gradient_relative_l2": 0.002837093344470558,
+      "all_family_and_head_gates_pass": true
+    },
+    {
+      "cell": "recurrent-ntp",
+      "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349",
+      "gradient_report_sha256": "d903707f9f39b2fadc0fb94c8f28625626af081e0705b9542be9df26b1908b6a",
+      "overall_body_gradient_relative_l2": 0.0028400882858258623,
+      "all_family_and_head_gates_pass": true
+    },
+    {
+      "cell": "recurrent-future",
+      "checkpoint_sha256": "83f462a15247450548ff07f5a789f6f739a216a728fe56ce33af4164c7fb06b9",
+      "gradient_report_sha256": "f7bf78c40e54c6b72988a1a49ddb456dd1d7301d5cc36d4a50bfdb5318fc8817",
+      "overall_body_gradient_relative_l2": 0.0029429459467571945,
+      "all_family_and_head_gates_pass": true
+    }
+  ],
+  "input_receipts": [
+    {
+      "cell": "one-ntp",
+      "case_id": "one-ntp-s5231-lr32000",
+      "depth": 1,
+      "checkpoint_sha256": "b321b18cd2d896fb2fa3659e3931cac09715d58223235159474412d1772186c2",
+      "document_scores_sha256": "c9cea4ab9f19ed70d0cb7955d1f09a3f91cb0cd550010597a46babc92c4c0c4f"
+    },
+    {
+      "cell": "one-future",
+      "case_id": "one-future-s5231-lr32000",
+      "depth": 1,
+      "checkpoint_sha256": "ae2b8d92d1f2cf932ef0205c76a2a57a7d5e7efc4d4dde8eaeb7b7275b546742",
+      "document_scores_sha256": "83d02f652180a93a7ead61cd2c2542e0890801bf52a202533e3b510303bf1880"
+    },
+    {
+      "cell": "recurrent-ntp",
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 1,
+      "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349",
+      "document_scores_sha256": "3211b4d2299b592db19479ae82e9ed8e06f9bbd17441fb015859ba67c4b5cabf"
+    },
+    {
+      "cell": "recurrent-ntp",
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 2,
+      "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349",
+      "document_scores_sha256": "098907c6a3418c3ee2f97a631ee0387cd614f6241b049f8c17d4615d2e1474d7"
+    },
+    {
+      "cell": "recurrent-ntp",
+      "case_id": "recurrent-ntp-s5231-lr32000",
+      "depth": 3,
+      "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349",
+      "document_scores_sha256": "96c869d297b4952f01fc865066f64a9a073ec47e108a8cab9daccd9f223d234d"
+    },
+    {
+      "cell": "recurrent-future",
+      "case_id": "recurrent-future-s5231-lr32000",
+      "depth": 1,
+      "checkpoint_sha256": "83f462a15247450548ff07f5a789f6f739a216a728fe56ce33af4164c7fb06b9",
+      "document_scores_sha256": "ad13b1cf9d5e57a6333eaa757de38d38ad3e357008219e0f405311a3dd6ffa69"
+    },
+    {
+      "cell": "recurrent-future",
+      "case_id": "recurrent-future-s5231-lr32000",
+      "depth": 2,
+      "checkpoint_sha256": "83f462a15247450548ff07f5a789f6f739a216a728fe56ce33af4164c7fb06b9",
+      "document_scores_sha256": "946ec67cf26c3f320c7f4b0f19a19d91d2dd53c46c0cc58763c651253a9fac61"
+    },
+    {
+      "cell": "recurrent-future",
+      "case_id": "recurrent-future-s5231-lr32000",
+      "depth": 3,
+      "checkpoint_sha256": "83f462a15247450548ff07f5a789f6f739a216a728fe56ce33af4164c7fb06b9",
+      "document_scores_sha256": "7a091ef03c025690d0f49741b7389601665a416deb646832a2f071340c824027"
+    }
+  ],
+  "second_seed_and_full_decisions_pending": true,
+  "strong_ordinary_and_work_matched_controls_complete": false,
+  "assigned_chips": 0,
+  "new_model_forwards": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "One complete fresh-seed discovery comparison on consumed CURVE DEV. Point gates are reported descriptively,not statistical significance or the two-seed pilot decision. The predeclared two-pass exit remains primary despite the lower three-pass score. NTP secondary cannot replace a failed future-objective primary. Strong ordinary/cheap baselines,matched-work/inference costs,and >=5 fresh paired confirmation seeds/source groups with allocated alpha remain owed."
+}

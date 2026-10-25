@@ -1,106 +1,56 @@
-# Status — 2026-10-25, 10:55 UTC
+# Status — 2026-10-25, 11:41 UTC
 
-**The first fresh-seed four-cell learning-curve point is complete.** At301M
-real targets,all before cooldown,on the same603 CURVE DEV documents:
+**The first complete seed supports a plain-recurrence discovery candidate at
+equal data.** All four seed5231 models complete their own cooldowns at1.005B
+real targets and pass final independent512-window gradient gates.
 
-| Cell | Stable301M NLL |
+| Condition | Primary-exit DEV NLL |
 | --- | ---: |
-| One-pass NTP | 3.071810 |
-| One-pass future loss | 3.054320 |
-| Recurrent NTP,two-pass readout | 3.037836 |
-| Recurrent future loss,two-pass readout | 3.027938 |
+| One-pass NTP | 2.614669 |
+| One-pass future loss | 2.615612 |
+| Recurrent NTP,two passes | 2.592239 |
+| Recurrent future loss,two passes | 2.590901 |
 
-Plain recurrence gains0.033974 nats over its trained one-pass control. The
-future objective gains0.009898 within recurrence versus0.017489 within one
-pass,so its interaction is-0.007591 at this early point. Recurrence uses1.232×
-estimated training matrix work. These are descriptive stable-phase scores,
-not independently cooled endpoints,training-seed significance or efficiency.
-[Four-cell curve readout](results/future_span_main_20261025/primitive-v2/first-four-cell-stable301m.json).
+Plain recurrence gains0.022430 nats over one-pass NTP and0.023373 over one-pass
+future loss. Within the same recurrent NTP checkpoint,two passes beat its
+supported single pass by0.033283;a third adds0.005726. All three domains favor
+recurrence at the declared two-pass exit. These are one-seed discovery points,
+not seed significance,independent confirmation or a compute-efficiency win.
+[First-seed report](results/future_span_main_20261025/primitive-v2/FIRST_SEED_REPORT.md).
 
-**The first two MAIN1.005B-target endpoints are complete and scored.** On the
-same603 consumed CURVE DEV documents,seed5231 one-pass NTP scores2.614669 and
-one-pass future loss2.615612. The future objective's stable301M gain of0.017489
-is absent at the cooled1B endpoint:its point difference is now-0.000943 nats.
-This is one paired seed,not a significance or interaction result. Both models
-pass independent512-window fitted-gradient audits,with body error below0.284%.
-[Completed one-pass readout](results/future_span_main_20261025/primitive-v2/first-one-pass-cooled1b.json).
+The future objective adds only0.001339 to recurrence;its interaction is0.002281.
+Both miss the declared0.01 point threshold in this seed. Complete the second
+seed and original primary analysis;the NTP secondary cannot replace a failed
+future-objective primary. The primary exit stays two despite lower three-pass
+scores. No rate,horizon,weight,source,endpoint or decision-rule change.
 
-Both recurrent cells for seed5231 now occupy all16 chips. The second seed,
-recurrent endpoints,depth responses and full primary/secondary decisions
-remain pending. The original plan and gates are unchanged. The stable and
-cooled points are separate schedule phases;TUNE uses a different panel.
+**All16 chips are now training seed7283's one-pass pair.** Main controller
+continues the fixed eight-fit queue under its original17:29 UTC deadline.
+The final two-seed primary and NTP secondary decisions remain pending.
+All227 CPU tests pass. Resource guards pass;the overall goal is active and
+unachieved. Fresh confirmation and terminal alpha remain untouched.
 
-All twelve TUNE scores and four selected gradient gates pass. Independent
-FP32 TUNE scores use556 consumed documents and301,465,908 training targets
-per fit;the selected-rate summary below is tuning evidence.
+The parameter-exact family control still needs stronger ordinary/cheap
+challengers. Recurrence uses1.232× estimated training matrix work. A prospective
+one-pass2365-update/1.238B-target control matches it to0.021527% shortfall and
+has its own cooldown after an intact stable parent. Geometry and CPU metadata/
+model/optimizer/RNG transport pass;native continuation checks and actual control
+admission remain required. No work-matched learning result exists yet.
+[Control readiness](docs/FUTURE_SPAN_COMPUTE_READINESS_20261025.md)
+· [Transport scope](docs/FUTURE_SPAN_STATE_TRANSPORT_20261025.md).
 
-| Cell | Selected peak LR | TUNE NLL |
-| --- | ---: | ---: |
-| One-pass NTP | .032 | 2.938677 |
-| One-pass future loss | .032 | 2.935304 |
-| Recurrent NTP, two-pass readout | .032 | **2.917065** |
-| Recurrent future loss, two-pass readout | .032 | 2.918299 |
+The original149-target natural-code context diagnostic is queued for all eight
+models after complete MAIN/numerical gates. Its127-file freeze retains original
+targets,views,positions,noise and trained one-pass controls. It uses zero chips
+and cannot override pooled-NLL decisions or serve as terminal confirmation.
+[Exploratory registration](docs/FUTURE_SPAN_CODE_CONTEXT_20261025.md).
 
-Plain NTP recurrence gains 0.021612 nats over independently tuned one-pass NTP
-and 0.018239 over one-pass future loss. Adding future loss instead worsens
-recurrence by 0.001234;the factorial interaction is -0.004607. This is TUNE,
-not a fresh-seed result. All selected rates are upper-edge winners and their
-optima remain unbracketed. Recurrence uses 1.232× estimated training matrix
-work at equal exposure;no matched-compute advantage is established.
-[All twelve scores and contrasts](results/future_span_tune_20261025/primitive-v2/complete-grid-readout.json).
-
-The original future-objective primary remains unchanged. A separate NTP
-secondary discovery readout was registered after seeing its complete TUNE
-grid and before MAIN admission. It reuses only the already declared final
-readouts and requires both main seeds to beat both trained one-pass controls
-and improve at a supported second inference pass. It cannot override the
-original primary or serve as independent confirmation.
-[Disclosed secondary protocol](docs/NTP_SECONDARY_DISCOVERY_20261025.md).
-
-All four selected checkpoints pass independent complete512-window gradient
-checks;the largest backbone discrepancy is0.330%,below the fixed2% gate.
-The complete TUNE stage took1h51m,24.652 assigned native chip-hours and29.628
-whole-instance opportunity chip-hours,including CPU tails;these costs are
-separate and are not added.
-[Completed tuning audit](results/future_span_tune_20261025/primitive-v2/complete-tuning-closure-audit.json).
-
-The controller admitted all eight1.005B-target MAIN fits:four cells across
-fresh seeds5231/7283. Both first seed5231 one-pass cells have saved independently
-audited stable301M-target checkpoints. Exact complete model/optimizer digests,
-all32 replica/RNG records and source/anchor/work counters pass. The zero-weight
-NTP head stays unchanged;the future-loss head changes. All16 chips are assigned.
-The first two cooled scores are reported above;MAIN retains its original
-8h cap,ending17:29 UTC;architecture,objective,rates,data and decision rules
-remain frozen. No terminal confirmation has been opened.
-[Actual fresh-update receipt](results/future_span_main_20261025/primitive-v2/native-start-receipt.json)
-· [Stable checkpoint audit](results/future_span_main_20261025/primitive-v2/stable301m-custody-audit.json).
-
-A separate pre-outcome CPU audit reconstructs the complete matrix ledger and
-checks a possible one-pass work-matched continuation:2365 updates/1.238B
-real targets,0.021527% below recurrence's1.005B matrix budget. Its own cooldown
-would start at1182 updates,after the preserved stable960-update state. No
-checkpoint was adopted,no scores read and no control run admitted.
-[Work/source feasibility](docs/FUTURE_SPAN_COMPUTE_READINESS_20261025.md).
-
-The explicit cross-plan transport now passes a25.46-second CPU check on both
-actual stable502M one-pass parents:complete model/optimizer/all32-RNG copies
-serialize exactly and original files remain unchanged. Only plan binding and
-provenance change. The qualification plan has native launch disabled. Native
-continuation/update qualification remains required before any separate control
-admission;the live MAIN plan is untouched.
-[Transport evidence and scope](docs/FUTURE_SPAN_STATE_TRANSPORT_20261025.md).
-
-The proposal's exploratory natural-code readout is now queued separately for
-all eight models after complete MAIN/numerical gates. It retains the original
-149 targets,full/short positions and noise,and trained one-pass controls.
-Registration discloses the already seen TUNE/one-pass outcomes;no new recurrent
-quality was available. It uses zero chips and cannot override primary results.
-[Context readout and scope](docs/FUTURE_SPAN_CODE_CONTEXT_20261025.md).
-
-All **227 CPU tests pass**. Resource guards pass. Fresh confirmation sources
-and terminal alpha remain untouched;the overall research goal is active and
-unachieved. Complete the primary factorial readout and the separately disclosed
-NTP secondary before selecting a follow-up.
+All12 TUNE cases and four selected gradient gates passed before MAIN admission.
+Every selected LR is.032,at the upper grid edge;optima remain unbracketed.
+Earlier stable301M gains are descriptive:the one-pass future-loss advantage
+there did not survive its completed1B endpoint. Earlier reports remain intact.
+[Early four-cell curve](results/future_span_main_20261025/primitive-v2/first-four-cell-stable301m.json)
+· [Full tuning grid](results/future_span_tune_20261025/primitive-v2/complete-grid-readout.json).
 
 # Earlier status — 2026-10-25, 08:14 UTC
 
