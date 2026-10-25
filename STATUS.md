@@ -1,4 +1,4 @@
-# Status — 2026-10-25, 00:56 UTC
+# Status — 2026-10-25, 01:03 UTC
 
 Ten of12 rate trials are independently scored. At0.008,ordinary scores
 2.926390,true one-pass2.993713 and recurrence3.013839. Recurrence is0.020126
@@ -8,6 +8,11 @@ Every score follows301,465,908 natural targets and completed cooldown. These
 are single-seed TUNE results,not main-fit or confirmation findings. No rates
 are selected until all registered opportunities finish. Selected checkpoints
 then require independent complete-batch gradient checks before the main pilot.
+The [rate-screen figure](results/parcae_low_depth_pilot_20261024/figures/tuning.png)
+plots completed independent scores only. The learning-curve exporter keeps
+stable checkpoints separate from each branch's completed decay; main curves
+await actual scores. The CPU suite passes169 tests in32.94seconds. No frozen
+training source changed.
 
 Independent actual-size upstream operator counts agree exactly with the
 inference ledger: at1024 positions,one family pass costs159.049GFLOPs and two
