@@ -1,0 +1,49 @@
+{
+  "readout": "equal",
+  "comparison": {
+    "trained_onepass_full_nll": 1.072653590205462,
+    "candidate_two_pass_full_nll": 1.121849333839375,
+    "trained_onepass_short_nll": 2.292127966297715,
+    "candidate_two_pass_short_nll": 2.3079515771789554,
+    "candidate_gain_full": {
+      "gain_nats": -0.04919574363391299,
+      "interval_95": [
+        -0.14067472610095502,
+        0.04686606903122979
+      ],
+      "source_groups": 40,
+      "accepted_draws": 5000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    "candidate_gain_short": {
+      "gain_nats": -0.015823610881240402,
+      "interval_95": [
+        -0.11925413875191831,
+        0.07845718196051475
+      ],
+      "source_groups": 40,
+      "accepted_draws": 5000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    "cross_model_context_interaction": {
+      "gain_nats": -0.033372132752673256,
+      "interval_95": [
+        -0.12031847128798193,
+        0.062427000144749764
+      ],
+      "source_groups": 40,
+      "accepted_draws": 5000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    "identifier_targets": 149,
+    "real_target_tokens": 308,
+    "aggregation": "Original equal one-third distance-band weights;tokens pooled within each band.",
+    "scope": "Exploratory separately trained control added after candidate diagnostics. Consumed fixed panel and one fitted seed;source intervals do not establish training-seed significance. No changed targets,selected band,unsupported control exit or terminal claim."
+  },
+  "control_checkpoint_sha256": "e9d8ae4d318644310ad27ba4498fff8b5b5c06ea1b2bbdde6078cc44238fd38a",
+  "control_depth": 1,
+  "control_parameters": 141963840,
+  "complete_state_readback_exact": true,
+  "model_unchanged": true,
+  "wall_seconds": 50.95089793205261
+}

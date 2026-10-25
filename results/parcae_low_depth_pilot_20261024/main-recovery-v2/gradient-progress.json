@@ -451,6 +451,58 @@
       },
       "diagnostic_matmuls": 240588699992064,
       "diagnostic_real_targets": 523292
+    },
+    {
+      "arm": "ordinary",
+      "readout": "equal",
+      "capture_identity": "low-depth-main-r2-gradient-ordinary-equal-ordinary",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "ordinary",
+        "case_id": "ordinary-equal-s1231",
+        "arm": "ordinary",
+        "training_update": 1920,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0032328021257294294,
+            "maximum_absolute_error": 1.5566256479360163e-05,
+            "reference_l2": 0.08670994060337801
+          },
+          "families": {
+            "tied_input_output": {
+              "relative_l2": 0.002428770949659728,
+              "maximum_absolute_error": 6.016547558829188e-06,
+              "reference_l2": 0.006255131613792341
+            },
+            "transformer_body": {
+              "relative_l2": 0.0032365247087004253,
+              "maximum_absolute_error": 1.5566256479360163e-05,
+              "reference_l2": 0.08648250444112143
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0016790298950051649,
+              "maximum_absolute_error": 4.0969098336063325e-08,
+              "reference_l2": 0.0005133746457416456
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.574532588143466,
+        "native_minus_cpu_nll": 1.6623581102770402e-06,
+        "real_targets": 523350,
+        "windows": 512,
+        "checkpoint_sha256": "1b9d737543c0d84d6032cd91d39f1b9f74698fd56fe19f1958af0a1c5611ae99",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 337.90301990509033,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "diagnostic_matmuls": 240588699992064,
+      "diagnostic_real_targets": 523350
     }
   ]
 }

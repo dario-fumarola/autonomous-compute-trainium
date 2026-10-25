@@ -1,0 +1,44 @@
+{
+  "native_attempts": [
+    {
+      "identity": "sdpa-math2-native-v2-operator",
+      "exit_code": 0,
+      "wall_seconds": 80.67678570747375,
+      "assigned_chip_hours": 0.17928174601660835,
+      "whole_instance_opportunity_chip_hours": 0.3585634920332167,
+      "report_exists": true
+    },
+    {
+      "identity": "sdpa-math2-native-v2-poisson2",
+      "exit_code": 0,
+      "wall_seconds": 103.72176837921143,
+      "assigned_chip_hours": 0.23049281862046983,
+      "whole_instance_opportunity_chip_hours": 0.46098563724093966,
+      "report_exists": true
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "operator-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 15.007975578308105,
+      "reused": false,
+      "exit_code": 1
+    },
+    {
+      "identity": "poisson2-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 0.000202178955078125,
+      "reused": false,
+      "exit_code": null
+    }
+  ],
+  "execution": {
+    "started_unix": 1792909660.605117,
+    "deadline_unix": 1792915060.605117,
+    "plan_sha256": "f5652bf776026106ce545ba78c48c3a7e1d54bbdb0074676950f59c434fa7928"
+  },
+  "wall_seconds_since_admission": 111.023610830307,
+  "whole_instance_opportunity_chip_hours": 0.49343827459547257,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

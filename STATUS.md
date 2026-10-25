@@ -1,4 +1,53 @@
-# Status — 2026-10-25, 06:02 UTC
+# Status — 2026-10-25, 06:36 UTC
+
+**The small-core pilot is complete and does not support scaling this recipe.**
+All nine fits/complete-gradient gates and all declared FP32 scoring readouts
+finished. At matched work,true one-pass wins2.448818 versus recurrence2.450674;
+at equal1.005B data,ordinary2.615775 versus recurrence2.616335. One seed,
+consumed DEV,no new confirmation or useful0.01-nat recurrent gain.
+[Completed result](results/parcae_low_depth_pilot_20261024/main-recovery-v2/REPORT.md).
+
+The trained one-pass control on149 authentic code targets is also complete;
+neither matched-work nor equal-data intervals support a recurrent advantage.
+The original joint context-use criterion remains inconclusive.
+[Exploratory trained control](results/natural_code_context_20261024/onepass-control-v1/report.json).
+The prefix-only-noise sensitivity audit is running on CPU.
+
+The compiled attention check reproduces a numerical discrepancy on all32
+replicas. On the32-position saturated FP16 fixture,the installed path has48.4%
+query-gradient relative error;the CPU-promising cast-only workaround still has
+37.2% and **fails** the unchanged2% gate. Forward relative error is0.0316%.
+No optimizer update or scientific launch occurred. The preceding snapshot
+packaging failure and both attempt costs are preserved. A bounded alternative
+using differentiable FP32 attention primitives is being qualified next;the
+installed SDK is untouched. Future-objective science remains stopped.
+[Compiled failure](results/sdpa_math2_investigation_20261025/native-v2/operator-audit.json).
+
+The next scientific proposal changes the objective,not model size:a fixed
+2×2 one-pass/recurrent × NTP/future-span comparison. The original natural
+source,teacher-free constraints and separate one-pass future-objective control
+remain. Only a complete numerical/update/recovery/100-warm-step pass can admit
+it. This is a prospective hypothesis,not a positive result or a paper replication.
+
+# Earlier status — 2026-10-25, 06:12 UTC
+
+The separately trained one-pass control is now scored on the same149 authentic
+code targets. At matched work,candidate depth2 gains0.02563 nats,but the paired
+repository interval is[−0.06716,+0.11644]. At equal data,it loses0.04920,with
+interval[−0.14067,+0.04687]. Neither supports a trained-control advantage.
+These exploratory controls were added after the candidate readout,with the
+same targets,positions,prefix-only noise and band weights. No new dataset or
+confirmation claim is introduced. This107.7second CPU readout made596 forwards,
+zero updates and used zero native chips. All **204 CPU tests pass**.
+[Trained control](results/natural_code_context_20261024/onepass-control-v1/report.json).
+
+The attention qualification queue remains live,waiting for ordinary's final
+branch/gate. Original mature source/depth/noise/checkpoint fingerprints are now
+registered for exact pairing before any new native outputs. A numerical
+improvement will not be attributed to the workaround unless those inputs match.
+[Pairing registration](results/sdpa_math2_investigation_20261025/paired-model-input-registration.json).
+
+## Earlier status — 06:02 UTC
 
 All three cooled matched-work scores are available:ordinary **2.454545**,
 true one-pass **2.448818**,recurrence at its declared two-pass exit **2.450674**.

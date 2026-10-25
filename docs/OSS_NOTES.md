@@ -270,3 +270,25 @@ their declared gates and all fitted-model/efficiency findings remain reported.
 [Exact source digest and fixtures](../results/sdpa_math2_investigation_20261025/cpu-v1/plan.json) ·
 [CPU result](../results/sdpa_math2_investigation_20261025/cpu-v1/report.json) ·
 [Bounded native qualification](../results/sdpa_math2_investigation_20261025/native-v1/plan.json).
+
+## SDPA Math2 saturated-gradient fixture,October25
+
+Installed torch-neuronx2.14.3.0.282+dc70ffa,with NKI SDPA disabled. The
+installed `_sdpa_math.py` hash and exact numerical-array digests are public in
+results/sdpa_math2_investigation_20261025/cpu-v1. The CPU explicit backward
+differs from autograd through its own identical forward:query/key relative
+errors67.1%/61.4% on32-position RMS-normalized Q=K FP16 arrays. Output
+rounding contributes to the backward correction;close scalar outputs alone
+do not qualify the derivative. This is a software fixture,not research data.
+
+Actual compiled32-rank capture reproduces query/key48.4%/44.3% relative error
+on the same fixture,with0.0316% forward error and identical packets on all
+replicas. A cast-only local workaround which passed CPU still gives37.2%/34.0%
+on device,and fails the fixed2% gradient gate. FP32-input control cases pass.
+No installed SDK patch,scientific update or upstream message was made. The
+first manifest-packaging failure and subsequent numerical failure are retained
+in separate versioned execution receipts. A differentiable FP32 primitive
+fallback is separately registered for qualification;no speed or training
+benefit is established. See native-v2/operator-audit.json and the adjoint
+CPU report. Full-model errors and the scientific ranking cannot be inferred
+from these operator relative errors.

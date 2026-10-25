@@ -1,0 +1,528 @@
+{
+  "status": "FAIL_COMPILED_SDPA_WORKAROUND_FIXTURES",
+  "records": [
+    {
+      "fixture": "n32-float16-independent",
+      "policy": "installed_operator",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 0.0003063144203951214,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 36.82463950243467,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.00037735958476848143,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 24.49976499529866,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.0003696446811524151,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 24.875038326511753,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 0.0003244735244226953,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 70.60788733321387,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n32-float16-independent",
+      "policy": "explicit_fp32_attention",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 0.0003063144203951214,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 36.82463950243467,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.00025902996329065024,
+          "maximum_absolute_error": 0.00079345703125,
+          "reference_l2": 24.49976499529866,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.00026352396883983967,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 24.875038326511753,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 0.0003244735244226953,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 70.60788733321387,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n32-float16-self",
+      "policy": "installed_operator",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 0.00031622668254008794,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 78.67594442609243,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.4842550674913506,
+          "maximum_absolute_error": 0.0009288787841796875,
+          "reference_l2": 0.02991561983421748,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.4433272308174265,
+          "maximum_absolute_error": 0.0009307861328125,
+          "reference_l2": 0.03267713114869817,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 0.00031886655565486333,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 157.89234217540164,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": false
+    },
+    {
+      "fixture": "n32-float16-self",
+      "policy": "explicit_fp32_attention",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 0.00031622668254008794,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 78.67594442609243,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.3719106390158944,
+          "maximum_absolute_error": 0.0007944107055664062,
+          "reference_l2": 0.02991561983421748,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.34047093185470906,
+          "maximum_absolute_error": 0.00079345703125,
+          "reference_l2": 0.03267713114869817,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 0.00031886655565486333,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 157.89234217540164,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": false
+    },
+    {
+      "fixture": "n32-float32-independent",
+      "policy": "installed_operator",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 4.4980191266777115e-07,
+          "maximum_absolute_error": 7.040798664093018e-07,
+          "reference_l2": 36.82488118056961,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 1.7365560804614525e-06,
+          "maximum_absolute_error": 3.0994415283203125e-06,
+          "reference_l2": 24.498780849889673,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 1.746608986628753e-06,
+          "maximum_absolute_error": 3.2186508178710938e-06,
+          "reference_l2": 24.874327603749816,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 1.3674166672635886e-06,
+          "maximum_absolute_error": 5.364418029785156e-06,
+          "reference_l2": 70.60917548313986,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n32-float32-independent",
+      "policy": "explicit_fp32_attention",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 4.4980191266777115e-07,
+          "maximum_absolute_error": 7.040798664093018e-07,
+          "reference_l2": 36.82488118056961,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 1.7365560804614525e-06,
+          "maximum_absolute_error": 3.0994415283203125e-06,
+          "reference_l2": 24.498780849889673,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 1.746608986628753e-06,
+          "maximum_absolute_error": 3.2186508178710938e-06,
+          "reference_l2": 24.874327603749816,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 1.3674166672635886e-06,
+          "maximum_absolute_error": 5.364418029785156e-06,
+          "reference_l2": 70.60917548313986,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n32-float32-self",
+      "policy": "installed_operator",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 8.905085036715904e-08,
+          "maximum_absolute_error": 3.5762786865234375e-07,
+          "reference_l2": 78.67333911400588,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.00029653450650172624,
+          "maximum_absolute_error": 6.578920874744654e-07,
+          "reference_l2": 0.029914089775627185,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.00027146850888495416,
+          "maximum_absolute_error": 6.580085027962923e-07,
+          "reference_l2": 0.03267477587578703,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 2.9168296218675014e-07,
+          "maximum_absolute_error": 2.384185791015625e-06,
+          "reference_l2": 157.8880337322447,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n32-float32-self",
+      "policy": "explicit_fp32_attention",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 8.905085036715904e-08,
+          "maximum_absolute_error": 3.5762786865234375e-07,
+          "reference_l2": 78.67333911400588,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.00029653450650172624,
+          "maximum_absolute_error": 6.578920874744654e-07,
+          "reference_l2": 0.029914089775627185,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.00027146850888495416,
+          "maximum_absolute_error": 6.580085027962923e-07,
+          "reference_l2": 0.03267477587578703,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 2.9168296218675014e-07,
+          "maximum_absolute_error": 2.384185791015625e-06,
+          "reference_l2": 157.8880337322447,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n1024-float16-independent",
+      "policy": "installed_operator",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 0.00031695775851033775,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 53.747146675274244,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.0003413949452881414,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 46.693331770622805,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.0003387582836401386,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 47.06612971761012,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 0.0003228039118725046,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 106.07448541051318,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n1024-float16-independent",
+      "policy": "explicit_fp32_attention",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 0.00031695775851033775,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 53.747146675274244,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.00015311953136338687,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 46.693331770622805,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.0001634720501299335,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 47.06612971761012,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 0.0003228039118725046,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 106.07448541051318,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n1024-float16-self",
+      "policy": "installed_operator",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 0.0002943366067794071,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 438.36408822457844,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.018898232053554467,
+          "maximum_absolute_error": 0.0011425018310546875,
+          "reference_l2": 4.771671623580105,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.017212918369408362,
+          "maximum_absolute_error": 0.00115966796875,
+          "reference_l2": 5.234343241342526,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 0.0002946428319800708,
+          "maximum_absolute_error": 0.00390625,
+          "reference_l2": 878.5881969412427,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n1024-float16-self",
+      "policy": "explicit_fp32_attention",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 0.0002943366067794071,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 438.36408822457844,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 0.012960087880792882,
+          "maximum_absolute_error": 0.00140380859375,
+          "reference_l2": 4.771671623580105,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 0.011804418959382446,
+          "maximum_absolute_error": 0.001373291015625,
+          "reference_l2": 5.234343241342526,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 0.0002946428319800708,
+          "maximum_absolute_error": 0.00390625,
+          "reference_l2": 878.5881969412427,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n1024-float32-independent",
+      "policy": "installed_operator",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 7.602316248169099e-07,
+          "maximum_absolute_error": 7.748603820800781e-07,
+          "reference_l2": 53.747318042587814,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 2.1712740851092264e-06,
+          "maximum_absolute_error": 2.682209014892578e-06,
+          "reference_l2": 46.69327944533832,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 2.1951407489451227e-06,
+          "maximum_absolute_error": 2.6226043701171875e-06,
+          "reference_l2": 47.066057134640225,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 2.0809826806769495e-06,
+          "maximum_absolute_error": 6.67572021484375e-06,
+          "reference_l2": 106.07473467321624,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n1024-float32-independent",
+      "policy": "explicit_fp32_attention",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 7.602316248169099e-07,
+          "maximum_absolute_error": 7.748603820800781e-07,
+          "reference_l2": 53.747318042587814,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 2.1712740851092264e-06,
+          "maximum_absolute_error": 2.682209014892578e-06,
+          "reference_l2": 46.69327944533832,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 2.1951407489451227e-06,
+          "maximum_absolute_error": 2.6226043701171875e-06,
+          "reference_l2": 47.066057134640225,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 2.0809826806769495e-06,
+          "maximum_absolute_error": 6.67572021484375e-06,
+          "reference_l2": 106.07473467321624,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n1024-float32-self",
+      "policy": "installed_operator",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 1.0857509079183178e-07,
+          "maximum_absolute_error": 7.152557373046875e-07,
+          "reference_l2": 438.3638732831236,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 1.1785072377408633e-05,
+          "maximum_absolute_error": 1.298263669013977e-06,
+          "reference_l2": 4.7716061195627395,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 1.0763602481676695e-05,
+          "maximum_absolute_error": 1.3336539268493652e-06,
+          "reference_l2": 5.2342732725602525,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 4.4164645980684717e-07,
+          "maximum_absolute_error": 6.198883056640625e-06,
+          "reference_l2": 878.5875927079596,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    },
+    {
+      "fixture": "n1024-float32-self",
+      "policy": "explicit_fp32_attention",
+      "replicas": 32,
+      "worst_relative_l2": {
+        "output": {
+          "relative_l2": 1.0857509079183178e-07,
+          "maximum_absolute_error": 7.152557373046875e-07,
+          "reference_l2": 438.3638732831236,
+          "rank": 0
+        },
+        "q": {
+          "relative_l2": 1.1785072377408633e-05,
+          "maximum_absolute_error": 1.298263669013977e-06,
+          "reference_l2": 4.7716061195627395,
+          "rank": 0
+        },
+        "k": {
+          "relative_l2": 1.0763602481676695e-05,
+          "maximum_absolute_error": 1.3336539268493652e-06,
+          "reference_l2": 5.2342732725602525,
+          "rank": 0
+        },
+        "v": {
+          "relative_l2": 4.4164645980684717e-07,
+          "maximum_absolute_error": 6.198883056640625e-06,
+          "reference_l2": 878.5875927079596,
+          "rank": 0
+        }
+      },
+      "passes_registered_gate": true
+    }
+  ],
+  "original_operator_discrepancy_reproduced": true,
+  "all32_replica_packets_equal": true,
+  "all32_workaround_replicas_pass": false,
+  "software_fixture_cases": 8,
+  "error": "Compiled workaround failed fixed2% gradient/0.2% output gates",
+  "wall_seconds": 9.997208595275879,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "research_examples": 0,
+  "test_accessed": false,
+  "scope": "All32 actual compiled native replicas compared with independently saved CPU PyTorch MATH arrays. Original-path failures are reported,not required to pass. No corpus,optimizer,recovery,speed or learning claim."
+}

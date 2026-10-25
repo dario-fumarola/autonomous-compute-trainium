@@ -1,0 +1,1971 @@
+{
+  "status": "COMPLETE_FROZEN_LOW_DEPTH_MAIN_PILOT",
+  "contrasts": {
+    "matched": {
+      "one_pass_minus_candidate": -0.0018560038990145244,
+      "ordinary_minus_candidate": 0.0038706034886231144,
+      "candidate_depth1_minus_depth2": 0.017189156602451572,
+      "candidate_depth1_minus_depth3": 0.01930249377429405
+    },
+    "equal": {
+      "one_pass_minus_candidate": 0.0008706751649105726,
+      "ordinary_minus_candidate": -0.0005605491824374198,
+      "candidate_depth1_minus_depth2": 0.014193951328805188,
+      "candidate_depth1_minus_depth3": 0.01566333120309027
+    }
+  },
+  "scope": "Execution recovery of unchanged one-seed consumed-DEV pilot;completed1B prefixes adopted exactly,ordinary restarts from its same fresh initialization after a failed70-update path with no checkpoint. Not terminal significance,confirmation or a strongest-baseline efficiency claim.",
+  "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+  "wall_seconds": 18129.054748296738,
+  "native_records": [
+    {
+      "identity": "low-depth-main-r2-fixed1-first",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "fixed1-main-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "fixed1",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "actual_optimizer_calls_per_replica": 1920,
+      "segment_real_targets": 1004887590,
+      "segment_executed_matmuls": 519151642518159360,
+      "update": 1920,
+      "source_cursor": 983040,
+      "real_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "executed_matmuls": 519151642518159360,
+      "complete_state_on_load_exact": false,
+      "recovered_state_digest": null,
+      "checkpoint_records": [
+        {
+          "update": 576,
+          "checkpoint_sha256": "3c3900922026134c6e5dbc7e502c7ac4705e3c753a57c1aacdec6cdad96b52d7",
+          "full_state_digest": "fd0685b6d9d1b05a415c0755e188fc4d2aa219c725b15adffb63d99c5635cf6d",
+          "real_targets": 301465908,
+          "executed_matmuls": 155745492755447808,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 960,
+          "checkpoint_sha256": "53ce4c630200cc8231859a7b4f79439e823e60905e67c89779b4eb2769843b60",
+          "full_state_digest": "d3a201bed72fd9d2a3343af5f0c043b863f400435a12f7c360701311a200f06d",
+          "real_targets": 502444236,
+          "executed_matmuls": 259575821259079680,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 1920,
+          "checkpoint_sha256": "1b475f70ed6b7f57eda7e5aa02645a53eec39ad15d300a2b6f096e8ecee0b34e",
+          "full_state_digest": "0af30baecd00d469c091aac9341db9404329474992d59d279de8f83e4051e726",
+          "real_targets": 1004887590,
+          "executed_matmuls": 519151642518159360,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 2423.981082677841,
+      "qualification_only": false,
+      "research_optimizer_updates": 1920,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate.",
+      "adopted_from": {
+        "identity": "low-depth-main-v1-fixed1-first",
+        "report_sha256": "f902c2b563c523659f21dc98b2c183642dce8125db3611e99091c7e8b4c43747",
+        "checkpoints": {
+          "576": {
+            "original_sha256": "811a3461aeb184424de6e9a23ef7e44f895b2999a09d1d9c65448c20886e0618",
+            "adopted_sha256": "3c3900922026134c6e5dbc7e502c7ac4705e3c753a57c1aacdec6cdad96b52d7",
+            "non_signature_payload_digest": "de2491c7fa52d5d387b1240447d95e6feb83d5e999e647954758e2b7c4a3495e",
+            "all_non_signature_state_exact": true
+          },
+          "960": {
+            "original_sha256": "40ff4e19c61c0bc412a50d5294cd1790c294ca9c6e25d3bda1e481e3f820a83a",
+            "adopted_sha256": "53ce4c630200cc8231859a7b4f79439e823e60905e67c89779b4eb2769843b60",
+            "non_signature_payload_digest": "cf6d28bcf9043b72232bef3a26e01e137eb3058404d43cc2bdbf97033a732afe",
+            "all_non_signature_state_exact": true
+          },
+          "1920": {
+            "original_sha256": "e16b6ef73992a606cda690e1e49a0b2a75c58f9dcbbbdcf5a68f67208cff4416",
+            "adopted_sha256": "1b475f70ed6b7f57eda7e5aa02645a53eec39ad15d300a2b6f096e8ecee0b34e",
+            "non_signature_payload_digest": "4c46521d9f4598d6a59a571a2e1f06c17d2ad4b175181180f5436a21dd7e1c48",
+            "all_non_signature_state_exact": true
+          }
+        }
+      },
+      "new_optimizer_calls_this_adoption": 0,
+      "execution_mode": "adopted_verified_complete_predecessor_segment"
+    },
+    {
+      "identity": "low-depth-main-r2-poisson2-first",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "poisson2-main-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "poisson2",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "actual_optimizer_calls_per_replica": 1920,
+      "segment_real_targets": 1004887590,
+      "segment_executed_matmuls": 560011939781345280,
+      "update": 1920,
+      "source_cursor": 983040,
+      "real_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "executed_matmuls": 560011939781345280,
+      "complete_state_on_load_exact": false,
+      "recovered_state_digest": null,
+      "checkpoint_records": [
+        {
+          "update": 576,
+          "checkpoint_sha256": "cf1386fa24a67141d6fc2936c6bfd715907befd772b0dde0e4e87014ecee86f7",
+          "full_state_digest": "33b44c2c5d2c344e7698f47992c2a47c4328a0421a928054a196d2fec8113748",
+          "real_targets": 301465908,
+          "executed_matmuls": 168002149238734848,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 960,
+          "checkpoint_sha256": "1785b1558571d84b25db2cd6a1ac7e943ad816457596d3065966dcebc81482e7",
+          "full_state_digest": "4a767fc46aad8fd1da9ab736df1d4a03b76cf244258f9f4cc0f7b223d17c5278",
+          "real_targets": 502444236,
+          "executed_matmuls": 279981548109004800,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 1920,
+          "checkpoint_sha256": "28f6173e3c92f71533604e5f9b9cbeca751ecf22c6123806429cbac30fdbfa40",
+          "full_state_digest": "ba2a1b66736f7d08e1be1671a53751d81488064cba55c9adfa5dba60b8cc2df0",
+          "real_targets": 1004887590,
+          "executed_matmuls": 560011939781345280,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 2616.426975250244,
+      "qualification_only": false,
+      "research_optimizer_updates": 1920,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate.",
+      "adopted_from": {
+        "identity": "low-depth-main-v1-poisson2-first",
+        "report_sha256": "db7dac624b7e3a3c5bdd01969f35a7b356ea3a9d5db8eeb631105b7fc35fb932",
+        "checkpoints": {
+          "576": {
+            "original_sha256": "f1c60e6e42b9fd7d404d513c712bb043a2b5f0dc4a1510c2fa978ed1d152b685",
+            "adopted_sha256": "cf1386fa24a67141d6fc2936c6bfd715907befd772b0dde0e4e87014ecee86f7",
+            "non_signature_payload_digest": "1421316d503a9297d83d3ff0620cdca5438c4feee6a88ffbad742070595accc0",
+            "all_non_signature_state_exact": true
+          },
+          "960": {
+            "original_sha256": "e6f19a76ecaaa2f682a4d55144cb7f2b00827e88a6185968d3ee4ec3fba12a1a",
+            "adopted_sha256": "1785b1558571d84b25db2cd6a1ac7e943ad816457596d3065966dcebc81482e7",
+            "non_signature_payload_digest": "25efe0061a42800bd124107970aa142262922a9edba846a202a65d42888a8865",
+            "all_non_signature_state_exact": true
+          },
+          "1920": {
+            "original_sha256": "3423ce08b658ffad29b81a5f2d64ae69fd31b792c4cf6003e451cf60f68c6eaf",
+            "adopted_sha256": "28f6173e3c92f71533604e5f9b9cbeca751ecf22c6123806429cbac30fdbfa40",
+            "non_signature_payload_digest": "76ae7c0c1fe34743d6d3484ebb41e54484dfaa0374b5e64226da42d0cbe671ff",
+            "all_non_signature_state_exact": true
+          }
+        }
+      },
+      "new_optimizer_calls_this_adoption": 0,
+      "execution_mode": "adopted_verified_complete_predecessor_segment"
+    },
+    {
+      "identity": "low-depth-main-r2-ordinary-first",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "ordinary-main-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "ordinary",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 140781888,
+      "initial_model_digest": "27d57ec457f110cf97bdd8b8d8c92801eb0e7d41b7cadb832a572cfe82699723",
+      "actual_optimizer_calls_per_replica": 1920,
+      "segment_real_targets": 1004887590,
+      "segment_executed_matmuls": 512026807170170880,
+      "update": 1920,
+      "source_cursor": 983040,
+      "real_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "executed_matmuls": 512026807170170880,
+      "complete_state_on_load_exact": false,
+      "recovered_state_digest": null,
+      "checkpoint_records": [
+        {
+          "update": 576,
+          "checkpoint_sha256": "cf43f8266e2b5f2839708886972b6fe19db7395f3a029cdb2d1b2fda91faeacb",
+          "full_state_digest": "5391941ce60d331dfb4384cfc62643ca682df8078b3a0af76d1e326c1a1e68fa",
+          "real_targets": 301465908,
+          "executed_matmuls": 153608042151051264,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 960,
+          "checkpoint_sha256": "67356793283e33cd35a04d4d62b1b75caa223d2df4052b7859faaf059e477595",
+          "full_state_digest": "a2cf3145ef91fa39b2f505ef6a7ec985b3ca8243d3df8abf4d76295b6d5d016d",
+          "real_targets": 502444236,
+          "executed_matmuls": 256013403585085440,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 1920,
+          "checkpoint_sha256": "7c32397cfe42af5068b1c2b6bb362f36ab276514b53784095ffb295d164eb338",
+          "full_state_digest": "08ca999348eabf4152593e5172ceb8b39c96e423ce6553dd55a569f6b7caf232",
+          "real_targets": 1004887590,
+          "executed_matmuls": 512026807170170880,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 2184.553452730179,
+      "qualification_only": false,
+      "research_optimizer_updates": 1920,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-main-r2-fixed1-finish",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "fixed1-main-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "fixed1",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "actual_optimizer_calls_per_replica": 4952,
+      "segment_real_targets": 2591730101,
+      "segment_executed_matmuls": 1338978611328086016,
+      "update": 6872,
+      "source_cursor": 3518464,
+      "real_targets": 3596617691,
+      "domain_targets": [
+        2157968272,
+        719324721,
+        719324698
+      ],
+      "executed_matmuls": 1858130253846245376,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "0af30baecd00d469c091aac9341db9404329474992d59d279de8f83e4051e726",
+      "checkpoint_records": [
+        {
+          "update": 3436,
+          "checkpoint_sha256": "58e24c23ebc87607e1080a44f0321e0a5d03adefee9ca8b46d60041f89dc23a6",
+          "full_state_digest": "9e7a9f527dad0657fea9ba40f4f2aca7902526ec3301dc75ed46a534ffb08147",
+          "real_targets": 1798320410,
+          "executed_matmuls": 929065126923122688,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 6872,
+          "checkpoint_sha256": "dcff9c59f5fb7959c7e3c3b20477ebe3a4a22050b162cd751daa4d6349f1c977",
+          "full_state_digest": "8cbe4919996693db640ec0fddd6d3b0fc40e8d568f6a1d00b41474df5894c785",
+          "real_targets": 3596617691,
+          "executed_matmuls": 1858130253846245376,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 6097.524799585342,
+      "qualification_only": false,
+      "research_optimizer_updates": 4952,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-main-r2-poisson2-finish",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "poisson2-main-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "poisson2",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "actual_optimizer_calls_per_replica": 4450,
+      "segment_real_targets": 2329006893,
+      "segment_executed_matmuls": 1298042937617126400,
+      "update": 6370,
+      "source_cursor": 3261440,
+      "real_targets": 3333894483,
+      "domain_targets": [
+        2000334075,
+        666779484,
+        666780924
+      ],
+      "executed_matmuls": 1858054877398471680,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "ba2a1b66736f7d08e1be1671a53751d81488064cba55c9adfa5dba60b8cc2df0",
+      "checkpoint_records": [
+        {
+          "update": 3185,
+          "checkpoint_sha256": "9686f062416e1c00a6d6d31b2c78fcd9e04d6d299e305debddcde775f0d18c26",
+          "full_state_digest": "9991f5573ecf937363de3849bd96fc78bea9b25030e71eebdf0a053381c0fcaf",
+          "real_targets": 1666954102,
+          "executed_matmuls": 929000781765757440,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 6370,
+          "checkpoint_sha256": "4a6afc73002b6e82bdb72b886653b5dc078a7ca09342ebda8d9b207dc3b6be36",
+          "full_state_digest": "d0f7c0a8ed926586a6bebbe62fa92f0c41795a4ca4cd51a552d76c9f2ef48caf",
+          "real_targets": 3333894483,
+          "executed_matmuls": 1858054877398471680,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 5948.982365846634,
+      "qualification_only": false,
+      "research_optimizer_updates": 4450,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-main-r2-fixed1-equal",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "fixed1-equal-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "fixed1",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "actual_optimizer_calls_per_replica": 960,
+      "segment_real_targets": 502443354,
+      "segment_executed_matmuls": 259575821259079680,
+      "update": 1920,
+      "source_cursor": 983040,
+      "real_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "executed_matmuls": 519151642518159360,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "d3a201bed72fd9d2a3343af5f0c043b863f400435a12f7c360701311a200f06d",
+      "checkpoint_records": [
+        {
+          "update": 1920,
+          "checkpoint_sha256": "e9d8ae4d318644310ad27ba4498fff8b5b5c06ea1b2bbdde6078cc44238fd38a",
+          "full_state_digest": "462912181f719b8f00e7441f1b7e07bc0b9a8c8f842d4b96d44e338088838982",
+          "real_targets": 1004887590,
+          "executed_matmuls": 519151642518159360,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 1236.176448583603,
+      "qualification_only": false,
+      "research_optimizer_updates": 960,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-main-r2-poisson2-equal",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "poisson2-equal-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "poisson2",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "actual_optimizer_calls_per_replica": 960,
+      "segment_real_targets": 502443354,
+      "segment_executed_matmuls": 280030391672340480,
+      "update": 1920,
+      "source_cursor": 983040,
+      "real_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "executed_matmuls": 560011939781345280,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "4a767fc46aad8fd1da9ab736df1d4a03b76cf244258f9f4cc0f7b223d17c5278",
+      "checkpoint_records": [
+        {
+          "update": 1920,
+          "checkpoint_sha256": "8cf3f94c8e067f36250e28980378c7f17f90a7f95b42672f984e8c186ba1ce81",
+          "full_state_digest": "1623c519a5265c1be7692c0398c38fb63123b4e45dd6dd61c335b454cd148338",
+          "real_targets": 1004887590,
+          "executed_matmuls": 560011939781345280,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 1344.2361660003662,
+      "qualification_only": false,
+      "research_optimizer_updates": 960,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-main-r2-ordinary-finish",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "ordinary-main-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "ordinary",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 140781888,
+      "initial_model_digest": "27d57ec457f110cf97bdd8b8d8c92801eb0e7d41b7cadb832a572cfe82699723",
+      "actual_optimizer_calls_per_replica": 5047,
+      "segment_real_targets": 2641449543,
+      "segment_executed_matmuls": 1345937133222839808,
+      "update": 6967,
+      "source_cursor": 3567104,
+      "real_targets": 3646337133,
+      "domain_targets": [
+        2187795190,
+        729269259,
+        729272684
+      ],
+      "executed_matmuls": 1857963940393010688,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "08ca999348eabf4152593e5172ceb8b39c96e423ce6553dd55a569f6b7caf232",
+      "checkpoint_records": [
+        {
+          "update": 3483,
+          "checkpoint_sha256": "5b67accdac23a06da13d11c8243b7f362d961142202f6ee4345564cd16a5492f",
+          "full_state_digest": "72970bc1e634898871ee39957e9d41e7d70429c68ecb9a8a7482541604b6d0e5",
+          "real_targets": 1822918078,
+          "executed_matmuls": 928848629882138112,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 6967,
+          "checkpoint_sha256": "1e557f4201764e047df693f3de22ef9328f54ebfb71184c3b632e24de9288161",
+          "full_state_digest": "ec92d51bf4549d311f50cfa5b1062300bbba790d001ac0955c049a8ff67d938b",
+          "real_targets": 3646337133,
+          "executed_matmuls": 1857963940393010688,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 5526.780880689621,
+      "qualification_only": false,
+      "research_optimizer_updates": 5047,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-main-r2-ordinary-equal",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "ordinary-equal-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "ordinary",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 140781888,
+      "initial_model_digest": "27d57ec457f110cf97bdd8b8d8c92801eb0e7d41b7cadb832a572cfe82699723",
+      "actual_optimizer_calls_per_replica": 960,
+      "segment_real_targets": 502443354,
+      "segment_executed_matmuls": 256013403585085440,
+      "update": 1920,
+      "source_cursor": 983040,
+      "real_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "executed_matmuls": 512026807170170880,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "a2cf3145ef91fa39b2f505ef6a7ec985b3ca8243d3df8abf4d76295b6d5d016d",
+      "checkpoint_records": [
+        {
+          "update": 1920,
+          "checkpoint_sha256": "1b9d737543c0d84d6032cd91d39f1b9f74698fd56fe19f1958af0a1c5611ae99",
+          "full_state_digest": "beb2ee0279ba0154a48937b53db220b8b3b06ade5f8213c42e7b13dfa0fb6557",
+          "real_targets": 1004887590,
+          "executed_matmuls": 512026807170170880,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 1098.7990248203278,
+      "qualification_only": false,
+      "research_optimizer_updates": 960,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    }
+  ],
+  "gradients": [
+    {
+      "arm": "fixed1",
+      "readout": "stable1B",
+      "capture_identity": "low-depth-recovery-v2-gradient-gates-fixed1",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "fixed1",
+        "case_id": "fixed1-main-s1231",
+        "arm": "fixed1",
+        "training_update": 1920,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0017583581007183026,
+            "maximum_absolute_error": 0.00038170069456100464,
+            "reference_l2": 0.27224983033208106
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0023876711954900847,
+              "maximum_absolute_error": 3.961194306612015e-05,
+              "reference_l2": 0.022165645984377244
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0005883673369811998,
+              "maximum_absolute_error": 2.1980376914143562e-06,
+              "reference_l2": 0.01708344765260347
+            },
+            "transformer_body": {
+              "relative_l2": 0.0017564997971137278,
+              "maximum_absolute_error": 0.00038170069456100464,
+              "reference_l2": 0.27080616779831557
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0010732729819130447,
+              "maximum_absolute_error": 4.26261976826936e-08,
+              "reference_l2": 0.0009107978005354106
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.738573058108221,
+        "native_minus_cpu_nll": -1.6234057031994098e-07,
+        "real_targets": 523350,
+        "windows": 512,
+        "checkpoint_sha256": "e16b6ef73992a606cda690e1e49a0b2a75c58f9dcbbbdcf5a68f67208cff4416",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 365.3768870830536,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "adopted_checkpoint_sha256": "1b475f70ed6b7f57eda7e5aa02645a53eec39ad15d300a2b6f096e8ecee0b34e",
+      "shared_complete_state_digest": "0af30baecd00d469c091aac9341db9404329474992d59d279de8f83e4051e726",
+      "diagnostic_matmuls": 244299551735808,
+      "diagnostic_real_targets": 523350,
+      "scope": "Same exact full model/optimizer/RNG/source/depth state;only execution-plan signature rebound,with original numerical receipt retained unchanged."
+    },
+    {
+      "arm": "poisson2",
+      "readout": "stable1B",
+      "capture_identity": "low-depth-recovery-v2-gradient-gates-poisson2",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "poisson2",
+        "case_id": "poisson2-main-s1231",
+        "arm": "poisson2",
+        "training_update": 1920,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.001128005160624032,
+            "maximum_absolute_error": 0.00020886276615783572,
+            "reference_l2": 0.2760666720999435
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.001245127102160522,
+              "maximum_absolute_error": 8.956849342212081e-06,
+              "reference_l2": 0.017363769550887746
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0006217390015301942,
+              "maximum_absolute_error": 4.493631422519684e-06,
+              "reference_l2": 0.02208908529818616
+            },
+            "transformer_body": {
+              "relative_l2": 0.0011300535872878657,
+              "maximum_absolute_error": 0.00020886276615783572,
+              "reference_l2": 0.27463134225993063
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0009132912345490336,
+              "maximum_absolute_error": 6.204209057614207e-08,
+              "reference_l2": 0.0010025520034864306
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.746874391922605,
+        "native_minus_cpu_nll": 2.6979789904402196e-06,
+        "real_targets": 523350,
+        "windows": 512,
+        "checkpoint_sha256": "3423ce08b658ffad29b81a5f2d64ae69fd31b792c4cf6003e451cf60f68c6eaf",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 380.08700346946716,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "adopted_checkpoint_sha256": "28f6173e3c92f71533604e5f9b9cbeca751ecf22c6123806429cbac30fdbfa40",
+      "shared_complete_state_digest": "ba2a1b66736f7d08e1be1671a53751d81488064cba55c9adfa5dba60b8cc2df0",
+      "diagnostic_matmuls": 265038829191168,
+      "diagnostic_real_targets": 523350,
+      "scope": "Same exact full model/optimizer/RNG/source/depth state;only execution-plan signature rebound,with original numerical receipt retained unchanged."
+    },
+    {
+      "arm": "ordinary",
+      "readout": "stable1B",
+      "capture_identity": "low-depth-main-r2-gradient-ordinary-stable1b-ordinary",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "ordinary",
+        "case_id": "ordinary-main-s1231",
+        "arm": "ordinary",
+        "training_update": 1920,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0008817203130895717,
+            "maximum_absolute_error": 1.5616416931152344e-05,
+            "reference_l2": 0.2256037772490878
+          },
+          "families": {
+            "tied_input_output": {
+              "relative_l2": 0.000604092177526543,
+              "maximum_absolute_error": 3.623776137828827e-06,
+              "reference_l2": 0.0161804606240475
+            },
+            "transformer_body": {
+              "relative_l2": 0.0008829269593533171,
+              "maximum_absolute_error": 1.5616416931152344e-05,
+              "reference_l2": 0.22502141124201808
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0010328350296070652,
+              "maximum_absolute_error": 3.1987497095542494e-08,
+              "reference_l2": 0.0007883436435069002
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.7291583244372566,
+        "native_minus_cpu_nll": 3.804157373998862e-06,
+        "real_targets": 523350,
+        "windows": 512,
+        "checkpoint_sha256": "7c32397cfe42af5068b1c2b6bb362f36ab276514b53784095ffb295d164eb338",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 423.54422760009766,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "diagnostic_matmuls": 240588699992064,
+      "diagnostic_real_targets": 523350
+    },
+    {
+      "arm": "fixed1",
+      "readout": "matched",
+      "capture_identity": "low-depth-main-r2-gradient-fixed1-matched-fixed1",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "fixed1",
+        "case_id": "fixed1-main-s1231",
+        "arm": "fixed1",
+        "training_update": 6872,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0045429541676376885,
+            "maximum_absolute_error": 7.670815102756023e-05,
+            "reference_l2": 0.10713841902081613
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.010993424144697046,
+              "maximum_absolute_error": 3.28089518006891e-05,
+              "reference_l2": 0.004335174047431466
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0026126383732892272,
+              "maximum_absolute_error": 3.5041339288000017e-06,
+              "reference_l2": 0.004107890310118157
+            },
+            "transformer_body": {
+              "relative_l2": 0.004527094870990342,
+              "maximum_absolute_error": 7.670815102756023e-05,
+              "reference_l2": 0.10697049410821305
+            },
+            "value_embeddings": {
+              "relative_l2": 0.002290149447875746,
+              "maximum_absolute_error": 6.420469844670151e-08,
+              "reference_l2": 0.0005345312930434914
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.4272817243566545,
+        "native_minus_cpu_nll": -6.243535972672021e-07,
+        "real_targets": 523344,
+        "windows": 512,
+        "checkpoint_sha256": "dcff9c59f5fb7959c7e3c3b20477ebe3a4a22050b162cd751daa4d6349f1c977",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 433.05699920654297,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "diagnostic_matmuls": 244299551735808,
+      "diagnostic_real_targets": 523344
+    },
+    {
+      "arm": "poisson2",
+      "readout": "matched",
+      "capture_identity": "low-depth-main-r2-gradient-poisson2-matched-poisson2",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "poisson2",
+        "case_id": "poisson2-main-s1231",
+        "arm": "poisson2",
+        "training_update": 6370,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0176318543679258,
+            "maximum_absolute_error": 0.0016362536698579788,
+            "reference_l2": 0.09785583650651554
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.018109322230328996,
+              "maximum_absolute_error": 4.886012902716175e-05,
+              "reference_l2": 0.00379281845503945
+            },
+            "tied_input_output": {
+              "relative_l2": 0.003820053086285572,
+              "maximum_absolute_error": 6.0122692957520485e-06,
+              "reference_l2": 0.003940584956364289
+            },
+            "transformer_body": {
+              "relative_l2": 0.017645013647226686,
+              "maximum_absolute_error": 0.0016362536698579788,
+              "reference_l2": 0.09770159715380386
+            },
+            "value_embeddings": {
+              "relative_l2": 0.002464375838797387,
+              "maximum_absolute_error": 1.1283191270194948e-07,
+              "reference_l2": 0.0004989692921542769
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.3888129975609598,
+        "native_minus_cpu_nll": 1.3220828254389971e-07,
+        "real_targets": 523406,
+        "windows": 512,
+        "checkpoint_sha256": "4a6afc73002b6e82bdb72b886653b5dc078a7ca09342ebda8d9b207dc3b6be36",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 419.15343046188354,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "diagnostic_matmuls": 265881591349248,
+      "diagnostic_real_targets": 523406
+    },
+    {
+      "arm": "fixed1",
+      "readout": "equal",
+      "capture_identity": "low-depth-main-r2-gradient-fixed1-equal-fixed1",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "fixed1",
+        "case_id": "fixed1-equal-s1231",
+        "arm": "fixed1",
+        "training_update": 1920,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.004064655235740041,
+            "maximum_absolute_error": 7.799826562404633e-05,
+            "reference_l2": 0.09567223490591166
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.005518555830424586,
+              "maximum_absolute_error": 9.34918352868408e-06,
+              "reference_l2": 0.006767368458349393
+            },
+            "tied_input_output": {
+              "relative_l2": 0.002576271537146825,
+              "maximum_absolute_error": 4.914938472211361e-06,
+              "reference_l2": 0.006451024722224607
+            },
+            "transformer_body": {
+              "relative_l2": 0.004061625904287674,
+              "maximum_absolute_error": 7.799826562404633e-05,
+              "reference_l2": 0.0952128035439634
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0019889975686873495,
+              "maximum_absolute_error": 4.6934019337641075e-08,
+              "reference_l2": 0.0005343943981343211
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.5785785331080997,
+        "native_minus_cpu_nll": 4.633033106049567e-06,
+        "real_targets": 523350,
+        "windows": 512,
+        "checkpoint_sha256": "e9d8ae4d318644310ad27ba4498fff8b5b5c06ea1b2bbdde6078cc44238fd38a",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 395.20024490356445,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "diagnostic_matmuls": 244299551735808,
+      "diagnostic_real_targets": 523350
+    },
+    {
+      "arm": "poisson2",
+      "readout": "equal",
+      "capture_identity": "low-depth-main-r2-gradient-poisson2-equal-poisson2",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "poisson2",
+        "case_id": "poisson2-equal-s1231",
+        "arm": "poisson2",
+        "training_update": 1920,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.003952297029932603,
+            "maximum_absolute_error": 9.66433435678482e-05,
+            "reference_l2": 0.08875179350702785
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.004926657667488829,
+              "maximum_absolute_error": 6.1143728089518845e-06,
+              "reference_l2": 0.006217624431182293
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0023404221374064044,
+              "maximum_absolute_error": 3.766734153032303e-06,
+              "reference_l2": 0.006272840618218421
+            },
+            "transformer_body": {
+              "relative_l2": 0.003953392800071317,
+              "maximum_absolute_error": 9.66433435678482e-05,
+              "reference_l2": 0.08830985597798209
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0019255718412402212,
+              "maximum_absolute_error": 6.188997758727055e-08,
+              "reference_l2": 0.0004927523448598121
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.5806244848719113,
+        "native_minus_cpu_nll": 3.679836218850596e-06,
+        "real_targets": 523350,
+        "windows": 512,
+        "checkpoint_sha256": "8cf3f94c8e067f36250e28980378c7f17f90a7f95b42672f984e8c186ba1ce81",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 422.3226819038391,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "diagnostic_matmuls": 265038829191168,
+      "diagnostic_real_targets": 523350
+    },
+    {
+      "arm": "ordinary",
+      "readout": "matched",
+      "capture_identity": "low-depth-main-r2-gradient-ordinary-matched-ordinary",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "ordinary",
+        "case_id": "ordinary-main-s1231",
+        "arm": "ordinary",
+        "training_update": 6967,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0046872874490259215,
+            "maximum_absolute_error": 6.68596476316452e-05,
+            "reference_l2": 0.09351504827902751
+          },
+          "families": {
+            "tied_input_output": {
+              "relative_l2": 0.00252762493977035,
+              "maximum_absolute_error": 3.5164557630196214e-06,
+              "reference_l2": 0.004123437581674486
+            },
+            "transformer_body": {
+              "relative_l2": 0.004690577055197124,
+              "maximum_absolute_error": 6.68596476316452e-05,
+              "reference_l2": 0.09342281482921207
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0019815140296188046,
+              "maximum_absolute_error": 5.443916961667128e-08,
+              "reference_l2": 0.0004890669950338857
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.40820966434981,
+        "native_minus_cpu_nll": 3.6276554182812504e-06,
+        "real_targets": 523292,
+        "windows": 512,
+        "checkpoint_sha256": "1e557f4201764e047df693f3de22ef9328f54ebfb71184c3b632e24de9288161",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 323.3497579097748,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "diagnostic_matmuls": 240588699992064,
+      "diagnostic_real_targets": 523292
+    },
+    {
+      "arm": "ordinary",
+      "readout": "equal",
+      "capture_identity": "low-depth-main-r2-gradient-ordinary-equal-ordinary",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "ordinary",
+        "case_id": "ordinary-equal-s1231",
+        "arm": "ordinary",
+        "training_update": 1920,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0032328021257294294,
+            "maximum_absolute_error": 1.5566256479360163e-05,
+            "reference_l2": 0.08670994060337801
+          },
+          "families": {
+            "tied_input_output": {
+              "relative_l2": 0.002428770949659728,
+              "maximum_absolute_error": 6.016547558829188e-06,
+              "reference_l2": 0.006255131613792341
+            },
+            "transformer_body": {
+              "relative_l2": 0.0032365247087004253,
+              "maximum_absolute_error": 1.5566256479360163e-05,
+              "reference_l2": 0.08648250444112143
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0016790298950051649,
+              "maximum_absolute_error": 4.0969098336063325e-08,
+              "reference_l2": 0.0005133746457416456
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 2.574532588143466,
+        "native_minus_cpu_nll": 1.6623581102770402e-06,
+        "real_targets": 523350,
+        "windows": 512,
+        "checkpoint_sha256": "1b9d737543c0d84d6032cd91d39f1b9f74698fd56fe19f1958af0a1c5611ae99",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 337.90301990509033,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      },
+      "diagnostic_matmuls": 240588699992064,
+      "diagnostic_real_targets": 523350
+    }
+  ],
+  "scores": [
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "fixed1-main-s1231",
+      "arm": "fixed1",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 1920,
+      "training_real_targets": 1004887590,
+      "training_executed_matmuls": 519151642518159360,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 828179.0179608256,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.2820356030262134
+          },
+          "code": {
+            "nll_sum": 396282.4373950492,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.5785943688929798
+          },
+          "math": {
+            "nll_sum": 614389.3664983168,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.444085665803359
+          }
+        },
+        "weighted_nll": 2.7737573687549957,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "1b475f70ed6b7f57eda7e5aa02645a53eec39ad15d300a2b6f096e8ecee0b34e",
+      "full_state_readback_exact": true,
+      "full_state_digest": "0af30baecd00d469c091aac9341db9404329474992d59d279de8f83e4051e726",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 261.8426778316498,
+      "peak_rss_gib": 2.971221923828125,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "stable1B"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "fixed1-main-s1231",
+      "arm": "fixed1",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 576,
+      "training_real_targets": 301465908,
+      "training_executed_matmuls": 155745492755447808,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 900507.9214954936,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.568671742532778
+          },
+          "code": {
+            "nll_sum": 446113.493847533,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.7770967946602387
+          },
+          "math": {
+            "nll_sum": 673470.1651338466,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.679113387543248
+          }
+        },
+        "weighted_nll": 3.032445081960364,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "3c3900922026134c6e5dbc7e502c7ac4705e3c753a57c1aacdec6cdad96b52d7",
+      "full_state_readback_exact": true,
+      "full_state_digest": "fd0685b6d9d1b05a415c0755e188fc4d2aa219c725b15adffb63d99c5635cf6d",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 285.1212158203125,
+      "peak_rss_gib": 2.9744300842285156,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "stable301M"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "poisson2-main-s1231",
+      "arm": "poisson2",
+      "seed": 1231,
+      "depth": 2,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 576,
+      "training_real_targets": 301465908,
+      "training_executed_matmuls": 168002149238734848,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 903865.4744730943,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.5819775715534954
+          },
+          "code": {
+            "nll_sum": 449327.0375664586,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.7898979726590258
+          },
+          "math": {
+            "nll_sum": 676272.4878585062,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.690261231525854
+          }
+        },
+        "weighted_nll": 3.045218383769073,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "cf1386fa24a67141d6fc2936c6bfd715907befd772b0dde0e4e87014ecee86f7",
+      "full_state_readback_exact": true,
+      "full_state_digest": "33b44c2c5d2c344e7698f47992c2a47c4328a0421a928054a196d2fec8113748",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 316.99356055259705,
+      "peak_rss_gib": 2.9794387817382812,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "stable301M"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "poisson2-main-s1231",
+      "arm": "poisson2",
+      "seed": 1231,
+      "depth": 2,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 1920,
+      "training_real_targets": 1004887590,
+      "training_executed_matmuls": 560011939781345280,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 830118.9419664947,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.28972343321231
+          },
+          "code": {
+            "nll_sum": 397742.3845519736,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.584410080474729
+          },
+          "math": {
+            "nll_sum": 615632.507697262,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.4490309720709926
+          }
+        },
+        "weighted_nll": 2.78052227043653,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "28f6173e3c92f71533604e5f9b9cbeca751ecf22c6123806429cbac30fdbfa40",
+      "full_state_readback_exact": true,
+      "full_state_digest": "ba2a1b66736f7d08e1be1671a53751d81488064cba55c9adfa5dba60b8cc2df0",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 341.8972716331482,
+      "peak_rss_gib": 2.9340667724609375,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "stable1B"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "ordinary-main-s1231",
+      "arm": "ordinary",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 576,
+      "training_real_targets": 301465908,
+      "training_executed_matmuls": 153608042151051264,
+      "parameters": 140781888,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 885734.3912126718,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.510124917125399
+          },
+          "code": {
+            "nll_sum": 435235.6660551854,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.7337648776273642
+          },
+          "math": {
+            "nll_sum": 661514.9798000947,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.631554789202296
+          }
+        },
+        "weighted_nll": 2.9791388836411716,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "cf43f8266e2b5f2839708886972b6fe19db7395f3a029cdb2d1b2fda91faeacb",
+      "full_state_readback_exact": true,
+      "full_state_digest": "5391941ce60d331dfb4384cfc62643ca682df8078b3a0af76d1e326c1a1e68fa",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 206.2011194229126,
+      "peak_rss_gib": 2.8644752502441406,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "stable301M"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "ordinary-main-s1231",
+      "arm": "ordinary",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 1920,
+      "training_real_targets": 1004887590,
+      "training_executed_matmuls": 512026807170170880,
+      "parameters": 140781888,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 827515.7966579383,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.2794072873099793
+          },
+          "code": {
+            "nll_sum": 394291.84315086005,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.570664820247615
+          },
+          "math": {
+            "nll_sum": 612735.0202764218,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.4375045559930535
+          }
+        },
+        "weighted_nll": 2.769278247634121,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "7c32397cfe42af5068b1c2b6bb362f36ab276514b53784095ffb295d164eb338",
+      "full_state_readback_exact": true,
+      "full_state_digest": "08ca999348eabf4152593e5172ceb8b39c96e423ce6553dd55a569f6b7caf232",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 233.50197458267212,
+      "peak_rss_gib": 2.8653831481933594,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "stable1B"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "fixed1-main-s1231",
+      "arm": "fixed1",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 6872,
+      "training_real_targets": 3596617691,
+      "training_executed_matmuls": 1858130253846245376,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 738994.761522111,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.9286024701970423
+          },
+          "code": {
+            "nll_sum": 331278.60483392375,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3196510639310206
+          },
+          "math": {
+            "nll_sum": 537604.9572071894,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.138631690948251
+          }
+        },
+        "weighted_nll": 2.4488180330940796,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "dcff9c59f5fb7959c7e3c3b20477ebe3a4a22050b162cd751daa4d6349f1c977",
+      "full_state_readback_exact": true,
+      "full_state_digest": "8cbe4919996693db640ec0fddd6d3b0fc40e8d568f6a1d00b41474df5894c785",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 295.6050925254822,
+      "peak_rss_gib": 2.9685707092285156,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "matched"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "poisson2-main-s1231",
+      "arm": "poisson2",
+      "seed": 1231,
+      "depth": 2,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 6370,
+      "training_real_targets": 3333894483,
+      "training_executed_matmuls": 1858054877398471680,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 739270.57358719,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.929695500807214
+          },
+          "code": {
+            "nll_sum": 332072.9189381878,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3228152207388924
+          },
+          "math": {
+            "nll_sum": 538318.058991601,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.1414684618049353
+          }
+        },
+        "weighted_nll": 2.450674036993094,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "4a6afc73002b6e82bdb72b886653b5dc078a7ca09342ebda8d9b207dc3b6be36",
+      "full_state_readback_exact": true,
+      "full_state_digest": "d0f7c0a8ed926586a6bebbe62fa92f0c41795a4ca4cd51a552d76c9f2ef48caf",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 290.1816871166229,
+      "peak_rss_gib": 2.974925994873047,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "matched"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "fixed1-equal-s1231",
+      "arm": "fixed1",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 1920,
+      "training_real_targets": 1004887590,
+      "training_executed_matmuls": 519151642518159360,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 785937.7702622294,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.1146354686876254
+          },
+          "code": {
+            "nll_sum": 363247.9920301202,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4470013823973558
+          },
+          "math": {
+            "nll_sum": 576943.0862999564,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.295121634749089
+          }
+        },
+        "weighted_nll": 2.617205884641864,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "e9d8ae4d318644310ad27ba4498fff8b5b5c06ea1b2bbdde6078cc44238fd38a",
+      "full_state_readback_exact": true,
+      "full_state_digest": "462912181f719b8f00e7441f1b7e07bc0b9a8c8f842d4b96d44e338088838982",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 275.83067440986633,
+      "peak_rss_gib": 2.9668617248535156,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "equal"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "poisson2-equal-s1231",
+      "arm": "poisson2",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 1920,
+      "training_real_targets": 1004887590,
+      "training_executed_matmuls": 560011939781345280,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 789110.1000486648,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.127207266665867
+          },
+          "code": {
+            "nll_sum": 366596.10740493913,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4603386277010741
+          },
+          "math": {
+            "nll_sum": 580855.4685311123,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.3106853763301176
+          }
+        },
+        "weighted_nll": 2.6305291608057586,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "8cf3f94c8e067f36250e28980378c7f17f90a7f95b42672f984e8c186ba1ce81",
+      "full_state_readback_exact": true,
+      "full_state_digest": "1623c519a5265c1be7692c0398c38fb63123b4e45dd6dd61c335b454cd148338",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 237.85453152656555,
+      "peak_rss_gib": 2.968952178955078,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "equal"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "poisson2-main-s1231",
+      "arm": "poisson2",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 6370,
+      "training_real_targets": 3333894483,
+      "training_executed_matmuls": 1858054877398471680,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 744078.0927506464,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.948747479563625
+          },
+          "code": {
+            "nll_sum": 334990.1125628548,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3344358856846845
+          },
+          "math": {
+            "nll_sum": 542634.0135734264,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.1586376436021704
+          }
+        },
+        "weighted_nll": 2.4678631935955457,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "4a6afc73002b6e82bdb72b886653b5dc078a7ca09342ebda8d9b207dc3b6be36",
+      "full_state_readback_exact": true,
+      "full_state_digest": "d0f7c0a8ed926586a6bebbe62fa92f0c41795a4ca4cd51a552d76c9f2ef48caf",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 247.66391801834106,
+      "peak_rss_gib": 2.966167449951172,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "matched"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "poisson2-equal-s1231",
+      "arm": "poisson2",
+      "seed": 1231,
+      "depth": 2,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 1920,
+      "training_real_targets": 1004887590,
+      "training_executed_matmuls": 560011939781345280,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 785445.5038441053,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.112684639367613
+          },
+          "code": {
+            "nll_sum": 363638.90464188764,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4485585860214218
+          },
+          "math": {
+            "nll_sum": 576928.4833777397,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2950635432605067
+          }
+        },
+        "weighted_nll": 2.6163352094769534,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "8cf3f94c8e067f36250e28980378c7f17f90a7f95b42672f984e8c186ba1ce81",
+      "full_state_readback_exact": true,
+      "full_state_digest": "1623c519a5265c1be7692c0398c38fb63123b4e45dd6dd61c335b454cd148338",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 304.25695538520813,
+      "peak_rss_gib": 2.9656143188476562,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "equal"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "poisson2-main-s1231",
+      "arm": "poisson2",
+      "seed": 1231,
+      "depth": 3,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 6370,
+      "training_real_targets": 3333894483,
+      "training_executed_matmuls": 1858054877398471680,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 738616.9667062557,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.9271052866058316
+          },
+          "code": {
+            "nll_sum": 331851.778635226,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.3219343065119447
+          },
+          "math": {
+            "nll_sum": 537836.6376867713,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.1395533327768197
+          }
+        },
+        "weighted_nll": 2.4485606998212517,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "4a6afc73002b6e82bdb72b886653b5dc078a7ca09342ebda8d9b207dc3b6be36",
+      "full_state_readback_exact": true,
+      "full_state_digest": "d0f7c0a8ed926586a6bebbe62fa92f0c41795a4ca4cd51a552d76c9f2ef48caf",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 252.41276049613953,
+      "peak_rss_gib": 2.97418212890625,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "matched"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "poisson2-equal-s1231",
+      "arm": "poisson2",
+      "seed": 1231,
+      "depth": 3,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 1920,
+      "training_real_targets": 1004887590,
+      "training_executed_matmuls": 560011939781345280,
+      "parameters": 141963840,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 785019.9085294522,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.1109980245839974
+          },
+          "code": {
+            "nll_sum": 363443.3593670793,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.447779629800941
+          },
+          "math": {
+            "nll_sum": 576549.3805175682,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.293555444460407
+          }
+        },
+        "weighted_nll": 2.6148658296026683,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "8cf3f94c8e067f36250e28980378c7f17f90a7f95b42672f984e8c186ba1ce81",
+      "full_state_readback_exact": true,
+      "full_state_digest": "1623c519a5265c1be7692c0398c38fb63123b4e45dd6dd61c335b454cd148338",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 250.32464170455933,
+      "peak_rss_gib": 2.981822967529297,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "equal"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "ordinary-main-s1231",
+      "arm": "ordinary",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 6967,
+      "training_real_targets": 3646337133,
+      "training_executed_matmuls": 1857963940393010688,
+      "parameters": 140781888,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 740975.0845785781,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 2.936450399975343
+          },
+          "code": {
+            "nll_sum": 331664.7679977817,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.321189348090034
+          },
+          "math": {
+            "nll_sum": 538497.591295884,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.142182654392524
+          }
+        },
+        "weighted_nll": 2.4545446404817173,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "1e557f4201764e047df693f3de22ef9328f54ebfb71184c3b632e24de9288161",
+      "full_state_readback_exact": true,
+      "full_state_digest": "ec92d51bf4549d311f50cfa5b1062300bbba790d001ac0955c049a8ff67d938b",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 137.85441374778748,
+      "peak_rss_gib": 2.8923416137695312,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "matched"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "ordinary-equal-s1231",
+      "arm": "ordinary",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 1920,
+      "training_real_targets": 1004887590,
+      "training_executed_matmuls": 512026807170170880,
+      "parameters": 140781888,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 785838.7117199936,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.114242904211406
+          },
+          "code": {
+            "nll_sum": 362626.28472519724,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4445248062031082
+          },
+          "math": {
+            "nll_sum": 576062.7977192845,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2916197826352525
+          }
+        },
+        "weighted_nll": 2.615774660294516,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "1b9d737543c0d84d6032cd91d39f1b9f74698fd56fe19f1958af0a1c5611ae99",
+      "full_state_readback_exact": true,
+      "full_state_digest": "beb2ee0279ba0154a48937b53db220b8b3b06ade5f8213c42e7b13dfa0fb6557",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 141.91087412834167,
+      "peak_rss_gib": 2.8918724060058594,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "equal"
+    }
+  ],
+  "test_accessed": false,
+  "new_terminal_attempt": false
+}

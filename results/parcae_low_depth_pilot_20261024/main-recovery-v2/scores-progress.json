@@ -869,6 +869,64 @@
       "peak_rss_gib": 2.8923416137695312,
       "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
       "readout": "matched"
+    },
+    {
+      "status": "COMPLETE_INDEPENDENT_LOW_DEPTH_DEVELOPMENT_SCORE",
+      "case_id": "ordinary-equal-s1231",
+      "arm": "ordinary",
+      "seed": 1231,
+      "depth": 1,
+      "cohort": "curve",
+      "split": "dev",
+      "training_update": 1920,
+      "training_real_targets": 1004887590,
+      "training_executed_matmuls": 512026807170170880,
+      "parameters": 140781888,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 785838.7117199936,
+            "real_targets": 252337,
+            "documents": 291,
+            "nll": 3.114242904211406
+          },
+          "code": {
+            "nll_sum": 362626.28472519724,
+            "real_targets": 251035,
+            "documents": 153,
+            "nll": 1.4445248062031082
+          },
+          "math": {
+            "nll_sum": 576062.7977192845,
+            "real_targets": 251378,
+            "documents": 159,
+            "nll": 2.2916197826352525
+          }
+        },
+        "weighted_nll": 2.615774660294516,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 603,
+      "real_targets": 754750,
+      "windows": 1050,
+      "checkpoint_sha256": "1b9d737543c0d84d6032cd91d39f1b9f74698fd56fe19f1958af0a1c5611ae99",
+      "full_state_readback_exact": true,
+      "full_state_digest": "beb2ee0279ba0154a48937b53db220b8b3b06ade5f8213c42e7b13dfa0fb6557",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "model_unchanged": true,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds_after_imports": 141.91087412834167,
+      "peak_rss_gib": 2.8918724060058594,
+      "scope": "Primary FP32 independent upstream prediction on frozen previously consumed DEV. No fresh TEST/confirmation, training-seed significance or self-generated/teacher labels. Raw texts, tokens and model/optimizer state stay private.",
+      "readout": "equal"
     }
   ]
 }
