@@ -5,7 +5,7 @@ The complete four-cell hardware qualification and all four scientific-driver
 integration audits pass. Continuation,replay,source/work counters and separately
 cooled branches are independently checked. The discovery queue admitted the
 12-case301M-target LR screen from fresh seed4127 weights. The first two trials
-have both passed120 optimizer updates and62.8M real targets. No new held-out
+were observed at210 optimizer updates and109.9M real targets. No new held-out
 scientific result is available yet.
 [Actual startup receipt](results/future_span_tune_20261025/primitive-v2/native-start-receipt.json)
 · [Driver pass](results/future_span_driver_20261025/primitive-v2/report.json).
