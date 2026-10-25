@@ -58,11 +58,19 @@ over99% of a separate TRAIN sample,showing a severe generalization gap.
 [Completed controlled pilot](results/natural_chain_continuation_pilot_20261025/recovery-v2/REPORT.md) ·
 [TRAIN diagnosis](results/natural_chain_train_diagnostic_20261025/REPORT.md).
 
-This pilot introduced recurrence during a short continuation from a one-pass
-foundation. A bounded follow-up using the already trained recurrent foundation
-and a stronger work-matched One parent is being prepared. No new fit or terminal
-positive is admitted by that preparation;the original broad goal is unachieved.
-[Decision and scope](docs/BRIDGE_PILOT_DECISION_20261025.md).
+The seven-endpoint follow-up also loses: retaining the already trained
+recurrent foundation gives 3/135 correct, versus 4/135 for the full-history
+work-matched one-pass control. Broad-source loss worsens in every curriculum
+condition. Even with the original human work supplied, these two models solve
+only 11/135 and 9/135. The bridge family is closed at this scale.
+[Completed history comparison](results/natural_chain_foundation_pilot_20261025/REPORT.md) ·
+[Scaffold diagnosis](results/natural_chain_scaffold_readout_20261025/REPORT.md).
+
+The next bounded control uses **fixed two-pass small-core NTP from random
+initialization**, keeping the qualified operators, optimizer and source order.
+Its counted integration prefixes are running; there is no new learning result
+yet. The original broad goal remains unachieved.
+[Protocol](docs/FIXED_TWO_SMALL_CORE_NTP_20261025.md) · [Live status](STATUS.md).
 
 The curriculum used source-authored arithmetic rather than generated problems
 or solutions. Its extraction,views and verifier remain reproducible;human

@@ -1,3 +1,25 @@
+# Status — 2026-10-25 22:19 UTC
+
+**Fixed-two-pass small-core NTP tuning is launched across all16 chips.**
+Two counted integration prefixes are active;three fixed LR opportunities are
+registered. Keep the qualified model,precision,optimizer,batch and natural
+source order,changing the depth assignment to exactly two fully differentiated
+passes. Historical One/NTP received the same three-rate,301M-target cooled
+selection opportunity;its results and costs are reused explicitly.
+[Fixed protocol](docs/FIXED_TWO_SMALL_CORE_NTP_20261025.md) ·
+[Frozen plan](results/fixed_two_small_core_tune_20261025/plan.json).
+
+Every candidate first stops after121 real registered updates for full-state
+restore/replica checks,an independent complete512-window gradient audit and100
+actual warm-update timing. Recompute remaining feasibility before continuing
+to576 and the complete cooldown. Whole-stage cap90minutes,owned workers and
+unchanged memory/disk/inode reserves. No grid expansion or auxiliary-objective
+revival. This is TUNE,not an outcome or automatic MAIN admission.
+
+The bridge-hiding family remains closed negative. No new TEST,reserve access,
+terminal alpha or terminal success.275 CPU tests pass after the controller
+addition. The broader research goal remains active and unachieved.
+
 # Status — 2026-10-25 22:08 UTC
 
 **The seven-endpoint foundation-history study is complete and negative.**
