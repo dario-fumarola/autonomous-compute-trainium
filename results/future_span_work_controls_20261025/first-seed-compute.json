@@ -1,0 +1,76 @@
+{
+  "status": "FIRST_MATCHED_WORK_SEED_SECOND_SEED_PENDING",
+  "observed_utc": "2026-10-25T14:45:22.399841+00:00",
+  "seed": 5231,
+  "records": [
+    {
+      "control_cell": "one-ntp",
+      "control_nll": 2.5812895566867695,
+      "candidate_nll": 2.592239060653416,
+      "candidate_gain_over_control": {
+        "gain_nats": -0.01094950396664629,
+        "interval_95": [
+          -0.013255196347952922,
+          -0.008564914371677194
+        ],
+        "source_groups": 518,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "candidate_domain_gains": {
+        "web": -0.012156222668493477,
+        "math": -0.007689679285044715,
+        "code": -0.010589172542706526
+      }
+    },
+    {
+      "control_cell": "one-future",
+      "control_nll": 2.5819863253358664,
+      "candidate_nll": 2.592239060653416,
+      "candidate_gain_over_control": {
+        "gain_nats": -0.010252735317549444,
+        "interval_95": [
+          -0.012605994986326407,
+          -0.007899975209491645
+        ],
+        "source_groups": 518,
+        "accepted_draws": 2000,
+        "warning": "Within-seed uncertainty only; report paired training seeds separately."
+      },
+      "candidate_domain_gains": {
+        "web": -0.013126589108144238,
+        "math": -0.005897603186469702,
+        "code": -0.005986306076845027
+      }
+    }
+  ],
+  "candidate_training_real_targets": 1004887590,
+  "control_training_real_targets": 1237788282,
+  "candidate_training_matrix_ops": 650864708520837120,
+  "control_training_matrix_ops": 650724597171601920,
+  "control_relative_work_shortfall": 0.00021526954434758494,
+  "original_candidate_score_sha256": "79863f8c7407c9b6605afab07b2ae5cf8e8dd2d56b8711ea1e26524ec25fd6c7",
+  "control_receipts": [
+    {
+      "case_id": "one-ntp-s5231-lr32000-work",
+      "score_sha256": "894a5a5b9add89fd808a0f3020df59415b10ca8bbb47f70f403187149ccf9cb9",
+      "document_scores_sha256": "681518c5d36ce26accae782c4496f40fe0d9e22b342761367ec85c4129557c4a",
+      "gradient_audit_sha256": "b6f29edf7ed6a8a6380af03a6c077114ce8eed11a3952d778d12d0251312c8b9"
+    },
+    {
+      "case_id": "one-future-s5231-lr32000-work",
+      "score_sha256": "24b22268c3038350792f121928fe635d68d455de27c96c9c515482fa6e51aa12",
+      "document_scores_sha256": "5ae128aaba09099d038191737784f1cd9f834a639b7fc8a992b47271f7be6ee0",
+      "gradient_audit_sha256": "017ec68029b386409a8e481bf0455dcb065015a03fc8c1c92646b7747def6df4"
+    }
+  ],
+  "original_admitted_plan_sha256": "c619d0f04e4c68688009b3044e9ab9bd5acd8cd5a567174cf5d26405ac1398c2",
+  "new_model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "wall_seconds": 0.8526480197906494,
+  "scope": "First paired seed only;complete separately cooled endpoints and identical consumed DEV/source targets. Positive gain would favor recurrence. Both one-pass controls outperform the fixed two-pass candidate at matched nominal matrix work. Conditional source-group intervals are not training-seed significance. Original equal-data gain remains;second seed and original full work-control report still required. No wall-time or overall-goal success claim."
+}

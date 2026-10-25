@@ -1,3 +1,26 @@
+# Status — 2026-10-25 14:51 UTC
+
+**The first complete matched-work pair favors one-pass training.** Seed5231's
+cooled one-pass NTP reaches2.581290 NLL and its future-loss control2.581986,
+versus the original recurrent NTP checkpoint2.592239. Candidate gains are
+−0.010950/−0.010253 nats;all three domains favor both controls. The two
+source-group intervals are conditional on this one fitted seed,not training-
+seed significance. Original equal-data gains remain intact.
+[First-pair audit](results/future_span_work_controls_20261025/first-seed-compute.json).
+
+Both seed7283 long fits and native final-gradient captures are complete.
+Independent full512-window CPU gradient checks and whole-DEV scoring remain.
+Finish both seeds under the original16:34:50 UTC deadline. No endpoint,
+objective,rate,primary exit or decision rule changes. The separately frozen
+prefill-cost queue remains behind complete work-control postprocessing.
+
+A retrospective zero-chip whole-document depth bound is registered before
+second-pair scoring. It reuses saved predictions after both pairs finish;
+free target-informed selection is an optimistic diagnostic,not a router or
+new success criterion. No new training is admitted. The objective remains
+active and unachieved;fresh confirmation and terminal alpha remain untouched.
+[Scope](docs/FULL_GRADIENT_DEPTH_ORACLE_20261025.md).
+
 # Status — 2026-10-25 13:56 UTC
 
 **The four-cell objective study is complete. Plain NTP recurrence repeats its
