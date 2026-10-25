@@ -1,4 +1,4 @@
-# Status — 2026-10-25, 10:22 UTC
+# Status — 2026-10-25, 10:39 UTC
 
 **The first two MAIN1.005B-target endpoints are complete and scored.** On the
 same603 consumed CURVE DEV documents,seed5231 one-pass NTP scores2.614669 and
@@ -73,7 +73,14 @@ continuation/update qualification remains required before any separate control
 admission;the live MAIN plan is untouched.
 [Transport evidence and scope](docs/FUTURE_SPAN_STATE_TRANSPORT_20261025.md).
 
-All **225 CPU tests pass**. Resource guards pass. Fresh confirmation sources
+The proposal's exploratory natural-code readout is now queued separately for
+all eight models after complete MAIN/numerical gates. It retains the original
+149 targets,full/short positions and noise,and trained one-pass controls.
+Registration discloses the already seen TUNE/one-pass outcomes;no new recurrent
+quality was available. It uses zero chips and cannot override primary results.
+[Context readout and scope](docs/FUTURE_SPAN_CODE_CONTEXT_20261025.md).
+
+All **227 CPU tests pass**. Resource guards pass. Fresh confirmation sources
 and terminal alpha remain untouched;the overall research goal is active and
 unachieved. Complete the primary factorial readout and the separately disclosed
 NTP secondary before selecting a follow-up.
