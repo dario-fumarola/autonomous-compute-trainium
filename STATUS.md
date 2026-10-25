@@ -1,4 +1,19 @@
-# Status — 2026-10-25, 00:16 UTC
+# Status — 2026-10-25, 00:41 UTC
+
+Six of12 rate trials are independently scored. At0.004,ordinary scores
+2.994108,one-pass3.082854 and recurrence3.105910. Recurrence remains behind
+one-pass at both completed rates. The remaining0.008/0.016 trials are running
+on all16 chips; no rate selection,main fit or new positive claim yet.
+
+Independent actual-size upstream operator counts agree exactly with the
+inference ledger: at1024 positions,one family pass costs159.049GFLOPs and two
+cost195.691GFLOPs,including the50.332GFLOP tied head. This is23.038% more forward
+matrix work,not a measured native autoregressive-latency ratio. The resource
+ledger now includes failed attempts,unique chip intervals and bounds on
+interrupted scientific work. The CPU suite passes169 tests.
+[Pilot progress](results/parcae_low_depth_pilot_20261024/REPORT.md) ·
+[Inference counts](results/parcae_low_depth_pilot_20261024/inference-work.json) ·
+[Observed costs](results/parcae_low_depth_pilot_20261024/resource-ledger.json).
 
 Four of12 rate trials are independently scored. At0.002,ordinary scores
 3.102339,one-pass Parcae3.256649 and recurrence3.297224; recurrence is0.040575

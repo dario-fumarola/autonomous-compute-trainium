@@ -1,0 +1,95 @@
+{
+  "status": "PASS_INDEPENDENT_ACTUAL_SIZE_FORWARD_MATMUL_COUNTS",
+  "records": [
+    {
+      "arm": "ordinary",
+      "positions": 128,
+      "depth": 1,
+      "parameters": 140781888,
+      "counted_forward_matmuls": 17465229312,
+      "ledger_forward_matmuls": 17465229312,
+      "head_forward_matmuls": 6291456000,
+      "cpu_fixture_seconds": 0.0947103500366211
+    },
+    {
+      "arm": "ordinary",
+      "positions": 1024,
+      "depth": 1,
+      "parameters": 140781888,
+      "counted_forward_matmuls": 156633268224,
+      "ledger_forward_matmuls": 156633268224,
+      "head_forward_matmuls": 50331648000,
+      "cpu_fixture_seconds": 0.3890838623046875
+    },
+    {
+      "arm": "family",
+      "positions": 128,
+      "depth": 1,
+      "parameters": 141963840,
+      "counted_forward_matmuls": 17767219200,
+      "ledger_forward_matmuls": 17767219200,
+      "head_forward_matmuls": 6291456000,
+      "cpu_fixture_seconds": 0.07163596153259277
+    },
+    {
+      "arm": "family",
+      "positions": 128,
+      "depth": 2,
+      "parameters": 141963840,
+      "counted_forward_matmuls": 21642805248,
+      "ledger_forward_matmuls": 21642805248,
+      "head_forward_matmuls": 6291456000,
+      "cpu_fixture_seconds": 0.07951569557189941
+    },
+    {
+      "arm": "family",
+      "positions": 128,
+      "depth": 3,
+      "parameters": 141963840,
+      "counted_forward_matmuls": 25518391296,
+      "ledger_forward_matmuls": 25518391296,
+      "head_forward_matmuls": 6291456000,
+      "cpu_fixture_seconds": 0.10318922996520996
+    },
+    {
+      "arm": "family",
+      "positions": 1024,
+      "depth": 1,
+      "parameters": 141963840,
+      "counted_forward_matmuls": 159049187328,
+      "ledger_forward_matmuls": 159049187328,
+      "head_forward_matmuls": 50331648000,
+      "cpu_fixture_seconds": 0.3560829162597656
+    },
+    {
+      "arm": "family",
+      "positions": 1024,
+      "depth": 2,
+      "parameters": 141963840,
+      "counted_forward_matmuls": 195691020288,
+      "ledger_forward_matmuls": 195691020288,
+      "head_forward_matmuls": 50331648000,
+      "cpu_fixture_seconds": 0.4619596004486084
+    },
+    {
+      "arm": "family",
+      "positions": 1024,
+      "depth": 3,
+      "parameters": 141963840,
+      "counted_forward_matmuls": 232332853248,
+      "ledger_forward_matmuls": 232332853248,
+      "head_forward_matmuls": 50331648000,
+      "cpu_fixture_seconds": 0.5599038600921631
+    }
+  ],
+  "family_depth2_over_depth1": 1.2303805104293628,
+  "family_depth3_over_depth1": 1.4607610208587258,
+  "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+  "source_sha256": "54c4cec0f6107ff0ea0ee47d20f9b443ccec1863e0d3ca28c7b7563ed7b858fb",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "research_examples": 0,
+  "test_accessed": false,
+  "wall_seconds": 11.09131646156311,
+  "scope": "Independent pinned upstream actual140.8M/142.0M CPU forward matrix-operation counts,FMA=2,full-square attention and full tied vocabulary head included. Numerical token-index fixtures,no target labels or model-quality metrics. Excludes gathers,elementwise work,hardware tile padding,communication and caching. CPU fixture times include instrumentation;not steady native latency or autoregressive deployment cost."
+}
