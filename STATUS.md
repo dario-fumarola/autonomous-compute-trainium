@@ -1,3 +1,33 @@
+# Status — 2026-10-25 15:33 UTC
+
+**The cheap-control learning-rate screen is running counted scientific
+integration updates under recovery identity v2.** All three trials completed
+their two updates; full512-window independent gradient gates precede longer
+training. No tuning quality result exists yet. The original three rates,
+initialization,source order,301M cooled endpoint and16:50:26 UTC absolute
+cutoff stay unchanged. All139 original/recovery source hashes are intact.
+
+The v1 attempt failed closed before initialization:its worker-source checker
+incorrectly required the host-only independent optimizer reference in the
+native snapshot. No scientific updates ran. Both failed native attempts and
+their costs are preserved. V2 uses the existing tested copied-tree policy,
+with a regression check,and keeps the original deadline. **244 CPU tests pass.**
+[Recovery registration](results/small_core_mixing_tune_20261025/recovery-v2/plan.json).
+
+The new two-seed scientific comparison has preparation code only;it is not
+admitted. Admission requires all three completed tuned opportunities,numerical
+checks and a separate measured budget. Both prospective endpoints remain
+fixed at equal1.005B data and matched1.228B cheap-control targets,each with its
+own cooldown. Original recurrent models,one-pass controls and their negative
+matched-work comparison are preserved. No TEST or terminal alpha is spent.
+[Protocol](docs/SMALL_CORE_MIXING_CONTROL_PROTOCOL_20261025.md).
+
+The [completed readout](results/future_span_work_controls_20261025/figures/completed-resource-readout.png)
+shows the distinction:positive equal-data prediction gains,supported-depth
+benefits,and a negative matched-training-work result. The measured prefill
+cost remains approximately17% extra latency at the declared two-pass exit.
+The overall goal stays active and unachieved.
+
 # Status — 2026-10-25 15:21 UTC
 
 **The matched-work comparison and inference-cost measurement are complete.**

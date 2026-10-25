@@ -44,3 +44,5 @@ This closes the registered comparison at this exposure. It does not erase the
 equal-data gain or rule out better recurrence at other budgets. Stronger
 ordinary/cheap baselines,inference costs and independent confirmation remain
 required for the overall goal. No TEST or terminal allocation is spent.
+
+[Completed resource readout](figures/completed-resource-readout.png) · [SVG](figures/completed-resource-readout.svg) · [PDF](figures/completed-resource-readout.pdf).
