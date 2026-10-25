@@ -44,12 +44,17 @@ cell,at the upper boundary of the shared finite grid;optima remain unbracketed.
 The small-core/full-gradient/optimizer/precision recipe differs from earlier
 studies,so cross-study changes cannot be attributed to one factor.
 
-Recurrence costs1.232036× nominal training matrix work at equal data. Four
-properly cooled one-pass controls at1.238B targets are now admitted. They match
-the recurrent budget to0.021527% shortfall,including inherited work. They must
-complete before a training-efficiency conclusion. Strong ordinary/cheap
-challengers also remain owed. Head-removed native prefill timing is prepared
-and queued after these controls;cached generation remains unimplemented.
+Recurrence costs1.232036× nominal training matrix work at equal data. The
+four separately cooled one-pass controls at1.238B targets are now complete,
+matching the recurrent budget to0.021527% shortfall. Mean one-pass NTP loss
+is2.581336 versus recurrent2.591095:recurrence loses by0.009759 nats,
+in both seeds. The equal-data mechanism gain remains positive;training-work
+efficiency is negative for this recipe. Strong ordinary/cheap challengers also
+remain relevant. Head-removed prefill timing is complete:the declared recurrent
+exit takes approximately17% longer than trained one-pass in the preloaded,
+synchronized1024-position benchmark. Cached generation remains unmeasured.
+[Complete work controls](../../future_span_work_controls_20261025/REPORT.md)
+· [Measured prefill scope](../../future_span_prefill_20261025/REPORT.md).
 
 MAIN alone took14,732.37 seconds,51.700 assigned native chip-hours and65.477
 whole-instance opportunity chip-hours. It contains24 native phase closures and

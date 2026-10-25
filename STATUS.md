@@ -1,3 +1,26 @@
+# Status — 2026-10-25 17:34 UTC
+
+**The first cheap-control MAIN score is complete.** On the same consumed DEV
+panel,at1.0049B training targets,seed5231 gives:
+
+| Model | Independent FP32 DEV NLL |
+| --- | ---: |
+| One-pass NTP | 2.614669 |
+| Cheap mixing,one core execution | 2.615881 |
+| Recurrent NTP,two core executions | **2.592239** |
+
+For this seed,cheap mixing does not recover the equal-data gain. Recurrence
+beats it by0.023642 nats. The same cheap checkpoint changes only0.0000103 nats
+between mixing counts1 and2. Its final512-window gradient gate passes0.253%
+relative error. This is one development seed;the second seed and matched-work
+controls remain pending. No training-efficiency claim follows;the completed
+longer-one-pass negative stays unchanged.
+[First paired readout](results/small_core_mixing_main_20261025/recovery-v2/first-equal-data-seed.json).
+
+The queue continues both second-seed native branches on all16 chips,with
+independent CPU checks/readouts in parallel. No scientific source,LR,exit,
+endpoint or decision rule changes. No TEST or terminal alpha is opened.
+
 # Status — 2026-10-25 17:18 UTC
 
 **The first cheap-control equal-data fit completes its cooled1.005B-target
