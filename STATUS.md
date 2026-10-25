@@ -1,4 +1,20 @@
-# Status — 2026-10-25, 02:42 UTC
+# Status — 2026-10-25, 02:47 UTC
+
+The proposed objective pivot now has a CPU-tested implementation: a separate
+training-only head predicts token presence in the next32-position span,excluding
+the immediate next token and any document boundary. The2×2 compares one-pass
+and recurrence,each with/without that same objective. A positive interaction
+must accompany absolute gains; equally helping both architectures would not
+establish a recurrence benefit. [Bounded prospective design](docs/FUTURE_SPAN_OBJECTIVE_PROPOSAL_20261025.md).
+
+The eight-window natural-TRAIN screen passes against the pinned independent
+FP32 backbone and a separately implemented presence loss. Overall body gradient
+errors are0.120%/0.108%;auxiliary-head errors0.0206%/0.0217%. Maximum combined
+loss discrepancy is0.0000213. This105.6second CPU screen has zero updates,
+17.325e12 matrix operations and no held-out access. It does not qualify native
+training or establish a quality gain. All179 CPU tests pass,including causal
+prefix invariance,exact zero-weight NTP gradients and removable-head equivalence.
+No objective training has launched. [Numerical evidence](results/future_span_cpu_20261025/report.json).
 
 **The unchanged small-core pilot is running on all16 chips after an execution
 failure.** The original controller constructed an uppercase `stable1B` worker
