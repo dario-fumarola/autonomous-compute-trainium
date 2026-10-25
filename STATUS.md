@@ -1,3 +1,54 @@
+# Status — 2026-10-25 21:16 UTC
+
+**The mixed bridge-hiding pilot is complete and closed negative.** All five
+cooled endpoints,four independent complete mixed-update gradient/optimizer
+gates,five full answer-panel audits and five broad-source retention scores pass.
+Source/task/work counts and complete model/optimizer/RNG restoration match;
+all32 replicas agree.1,043 actual research updates,no missing scientific case.
+
+|Condition|Depth|Held-out correct|Broad-source NLL|
+|---|---:|---:|---:|
+|One,NTP only|1|0/135|2.614473|
+|R,NTP only|2|0/135|2.614054|
+|One,bridge curriculum|1|2/135|2.625608|
+|R,bridge curriculum|2|4/135|2.625567|
+|One,bridge matched work|1|2/135|2.622697|
+
+The primary R gain is1.4815pp,conditional source-group95% interval[-1.4706,
+4.4444]pp,below the declared5pp domain screen. No training-seed inference from
+this one pair. R depth1 and2 solve the exact same four held-out tasks;four passes
+solve three. Both curriculum cases harm web,math and code NLL relative to their
+NTP-only controls. No latent-computation,efficiency or broad-text success.
+[Complete pilot](results/natural_chain_continuation_pilot_20261025/recovery-v2/REPORT.md).
+
+The separately registered TRAIN-only readout exposes a severe generalization
+gap:One solves255/256 TRAIN tasks,R solves254/256,and longer One256/256,versus
+2/135,4/135 and2/135 held-out. All independent FP32 answer-loss checks pass.
+This supports training-set fit with little transfer,not an inference-kernel
+explanation or a successful general arithmetic procedure. The TRAIN result
+does not replace the negative primary endpoint.
+[TRAIN diagnostic](results/natural_chain_train_diagnostic_20261025/REPORT.md).
+
+The pilot costs4.1497 assigned native chip-hours and6.8742 whole-instance
+opportunity chip-hours,separate/nonadditive,including initial inode recovery
+and CPU tails. The diagnostic has separate receipts.274 CPU tests pass.
+No TEST,terminal alpha or terminal success. The broad objective remains active.
+
+A scope limitation remains:both pilot cases started from the One foundation,
+introducing recurrence late. A CPU-only preparation now verifies the existing
+R1B and stronger work-matched One1.238B foundations,with the same original random
+initializer but different trained bodies. No fitted qualification/curriculum
+weights are reused. The unchanged task-order prefix and both full parent states
+pass;the common new NTP cursor is1,210,880. No new fit is admitted yet.
+[Decision and bounded follow-up](docs/BRIDGE_PILOT_DECISION_20261025.md) ·
+[Foundation provenance](results/natural_chain_foundation_preparation_20261025/REPORT.md).
+
+No native jobs remain active. Next:freeze and execute one bounded foundation-
+history comparison with the same bridge recipe,stronger One controls,complete
+history accounting and per-parent integration gates. If it also lacks useful
+held-out generalization/supported-pass benefit,close this bridge family at this
+scale. Do not extend this failed pilot or begin an unbounded sweep.
+
 # Status — 2026-10-25 20:43 UTC
 
 **The bounded mixed NTP/bridge-hiding pilot is executing.** All four complete

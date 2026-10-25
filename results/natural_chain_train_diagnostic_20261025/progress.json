@@ -1,0 +1,197 @@
+{
+  "records": [
+    {
+      "case": "recurrent-bridge",
+      "native": {
+        "status": "COMPLETE_READONLY_ORIGINAL_CHAIN_BASELINE",
+        "case": "recurrent-bridge",
+        "plan_sha256": "864f781371acdd99f543b6a75ac1e8d2db0cfedde40b00afd470414f243df617",
+        "checkpoint_sha256": "4d53547567391530efdbe52628c51b19c815dc6e5f50196987502cb86ae581c0",
+        "depths": {
+          "1": {
+            "tasks": 256,
+            "answer_tokens": 773,
+            "answer_nll": 0.0961299898707697,
+            "correct": 253,
+            "terminated": 256,
+            "first_token_correct": 253,
+            "generated_tokens": 773,
+            "forward_calls": 1285,
+            "summed_generation_seconds_across_replicas": 293.95657563209534
+          },
+          "2": {
+            "tasks": 256,
+            "answer_tokens": 773,
+            "answer_nll": 0.09095561458099088,
+            "correct": 254,
+            "terminated": 256,
+            "first_token_correct": 254,
+            "generated_tokens": 773,
+            "forward_calls": 1285,
+            "summed_generation_seconds_across_replicas": 3.966066360473633
+          },
+          "4": {
+            "tasks": 256,
+            "answer_tokens": 773,
+            "answer_nll": 0.09231547519738122,
+            "correct": 254,
+            "terminated": 256,
+            "first_token_correct": 254,
+            "generated_tokens": 773,
+            "forward_calls": 1285,
+            "summed_generation_seconds_across_replicas": 4.7880706787109375
+          }
+        },
+        "records_sha256": "ab08cc2dfe4191394a6553ffd76f669962aa1f62d5f17ef13109aefd40e17154",
+        "weights_unchanged": true,
+        "all_replicas_identical": true,
+        "nominal_forward_matrix_ops": 88413142302720,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 33.470552921295166,
+        "scope": "Post-pilot TRAIN-only frozen-checkpoint diagnosis with original no-work source views and unchanged prefix-only greedy/scalar readout. No model update,held-out replacement,efficacy or terminal claim. Native prediction weights/replicas unchanged.",
+        "panel_role": "train_only_post_pilot_diagnostic",
+        "heldout_result": false
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_ORIGINAL_CHAIN_READOUT",
+        "case": "recurrent-bridge",
+        "depths": {
+          "1": {
+            "answer_nll": 0.09614480792738757,
+            "native_minus_cpu": -1.4818056617862951e-05,
+            "maximum_document_mean_difference": 0.004117608070373535,
+            "answer_tokens": 773
+          },
+          "2": {
+            "answer_nll": 0.09093307151626627,
+            "native_minus_cpu": 2.2543064724614426e-05,
+            "maximum_document_mean_difference": 0.002596348524093628,
+            "answer_tokens": 773
+          },
+          "4": {
+            "answer_nll": 0.09231074340400536,
+            "native_minus_cpu": 4.731793375858939e-06,
+            "maximum_document_mean_difference": 0.0035652220249176025,
+            "answer_tokens": 773
+          }
+        },
+        "plan_sha256": "864f781371acdd99f543b6a75ac1e8d2db0cfedde40b00afd470414f243df617",
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 30.95439124107361,
+        "scope": "Post-pilot TRAIN-only frozen-checkpoint diagnosis with original no-work source views and unchanged prefix-only greedy/scalar readout. No model update,held-out replacement,efficacy or terminal claim. Independent FP32 answer-loss check.",
+        "panel_role": "train_only_post_pilot_diagnostic",
+        "heldout_result": false
+      }
+    },
+    {
+      "case": "one-bridge",
+      "native": {
+        "status": "COMPLETE_READONLY_ORIGINAL_CHAIN_BASELINE",
+        "case": "one-bridge",
+        "plan_sha256": "864f781371acdd99f543b6a75ac1e8d2db0cfedde40b00afd470414f243df617",
+        "checkpoint_sha256": "6c0d4dff06dbe05619a27b12f5a9f9db5c5b8ab8f43c2041eeebed9efb015661",
+        "depths": {
+          "1": {
+            "tasks": 256,
+            "answer_tokens": 773,
+            "answer_nll": 0.08373302321538888,
+            "correct": 255,
+            "terminated": 256,
+            "first_token_correct": 255,
+            "generated_tokens": 773,
+            "forward_calls": 1285,
+            "summed_generation_seconds_across_replicas": 290.99920535087585
+          }
+        },
+        "records_sha256": "a967fa8039ac35ec94dbef9aaa1da55371c75553a495789b4cf54a144d527d1b",
+        "weights_unchanged": true,
+        "all_replicas_identical": true,
+        "nominal_forward_matrix_ops": 22830876672000,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 37.300464153289795,
+        "scope": "Post-pilot TRAIN-only frozen-checkpoint diagnosis with original no-work source views and unchanged prefix-only greedy/scalar readout. No model update,held-out replacement,efficacy or terminal claim. Native prediction weights/replicas unchanged.",
+        "panel_role": "train_only_post_pilot_diagnostic",
+        "heldout_result": false
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_ORIGINAL_CHAIN_READOUT",
+        "case": "one-bridge",
+        "depths": {
+          "1": {
+            "answer_nll": 0.08372312077088583,
+            "native_minus_cpu": 9.902444503051555e-06,
+            "maximum_document_mean_difference": 0.003005087375640869,
+            "answer_tokens": 773
+          }
+        },
+        "plan_sha256": "864f781371acdd99f543b6a75ac1e8d2db0cfedde40b00afd470414f243df617",
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 10.708662271499634,
+        "scope": "Post-pilot TRAIN-only frozen-checkpoint diagnosis with original no-work source views and unchanged prefix-only greedy/scalar readout. No model update,held-out replacement,efficacy or terminal claim. Independent FP32 answer-loss check.",
+        "panel_role": "train_only_post_pilot_diagnostic",
+        "heldout_result": false
+      }
+    },
+    {
+      "case": "one-bridge-work",
+      "native": {
+        "status": "COMPLETE_READONLY_ORIGINAL_CHAIN_BASELINE",
+        "case": "one-bridge-work",
+        "plan_sha256": "864f781371acdd99f543b6a75ac1e8d2db0cfedde40b00afd470414f243df617",
+        "checkpoint_sha256": "6f937bda1010e3d37eafea8f3d07dc865e00a65eda74eed34c03b9f00fe16398",
+        "depths": {
+          "1": {
+            "tasks": 256,
+            "answer_tokens": 773,
+            "answer_nll": 0.005022194530491996,
+            "correct": 256,
+            "terminated": 256,
+            "first_token_correct": 256,
+            "generated_tokens": 773,
+            "forward_calls": 1285,
+            "summed_generation_seconds_across_replicas": 285.35734724998474
+          }
+        },
+        "records_sha256": "eae8b19aa350f7eca1b4ccde8017c365c9df150bea9578a61df76dfa6937f5db",
+        "weights_unchanged": true,
+        "all_replicas_identical": true,
+        "nominal_forward_matrix_ops": 22830876672000,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 34.71962523460388,
+        "scope": "Post-pilot TRAIN-only frozen-checkpoint diagnosis with original no-work source views and unchanged prefix-only greedy/scalar readout. No model update,held-out replacement,efficacy or terminal claim. Native prediction weights/replicas unchanged.",
+        "panel_role": "train_only_post_pilot_diagnostic",
+        "heldout_result": false
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_ORIGINAL_CHAIN_READOUT",
+        "case": "one-bridge-work",
+        "depths": {
+          "1": {
+            "answer_nll": 0.005022799912605189,
+            "native_minus_cpu": -6.053821131933937e-07,
+            "maximum_document_mean_difference": 0.00034374743700027466,
+            "answer_tokens": 773
+          }
+        },
+        "plan_sha256": "864f781371acdd99f543b6a75ac1e8d2db0cfedde40b00afd470414f243df617",
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 9.929295063018799,
+        "scope": "Post-pilot TRAIN-only frozen-checkpoint diagnosis with original no-work source views and unchanged prefix-only greedy/scalar readout. No model update,held-out replacement,efficacy or terminal claim. Independent FP32 answer-loss check.",
+        "panel_role": "train_only_post_pilot_diagnostic",
+        "heldout_result": false
+      }
+    }
+  ]
+}

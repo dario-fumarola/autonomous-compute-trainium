@@ -1,0 +1,59 @@
+{
+  "native_attempts": [
+    {
+      "identity": "natural-chain-train-diagnostic-v1-one-bridge",
+      "exit_code": 0,
+      "wall_seconds": 45.16262912750244,
+      "assigned_chip_hours": 0.10036139806111653,
+      "whole_instance_opportunity_chip_hours": 0.20072279612223307,
+      "report_exists": true
+    },
+    {
+      "identity": "natural-chain-train-diagnostic-v1-recurrent-bridge",
+      "exit_code": 0,
+      "wall_seconds": 42.08163237571716,
+      "assigned_chip_hours": 0.0935147386127048,
+      "whole_instance_opportunity_chip_hours": 0.1870294772254096,
+      "report_exists": true
+    },
+    {
+      "identity": "natural-chain-train-diagnostic-v1-one-bridge-work",
+      "exit_code": 0,
+      "wall_seconds": 42.65129804611206,
+      "assigned_chip_hours": 0.09478066232469347,
+      "whole_instance_opportunity_chip_hours": 0.18956132464938694,
+      "report_exists": true
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "one-bridge",
+      "assigned_chips": 0,
+      "wall_seconds": 15.01149845123291,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "recurrent-bridge",
+      "assigned_chips": 0,
+      "wall_seconds": 35.11147451400757,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "one-bridge-work",
+      "assigned_chips": 0,
+      "wall_seconds": 15.011272430419922,
+      "reused": false,
+      "exit_code": 0
+    }
+  ],
+  "execution": {
+    "started_unix": 1792961885.7602289,
+    "deadline_unix": 1792963685.7602289,
+    "plan_sha256": "864f781371acdd99f543b6a75ac1e8d2db0cfedde40b00afd470414f243df617"
+  },
+  "wall_seconds_since_admission": 116.39292025566101,
+  "whole_instance_opportunity_chip_hours": 0.5173018731011285,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

@@ -1,0 +1,82 @@
+{
+  "status": "CLOSED_NEGATIVE_BOUNDED_CURRICULUM_RECIPE",
+  "actual_research_optimizer_updates": 1043,
+  "original_ntp_target_exposures": 136471250,
+  "original_answer_target_exposures": 247647,
+  "artificial_task_eos_label_exposures": 82304,
+  "unique_curriculum_problems": 1618,
+  "source_identity_matched": true,
+  "primary_analysis": {
+    "effects": {
+      "primary_recurrence_over_same_curriculum": {
+        "accuracy_difference": 0.014814814814814815,
+        "conditional_source_group_95_interval": [
+          -0.014705882352941176,
+          0.044444444444444446
+        ],
+        "observed_at_least_five_percentage_points": false
+      },
+      "factorial_interaction": {
+        "accuracy_difference": 0.014814814814814815,
+        "conditional_source_group_95_interval": [
+          -0.014705882352941176,
+          0.044444444444444446
+        ],
+        "observed_at_least_five_percentage_points": false
+      },
+      "same_weight_supported_depth_1_to_2": {
+        "accuracy_difference": 0.0,
+        "conditional_source_group_95_interval": [
+          0.0,
+          0.0
+        ],
+        "observed_at_least_five_percentage_points": false
+      },
+      "recurrence_over_longer_one_work_control": {
+        "accuracy_difference": 0.014814814814814815,
+        "conditional_source_group_95_interval": [
+          0.0,
+          0.03759398496240601
+        ],
+        "observed_at_least_five_percentage_points": false
+      }
+    },
+    "scope": "One shared pretrained seed/one paired adaptation stream on consumed discovery DEV. Conditional source-group uncertainty is not training-seed confirmation. No terminal success,best-exit selection or alpha spent."
+  },
+  "generation_format_diagnostic": {
+    "one-bridge": {
+      "tasks": 135,
+      "terminated_scalar_outputs": 132,
+      "correct": 2
+    },
+    "one-bridge-work": {
+      "tasks": 135,
+      "terminated_scalar_outputs": 133,
+      "correct": 2
+    },
+    "recurrent-bridge": {
+      "tasks": 135,
+      "terminated_scalar_outputs": 134,
+      "correct": 4
+    },
+    "recurrent-ntp": {
+      "tasks": 135,
+      "terminated_scalar_outputs": 0,
+      "correct": 0
+    },
+    "one-ntp": {
+      "tasks": 135,
+      "terminated_scalar_outputs": 0,
+      "correct": 0
+    }
+  },
+  "maximum_independent_answer_nll_difference": 0.000286205030565867,
+  "native_assigned_chip_hours": 4.149714315202501,
+  "whole_instance_opportunity_chip_hours": 6.874204833772447,
+  "nominal_work_control_shortfall": 0.0008119127510116587,
+  "native_phases": 14,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "One shared existing pretrained seed and one adaptation stream;conditional source-group intervals do not quantify training-seed variation. Close this fixed answer-only bridge-hiding recipe at this budget. No scaling,extra epochs,threshold change or reinterpretation as broad-text success."
+}

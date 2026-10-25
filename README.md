@@ -50,25 +50,25 @@ work,but still does not earn its training cost under these controls.
 [Completed control](results/small_core_mixing_main_20261025/recovery-v2/REPORT.md) ·
 [Live status](STATUS.md).
 
-The new bridge-hiding branch now has1,618 deduplicated source-authored arithmetic
-problems,a135-task/115-group discovery panel,and a passing numerical task-driver
-qualification. This is natural procedural supervision,not supervision-free raw
-text. Existing NTP models fail the new answer interface before adaptation,so
-both One/R controls must learn the same format. A bounded continuation pilot
-is proposed;no scientific curriculum fit or from-scratch result exists yet.
-[Source views](results/natural_chain_views_20261025/REPORT.md) ·
-[Fixed baseline readout](results/natural_chain_baseline_20261025/REPORT.md).
+The bounded bridge-hiding curriculum is now **closed negative**. With original
+human-written arithmetic steps progressively withheld,R solves4/135 held-out
+answers versus One's2/135,and its second pass adds no solved answers. Both
+curriculum conditions worsen broad-source NLL by about0.011 nats. They solve
+over99% of a separate TRAIN sample,showing a severe generalization gap.
+[Completed controlled pilot](results/natural_chain_continuation_pilot_20261025/recovery-v2/REPORT.md) ·
+[TRAIN diagnosis](results/natural_chain_train_diagnostic_20261025/REPORT.md).
 
-A source-only feasibility scan now finds1,727 exactly checked,original
-arithmetic chains across668 source groups. These are candidates for hiding
-intermediate work,not a trained curriculum or a model result.
-[Pool and remaining data gates](results/natural_source_chain_pool_20261025/REPORT.md).
+This pilot introduced recurrence during a short continuation from a one-pass
+foundation. A bounded follow-up using the already trained recurrent foundation
+and a stronger work-matched One parent is being prepared. No new fit or terminal
+positive is admitted by that preparation;the original broad goal is unachieved.
+[Decision and scope](docs/BRIDGE_PILOT_DECISION_20261025.md).
 
-The next investigation audits naturally occurring worked reasoning before
-considering a curriculum that hides intermediate steps. This would change
-the training data view and add natural procedural supervision. No curriculum
-training has launched,and any task-specific result would remain separate from
-the broad-text prediction goal.
+The curriculum used source-authored arithmetic rather than generated problems
+or solutions. Its extraction,views and verifier remain reproducible;human
+procedural supervision is explicitly distinguished from raw-text-only training.
+[Original source pool](results/natural_source_chain_pool_20261025/REPORT.md) ·
+[Data views](results/natural_chain_views_20261025/REPORT.md).
 
 Earlier studies remain preserved, including the
 [original shared/untied TEST comparison](results/frozen_test_20261023/REPORT.md),
