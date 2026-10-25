@@ -1,7 +1,7 @@
 # Status — 2026-10-25, 08:14 UTC
 
 **Four301.5M-target tuning endpoints are scored;the objective comparison is
-unfinished.** The three ordinary NTP learning-rate trials are complete,and
+unfinished.** The three one-pass NTP learning-rate trials are complete,and
 the first one-pass future-loss trial is complete. Independent FP32 scores use
 the same556-document TUNE panel with759,473 real targets.
 
@@ -18,8 +18,9 @@ not a selected-recipe comparison or evidence for useful recurrence. All twelve
 frozen opportunities and four selected-checkpoint gradient gates remain required.
 No rate,horizon,weight,threshold or admitted budget changes.
 
-All16 chips are training the two higher-rate one-pass future trials,observed
-at450 updates/235.5M real targets each. The main two-seed study is not admitted.
+All six one-pass fits are now complete;the two higher-rate future-loss
+checkpoints are being scored. All16 chips have moved to the first two
+recurrent NTP trials. The main two-seed study is not admitted.
 First scientific stable checkpoints pass independent full model/optimizer
 readback and exact source/domain/anchor/work-counter checks. The first baseline
 score aggregates and document pairing also reproduce independently.
