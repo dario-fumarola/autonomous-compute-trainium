@@ -1,5 +1,20 @@
 # PyTorch and Trainium observations
 
+The small-core scheduled-training pass found avoidable changing-scalar overhead:
+native `fill_.Scalar` specializes its value,while tensor-copy inputs preserve
+the same optimizer mathematics. The runtime-input policy passes independent
+actual-update/global-gradient/recovery checks and100 varying-schedule updates.
+The first20 scientific model/optimizer states match the old execution exactly.
+[Policy and evidence](PARCAE_RUNTIME_SCALARS_20261024.md) ·
+[Qualified rates](../results/parcae_runtime_scalars_20261024/recovery-v2/REPORT.md).
+This is a performance observation,not a claim of incorrect optimizer outputs.
+
+A separate pinned reference API accepts but does not apply an optional attention
+mask on its default mixer path. A tiny CPU fixture needs no private data;
+ordinary scientific causal scoring is unaffected.
+[Local contribution note](OSS_REFERENCE_MASK_ARGUMENT_20261024.md).
+Neither finding has been submitted upstream.
+
 The post-science [fused-optimizer qualification](../results/fast_path_20261023/REPORT.md)
 passes CPU agreement on all full-size parameter shapes, offset gradient views,
 changing LRs, exact recovery and concurrent half-node training. A separate

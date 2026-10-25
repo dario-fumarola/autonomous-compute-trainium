@@ -1,0 +1,70 @@
+{
+  "native_attempts": [
+    {
+      "identity": "parcae-runtime-scalars-v2-fixed1-warm",
+      "exit_code": 0,
+      "wall_seconds": 279.5072913169861,
+      "assigned_chip_hours": 0.6211273140377469,
+      "whole_instance_opportunity_chip_hours": 1.2422546280754938,
+      "report_exists": true
+    },
+    {
+      "identity": "parcae-runtime-scalars-v2-fixed1-replay",
+      "exit_code": 0,
+      "wall_seconds": 108.95618081092834,
+      "assigned_chip_hours": 0.24212484624650743,
+      "whole_instance_opportunity_chip_hours": 0.48424969249301486,
+      "report_exists": true
+    }
+  ],
+  "cpu_audits": [
+    {
+      "arm": "ordinary",
+      "assigned_chips": 0,
+      "wall_seconds": 415.07625555992126,
+      "started_unix": 1792883960.6134262,
+      "finished_unix": 1792884375.6896834,
+      "exit_code": 0
+    },
+    {
+      "arm": "poisson2",
+      "assigned_chips": 0,
+      "wall_seconds": 450.0182292461395,
+      "started_unix": 1792883960.6111305,
+      "finished_unix": 1792884410.6293612,
+      "exit_code": 0
+    },
+    {
+      "arm": "fixed1",
+      "assigned_chips": 0,
+      "wall_seconds": 365.013365983963,
+      "started_unix": 1792884375.6909685,
+      "finished_unix": 1792884740.7043355,
+      "exit_code": 0
+    }
+  ],
+  "wall_seconds": 786.9294202327728,
+  "retained_native": {
+    "ordinary": {
+      "warm": {
+        "identity": "parcae-runtime-scalars-v1-ordinary-warm",
+        "report_sha256": "b5b3cc5e9a58edb6e144af982830e7acbba19399ffc39001843fbd18961c678c"
+      },
+      "replay": {
+        "identity": "parcae-runtime-scalars-v1-ordinary-replay",
+        "report_sha256": "52cb8f2186967d55022690806e6d951105c15e908061ce89e55c8fe37b825b12"
+      }
+    },
+    "poisson2": {
+      "warm": {
+        "identity": "parcae-runtime-scalars-v1-poisson2-warm",
+        "report_sha256": "f51f11c2a4ab6bf271585f110f994c5909cea2f73da8b0d8085e5731c2f406ca"
+      },
+      "replay": {
+        "identity": "parcae-runtime-scalars-v1-poisson2-replay",
+        "report_sha256": "448ed9bd39815a15c47b47d650eaa087989fee238f040e5ce9248e29e722e36e"
+      }
+    }
+  },
+  "scope": "Same FP32-polar Muon math/moments/grouping,packed runtime FP32 scalar copy replaces static fills. Three complete20+100+1-update profiles and fresh-process replay,independent first-update/global-trained gradients,100 unique LR/decay values. Qualification-only naturalTRAIN,zero heldout/researchupdates. All failures and original costs retained."
+}

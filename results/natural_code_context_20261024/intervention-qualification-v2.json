@@ -1,0 +1,32 @@
+{
+  "status": "PASS_POSITION_NOISE_PRESERVING_CONTEXT_INTERVENTION",
+  "records": [
+    {
+      "depth": 1,
+      "masked_full_minus_position_preserved_short_max_abs": 0.0,
+      "removed_prefix_invariance_max_abs": 0.0,
+      "unmasked_prefix_change_sensitivity_max_abs": 0.760425329208374
+    },
+    {
+      "depth": 2,
+      "masked_full_minus_position_preserved_short_max_abs": 0.0,
+      "removed_prefix_invariance_max_abs": 0.0,
+      "unmasked_prefix_change_sensitivity_max_abs": 0.7360787391662598
+    }
+  ],
+  "panel_sha256": "9ad7cb06015b3f478be26a1f175602df5a6e95495080573105940da40228c120",
+  "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+  "fixture_model_dim": 32,
+  "mask_adapter_scope": "Explicit CPU SDPA mask in numerical rehearsal only; unmasked scientific forwards use untouched upstream attention.",
+  "source_sha256": {
+    "scripts/qualify_code_context_intervention_v2.py": "60398f6fdd98017f4f7a8205252d58b6b62b308c2ae023a57ff86084e20fac03",
+    "compute_trainium/code_context_views.py": "e65f1dd4c5b6301741ad6b82982128cfb72cb73fadd37c8cbab2cd1c8a942e39",
+    "compute_trainium/reference_attention_mask_fixture.py": "35fc10d939ae06d6b043313cfa61a6cc4cc6a3e58b5c8cb3d0333e04db5b5361"
+  },
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "model_quality_metrics_reported": false,
+  "test_accessed": false,
+  "wall_seconds": 0.9110500812530518,
+  "scope": "Numerical rehearsal on tiny random perturbed upstream model. Counterfactual token arrays are software fixtures only and never research corpus labels. Exact retained source/position/hidden-state mapping; no scientific outcome."
+}

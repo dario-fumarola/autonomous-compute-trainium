@@ -23,11 +23,9 @@ def main():
     preparation=json.loads((out/'preparation-plan.json').read_text())
     if json.loads((out/'preparation-report.json').read_text())['status']!='COMPLETE_LOW_DEPTH_SCIENTIFIC_PREPARATION':
         raise ValueError('Fresh scientific initialization/data/work preparation required')
-    paths={'model_training':Path('results/parcae_runtime_scalars_20261024/report.json'),
-           'replayed_gradient':Path('results/parcae_runtime_scalars_20261024/replayed-gradient-report.json'),
+    paths={'model_training':Path('results/parcae_runtime_scalars_20261024/recovery-v2/report.json'),
            'driver':Path('results/low_depth_driver_qualification_20261024/attempt2/report.json')}
     statuses={'model_training':'PASS_COMPLETE_PARCAE_RUNTIME_SCALAR_QUALIFICATION',
-              'replayed_gradient':'PASS_RUNTIME_REPLAYED_INDEPENDENT_GRADIENTS',
               'driver':'PASS_FINITE_LOW_DEPTH_DRIVER_AND_BRANCH_RECOVERY'}
     for name,path in paths.items():
         if json.loads(path.read_text())['status']!=statuses[name]:raise ValueError('Unfinished scientific launch gate: '+name)
@@ -35,7 +33,6 @@ def main():
     if plan_file.exists():raise FileExistsError('No silent scientific tuning registration replacement')
     files=['scripts/prepare_low_depth_tuning_v2.py','scripts/run_low_depth_tuning_v2.py',
         'scripts/train_low_depth_runtime.py','compute_trainium/parcae_runtime_scalars.py',
-        'scripts/audit_runtime_replayed_gradients.py',
         'docs/LOW_DEPTH_TUNING_RUNTIME_AMENDMENT_20261024.md','tests/test_parcae_runtime_scalars.py',
         'scripts/train_low_depth_scientific.py','scripts/evaluate_low_depth_cpu.py',
         'scripts/train_parcae_precise_qualification.py','scripts/qualify_native.py',
@@ -75,7 +72,9 @@ def main():
     speeds={}
     for arm in ARMS:
         r=next(r for r in profile['records'] if r['arm']==arm and r['precision']=='fp16' and r['accumulation']==16)
-        if not r['passes_recovery_gate'] or r['independent_trained_gradient']['status']!='PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT':
+        if (not r['passes_recovery_gate'] or r['independent_trained_gradient']['status']!='PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT'
+            or not r['resumed_gradient_vs_independent_cpu']['passes_two_percent_gate']
+            or abs(r['resumed_gradient_vs_independent_cpu']['native_minus_cpu_nll'])>.003):
             raise ValueError('Chosen precision/batch has incomplete training qualification')
         speeds[arm]=r['warm_targets_per_second_per_eight_chips']
     estimated=sum(c['end_targets']/speeds[c['arm']] for c in cases.values())/2

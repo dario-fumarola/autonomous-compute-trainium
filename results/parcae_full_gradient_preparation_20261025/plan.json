@@ -1,0 +1,90 @@
+{
+  "identity": "parcae-full-gradient-preparation-v1",
+  "registered_unix": 1792887250.9010568,
+  "parent_preparation_sha256": "040007546f4b9372b896b288a7b6e90a7a1e328b2a5f064cd94f1b105e491ac7",
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "same_forward_table_sha256": "277f262fce6ba461de2102879450773b10b53d90088cd8004b1267fcf014262c",
+  "full_table_sha256": "24b42f4878ce1b0a5d00f053b33ef4eabd9d9047095517620c06f64eddc4388f",
+  "full_work_sha256": "3c6e04e02b143b9e75e3b83e88091d133ec9d03135e6dfd1c0d721ade63417c1",
+  "forward_counts_exactly_equal": true,
+  "backward_rule": "Differentiate every sampled forward application;no resampling of forward depth.",
+  "initial_state": {
+    "file": "../parcae-low-depth-pilot-v1/initial-s1231-family.pt",
+    "sha256": "aba46bd831a955475531b486ebbc98f345e7e8b1fbf89e49d7a93112f8f724dd",
+    "model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+    "parameters": 141963840
+  },
+  "seed": 1231,
+  "matched_work": {
+    "updates": 5558,
+    "executed_matmuls": 1857896748837264384,
+    "budget_matmuls": 1858147163150745600,
+    "unused_budget_matmuls": 250414313481216,
+    "relative_shortfall": 0.00013476559792853214,
+    "next_update_would_exceed_budget": true,
+    "source_cursor": 2845696,
+    "domain_targets": [
+      1745344664,
+      581784035,
+      581787563
+    ],
+    "real_targets": 2908916262,
+    "cooldown_start_update": 2779,
+    "cooldown_start_targets": 1454464540
+  },
+  "equal_data": {
+    "source_cursor": 983040,
+    "domain_targets": [
+      602931715,
+      200977491,
+      200978384
+    ],
+    "real_targets": 1004887590,
+    "updates": 1920,
+    "cooldown_start_update": 960,
+    "cooldown_start_targets": 502444236,
+    "executed_matmuls": 641732534307717120
+  },
+  "ordinary_reference_budget": 1858147163150745600,
+  "truncated_reference": {
+    "updates": 6370,
+    "executed_matmuls": 1858054877398471680,
+    "budget_matmuls": 1858147163150745600,
+    "unused_budget_matmuls": 92285752273920,
+    "relative_shortfall": 4.96654700467517e-05,
+    "next_update_would_exceed_budget": true,
+    "source_cursor": 3261440,
+    "domain_targets": [
+      2000334075,
+      666779484,
+      666780924
+    ],
+    "real_targets": 3333894483,
+    "cooldown_start_update": 3185,
+    "cooldown_start_targets": 1666954102
+  },
+  "parameters": 141963840,
+  "learning_rate_policy": "Exactly the scalar rate selected for the truncated candidate;no new tuning in the gradient-only causal screen.",
+  "source_sha256": {
+    "scripts/prepare_low_depth_full_gradient.py": "9818b4dafb6a4be3b101325359ea6313a4f9d87901608e229a69c1b468e96b01",
+    "compute_trainium/parcae_scientific_schedule.py": "10b8f724af0843fac3d8167d84994880ef7b09836b51fa85cc9d92a912739459",
+    "compute_trainium/parcae_work_accounting.py": "36e301f291f68629c00c349f520b596dd334b5b5c2d32ffe5ea305feed29fc24",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02"
+  },
+  "scientific_launch_authorized": false,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "CPU numerical depth/work preparation for the single reserved conditional follow-up. Same N,initial weights,source/noise order,architecture and readout;only K changes from1 toN. No new scientific fit,heldout score or automatic advancement. Own numerical/profile gates and conditional scientific registration remain required."
+}

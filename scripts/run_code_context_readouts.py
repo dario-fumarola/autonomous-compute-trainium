@@ -1,0 +1,108 @@
+"""CPU-only finite context readouts after exact candidate numerical gates."""
+import argparse
+import json
+import os
+import signal
+import subprocess
+import time
+from pathlib import Path
+
+from compute_trainium.queue import write_state
+from compute_trainium.training import file_sha256
+
+
+def main():
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True)
+    p.add_argument('--resume',action='store_true');a=p.parse_args()
+    selection=a.root/'natural-code-context-v1';out=selection/'evaluation-execution'
+    public=Path('results/natural_code_context_20261024/readouts');plan_file=out/'plan.json'
+    if plan_file.exists():
+        if not a.resume:raise FileExistsError('Explicit context-readout recovery required')
+        plan=json.loads(plan_file.read_text())
+    else:
+        if a.resume:raise ValueError('No context-readout execution to recover')
+        qualified=selection/'intervention-qualification-v3.json'
+        if json.loads(qualified.read_text())['status']!='PASS_POSITION_NOISE_PRESERVING_CONTEXT_INTERVENTION':raise ValueError('Intervention not qualified')
+        files=['scripts/run_code_context_readouts.py','scripts/evaluate_natural_code_context.py',
+            'compute_trainium/code_context_views.py','scripts/qualify_code_context_intervention_v3.py',
+            'compute_trainium/reference_attention_mask_fixture.py','docs/NATURAL_CODE_CONTEXT_EVALUATION_20261024.md',
+            'tests/test_code_context_views.py','tests/test_reference_attention_mask_fixture.py',
+            'compute_trainium/parcae_candidate.py','compute_trainium/parcae_training_candidate.py',
+            'scripts/audit_parcae_precise_training_point.py','scripts/qualify_parcae_candidate_cpu.py',
+            'scripts/qualify_native.py','compute_trainium/training.py','compute_trainium/queue.py']
+        plan={'identity':'natural-code-context-readouts-v1','registered_unix':time.time(),
+            'deadline_unix':time.time()+16*3600,'software_sha256':{f:file_sha256(f) for f in files},
+            'selection_panel_sha256':file_sha256(selection/'panel.json'),'scoring_panel_sha256':file_sha256(selection/'scoring-panel-v3.json'),
+            'intervention_qualification_sha256':file_sha256(qualified),'readouts':['matched','equal'],
+            'seconds_limit_per_endpoint':1200,'context_target_scores_seen':False,'ordinary_tune_scores_exist':True,'test_accessed':False,
+            'scope':'Two frozen CPU-only oldDEV natural-code mechanism readouts after exact main candidate gradient gates. Original149 targets,1008/128 original-token prefixes,supported exits1/2,matched positions/noise,no fresh TEST or terminal alpha.'}
+        out.mkdir();public.mkdir(parents=True,exist_ok=False);write_state(plan_file,plan);write_state(public/'plan.json',plan)
+    if (out/'report.json').exists() and json.loads((out/'report.json').read_text())['status']=='COMPLETE_FROZEN_CODE_CONTEXT_READOUTS':return
+    started=time.time();child=None;records=[];costs=[];cost_row=None
+    def guard():
+        if time.time()>plan['deadline_unix']:raise TimeoutError('Original context-readout window expired')
+        if any(file_sha256(f)!=sha for f,sha in plan['software_sha256'].items()):raise AssertionError('Frozen context scoring source changed')
+        for file,key in [('panel.json','selection_panel_sha256'),('scoring-panel-v3.json','scoring_panel_sha256'),('intervention-qualification-v3.json','intervention_qualification_sha256')]:
+            if file_sha256(selection/file)!=plan[key]:raise AssertionError('Frozen context panel/qualification changed')
+    def prerequisite_failed():
+        for file in [Path('results/low_depth_pilot_queue_20261024/recovery-v2/report.json'),
+                     Path('results/parcae_low_depth_pilot_20261024/main/report.json')]:
+            if file.exists() and json.loads(file.read_text())['status'].startswith('STOPPED_'):
+                raise RuntimeError('Context readout prerequisite stopped: '+str(file))
+    result={'status':'STOPPED_FROZEN_CODE_CONTEXT_READOUTS'}
+    try:
+        main_plan=a.root/'parcae-low-depth-pilot-v1/main-plan.json'
+        for readout in plan['readouts']:
+            write_state(public/'status.json',{'status':'WAITING_FOR_EXACT_CANDIDATE_ENDPOINT_GRADIENT_GATE','readout':readout,'assigned_chips':0})
+            while True:
+                guard();prerequisite_failed()
+                path=Path('results/parcae_low_depth_pilot_20261024/main/gradient-progress.json')
+                gradients=json.loads(path.read_text())['records'] if path.exists() else []
+                matching=[r for r in gradients if r['arm']=='poisson2' and r['readout']==readout]
+                if main_plan.exists() and matching:break
+                time.sleep(10)
+            parent=json.loads(main_plan.read_text());case_id='poisson2-'+('main' if readout=='matched' else 'equal')+'-s1231'
+            update=parent['cases'][case_id]['total_updates'];phase='finish' if readout=='matched' else 'equal'
+            checkpoint=a.root/'runs'/('low-depth-main-v1-poisson2-'+phase)/f'checkpoint-u{update}.pt'
+            sha=matching[0]['independent_cpu']['checkpoint_sha256']
+            if file_sha256(checkpoint)!=sha:raise AssertionError('Context endpoint differs from numerical gate')
+            target=out/readout;receipt=target/'report.json';begin=time.time()
+            cost_row={'readout':readout,'assigned_chips':0,'started_unix':begin,'completed':False,
+                      'reused_completed_score':receipt.exists()}
+            costs.append(cost_row)
+            if not receipt.exists():
+                if target.exists():raise RuntimeError('Preserve partial context score; explicit recovery identity required')
+                env=dict(os.environ,USE_TORCH_XLA='0',OMP_NUM_THREADS='12',MKL_NUM_THREADS='12')
+                args=[os.sys.executable,'-u','-m','scripts.evaluate_natural_code_context','--root',str(a.root),
+                    '--checkpoint',str(checkpoint),'--checkpoint-sha',sha,'--plan',str(main_plan),
+                    '--plan-sha',file_sha256(main_plan),'--readout',readout,'--output',str(target)]
+                with (out/(readout+f'-{int(begin)}.log')).open('x') as log:
+                    child=subprocess.Popen(args,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+                write_state(public/'status.json',{'status':'SCORING_FROZEN_FOUR_CONTEXT_EXIT_CONDITIONS','readout':readout,'assigned_chips':0})
+                while child.poll() is None:
+                    guard()
+                    if time.time()>begin+plan['seconds_limit_per_endpoint']+30:raise TimeoutError('Context endpoint CPU deadline')
+                    time.sleep(5)
+                code=child.returncode;child=None
+                if code:raise RuntimeError('Context endpoint independent readout failed')
+            row=json.loads(receipt.read_text())
+            if row['status']!='COMPLETE_FROZEN_NATURAL_CODE_CONTEXT_READOUT' or row['checkpoint_sha256']!=sha:raise AssertionError('Context readout identity failed')
+            write_state(public/(readout+'.json'),row);records.append(row)
+            cost_row.update(wall_seconds=time.time()-begin,finished_unix=time.time(),completed=True,exit_code=0)
+        result={'status':'COMPLETE_FROZEN_CODE_CONTEXT_READOUTS','records':records}
+    except BaseException as error:result.update(error=str(error),records=records);raise
+    finally:
+        if child and child.poll() is None:
+            os.killpg(child.pid,signal.SIGTERM)
+            try:child.wait(timeout=10)
+            except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);child.wait(timeout=10)
+        if cost_row and not cost_row['completed']:
+            cost_row.update(wall_seconds=time.time()-cost_row['started_unix'],finished_unix=time.time(),
+                            exit_code=child.returncode if child else None)
+        result.update(controller_elapsed_seconds=time.time()-started,cpu_scores=costs,
+            test_accessed=False,new_terminal_attempt=False,scope=plan['scope'])
+        write_state(out/'report.json',result);write_state(public/'report.json',result)
+        write_state(public/'status.json',{'status':result['status'],'assigned_chips':0})
+
+
+if __name__=='__main__':main()

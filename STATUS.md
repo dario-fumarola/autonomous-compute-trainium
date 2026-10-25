@@ -1,4 +1,56 @@
-# Status — 2026-10-24, 23:17 UTC
+# Status — 2026-10-25, 00:16 UTC
+
+Four of12 rate trials are independently scored. At0.002,ordinary scores
+3.102339,one-pass Parcae3.256649 and recurrence3.297224; recurrence is0.040575
+worse than one-pass here. Ordinary improves to2.994108 at0.004. These are
+single tuning-seed results,not the selected recipes or main comparison.
+All16 chips continue the remaining opportunities unchanged.
+
+The one reserved full-gradient follow-up has CPU-only work tables prepared:
+identical sampled forward counts,with differentiated tails changed from1 toN.
+At the same1.858147e18 matrix-work budget its endpoint would be2.909B original
+targets versus3.334B for truncation. This is unlaunched preparation only; its
+conditional advancement and separate hardware/profile gates remain in force.
+[Prepared cost](results/parcae_full_gradient_preparation_20261025/report.json).
+
+**The first two independent301M TUNE scores are complete.** At the lowest
+registered rate0.002,ordinary scores3.102339 nats and true one-pass Parcae
+scores3.256649. Ten opportunities remain; no arm-level conclusion or rate
+selection has been made. All16 chips continue with the recurrent trial and
+higher rates. The controls and full screen stay frozen.
+[Current scores](results/parcae_low_depth_pilot_20261024/tuning-v2/scores-progress.json).
+
+**All16 chips are back in the frozen scientific LR screen.** The runtime-input
+qualification now passes all three inventories,independent first updates,
+trained and recovered complete-global gradients,replica equality and exact
+state/RNG loads.100 varying-schedule updates measure491,376 ordinary,420,279
+true one-pass and399,894 recurrent real targets/second per eight-chip job.
+Overall trained-gradient errors are0.0213%,0.1085%,0.0773%,well below2%.
+Both original20-update scientific prefixes also have identical complete
+model/optimizer digests after the execution change. This establishes a
+performance repair,not a prediction-quality gain.
+[Recovery report](results/parcae_runtime_scalars_20261024/recovery-v2/report.json) ·
+[Frozen new screen](results/parcae_low_depth_pilot_20261024/tuning-v2/plan.json) ·
+[Prefix equivalence](results/parcae_low_depth_pilot_20261024/tuning-v2/runtime-prefix-equivalence.json).
+
+The fixed follow-on queue now waits for complete predecessor receipts. It
+will independently validate selected301M gradients,then register and execute
+the finite one-seed matched-work/equal-data pilot. Main training has not started.
+The zero-update gradient-capture driver passes independent CPU checks for both
+qualification models. [Queued stages](results/low_depth_pilot_queue_20261024/recovery-v2/plan.json).
+
+The natural-code target set remains149 original identifiers. Before scientific
+scoring,the full prefix is fixed at1008 tokens and the random-state key uses
+only the absolute next source index,independent of document hashes,the target's length or
+content. Short views preserve original RoPE positions and hidden-state slices.
+The numerical intervention rehearsal passes exactly at both supported exits.
+Its initial failure identified the pinned upstream optional attention-mask
+argument being ignored; an explicit mask adapter is used only in the numerical
+fixture,while scientific forwards use unchanged upstream causal attention.
+[Scoring-view policy](docs/NATURAL_CODE_CONTEXT_EVALUATION_20261024.md).
+
+The CPU suite passes168 tests. No new held-out quality result or terminal
+significance has been reported; the research goal remains active.
 
 **The scalar-input fix restores measured scheduled throughput, but qualification
 needs one retained-state recovery.** Ordinary and recurrent100-update intervals

@@ -1,0 +1,154 @@
+{
+  "status": "PASS_LOW_DEPTH_GRADIENT_VALIDATION",
+  "records": [
+    {
+      "native": {
+        "status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+        "point": "ordinary",
+        "case_id": "ordinary-main",
+        "arm": "ordinary",
+        "checkpoint_sha256": "454b3c725def085f29d36eb026517007fb0bcac80914d886414a9e9ca35ba4d6",
+        "parent_plan_sha256": "74b0937a484a9b49789cf3801ed152cde6ddb63a9d95e8b49fca44637922dd6c",
+        "probe_plan_sha256": "930856f0395268ed6aa761b2a100eb958ce9eade7e2a7d579cfc4b163ee0ea6c",
+        "source_cursor": 20480,
+        "training_update": 40,
+        "real_targets": 523378,
+        "windows": 512,
+        "gradient_sha256": "8703bf06bd5aa493e680868909b1eaceadd63c0c0b2e35a608a4dcc23610acb3",
+        "full_state_digest": "db1540268611f0163d539e205bcf80541a43534c8b5fa2b55cfc64bb537045b4",
+        "model_unchanged": true,
+        "replica_gradients_equal": true,
+        "neural_matmuls": 240588699992064,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 114.9723870754242,
+        "scope": "Next full TRAIN objective at frozen checkpoint. No clipping, optimizer step, source advancement, held-out selection or precision claim without independent CPU gradient comparison."
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "ordinary",
+        "case_id": "ordinary-main",
+        "arm": "ordinary",
+        "training_update": 40,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.00037732402304170733,
+            "maximum_absolute_error": 1.2965872883796692e-05,
+            "reference_l2": 7.7487391976355
+          },
+          "families": {
+            "tied_input_output": {
+              "relative_l2": 0.00048081009015182706,
+              "maximum_absolute_error": 5.046254955232143e-06,
+              "reference_l2": 0.18007216484480912
+            },
+            "transformer_body": {
+              "relative_l2": 0.000377260432643802,
+              "maximum_absolute_error": 1.2965872883796692e-05,
+              "reference_l2": 7.746646528629878
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0003346037718340538,
+              "maximum_absolute_error": 1.8295395420864224e-08,
+              "reference_l2": 0.0008537491497547753
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 6.338152012921349,
+        "native_minus_cpu_nll": 8.135253102281581e-07,
+        "real_targets": 523378,
+        "windows": 512,
+        "checkpoint_sha256": "454b3c725def085f29d36eb026517007fb0bcac80914d886414a9e9ca35ba4d6",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 335.131520986557,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      }
+    },
+    {
+      "native": {
+        "status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+        "point": "poisson2",
+        "case_id": "poisson2-main",
+        "arm": "poisson2",
+        "checkpoint_sha256": "333084509072351714e5908de23c884ad87d5e9d491d071ac152bb9b1ddc8ca4",
+        "parent_plan_sha256": "74b0937a484a9b49789cf3801ed152cde6ddb63a9d95e8b49fca44637922dd6c",
+        "probe_plan_sha256": "930856f0395268ed6aa761b2a100eb958ce9eade7e2a7d579cfc4b163ee0ea6c",
+        "source_cursor": 20480,
+        "training_update": 40,
+        "real_targets": 523378,
+        "windows": 512,
+        "gradient_sha256": "89678733ca409180edcce11b19b2fa86991ec090d12efb7e25c5356d86a0be20",
+        "full_state_digest": "4a442ad709a5ad11caffa5888d9dbca09aa3b0e888360e2a4d428aa8e23db17e",
+        "model_unchanged": true,
+        "replica_gradients_equal": true,
+        "neural_matmuls": 265478531186688,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 90.90696501731873,
+        "scope": "Next full TRAIN objective at frozen checkpoint. No clipping, optimizer step, source advancement, held-out selection or precision claim without independent CPU gradient comparison."
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_LOW_DEPTH_GRADIENT",
+        "point": "poisson2",
+        "case_id": "poisson2-main",
+        "arm": "poisson2",
+        "training_update": 40,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0010745206797113452,
+            "maximum_absolute_error": 1.2496719136834145e-05,
+            "reference_l2": 1.8414758519422856
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0009275930558045715,
+              "maximum_absolute_error": 7.947091944515705e-07,
+              "reference_l2": 0.07980779206058441
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0007607235662774719,
+              "maximum_absolute_error": 5.5390410125255585e-06,
+              "reference_l2": 0.14470173641425518
+            },
+            "transformer_body": {
+              "relative_l2": 0.0010764462618709136,
+              "maximum_absolute_error": 1.2496719136834145e-05,
+              "reference_l2": 1.8340461673385848
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0007936967497762084,
+              "maximum_absolute_error": 3.276545612607151e-08,
+              "reference_l2": 0.00030522504490509544
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 5.858462371073404,
+        "native_minus_cpu_nll": -1.315448034944211e-07,
+        "real_targets": 523378,
+        "windows": 512,
+        "checkpoint_sha256": "333084509072351714e5908de23c884ad87d5e9d491d071ac152bb9b1ddc8ca4",
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 427.23218607902527,
+        "scope": "Independent pinned-upstream FP32 complete TRAIN gradient at frozen checkpoint. Exact state/depth/noise/source coverage, unchanged2% overall and family gates and0.003-nat loss gate. No held-out learning claim."
+      }
+    }
+  ],
+  "wall_seconds": 877.3435709476471,
+  "test_accessed": false,
+  "research_optimizer_updates": 0,
+  "plan_sha256": "930856f0395268ed6aa761b2a100eb958ce9eade7e2a7d579cfc4b163ee0ea6c"
+}

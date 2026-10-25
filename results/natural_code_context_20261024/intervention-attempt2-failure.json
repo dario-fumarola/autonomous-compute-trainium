@@ -1,0 +1,13 @@
+{
+  "status": "FAILED_CONTEXT_INTERVENTION_SOFTWARE_REHEARSAL",
+  "source_sha256": "f58aab3c30fc160072074a14f3950d4991b011388ea1c2f540e3550bc6a7f37c",
+  "observed_unix": 1792884346.8335738,
+  "depth": 1,
+  "maximum_short_error": 1.8149070739746094,
+  "removed_prefix_invariance_error": 0.760425329208374,
+  "unmasked_sensitivity": 0.760425329208374,
+  "identified_cause": "Pinned upstream model accepts attention_mask but mixer always calls flash attention without that mask. The numerical rehearsal must install its explicit block-mask adapter at the attention function. Scientific unmasked causal scoring is unaffected.",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "scientific_scores": 0
+}
