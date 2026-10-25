@@ -1,4 +1,4 @@
-# Status — 2026-10-25 12:26 UTC
+# Status — 2026-10-25 12:39 UTC
 
 **All16 chips are now training the second seed's recurrent pair.** Both second-
 seed one-pass endpoints are complete:NTP2.615013,future loss2.615944. Six of
@@ -18,7 +18,7 @@ before any long continuation. The admitted execution has a separate measured
 three-hour cap and individually owned workers. No control learning result
 exists yet. [Prospective protocol](docs/FUTURE_SPAN_WORK_CONTROLS_20261025.md).
 
-All **232 CPU tests pass**. The new queue freezes132 exact source paths;
+All **234 CPU tests pass**. The work queue freezes132 exact source paths;
 original MAIN119 and code-context127 files remain unchanged. Its conservative
 estimate is8,809 seconds including numerical audits,scoring and transport,
 below the10,800-second cap. Resume preserves that original clock and frozen
@@ -28,6 +28,16 @@ This remains a two-seed development screen,with unbracketed selected rates.
 Within-family controls do not replace stronger ordinary/cheap challengers,
 inference costs or at least five fresh paired confirmation seeds/source groups.
 The research goal remains active and unachieved.
+
+A new CPU-only exploratory diagnostic checks the auxiliary-learning channel.
+The first seed's future-head loss falls from about6.70 to3.55 with supervision,
+but that alone cannot demonstrate NTP transfer. A constant frequency reference,
+fitted on a disjoint original TRAIN prefix,scores4.483896 versus6.696829 for
+the fixed initial prior. This28.65-second count uses no model forwards or
+optimizer steps. Its122-file observer waits for all original models before
+comparing every mature objective audit. It changes no primary or admission rule.
+[Diagnostic scope](docs/FUTURE_SPAN_FREQUENCY_DIAGNOSTIC_20261025.md).
+
 
 The earlier low-depth pilot and prefix-only sensitivity audit are complete. Its
 matched-work recurrence gain over one-pass is−0.001856 nats;its equal-data
