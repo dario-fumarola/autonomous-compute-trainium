@@ -1,0 +1,12 @@
+{
+  "scope": "Initial qualification-only weights,not the scientific tuning/model endpoints.",
+  "backbone_signal_relative_to_ntp": 0.0508764,
+  "native_vs_cpu_backbone_signal_relative_l2_approximately": 0.000276,
+  "inference": "The future loss changes the shared backbone gradient,and its initial numerical contribution is resolved by the native path.",
+  "limits": [
+    "Differencing separately accumulated FP32 packets is not a pure-auxiliary backward.",
+    "Initial gradient magnitudes or cosines do not establish generalization or later training dynamics.",
+    "For the auxiliary-head block,NTP gradient norm is zero;ratios against that zero baseline use the numerical denominator floor and are not interpreted.",
+    "No training weight,horizon,rate,criterion or admitted budget changes."
+  ]
+}

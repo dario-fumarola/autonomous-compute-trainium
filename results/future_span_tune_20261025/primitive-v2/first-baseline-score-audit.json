@@ -1,0 +1,57 @@
+{
+  "status": "PASS_FROZEN_TUNE_TARGETS_AND_WEIGHTED_AGGREGATES",
+  "checked_unix": 1792915114.931354,
+  "records": [
+    {
+      "case_id": "one-ntp-s4127-lr8000",
+      "nll_recomputed_from_document_totals": 2.993821463207375,
+      "domains": {
+        "web": {
+          "targets": 257141,
+          "documents": 251,
+          "nll": 3.5157958570268897
+        },
+        "math": {
+          "targets": 252312,
+          "documents": 176,
+          "nll": 2.628163973423452
+        },
+        "code": {
+          "targets": 250020,
+          "documents": 129,
+          "nll": 1.793555771532756
+        }
+      },
+      "report_sha256": "95a1f38b6314faf87461f642d936173953c41b00d4853894e63fcc387cf62663",
+      "private_document_scores_sha256": "b3dfe78f84b87263b34edf74b33191e01fa3f1ea7d6c9a893bb9dbe2e834277e",
+      "training_real_targets": 301465908
+    },
+    {
+      "case_id": "one-ntp-s4127-lr16000",
+      "nll_recomputed_from_document_totals": 2.9490289676386383,
+      "domains": {
+        "web": {
+          "targets": 257141,
+          "documents": 251,
+          "nll": 3.4644911255764175
+        },
+        "math": {
+          "targets": 252312,
+          "documents": 176,
+          "nll": 2.5903908258263746
+        },
+        "code": {
+          "targets": 250020,
+          "documents": 129,
+          "nll": 1.7612806356375648
+        }
+      },
+      "report_sha256": "f8bf89131a487b7493caf8b07b4764901f631e622612e308d03cce1f81a6b8e7",
+      "private_document_scores_sha256": "8d6e382b94725cbda43d92ca10e6406b7d419aef532631f355ec9960943ab2fc",
+      "training_real_targets": 301465908
+    }
+  ],
+  "same_unique_documents_and_targets": true,
+  "difference_lr008_minus_lr016": 0.04479249556873688,
+  "scope": "Arithmetic/target-pairing check of two cooled TUNE scores. This is learning-rate discovery only,not a completed grid,gradient gate,architecture/objective comparison or independent confirmation."
+}

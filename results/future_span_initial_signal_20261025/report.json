@@ -1,0 +1,78 @@
+{
+  "status": "COMPLETE_INITIAL_AUXILIARY_SIGNAL_DIAGNOSTIC",
+  "records": [
+    {
+      "arm": "one",
+      "shared_initial_model_digest": "a1f7ae4efd9c714eb86f202302195f6c9af227fc9657be1f6c82287d4d233521",
+      "provenance": {
+        "ntp": {
+          "independent_cpu_sha256": "1e1a8b54af2028a308ffd0d568d8ab5bbf8ba2d408ac0ef4b08f3a3a93e47e3b",
+          "native_sha256": "677090dff0f7f1c46860f95b961037209e60551c6a6898cdf99caad5d3c927f7"
+        },
+        "future": {
+          "independent_cpu_sha256": "b2f5f5f2e46d0bdc48c5c950e277e823f7ae8af156a99a6a1573cb8988aca6a3",
+          "native_sha256": "47d1a2bd24a58352d5912476a8840130e65de106898313fc9aec075a194e3593"
+        }
+      },
+      "backbone": {
+        "ntp_l2": 21.150209228432452,
+        "cpu_auxiliary_difference_l2": 1.076046474360036,
+        "native_auxiliary_difference_l2": 1.076068803050006,
+        "cpu_auxiliary_relative_to_ntp": 0.050876398561272636,
+        "native_vs_cpu_auxiliary_difference_relative_l2": 0.0002763623196957586,
+        "auxiliary_direction_cosine": 0.9999999620280171,
+        "cpu_auxiliary_vs_ntp_cosine": -0.022992117629469695,
+        "maximum_absolute_difference": 1.6777776181697845e-06
+      },
+      "auxiliary_head": {
+        "ntp_l2": 0.0,
+        "cpu_auxiliary_difference_l2": 0.01397993911137074,
+        "native_auxiliary_difference_l2": 0.013979940570376154,
+        "cpu_auxiliary_relative_to_ntp": 1.397993911137074e+28,
+        "native_vs_cpu_auxiliary_difference_relative_l2": 0.0002673520039035648,
+        "auxiliary_direction_cosine": 0.9999999642614622,
+        "cpu_auxiliary_vs_ntp_cosine": 0.0,
+        "maximum_absolute_difference": 1.7040292732417583e-07
+      }
+    },
+    {
+      "arm": "recurrent",
+      "shared_initial_model_digest": "a1f7ae4efd9c714eb86f202302195f6c9af227fc9657be1f6c82287d4d233521",
+      "provenance": {
+        "ntp": {
+          "independent_cpu_sha256": "f6f2cbfeb3d5b9a5afb518de5f609a5b8d464d6143804d57c3649b33f623b144",
+          "native_sha256": "fe9fd2638d1b94d01b8ec1f6ae5e57d925f6a09740e63e9cabe1f27a2c9077b1"
+        },
+        "future": {
+          "independent_cpu_sha256": "51ebca77b61f2207527a7e4b65dab966719e86f05d45cec4043f1335544d43e9",
+          "native_sha256": "9d07cb40bc2c8ea7b95ad3b28c802d519cb8df633d2e1a7089744bd5d3571dc8"
+        }
+      },
+      "backbone": {
+        "ntp_l2": 21.142795602670567,
+        "cpu_auxiliary_difference_l2": 1.0756690571462917,
+        "native_auxiliary_difference_l2": 1.0756894221454403,
+        "cpu_auxiliary_relative_to_ntp": 0.0508763872744635,
+        "native_vs_cpu_auxiliary_difference_relative_l2": 0.00027609994777960884,
+        "auxiliary_direction_cosine": 0.999999962064346,
+        "cpu_auxiliary_vs_ntp_cosine": -0.022991530934666788,
+        "maximum_absolute_difference": 1.7741695046424866e-06
+      },
+      "auxiliary_head": {
+        "ntp_l2": 0.0,
+        "cpu_auxiliary_difference_l2": 0.013980534126545846,
+        "native_auxiliary_difference_l2": 0.01398053844789519,
+        "cpu_auxiliary_relative_to_ntp": 1.3980534126545846e+28,
+        "native_vs_cpu_auxiliary_difference_relative_l2": 0.0002685361590324535,
+        "auxiliary_direction_cosine": 0.9999999639442243,
+        "cpu_auxiliary_vs_ntp_cosine": 0.0,
+        "maximum_absolute_difference": 1.7329875845462084e-07
+      }
+    }
+  ],
+  "wall_seconds": 20.070438861846924,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "scope": "Differences of separately accumulated FP32 gradient packets at the identical qualification initializer and full512 original windows. Quantifies numerical resolution of the auxiliary signal,not a pure-auxiliary backward,training-trajectory explanation,scientific effect or changed admission gate."
+}

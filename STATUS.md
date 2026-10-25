@@ -1,4 +1,43 @@
-# Status — 2026-10-25, scientific tuning admitted
+# Status — 2026-10-25, 08:14 UTC
+
+**Four301.5M-target tuning endpoints are scored;the objective comparison is
+unfinished.** The three ordinary NTP learning-rate trials are complete,and
+the first one-pass future-loss trial is complete. Independent FP32 scores use
+the same556-document TUNE panel with759,473 real targets.
+
+| Cell | Peak LR | Cooled TUNE NLL |
+| --- | ---: | ---: |
+| One-pass NTP | .008 | 2.993821 |
+| One-pass NTP | .016 | 2.949029 |
+| One-pass NTP | .032 | **2.938677** |
+| One-pass future loss | .008 | 2.991968 |
+
+NTP's best tested rate is the upper grid edge;its optimum remains unbracketed.
+The first future trial gains only0.001853 nats against same-rate NTP. This is
+not a selected-recipe comparison or evidence for useful recurrence. All twelve
+frozen opportunities and four selected-checkpoint gradient gates remain required.
+No rate,horizon,weight,threshold or admitted budget changes.
+
+All16 chips are training the two higher-rate one-pass future trials,observed
+at450 updates/235.5M real targets each. The main two-seed study is not admitted.
+First scientific stable checkpoints pass independent full model/optimizer
+readback and exact source/domain/anchor/work-counter checks. The first baseline
+score aggregates and document pairing also reproduce independently.
+[Live scores](results/future_span_tune_20261025/primitive-v2/scores-progress.json)
+· [Checkpoint audit](results/future_span_tune_20261025/primitive-v2/startup-checkpoint-audit.json).
+
+A separate20.1second CPU diagnostic of the already saved qualification packets
+confirms the future loss changes the shared backbone gradient:its initial
+contribution norm is5.09% of NTP's,and the native contribution matches CPU to
+0.0276% relative error. This uses identical initial weights,source,depths and
+noise. It is an initial numerical-channel check,not a prediction result or
+explanation of later learning. It changes no gate and uses zero new device work.
+[Initial signal audit](results/future_span_initial_signal_20261025/report.json).
+
+All **214 CPU tests pass**. The research goal remains active and unachieved;
+confirmation sources,seeds and terminal alpha remain untouched.
+
+# Earlier status — 2026-10-25, scientific tuning admitted
 
 **The objective study is running real scientific updates on all16 chips.**
 The complete four-cell hardware qualification and all four scientific-driver
