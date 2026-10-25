@@ -1,8 +1,16 @@
-# Status — 2026-10-25, 09:45 UTC
+# Status — 2026-10-25, 09:57 UTC
 
-**All twelve tuning scores and four selected gradient gates pass;the
-fresh two-seed MAIN study is running on all16 chips.** Independent FP32 scores use the same
-556-document consumed TUNE panel and 301,465,908 training targets per fit.
+**The fresh two-seed MAIN study is running on all16 chips.** Its first two
+stable301M-target scores are available on603 consumed CURVE DEV documents:
+one-pass NTP3.071810,one-pass future loss3.054320,a0.017489-nat gain. This is
+one seed before cooldown;recurrent cells,final endpoints and the second seed
+remain pending. It is not an interaction,confirmation or final useful-effect
+claim. This panel and schedule phase differ from TUNE.
+[Partial stable readout](results/future_span_main_20261025/primitive-v2/first-one-pass-stable301m.json).
+
+All twelve TUNE scores and four selected gradient gates pass. Independent
+FP32 TUNE scores use556 consumed documents and301,465,908 training targets
+per fit;the selected-rate summary below is tuning evidence.
 
 | Cell | Selected peak LR | TUNE NLL |
 | --- | ---: | ---: |
@@ -39,7 +47,7 @@ fresh seeds5231/7283. Both first seed5231 one-pass cells have saved independentl
 audited stable301M-target checkpoints. Exact complete model/optimizer digests,
 all32 replica/RNG records and source/anchor/work counters pass. The zero-weight
 NTP head stays unchanged;the future-loss head changes. All16 chips are assigned.
-No held-out MAIN outcome is available. MAIN retains its original
+No cooled MAIN endpoint is scored yet. MAIN retains its original
 8h cap,ending17:29 UTC;architecture,objective,rates,data and decision rules
 remain frozen. No terminal confirmation has been opened.
 [Actual fresh-update receipt](results/future_span_main_20261025/primitive-v2/native-start-receipt.json)
@@ -49,11 +57,18 @@ A separate pre-outcome CPU audit reconstructs the complete matrix ledger and
 checks a possible one-pass work-matched continuation:2365 updates/1.238B
 real targets,0.021527% below recurrence's1.005B matrix budget. Its own cooldown
 would start at1182 updates,after the preserved stable960-update state. No
-checkpoint was adopted,no scores read and no control run admitted;cross-plan
-full-state recovery still needs qualification.
+checkpoint was adopted,no scores read and no control run admitted.
 [Work/source feasibility](docs/FUTURE_SPAN_COMPUTE_READINESS_20261025.md).
 
-All **218 CPU tests pass**. Resource guards pass. Fresh confirmation sources
+The explicit cross-plan transport now passes a25.46-second CPU check on both
+actual stable502M one-pass parents:complete model/optimizer/all32-RNG copies
+serialize exactly and original files remain unchanged. Only plan binding and
+provenance change. The qualification plan has native launch disabled. Native
+continuation/update qualification remains required before any separate control
+admission;the live MAIN plan is untouched.
+[Transport evidence and scope](docs/FUTURE_SPAN_STATE_TRANSPORT_20261025.md).
+
+All **225 CPU tests pass**. Resource guards pass. Fresh confirmation sources
 and terminal alpha remain untouched;the overall research goal is active and
 unachieved. Complete the primary factorial readout and the separately disclosed
 NTP secondary before selecting a follow-up.

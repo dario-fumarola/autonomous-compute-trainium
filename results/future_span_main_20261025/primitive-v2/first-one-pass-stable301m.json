@@ -1,0 +1,35 @@
+{
+  "status": "PARTIAL_ONE_PASS_ONLY_STABLE301M_MAIN_READOUT",
+  "seed": 5231,
+  "readout": "stable301m",
+  "documents": 603,
+  "evaluation_real_targets": 754750,
+  "training_real_targets": 301465908,
+  "one_ntp_nll": 3.0718096658202145,
+  "one_future_nll": 3.054320211785628,
+  "future_gain_in_one_pass": 0.017489454034586682,
+  "per_domain_future_gain": {
+    "web": 0.021590505062272225,
+    "math": 0.02090285363494404,
+    "code": 0.0017729013511724734
+  },
+  "source_pairing_exact": true,
+  "input_receipts": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "checkpoint_sha256": "7dd76003ca54874e9e5f1784f33ec6f02f120915d30a6011265c287fa821497c",
+      "document_scores_sha256": "72d421172bf7c4d8d8360e0d7334b3d8b6d709718c8b6353ec77ed527f6f3c08"
+    },
+    {
+      "case_id": "one-future-s5231-lr32000",
+      "checkpoint_sha256": "1a06bc99ec9d3d02089ee115e2097dddc347da77c71c6d3c93fef7d0aa4be3a0",
+      "document_scores_sha256": "4bfb4166d7eefc6ef78ef0e078ccbea462ecdc7457bc7f526015d2d2461146f5"
+    }
+  ],
+  "model_forwards": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "Descriptive stable-phase readout from one fresh training seed on consumed CURVE DEV. Different panel and schedule phase from cooled TUNE;not comparable as a single learning curve. Recurrent cells,final cooldowns,second seed,interaction and original/secondary decisions remain pending. No success criterion changes."
+}
