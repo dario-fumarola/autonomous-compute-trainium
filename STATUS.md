@@ -1,8 +1,7 @@
 # Status — 2026-10-25, 08:14 UTC
 
-**Four301.5M-target tuning endpoints are scored;the objective comparison is
-unfinished.** The three one-pass NTP learning-rate trials are complete,and
-the first one-pass future-loss trial is complete. Independent FP32 scores use
+**All six one-pass301.5M-target tuning endpoints are scored;the factorial
+comparison is unfinished.** Both one-pass three-rate grids are complete. Independent FP32 scores use
 the same556-document TUNE panel with759,473 real targets.
 
 | Cell | Peak LR | Cooled TUNE NLL |
@@ -11,16 +10,17 @@ the same556-document TUNE panel with759,473 real targets.
 | One-pass NTP | .016 | 2.949029 |
 | One-pass NTP | .032 | **2.938677** |
 | One-pass future loss | .008 | 2.991968 |
+| One-pass future loss | .016 | 2.950876 |
+| One-pass future loss | .032 | **2.935304** |
 
-NTP's best tested rate is the upper grid edge;its optimum remains unbracketed.
-The first future trial gains only0.001853 nats against same-rate NTP. This is
-not a selected-recipe comparison or evidence for useful recurrence. All twelve
+Both best tested rates are the upper grid edge;their optima remain unbracketed.
+Best tested future loss gains0.003373 nats over best tested NTP,below the0.01
+useful-effect threshold. This is a one-seed TUNE observation,not a recurrent
+interaction or confirmation. No setting changes. All twelve
 frozen opportunities and four selected-checkpoint gradient gates remain required.
 No rate,horizon,weight,threshold or admitted budget changes.
 
-All six one-pass fits are now complete;the two higher-rate future-loss
-checkpoints are being scored. All16 chips have moved to the first two
-recurrent NTP trials. The main two-seed study is not admitted.
+All16 chips are training the first two recurrent NTP trials. The main two-seed study is not admitted.
 First scientific stable checkpoints pass independent full model/optimizer
 readback and exact source/domain/anchor/work-counter checks. The first baseline
 score aggregates and document pairing also reproduce independently.
