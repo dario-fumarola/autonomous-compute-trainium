@@ -1,4 +1,45 @@
-# Status — 2026-10-25, 03:39 UTC
+# Status — 2026-10-25, 04:47 UTC
+
+The first cooled matched-work endpoint is independently scored: true one-pass
+reaches **2.448818 DEV NLL at3.5966B natural targets**. Its complete512-window
+gradient audit passes at0.454% overall relative error. Recurrence has finished
+its3.3339B-target fit,with its endpoint audit/readout pending;ordinary and the
+three separate cooled1.005B branches are unfinished. These are seed1231 results
+on consumed DEV. No new recurrence advantage or efficiency result is established.
+[Actual scores](results/parcae_low_depth_pilot_20261024/main-recovery-v2/scores-progress.json)
+· [Numerical gates](results/parcae_low_depth_pilot_20261024/main-recovery-v2/gradient-progress.json).
+
+The stable1B ordinary score is2.769278,versus2.773757 for true one-pass and
+2.780522 for recurrence. Ordinary's first1B full-gradient check also passes
+(0.0882%). A within-family control is therefore insufficient for a practical
+positive claim:the strongest qualified ordinary/cheap-connection baseline must
+receive the new objective too before any terminal comparison.
+
+Fresh random initializations for the prospective2×2 objective study are prepared
+at seeds4127/5231/7283,with exact state readbacks and no qualification or trained
+weights reused. Source/anchor/full-gradient work tables cover continuation
+without wrapping. This60.1second CPU preparation made zero updates,used zero
+chips and opened no held-out panel. No scientific execution plan is admitted.
+[Fresh preparation](results/future_span_scientific_preparation_20261025/report.json).
+
+The scientific trainer,independent head-free evaluator and bounded execution
+helpers now pass **192 CPU tests**. A separate watcher is registered to run a
+finite driver check only after complete hardware qualification:actual updates,
+exact optimizer/RNG loads,one-update replay,and an independently annealed
+shorter branch in all four cells. It currently uses zero chips. Neither watcher
+can automatically launch scientific tuning/main training.
+[Driver queue](results/future_span_driver_queue_20261025/plan.json)
+· [Prospective objective](docs/FUTURE_SPAN_OBJECTIVE_PROPOSAL_20261025.md).
+
+The proposed learning-rate grid is prospectively centered on the preceding
+family's0.016 boundary winner:0.008/0.016/0.032,three equal opportunities for
+every cell. This amendment precedes all future-objective TUNE/main outcomes.
+The new readout keys latent noise only by original prefix-window position;
+future content,document identity and suffix length cannot change it. Hardware
+gradients,actual recovery and measured100-update rates remain launch gates.
+Fresh confirmation stays sealed and no terminal alpha is spent.
+
+## Earlier status — 03:39 UTC
 
 The finite four-cell hardware qualification is registered,but not admitted or
 running. It must see all nine current-pilot fits and all nine numerical gates

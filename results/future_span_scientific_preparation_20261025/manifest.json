@@ -1,0 +1,171 @@
+{
+  "identity": "future-span-study-preparation-v1",
+  "registration_sha256": "54c315d53519142bd9fedeacc944664ded944d3abc8c59acfcd4a1eeef2a0911",
+  "source_sha256": {
+    "scripts/prepare_future_span_science.py": "30a70b0c68de98f306208d4dba10f7e8b2a6024e5b23f103fe56909aab463bb7",
+    "compute_trainium/future_span.py": "26be1818d79fe54879d6fadcb3a3225ced0e83737c7c5c15a0539fa95525f082",
+    "compute_trainium/future_span_data.py": "8b2632a82181f1e7a1fae91d3068fb21133642b29a82fb91c45cd59fa106df2a",
+    "compute_trainium/future_span_scientific_state.py": "28e5c84fd6b0884f9f4adac370a228ff5eac101f736c8d2d149820860a24a04f",
+    "compute_trainium/parcae_scientific_schedule.py": "10b8f724af0843fac3d8167d84994880ef7b09836b51fa85cc9d92a912739459",
+    "compute_trainium/parcae_scientific_state.py": "7ea8a963fe873cdefe07a3a2412fae3485462c3e8cb1a73218e2b717be0890ab",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/parcae_work_accounting.py": "36e301f291f68629c00c349f520b596dd334b5b5c2d32ffe5ea305feed29fc24",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd",
+    "scripts/audit_parcae_precise_training_point.py": "47962e12645197d43b2365b6c6dec0fb57328f4fe0e409a9c85435f820044001",
+    "scripts/qualify_parcae_candidate_cpu.py": "f1f8cf41b9ce3c817ecebd5cb4c7e3ebbe07e323aca21406c3846ef81313c3e7"
+  },
+  "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "future_config": {
+    "context": 1024,
+    "horizon": 32,
+    "stride": 16,
+    "weight": 0.1
+  },
+  "data": {
+    "corpus": "natural-append-6500m-v2/source.json",
+    "packed": "natural-append-6500m-v2/packed",
+    "corpus_sha256": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+    "manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+    "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1"
+  },
+  "initial_states": {
+    "s4127-family": {
+      "file": "initial-s4127.pt",
+      "sha256": "dbd14b97d9aabad324289c8da580dfaaafe5c044a3322b50cd4f0edfa2de9efe",
+      "model_digest": "a68523a6ba1f1d681027f1fc3dc7cb66ac62623ffa971ff7ef0b9bd5610ac383",
+      "seed": 4127,
+      "head_seed": 108856,
+      "backbone_digest": "bdae381380a26330876d72a1e60a10da965ebf72fc4c3bfa53ee4cfbddf5b58e",
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840
+    },
+    "s5231-family": {
+      "file": "initial-s5231.pt",
+      "sha256": "4b8a1a60c0b9ba37f9cae68ec7a3020a313e1f0f3e6f998387b9333e1a1ec31c",
+      "model_digest": "a30a5bc26ca4e65a771594d4d322851f4534d772ab8a91b5d5123821aadb2f38",
+      "seed": 5231,
+      "head_seed": 109960,
+      "backbone_digest": "30a1dbdb15af95e3e8e5050026219019638b54c45fd003eced338365931d2ab4",
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840
+    },
+    "s7283-family": {
+      "file": "initial-s7283.pt",
+      "sha256": "f9f349b951b10faefc01a4d98e00f5b6a8a8df3ee3d8b6a03b194589898ce075",
+      "model_digest": "07a16559e8044dfc61db77315b949d0c44577d9539a7bdf1ff480d2796f90cc3",
+      "seed": 7283,
+      "head_seed": 112012,
+      "backbone_digest": "927f8b9d8e56d8645bd76ef46ace4b54aeb39892eca08735c95dc66d43514bc4",
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840
+    }
+  },
+  "tables": {
+    "one": {
+      "depth_table": "one-depths.npy",
+      "depth_table_sha256": "c3f55d005d07bd1ab48330a71a0b96706cd77a1af0a841c8233aeb624a13b9f1",
+      "work_table": "one-work.npy",
+      "work_table_sha256": "bfa0a713e28d334da1f1167dae19594050b2a2ac777c6cf483156eb54704f42f",
+      "milestones": {
+        "tuning": {
+          "updates": 576,
+          "real_targets": 301465908,
+          "valid_anchors": 18031448,
+          "estimated_dense_matrix_ops": 158485145019383808,
+          "cooldown_start_update": 288,
+          "cooldown_start_targets": 150732802
+        },
+        "main": {
+          "updates": 1920,
+          "real_targets": 1004887590,
+          "valid_anchors": 60105879,
+          "estimated_dense_matrix_ops": 528283816731279360,
+          "cooldown_start_update": 960,
+          "cooldown_start_targets": 502444236
+        },
+        "provisioned": {
+          "updates": 4096,
+          "real_targets": 2143744848,
+          "valid_anchors": 128210214,
+          "estimated_dense_matrix_ops": 1127005475693395968,
+          "cooldown_start_update": 2048,
+          "cooldown_start_targets": 1071878936
+        }
+      },
+      "maximum_forward_depth": 1,
+      "mean_forward_depth": 1.0
+    },
+    "recurrent": {
+      "depth_table": "recurrent-depths.npy",
+      "depth_table_sha256": "7a9edd362ce30e3ea3a0c0f0b1173e1598634f8cfc1599bd66205455ab70af68",
+      "work_table": "recurrent-work.npy",
+      "work_table_sha256": "92cb962ee4036ff2fa7e1b2eb2a25c5ebd85a02ee37951b6a68ecde39820ecb4",
+      "milestones": {
+        "tuning": {
+          "updates": 576,
+          "real_targets": 301465908,
+          "valid_anchors": 18031448,
+          "estimated_dense_matrix_ops": 195255114469244928,
+          "cooldown_start_update": 288,
+          "cooldown_start_targets": 150732802
+        },
+        "main": {
+          "updates": 1920,
+          "real_targets": 1004887590,
+          "valid_anchors": 60105879,
+          "estimated_dense_matrix_ops": 650864708520837120,
+          "cooldown_start_update": 960,
+          "cooldown_start_targets": 502444236
+        },
+        "provisioned": {
+          "updates": 4096,
+          "real_targets": 2143744848,
+          "valid_anchors": 128210214,
+          "estimated_dense_matrix_ops": 1388713025512931328,
+          "cooldown_start_update": 2048,
+          "cooldown_start_targets": 1071878936
+        }
+      },
+      "maximum_forward_depth": 12,
+      "mean_forward_depth": 2.135256647394435
+    }
+  },
+  "gradient_rule": "all_sampled_steps",
+  "routing_seed": 271828,
+  "auxiliary_data": {
+    "directory": "future-span-study-preparation-v1",
+    "counts_file": "anchor-counts.npy",
+    "counts_sha256": "1fbb2aae87a7bc54fe89d9375fe69f80786cfe9c36114503d26903c8e721397a",
+    "prefix_file": "anchor-prefix.npy",
+    "prefix_sha256": "99dc23da1079909fee501446df194f053acdc94537e7f8dd05f73151d709421d",
+    "source_windows": 2097664,
+    "valid_anchors": 128241418,
+    "valid_anchors_by_domain": {
+      "web": 76567107,
+      "math": 25747662,
+      "code": 25926649
+    }
+  },
+  "optimizer_matrix_ops_per_replica": 815372773200,
+  "proposed_lr_grid": [
+    0.008,
+    0.016,
+    0.032
+  ],
+  "scientific_launch_allowed": false,
+  "scope": "Fresh untrained random weights and TRAIN-only source/auxiliary/matrix ledgers. Seed freshness checked in published result manifests. No scientific run registration,quality score,native work,automatic launch,TEST or alpha use."
+}

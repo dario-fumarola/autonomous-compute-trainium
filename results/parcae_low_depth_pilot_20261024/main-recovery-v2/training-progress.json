@@ -228,6 +228,108 @@
       "qualification_only": false,
       "research_optimizer_updates": 1920,
       "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-main-r2-fixed1-finish",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "fixed1-main-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "fixed1",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "actual_optimizer_calls_per_replica": 4952,
+      "segment_real_targets": 2591730101,
+      "segment_executed_matmuls": 1338978611328086016,
+      "update": 6872,
+      "source_cursor": 3518464,
+      "real_targets": 3596617691,
+      "domain_targets": [
+        2157968272,
+        719324721,
+        719324698
+      ],
+      "executed_matmuls": 1858130253846245376,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "0af30baecd00d469c091aac9341db9404329474992d59d279de8f83e4051e726",
+      "checkpoint_records": [
+        {
+          "update": 3436,
+          "checkpoint_sha256": "58e24c23ebc87607e1080a44f0321e0a5d03adefee9ca8b46d60041f89dc23a6",
+          "full_state_digest": "9e7a9f527dad0657fea9ba40f4f2aca7902526ec3301dc75ed46a534ffb08147",
+          "real_targets": 1798320410,
+          "executed_matmuls": 929065126923122688,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 6872,
+          "checkpoint_sha256": "dcff9c59f5fb7959c7e3c3b20477ebe3a4a22050b162cd751daa4d6349f1c977",
+          "full_state_digest": "8cbe4919996693db640ec0fddd6d3b0fc40e8d568f6a1d00b41474df5894c785",
+          "real_targets": 3596617691,
+          "executed_matmuls": 1858130253846245376,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 6097.524799585342,
+      "qualification_only": false,
+      "research_optimizer_updates": 4952,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
+    },
+    {
+      "identity": "low-depth-main-r2-poisson2-finish",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "poisson2-main-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "poisson2",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 141963840,
+      "initial_model_digest": "b1ba6e2b08d59bfbf6125b9af1a8675a0bbdc4a4c3c579542a5baf8b634234ae",
+      "actual_optimizer_calls_per_replica": 4450,
+      "segment_real_targets": 2329006893,
+      "segment_executed_matmuls": 1298042937617126400,
+      "update": 6370,
+      "source_cursor": 3261440,
+      "real_targets": 3333894483,
+      "domain_targets": [
+        2000334075,
+        666779484,
+        666780924
+      ],
+      "executed_matmuls": 1858054877398471680,
+      "complete_state_on_load_exact": true,
+      "recovered_state_digest": "ba2a1b66736f7d08e1be1671a53751d81488064cba55c9adfa5dba60b8cc2df0",
+      "checkpoint_records": [
+        {
+          "update": 3185,
+          "checkpoint_sha256": "9686f062416e1c00a6d6d31b2c78fcd9e04d6d299e305debddcde775f0d18c26",
+          "full_state_digest": "9991f5573ecf937363de3849bd96fc78bea9b25030e71eebdf0a053381c0fcaf",
+          "real_targets": 1666954102,
+          "executed_matmuls": 929000781765757440,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 6370,
+          "checkpoint_sha256": "4a6afc73002b6e82bdb72b886653b5dc078a7ca09342ebda8d9b207dc3b6be36",
+          "full_state_digest": "d0f7c0a8ed926586a6bebbe62fa92f0c41795a4ca4cd51a552d76c9f2ef48caf",
+          "real_targets": 3333894483,
+          "executed_matmuls": 1858054877398471680,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 5948.982365846634,
+      "qualification_only": false,
+      "research_optimizer_updates": 4450,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
     }
   ]
 }

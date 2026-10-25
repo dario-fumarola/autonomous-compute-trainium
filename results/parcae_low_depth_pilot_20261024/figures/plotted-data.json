@@ -1,7 +1,7 @@
 {
   "input_sha256": {
     "results/parcae_low_depth_pilot_20261024/tuning-v2/scores-progress.json": "a8997481d56a117d251b732d7fcc4f45b9651a787c97e2e376f8bdd7b689f13c",
-    "results/parcae_low_depth_pilot_20261024/main-recovery-v2/scores-progress.json": "d1cf1b86a10923d916c5ff004028aaad654bc47a60e2445e5dd4d3eaadc6ed8d"
+    "results/parcae_low_depth_pilot_20261024/main-recovery-v2/scores-progress.json": "9cd68982e21a9913e0150c4e125a1a945b552300b33ff67024de6efa4d7b9d7a"
   },
   "source_sha256": "fd147884ce28bd3e9c59a988832d8f09a50fbbe9c5ec6c0a605103642c151978",
   "rows": [
@@ -128,6 +128,36 @@
       "training_matmuls": 560011939781345280,
       "nll": 2.78052227043653,
       "checkpoint_sha256": "28f6173e3c92f71533604e5f9b9cbeca751ecf22c6123806429cbac30fdbfa40"
+    },
+    {
+      "phase": "main",
+      "arm": "ordinary",
+      "readout": "stable301M",
+      "depth": 1,
+      "targets": 301465908,
+      "training_matmuls": 153608042151051264,
+      "nll": 2.9791388836411716,
+      "checkpoint_sha256": "cf43f8266e2b5f2839708886972b6fe19db7395f3a029cdb2d1b2fda91faeacb"
+    },
+    {
+      "phase": "main",
+      "arm": "ordinary",
+      "readout": "stable1B",
+      "depth": 1,
+      "targets": 1004887590,
+      "training_matmuls": 512026807170170880,
+      "nll": 2.769278247634121,
+      "checkpoint_sha256": "7c32397cfe42af5068b1c2b6bb362f36ab276514b53784095ffb295d164eb338"
+    },
+    {
+      "phase": "main",
+      "arm": "fixed1",
+      "readout": "matched",
+      "depth": 1,
+      "targets": 3596617691,
+      "training_matmuls": 1858130253846245376,
+      "nll": 2.4488180330940796,
+      "checkpoint_sha256": "dcff9c59f5fb7959c7e3c3b20477ebe3a4a22050b162cd751daa4d6349f1c977"
     }
   ],
   "scope": "Completed independent consumed-TUNE/DEV readouts only. No interpolation across cooldowns, unobserved results, training-seed significance or fresh confirmation."

@@ -1,0 +1,64 @@
+{
+  "identity": "future-span-study-preparation-v1",
+  "registered_unix": 1792901209.8037047,
+  "source_sha256": {
+    "scripts/prepare_future_span_science.py": "30a70b0c68de98f306208d4dba10f7e8b2a6024e5b23f103fe56909aab463bb7",
+    "compute_trainium/future_span.py": "26be1818d79fe54879d6fadcb3a3225ced0e83737c7c5c15a0539fa95525f082",
+    "compute_trainium/future_span_data.py": "8b2632a82181f1e7a1fae91d3068fb21133642b29a82fb91c45cd59fa106df2a",
+    "compute_trainium/future_span_scientific_state.py": "28e5c84fd6b0884f9f4adac370a228ff5eac101f736c8d2d149820860a24a04f",
+    "compute_trainium/parcae_scientific_schedule.py": "10b8f724af0843fac3d8167d84994880ef7b09836b51fa85cc9d92a912739459",
+    "compute_trainium/parcae_scientific_state.py": "7ea8a963fe873cdefe07a3a2412fae3485462c3e8cb1a73218e2b717be0890ab",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/parcae_work_accounting.py": "36e301f291f68629c00c349f520b596dd334b5b5c2d32ffe5ea305feed29fc24",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd",
+    "scripts/audit_parcae_precise_training_point.py": "47962e12645197d43b2365b6c6dec0fb57328f4fe0e409a9c85435f820044001",
+    "scripts/qualify_parcae_candidate_cpu.py": "f1f8cf41b9ce3c817ecebd5cb4c7e3ebbe07e323aca21406c3846ef81313c3e7"
+  },
+  "parent_plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+  "data": {
+    "corpus": "natural-append-6500m-v2/source.json",
+    "packed": "natural-append-6500m-v2/packed",
+    "corpus_sha256": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+    "manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+    "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1"
+  },
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "future_config": {
+    "context": 1024,
+    "horizon": 32,
+    "stride": 16,
+    "weight": 0.1
+  },
+  "seeds": [
+    4127,
+    5231,
+    7283
+  ],
+  "published_seed_fields_checked": 12,
+  "provisioned_updates": 4096,
+  "depth_rows": 4097,
+  "proposed_lr_grid": [
+    0.008,
+    0.016,
+    0.032
+  ],
+  "scope": "Fresh untrained random weights and TRAIN-only source/auxiliary/matrix ledgers. Seed freshness checked in published result manifests. No scientific run registration,quality score,native work,automatic launch,TEST or alpha use.",
+  "seconds_limit": 600,
+  "scientific_launch_allowed": false,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false
+}

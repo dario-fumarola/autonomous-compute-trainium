@@ -128,7 +128,7 @@ Before any new fit,register the measured budget,source hashes,full execution
 queue,initial-state hashes,LR opportunities and endpoints. The proposed main
 exposure is1,004,887,590 real targets per cell,with each own completed50%
 cooldown. Give every cell the same finite three-rate selection opportunity
-(.004,.008,.016) at301M targets. Boundary winners remain unbracketed;no added
+(.008,.016,.032) at301M targets,under the prospective amendment below. Boundary winners remain unbracketed;no added
 rates,horizons,weights or depths after seeing outcomes. Feasibility measurement
 may reduce the common exposure before any new scientific scores,not afterward.
 
@@ -187,3 +187,37 @@ independent global gradients and first/recovered optimizer checks,including
 head weight/bias fidelity. All185 CPU tests pass. Admission requires all current
 pilot hardware stages and numerical gates to finish;it never launches the new
 scientific study automatically. [Qualification plan](../results/future_span_qualification_20261025/native-v1/plan.json).
+
+## Prospective scientific preparation,October25
+
+Before any future-objective tuning or main score,the three-rate proposal is
+amended from(.004,.008,.016) to(.008,.016,.032) for every cell. The previous
+small-core screen selected0.016 at its upper boundary in all three arms.
+Centering the same three opportunities there avoids repeating a knowingly
+unbracketed lower grid. This uses old consumed-development evidence,not a new
+objective result. Failed/unstable trials still count;there is no added rate
+after this study's outcomes.
+
+Fresh random initializers4127(TUNE),5231/7283(pilot) are prepared and disk
+readback is exact. No qualification or tuning weights initialize a main run.
+The metadata/work tables provision4096 updates plus a next-gradient row so
+later compute controls can branch from stable states without replacing the
+data/depth signature. Provisioning is not permission to train to that limit.
+The proposed main exposure stays1.005B targets per cell. Actual qualification,
+100-warm-step budget and the new scientific driver's recovery checks must pass
+before any scientific execution plan is registered.
+
+The one-pass cell O is the parameter-exact family control. It is not declared
+the strongest ordinary model. The ongoing pilot's early301M score favors its
+recipe-matched ordinary model over the family one-pass model. A favorable
+four-cell interaction therefore advances only a mechanism candidate. Before a
+terminal or practical-superiority claim,the strongest eligible ordinary/cheap
+connection challenger must also receive the future objective and a properly
+annealed resource comparison. A weaker within-family comparator cannot fulfill
+the broader research goal.
+
+The new discovery evaluator removes the auxiliary head and uses only the
+original within-document window position to choose latent noise. It draws the
+full fixed1024-position state before slicing;document IDs,content hashes and
+future length never choose the seed. Its discovery scope is restricted to the
+already consumed panel. Fresh confirmation remains separately gated.
