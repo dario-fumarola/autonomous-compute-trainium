@@ -1,3 +1,30 @@
+# Status — 2026-10-25 23:24 UTC
+
+**The fixed-two main learning curve is executing on all16 chips.**
+One/fixed2 start from the identical original seed5231 random initializer,with
+selected LR0.032 in both arms. Six cooled endpoints:equal-data1.0049B/2.0098B,
+plus One1.2100B/2.4206B matched nominal work.2B matched work is primary. Every
+branch leaves an untouched stable prefix;full counters,restores and final audits
+remain mandatory. Original execution deadline:2026-10-26 04:15:35 UTC.
+[Running comparison](results/fixed_two_small_core_main_20261025/REPORT.md).
+
+TUNE is complete:fixed-two LR0.008/0.016/0.032 score2.984629/2.926084/2.902721.
+Historical One's three-rate winner scores2.938677. This is selection data,not
+confirmation or a compute-efficiency result. Both grid maxima are unbracketed.
+All three counted prefix gradient gates and the selected final full512-window
+gate pass;selected body error0.30184%.1,728 actual new research updates,
+7.6072 assigned native and15.5862 whole-instance opportunity chip-hours,
+separately/nonadditively. No added rates or unfavorable-case exclusions.
+[Complete tuning](results/fixed_two_small_core_tune_20261025/REPORT.md).
+
+Private per-token logging reproduces a prior603-document/754,750-target NLL
+exactly. Independent-reference bins stay secondary;pooled NLL decides. The
+qualified schedule is cosine-to-zero;the draft10% wording is explicitly
+corrected before MAIN,with no executed schedule change.278 CPU tests pass.
+Bridge curricula remain closed negative;final scaffold scores cannot distinguish
+initial failure from later forgetting. No TEST,reserve,terminal alpha or
+terminal success. The broad goal remains active and unachieved.
+
 # Status — 2026-10-25 23:14 UTC
 
 **All three fixed-two TUNE fits are cooled and independently scored.**
