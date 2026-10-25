@@ -1,3 +1,33 @@
+# Status — 2026-10-25 23:14 UTC
+
+**All three fixed-two TUNE fits are cooled and independently scored.**
+At301,465,908 original targets,LR0.008/0.016/0.032 score2.984629/2.926084/2.902721.
+The historical One/NTP three-rate winner scores2.938677. This is selection data,
+not an independent or matched-work learning result. Both grid maxima remain
+unbracketed;no extra rates are added. The selected final full512-window gradient
+audit is running;all three counted prefix audits already pass.
+
+The separate learning-curve preparation passes original-source/initializer and
+full counter/table checks. Its conditional queue owns no chips while waiting.
+After complete TUNE,freeze/admit the six1B/2B/data/work endpoints only if the
+entire actual-timing budget fits5hours. The primary is2B work matching. Every
+cooled endpoint branches from an untouched stable prefix;no extension of a
+cooled model. No30B automatic launch or new model/objective sweep.
+[Finite queue](results/fixed_two_small_core_main_queue_20261025/REPORT.md) ·
+[Authoritative admission protocol](docs/FIXED_TWO_SMALL_CORE_MAIN_ADMISSION_20261025.md).
+
+The draft's10% LR-floor description was wrong:the unchanged qualified Parcae
+scheduler ends at zero. The new admission document corrects the description
+before MAIN;no executed schedule changed. A new private-position-loss scorer
+reproduces an existing full603-document/754,750-target NLL exactly. Independent
+reference bins stay secondary;pooled NLL remains primary.
+[Reader parity](results/fixed_two_strata_reference_20261025/REPORT.md).
+
+**278 CPU tests pass.** Bridge curricula remain closed negative,with the final
+scaffold readout unable to distinguish earlier failure from later forgetting.
+No TEST,reserve access,terminal alpha or terminal success. The broad research
+goal remains active and unachieved.
+
 # Status — 2026-10-25 22:19 UTC
 
 **Fixed-two-pass small-core NTP tuning is launched across all16 chips.**

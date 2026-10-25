@@ -1,0 +1,180 @@
+{
+  "identity": "fixed-two-ntp-main-preparation-v1",
+  "registration_sha256": "5246a95acacecc9b8a65faa231c1b8f97c739942bb38b278edc0a166198153e2",
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "future_config": {
+    "context": 1024,
+    "horizon": 32,
+    "stride": 16,
+    "weight": 0.1
+  },
+  "data": {
+    "corpus": "natural-append-6500m-v2/source.json",
+    "packed": "natural-append-6500m-v2/packed",
+    "corpus_sha256": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+    "manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+    "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1"
+  },
+  "tables": {
+    "one": {
+      "depth_file": "one-depths.npy",
+      "depth_sha256": "651aeccb164817e9caa0e48867c301e2ae1b63317cee3cf9cc267628fcfb0ca0",
+      "work_file": "one-work.npy",
+      "work_sha256": "867f27addecbdd9a944acc661e84845e593a524ca2faf3f0d828c68591b680be",
+      "matrix_ops_per_update": 275147821214208,
+      "forward_steps": 1,
+      "backward_steps": 1
+    },
+    "fixed": {
+      "depth_file": "fixed-depths.npy",
+      "depth_sha256": "a2a1e311e0f866d3d97e81685b5efa127be0724384fda931050a99c0f59989d2",
+      "work_file": "fixed-work.npy",
+      "work_sha256": "635cac742fd0bb5737b89c6bee7a7f09a399eb7442739236dfacfb6d864f2345",
+      "matrix_ops_per_update": 331429676640768,
+      "forward_steps": 2,
+      "backward_steps": 2
+    }
+  },
+  "endpoints": {
+    "one-1b": {
+      "arm": "one",
+      "total_updates": 1920,
+      "end_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "end_anchors": 60105879,
+      "cooldown_start_update": 960,
+      "cooldown_start_targets": 502444236,
+      "training_matrix_ops": 528283816731279360
+    },
+    "fixed-1b": {
+      "arm": "fixed",
+      "total_updates": 1920,
+      "end_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "end_anchors": 60105879,
+      "cooldown_start_update": 960,
+      "cooldown_start_targets": 502444236,
+      "training_matrix_ops": 636344979150274560
+    },
+    "one-work-1b": {
+      "arm": "one",
+      "total_updates": 2312,
+      "end_targets": 1210049128,
+      "domain_targets": [
+        726028238,
+        242009538,
+        242011352
+      ],
+      "end_anchors": 72375048,
+      "cooldown_start_update": 1156,
+      "cooldown_start_targets": 605026638,
+      "training_matrix_ops": 636141762647248896
+    },
+    "one-2b": {
+      "arm": "one",
+      "total_updates": 3840,
+      "end_targets": 2009762680,
+      "domain_targets": [
+        1205853846,
+        401951243,
+        401957591
+      ],
+      "end_anchors": 120198846,
+      "cooldown_start_update": 1920,
+      "cooldown_start_targets": 1004887590,
+      "training_matrix_ops": 1056567633462558720
+    },
+    "fixed-2b": {
+      "arm": "fixed",
+      "total_updates": 3840,
+      "end_targets": 2009762680,
+      "domain_targets": [
+        1205853846,
+        401951243,
+        401957591
+      ],
+      "end_anchors": 120198846,
+      "cooldown_start_update": 1920,
+      "cooldown_start_targets": 1004887590,
+      "training_matrix_ops": 1272689958300549120
+    },
+    "one-work-2b": {
+      "arm": "one",
+      "total_updates": 4625,
+      "end_targets": 2420609556,
+      "domain_targets": [
+        1452364003,
+        484122234,
+        484123319
+      ],
+      "end_anchors": 144767785,
+      "cooldown_start_update": 2312,
+      "cooldown_start_targets": 1210049128,
+      "training_matrix_ops": 1272558673115712000
+    }
+  },
+  "work_matches": {
+    "1b": {
+      "fixed_budget": 636344979150274560,
+      "one_budget": 636141762647248896,
+      "relative_shortfall": 0.0003193495818840646,
+      "next_update_exceeds": true
+    },
+    "2b": {
+      "fixed_budget": 1272689958300549120,
+      "one_budget": 1272558673115712000,
+      "relative_shortfall": 0.0001031556695964098,
+      "next_update_exceeds": true
+    }
+  },
+  "source_windows_needed": 2368000,
+  "source_windows_provisioned": 2621952,
+  "initial_state": {
+    "file": "../future-span-study-preparation-v1/initial-s5231.pt",
+    "sha256": "4b8a1a60c0b9ba37f9cae68ec7a3020a313e1f0f3e6f998387b9333e1a1ec31c",
+    "model_digest": "a30a5bc26ca4e65a771594d4d322851f4534d772ab8a91b5d5123821aadb2f38",
+    "seed": 5231,
+    "head_seed": 109960,
+    "backbone_digest": "30a1dbdb15af95e3e8e5050026219019638b54c45fd003eced338365931d2ab4",
+    "training_parameters": 166571840,
+    "deployed_parameters": 141963840
+  },
+  "auxiliary_data": {
+    "directory": "fixed-two-ntp-main-preparation-v1",
+    "counts_file": "anchor-counts.npy",
+    "counts_sha256": "11489cbf06ed1d03257907f7a7883cb3bf2f8a9b20863e0b2ce33338f6342382",
+    "prefix_file": "anchor-prefix.npy",
+    "prefix_sha256": "a713bf777d4b6924aea2675bf9659896523a68d4b866ce832fa54e96f703a366",
+    "source_windows": 2621952,
+    "valid_anchors": 160294153,
+    "valid_anchors_by_domain": {
+      "web": 95704526,
+      "math": 32184305,
+      "code": 32405322
+    }
+  },
+  "optimizer_matrix_ops_per_replica": 815372773200,
+  "routing_seed": 271828,
+  "original_anchor_prefix_exact": true,
+  "scientific_launch_allowed": false,
+  "scope": "CPU-only prospective data/schedule/work preparation. Original random initializer and unchanged authentic-source packing;no model fit,quality readout or scientific admission."
+}

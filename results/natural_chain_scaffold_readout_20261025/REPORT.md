@@ -46,3 +46,8 @@ no terminal alpha. CPU time overlaps the separate native pilot and must not be
 added again to its whole-instance opportunity interval. The one-pair discovery
 counts are descriptive; no independent-seed or general-text claim.
 [Exact aggregates](report.json) · [Frozen specification](plan.json).
+
+The final-checkpoint diagnostic cannot distinguish failure to generalize the
+easier task initially from learning it earlier and forgetting during the final
+no-work-only stage. No intermediate held-out stage readouts were registered.
+This limits the diagnosis and does not reopen the closed curriculum recipe.
