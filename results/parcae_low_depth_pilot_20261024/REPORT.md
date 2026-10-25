@@ -1,20 +1,28 @@
 # Low-depth pilot progress
 
-8 of12 rate trials are independently scored. All endpoints use301,465,908 natural targets and completed cooldown. These scores select rates on consumed TUNE; they are not main-fit,replicated-seed or TEST findings.
+All12 registered rate trials completed301,465,908 natural targets and their own cooldown. Independent pinned-upstream FP32 CPU scoring selected each arm separately on consumed TUNE. No main or fresh-confirmation scores are available yet.
 
-| Peak LR | Ordinary | True one-pass | Sampled recurrence,readout2 |
+| Peak LR | Ordinary | True one-pass | Sampled recurrence,exit2 |
 | --- | ---: | ---: | ---: |
 | 0.002 | 3.102339 | 3.256649 | 3.297224 |
 | 0.004 | 2.994108 | 3.082854 | 3.105910 |
-| 0.008 | 2.926390 | 2.993713 | pending |
-| 0.016 | pending | pending | pending |
+| 0.008 | 2.926390 | 2.993713 | 3.013839 |
+| 0.016 | 2.884985 | 2.950986 | 2.957179 |
 
-The parameter-exact recurrence contrast is sampled versus true one-pass. Ordinary is the recipe-matched backbone control. Select each arm independently after all four registered opportunities; no conclusion follows from one low-rate pair. Keep the stronger old cheap-connection model as a practical challenger for later confirmation.
+All three arms selected0.016,the upper boundary of the finite grid. Their optima are not bracketed. The candidate is0.006193 nats behind its parameter-exact one-pass control at this horizon; ordinary is0.072194 better than the candidate. These screen results do not determine the longer pilot. No extra rate is added after seeing them.
 
-The optimizer runtime-input repair passes actual-size updates,full global gradients,recovery and100 varying-schedule warm updates. The first20 scientific model/optimizer digests match the old execution exactly. It changes execution cost,not mathematical optimizer policy. Earlier stopped attempts remain in the ledger.
+All three selected301M checkpoints pass independent full512-window gradient checks: overall errors0.223%,0.257%,0.264% for ordinary,one-pass and recurrence,with maximum loss discrepancy0.00000460 nats. Fresh-seed1231 main training now performs actual updates on all16 chips. The one-pass/recurrent first segments are active; ordinary waits for an eight-chip slot. Every main1B/endpoint is checked again. Qualification and tuning weights never initialize a main fit. [Gradient gate](../low-depth-gradient-selected-v1/report.json) · [Frozen main plan](main/plan.json).
 
-An independent actual-size upstream operator count measures159.049GFLOPs for one family pass and195.691GFLOPs for two at1024 positions:23.038% extra forward matrix work,including the50.332GFLOP tied head. This excludes gathers/pointwise operations and does not measure native autoregressive latency. [Exact inference work](inference-work.json).
+Ordinary has140,781,888 parameters; both Parcae paths have141,963,840. Recurrence versus true one-pass is the exact parameter-control comparison. Keep the strongest eligible one-pass/cheap-connection challenger for later fresh confirmation.
 
-The observed resource ledger includes failed attempts and avoids double-charging overlapping chip intervals. Its scientific matrix totals cover completed segments plus separately bounded interrupted work; qualification/evaluation work is charged in chip time and its individual receipts. Assigned chips are reservations,not achieved hardware utilization. [Resource ledger](resource-ledger.json).
+[Observed tuning figure](figures/tuning.png) · [Complete screen and selection](tuning-v2/report.json) · [Screen costs](tuning-v2/execution-costs.json).
 
-Main training remains gated on selected-rate numerical checks and a frozen finite launch. CPU-only full-gradient work tables are prepared for the one reserved conditional follow-up; no such fit has launched. Fresh confirmation/TEST and terminal alpha remain untouched.
+The runtime-scalar performance repair passes actual updates,full gradients,recovery and100 varying-schedule warm updates. Its first20 scientific model/optimizer digests match the earlier execution exactly. Earlier failures and interrupted work remain in the resource ledger.
+
+Independent actual-size operator counts measure159.049GFLOPs for one family pass and195.691GFLOPs for two at1024 positions,including the50.332GFLOP tied head. That23.038% forward-work increase is not measured native cached-generation latency. [Inference work](inference-work.json).
+
+A short read-only runtime sample during the final eight-chip fit observed85.0% active-core busy time. The other half was already released for CPU scoring,so whole-node busy time was42.5%. This four-interval observation is not tensor-peak utilization or a campaign average. [Tuning-tail sample](runtime-busy-sample.json). A later main-fit sample has all64 logical cores active and84.6% node busy time over11 accepted intervals. [Main runtime sample](main-runtime-busy-sample.json) · [Campaign ledger](resource-ledger.json).
+
+A separate prospective CPU-only audit will repeat the completed main endpoints with latent randomness keyed solely by original window position. The frozen pooled evaluator uses a whole-document content-hash-derived seed; this is unavailable before prediction,although no decoding of that hash or effect on the ranking is established. Preserve the frozen scores and report the policy sensitivity separately. The natural-code context diagnostic already uses position-only randomness. No training recipe or fresh reserve changes.
+
+The full-gradient follow-up remains conditional and unlaunched. No fresh TEST/reserve or terminal alpha has been used. The research goal remains unachieved.

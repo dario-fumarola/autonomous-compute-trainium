@@ -1,17 +1,17 @@
 {
   "status": "OBSERVED_LOW_DEPTH_RESOURCE_LEDGER",
-  "observed_unix": 1792887999.016574,
+  "observed_unix": 1792891661.598811,
   "window_started_unix": 1792874531.0405765,
-  "window_seconds": 13467.975997447968,
-  "sixteen_chip_opportunity_hours": 59.857671099768744,
-  "new_family_assigned_chip_hours": 34.48010417673323,
-  "all_project_native_unique_assigned_chip_hours_within_window": 37.19446534368727,
-  "unassigned_native_chip_hours_within_window": 22.663205756081474,
-  "new_family_native_attempts": 68,
-  "closed_attempts": 66,
+  "window_seconds": 17130.5582344532,
+  "sixteen_chip_opportunity_hours": 76.13581437534756,
+  "new_family_assigned_chip_hours": 47.44877832518684,
+  "all_project_native_unique_assigned_chip_hours_within_window": 50.16313949214088,
+  "unassigned_native_chip_hours_within_window": 25.972674883206686,
+  "new_family_native_attempts": 81,
+  "closed_attempts": 79,
   "failed_closed_attempts": 6,
-  "exact_completed_scientific_segment_matrix_operations": 976194252658974720,
-  "exact_completed_scientific_target_presentations": 1850665904,
+  "exact_completed_scientific_segment_matrix_operations": 1920164178765189120,
+  "exact_completed_scientific_target_presentations": 3638526124,
   "additional_interrupted_scientific_matrix_operations_bounds": [
     150380190579548160,
     156287983780887552
@@ -126,6 +126,67 @@
       "scientific_work": null,
       "assigned_chips": 8,
       "assigned_chip_hours": 0.22252425246768529
+    },
+    {
+      "identity": "low-depth-gradient-selected-v1-fixed1",
+      "started_unix": 1792890701.9125628,
+      "finished_unix": 1792890805.1761365,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": null,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.22947460810343426
+    },
+    {
+      "identity": "low-depth-gradient-selected-v1-ordinary",
+      "started_unix": 1792890701.5803692,
+      "finished_unix": 1792890825.937617,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": null,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.2763494396209717
+    },
+    {
+      "identity": "low-depth-gradient-selected-v1-poisson2",
+      "started_unix": 1792890812.5567162,
+      "finished_unix": 1792890912.5486186,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": null,
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.22220422744750976
+    },
+    {
+      "identity": "low-depth-main-v1-fixed1-first",
+      "started_unix": 1792891288.4002612,
+      "finished_unix": 1792891661.598811,
+      "closed": false,
+      "exit_code": null,
+      "report_status": null,
+      "scientific_work": {
+        "status": "INCOMPLETE_WORK_NOT_EXACTLY_COUNTED",
+        "matrix_operations": null
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.8293301105499268
+    },
+    {
+      "identity": "low-depth-main-v1-poisson2-first",
+      "started_unix": 1792891288.0692747,
+      "finished_unix": 1792891661.598811,
+      "closed": false,
+      "exit_code": null,
+      "report_status": null,
+      "scientific_work": {
+        "status": "INCOMPLETE_WORK_NOT_EXACTLY_COUNTED",
+        "matrix_operations": null
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.8300656361050076
     },
     {
       "identity": "low-depth-tune-v1-fixed1-lr0-s11-first",
@@ -282,16 +343,50 @@
     {
       "identity": "low-depth-tune-v2-fixed1-lr2-s11-fit",
       "started_unix": 1792887787.1176476,
-      "finished_unix": 1792887999.016574,
-      "closed": false,
-      "exit_code": null,
-      "report_status": null,
+      "finished_unix": 1792888573.3157988,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
       "scientific_work": {
-        "status": "INCOMPLETE_WORK_NOT_EXACTLY_COUNTED",
-        "matrix_operations": null
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 556,
+        "real_target_presentations": 290998294,
+        "matrix_operations": 150337663145883648
       },
       "assigned_chips": 8,
-      "assigned_chip_hours": 0.47088650279574923
+      "assigned_chip_hours": 1.7471070024702284
+    },
+    {
+      "identity": "low-depth-tune-v2-fixed1-lr3-s11-first",
+      "started_unix": 1792889428.7912734,
+      "finished_unix": 1792889559.8571472,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 20,
+        "real_target_presentations": 10467614,
+        "matrix_operations": 5407829609564160
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.2912574974695841
+    },
+    {
+      "identity": "low-depth-tune-v2-fixed1-lr3-s11-fit",
+      "started_unix": 1792889569.6643484,
+      "finished_unix": 1792890357.4497712,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 556,
+        "real_target_presentations": 290998294,
+        "matrix_operations": 150337663145883648
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 1.7506342728932698
     },
     {
       "identity": "low-depth-tune-v2-ordinary-lr0-s11-first",
@@ -376,16 +471,50 @@
     {
       "identity": "low-depth-tune-v2-ordinary-lr2-s11-fit",
       "started_unix": 1792887691.7173493,
-      "finished_unix": 1792887999.016574,
-      "closed": false,
-      "exit_code": null,
-      "report_status": null,
+      "finished_unix": 1792888420.3093548,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
       "scientific_work": {
-        "status": "INCOMPLETE_WORK_NOT_EXACTLY_COUNTED",
-        "matrix_operations": null
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 556,
+        "real_target_presentations": 290998294,
+        "matrix_operations": 148274429576361984
       },
       "assigned_chips": 8,
-      "assigned_chip_hours": 0.6828871658113268
+      "assigned_chip_hours": 1.619093345536126
+    },
+    {
+      "identity": "low-depth-tune-v2-ordinary-lr3-s11-first",
+      "started_unix": 1792888582.8075662,
+      "finished_unix": 1792888739.9396632,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 20,
+        "real_target_presentations": 10467614,
+        "matrix_operations": 5333612574689280
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.3491824377907647
+    },
+    {
+      "identity": "low-depth-tune-v2-ordinary-lr3-s11-fit",
+      "started_unix": 1792888748.5274863,
+      "finished_unix": 1792889478.3955069,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 556,
+        "real_target_presentations": 290998294,
+        "matrix_operations": 148274429576361984
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 1.6219289345211454
     },
     {
       "identity": "low-depth-tune-v2-poisson2-lr0-s11-first",
@@ -450,6 +579,70 @@
       },
       "assigned_chips": 8,
       "assigned_chip_hours": 1.8892472012837729
+    },
+    {
+      "identity": "low-depth-tune-v2-poisson2-lr2-s11-first",
+      "started_unix": 1792888432.3654528,
+      "finished_unix": 1792888574.5302515,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 20,
+        "real_target_presentations": 10467614,
+        "matrix_operations": 5829906883430400
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.3159217749701606
+    },
+    {
+      "identity": "low-depth-tune-v2-poisson2-lr2-s11-fit",
+      "started_unix": 1792888583.154486,
+      "finished_unix": 1792889420.04557,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 556,
+        "real_target_presentations": 290998294,
+        "matrix_operations": 162172242355304448
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 1.859757964346144
+    },
+    {
+      "identity": "low-depth-tune-v2-poisson2-lr3-s11-first",
+      "started_unix": 1792889489.1230783,
+      "finished_unix": 1792889624.0636628,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 20,
+        "real_target_presentations": 10467614,
+        "matrix_operations": 5829906883430400
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.29986796538035076
+    },
+    {
+      "identity": "low-depth-tune-v2-poisson2-lr3-s11-fit",
+      "started_unix": 1792889634.7911825,
+      "finished_unix": 1792890480.9138525,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 556,
+        "real_target_presentations": 290998294,
+        "matrix_operations": 162172242355304448
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 1.8802725998560588
     },
     {
       "identity": "parcae-eager-optimizer-v1",

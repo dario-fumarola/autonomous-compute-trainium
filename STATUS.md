@@ -1,18 +1,43 @@
-# Status — 2026-10-25, 01:03 UTC
+# Status — 2026-10-25, 01:27 UTC
 
-Ten of12 rate trials are independently scored. At0.008,ordinary scores
-2.926390,true one-pass2.993713 and recurrence3.013839. Recurrence is0.020126
-worse than its parameter-exact one-pass control at this rate. Ordinary reaches
-2.884985 at0.016; the one-pass/recurrent0.016 fits continue on all16 chips.
-Every score follows301,465,908 natural targets and completed cooldown. These
-are single-seed TUNE results,not main-fit or confirmation findings. No rates
-are selected until all registered opportunities finish. Selected checkpoints
-then require independent complete-batch gradient checks before the main pilot.
-The [rate-screen figure](results/parcae_low_depth_pilot_20261024/figures/tuning.png)
-plots completed independent scores only. The learning-curve exporter keeps
-stable checkpoints separate from each branch's completed decay; main curves
-await actual scores. The CPU suite passes169 tests in32.94seconds. No frozen
-training source changed.
+**Fresh-seed main training is running on all16 chips.** True one-pass and
+recurrence have performed more than60 real updates; ordinary is waiting for
+an eight-chip slot in the fixed three-arm queue. Main seed1231 starts from
+fresh cloned initialization,not qualification or tuning weights. No main DEV
+scores are available yet.
+
+All three selected301M checkpoints pass independent complete512-window TRAIN
+gradient checks: overall errors0.223%,0.257%,0.264% for ordinary,one-pass and
+recurrence; the maximum loss difference is0.00000460 nats. The2% gradient and
+0.003-nat loss gates remain unchanged. Every main1B/endpoint is checked again.
+[Selected-gradient evidence](results/low-depth-gradient-selected-v1/report.json).
+
+The frozen main paths have the same1.858147e18 estimated matrix-work budget,
+including head,attention and all32 replicas' Muon work. Endpoints are3.646B,
+3.597B,3.334B real targets for ordinary,one-pass and recurrence,with separate
+completed-decay1.005B branches. Warm measurement predicts3.86hours of node
+reservation; execution is capped at8hours. No fresh reserve or terminal alpha.
+[Main plan](results/parcae_low_depth_pilot_20261024/main/plan.json).
+
+All12 rate opportunities completed. Each arm selected0.016,the upper grid
+boundary: TUNE NLL2.884985,2.950986,2.957179. Recurrence is0.006193 behind its
+parameter-exact one-pass control here; the optima are not bracketed. These
+shorter scores do not decide the main comparison.
+[Screen report](results/parcae_low_depth_pilot_20261024/REPORT.md) ·
+[Observed figure](results/parcae_low_depth_pilot_20261024/figures/tuning.png).
+
+A read-only main-run sample found all64 logical cores active,with84.6% average
+runtime busy time over11 accepted intervals. That is not tensor-peak utilization
+or a campaign average. [Runtime evidence](results/parcae_low_depth_pilot_20261024/main-runtime-busy-sample.json).
+
+A CPU-only randomness audit is registered before any main scores. The frozen
+pooled evaluator derives its latent-state seed from whole-document identity,
+which is a content hash. The audit will retain the same weights/targets and
+use only original prefix-window position. It preserves the frozen readout and
+does not select recipes,exits or seeds. No quality effect is assumed. The
+natural-code intervention already uses position-only randomness.
+[Audit registration](results/low_depth_prefix_noise_audit_20261025/plan.json).
+The CPU suite passes172 tests,including prefix/future and length invariance.
 
 Independent actual-size upstream operator counts agree exactly with the
 inference ledger: at1024 positions,one family pass costs159.049GFLOPs and two

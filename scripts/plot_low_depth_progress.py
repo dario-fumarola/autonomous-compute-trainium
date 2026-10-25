@@ -45,7 +45,10 @@ def load_scores(path):
 
 def save(fig, output, name):
     for suffix in ['png', 'pdf', 'svg']:
-        fig.savefig(output / f'{name}.{suffix}')
+        path = output / f'{name}.{suffix}'
+        fig.savefig(path)
+        if suffix == 'svg':
+            path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines()) + '\n')
     plt.close(fig)
 
 
