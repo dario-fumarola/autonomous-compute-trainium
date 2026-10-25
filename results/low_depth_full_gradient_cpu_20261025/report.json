@@ -1,0 +1,149 @@
+{
+  "status": "PASS_SMALL_CPU_FULL_GRADIENT_PRECISION_SCREEN",
+  "comparisons": {
+    "last_one": {
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0010676295022648851,
+          "maximum_absolute_error": 1.1348165571689606e-05,
+          "reference_l2": 0.6560362691473045
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.001011746289942179,
+            "maximum_absolute_error": 3.933644620701671e-06,
+            "reference_l2": 0.06495703330919433
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0006795907994399087,
+            "maximum_absolute_error": 3.7569552659988403e-06,
+            "reference_l2": 0.0802124210836601
+          },
+          "transformer_body": {
+            "relative_l2": 0.0010730293208548224,
+            "maximum_absolute_error": 1.1348165571689606e-05,
+            "reference_l2": 0.6478545909638356
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0010976221958296703,
+            "maximum_absolute_error": 1.9211438484489918e-07,
+            "reference_l2": 0.0038166387517772735
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "fp16_minus_fp32_nll": 1.162787642927654e-05,
+      "passes_small_cpu_screen": true
+    },
+    "all_sampled_steps": {
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0010800434632662705,
+          "maximum_absolute_error": 9.32253897190094e-06,
+          "reference_l2": 0.7212269294893028
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0010125880039052347,
+            "maximum_absolute_error": 4.738220013678074e-06,
+            "reference_l2": 0.07131106201016718
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0007103280377137553,
+            "maximum_absolute_error": 3.903638571500778e-06,
+            "reference_l2": 0.08158704852846205
+          },
+          "transformer_body": {
+            "relative_l2": 0.0010846979678882142,
+            "maximum_absolute_error": 9.32253897190094e-06,
+            "reference_l2": 0.713027688527598
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0011128174499352972,
+            "maximum_absolute_error": 2.75962520390749e-07,
+            "reference_l2": 0.0042526651590473145
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "fp16_minus_fp32_nll": 1.162787642927654e-05,
+      "passes_small_cpu_screen": true
+    }
+  },
+  "same_forward_hashes_by_precision": {
+    "fp32": true,
+    "fp16": true
+  },
+  "truncated_vs_full_fp32_gradient": {
+    "overall": {
+      "relative_l2": 0.15127549510888358,
+      "maximum_absolute_error": 0.002441554330289364,
+      "reference_l2": 0.7212269294893028
+    },
+    "families": {
+      "recurrent_injection_readout": {
+        "relative_l2": 0.14785239754235277,
+        "maximum_absolute_error": 0.0009461548179388046,
+        "reference_l2": 0.07131106201016718
+      },
+      "tied_input_output": {
+        "relative_l2": 0.06927362836603557,
+        "maximum_absolute_error": 0.00028338562697172165,
+        "reference_l2": 0.08158704852846205
+      },
+      "transformer_body": {
+        "relative_l2": 0.1520888843212646,
+        "maximum_absolute_error": 0.002441554330289364,
+        "reference_l2": 0.713027688527598
+      },
+      "value_embeddings": {
+        "relative_l2": 0.17505069832963074,
+        "maximum_absolute_error": 4.251080099493265e-05,
+        "reference_l2": 0.0042526651590473145
+      }
+    },
+    "passes_two_percent_gate": false
+  },
+  "unique_train_windows": 8,
+  "unique_real_targets": 8178,
+  "diagnostic_real_target_presentations": 32712,
+  "diagnostic_training_matmul_flops": 17906933956608,
+  "complete_state_readback_exact": true,
+  "native_qualification_established": false,
+  "scientific_followup_launched": false,
+  "records": [
+    {
+      "rule": "last_one",
+      "precision": "fp32",
+      "nll": 3.225165288994673,
+      "weights_unchanged": true,
+      "wall_seconds": 13.26265573501587
+    },
+    {
+      "rule": "last_one",
+      "precision": "fp16",
+      "nll": 3.2251769168711024,
+      "weights_unchanged": true,
+      "wall_seconds": 12.591277360916138
+    },
+    {
+      "rule": "all_sampled_steps",
+      "precision": "fp32",
+      "nll": 3.225165288994673,
+      "weights_unchanged": true,
+      "wall_seconds": 14.845633506774902
+    },
+    {
+      "rule": "all_sampled_steps",
+      "precision": "fp16",
+      "nll": 3.2251769168711024,
+      "weights_unchanged": true,
+      "wall_seconds": 14.286224603652954
+    }
+  ],
+  "wall_seconds": 94.76539635658264,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "Numerical feasibility at an immutable301M trained checkpoint on the first8 next natural TRAIN windows,selected without scoring. Same weights,forward depths,source order,initial states and loss;only differentiated tail and numerical precision vary. No parameter updates or held-out data. Small CPU subbatch,not a complete512-window native qualification,learning result or permission to launch the conditional follow-up."
+}

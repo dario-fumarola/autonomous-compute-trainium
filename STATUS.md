@@ -1,4 +1,4 @@
-# Status — 2026-10-25, 01:27 UTC
+# Status — 2026-10-25, 01:48 UTC
 
 **Fresh-seed main training is running on all16 chips.** True one-pass and
 recurrence have performed more than60 real updates; ordinary is waiting for
@@ -29,6 +29,16 @@ shorter scores do not decide the main comparison.
 A read-only main-run sample found all64 logical cores active,with84.6% average
 runtime busy time over11 accepted intervals. That is not tensor-peak utilization
 or a campaign average. [Runtime evidence](results/parcae_low_depth_pilot_20261024/main-runtime-busy-sample.json).
+
+A TRAIN-only full-gradient precision screen passes at the immutable301M main
+checkpoint. On the first8 next TRAIN windows,full/truncated forwards are
+bit-identical; restoring earlier paths changes the raw FP32 gradient by15.1%.
+That is intentional truncation bias,not numerical error. FP16 full-gradient
+error is0.108% overall,0.111% at the largest named family. This94.8second CPU
+subbatch used zero chips/updates and no held-out data. It establishes neither
+native qualification nor a learning gain; the follow-up remains conditional.
+[Exact numerical screen](results/low_depth_full_gradient_cpu_20261025/report.json).
+The CPU suite still passes172 tests after adding the screen.
 
 A CPU-only randomness audit is registered before any main scores. The frozen
 pooled evaluator derives its latent-state seed from whole-document identity,
