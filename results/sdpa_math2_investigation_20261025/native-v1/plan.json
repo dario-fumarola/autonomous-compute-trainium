@@ -1,0 +1,279 @@
+{
+  "identity": "sdpa-math2-native-v1",
+  "registered_unix": 1792906842.020885,
+  "purpose": "zero_update_low_depth_gradient_validation",
+  "execution_variant": "fp16_body_explicit_fp32_sdpa",
+  "parent_plan": "parcae-low-depth-pilot-v1/main-plan-recovery-v2.json",
+  "parent_plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+  "points": {
+    "fixed1": {
+      "case_id": "fixed1-main-s1231",
+      "checkpoint": "runs/low-depth-main-r2-fixed1-finish/checkpoint-u6872.pt",
+      "checkpoint_sha256": "dcff9c59f5fb7959c7e3c3b20477ebe3a4a22050b162cd751daa4d6349f1c977"
+    },
+    "poisson2": {
+      "case_id": "poisson2-main-s1231",
+      "checkpoint": "runs/low-depth-main-r2-poisson2-finish/checkpoint-u6370.pt",
+      "checkpoint_sha256": "4a6afc73002b6e82bdb72b886653b5dc078a7ca09342ebda8d9b207dc3b6be36"
+    }
+  },
+  "source_sha256": {
+    "scripts/prepare_low_depth_tuning_v2.py": "36da4596029801e8195cf5cf2516bcd6bb5b94f42daec1fd4a9f43a845af4006",
+    "scripts/run_low_depth_tuning_v2.py": "38998182b5bffdbf39be8c68cc7d13dc787921b4d76100094c10039863a494fa",
+    "scripts/train_low_depth_runtime.py": "e2876c2bfc256d66012fe0ccb93b1b584865edb8cc3daabab26bc0a28721e523",
+    "compute_trainium/parcae_runtime_scalars.py": "fbd0f887c6459129fb7a100ddc7bd979bbd2fd783fc5dda88090dab097ede946",
+    "docs/LOW_DEPTH_TUNING_RUNTIME_AMENDMENT_20261024.md": "c44d784776e78b4d5f79ebcc0027061ef4efd9b5a6b32e7a9eeeb1ced254cfb7",
+    "tests/test_parcae_runtime_scalars.py": "72ae66914f59523dcf96a132f4d00dba5a53aba3faf0fb66de88729b2ec4c719",
+    "scripts/train_low_depth_scientific.py": "25e5b420f9ccf7547478ea02c17c9eebec24be047a5379b8f8f1730eff8680c8",
+    "scripts/evaluate_low_depth_cpu.py": "79ef359101cba0ca4c7aaea7582797719a5b570abc3bbdf5fc8ef54f1d6d0964",
+    "scripts/train_parcae_precise_qualification.py": "e0c8dd00a7dd9793c01016536b010cb47313dca4f93aa44b296e17698c2a7e71",
+    "scripts/qualify_native.py": "1f9120bdc0321302e37947b4be23cbe335834e1f3dfd88ff3a17df737550f5a9",
+    "scripts/qualify_parcae_candidate_cpu.py": "f1f8cf41b9ce3c817ecebd5cb4c7e3ebbe07e323aca21406c3846ef81313c3e7",
+    "scripts/qualify_parcae_optimizer_cpu.py": "44150d76faa8ae27298fb0f6c6c38dc8541a8fc1b71ac17202c16fee3ab9fe3a",
+    "scripts/audit_parcae_precise_training_point.py": "47962e12645197d43b2365b6c6dec0fb57328f4fe0e409a9c85435f820044001",
+    "third_party/parcae_reference/muon_adamw.py": "c01b2c54a65e0102b5fa546ae9e8423194daa549619454438b3c9ae38d41a053",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+    "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7",
+    "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+    "compute_trainium/parcae_optimizer_alignment.py": "38f28a9a6652ab7691856f5da917889ac0d363060146558936596db3ed41ab9a",
+    "compute_trainium/stable_recurrence_candidate.py": "3bf06aba0d1afa097d8ff7dae2fc86fba05437e673cc25695dcee314230cc3a5",
+    "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+    "compute_trainium/parcae_work_accounting.py": "36e301f291f68629c00c349f520b596dd334b5b5c2d32ffe5ea305feed29fc24",
+    "compute_trainium/parcae_scientific_schedule.py": "10b8f724af0843fac3d8167d84994880ef7b09836b51fa85cc9d92a912739459",
+    "compute_trainium/parcae_scientific_state.py": "7ea8a963fe873cdefe07a3a2412fae3485462c3e8cb1a73218e2b717be0890ab",
+    "compute_trainium/depth_mixture.py": "a01f29bd9ede17ac425c557e740a8f3e3e0a9400aff825af8aaf59b606a6789a",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20",
+    "compute_trainium/metrics.py": "0296fee74cd632e0dfc04d8ee129a7235f984691eb3f211c968d681e6af38275",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd",
+    "compute_trainium/model.py": "4a2edc5034ccff94ac1817f5b8529f031f4b6ef63cf1da4bc8e1f2e09cc53eb0",
+    "compute_trainium/titan.py": "9b1cab2cb54c47a75b79cbb3392952c7b44fcd0e88af719e0ca5eb6d50214714",
+    "compute_trainium/queue.py": "c524381d865e84997a784e52448df7d72015442731132aafbf93634f4fbdf51c",
+    "compute_trainium/execution_isolation.py": "8134b60a659f282ee6c398fbb77a5251d291f2ac44a88f31ce7e93d8f041aef5",
+    "compute_trainium/owned_native_phase.py": "50ea82fcecb99094eded18886b4a9d854ddf67126ec9fc12c53b25eb689aa7b2",
+    "compute_trainium/owned_native_compact.py": "7bf6f3e26c27b3cce87d51041c4ecd566e807baecc667ae9ef26ff88748d333f",
+    "compute_trainium/native_comm_ports.py": "5104fd9d150e106dd9b34186ff071ce595da5916cebd7ee8073522ebe23e7b76",
+    "scripts/supervise_isolated.py": "e37227788b3adbd355e4dedc9014554ff52b0b239c3c64f7b2428adea3cfe2f3",
+    "scripts/run_native_isolated.sh": "5bc0d9d5c7c7b1b436e7cc0a26ba9e32f1c1cb15eb036999f3252422472d3e06",
+    "docs/LOW_DEPTH_TUNING_PROTOCOL_20261024.md": "94f81584d57e84e00eee8ac1270bc93e57bc730b76966c77b7628b00cf3bd68d",
+    "tests/test_parcae_scientific_state.py": "32bac056e30eb00660853d0409326e12903f336ab9716564df168bc0aed80e27",
+    "tests/test_parcae_scientific_schedule.py": "04934e9044b45897c7a44f8f16bf21162d69e0ce03c52f5b9decd6070bc917e6",
+    "tests/test_low_depth_evaluation_identity.py": "21f6695e3cbc7174f321df84aff180e5a50b02ab2809f641c83330455d7ac7d5",
+    "tests/test_native_comm_ports.py": "b51975ded4be3c8f605e825aff3a88b8565667384302aa7ae81794a33799f5a8",
+    "scripts/prepare_low_depth_main.py": "5164f6939eff4e995eefe865b8a3034c7f216b6895ecc0ec6b6aaf2568a597db",
+    "scripts/run_low_depth_main.py": "9195bd89b67bd5636662ab3bf539059e6267cba2f5b09fd5a6e1a13a54f64690",
+    "scripts/run_low_depth_gradient_validation.py": "867e3cf5048228fbd94d57058c9a51137ccc3ebbbf81566a553fd0a6e4af957d",
+    "scripts/capture_low_depth_gradient.py": "2dab3cd0dd0d30d6abda5be34c5527e8507775ccb9f749dfdc4acaa545fd0341",
+    "scripts/audit_low_depth_gradient.py": "a79b77453db486b2e1a467040bdc5c29c56385382e78aa303b0a2a7ef40e5742",
+    "compute_trainium/low_depth_gradient_probe.py": "1233b767b9985d6dc57944fcabf8fc6fa67be939794388201942ea382cd85217",
+    "tests/test_low_depth_gradient_probe.py": "8f5b0ac74383d21358f91841e3a0da95d3d76255eedc03114895bcc4dedf79d0",
+    "docs/LOW_DEPTH_MATURE_GRADIENT_POLICY_20261024.md": "f8003cf7b543a828e0cab40f05c14fc5aa9c2bd06a085dfdc71f2675cc61047c",
+    "docs/LOW_DEPTH_MAIN_PROTOCOL_20261024.md": "551b9bc850414e5a28e4a502e4540f9e57ba8af78aa52550f42cdbc71be369bb",
+    "scripts/prepare_low_depth_main_recovery.py": "b7cb3132e3a1a10efb6b3020a487a8c99d5473ff6a40defd271af45b223dc811",
+    "scripts/run_low_depth_main_recovery.py": "61f4027cee9e6af30e1f45e72be434146f3a0cd60421068947244126c4bbbd7e",
+    "compute_trainium/low_depth_recovery.py": "6bbcd543644ab816a4fa3172631ba9290f405cd32969460be5470291e99ec370",
+    "tests/test_low_depth_recovery.py": "6785c7851baa93f85821b42af8507e584c554759ab774e78b9445a411d7fe570",
+    "scripts/run_sdpa_math2_qualification.py": "fa5507f05465ab242efd99b3515b5e22813a09f0b01bec2916143658e610dcd4",
+    "scripts/repro_sdpa_math2_cpu.py": "b2d24fb75ba6bac1442782b284279a1836c811a9ad404d43e322da2c8880a702",
+    "scripts/repro_sdpa_math2_native.py": "119870411f6039604cb091292c61406c9cb4622a532a628e6835714c57c96043",
+    "scripts/audit_sdpa_math2_native.py": "31716c8f3cecdd07e6c945eea1d78808b7923ef5825f0718439e78b987c78f59",
+    "scripts/capture_math_sdpa_gradient.py": "73526dfa59d6cba40965a47587190609184b535f6d47c27e692f818206f2ea76",
+    "compute_trainium/parcae_math_sdpa_candidate.py": "375d5df8fc1b9a33ddf1f7a37c057fda0ec1b35c7f184ee5c0dd3e4b7436e2bc",
+    "compute_trainium/future_span_execution.py": "86c91d08e6c7e63785b1657e49ffbc8e3f56eebd4061b3a284fb3b422522c301",
+    "compute_trainium/future_span_admission.py": "a2479963a78ce4227deb3eb0374861e0bbf7450ac7b5bec05c848aed3349ba90",
+    "tests/test_parcae_math_sdpa_candidate.py": "f4207c32875de96fc4673ff8a374f51105bbf77db0b0b90901fb54b52dda9805"
+  },
+  "worker_source_sha256": {
+    "scripts/prepare_low_depth_tuning_v2.py": "36da4596029801e8195cf5cf2516bcd6bb5b94f42daec1fd4a9f43a845af4006",
+    "scripts/run_low_depth_tuning_v2.py": "38998182b5bffdbf39be8c68cc7d13dc787921b4d76100094c10039863a494fa",
+    "scripts/train_low_depth_runtime.py": "e2876c2bfc256d66012fe0ccb93b1b584865edb8cc3daabab26bc0a28721e523",
+    "compute_trainium/parcae_runtime_scalars.py": "fbd0f887c6459129fb7a100ddc7bd979bbd2fd783fc5dda88090dab097ede946",
+    "scripts/train_low_depth_scientific.py": "25e5b420f9ccf7547478ea02c17c9eebec24be047a5379b8f8f1730eff8680c8",
+    "scripts/evaluate_low_depth_cpu.py": "79ef359101cba0ca4c7aaea7582797719a5b570abc3bbdf5fc8ef54f1d6d0964",
+    "scripts/train_parcae_precise_qualification.py": "e0c8dd00a7dd9793c01016536b010cb47313dca4f93aa44b296e17698c2a7e71",
+    "scripts/qualify_native.py": "1f9120bdc0321302e37947b4be23cbe335834e1f3dfd88ff3a17df737550f5a9",
+    "scripts/qualify_parcae_candidate_cpu.py": "f1f8cf41b9ce3c817ecebd5cb4c7e3ebbe07e323aca21406c3846ef81313c3e7",
+    "scripts/qualify_parcae_optimizer_cpu.py": "44150d76faa8ae27298fb0f6c6c38dc8541a8fc1b71ac17202c16fee3ab9fe3a",
+    "scripts/audit_parcae_precise_training_point.py": "47962e12645197d43b2365b6c6dec0fb57328f4fe0e409a9c85435f820044001",
+    "third_party/parcae_reference/muon_adamw.py": "c01b2c54a65e0102b5fa546ae9e8423194daa549619454438b3c9ae38d41a053",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+    "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7",
+    "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+    "compute_trainium/parcae_optimizer_alignment.py": "38f28a9a6652ab7691856f5da917889ac0d363060146558936596db3ed41ab9a",
+    "compute_trainium/stable_recurrence_candidate.py": "3bf06aba0d1afa097d8ff7dae2fc86fba05437e673cc25695dcee314230cc3a5",
+    "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+    "compute_trainium/parcae_work_accounting.py": "36e301f291f68629c00c349f520b596dd334b5b5c2d32ffe5ea305feed29fc24",
+    "compute_trainium/parcae_scientific_schedule.py": "10b8f724af0843fac3d8167d84994880ef7b09836b51fa85cc9d92a912739459",
+    "compute_trainium/parcae_scientific_state.py": "7ea8a963fe873cdefe07a3a2412fae3485462c3e8cb1a73218e2b717be0890ab",
+    "compute_trainium/depth_mixture.py": "a01f29bd9ede17ac425c557e740a8f3e3e0a9400aff825af8aaf59b606a6789a",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20",
+    "compute_trainium/metrics.py": "0296fee74cd632e0dfc04d8ee129a7235f984691eb3f211c968d681e6af38275",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd",
+    "compute_trainium/model.py": "4a2edc5034ccff94ac1817f5b8529f031f4b6ef63cf1da4bc8e1f2e09cc53eb0",
+    "compute_trainium/titan.py": "9b1cab2cb54c47a75b79cbb3392952c7b44fcd0e88af719e0ca5eb6d50214714",
+    "compute_trainium/queue.py": "c524381d865e84997a784e52448df7d72015442731132aafbf93634f4fbdf51c",
+    "compute_trainium/execution_isolation.py": "8134b60a659f282ee6c398fbb77a5251d291f2ac44a88f31ce7e93d8f041aef5",
+    "compute_trainium/owned_native_phase.py": "50ea82fcecb99094eded18886b4a9d854ddf67126ec9fc12c53b25eb689aa7b2",
+    "compute_trainium/owned_native_compact.py": "7bf6f3e26c27b3cce87d51041c4ecd566e807baecc667ae9ef26ff88748d333f",
+    "compute_trainium/native_comm_ports.py": "5104fd9d150e106dd9b34186ff071ce595da5916cebd7ee8073522ebe23e7b76",
+    "scripts/supervise_isolated.py": "e37227788b3adbd355e4dedc9014554ff52b0b239c3c64f7b2428adea3cfe2f3",
+    "scripts/run_native_isolated.sh": "5bc0d9d5c7c7b1b436e7cc0a26ba9e32f1c1cb15eb036999f3252422472d3e06",
+    "scripts/prepare_low_depth_main.py": "5164f6939eff4e995eefe865b8a3034c7f216b6895ecc0ec6b6aaf2568a597db",
+    "scripts/run_low_depth_main.py": "9195bd89b67bd5636662ab3bf539059e6267cba2f5b09fd5a6e1a13a54f64690",
+    "scripts/run_low_depth_gradient_validation.py": "867e3cf5048228fbd94d57058c9a51137ccc3ebbbf81566a553fd0a6e4af957d",
+    "scripts/capture_low_depth_gradient.py": "2dab3cd0dd0d30d6abda5be34c5527e8507775ccb9f749dfdc4acaa545fd0341",
+    "scripts/audit_low_depth_gradient.py": "a79b77453db486b2e1a467040bdc5c29c56385382e78aa303b0a2a7ef40e5742",
+    "compute_trainium/low_depth_gradient_probe.py": "1233b767b9985d6dc57944fcabf8fc6fa67be939794388201942ea382cd85217",
+    "scripts/prepare_low_depth_main_recovery.py": "b7cb3132e3a1a10efb6b3020a487a8c99d5473ff6a40defd271af45b223dc811",
+    "scripts/run_low_depth_main_recovery.py": "61f4027cee9e6af30e1f45e72be434146f3a0cd60421068947244126c4bbbd7e",
+    "compute_trainium/low_depth_recovery.py": "6bbcd543644ab816a4fa3172631ba9290f405cd32969460be5470291e99ec370",
+    "scripts/run_sdpa_math2_qualification.py": "fa5507f05465ab242efd99b3515b5e22813a09f0b01bec2916143658e610dcd4",
+    "scripts/repro_sdpa_math2_cpu.py": "b2d24fb75ba6bac1442782b284279a1836c811a9ad404d43e322da2c8880a702",
+    "scripts/repro_sdpa_math2_native.py": "119870411f6039604cb091292c61406c9cb4622a532a628e6835714c57c96043",
+    "scripts/audit_sdpa_math2_native.py": "31716c8f3cecdd07e6c945eea1d78808b7923ef5825f0718439e78b987c78f59",
+    "scripts/capture_math_sdpa_gradient.py": "73526dfa59d6cba40965a47587190609184b535f6d47c27e692f818206f2ea76",
+    "compute_trainium/parcae_math_sdpa_candidate.py": "375d5df8fc1b9a33ddf1f7a37c057fda0ec1b35c7f184ee5c0dd3e4b7436e2bc",
+    "compute_trainium/future_span_execution.py": "86c91d08e6c7e63785b1657e49ffbc8e3f56eebd4061b3a284fb3b422522c301",
+    "compute_trainium/future_span_admission.py": "a2479963a78ce4227deb3eb0374861e0bbf7450ac7b5bec05c848aed3349ba90"
+  },
+  "fixture_directory": "sdpa-math2-cpu-v1",
+  "fixture_manifest": {
+    "identity": "sdpa-math2-cpu-v1",
+    "plan_sha256": "7eabeb37ca0db14922b2e047702f01298f89dd019cb6e50b15b35e2820f9b3e2",
+    "fixtures_file": "fixtures.pt",
+    "fixtures_sha256": "ed6b0ea1b545fddc11c335f552063c512e5c90b8f287877a1415f0232e18ca59",
+    "gold_file": "cpu-gold.pt",
+    "gold_sha256": "3ad2bcadb0b6d1611504c6eb1daf713d3f679f15e282f5206dbe63f02115949f",
+    "sdk_python_source_sha256": "432468eb0cb4f4323ea91f993c3a377c782cf8bd34eec448130d16bcd17e1b37",
+    "fixture_digests": {
+      "n32-float16-independent": "a702fd655bf0a72ccf6eb97744bedd1f57e5954580a58775b3523331fc4bb7e5",
+      "n32-float16-self": "6cddb637cb55cf8724b5ebea97886f73b99ddb4ec370808492fc15c30a904ecb",
+      "n32-float32-independent": "d457261669957a4e0e05d04f1a5aa8de50a8151c9b6de6e96e8aeb20002df886",
+      "n32-float32-self": "31503b4c261b7680597534d12e4c1db140160b7b02906ad12514c9c4b6572938",
+      "n1024-float16-independent": "f516c09edc93e85cc6d1c9c8a40ee8e0a315de64d3d97131ebebdd4de6bec289",
+      "n1024-float16-self": "b81dddf344e11d6eaab002982e87aefef920e02b430af3e955b8a1f7f184619a",
+      "n1024-float32-independent": "5af819e78d94725d94bddeb031f889644cf60bdf19dc50fec783a7c3227036fc",
+      "n1024-float32-self": "faa4df9a7818acac1bb6ec223f54fc052e7957703c62f5a2daf2d8273f5fe81a"
+    },
+    "fixture_metadata": [
+      {
+        "identity": "n32-float16-independent",
+        "is_causal": true,
+        "scale": 0.08838834764831843
+      },
+      {
+        "identity": "n32-float16-self",
+        "is_causal": true,
+        "scale": 0.08838834764831843
+      },
+      {
+        "identity": "n32-float32-independent",
+        "is_causal": true,
+        "scale": 0.08838834764831843
+      },
+      {
+        "identity": "n32-float32-self",
+        "is_causal": true,
+        "scale": 0.08838834764831843
+      },
+      {
+        "identity": "n1024-float16-independent",
+        "is_causal": true,
+        "scale": 0.08838834764831843
+      },
+      {
+        "identity": "n1024-float16-self",
+        "is_causal": true,
+        "scale": 0.08838834764831843
+      },
+      {
+        "identity": "n1024-float32-independent",
+        "is_causal": true,
+        "scale": 0.08838834764831843
+      },
+      {
+        "identity": "n1024-float32-self",
+        "is_causal": true,
+        "scale": 0.08838834764831843
+      }
+    ],
+    "fixture_shapes": {
+      "n32-float16-independent": [
+        1,
+        6,
+        32,
+        128
+      ],
+      "n32-float16-self": [
+        1,
+        6,
+        32,
+        128
+      ],
+      "n32-float32-independent": [
+        1,
+        6,
+        32,
+        128
+      ],
+      "n32-float32-self": [
+        1,
+        6,
+        32,
+        128
+      ],
+      "n1024-float16-independent": [
+        1,
+        6,
+        1024,
+        128
+      ],
+      "n1024-float16-self": [
+        1,
+        6,
+        1024,
+        128
+      ],
+      "n1024-float32-independent": [
+        1,
+        6,
+        1024,
+        128
+      ],
+      "n1024-float32-self": [
+        1,
+        6,
+        1024,
+        128
+      ]
+    },
+    "fixture_dtype": {
+      "n32-float16-independent": "torch.float16",
+      "n32-float16-self": "torch.float16",
+      "n32-float32-independent": "torch.float32",
+      "n32-float32-self": "torch.float32",
+      "n1024-float16-independent": "torch.float16",
+      "n1024-float16-self": "torch.float16",
+      "n1024-float32-independent": "torch.float32",
+      "n1024-float32-self": "torch.float32"
+    },
+    "source_sha256": {
+      "scripts/repro_sdpa_math2_cpu.py": "b2d24fb75ba6bac1442782b284279a1836c811a9ad404d43e322da2c8880a702"
+    }
+  },
+  "fixture_manifest_sha256": "64e68f98250b395f093f06f2e4a197aea4e018c3eb9d827eb8b9ce85351de242",
+  "root_comm_ports": {
+    "sdpa-math2-native-v1-operator": 16106,
+    "sdpa-math2-native-v1-fixed1": 16107,
+    "sdpa-math2-native-v1-poisson2": 16108
+  },
+  "predecessor_deadline_unix": 1792920082.348848,
+  "seconds_limit": 5400,
+  "phase_seconds_limit": 900,
+  "cpu_phase_seconds_limit": 1200,
+  "admission": "All nine predecessor fits/gates complete,or predecessor terminal with no active managed native owner. No inter-phase gap stealing.",
+  "scope": "Bounded numerical qualification only. Actual compiled operator fixtures on32 ranks and next complete512-window gradients at two immutable mature checkpoints. Explicit FP32 SDPA inputs/output retained internally,FP16 body/FP32 vocabulary head unchanged. Installed SDK/live pilot untouched. No optimizer or scientific launch."
+}

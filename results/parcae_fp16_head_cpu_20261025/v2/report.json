@@ -1,0 +1,277 @@
+{
+  "status": "PASS_SMALL_CPU_FP16_HEAD_SCREEN",
+  "comparisons": [
+    {
+      "arm": "fixed1",
+      "all_mixed_paths_pass": true
+    },
+    {
+      "arm": "poisson2",
+      "all_mixed_paths_pass": true
+    }
+  ],
+  "complete_checkpoint_readback_exact": true,
+  "native_execution_qualified": false,
+  "native_speed_measured": false,
+  "scientific_training_changed": false,
+  "records": [
+    {
+      "arm": "fixed1",
+      "training_update": 6872,
+      "depth": 1,
+      "precision": "independent_cpu_fp32",
+      "nll": 2.896219089041122,
+      "loss_difference_from_fp32": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 1.13607619000233
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.047574876771034974
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0380137431808795
+          },
+          "transformer_body": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 1.1344310419822659
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.005187186794390187
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "real_train_targets": 8186,
+      "parameters_unchanged": true,
+      "wall_seconds": 14.98754072189331,
+      "passes_small_cpu_gate": true
+    },
+    {
+      "arm": "fixed1",
+      "training_update": 6872,
+      "depth": 1,
+      "precision": "cpu_fp16_body_fp32_head",
+      "nll": 2.8962051164192295,
+      "loss_difference_from_fp32": -1.3972621892399673e-05,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0015279025001663676,
+          "maximum_absolute_error": 0.0003063976764678955,
+          "reference_l2": 1.13607619000233
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0016456583003477531,
+            "maximum_absolute_error": 2.1230429410934448e-05,
+            "reference_l2": 0.047574876771034974
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0011663660801296317,
+            "maximum_absolute_error": 1.1218711733818054e-05,
+            "reference_l2": 0.0380137431808795
+          },
+          "transformer_body": {
+            "relative_l2": 0.0015280449584752398,
+            "maximum_absolute_error": 0.0003063976764678955,
+            "reference_l2": 1.1344310419822659
+          },
+          "value_embeddings": {
+            "relative_l2": 0.001545925239241888,
+            "maximum_absolute_error": 4.033063305541873e-07,
+            "reference_l2": 0.005187186794390187
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "real_train_targets": 8186,
+      "parameters_unchanged": true,
+      "wall_seconds": 13.817327499389648,
+      "passes_small_cpu_gate": true
+    },
+    {
+      "arm": "fixed1",
+      "training_update": 6872,
+      "depth": 1,
+      "precision": "cpu_fp16_body_fp16_head",
+      "nll": 2.8962177916898897,
+      "loss_difference_from_fp32": -1.2973512322211889e-06,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0019913370354522997,
+          "maximum_absolute_error": 0.0005955994129180908,
+          "reference_l2": 1.13607619000233
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0019157258291957195,
+            "maximum_absolute_error": 1.10996188595891e-05,
+            "reference_l2": 0.047574876771034974
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0014739465411035013,
+            "maximum_absolute_error": 1.2536998838186264e-05,
+            "reference_l2": 0.0380137431808795
+          },
+          "transformer_body": {
+            "relative_l2": 0.001991976584958691,
+            "maximum_absolute_error": 0.0005955994129180908,
+            "reference_l2": 1.1344310419822659
+          },
+          "value_embeddings": {
+            "relative_l2": 0.001805031839290034,
+            "maximum_absolute_error": 4.6903733164072037e-07,
+            "reference_l2": 0.005187186794390187
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "real_train_targets": 8186,
+      "parameters_unchanged": true,
+      "wall_seconds": 14.074917078018188,
+      "passes_small_cpu_gate": true
+    },
+    {
+      "arm": "poisson2",
+      "training_update": 6370,
+      "depth": 2,
+      "precision": "independent_cpu_fp32",
+      "nll": 2.3410302662779507,
+      "loss_difference_from_fp32": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.9452927466079921
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.03417472590941708
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.03267241119556844
+          },
+          "transformer_body": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.9441001230759187
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.004235097802969949
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "real_train_targets": 8184,
+      "parameters_unchanged": true,
+      "wall_seconds": 16.417665481567383,
+      "passes_small_cpu_gate": true
+    },
+    {
+      "arm": "poisson2",
+      "training_update": 6370,
+      "depth": 2,
+      "precision": "cpu_fp16_body_fp32_head",
+      "nll": 2.340972497665987,
+      "loss_difference_from_fp32": -5.7768611963826544e-05,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0022323857638234523,
+          "maximum_absolute_error": 0.0016248524188995361,
+          "reference_l2": 0.9452927466079921
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0025220917895048133,
+            "maximum_absolute_error": 4.8465561121702194e-05,
+            "reference_l2": 0.03417472590941708
+          },
+          "tied_input_output": {
+            "relative_l2": 0.001087631673085858,
+            "maximum_absolute_error": 7.420545443892479e-06,
+            "reference_l2": 0.03267241119556844
+          },
+          "transformer_body": {
+            "relative_l2": 0.0022330128786633508,
+            "maximum_absolute_error": 0.0016248524188995361,
+            "reference_l2": 0.9441001230759187
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0015266315639086434,
+            "maximum_absolute_error": 2.7128680812893435e-07,
+            "reference_l2": 0.004235097802969949
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "real_train_targets": 8184,
+      "parameters_unchanged": true,
+      "wall_seconds": 15.408586502075195,
+      "passes_small_cpu_gate": true
+    },
+    {
+      "arm": "poisson2",
+      "training_update": 6370,
+      "depth": 2,
+      "precision": "cpu_fp16_body_fp16_head",
+      "nll": 2.340995065161443,
+      "loss_difference_from_fp32": -3.5201116507899144e-05,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0024436484530860553,
+          "maximum_absolute_error": 0.0013374090194702148,
+          "reference_l2": 0.9452927466079921
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.002380249116830744,
+            "maximum_absolute_error": 3.622891381382942e-05,
+            "reference_l2": 0.03417472590941708
+          },
+          "tied_input_output": {
+            "relative_l2": 0.001534988386865949,
+            "maximum_absolute_error": 1.3306504115462303e-05,
+            "reference_l2": 0.03267241119556844
+          },
+          "transformer_body": {
+            "relative_l2": 0.00244462807026286,
+            "maximum_absolute_error": 0.0013374090194702148,
+            "reference_l2": 0.9441001230759187
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0017552829384008199,
+            "maximum_absolute_error": 3.19071659760084e-07,
+            "reference_l2": 0.004235097802969949
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "real_train_targets": 8184,
+      "parameters_unchanged": true,
+      "wall_seconds": 15.71445107460022,
+      "passes_small_cpu_gate": true
+    }
+  ],
+  "diagnostic_training_matrix_ops": 25541294948352,
+  "wall_seconds": 127.31078624725342,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "Prospective performance-path feasibility on first8 next natural TRAIN windows at two mature checkpoints. Fixed supported depths1/2,full gradients common to every precision. FP32 masters/logits/loss and manual8192 scaling for mixed paths. No held-out score,native operator/update/recovery qualification,speed claim or change to any frozen study."
+}

@@ -1,0 +1,430 @@
+{
+  "status": "COMPLETE_CPU_MATH2_SDPA_REPRO",
+  "records": [
+    {
+      "fixture": "n32-float16-independent",
+      "policy": "installed_formula",
+      "comparison": {
+        "output": {
+          "relative_l2": 0.000306164580491514,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 36.82463950243467
+        },
+        "q": {
+          "relative_l2": 0.00032677824025090864,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 24.49976499529866
+        },
+        "k": {
+          "relative_l2": 0.0003293044410760656,
+          "maximum_absolute_error": 0.00146484375,
+          "reference_l2": 24.875038326511753
+        },
+        "v": {
+          "relative_l2": 1.7486148878661933e-05,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 70.60788733321387
+        }
+      }
+    },
+    {
+      "fixture": "n32-float16-independent",
+      "policy": "explicit_fp32_attention",
+      "comparison": {
+        "output": {
+          "relative_l2": 1.0910176735223403e-05,
+          "maximum_absolute_error": 0.000244140625,
+          "reference_l2": 36.82463950243467
+        },
+        "q": {
+          "relative_l2": 8.063177802546958e-06,
+          "maximum_absolute_error": 0.0001220703125,
+          "reference_l2": 24.49976499529866
+        },
+        "k": {
+          "relative_l2": 7.437354317535944e-06,
+          "maximum_absolute_error": 0.0001220703125,
+          "reference_l2": 24.875038326511753
+        },
+        "v": {
+          "relative_l2": 1.7486148878661933e-05,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 70.60788733321387
+        }
+      }
+    },
+    {
+      "fixture": "n32-float16-self",
+      "policy": "installed_formula",
+      "comparison": {
+        "output": {
+          "relative_l2": 0.00031622668254008794,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 78.67594442609243
+        },
+        "q": {
+          "relative_l2": 0.6708402547317298,
+          "maximum_absolute_error": 0.0014231204986572266,
+          "reference_l2": 0.02991561983421748
+        },
+        "k": {
+          "relative_l2": 0.6141387192916358,
+          "maximum_absolute_error": 0.0014224052429199219,
+          "reference_l2": 0.03267713114869817
+        },
+        "v": {
+          "relative_l2": 1.1958451940181288e-05,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 157.89234217540164
+        }
+      }
+    },
+    {
+      "fixture": "n32-float16-self",
+      "policy": "explicit_fp32_attention",
+      "comparison": {
+        "output": {
+          "relative_l2": 6.206236053375577e-06,
+          "maximum_absolute_error": 0.00048828125,
+          "reference_l2": 78.67594442609243
+        },
+        "q": {
+          "relative_l2": 0.0004408621385722901,
+          "maximum_absolute_error": 1.430511474609375e-06,
+          "reference_l2": 0.02991561983421748
+        },
+        "k": {
+          "relative_l2": 0.00041374531866669923,
+          "maximum_absolute_error": 1.9073486328125e-06,
+          "reference_l2": 0.03267713114869817
+        },
+        "v": {
+          "relative_l2": 1.1958451940181288e-05,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 157.89234217540164
+        }
+      }
+    },
+    {
+      "fixture": "n32-float32-independent",
+      "policy": "installed_formula",
+      "comparison": {
+        "output": {
+          "relative_l2": 2.858896751298409e-07,
+          "maximum_absolute_error": 7.152557373046875e-07,
+          "reference_l2": 36.82488118056961
+        },
+        "q": {
+          "relative_l2": 3.083451012583553e-07,
+          "maximum_absolute_error": 4.172325134277344e-07,
+          "reference_l2": 24.498780849889673
+        },
+        "k": {
+          "relative_l2": 3.2679709058714187e-07,
+          "maximum_absolute_error": 5.960464477539062e-07,
+          "reference_l2": 24.874327603749816
+        },
+        "v": {
+          "relative_l2": 3.0654463923364815e-07,
+          "maximum_absolute_error": 1.1920928955078125e-06,
+          "reference_l2": 70.60917548313986
+        }
+      }
+    },
+    {
+      "fixture": "n32-float32-independent",
+      "policy": "explicit_fp32_attention",
+      "comparison": {
+        "output": {
+          "relative_l2": 2.858896751298409e-07,
+          "maximum_absolute_error": 7.152557373046875e-07,
+          "reference_l2": 36.82488118056961
+        },
+        "q": {
+          "relative_l2": 3.083451012583553e-07,
+          "maximum_absolute_error": 4.172325134277344e-07,
+          "reference_l2": 24.498780849889673
+        },
+        "k": {
+          "relative_l2": 3.2679709058714187e-07,
+          "maximum_absolute_error": 5.960464477539062e-07,
+          "reference_l2": 24.874327603749816
+        },
+        "v": {
+          "relative_l2": 3.0654463923364815e-07,
+          "maximum_absolute_error": 1.1920928955078125e-06,
+          "reference_l2": 70.60917548313986
+        }
+      }
+    },
+    {
+      "fixture": "n32-float32-self",
+      "policy": "installed_formula",
+      "comparison": {
+        "output": {
+          "relative_l2": 8.974104719474368e-08,
+          "maximum_absolute_error": 3.5762786865234375e-07,
+          "reference_l2": 78.67333911400588
+        },
+        "q": {
+          "relative_l2": 0.00034548387767822567,
+          "maximum_absolute_error": 9.258510544896126e-07,
+          "reference_l2": 0.029914089775627185
+        },
+        "k": {
+          "relative_l2": 0.00031629522700310004,
+          "maximum_absolute_error": 9.257346391677856e-07,
+          "reference_l2": 0.03267477587578703
+        },
+        "v": {
+          "relative_l2": 2.7579285956194914e-07,
+          "maximum_absolute_error": 1.9073486328125e-06,
+          "reference_l2": 157.8880337322447
+        }
+      }
+    },
+    {
+      "fixture": "n32-float32-self",
+      "policy": "explicit_fp32_attention",
+      "comparison": {
+        "output": {
+          "relative_l2": 8.974104719474368e-08,
+          "maximum_absolute_error": 3.5762786865234375e-07,
+          "reference_l2": 78.67333911400588
+        },
+        "q": {
+          "relative_l2": 0.00034548387767822567,
+          "maximum_absolute_error": 9.258510544896126e-07,
+          "reference_l2": 0.029914089775627185
+        },
+        "k": {
+          "relative_l2": 0.00031629522700310004,
+          "maximum_absolute_error": 9.257346391677856e-07,
+          "reference_l2": 0.03267477587578703
+        },
+        "v": {
+          "relative_l2": 2.7579285956194914e-07,
+          "maximum_absolute_error": 1.9073486328125e-06,
+          "reference_l2": 157.8880337322447
+        }
+      }
+    },
+    {
+      "fixture": "n1024-float16-independent",
+      "policy": "installed_formula",
+      "comparison": {
+        "output": {
+          "relative_l2": 0.0003167924298952873,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 53.747146675274244
+        },
+        "q": {
+          "relative_l2": 0.00017823769090492735,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 46.693331770622805
+        },
+        "k": {
+          "relative_l2": 0.0001917809628321762,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 47.06612971761012
+        },
+        "v": {
+          "relative_l2": 1.4639076704601397e-05,
+          "maximum_absolute_error": 0.00048828125,
+          "reference_l2": 106.07448541051318
+        }
+      }
+    },
+    {
+      "fixture": "n1024-float16-independent",
+      "policy": "explicit_fp32_attention",
+      "comparison": {
+        "output": {
+          "relative_l2": 1.5655304096700303e-05,
+          "maximum_absolute_error": 0.00048828125,
+          "reference_l2": 53.747146675274244
+        },
+        "q": {
+          "relative_l2": 1.620877562135299e-05,
+          "maximum_absolute_error": 0.000244140625,
+          "reference_l2": 46.693331770622805
+        },
+        "k": {
+          "relative_l2": 1.7169559726641265e-05,
+          "maximum_absolute_error": 0.000244140625,
+          "reference_l2": 47.06612971761012
+        },
+        "v": {
+          "relative_l2": 1.4639076704601397e-05,
+          "maximum_absolute_error": 0.00048828125,
+          "reference_l2": 106.07448541051318
+        }
+      }
+    },
+    {
+      "fixture": "n1024-float16-self",
+      "policy": "installed_formula",
+      "comparison": {
+        "output": {
+          "relative_l2": 0.00029433576652742926,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 438.36408822457844
+        },
+        "q": {
+          "relative_l2": 0.02294645712883692,
+          "maximum_absolute_error": 0.00164794921875,
+          "reference_l2": 4.771671623580105
+        },
+        "k": {
+          "relative_l2": 0.020900125063108572,
+          "maximum_absolute_error": 0.00164794921875,
+          "reference_l2": 5.234343241342526
+        },
+        "v": {
+          "relative_l2": 1.2834264649341007e-05,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 878.5881969412427
+        }
+      }
+    },
+    {
+      "fixture": "n1024-float16-self",
+      "policy": "explicit_fp32_attention",
+      "comparison": {
+        "output": {
+          "relative_l2": 7.74834485653466e-06,
+          "maximum_absolute_error": 0.0009765625,
+          "reference_l2": 438.36408822457844
+        },
+        "q": {
+          "relative_l2": 8.233387701657873e-05,
+          "maximum_absolute_error": 3.0517578125e-05,
+          "reference_l2": 4.771671623580105
+        },
+        "k": {
+          "relative_l2": 7.956997975822405e-05,
+          "maximum_absolute_error": 3.0517578125e-05,
+          "reference_l2": 5.234343241342526
+        },
+        "v": {
+          "relative_l2": 1.2834264649341007e-05,
+          "maximum_absolute_error": 0.001953125,
+          "reference_l2": 878.5881969412427
+        }
+      }
+    },
+    {
+      "fixture": "n1024-float32-independent",
+      "policy": "installed_formula",
+      "comparison": {
+        "output": {
+          "relative_l2": 4.4947268907952176e-07,
+          "maximum_absolute_error": 5.364418029785156e-07,
+          "reference_l2": 53.747318042587814
+        },
+        "q": {
+          "relative_l2": 5.682112536510486e-07,
+          "maximum_absolute_error": 8.344650268554688e-07,
+          "reference_l2": 46.69327944533832
+        },
+        "k": {
+          "relative_l2": 7.443011303698689e-07,
+          "maximum_absolute_error": 1.6093254089355469e-06,
+          "reference_l2": 47.066057134640225
+        },
+        "v": {
+          "relative_l2": 5.230847890268393e-07,
+          "maximum_absolute_error": 1.7881393432617188e-06,
+          "reference_l2": 106.07473467321624
+        }
+      }
+    },
+    {
+      "fixture": "n1024-float32-independent",
+      "policy": "explicit_fp32_attention",
+      "comparison": {
+        "output": {
+          "relative_l2": 4.4947268907952176e-07,
+          "maximum_absolute_error": 5.364418029785156e-07,
+          "reference_l2": 53.747318042587814
+        },
+        "q": {
+          "relative_l2": 5.682112536510486e-07,
+          "maximum_absolute_error": 8.344650268554688e-07,
+          "reference_l2": 46.69327944533832
+        },
+        "k": {
+          "relative_l2": 7.443011303698689e-07,
+          "maximum_absolute_error": 1.6093254089355469e-06,
+          "reference_l2": 47.066057134640225
+        },
+        "v": {
+          "relative_l2": 5.230847890268393e-07,
+          "maximum_absolute_error": 1.7881393432617188e-06,
+          "reference_l2": 106.07473467321624
+        }
+      }
+    },
+    {
+      "fixture": "n1024-float32-self",
+      "policy": "installed_formula",
+      "comparison": {
+        "output": {
+          "relative_l2": 1.2464851069263304e-07,
+          "maximum_absolute_error": 8.344650268554688e-07,
+          "reference_l2": 438.3638732831236
+        },
+        "q": {
+          "relative_l2": 1.4815612693404395e-05,
+          "maximum_absolute_error": 1.7173588275909424e-06,
+          "reference_l2": 4.7716061195627395
+        },
+        "k": {
+          "relative_l2": 1.3530740952482334e-05,
+          "maximum_absolute_error": 1.7397105693817139e-06,
+          "reference_l2": 5.2342732725602525
+        },
+        "v": {
+          "relative_l2": 3.0156411881376024e-07,
+          "maximum_absolute_error": 2.86102294921875e-06,
+          "reference_l2": 878.5875927079596
+        }
+      }
+    },
+    {
+      "fixture": "n1024-float32-self",
+      "policy": "explicit_fp32_attention",
+      "comparison": {
+        "output": {
+          "relative_l2": 1.2464851069263304e-07,
+          "maximum_absolute_error": 8.344650268554688e-07,
+          "reference_l2": 438.3638732831236
+        },
+        "q": {
+          "relative_l2": 1.4815612693404395e-05,
+          "maximum_absolute_error": 1.7173588275909424e-06,
+          "reference_l2": 4.7716061195627395
+        },
+        "k": {
+          "relative_l2": 1.3530740952482334e-05,
+          "maximum_absolute_error": 1.7397105693817139e-06,
+          "reference_l2": 5.2342732725602525
+        },
+        "v": {
+          "relative_l2": 3.0156411881376024e-07,
+          "maximum_absolute_error": 2.86102294921875e-06,
+          "reference_l2": 878.5875927079596
+        }
+      }
+    }
+  ],
+  "fixture_cases": 8,
+  "manifest_sha256": "64e68f98250b395f093f06f2e4a197aea4e018c3eb9d827eb8b9ce85351de242",
+  "native_execution_qualified": false,
+  "wall_seconds": 1.693798303604126,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "research_examples": 0,
+  "test_accessed": false,
+  "scope": "Software numerical arrays only. Installed Math2 forward/backward formulas run on CPU against PyTorch MATH. Explicit FP32 attention call is a prospective workaround. No native compiled behavior,model quality,training change or upstream submission is established."
+}

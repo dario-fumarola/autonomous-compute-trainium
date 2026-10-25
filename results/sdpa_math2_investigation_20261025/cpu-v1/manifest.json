@@ -1,0 +1,124 @@
+{
+  "identity": "sdpa-math2-cpu-v1",
+  "plan_sha256": "7eabeb37ca0db14922b2e047702f01298f89dd019cb6e50b15b35e2820f9b3e2",
+  "fixtures_file": "fixtures.pt",
+  "fixtures_sha256": "ed6b0ea1b545fddc11c335f552063c512e5c90b8f287877a1415f0232e18ca59",
+  "gold_file": "cpu-gold.pt",
+  "gold_sha256": "3ad2bcadb0b6d1611504c6eb1daf713d3f679f15e282f5206dbe63f02115949f",
+  "sdk_python_source_sha256": "432468eb0cb4f4323ea91f993c3a377c782cf8bd34eec448130d16bcd17e1b37",
+  "fixture_digests": {
+    "n32-float16-independent": "a702fd655bf0a72ccf6eb97744bedd1f57e5954580a58775b3523331fc4bb7e5",
+    "n32-float16-self": "6cddb637cb55cf8724b5ebea97886f73b99ddb4ec370808492fc15c30a904ecb",
+    "n32-float32-independent": "d457261669957a4e0e05d04f1a5aa8de50a8151c9b6de6e96e8aeb20002df886",
+    "n32-float32-self": "31503b4c261b7680597534d12e4c1db140160b7b02906ad12514c9c4b6572938",
+    "n1024-float16-independent": "f516c09edc93e85cc6d1c9c8a40ee8e0a315de64d3d97131ebebdd4de6bec289",
+    "n1024-float16-self": "b81dddf344e11d6eaab002982e87aefef920e02b430af3e955b8a1f7f184619a",
+    "n1024-float32-independent": "5af819e78d94725d94bddeb031f889644cf60bdf19dc50fec783a7c3227036fc",
+    "n1024-float32-self": "faa4df9a7818acac1bb6ec223f54fc052e7957703c62f5a2daf2d8273f5fe81a"
+  },
+  "fixture_metadata": [
+    {
+      "identity": "n32-float16-independent",
+      "is_causal": true,
+      "scale": 0.08838834764831843
+    },
+    {
+      "identity": "n32-float16-self",
+      "is_causal": true,
+      "scale": 0.08838834764831843
+    },
+    {
+      "identity": "n32-float32-independent",
+      "is_causal": true,
+      "scale": 0.08838834764831843
+    },
+    {
+      "identity": "n32-float32-self",
+      "is_causal": true,
+      "scale": 0.08838834764831843
+    },
+    {
+      "identity": "n1024-float16-independent",
+      "is_causal": true,
+      "scale": 0.08838834764831843
+    },
+    {
+      "identity": "n1024-float16-self",
+      "is_causal": true,
+      "scale": 0.08838834764831843
+    },
+    {
+      "identity": "n1024-float32-independent",
+      "is_causal": true,
+      "scale": 0.08838834764831843
+    },
+    {
+      "identity": "n1024-float32-self",
+      "is_causal": true,
+      "scale": 0.08838834764831843
+    }
+  ],
+  "fixture_shapes": {
+    "n32-float16-independent": [
+      1,
+      6,
+      32,
+      128
+    ],
+    "n32-float16-self": [
+      1,
+      6,
+      32,
+      128
+    ],
+    "n32-float32-independent": [
+      1,
+      6,
+      32,
+      128
+    ],
+    "n32-float32-self": [
+      1,
+      6,
+      32,
+      128
+    ],
+    "n1024-float16-independent": [
+      1,
+      6,
+      1024,
+      128
+    ],
+    "n1024-float16-self": [
+      1,
+      6,
+      1024,
+      128
+    ],
+    "n1024-float32-independent": [
+      1,
+      6,
+      1024,
+      128
+    ],
+    "n1024-float32-self": [
+      1,
+      6,
+      1024,
+      128
+    ]
+  },
+  "fixture_dtype": {
+    "n32-float16-independent": "torch.float16",
+    "n32-float16-self": "torch.float16",
+    "n32-float32-independent": "torch.float32",
+    "n32-float32-self": "torch.float32",
+    "n1024-float16-independent": "torch.float16",
+    "n1024-float16-self": "torch.float16",
+    "n1024-float32-independent": "torch.float32",
+    "n1024-float32-self": "torch.float32"
+  },
+  "source_sha256": {
+    "scripts/repro_sdpa_math2_cpu.py": "b2d24fb75ba6bac1442782b284279a1836c811a9ad404d43e322da2c8880a702"
+  }
+}

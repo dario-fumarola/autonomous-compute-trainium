@@ -1,20 +1,20 @@
 {
   "status": "OBSERVED_LOW_DEPTH_RESOURCE_LEDGER",
-  "observed_unix": 1792904328.658889,
+  "observed_unix": 1792907855.0316393,
   "window_started_unix": 1792874531.0405765,
-  "window_seconds": 29797.618312597275,
-  "sixteen_chip_opportunity_hours": 132.433859167099,
-  "new_family_assigned_chip_hours": 99.05951569928064,
-  "all_project_native_unique_assigned_chip_hours_within_window": 101.77387686623467,
-  "unassigned_native_chip_hours_within_window": 30.659982300864325,
-  "new_family_native_attempts": 91,
-  "closed_attempts": 89,
+  "window_seconds": 33323.99106287956,
+  "sixteen_chip_opportunity_hours": 148.1066269461314,
+  "new_family_assigned_chip_hours": 109.99192884604136,
+  "all_project_native_unique_assigned_chip_hours_within_window": 112.7062900129954,
+  "unassigned_native_chip_hours_within_window": 35.40033693313599,
+  "new_family_native_attempts": 97,
+  "closed_attempts": 96,
   "failed_closed_attempts": 7,
-  "exact_completed_scientific_segment_matrix_operations": 6148376117180077056,
-  "exact_completed_scientific_target_presentations": 11573925888,
+  "exact_completed_scientific_segment_matrix_operations": 8033919463334337024,
+  "exact_completed_scientific_target_presentations": 15220262139,
   "additional_interrupted_scientific_matrix_operations_bounds": [
-    1055174699306280960,
-    1069923772625038848
+    187715478602373120,
+    199490245635870720
   ],
   "native_attempts": [
     {
@@ -163,22 +163,18 @@
     {
       "identity": "low-depth-main-r2-fixed1-equal",
       "started_unix": 1792903119.7788086,
-      "finished_unix": 1792904328.658889,
-      "closed": false,
-      "exit_code": null,
-      "report_status": null,
+      "finished_unix": 1792904385.3043408,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
       "scientific_work": {
-        "status": "BOUNDED_INTERRUPTED_WORK_FROM_IMMUTABLE_SCHEDULE_AND_LOGS",
-        "logged_completed_update": 1880,
-        "segment_origin_update": 960,
-        "completed_optimizer_updates_lower_bound": 920,
-        "completed_optimizer_updates_upper_bound": 930,
-        "matrix_operations_lower_bound": 248760162039951360,
-        "matrix_operations_upper_bound": 251734468325211648,
-        "scope": "Progress logs occur after every10th update. Upper work also allows a partly executed next objective. No claim of exact unseen work after termination."
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 960,
+        "real_target_presentations": 502443354,
+        "matrix_operations": 259575821259079680
       },
       "assigned_chips": 8,
-      "assigned_chip_hours": 2.686400178803338
+      "assigned_chip_hours": 2.8122789605458576
     },
     {
       "identity": "low-depth-main-r2-fixed1-finish",
@@ -197,6 +193,20 @@
       "assigned_chip_hours": 13.611386855973137
     },
     {
+      "identity": "low-depth-main-r2-gradient-fixed1-equal-fixed1",
+      "started_unix": 1792904510.9907608,
+      "finished_unix": 1792904619.1565573,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": {
+        "status": "NO_COMPLETED_UPDATE_LOG_AVAILABLE",
+        "matrix_operations": null
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.2403684367073907
+    },
+    {
       "identity": "low-depth-main-r2-gradient-fixed1-matched-fixed1",
       "started_unix": 1792901193.56578,
       "finished_unix": 1792901305.567407,
@@ -209,6 +219,20 @@
       },
       "assigned_chips": 8,
       "assigned_chip_hours": 0.2488925043741862
+    },
+    {
+      "identity": "low-depth-main-r2-gradient-ordinary-matched-ordinary",
+      "started_unix": 1792907193.088289,
+      "finished_unix": 1792907318.6701164,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": {
+        "status": "NO_COMPLETED_UPDATE_LOG_AVAILABLE",
+        "matrix_operations": null
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.27907072756025525
     },
     {
       "identity": "low-depth-main-r2-gradient-ordinary-stable1b-ordinary",
@@ -225,24 +249,68 @@
       "assigned_chip_hours": 0.29126538223690457
     },
     {
-      "identity": "low-depth-main-r2-ordinary-finish",
-      "started_unix": 1792901623.7006598,
-      "finished_unix": 1792904328.658889,
+      "identity": "low-depth-main-r2-gradient-poisson2-equal-poisson2",
+      "started_unix": 1792906319.1700869,
+      "finished_unix": 1792906423.012108,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": {
+        "status": "NO_COMPLETED_UPDATE_LOG_AVAILABLE",
+        "matrix_operations": null
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.23076004717085097
+    },
+    {
+      "identity": "low-depth-main-r2-gradient-poisson2-matched-poisson2",
+      "started_unix": 1792904395.3827715,
+      "finished_unix": 1792904499.8755522,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "CAPTURED_ZERO_UPDATE_LOW_DEPTH_GLOBAL_GRADIENT",
+      "scientific_work": {
+        "status": "NO_COMPLETED_UPDATE_LOG_AVAILABLE",
+        "matrix_operations": null
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 0.232206179300944
+    },
+    {
+      "identity": "low-depth-main-r2-ordinary-equal",
+      "started_unix": 1792907658.6686516,
+      "finished_unix": 1792907855.0316393,
       "closed": false,
       "exit_code": null,
       "report_status": null,
       "scientific_work": {
         "status": "BOUNDED_INTERRUPTED_WORK_FROM_IMMUTABLE_SCHEDULE_AND_LOGS",
-        "logged_completed_update": 4310,
-        "segment_origin_update": 1920,
-        "completed_optimizer_updates_lower_bound": 2390,
-        "completed_optimizer_updates_upper_bound": 2400,
-        "matrix_operations_lower_bound": 637366702675368960,
-        "matrix_operations_upper_bound": 640300189591448064,
+        "logged_completed_update": 1030,
+        "segment_origin_update": 960,
+        "completed_optimizer_updates_lower_bound": 70,
+        "completed_optimizer_updates_upper_bound": 80,
+        "matrix_operations_lower_bound": 18667644011412480,
+        "matrix_operations_upper_bound": 21601130927491584,
         "scope": "Progress logs occur after every10th update. Upper work also allows a partly executed next objective. No claim of exact unseen work after termination."
       },
       "assigned_chips": 8,
-      "assigned_chip_hours": 6.0110182873408
+      "assigned_chip_hours": 0.4363621950149536
+    },
+    {
+      "identity": "low-depth-main-r2-ordinary-finish",
+      "started_unix": 1792901623.7006598,
+      "finished_unix": 1792907180.705138,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 5047,
+        "real_target_presentations": 2641449543,
+        "matrix_operations": 1345937133222839808
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 12.34889884048038
     },
     {
       "identity": "low-depth-main-r2-ordinary-first",
@@ -259,6 +327,22 @@
       },
       "assigned_chips": 8,
       "assigned_chip_hours": 4.9188789897494845
+    },
+    {
+      "identity": "low-depth-main-r2-poisson2-equal",
+      "started_unix": 1792904936.0726213,
+      "finished_unix": 1792906308.521423,
+      "closed": true,
+      "exit_code": 0,
+      "report_status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "scientific_work": {
+        "status": "COMPLETE_EXACT_SEGMENT_COUNTER",
+        "updates": 960,
+        "real_target_presentations": 502443354,
+        "matrix_operations": 280030391672340480
+      },
+      "assigned_chips": 8,
+      "assigned_chip_hours": 3.049886226124234
     },
     {
       "identity": "low-depth-main-r2-poisson2-finish",

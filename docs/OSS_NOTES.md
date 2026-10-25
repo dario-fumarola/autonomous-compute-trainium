@@ -232,3 +232,41 @@ clearer compiled BF16 accuracy guidance or a precision-preserving option for
 sensitive polynomial optimizers. No SDK patch, upstream message, issue or PR has
 been submitted. A prospective FP32-polar optimizer is an explicitly different
 recipe and must pass independent update/recovery/performance gates before use.
+# Math2 attention backward: CPU arithmetic reproduction,October25
+
+The installed native wheel's `torch_neuronx/_sdpa_math.py` has a reproducible
+CPU arithmetic discrepancy against PyTorch's MATH reference on FP16 causal
+self-attention arrays. The formal fixtures are numerical software inputs,
+not generated research examples. No installed package is patched and nothing
+is submitted upstream. Actual compiled behavior remains a separate gate.
+
+With6heads,128-dimensional normalized identical query/key vectors and32
+positions,the forward relative error is0.0316%,while query/key gradient errors
+are67.1%/61.4%. At1024 positions they are2.295%/2.090%. The report includes
+absolute errors and reference norms;these are deliberately sensitive fixtures,
+not a claim that trained queries and keys are identical.
+
+The shared backward formula adds a correction based on the difference between
+the saved output and a recomputed local output. Its forward has already rounded
+the saved output for FP16 inputs. Removing that rounded-output contribution
+diagnostically sharply reduces query/key error. Calling attention with FP32
+inputs,then casting its external output back,preserves the internal output
+through backward and avoids editing or copying SDK formulas.
+
+The explicit-FP32 call reduces the32-position CPU query/key errors to0.0441%/
+0.0414%,and the1024-position errors to0.00823%/0.00796%. The causal model wrapper
+retains every original parameter,state name and RNG draw. It remains unqualified
+for native training:the queued check must reproduce actual compiled behavior,
+audit all32 fixture replicas,and compare complete512-window gradients at both
+mature checkpoints with unchanged2%/0.003-nat thresholds. Optimizer/update/
+recovery/throughput qualification is still required before scientific adoption.
+
+[PyTorch documents FP32 math-SDPA intermediates for half inputs](https://docs.pytorch.org/docs/main/generated/torch.nn.functional.scaled_dot_product_attention.html).
+That reference explains the comparison;it does not prove this is the cause of
+any language-model result. The existing full-model global-gradient checks passed
+their declared gates and all fitted-model/efficiency findings remain reported.
+
+[CPU reproducer](../scripts/repro_sdpa_math2_cpu.py) ·
+[Exact source digest and fixtures](../results/sdpa_math2_investigation_20261025/cpu-v1/plan.json) ·
+[CPU result](../results/sdpa_math2_investigation_20261025/cpu-v1/report.json) ·
+[Bounded native qualification](../results/sdpa_math2_investigation_20261025/native-v1/plan.json).

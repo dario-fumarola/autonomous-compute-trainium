@@ -1,5 +1,19 @@
 # Low-depth pilot progress
 
+The first cooled primary matched-matrix comparison is available:one-pass
+**2.448818** at3.5966B natural targets versus recurrence **2.450674** at3.3339B.
+Candidate gain is−0.001856 nats,with conditional paired source-group interval
+[−0.004313,+0.000240]. Both models have141,963,840 parameters. These are one
+paired seed on consumed DEV;the interval is not training-seed significance.
+The ordinary endpoint and remaining equal-data readouts are pending.
+[Exact partial comparison](main-recovery-v2/first-matched-work-pair.json).
+
+The original frozen fits continue. Separately,an installed attention arithmetic
+discrepancy has been reproduced on CPU numerical fixtures. A new zero-update
+hardware qualification will test compiled behavior and a local explicit-FP32
+attention call;it does not modify the SDK,these fits or their conclusions.
+[Operator investigation](../sdpa_math2_investigation_20261025/cpu-v1/report.json).
+
 The main pilot has independent stable-phase DEV scores; completed-decay endpoints remain pending. At301M targets,true one-pass scores3.032445 versus recurrence3.045218; at1.005B they score2.773757 versus2.780522. Recurrence is0.006765 worse at stable1B. These are one fresh training seed1231 on consumed DEV,not a cooled comparison or a positive result. [Current scores](main-recovery-v2/scores-progress.json) · [Observed curves](figures/learning-curves.png).
 
 The original controller failed when its uppercase `stable1B` execution identity was rejected by the lowercase worker guard. Both completed1B checkpoints survived; the ordinary prefix was canceled after70 logged updates with no checkpoint. The new recovery execution adopts all scientific state bit-exactly,changes only execution signatures/identities and preserves the original09:21 UTC deadline. Ordinary replays the same initialization/data. All interrupted work stays in costs; no model/loss/schedule or numerical threshold changes. [Failure](main/report.json) · [Exact adoption](main-recovery-v2/adoption.json) · [Recovery plan](main-recovery-v2/plan.json).

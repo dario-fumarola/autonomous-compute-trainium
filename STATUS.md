@@ -1,4 +1,65 @@
-# Status — 2026-10-25, 05:00 UTC
+# Status — 2026-10-25, 05:52 UTC
+
+The authentic-code diagnostic is complete after an execution-only path repair.
+At the matched-work checkpoint,extra supported depth improves full-context
+identifier NLL by0.03277,but the full-versus-short interaction interval crosses
+zero:[−0.00290,+0.07083]. The declared joint context-use criterion is therefore
+**inconclusive**,not positive. Both1B mechanism intervals also cross zero.
+The149 original targets/views,checkpoint and absolute deadline were unchanged.
+[Completed readouts](results/natural_code_context_20261024/readouts/recovery-v3/report.json).
+
+The earlier scorer looked for numerical receipts in the stopped predecessor's
+directory. The recovery now takes the exact gate file explicitly;the failed
+attempt remains recorded. All **203 CPU tests pass**. These CPU readouts do not
+alter the running fits or the pending compiled-attention investigation.
+
+The recurrent1B endpoint gains only0.000871 nats over its trained one-pass
+control(2.616335 versus2.617206). Its own one-to-two supported-depth benefit is
+0.014194,and0.017189 at the longer endpoint. These show depth dependence
+within one fitted model,not a useful gain over separately trained one-pass
+prediction. The primary two-pass exit is unchanged;three-pass readouts remain
+secondary. Ordinary and the prefix-only-noise sensitivity audit are pending.
+
+## Earlier status — 05:44 UTC
+
+**The waiting future-objective queues are stopped before hardware admission.**
+A CPU reproduction of the installed Math2 attention formulas finds large
+query/key gradient differences on valid saturated FP16 software fixtures despite
+close forward outputs. The installed SDK and running pilot remain unchanged.
+A separately registered numerical queue will check actual compiled operators
+on32 ranks and complete512-window gradients at the two mature checkpoints.
+It waits for the current pilot's native work to finish and cannot launch training.
+[CPU evidence](results/sdpa_math2_investigation_20261025/cpu-v1/report.json)
+· [Finite hardware plan](results/sdpa_math2_investigation_20261025/native-v1/plan.json).
+
+For the32-position fixture,installed-formula forward error is0.0316%,while
+query/key gradient errors are67.1%/61.4%. Explicit FP32 attention inputs retain
+the internal output through backward and reduce those CPU errors to0.0441%/
+0.0414%. This is an operator fixture,not a language-model result or a verified
+compiled-device defect. It does not establish why a scientific recipe lost.
+No upstream submission is made. All **202 CPU tests pass**,including unchanged
+parameters/RNG and CPU gradient equivalence for the local model wrapper.
+
+The first cooled matched-work pair does not show a useful recurrence gain:
+one-pass2.448818 versus recurrence2.450674 DEV NLL. Candidate gain is−0.001856;
+the paired source-group interval is[−0.004313,+0.000240],conditional on seed1231.
+Parameters match exactly,and nominal matrix budgets differ by0.00406%.
+This does not provide training-seed significance. Ordinary and the remaining
+equal-data readouts are pending;fresh confirmation stays sealed.
+[Original primary contrast](results/parcae_low_depth_pilot_20261024/main-recovery-v2/first-matched-work-pair.json).
+
+Recurrence's mature complete-gradient audit passes at1.763% overall,1.811% in
+the largest named family,under the unchanged2% gate. One-pass's cooled1.005B
+score is2.617206. The new operator probe investigates a numerical concern;
+these actual fitted-model scores and prior negative results remain intact.
+
+The separate CPU FP16 vocabulary-projection screen also passes at both mature
+checkpoints:0.199%/0.244% gradient error,zero optimizer updates/chips. It does
+not establish native speed or fidelity and is not applied to any training.
+Its preceding metadata failure and unknown elapsed duration remain recorded.
+[Projection screen](results/parcae_fp16_head_cpu_20261025/v2/report.json).
+
+## Earlier status — 05:00 UTC
 
 The separate future-objective discovery queue is armed and waiting,with zero
 chips. It can register TUNE only after complete independent hardware and driver

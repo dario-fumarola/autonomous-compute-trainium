@@ -1,0 +1,193 @@
+{
+  "status": "COMPLETE_FROZEN_CODE_CONTEXT_READOUTS",
+  "records": [
+    {
+      "status": "COMPLETE_FROZEN_NATURAL_CODE_CONTEXT_READOUT",
+      "readout": "matched",
+      "metrics": {
+        "bands": {
+          "129-256": {
+            "nll": {
+              "full1": 1.0534603222291323,
+              "full2": 1.0020890595420189,
+              "short1": 1.8103027008437405,
+              "short2": 1.7750823156659752
+            },
+            "full_gain": 0.05137126268711345,
+            "short_gain": 0.03522038517776527,
+            "interaction": 0.016150877509348183,
+            "real_targets": 114,
+            "identifiers": 60
+          },
+          "257-512": {
+            "nll": {
+              "full1": 0.7758573099044017,
+              "full2": 0.7642038071288785,
+              "short1": 1.6413330861779418,
+              "short2": 1.6575254958436147
+            },
+            "full_gain": 0.011653502775523239,
+            "short_gain": -0.016192409665672924,
+            "interaction": 0.027845912441196163,
+            "real_targets": 129,
+            "identifiers": 60
+          },
+          "513-900": {
+            "nll": {
+              "full1": 0.975036125135759,
+              "full2": 0.9397606462530835,
+              "short1": 3.0154924751966643,
+              "short2": 3.019682482553437
+            },
+            "full_gain": 0.03527547888267546,
+            "short_gain": -0.004190007356772885,
+            "interaction": 0.039465486239448344,
+            "real_targets": 65,
+            "identifiers": 29
+          }
+        },
+        "full_gain": 0.03276674811510405,
+        "interaction": 0.027820758729997563,
+        "aggregation": "Equal one-third distance bands; real identifier-token NLL within each band."
+      },
+      "conditional_repository_uncertainty": {
+        "intervals_95": {
+          "full_gain": [
+            0.003958780676995621,
+            0.06659932097398724
+          ],
+          "interaction": [
+            -0.0029041791537685415,
+            0.07082655399354436
+          ]
+        },
+        "repository_groups": 40,
+        "accepted_draws": 5000,
+        "warning": "Nominal within-fitted-model repository uncertainty only. Not independent training-seed significance,terminal alpha or a new confirmation panel."
+      },
+      "primary_mechanism_readout": true,
+      "positive_context_use_pilot": false,
+      "panel_sha256": "0896bce9a52b39c3fb6a53969f8b4706b5e326569319d84a6ca754ad287cf3d5",
+      "checkpoint_sha256": "4a6afc73002b6e82bdb72b886653b5dc078a7ca09342ebda8d9b207dc3b6be36",
+      "main_plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "full_state_readback_exact": true,
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "identifiers": 149,
+      "position_policy": "Original full-view RoPE positions and hidden-state slices retained in short views.",
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "new_terminal_attempt": false,
+      "wall_seconds": 89.32146549224854,
+      "peak_rss_gib": 2.9283065795898438,
+      "scope": "One fitted candidate,consumedDEV authentic-code identifier prediction at supported exits1/2. Both full gain and interaction must have positive nominal repository lower bounds for pilot context-use finding. No general reasoning or terminal training-seed significance claim."
+    },
+    {
+      "status": "COMPLETE_FROZEN_NATURAL_CODE_CONTEXT_READOUT",
+      "readout": "equal",
+      "metrics": {
+        "bands": {
+          "129-256": {
+            "nll": {
+              "full1": 1.1389717705719669,
+              "full2": 1.1331171446791493,
+              "short1": 1.9568773793703516,
+              "short2": 1.9758422604425394
+            },
+            "full_gain": 0.0058546258928176,
+            "short_gain": -0.018964881072187856,
+            "interaction": 0.024819506965005456,
+            "real_targets": 114,
+            "identifiers": 60
+          },
+          "257-512": {
+            "nll": {
+              "full1": 0.931232342493584,
+              "full2": 0.9012292047130847,
+              "short1": 1.7721975440298567,
+              "short2": 1.7495149282964977
+            },
+            "full_gain": 0.030003137780499345,
+            "short_gain": 0.022682615733359057,
+            "interaction": 0.007320522047140288,
+            "real_targets": 129,
+            "identifiers": 60
+          },
+          "513-900": {
+            "nll": {
+              "full1": 1.359540242568581,
+              "full2": 1.3312016521258911,
+              "short1": 3.189611582991216,
+              "short2": 3.1984975427978304
+            },
+            "full_gain": 0.028338590442689826,
+            "short_gain": -0.00888595980661444,
+            "interaction": 0.03722455024930427,
+            "real_targets": 65,
+            "identifiers": 29
+          }
+        },
+        "full_gain": 0.02139878470533559,
+        "interaction": 0.023121526420483336,
+        "aggregation": "Equal one-third distance bands; real identifier-token NLL within each band."
+      },
+      "conditional_repository_uncertainty": {
+        "intervals_95": {
+          "full_gain": [
+            -0.006477062169096011,
+            0.05031914442481796
+          ],
+          "interaction": [
+            -0.0036671441347866005,
+            0.04878209071729537
+          ]
+        },
+        "repository_groups": 40,
+        "accepted_draws": 5000,
+        "warning": "Nominal within-fitted-model repository uncertainty only. Not independent training-seed significance,terminal alpha or a new confirmation panel."
+      },
+      "primary_mechanism_readout": false,
+      "positive_context_use_pilot": false,
+      "panel_sha256": "0896bce9a52b39c3fb6a53969f8b4706b5e326569319d84a6ca754ad287cf3d5",
+      "checkpoint_sha256": "8cf3f94c8e067f36250e28980378c7f17f90a7f95b42672f984e8c186ba1ce81",
+      "main_plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "full_state_readback_exact": true,
+      "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+      "identifiers": 149,
+      "position_policy": "Original full-view RoPE positions and hidden-state slices retained in short views.",
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "new_terminal_attempt": false,
+      "wall_seconds": 82.29255485534668,
+      "peak_rss_gib": 2.9359092712402344,
+      "scope": "One fitted candidate,consumedDEV authentic-code identifier prediction at supported exits1/2. Both full gain and interaction must have positive nominal repository lower bounds for pilot context-use finding. No general reasoning or terminal training-seed significance claim."
+    }
+  ],
+  "controller_elapsed_seconds": 182.4323377609253,
+  "cpu_scores": [
+    {
+      "readout": "matched",
+      "assigned_chips": 0,
+      "started_unix": 1792907293.2547228,
+      "completed": true,
+      "reused_completed_score": false,
+      "exit_code": 0,
+      "wall_seconds": 95.023432970047,
+      "finished_unix": 1792907388.278157
+    },
+    {
+      "readout": "equal",
+      "assigned_chips": 0,
+      "started_unix": 1792907389.4847724,
+      "completed": true,
+      "reused_completed_score": false,
+      "exit_code": 0,
+      "wall_seconds": 85.02254223823547,
+      "finished_unix": 1792907474.5073152
+    }
+  ],
+  "test_accessed": false,
+  "new_terminal_attempt": false,
+  "scope": "Two frozen CPU-only oldDEV natural-code mechanism readouts after exact main candidate gradient gates. Original149 targets,1008/128 original-token prefixes,supported exits1/2,matched positions/noise,no fresh TEST or terminal alpha."
+}

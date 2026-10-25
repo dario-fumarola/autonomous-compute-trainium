@@ -1,7 +1,7 @@
 {
   "input_sha256": {
     "results/parcae_low_depth_pilot_20261024/tuning-v2/scores-progress.json": "a8997481d56a117d251b732d7fcc4f45b9651a787c97e2e376f8bdd7b689f13c",
-    "results/parcae_low_depth_pilot_20261024/main-recovery-v2/scores-progress.json": "9cd68982e21a9913e0150c4e125a1a945b552300b33ff67024de6efa4d7b9d7a"
+    "results/parcae_low_depth_pilot_20261024/main-recovery-v2/scores-progress.json": "1ce3102d97ac891513775ecb56229c69bc7fb4f60acb22c8debb131ad7334dc7"
   },
   "source_sha256": "fd147884ce28bd3e9c59a988832d8f09a50fbbe9c5ec6c0a605103642c151978",
   "rows": [
@@ -158,6 +158,46 @@
       "training_matmuls": 1858130253846245376,
       "nll": 2.4488180330940796,
       "checkpoint_sha256": "dcff9c59f5fb7959c7e3c3b20477ebe3a4a22050b162cd751daa4d6349f1c977"
+    },
+    {
+      "phase": "main",
+      "arm": "poisson2",
+      "readout": "matched",
+      "depth": 2,
+      "targets": 3333894483,
+      "training_matmuls": 1858054877398471680,
+      "nll": 2.450674036993094,
+      "checkpoint_sha256": "4a6afc73002b6e82bdb72b886653b5dc078a7ca09342ebda8d9b207dc3b6be36"
+    },
+    {
+      "phase": "main",
+      "arm": "fixed1",
+      "readout": "equal",
+      "depth": 1,
+      "targets": 1004887590,
+      "training_matmuls": 519151642518159360,
+      "nll": 2.617205884641864,
+      "checkpoint_sha256": "e9d8ae4d318644310ad27ba4498fff8b5b5c06ea1b2bbdde6078cc44238fd38a"
+    },
+    {
+      "phase": "main",
+      "arm": "poisson2",
+      "readout": "equal",
+      "depth": 2,
+      "targets": 1004887590,
+      "training_matmuls": 560011939781345280,
+      "nll": 2.6163352094769534,
+      "checkpoint_sha256": "8cf3f94c8e067f36250e28980378c7f17f90a7f95b42672f984e8c186ba1ce81"
+    },
+    {
+      "phase": "main",
+      "arm": "ordinary",
+      "readout": "matched",
+      "depth": 1,
+      "targets": 3646337133,
+      "training_matmuls": 1857963940393010688,
+      "nll": 2.4545446404817173,
+      "checkpoint_sha256": "1e557f4201764e047df693f3de22ef9328f54ebfb71184c3b632e24de9288161"
     }
   ],
   "scope": "Completed independent consumed-TUNE/DEV readouts only. No interpolation across cooldowns, unobserved results, training-seed significance or fresh confirmation."

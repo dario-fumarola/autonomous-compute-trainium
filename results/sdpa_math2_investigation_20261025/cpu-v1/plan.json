@@ -1,0 +1,34 @@
+{
+  "identity": "sdpa-math2-cpu-v1",
+  "registered_unix": 1792906534.7423391,
+  "seconds_limit": 180,
+  "source_sha256": {
+    "scripts/repro_sdpa_math2_cpu.py": "b2d24fb75ba6bac1442782b284279a1836c811a9ad404d43e322da2c8880a702"
+  },
+  "sdk_python_module": "torch_neuronx/_sdpa_math.py",
+  "sdk_python_source_sha256": "432468eb0cb4f4323ea91f993c3a377c782cf8bd34eec448130d16bcd17e1b37",
+  "fixture_rule": {
+    "seed": 109,
+    "heads": 6,
+    "head_dim": 128,
+    "sequence_lengths": [
+      32,
+      1024
+    ],
+    "dtypes": [
+      "float16",
+      "float32"
+    ],
+    "qk_relation": [
+      "independent",
+      "identical_rms_normalized"
+    ],
+    "causal": true,
+    "dropout": 0
+  },
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "research_examples": 0,
+  "test_accessed": false,
+  "scope": "Software numerical arrays only. Installed Math2 forward/backward formulas run on CPU against PyTorch MATH. Explicit FP32 attention call is a prospective workaround. No native compiled behavior,model quality,training change or upstream submission is established."
+}

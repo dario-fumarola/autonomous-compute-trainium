@@ -1,0 +1,15 @@
+{
+  "status": "DERIVED_CPU_NORMALIZATION_SCOPE",
+  "native_ddp_mean_world": 32,
+  "native_per_rank_backward_coefficient": "32*8192/global_real_targets",
+  "cpu_screen_backward_coefficient": "loss_scale/global_real_targets",
+  "interpretation": "The CPU screen computes partial global-gradient contributions directly. It omits the native per-rank32x DDP prefactor and therefore stresses smaller intermediate gradients than the native8192 path. Its scalar8192 case is not a faithful emulation of native per-rank AMP magnitudes. All conclusions stay CPU-only;no hardware flush-to-zero behavior is assumed.",
+  "relative_errors_by_scale": {
+    "8192": 0.002366503036457894,
+    "65536": 0.0022743325337599993,
+    "524288": 0.0021240337242505905
+  },
+  "new_forward_backward_calls": 0,
+  "test_accessed": false,
+  "scientific_execution_changed": false
+}
