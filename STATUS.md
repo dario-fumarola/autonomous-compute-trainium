@@ -1,8 +1,8 @@
 # Status — 2026-10-25, 08:14 UTC
 
-**All six one-pass301.5M-target tuning endpoints are scored;the factorial
+**All six one-pass 301.5M-target tuning endpoints are scored;the factorial
 comparison is unfinished.** Both one-pass three-rate grids are complete. Independent FP32 scores use
-the same556-document TUNE panel with759,473 real targets.
+the same 556-document TUNE panel with 759,473 real targets.
 
 | Cell | Peak LR | Cooled TUNE NLL |
 | --- | ---: | ---: |
@@ -14,22 +14,21 @@ the same556-document TUNE panel with759,473 real targets.
 | One-pass future loss | .032 | **2.935304** |
 
 Both best tested rates are the upper grid edge;their optima remain unbracketed.
-Best tested future loss gains0.003373 nats over best tested NTP,below the0.01
+Best tested future loss gains 0.003373 nats over best tested NTP,below the 0.01
 useful-effect threshold. This is a one-seed TUNE observation,not a recurrent
-interaction or confirmation. No setting changes. All twelve
-frozen opportunities and four selected-checkpoint gradient gates remain required.
+interaction or confirmation. All twelve frozen opportunities and four selected-checkpoint gradient gates remain required.
 No rate,horizon,weight,threshold or admitted budget changes.
 
-All16 chips are training the first two recurrent NTP trials. The main two-seed study is not admitted.
+All 16 chips are training the first two recurrent NTP trials. The main two-seed study is not admitted.
 First scientific stable checkpoints pass independent full model/optimizer
 readback and exact source/domain/anchor/work-counter checks. The first baseline
 score aggregates and document pairing also reproduce independently.
 [Live scores](results/future_span_tune_20261025/primitive-v2/scores-progress.json)
 · [Checkpoint audit](results/future_span_tune_20261025/primitive-v2/startup-checkpoint-audit.json).
 
-A separate20.1second CPU diagnostic of the already saved qualification packets
+A separate 20.1-second CPU diagnostic of the already saved qualification packets
 confirms the future loss changes the shared backbone gradient:its initial
-contribution norm is5.09% of NTP's,and the native contribution matches CPU to
+contribution norm is 5.09% of NTP's,and the native contribution matches CPU to
 0.0276% relative error. This uses identical initial weights,source,depths and
 noise. It is an initial numerical-channel check,not a prediction result or
 explanation of later learning. It changes no gate and uses zero new device work.
