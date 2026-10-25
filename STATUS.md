@@ -1,3 +1,38 @@
+# Status — 2026-10-25 18:10 UTC
+
+**The two-seed cheap-mixing comparison is complete.** All four cooled
+endpoints,six independent readouts and six512-window numerical gates pass.
+The152 frozen source files remain unchanged;all branch model/optimizer/RNG
+restores and all32-replica state checks pass.
+
+| Model | Training targets | Mean DEV NLL |
+| --- | ---: | ---: |
+| One-pass NTP | 1.005B | 2.614841 |
+| Cheap mixing,one core execution | 1.005B | 2.613655 |
+| Recurrent NTP,two core executions | 1.005B | **2.591095** |
+| Cheap mixing,matched nominal work | 1.228B | **2.581267** |
+| One-pass NTP,matched nominal work | 1.238B | **2.581336** |
+
+Extra core execution adds0.023642/0.021480 nats beyond cheap mixing at equal
+data. Both longer-trained controls beat recurrence at matched work. The
+control does not explain away the equal-data mechanism gain,and it does not
+rescue efficiency. Two consumed-DEV seeds are not independent confirmation.
+[Complete control report](results/small_core_mixing_main_20261025/recovery-v2/REPORT.md).
+
+During the final CPU tail,a separate actual-shape Muon software benchmark ran
+on all16 chips.100 warm optimizer-only updates take7.074s replicated versus
+4.191s owner/broadcast. First/final weights and moments are bit-identical,
+including all32 replicas. This single hardware pair omits the model,AdamW
+and gradient reduction;no whole-training speedup or scientific adoption is
+established. **249 CPU tests pass.**
+[Bounded performance screen](results/owner_muon_fixture_native_20261025/report.json).
+
+Next:investigate the owner's proposed natural worked-reasoning data views.
+Audit extraction yield,provenance,premise sufficiency and answer leakage before
+any curriculum fit. Preserve the qualified architecture/stack;no new objective,
+router,larger model or fixed-depth campaign is admitted. No TEST or terminal
+alpha is opened;the overall research goal remains active and unachieved.
+
 # Status — 2026-10-25 17:34 UTC
 
 **The first cheap-control MAIN score is complete.** On the same consumed DEV

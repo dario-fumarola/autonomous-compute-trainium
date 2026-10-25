@@ -41,14 +41,20 @@ one-pass control.
 [Prefill costs](results/future_span_prefill_20261025/REPORT.md) ·
 [Oracle bound](results/future_span_depth_oracle_20261025/REPORT.md).
 
-The current experiment tests whether repeated inexpensive input mixing can
-recover the benefit while executing the transformer core only once. Its fair
-three-rate screen is complete; the best tested rate is 0.032, at the grid's
-unbracketed upper edge. The prescribed two-seed equal-data and matched-work
-fits are running. **Their MAIN quality results are pending.**
-[Control protocol](docs/SMALL_CORE_MIXING_CONTROL_PROTOCOL_20261025.md) ·
-[Tuning readout](results/small_core_mixing_tune_20261025/scoring-recovery-v4/tune-family-comparison.json) ·
+The completed cheap-mixing control repeats the input adapter while executing
+the core once. At equal data,it scores **2.613655**, versus recurrence's
+**2.591095**, across the same two seeds. It does not recover recurrence's
+useful gain. At matched nominal work,cheap mixing scores **2.581267** and
+also beats recurrence. Extra core execution contributes useful prediction
+work,but still does not earn its training cost under these controls.
+[Completed control](results/small_core_mixing_main_20261025/recovery-v2/REPORT.md) ·
 [Live status](STATUS.md).
+
+The next investigation audits naturally occurring worked reasoning before
+considering a curriculum that hides intermediate steps. This would change
+the training data view and add natural procedural supervision. No curriculum
+training has launched,and any task-specific result would remain separate from
+the broad-text prediction goal.
 
 Earlier studies remain preserved, including the
 [original shared/untied TEST comparison](results/frozen_test_20261023/REPORT.md),

@@ -1,0 +1,128 @@
+{
+  "status": "EXPLORATORY_PARAMETER_AGGREGATES_ONLY",
+  "records": [
+    {
+      "seed": 5231,
+      "variant": "one",
+      "checkpoint_sha256": "b321b18cd2d896fb2fa3659e3931cac09715d58223235159474412d1772186c2",
+      "update": 1920,
+      "dimensions": 768,
+      "diagonal_state_factor": {
+        "minimum": 5.0024841584672686e-06,
+        "median": 0.03569524735212326,
+        "mean": 0.0438583604991436,
+        "maximum": 0.19004522264003754
+      },
+      "delta": {
+        "minimum": 0.08479612320661545,
+        "median": 0.20346321165561676,
+        "mean": 0.2500823736190796,
+        "maximum": 1.3877744674682617
+      }
+    },
+    {
+      "seed": 5231,
+      "variant": "recurrent",
+      "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349",
+      "update": 1920,
+      "dimensions": 768,
+      "diagonal_state_factor": {
+        "minimum": 0.07454679161310196,
+        "median": 0.13145506381988525,
+        "mean": 0.142323300242424,
+        "maximum": 0.4945407211780548
+      },
+      "delta": {
+        "minimum": 0.13295504450798035,
+        "median": 0.27042892575263977,
+        "mean": 0.3341839611530304,
+        "maximum": 1.9879449605941772
+      }
+    },
+    {
+      "seed": 5231,
+      "variant": "cheap_mixing",
+      "checkpoint_sha256": "3e13fa9a09d1c472493651330d2cd674abc646710128287c2508a79cd9edac7f",
+      "update": 1920,
+      "dimensions": 768,
+      "diagonal_state_factor": {
+        "minimum": 7.62289232625335e-07,
+        "median": 0.002207393292337656,
+        "mean": 0.0034362704027444124,
+        "maximum": 0.02563471347093582
+      },
+      "delta": {
+        "minimum": 0.09523646533489227,
+        "median": 0.2641105353832245,
+        "mean": 0.3317030668258667,
+        "maximum": 2.4340667724609375
+      }
+    },
+    {
+      "seed": 7283,
+      "variant": "one",
+      "checkpoint_sha256": "4d640af7f3b895765dfee630deebee0aab4c78352d34fc09c969e93e085a094b",
+      "update": 1920,
+      "dimensions": 768,
+      "diagonal_state_factor": {
+        "minimum": 5.270802375889616e-06,
+        "median": 0.042657773941755295,
+        "mean": 0.049963247030973434,
+        "maximum": 0.26864713430404663
+      },
+      "delta": {
+        "minimum": 0.08324812352657318,
+        "median": 0.22413694858551025,
+        "mean": 0.27047595381736755,
+        "maximum": 1.9695830345153809
+      }
+    },
+    {
+      "seed": 7283,
+      "variant": "recurrent",
+      "checkpoint_sha256": "b791212f06f2f8884ca350d6a4d6f41ab4d0f5213f7d8f589746c57def3a429a",
+      "update": 1920,
+      "dimensions": 768,
+      "diagonal_state_factor": {
+        "minimum": 0.0677674189209938,
+        "median": 0.1322862207889557,
+        "mean": 0.14365385472774506,
+        "maximum": 0.6935755014419556
+      },
+      "delta": {
+        "minimum": 0.13133244216442108,
+        "median": 0.29265114665031433,
+        "mean": 0.3541289269924164,
+        "maximum": 2.5271754264831543
+      }
+    },
+    {
+      "seed": 7283,
+      "variant": "cheap_mixing",
+      "checkpoint_sha256": "43cc53fd8297e361942e2fb1070d1d9d15da133207bb2a827f4f60e8460953dd",
+      "update": 1920,
+      "dimensions": 768,
+      "diagonal_state_factor": {
+        "minimum": 7.251650231410167e-07,
+        "median": 0.0028108106926083565,
+        "mean": 0.003750959411263466,
+        "maximum": 0.021900827065110207
+      },
+      "delta": {
+        "minimum": 0.10681550949811935,
+        "median": 0.27020391821861267,
+        "mean": 0.3424634635448456,
+        "maximum": 2.3815526962280273
+      }
+    }
+  ],
+  "formula": "delta=softplus(dt_bias);a=exp(-delta*exp(A_log))",
+  "assigned_chips": 0,
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "source_examples_read": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "wall_seconds": 0.041023969650268555,
+  "scope": "Posthoc all-dimension aggregates of the learned injection parameters from the two registered equal-data endpoints and existing paired controls. No source text,weight arrays,hidden states or new predictions published. Small diagonal factors attenuate previous state within the injection;they do not prove contraction of the nonlinear core or explain the optimization trajectory. The prespecified MAIN loss comparisons remain decisive."
+}

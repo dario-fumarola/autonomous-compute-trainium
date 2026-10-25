@@ -1,0 +1,113 @@
+{
+  "status": "COMPLETE_OWNER_MUON_FIXTURE_SCREEN",
+  "records": {
+    "replicated": {
+      "status": "COMPLETE_OWNER_MUON_FIXTURE_BENCHMARK",
+      "variant": "replicated",
+      "plan_sha256": "d8abcda557034e8ce68e789a631056751f01d5033029c36217360dab596ef41f",
+      "qualification_only": true,
+      "research_examples": 0,
+      "research_optimizer_updates": 0,
+      "optimizer_updates": 120,
+      "timing_updates": 100,
+      "warm_seconds": 7.073898792266846,
+      "matrix_groups": [
+        {
+          "shape": [
+            768,
+            768
+          ],
+          "count": 24
+        },
+        {
+          "shape": [
+            3072,
+            768
+          ],
+          "count": 6
+        },
+        {
+          "shape": [
+            768,
+            3072
+          ],
+          "count": 6
+        },
+        {
+          "shape": [
+            6,
+            32
+          ],
+          "count": 3
+        }
+      ],
+      "all_complete_replica_states_equal": true,
+      "first_state_sha256": "3c152f78c3118c9ec03f3d70ef1b6e67c211879d1150b61bc028c2632537e04a",
+      "final_state_sha256": "990513cf5589c2c82bb6f8c58ccf2a9324b4e4e4126bb975398b67bd69342de9",
+      "fallback_ops": [
+        "aten::_to_copy"
+      ],
+      "wall_seconds": 34.77686166763306,
+      "scope": "Actual-shape matrix-only software fixtures with fixed identical gradients and changing schedules.100 warm timed Muon updates exclude model forwards,AdamW,gradient reduction,checkpoint copies and serving. Native cross-variant state comparison and full-training performance remain separate gates. No scientific adoption."
+    },
+    "owner": {
+      "status": "COMPLETE_OWNER_MUON_FIXTURE_BENCHMARK",
+      "variant": "owner",
+      "plan_sha256": "d8abcda557034e8ce68e789a631056751f01d5033029c36217360dab596ef41f",
+      "qualification_only": true,
+      "research_examples": 0,
+      "research_optimizer_updates": 0,
+      "optimizer_updates": 120,
+      "timing_updates": 100,
+      "warm_seconds": 4.190973997116089,
+      "matrix_groups": [
+        {
+          "shape": [
+            768,
+            768
+          ],
+          "count": 24
+        },
+        {
+          "shape": [
+            3072,
+            768
+          ],
+          "count": 6
+        },
+        {
+          "shape": [
+            768,
+            3072
+          ],
+          "count": 6
+        },
+        {
+          "shape": [
+            6,
+            32
+          ],
+          "count": 3
+        }
+      ],
+      "all_complete_replica_states_equal": true,
+      "first_state_sha256": "3c152f78c3118c9ec03f3d70ef1b6e67c211879d1150b61bc028c2632537e04a",
+      "final_state_sha256": "990513cf5589c2c82bb6f8c58ccf2a9324b4e4e4126bb975398b67bd69342de9",
+      "fallback_ops": [
+        "aten::_to_copy"
+      ],
+      "wall_seconds": 35.279128313064575,
+      "scope": "Actual-shape matrix-only software fixtures with fixed identical gradients and changing schedules.100 warm timed Muon updates exclude model forwards,AdamW,gradient reduction,checkpoint copies and serving. Native cross-variant state comparison and full-training performance remain separate gates. No scientific adoption."
+    }
+  },
+  "max_cross_variant_tensor_relative_l2": 0.0,
+  "owner_to_replicated_warm_time": 0.5924560302866706,
+  "full_training_qualified": false,
+  "scientific_adoption": false,
+  "plan_sha256": "d8abcda557034e8ce68e789a631056751f01d5033029c36217360dab596ef41f",
+  "test_accessed": false,
+  "research_examples": 0,
+  "research_optimizer_updates": 0,
+  "terminal_alpha_spent": 0,
+  "scope": "Matrix-only software-fixture performance screen during the completed scientific native queue CPU tail. Same actual Muon group shapes,FP32 recipe,changing schedules,100 timed warm updates. Neither full model training nor AdamW measured. Cross-variant weights/moments and complete native replica equality required. No scientific state adoption,new source data,held-out access,TEST or terminal alpha."
+}
