@@ -1,3 +1,31 @@
+# Status — 2026-10-25 21:44 UTC
+
+**The bounded foundation-history follow-up is running on all 16 chips.** It
+retains the already trained R foundation, with both source-matched One and
+stronger work-matched One controls. This is a new, one-seed development test;
+the preceding bridge pilot remains closed negative, including its severe
+TRAIN/DEV generalization gap.
+
+Three of six complete first-update integration audits have passed, including
+R's mixed NTP/bridge update. The remaining gates are running before their
+corresponding fits. Seven fixed, cooled endpoints are registered; all fits
+finish before any new held-out readout. No curriculum/optimizer/depth tuning.
+[Protocol](docs/NATURAL_CHAIN_FOUNDATION_PILOT_20261025.md) ·
+[Frozen comparison and resources](results/natural_chain_foundation_pilot_20261025/REPORT.md).
+
+Each basic fit receives 200 updates and 26.168M new natural NTP targets. The
+longer strong-One bridge control receives 245 updates and its own cooldown.
+Its complete retained-history-plus-adaptation nominal matrix work matches
+R/bridge within 0.009611%; this excludes prior tuning/discarded branches and
+is not a chip-time match. Separate source-matched controls preserve the
+same unique source history as R.
+
+**275 CPU tests pass.** No TEST, terminal alpha or terminal success. The
+execution has a fixed two-hour cap from its new admission, with per-phase
+limits and owned workers. If useful held-out generalization and supported-pass
+benefit are again absent, close this bridge family at this scale. The broad
+natural-text objective remains active and unachieved.
+
 # Status — 2026-10-25 21:16 UTC
 
 **The mixed bridge-hiding pilot is complete and closed negative.** All five
