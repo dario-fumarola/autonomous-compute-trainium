@@ -1,34 +1,39 @@
-# Status — 2026-10-25, 08:48 UTC
+# Status — 2026-10-25, 09:19 UTC
 
-**Eight cooled tuning scores are available; the recurrent grids are unfinished.**
-All models below see the same 301,465,908 real training targets. Scores use
-independent FP32 inference on the same 556-document consumed TUNE panel.
+**All twelve 301M-target tuning scores are complete;selected gradient gates
+are running before MAIN admission.** Independent FP32 scores use the same
+556-document consumed TUNE panel and 301,465,908 training targets per fit.
 
-| Cell | Peak LR | TUNE NLL |
+| Cell | Selected peak LR | TUNE NLL |
 | --- | ---: | ---: |
-| One-pass NTP, best of three | .032 | 2.938677 |
-| One-pass future loss, best of three | .032 | 2.935304 |
-| Recurrent NTP, two-pass readout | .008 | 2.990030 |
-| Recurrent NTP, two-pass readout | .016 | 2.935299 |
+| One-pass NTP | .032 | 2.938677 |
+| One-pass future loss | .032 | 2.935304 |
+| Recurrent NTP, two-pass readout | .032 | **2.917065** |
+| Recurrent future loss, two-pass readout | .032 | 2.918299 |
 
-The better available recurrent NTP score gains 0.003377 nats over the best
-completed one-pass NTP grid and essentially ties the best one-pass future-loss
-score. At the shared LR .016 its gain is 0.013729, but that comparison omits the
-better independently tuned one-pass baseline. Neither establishes the useful
-0.01-nat effect. This is one tuning seed, not training-seed confirmation.
+Plain NTP recurrence gains 0.021612 nats over independently tuned one-pass NTP
+and 0.018239 over one-pass future loss. Adding future loss instead worsens
+recurrence by 0.001234;the factorial interaction is -0.004607. This is TUNE,
+not a fresh-seed result. All selected rates are upper-edge winners and their
+optima remain unbracketed. Recurrence uses 1.232× estimated training matrix
+work at equal exposure;no matched-compute advantage is established.
+[All twelve scores and contrasts](results/future_span_tune_20261025/primitive-v2/complete-grid-readout.json).
 
-Recurrent training uses 1.232× the estimated matrix work at this exposure.
-There is no matched-compute outcome here. The .032 recurrent NTP trial and
-all three recurrent future-loss trials are unfinished. Both completed one-pass
-grids have upper-edge winners, so their optima remain unbracketed.
-[Partial comparison](results/future_span_tune_20261025/primitive-v2/partial-recurrent-ntp-tune.json).
+The original future-objective primary remains unchanged. A separate NTP
+secondary discovery readout was registered after seeing its complete TUNE
+grid and before MAIN admission. It reuses only the already declared final
+readouts and requires both main seeds to beat both trained one-pass controls
+and improve at a supported second inference pass. It cannot override the
+original primary or serve as independent confirmation.
+[Disclosed secondary protocol](docs/NTP_SECONDARY_DISCOVERY_20261025.md).
 
-All 16 chips are training recurrent NTP at .032 and recurrent future loss at
-.008. The study still requires all twelve frozen tuning opportunities and
-four distinct selected-checkpoint gradient gates before the separate two-seed
-1B main study. No recipe, threshold, grid, data order or admitted budget changes.
-Confirmation sources and terminal alpha remain untouched. The overall research
-goal is active and unachieved.
+The selected one-pass checkpoints are undergoing independent complete
+512-window gradient audits. All four distinct selected checkpoints must pass
+before the frozen controller admits eight 1.005B-target MAIN fits across two
+fresh seeds. Current device idleness is the bounded CPU-audit prerequisite;
+no new model,LR,objective,data or deadline changes. Resource guards pass.
+All **216 CPU tests pass**. Fresh confirmation sources and terminal alpha
+remain untouched;the overall research goal is active and unachieved.
 
 # Earlier status — 2026-10-25, 08:14 UTC
 

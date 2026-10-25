@@ -1,0 +1,45 @@
+{
+  "identity": "ntp-secondary-discovery-v1",
+  "registered_unix": 1792919151.5080514,
+  "selected_after_observing_tune": true,
+  "source_sha256": {
+    "scripts/analyze_ntp_secondary.py": "dbc4ad22b1b4882ffb15b28e8971e36d6e97cca5bf66914c37911e4638fab758",
+    "compute_trainium/ntp_secondary.py": "cc0ba5596fc85805318895de66c1c1c6d75e71012f30bcfca29e58975808f6cf",
+    "compute_trainium/metrics.py": "0296fee74cd632e0dfc04d8ee129a7235f984691eb3f211c968d681e6af38275",
+    "tests/test_ntp_secondary.py": "64f6003b6ae08e8de38bf8841af20b416ba84b167a5064090fad845677a95fc5"
+  },
+  "main_identity": "future-span-main-v2",
+  "tune_plan_sha256": "238eb3057d96693489a128bd974e3384bb58ab8c48a7c109f81b7cb26e90e2c0",
+  "observed_tune_case_scores": [
+    {
+      "case_id": "recurrent-ntp-s4127-lr8000",
+      "nll": 2.990029653469279
+    },
+    {
+      "case_id": "recurrent-ntp-s4127-lr16000",
+      "nll": 2.9352994715945
+    },
+    {
+      "case_id": "recurrent-ntp-s4127-lr32000",
+      "nll": 2.9170647592560797
+    }
+  ],
+  "seeds": [
+    5231,
+    7283
+  ],
+  "primary_inference_depth": 2,
+  "useful_gain_nats": 0.01,
+  "contrasts": [
+    "NTP recurrence over one-pass NTP",
+    "NTP recurrence over one-pass future loss",
+    "same-checkpoint supported recurrent NTP depth1-to2"
+  ],
+  "bootstrap_draws": 2000,
+  "bootstrap_seed": 81251,
+  "latest_parent_finish_unix": 1792957076.2138848,
+  "cpu_seconds_limit": 180,
+  "terminal_alpha_spent": 0,
+  "test_accessed": false,
+  "scope": "Secondary discovery selected after NTP TUNE gain and registered before MAIN admission/outcomes. Original four-cell primary future-objective decision remains unchanged and reported even if negative. Reuses all existing fixed MAIN readouts;no new training,forward,checkpoint selection or data. Both pilot seeds must clear all three point gates;strongest ordinary/cheap baselines,matched-work controls and >=5 fresh paired confirmation seeds/source groups with allocated alpha are still required."
+}

@@ -1,0 +1,138 @@
+{
+  "status": "COMPLETE_GRID_INDEPENDENT_TUNE_AGGREGATE_READOUT",
+  "rows": [
+    {
+      "cell": "one-future",
+      "peak_lr": 0.008,
+      "nll": 2.991968413372944,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "43f2ba8b266ee2a9ad1416b727796fc73eef924e696a04d74d593051ab22b1ce"
+    },
+    {
+      "cell": "one-future",
+      "peak_lr": 0.016,
+      "nll": 2.9508759424481132,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "baba9937afd25710d623e91becf9d2e2af07329d9ee2ea927be78baf70573b61"
+    },
+    {
+      "cell": "one-future",
+      "peak_lr": 0.032,
+      "nll": 2.935303951984701,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "8e2226f92acf65e9479d08b19a66fb25d1f4b3211bff81dcf1b1846efea84a54"
+    },
+    {
+      "cell": "one-ntp",
+      "peak_lr": 0.008,
+      "nll": 2.993821463207375,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "4c57df7fdef187cbc61e95862d4cbcf6e256971e9ee6aeb56a94b528a44f1e7d"
+    },
+    {
+      "cell": "one-ntp",
+      "peak_lr": 0.016,
+      "nll": 2.9490289676386383,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "556007a9722ae831d4d31c9f84c5c663a049f4e059f8ae6f49881680231a6c21"
+    },
+    {
+      "cell": "one-ntp",
+      "peak_lr": 0.032,
+      "nll": 2.9386766324009748,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 158485145019383808,
+      "checkpoint_sha256": "e1841ab54a0c92744eee30df1acffb897fe128755a514aaaeb35e9da774b0a06"
+    },
+    {
+      "cell": "recurrent-future",
+      "peak_lr": 0.008,
+      "nll": 2.9941097993788297,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "05e80500823b689d99f2888832032536b9342cb83c28c84a43db8f95bcf9930d"
+    },
+    {
+      "cell": "recurrent-future",
+      "peak_lr": 0.016,
+      "nll": 2.939080671829578,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "06fdc5184740d6364a6d347cb31d2165655baaf1ccbd86ad9d6703db88bea2a0"
+    },
+    {
+      "cell": "recurrent-future",
+      "peak_lr": 0.032,
+      "nll": 2.918299068874264,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "7956eb3677409690b6ea7a2aec8db1fdb44003ce35652de9d194d89fc374ab99"
+    },
+    {
+      "cell": "recurrent-ntp",
+      "peak_lr": 0.008,
+      "nll": 2.990029653469279,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "f64abe6173e69d2e975137a86ae34451d859a234e1424af1c1ba577aaa765209"
+    },
+    {
+      "cell": "recurrent-ntp",
+      "peak_lr": 0.016,
+      "nll": 2.9352994715945,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "5052c6051beb80c26201417c606faf63ed856192902e01451a8955de24ccaba2"
+    },
+    {
+      "cell": "recurrent-ntp",
+      "peak_lr": 0.032,
+      "nll": 2.9170647592560797,
+      "real_targets": 301465908,
+      "estimated_training_dense_matrix_ops": 195255114469244928,
+      "checkpoint_sha256": "5f2b78b0b44f412717c0f8f964afaaf6196ccc3d1c66161aa242d1e203d1d56c"
+    }
+  ],
+  "selected": {
+    "one-ntp": {
+      "peak_lr": 0.032,
+      "case_id": "one-ntp-s4127-lr32000",
+      "weighted_nll": 2.9386766324009748,
+      "boundary_winner": true
+    },
+    "one-future": {
+      "peak_lr": 0.032,
+      "case_id": "one-future-s4127-lr32000",
+      "weighted_nll": 2.935303951984701,
+      "boundary_winner": true
+    },
+    "recurrent-ntp": {
+      "peak_lr": 0.032,
+      "case_id": "recurrent-ntp-s4127-lr32000",
+      "weighted_nll": 2.9170647592560797,
+      "boundary_winner": true
+    },
+    "recurrent-future": {
+      "peak_lr": 0.032,
+      "case_id": "recurrent-future-s4127-lr32000",
+      "weighted_nll": 2.918299068874264,
+      "boundary_winner": true
+    }
+  },
+  "point_contrasts": {
+    "ntp_recurrence_over_one_ntp": 0.0216118731448951,
+    "future_recurrence_over_one_future": 0.01700488311043724,
+    "future_loss_gain_within_one_pass": 0.003372680416273699,
+    "future_loss_gain_within_recurrence": -0.0012343096181841595,
+    "future_objective_recurrence_interaction": -0.0046069900344578585
+  },
+  "scope": "All twelve independent CPU FP32 TUNE scores;one selected tuning seed. No MAIN outcomes,terminal confirmation or matched-compute claim. All winners are at the upper grid edge and optima remain unbracketed. Future-objective primary unchanged. Selected full-batch gradient gates remain required before MAIN.",
+  "terminal_success": false,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0
+}
