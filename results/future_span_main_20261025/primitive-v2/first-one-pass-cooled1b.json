@@ -1,0 +1,47 @@
+{
+  "status": "PARTIAL_ONE_PASS_ONLY_COMPLETED1B_MAIN_READOUT",
+  "observed_utc": "2026-10-25T10:21:09.216537+00:00",
+  "seed": 5231,
+  "readout": "cooled1b",
+  "training_real_targets": 1004887590,
+  "training_updates": 1920,
+  "documents": 603,
+  "evaluation_real_targets": 754750,
+  "training_parameters": 166571840,
+  "deployed_parameters": 141963840,
+  "matrix_ops_per_model": 528283816731279360,
+  "one_ntp_nll": 2.6146694677745974,
+  "one_future_nll": 2.6156123050850493,
+  "future_gain_in_one_pass": -0.0009428373104518606,
+  "stable301m_future_gain_in_one_pass": 0.017489454034586682,
+  "per_domain_future_gain": {
+    "web": -0.0004965067357542985,
+    "math": -0.0002426566905961991,
+    "code": -0.0029820096544010966
+  },
+  "source_pairing_exact": true,
+  "input_receipts": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "checkpoint_sha256": "b321b18cd2d896fb2fa3659e3931cac09715d58223235159474412d1772186c2",
+      "document_scores_sha256": "c9cea4ab9f19ed70d0cb7955d1f09a3f91cb0cd550010597a46babc92c4c0c4f",
+      "body_gradient_relative_l2": 0.00262668563787828,
+      "full_model_optimizer_rng_resume_exact": true,
+      "segment_source_targets_sum": 1004887590
+    },
+    {
+      "case_id": "one-future-s5231-lr32000",
+      "checkpoint_sha256": "ae2b8d92d1f2cf932ef0205c76a2a57a7d5e7efc4d4dde8eaeb7b7275b546742",
+      "document_scores_sha256": "83d02f652180a93a7ead61cd2c2542e0890801bf52a202533e3b510303bf1880",
+      "body_gradient_relative_l2": 0.002837093344470558,
+      "full_model_optimizer_rng_resume_exact": true,
+      "segment_source_targets_sum": 1004887590
+    }
+  ],
+  "assigned_chips": 0,
+  "model_forwards": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "Descriptive completed-cooldown one-pass comparison from one fresh training seed on consumed CURVE DEV. The early auxiliary advantage is absent at this endpoint. Recurrent cells,second seed,interaction and original/secondary decisions remain pending. No criterion changes or terminal claim."
+}

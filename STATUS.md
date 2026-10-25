@@ -1,12 +1,17 @@
-# Status — 2026-10-25, 09:57 UTC
+# Status — 2026-10-25, 10:22 UTC
 
-**The fresh two-seed MAIN study is running on all16 chips.** Its first two
-stable301M-target scores are available on603 consumed CURVE DEV documents:
-one-pass NTP3.071810,one-pass future loss3.054320,a0.017489-nat gain. This is
-one seed before cooldown;recurrent cells,final endpoints and the second seed
-remain pending. It is not an interaction,confirmation or final useful-effect
-claim. This panel and schedule phase differ from TUNE.
-[Partial stable readout](results/future_span_main_20261025/primitive-v2/first-one-pass-stable301m.json).
+**The first two MAIN1.005B-target endpoints are complete and scored.** On the
+same603 consumed CURVE DEV documents,seed5231 one-pass NTP scores2.614669 and
+one-pass future loss2.615612. The future objective's stable301M gain of0.017489
+is absent at the cooled1B endpoint:its point difference is now-0.000943 nats.
+This is one paired seed,not a significance or interaction result. Both models
+pass independent512-window fitted-gradient audits,with body error below0.284%.
+[Completed one-pass readout](results/future_span_main_20261025/primitive-v2/first-one-pass-cooled1b.json).
+
+Both recurrent cells for seed5231 now occupy all16 chips. The second seed,
+recurrent endpoints,depth responses and full primary/secondary decisions
+remain pending. The original plan and gates are unchanged. The stable and
+cooled points are separate schedule phases;TUNE uses a different panel.
 
 All twelve TUNE scores and four selected gradient gates pass. Independent
 FP32 TUNE scores use556 consumed documents and301,465,908 training targets
@@ -47,7 +52,7 @@ fresh seeds5231/7283. Both first seed5231 one-pass cells have saved independentl
 audited stable301M-target checkpoints. Exact complete model/optimizer digests,
 all32 replica/RNG records and source/anchor/work counters pass. The zero-weight
 NTP head stays unchanged;the future-loss head changes. All16 chips are assigned.
-No cooled MAIN endpoint is scored yet. MAIN retains its original
+The first two cooled scores are reported above;MAIN retains its original
 8h cap,ending17:29 UTC;architecture,objective,rates,data and decision rules
 remain frozen. No terminal confirmation has been opened.
 [Actual fresh-update receipt](results/future_span_main_20261025/primitive-v2/native-start-receipt.json)
