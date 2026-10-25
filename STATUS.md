@@ -6,9 +6,10 @@ stronger work-matched One controls. This is a new, one-seed development test;
 the preceding bridge pilot remains closed negative, including its severe
 TRAIN/DEV generalization gap.
 
-Three of six complete first-update integration audits have passed, including
-R's mixed NTP/bridge update. The remaining gates are running before their
-corresponding fits. Seven fixed, cooled endpoints are registered; all fits
+All six complete first-update integration audits pass, including R's mixed
+NTP/bridge update. Maximum overall gradient discrepancy is 0.18318%, with
+every named family and observed-gradient optimizer check passing. Seven fixed,
+cooled endpoints are registered; all fits
 finish before any new held-out readout. No curriculum/optimizer/depth tuning.
 [Protocol](docs/NATURAL_CHAIN_FOUNDATION_PILOT_20261025.md) ·
 [Frozen comparison and resources](results/natural_chain_foundation_pilot_20261025/REPORT.md).
