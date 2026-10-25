@@ -1,4 +1,38 @@
-# Status — 2026-10-25, 06:36 UTC
+# Status — 2026-10-25, 06:50 UTC
+
+**The small-core recipe is closed at its declared budget;the next hypothesis
+changes the predictive objective.** The completed trained controls show no
+useful recurrent advantage. The prefix-only-noise audit is now complete:
+maximum pooled difference0.00001191 nats,and the negative primary comparison
+is unchanged. No new TEST,confirmation seed or alpha was used.
+[Closed pilot](results/parcae_low_depth_pilot_20261024/main-recovery-v2/REPORT.md)
+· [Research reset](docs/OBJECTIVE_RESET_20261025.md).
+
+The explicit attention-primitives fallback passes all eight compiled numerical
+fixtures on all32 replicas,plus complete512-window gradients at both mature
+checkpoints with exactly matched source/depth/noise/full-state inputs. It fixes
+the saturated operator fixture:query relative error48.4%→0.0361%. Full-model
+aggregate changes are small:recurrence1.763%→1.690%,one-pass0.454%→0.459%.
+This does not explain away the completed scientific results. The cast-only
+workaround remains failed;its costs and the earlier packaging failure remain.
+[Qualified numerical path](results/sdpa_math2_investigation_20261025/native-v3/report.json).
+
+All16 chips are now assigned to the finite four-cell objective update/recovery
+qualification. The two one-pass cells each completed121 actual optimizer
+updates,exact fresh-process full-state/RNG recovery and100 warm updates at
+approximately476,000 real targets/second per eight-chip job. Recurrent cells
+and independent complete-objective/optimizer audits remain in progress. These
+are qualification weights,not scientific fits or new held-out results.
+[Current qualification](results/future_span_qualification_20261025/math-sdpa-v2/status.json).
+
+A separately registered finite scientific-driver check waits for the COMPLETE
+hardware pass. It cannot launch TUNE/main or consume confirmation. The planned
+objective comparison remains one-pass/recurrent × NTP/future-presence,with
+fixed horizons/weights and explicit stopping rules. Strong ordinary+future,
+compute controls and independent confirmation remain required for an eventual
+positive claim. **211 CPU tests pass**.
+
+# Earlier status — 2026-10-25, 06:36 UTC
 
 **The small-core pilot is complete and does not support scaling this recipe.**
 All nine fits/complete-gradient gates and all declared FP32 scoring readouts

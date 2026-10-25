@@ -1,0 +1,59 @@
+{
+  "native_attempts": [
+    {
+      "identity": "sdpa-math2-native-v3-operator",
+      "exit_code": 0,
+      "wall_seconds": 104.29669189453125,
+      "assigned_chip_hours": 0.23177042643229168,
+      "whole_instance_opportunity_chip_hours": 0.46354085286458335,
+      "report_exists": true
+    },
+    {
+      "identity": "sdpa-math2-native-v3-fixed1",
+      "exit_code": 0,
+      "wall_seconds": 103.0650315284729,
+      "assigned_chip_hours": 0.22903340339660644,
+      "whole_instance_opportunity_chip_hours": 0.4580668067932129,
+      "report_exists": true
+    },
+    {
+      "identity": "sdpa-math2-native-v3-poisson2",
+      "exit_code": 0,
+      "wall_seconds": 101.17837858200073,
+      "assigned_chip_hours": 0.22484084129333495,
+      "whole_instance_opportunity_chip_hours": 0.4496816825866699,
+      "report_exists": true
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "operator-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 20.010449171066284,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "poisson2-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 360.20651602745056,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "fixed1-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 365.12413930892944,
+      "reused": false,
+      "exit_code": 0
+    }
+  ],
+  "execution": {
+    "started_unix": 1792909979.9627585,
+    "deadline_unix": 1792915379.9627585,
+    "plan_sha256": "9e7fcdaccafb2e967956f444f632a0d1765a01ec57cc54c5c382f78d44af50ef"
+  },
+  "wall_seconds_since_admission": 586.712652683258,
+  "whole_instance_opportunity_chip_hours": 2.6076117939419214,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}
