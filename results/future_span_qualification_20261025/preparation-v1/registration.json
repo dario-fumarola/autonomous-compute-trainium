@@ -1,0 +1,89 @@
+{
+  "identity": "future-span-qualification-preparation-v1",
+  "registered_unix": 1792896881.0122855,
+  "source_sha256": {
+    "scripts/prepare_future_span_qualification.py": "2ee35dbec5c1f288bcfc8c179571402ef1493bc941670c420a8dd304c5b36bfb",
+    "compute_trainium/future_span.py": "26be1818d79fe54879d6fadcb3a3225ced0e83737c7c5c15a0539fa95525f082",
+    "compute_trainium/future_span_sparse.py": "37e6464d3cd1721575eb4c96aadccac61b68341c5c08fa4dfc04cc4939c26db1",
+    "compute_trainium/future_span_data.py": "8b2632a82181f1e7a1fae91d3068fb21133642b29a82fb91c45cd59fa106df2a",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd"
+  },
+  "data": {
+    "corpus": "natural-append-6500m-v2/source.json",
+    "packed": "natural-append-6500m-v2/packed",
+    "corpus_sha256": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+    "manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+    "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1"
+  },
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "future_config": {
+    "context": 1024,
+    "horizon": 32,
+    "stride": 16,
+    "weight": 0.1
+  },
+  "head_seed": 104729,
+  "qualification_only": true,
+  "parent_main_plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+  "old_qualification_plan_sha256": "43fb8d1b2127154d798463d120dddedf076031133c9103a5c2d2f516534cb8a7",
+  "source_windows_to_prepare": 983040,
+  "qualification_updates": 121,
+  "world": 32,
+  "accumulation": 16,
+  "cases": [
+    {
+      "identity": "one-ntp",
+      "arm": "one",
+      "objective_weight": 0.0,
+      "gradient_rule": "all_sampled_steps"
+    },
+    {
+      "identity": "one-future",
+      "arm": "one",
+      "objective_weight": 0.1,
+      "gradient_rule": "all_sampled_steps"
+    },
+    {
+      "identity": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "gradient_rule": "all_sampled_steps"
+    },
+    {
+      "identity": "recurrent-future",
+      "arm": "recurrent",
+      "objective_weight": 0.1,
+      "gradient_rule": "all_sampled_steps"
+    }
+  ],
+  "check_windows": [
+    0,
+    1,
+    2,
+    31,
+    63,
+    1023,
+    983039
+  ],
+  "seconds_limit": 600,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "native_launch_allowed": false,
+  "scope": "Prepare TRAIN-only auxiliary counts,immutable release-style forward depths with full-gradient tails,and a common qualification-only initializer. No main scientific initialization,held-out scoring,native execution,optimizer updates or automatic launch."
+}

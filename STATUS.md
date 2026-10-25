@@ -1,4 +1,39 @@
-# Status — 2026-10-25, 02:47 UTC
+# Status — 2026-10-25, 03:39 UTC
+
+The finite four-cell hardware qualification is registered,but not admitted or
+running. It must see all nine current-pilot fits and all nine numerical gates
+with successful native closures before claiming chips;an idle inter-phase gap
+is insufficient. Its separate90minute clock begins only on admission and
+persists across controller resume. Passing it cannot launch a scientific fit.
+[Frozen qualification plan](results/future_span_qualification_20261025/native-v1/plan.json)
+· [Required checks](docs/FUTURE_SPAN_NATIVE_QUALIFICATION_20261025.md).
+
+An actual-size CPU rehearsal also passes at depths1/2:the new training and
+independent audit adapters agree to about1e-7 relative body-gradient error on
+one original TRAIN window. This44.7second check has zero updates/native work.
+[Adapter evidence](results/future_span_qualification_20261025/cpu-adapter-rehearsal/report.json).
+
+All185 CPU tests pass,including exact named moment restoration for the new
+head and a test that rejects incomplete predecessor receipts. Native actual
+updates,full gradients,checkpoint recovery and100-step rates remain unverified.
+The current pilot still occupies the instance;ordinary's completed1B checkpoint
+awaits its queued numerical audit while one-pass and recurrence continue.
+
+CPU preparation for the prospective objective experiment is complete. The
+unchanged1.005B-target stream has60,105,879 complete future anchors out of
+61,931,520 executed slots. Their1,863,282,249 auxiliary label presentations
+reuse original source tokens;they are not extra unique corpus exposure. Global
+anchor-prefix counts and the common qualification-only initializer restore
+exactly. Full-gradient depth tables preserve the original exogenous forward
+draws. This40.0second preparation used zero chips/updates and no held-out data.
+[Prepared manifest](results/future_span_qualification_20261025/preparation-v1/manifest.json).
+
+The sparse presence loss matches dense BCE values/gradients,including duplicate
+labels and extreme logits. It avoids a dense vocabulary target/scatter without
+changing the target or weight. The fixed-shape training adapter has separate
+global token/anchor denominators passed as runtime tensors. All183 CPU tests
+pass. Native full-batch gradients,updates,recovery and throughput remain gates;
+no new native or scientific objective run has launched.
 
 The proposed objective pivot now has a CPU-tested implementation: a separate
 training-only head predicts token presence in the next32-position span,excluding

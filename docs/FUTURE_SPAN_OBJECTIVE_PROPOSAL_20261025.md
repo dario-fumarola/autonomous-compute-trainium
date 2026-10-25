@@ -151,3 +151,39 @@ result without claiming useful recurrence. If only the auxiliary head improves,
 or the bounded comparison fails the absolute/interaction conditions,close this
 objective proposal. Do not automatically start another horizon/weight/depth
 search or scale up. Preserve the existing negative efficiency evidence.
+
+## Implementation preparation,02:59 UTC
+
+The separate sparse loss computes exactly `sum(softplus(z)) - sum(z_positive)`
+with each positive included once. CPU tests compare dense BCE values and every
+gradient,including repeated tokens,invalid spans and extreme logits. This is a
+loss-evaluation optimization,not a new target or objective. The earlier dense
+CPU precision screen and its source freeze remain intact.
+
+The original1.005B-target stream has60,105,879 valid anchors of61,931,520
+executed slots. The resulting1,863,282,249 auxiliary label presentations reuse
+the same original source tokens;they must not be counted as extra unique data.
+An exact per-window prefix table supplies the global auxiliary denominator.
+The new adapter preserves ordinary target coverage and passes denominator
+coefficients as runtime tensor values,avoiding per-value compiled constants.
+
+All183 CPU tests pass. The common qualification-only initializer and complete
+anchor counts restore exactly. Full-gradient qualification tables retain the
+same saved forward draws (mean2.13514,maximum10 over121 updates);both new
+recurrent objective cells use these draws. No current pilot source changed.
+[CPU preparation](../results/future_span_qualification_20261025/preparation-v1/report.json).
+Native compilation,complete-global gradients,actual updates,recovery and100
+warm-step measurements remain unexecuted requirements before scientific launch.
+
+The1.863B count is source-position presentations used to build the future bags,
+not distinct positive vocabulary labels or total BCE terms. The valid bags
+contain1.923388128e12 binary presence terms including negatives;all executed
+head slots produce1.98180864e12 logits. Duplicate IDs count once as positives.
+These distinctions preserve the original source-exposure ledger.
+[Derived target accounting](../results/future_span_qualification_20261025/preparation-v1/target-accounting.json).
+
+The finite native qualification is separately registered with four cells,
+independent global gradients and first/recovered optimizer checks,including
+head weight/bias fidelity. All185 CPU tests pass. Admission requires all current
+pilot hardware stages and numerical gates to finish;it never launches the new
+scientific study automatically. [Qualification plan](../results/future_span_qualification_20261025/native-v1/plan.json).

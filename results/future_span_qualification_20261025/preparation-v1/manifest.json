@@ -1,0 +1,122 @@
+{
+  "identity": "future-span-qualification-preparation-v1",
+  "registration_sha256": "6863c2b4f0183bfa00cd14551ee0f4465c2fbd03a071aff6745967c47c7a1df8",
+  "source_sha256": {
+    "scripts/prepare_future_span_qualification.py": "2ee35dbec5c1f288bcfc8c179571402ef1493bc941670c420a8dd304c5b36bfb",
+    "compute_trainium/future_span.py": "26be1818d79fe54879d6fadcb3a3225ced0e83737c7c5c15a0539fa95525f082",
+    "compute_trainium/future_span_sparse.py": "37e6464d3cd1721575eb4c96aadccac61b68341c5c08fa4dfc04cc4939c26db1",
+    "compute_trainium/future_span_data.py": "8b2632a82181f1e7a1fae91d3068fb21133642b29a82fb91c45cd59fa106df2a",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd"
+  },
+  "data": {
+    "corpus": "natural-append-6500m-v2/source.json",
+    "packed": "natural-append-6500m-v2/packed",
+    "corpus_sha256": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+    "manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+    "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1"
+  },
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "future_config": {
+    "context": 1024,
+    "horizon": 32,
+    "stride": 16,
+    "weight": 0.1
+  },
+  "qualification_only": true,
+  "head_seed": 104729,
+  "backbone_model_seed": 1009,
+  "state_seed": 2009,
+  "routing_seed": 271828,
+  "world": 32,
+  "accumulation": 16,
+  "source_windows": 983040,
+  "source_real_targets": 1004887590,
+  "valid_anchors": 60105879,
+  "executed_anchor_slots": 61931520,
+  "valid_anchors_by_domain": {
+    "web": 35886517,
+    "math": 12066181,
+    "code": 12153181
+  },
+  "auxiliary_label_presentations": 1863282249,
+  "counts_file": "anchor-counts.npy",
+  "counts_sha256": "c1dc9fee6ddbd634e690c5a92ae8ec4816a7f88d04dc44fb44631a090b1cc230",
+  "prefix_file": "anchor-prefix.npy",
+  "prefix_sha256": "96754f79bcff3ffe6165aaa2e1e9cfa9cf4e9434766e857d4053b753c4e31d25",
+  "depths": {
+    "one": {
+      "file": "one-depths.npy",
+      "sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+      "shape": [
+        121,
+        16,
+        32,
+        2
+      ],
+      "mean_forward_depth": 1.0,
+      "max_forward_depth": 1,
+      "all_forward_steps_differentiated": true
+    },
+    "recurrent": {
+      "file": "recurrent-depths.npy",
+      "sha256": "827a8314b34596c3a4422c5b5ffc036cc10d695cf6ead5e04ad00c3927b81d3c",
+      "shape": [
+        121,
+        16,
+        32,
+        2
+      ],
+      "mean_forward_depth": 2.1351368801652892,
+      "max_forward_depth": 10,
+      "all_forward_steps_differentiated": true
+    }
+  },
+  "initial_file": "initial-state.pt",
+  "initial_sha256": "30cbb12c185465757368ba2d5c576d678fdb4916f097404210dda36c1133167a",
+  "model_digest": "a1f7ae4efd9c714eb86f202302195f6c9af227fc9657be1f6c82287d4d233521",
+  "backbone_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+  "training_parameters": 166571840,
+  "deployed_parameters": 141963840,
+  "cases": [
+    {
+      "identity": "one-ntp",
+      "arm": "one",
+      "objective_weight": 0.0,
+      "gradient_rule": "all_sampled_steps"
+    },
+    {
+      "identity": "one-future",
+      "arm": "one",
+      "objective_weight": 0.1,
+      "gradient_rule": "all_sampled_steps"
+    },
+    {
+      "identity": "recurrent-ntp",
+      "arm": "recurrent",
+      "objective_weight": 0.0,
+      "gradient_rule": "all_sampled_steps"
+    },
+    {
+      "identity": "recurrent-future",
+      "arm": "recurrent",
+      "objective_weight": 0.1,
+      "gradient_rule": "all_sampled_steps"
+    }
+  ],
+  "native_launch_allowed": false
+}

@@ -169,6 +169,65 @@
       },
       "new_optimizer_calls_this_adoption": 0,
       "execution_mode": "adopted_verified_complete_predecessor_segment"
+    },
+    {
+      "identity": "low-depth-main-r2-ordinary-first",
+      "status": "COMPLETE_REGISTERED_LOW_DEPTH_SCIENTIFIC_SEGMENT",
+      "case_id": "ordinary-main-s1231",
+      "purpose": "natural_low_depth_scientific_pilot",
+      "plan_sha256": "d4c244a82c0c907d7de7dc27667296e85f7325fb3b5c81f497a3d810e3cf211b",
+      "arm": "ordinary",
+      "seed": 1231,
+      "precision": "fp16",
+      "accumulation": 16,
+      "world": 32,
+      "parameters": 140781888,
+      "initial_model_digest": "27d57ec457f110cf97bdd8b8d8c92801eb0e7d41b7cadb832a572cfe82699723",
+      "actual_optimizer_calls_per_replica": 1920,
+      "segment_real_targets": 1004887590,
+      "segment_executed_matmuls": 512026807170170880,
+      "update": 1920,
+      "source_cursor": 983040,
+      "real_targets": 1004887590,
+      "domain_targets": [
+        602931715,
+        200977491,
+        200978384
+      ],
+      "executed_matmuls": 512026807170170880,
+      "complete_state_on_load_exact": false,
+      "recovered_state_digest": null,
+      "checkpoint_records": [
+        {
+          "update": 576,
+          "checkpoint_sha256": "cf43f8266e2b5f2839708886972b6fe19db7395f3a029cdb2d1b2fda91faeacb",
+          "full_state_digest": "5391941ce60d331dfb4384cfc62643ca682df8078b3a0af76d1e326c1a1e68fa",
+          "real_targets": 301465908,
+          "executed_matmuls": 153608042151051264,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 960,
+          "checkpoint_sha256": "67356793283e33cd35a04d4d62b1b75caa223d2df4052b7859faaf059e477595",
+          "full_state_digest": "a2cf3145ef91fa39b2f505ef6a7ec985b3ca8243d3df8abf4d76295b6d5d016d",
+          "real_targets": 502444236,
+          "executed_matmuls": 256013403585085440,
+          "all_complete_replica_states_equal": true
+        },
+        {
+          "update": 1920,
+          "checkpoint_sha256": "7c32397cfe42af5068b1c2b6bb362f36ab276514b53784095ffb295d164eb338",
+          "full_state_digest": "08ca999348eabf4152593e5172ceb8b39c96e423ce6553dd55a569f6b7caf232",
+          "real_targets": 1004887590,
+          "executed_matmuls": 512026807170170880,
+          "all_complete_replica_states_equal": true
+        }
+      ],
+      "test_accessed": false,
+      "wall_seconds": 2184.553452730179,
+      "qualification_only": false,
+      "research_optimizer_updates": 1920,
+      "scope": "Finite frozen scientific source segment with real-target objective, declared schedule and exact full state checkpoints. Held-out quality, independent audits, total campaign costs and scientific conclusions are separate."
     }
   ]
 }

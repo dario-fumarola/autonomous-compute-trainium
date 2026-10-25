@@ -1,0 +1,122 @@
+{
+  "status": "PASS_ACTUAL_SIZE_CPU_FUTURE_ADAPTER_REHEARSAL",
+  "records": [
+    {
+      "depth": 1,
+      "gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 1.03338202456801e-07,
+            "maximum_absolute_error": 5.960464477539063e-08,
+            "reference_l2": 50.48319880840084
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 1.001469193750284e-07,
+              "maximum_absolute_error": 1.862645149230957e-09,
+              "reference_l2": 2.2957571775845564
+            },
+            "tied_input_output": {
+              "relative_l2": 7.53853230892042e-08,
+              "maximum_absolute_error": 1.4901161193847656e-08,
+              "reference_l2": 2.7226659780363427
+            },
+            "transformer_body": {
+              "relative_l2": 1.0341536482526906e-07,
+              "maximum_absolute_error": 5.960464477539063e-08,
+              "reference_l2": 50.35742200393242
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "future_head": {
+          "relative_l2": 5.4382421560609824e-08,
+          "maximum_absolute_error": 1.1641532182693481e-10,
+          "reference_l2": 0.06341391251996276
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 5.472817067763328e-08,
+            "maximum_absolute_error": 1.1641532182693481e-10,
+            "reference_l2": 0.06287331499112986
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 2.780418370649618e-08,
+            "maximum_absolute_error": 1.1641532182693481e-10,
+            "reference_l2": 0.008262600263576532
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "combined_loss_difference": 9.5367431640625e-07
+    },
+    {
+      "depth": 2,
+      "gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 1.0396152424840453e-07,
+            "maximum_absolute_error": 5.960464477539063e-08,
+            "reference_l2": 50.4604422126961
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 9.147943653811925e-08,
+              "maximum_absolute_error": 1.862645149230957e-09,
+              "reference_l2": 2.295924625350254
+            },
+            "tied_input_output": {
+              "relative_l2": 7.815165448250484e-08,
+              "maximum_absolute_error": 1.4901161193847656e-08,
+              "reference_l2": 2.7229498625335613
+            },
+            "transformer_body": {
+              "relative_l2": 1.0405205190317203e-07,
+              "maximum_absolute_error": 5.960464477539063e-08,
+              "reference_l2": 50.334585549716024
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "future_head": {
+          "relative_l2": 5.4232633321471965e-08,
+          "maximum_absolute_error": 2.3283064365386963e-10,
+          "reference_l2": 0.06342234219512986
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 5.441419662096964e-08,
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "reference_l2": 0.06288181727711135
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 4.2410653004641106e-08,
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "reference_l2": 0.008262599194208168
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "combined_loss_difference": 0.0
+    }
+  ],
+  "diagnostic_matrix_operations": 2165600157696,
+  "unique_real_targets": 1024,
+  "diagnostic_real_target_presentations": 4096,
+  "native_qualification_established": false,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "wall_seconds": 44.6811261177063,
+  "scope": "Actual-size FP32 CPU adapter integration,not native qualification. Same immutable qualification initializer,one real TRAIN window,causal model and independent pinned upstream body/dense BCE. No scientific updates or held-out scoring."
+}
