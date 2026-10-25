@@ -1,0 +1,88 @@
+{
+  "native_attempts": [
+    {
+      "identity": "small-core-mixing-qualification-v1-one-ntp-warm",
+      "exit_code": 0,
+      "wall_seconds": 263.6267740726471,
+      "assigned_chip_hours": 0.5858372757169935,
+      "whole_instance_opportunity_chip_hours": 1.171674551433987,
+      "report_exists": true
+    },
+    {
+      "identity": "small-core-mixing-qualification-v1-one-ntp-replay",
+      "exit_code": 0,
+      "wall_seconds": 136.83623671531677,
+      "assigned_chip_hours": 0.3040805260340373,
+      "whole_instance_opportunity_chip_hours": 0.6081610520680746,
+      "report_exists": true
+    },
+    {
+      "identity": "small-core-mixing-qualification-v1-recurrent-ntp-warm",
+      "exit_code": 0,
+      "wall_seconds": 257.26657938957214,
+      "assigned_chip_hours": 0.5717035097546047,
+      "whole_instance_opportunity_chip_hours": 1.1434070195092094,
+      "report_exists": true
+    },
+    {
+      "identity": "small-core-mixing-qualification-v1-recurrent-ntp-replay",
+      "exit_code": 0,
+      "wall_seconds": 134.90351676940918,
+      "assigned_chip_hours": 0.2997855928209093,
+      "whole_instance_opportunity_chip_hours": 0.5995711856418185,
+      "report_exists": true
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "recurrent-ntp-warm-u120",
+      "assigned_chips": 0,
+      "wall_seconds": 370.5622251033783,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "one-ntp-warm-u0",
+      "assigned_chips": 0,
+      "wall_seconds": 445.63757133483887,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "recurrent-ntp-warm-u0",
+      "assigned_chips": 0,
+      "wall_seconds": 450.5990355014801,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "one-ntp-warm-u120",
+      "assigned_chips": 0,
+      "wall_seconds": 450.6398823261261,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "one-ntp-replay-u120",
+      "assigned_chips": 0,
+      "wall_seconds": 50.02347183227539,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "recurrent-ntp-replay-u120",
+      "assigned_chips": 0,
+      "wall_seconds": 55.02382564544678,
+      "reused": false,
+      "exit_code": 0
+    }
+  ],
+  "execution": {
+    "started_unix": 1792940762.4806724,
+    "deadline_unix": 1792942562.4806724,
+    "plan_sha256": "4c8238f2600d5a6fa53f3a56f0afa613b968bf9ee4b918607839e51edb43f50b"
+  },
+  "wall_seconds_since_admission": 826.4104568958282,
+  "whole_instance_opportunity_chip_hours": 3.6729353692796494,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

@@ -1,0 +1,43 @@
+{
+  "status": "PASS_CPU_CONTROL_PREDICTION_AND_GEOMETRY_ONLY",
+  "head_removed_parity": [
+    {
+      "mixing_count": 1,
+      "maximum_prediction_error": 0.0
+    },
+    {
+      "mixing_count": 2,
+      "maximum_prediction_error": 0.0
+    },
+    {
+      "mixing_count": 3,
+      "maximum_prediction_error": 0.0
+    },
+    {
+      "mixing_count": 5,
+      "maximum_prediction_error": 0.0
+    }
+  ],
+  "new_chips": 0,
+  "research_updates": 0,
+  "test_accessed": false,
+  "wall_seconds": 0.9245915412902832,
+  "source_sha256": {
+    "compute_trainium/mixing_control_science.py": "0495f1f82b9e167be9c34edc3b964070b4237abdbd38dae4c024467987be3384"
+  },
+  "one_pass_work_reproduces_original_table": true,
+  "operator_ledger_per_replica_optimizer": 815372773200,
+  "cheap_equal_data": {
+    "updates": 1920,
+    "real_targets": 1004887590,
+    "complete_matrix_work": 532324901665308672
+  },
+  "cheap_matched_candidate_work": {
+    "updates": 2347,
+    "real_targets": 1228367660,
+    "complete_matrix_work": 650710029135859200,
+    "cooldown_update": 1173,
+    "relative_work_shortfall": 0.00023765213100801486
+  },
+  "fixture_attention_note": "The first ad hoc check omitted the MATH SDPA context and differed by5.72e-6 logits. The actual independent scoring path already forces MATH. With that same path,all logits match exactly;no model or tolerance change."
+}

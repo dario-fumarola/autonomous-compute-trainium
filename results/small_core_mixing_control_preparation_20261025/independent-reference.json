@@ -1,0 +1,158 @@
+{
+  "status": "PASS_INDEPENDENT_CPU_MIXING_CONTROL_FIXTURES",
+  "records": [
+    {
+      "mixing_count": 1,
+      "transformer_core_executions": 1,
+      "maximum_logit_error": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 65.96232186524577
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 38.422897836115176
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 5.060338815380413
+          },
+          "transformer_body": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 53.32986711636553
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 2.2421133232032546
+          }
+        },
+        "passes_two_percent_gate": true
+      }
+    },
+    {
+      "mixing_count": 2,
+      "transformer_core_executions": 1,
+      "maximum_logit_error": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 56.937253000161576
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 36.24261865937957
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 4.987272750426899
+          },
+          "transformer_body": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 43.588782774264615
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 1.8623905836372552
+          }
+        },
+        "passes_two_percent_gate": true
+      }
+    },
+    {
+      "mixing_count": 3,
+      "transformer_core_executions": 1,
+      "maximum_logit_error": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 53.82642999648255
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 35.88787049946229
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 4.857711838906778
+          },
+          "transformer_body": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 39.785547901740486
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 1.6906007892226336
+          }
+        },
+        "passes_two_percent_gate": true
+      }
+    },
+    {
+      "mixing_count": 5,
+      "transformer_core_executions": 1,
+      "maximum_logit_error": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 52.28063235603372
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 35.87790844818772
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 4.772952138082236
+          },
+          "transformer_body": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 37.69267126463491
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 1.5879753631472773
+          }
+        },
+        "passes_two_percent_gate": true
+      }
+    }
+  ],
+  "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+  "wall_seconds": 0.11555337905883789,
+  "assigned_chips": 0,
+  "research_optimizer_updates": 0,
+  "research_examples": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "source_sha256": {
+    "scripts/screen_mixing_reference_cpu.py": "2afa407aeab57c931707f6866030cb8d6ef97354b69682b521db686f583d990b",
+    "compute_trainium/mixing_control_reference.py": "4e35d33521c9033da4d3b1f2ba1ecbbdd8bf40292193f4d7bde2d30db2fe7ca0",
+    "compute_trainium/parcae_mixing_control.py": "40be59f7ce9034fecec94a1e2656dcf0bc93dd9a7650279b365077c1ec8b00a0"
+  },
+  "scope": "Numerical software fixtures only,not a research corpus or actual-size/native qualification. Nonzero perturbed weights;independent pinned upstream blocks and adapter;complete parameter gradients."
+}

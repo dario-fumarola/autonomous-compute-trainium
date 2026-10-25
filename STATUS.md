@@ -1,3 +1,35 @@
+# Status — 2026-10-25 15:21 UTC
+
+**The matched-work comparison and inference-cost measurement are complete.**
+Plain recurrence loses to longer one-pass NTP by0.010950/0.008568 nats in both
+development seeds,despite retaining its0.023747 mean equal-data gain. Even
+free,target-informed whole-document depth selection loses in both seeds.
+The declared two-pass prefill is1.166×/1.169× the trained one-pass latency in
+two hardware-swapped rounds;cached serving remains unmeasured.
+[Compute controls](results/future_span_work_controls_20261025/REPORT.md) ·
+[Prefill measurement](results/future_span_prefill_20261025/REPORT.md).
+
+**The cheap mixing control passes complete hardware qualification.** Its core
+executes once after all adapter applications. Both121-update workers,continued
+updates,independent512-window gradient/optimizer audits and exact full-state/
+RNG recovery pass. Maximum body-gradient relative error is0.0892%. Measured
+100-warm-step rates are484k/494k real targets per second per eight-chip worker.
+These are244 qualification updates,not a scientific learning result.
+
+A separately registered **three-rate control TUNE is admitted**,with a fixed
+5400-second clock and136 frozen source paths. It begins with two counted
+scientific integration updates per trial. Every full512-window integration
+gradient must pass before any trial continues to its576-update301M-target,
+independently cooled TUNE endpoint. Same three rates and selection allowance
+as the existing family. New scientific MAIN remains unadmitted.
+[Protocol](docs/SMALL_CORE_MIXING_CONTROL_PROTOCOL_20261025.md).
+
+**243 CPU tests pass.** Head-removed independent CPU prediction and complete
+work accounting pass. All original sources and negative results are preserved.
+The goal is active and unachieved;no fresh confirmation panel,TEST or terminal
+alpha is opened. A cheap-control win would strengthen the baseline,not prove
+that additional transformer-core executions earned their cost.
+
 # Status — 2026-10-25 15:01 UTC
 
 **All four matched-work controls are complete. Recurrence loses in both paired
