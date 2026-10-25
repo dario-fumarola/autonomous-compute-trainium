@@ -1,0 +1,164 @@
+{
+  "status": "PASS_METADATA_ONLY_LATER_BUDGET_GEOMETRY",
+  "identity": "future-span-later-budget-readiness-v1",
+  "main_plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+  "prior_all_row_validation_sha256": "ab06a5462e96c12f5857cdf5f3ad04e32233798833ee6a57678efe51c8d4862b",
+  "analysis_source_sha256": {
+    "scripts/read_future_span_budget_geometry.py": "23b20b58723fdf90f88a1cbbd3d45fa2a3882583039c010e28cf480482846efd",
+    "compute_trainium/future_span_control_budget.py": "fd61bf0288349536c3deaff13349b08b8278af330ed461728a14193ffb56f6df",
+    "compute_trainium/parcae_scientific_schedule.py": "10b8f724af0843fac3d8167d84994880ef7b09836b51fa85cc9d92a912739459"
+  },
+  "common_nominal_work_ceiling": 1000000000000000000,
+  "recurrent_candidate": {
+    "matched_work": {
+      "updates": 2949,
+      "executed_matmuls": 999770245750559232,
+      "budget_matmuls": 1000000000000000000,
+      "unused_budget_matmuls": 229754249440768,
+      "relative_shortfall": 0.000229754249440768,
+      "next_update_would_exceed_budget": true
+    },
+    "origin_update": 960,
+    "cooldown_start_update": 1474,
+    "total_updates": 2949,
+    "origin_source": {
+      "source_cursor": 491520,
+      "domain_targets": [
+        301465509,
+        100489101,
+        100489626
+      ],
+      "real_targets": 502444236
+    },
+    "cooldown_source": {
+      "source_cursor": 754688,
+      "domain_targets": [
+        462873789,
+        154293937,
+        154292892
+      ],
+      "real_targets": 771460618
+    },
+    "final_source": {
+      "source_cursor": 1509888,
+      "domain_targets": [
+        926059338,
+        308687080,
+        308691306
+      ],
+      "real_targets": 1543437724
+    },
+    "inherited_matrix_ops_charged": 325359088915415040,
+    "additional_branch_matrix_ops": 674411156835144192,
+    "checkpoint_adopted": false,
+    "training_launched": false,
+    "scope": "Complete conceptual model cost includes the shared prefix; incremental campaign cost is separate. Requires an actually stable, fully recovered parent and a separately qualified branch registration before launch. Not chip-time matching or an efficiency result."
+  },
+  "one_pass_work_comparator": {
+    "matched_work": {
+      "updates": 3633,
+      "executed_matmuls": 999612034471217664,
+      "budget_matmuls": 999770245750559232,
+      "unused_budget_matmuls": 158211279341568,
+      "relative_shortfall": 0.0001582476374087266,
+      "next_update_would_exceed_budget": true
+    },
+    "origin_update": 960,
+    "cooldown_start_update": 1816,
+    "total_updates": 3633,
+    "origin_source": {
+      "source_cursor": 491520,
+      "domain_targets": [
+        301465509,
+        100489101,
+        100489626
+      ],
+      "real_targets": 502444236
+    },
+    "cooldown_source": {
+      "source_cursor": 929792,
+      "domain_targets": [
+        570272370,
+        190090941,
+        190092653
+      ],
+      "real_targets": 950455964
+    },
+    "final_source": {
+      "source_cursor": 1860096,
+      "domain_targets": [
+        1140851930,
+        380284376,
+        380287744
+      ],
+      "real_targets": 1901424050
+    },
+    "inherited_matrix_ops_charged": 264141908365639680,
+    "additional_branch_matrix_ops": 735470126105577984,
+    "checkpoint_adopted": false,
+    "training_launched": false,
+    "scope": "Complete conceptual model cost includes the shared prefix; incremental campaign cost is separate. Requires an actually stable, fully recovered parent and a separately qualified branch registration before launch. Not chip-time matching or an efficiency result."
+  },
+  "one_pass_equal_data_comparator": {
+    "matched_work": {
+      "updates": 2949,
+      "executed_matmuls": 811410924760699392,
+      "budget_matmuls": 811410924760699392,
+      "unused_budget_matmuls": 0,
+      "relative_shortfall": 0.0,
+      "next_update_would_exceed_budget": true
+    },
+    "origin_update": 960,
+    "cooldown_start_update": 1474,
+    "total_updates": 2949,
+    "origin_source": {
+      "source_cursor": 491520,
+      "domain_targets": [
+        301465509,
+        100489101,
+        100489626
+      ],
+      "real_targets": 502444236
+    },
+    "cooldown_source": {
+      "source_cursor": 754688,
+      "domain_targets": [
+        462873789,
+        154293937,
+        154292892
+      ],
+      "real_targets": 771460618
+    },
+    "final_source": {
+      "source_cursor": 1509888,
+      "domain_targets": [
+        926059338,
+        308687080,
+        308691306
+      ],
+      "real_targets": 1543437724
+    },
+    "inherited_matrix_ops_charged": 264141908365639680,
+    "additional_branch_matrix_ops": 547269016395059712,
+    "checkpoint_adopted": false,
+    "training_launched": false,
+    "scope": "Complete conceptual model cost includes the shared prefix; incremental campaign cost is separate. Requires an actually stable, fully recovered parent and a separately qualified branch registration before launch. Not chip-time matching or an efficiency result."
+  },
+  "provisioned_rows": {
+    "one": 4097,
+    "recurrent": 4097
+  },
+  "source_counts_sha256": "d22360f1ba69b325036e4c576df68520e5395ae28b4c676d66bf255119125af1",
+  "requires_data_or_depth_extension": false,
+  "selection_disclosure": "The possible1e18 ceiling was chosen after completed MAIN discovery and primary-literature review,before any current matched-work score. This script opens only immutable count/work metadata,no model or quality score.",
+  "checkpoint_adopted": false,
+  "training_launched": false,
+  "experiment_registered": false,
+  "assigned_chips": 0,
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "wall_seconds": 0.31244802474975586,
+  "scope": "Feasibility only. Current controls and prefill qualification retain their exact clocks and priority. A later comparison would need a separate prospective protocol,measured remaining budget,actual stable-state transport/native checks,strong comparators and independent confirmation. No automatic continuation or extension of a current run."
+}
