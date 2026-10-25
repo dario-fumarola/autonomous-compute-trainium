@@ -1,0 +1,1637 @@
+{
+  "status": "PASS_LOCAL_BATCH_GEOMETRY_QUALIFICATION",
+  "records": [
+    {
+      "case": {
+        "identity": "one-b2",
+        "arm": "one",
+        "objective_weight": 0.0,
+        "gradient_rule": "all_sampled_steps"
+      },
+      "model_variant": "fixed1_local_batch_geometry_fullgrad",
+      "native": {
+        "warm": {
+          "status": "CAPTURED_FUTURE_SPAN_TRAINING_QUALIFICATION",
+          "case": {
+            "identity": "one-b2",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "mode": "warm",
+          "signature": {
+            "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c",
+            "case": {
+              "identity": "one-b2",
+              "arm": "one",
+              "objective_weight": 0.0,
+              "gradient_rule": "all_sampled_steps"
+            },
+            "preparation_manifest_sha256": "3a9a9d760261cc31b7246e74a3e906f1af9aa6ceb13ba7c7a3371f34db393cb8",
+            "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+            "initial_sha256": "30cbb12c185465757368ba2d5c576d678fdb4916f097404210dda36c1133167a",
+            "state_seed": 2009,
+            "routing_seed": 271828,
+            "precision": "fp16_body_fp32_heads_masters_moments",
+            "manual_loss_scale": 8192,
+            "world": 32,
+            "accumulation": 8,
+            "local_batch": 2,
+            "global_windows": 512,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "qualification_only": true,
+          "research_optimizer_updates": 0,
+          "actual_optimizer_calls_per_replica": 121,
+          "phase_real_targets": 63328362,
+          "real_targets": 63328362,
+          "valid_anchors": 3787431,
+          "cursor": 61952,
+          "model_matmuls": 30135762989088768,
+          "optimizer_matmuls_all_replicas": 3157123377830400,
+          "model_matmul_scope": "Nominal dense autograd operators including zero-weight control head;native optimizer/dead-code/tile work and communication require separate profiling.",
+          "probes": [
+            {
+              "update": 0,
+              "cursor": 0,
+              "real_targets": 523314,
+              "valid_anchors": 31241,
+              "noise_sha256_by_rank": [
+                "06bbedfd4f9080630ef56e46e24abef663e255095075db27c0e4aaef0e8ca7f4",
+                "70e86e0f1ef21a6ce08d234f2785bdbace1508a0ec43ec4afb462565a6e03330",
+                "50c216b93e39bc85fa4c0eb4ff8f6747cfe14ca8e085ccf052b4442abbe438bc",
+                "0963dd803e22ad2174edda60e3bdfa8ea6a4bddfa0ba700ef768ba0313ac6e30",
+                "f4c287d267629a4406a21e1d712b5192a9d02ec109256a5d044a89f454e96847",
+                "1abe0a3c8391cfe0eb4edb28c1329bc332c300cea678cdaf69e42fb7f85b2802",
+                "54c0c59ec8a27e682c29c4aa03a8d8a538886dfad938e97c685d36b30804bda8",
+                "40b92f076ddcd798c93925c7b28045ee873f889fbc396b2f78660f1fb24db498",
+                "ed45d4624623070af25770424bd5147794d0e8192d297fc88435245bce24ae86",
+                "8e53c1ba2a585539cc37eb0e6dccecd86da2c75db9a4d1e85de9120031de88a7",
+                "ad1dd0a070176fd5a7f12e7ec903a719398c0527f0bd3cbef1f722e3315742db",
+                "cb5f605356b9fa13bd4bba951782f2c131355b3abcb1194823ff3fd8f2267cc3",
+                "df5eb08843fb68ff9867272ade29cf97cb777e70fec8a22958344e4245df61a9",
+                "77b4436835900228e42e08759b47e36bb0550a205a76833cc1d9b76a53c37f17",
+                "9d924db18d608d6339e81d2342ea4e00581e2fa5064d3a1a3aa5f5b2880a024b",
+                "0b75f7fa09c6a3601f75a2d2f0744abfdcc11b284e13026e1362d43b19f9f2f6",
+                "3e771c8b42401c5870ff58f26ac1146a6827c41e9ce2dc989e7b61c0a1391a68",
+                "21a804c034b69b902aedc5fdcccada875e7a175f72f1bdc604c8884d92b723da",
+                "248a1e25c4eda33c66e94101feb4de6546ee343f16a5f61a84d8dbdb78e2f404",
+                "b08dd1fa5b9785c258cf20b08c1c8a212ed801cecbb9c81fbe41977129221093",
+                "b3b2a15c900545715047492207cc24b7322c6ebb00b5d44f897d8b0a0eea8c51",
+                "78dd48f314db0966959b08266909403d1adc7ad0f68c7eb8b24c7333089282d5",
+                "d94156953bb663d0ff1b8ff22bfe98cd945fafea7b225d994f12a43bdc4531b5",
+                "72913c85925ec1b93e7f779029f38fc1754044638374554b65c6307e82505dc4",
+                "154ebb1545bc13c7f608c3bd1aecb4a33f4534686c9f0e57d7d1b7c413899987",
+                "0036dd8d797b57644b7a071d1fca187411020da6f64e7e79124b244fa1e1da8d",
+                "7d006c4cd9b604200da5dc159c5c253b4c19099639a4658025a32330761a9c91",
+                "37eee32ba9407e3c27faf117a42d36a457e31c00b7469b7e8788cefa2d9b633e",
+                "979bf225664e31ce13db633e0ee603e60b7e1ff5f1d63c4fc96de109641238c0",
+                "0be3c69731eab48c4543010991f9ad8a03a4245e1b75f5b71015cb0d2606502b",
+                "a819138ea3369cd4045722a4dbee34a5454e399b226b4b43897c03d5273c65a5",
+                "1268521411d3415b1cb19abac4ff41014ca3d416ed029cbc3f2837b6d590921c"
+              ],
+              "gradient_file": "gradient-u0.pt",
+              "gradient_sha256": "46e9f9428b1c3ef5980ab336a20ae04bed11312e6387272345b86a3c462ce588",
+              "raw_gradient_norm": 21.150291442871094
+            },
+            {
+              "update": 120,
+              "cursor": 61440,
+              "real_targets": 523312,
+              "valid_anchors": 31246,
+              "noise_sha256_by_rank": [
+                "c2041ee1e9262e50fec9f16b2e75ef4b36b5bdc6c3eda80367de4ded36526324",
+                "b5c4777aae48b4547a072ac4cdd067182bbc0483386eb8ad85b181c7b27bf97c",
+                "f161eed4e82ae54c3f34d0ece9f46c299a09f00ab0a593d07665c21b251f0410",
+                "5d8b6b7dbad5b2507c22800d93e3205b30d5ec41b8a2d42a67fee6a2154a881c",
+                "5b56b082a9de45410265963012fd3d19a678630435df00b86b4bc6f3fa876eb6",
+                "a53cbdeede1f7ac524666564d5e96e2b88a929384621596ab96c3423ba76c293",
+                "953afb44aa5c47445192e5fc8a00b78453fc682ac953eeb21619544866c46dde",
+                "39ac8b7e065b37c3a60af1708c7a8afb292044a0eec933e232aecd33f499a6b5",
+                "c99d6d5e10ff61a9416024b6e1bae5adc64f60fc45583b21f01585913021e3f3",
+                "3ecb49878ce3589583fc862f6fc8b981242308db66870687137350aa4864bf9c",
+                "52c12a2ba961fe640ce47057796d12d40ad0137c43db1e4756fe72de0752073b",
+                "b0fa2b3a149d984be052fb27dcb44081acc16e7ae8416bcad8f6aeab79c0b27c",
+                "754788249aa1e8217dd1b8dcc33c415d310e80b21ce318c444f971dd3a9d8d05",
+                "9c6188c3f4f859d1a6888797eeb2f8be8be6a3aae8c40ba5bc22332fb8b726f5",
+                "2a7e3b21cc62362b6c98f1a7139c7a6f2be406617138dc3f6a985ddf761ebf6a",
+                "a579f05dbd99b4643ddc68ac604c5ff6734073f6826160657cb68b8f7992229e",
+                "e870fd523d00a5431a6dd529a8dcd15d774f9851feabeb05a6f25a65ecc0f9d1",
+                "5a2e2941acf73ac2fd4e3e0ac1f64c59dce36180ea9f248ada3e0ea0d9bdfa0d",
+                "35cec73f34acf4369fa18783599418a13189814c7071cbe3ae9558dba3e96370",
+                "40a2247cd665d20aa6bfe5e430c560afb19a93c1d8ad9589fc6dfb5c51d29aa6",
+                "0fc9f248e35acafcb22844e9e82c856204ba0b03f8bf1ba05cc406804f75fed5",
+                "309c2421518df988d0de3013006da1cf5b3c8abd835cf2636d91195c16b931a8",
+                "e664647ec0b83a5abbdd53aefb5f89bca87ed7d48056a02ec59d5eb3484bf92a",
+                "f3fd74f3f45a142160878d428b6819d8eb44c65d41129453b8ad3a7a1e32100e",
+                "137fbb1d8612ca7054a428f137dfe9f3ac36ad964a14743108522fd61562c50e",
+                "6c419c8d62efef26bf895e53feb2cdb8de580c90f969b4744967c0c908fc807a",
+                "2fc72c2b4288038322393b8a71459b89d5efa507bbb0687a24d879d4729a2d03",
+                "31a493238c7af4dd999ab13c210bccb98175a71330c7e21516593a38273fdfea",
+                "be06cd840ec9701e2d83eea298331c1f89f0f7f61a299833da88f642c9b6337e",
+                "7228670749023467cc5d086f4e1be756068fbe11b4737d3687fb5449fc97bd24",
+                "e1f10e4f381f7ff1f10def2444a7d1fba1a346ff0461fd132190597e28bf30ca",
+                "891e232578db66f0780566419d96cf99436a67d8e5b2917efcb35d0ac8502165"
+              ],
+              "gradient_file": "gradient-u120.pt",
+              "gradient_sha256": "bd42717d1fa072159afc02431bba3bfe5e9362a12ffefcb154678c9cb6d61e79",
+              "raw_gradient_norm": 3.071967363357544
+            }
+          ],
+          "full_checkpoint_sha256": "676d97a696550b87d8fd453dc809b650633c47ea70d5b0879ba053a913e666cb",
+          "full_checkpoint_state_digest": "b75483add3c57b6fd544ef3dd178d81133a969909db6d763b6a4a3097d93042b",
+          "first_update_sha256": "9fb335fe1dac4669d9c208acacb3448e722100852fef7ef3d013afc10419c61e",
+          "final_sha256": "c489c135afc6997a95da7b1f1c2af37ac50cad819eeee412713b471a307c5134",
+          "final_model_optimizer_digest": "bae3f148394e1fc7e28ddf681a45d54b9aa2fbd8516c9ea73ce9b18090cd15a1",
+          "all_complete_replica_states_equal": true,
+          "recovered_state_digest": null,
+          "complete_state_on_load_exact": false,
+          "cpu_rng_on_load_exact": false,
+          "warm_updates": 100,
+          "warm_seconds": 82.99270939826965,
+          "warm_targets_per_second": 630626.9114415875,
+          "warm_model_matmuls": 24905589247180800,
+          "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+          "test_accessed": false,
+          "wall_seconds": 225.7325620651245,
+          "local_batch": 2,
+          "accumulation_steps": 8,
+          "scope": "Finite actual-update qualification of four-cell causal objective,full gradients,global token/anchor normalization,FP16 body and FP32 heads/masters,moments,manual8192 unscale,runtime schedule,owned32-rank DDP and exact state load. Independent CPU gradient/first-update/recovery checks are mandatory before any scientific adoption."
+        },
+        "replay": {
+          "status": "CAPTURED_FUTURE_SPAN_TRAINING_QUALIFICATION",
+          "case": {
+            "identity": "one-b2",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "mode": "replay",
+          "signature": {
+            "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c",
+            "case": {
+              "identity": "one-b2",
+              "arm": "one",
+              "objective_weight": 0.0,
+              "gradient_rule": "all_sampled_steps"
+            },
+            "preparation_manifest_sha256": "3a9a9d760261cc31b7246e74a3e906f1af9aa6ceb13ba7c7a3371f34db393cb8",
+            "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+            "initial_sha256": "30cbb12c185465757368ba2d5c576d678fdb4916f097404210dda36c1133167a",
+            "state_seed": 2009,
+            "routing_seed": 271828,
+            "precision": "fp16_body_fp32_heads_masters_moments",
+            "manual_loss_scale": 8192,
+            "world": 32,
+            "accumulation": 8,
+            "local_batch": 2,
+            "global_windows": 512,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "qualification_only": true,
+          "research_optimizer_updates": 0,
+          "actual_optimizer_calls_per_replica": 1,
+          "phase_real_targets": 523312,
+          "real_targets": 63328362,
+          "valid_anchors": 3787431,
+          "cursor": 61952,
+          "model_matmuls": 30135762989088768,
+          "optimizer_matmuls_all_replicas": 3157123377830400,
+          "model_matmul_scope": "Nominal dense autograd operators including zero-weight control head;native optimizer/dead-code/tile work and communication require separate profiling.",
+          "probes": [
+            {
+              "update": 120,
+              "cursor": 61440,
+              "real_targets": 523312,
+              "valid_anchors": 31246,
+              "noise_sha256_by_rank": [
+                "c2041ee1e9262e50fec9f16b2e75ef4b36b5bdc6c3eda80367de4ded36526324",
+                "b5c4777aae48b4547a072ac4cdd067182bbc0483386eb8ad85b181c7b27bf97c",
+                "f161eed4e82ae54c3f34d0ece9f46c299a09f00ab0a593d07665c21b251f0410",
+                "5d8b6b7dbad5b2507c22800d93e3205b30d5ec41b8a2d42a67fee6a2154a881c",
+                "5b56b082a9de45410265963012fd3d19a678630435df00b86b4bc6f3fa876eb6",
+                "a53cbdeede1f7ac524666564d5e96e2b88a929384621596ab96c3423ba76c293",
+                "953afb44aa5c47445192e5fc8a00b78453fc682ac953eeb21619544866c46dde",
+                "39ac8b7e065b37c3a60af1708c7a8afb292044a0eec933e232aecd33f499a6b5",
+                "c99d6d5e10ff61a9416024b6e1bae5adc64f60fc45583b21f01585913021e3f3",
+                "3ecb49878ce3589583fc862f6fc8b981242308db66870687137350aa4864bf9c",
+                "52c12a2ba961fe640ce47057796d12d40ad0137c43db1e4756fe72de0752073b",
+                "b0fa2b3a149d984be052fb27dcb44081acc16e7ae8416bcad8f6aeab79c0b27c",
+                "754788249aa1e8217dd1b8dcc33c415d310e80b21ce318c444f971dd3a9d8d05",
+                "9c6188c3f4f859d1a6888797eeb2f8be8be6a3aae8c40ba5bc22332fb8b726f5",
+                "2a7e3b21cc62362b6c98f1a7139c7a6f2be406617138dc3f6a985ddf761ebf6a",
+                "a579f05dbd99b4643ddc68ac604c5ff6734073f6826160657cb68b8f7992229e",
+                "e870fd523d00a5431a6dd529a8dcd15d774f9851feabeb05a6f25a65ecc0f9d1",
+                "5a2e2941acf73ac2fd4e3e0ac1f64c59dce36180ea9f248ada3e0ea0d9bdfa0d",
+                "35cec73f34acf4369fa18783599418a13189814c7071cbe3ae9558dba3e96370",
+                "40a2247cd665d20aa6bfe5e430c560afb19a93c1d8ad9589fc6dfb5c51d29aa6",
+                "0fc9f248e35acafcb22844e9e82c856204ba0b03f8bf1ba05cc406804f75fed5",
+                "309c2421518df988d0de3013006da1cf5b3c8abd835cf2636d91195c16b931a8",
+                "e664647ec0b83a5abbdd53aefb5f89bca87ed7d48056a02ec59d5eb3484bf92a",
+                "f3fd74f3f45a142160878d428b6819d8eb44c65d41129453b8ad3a7a1e32100e",
+                "137fbb1d8612ca7054a428f137dfe9f3ac36ad964a14743108522fd61562c50e",
+                "6c419c8d62efef26bf895e53feb2cdb8de580c90f969b4744967c0c908fc807a",
+                "2fc72c2b4288038322393b8a71459b89d5efa507bbb0687a24d879d4729a2d03",
+                "31a493238c7af4dd999ab13c210bccb98175a71330c7e21516593a38273fdfea",
+                "be06cd840ec9701e2d83eea298331c1f89f0f7f61a299833da88f642c9b6337e",
+                "7228670749023467cc5d086f4e1be756068fbe11b4737d3687fb5449fc97bd24",
+                "e1f10e4f381f7ff1f10def2444a7d1fba1a346ff0461fd132190597e28bf30ca",
+                "891e232578db66f0780566419d96cf99436a67d8e5b2917efcb35d0ac8502165"
+              ],
+              "gradient_file": "gradient-u120.pt",
+              "gradient_sha256": "11b86df8aa5e34267c6eebfbf6b1a67116c94e9aaeda02dd6cf11fcaf64a7530",
+              "raw_gradient_norm": 3.071967363357544
+            }
+          ],
+          "full_checkpoint_sha256": "d3b51f825dd28c55c5e72608264bca3a3e1a718a45b846b54a768f14fdb919ff",
+          "full_checkpoint_state_digest": "b75483add3c57b6fd544ef3dd178d81133a969909db6d763b6a4a3097d93042b",
+          "first_update_sha256": null,
+          "final_sha256": "c696ae3be8bb1c4e1280a0eea21fa16a195bc0fa33f1f1a9d3183d4f3a82f11a",
+          "final_model_optimizer_digest": "76992f5f44cdae87b5c4c74f4349123b170b8cd83fc1450eb33bfa2f5c633f1a",
+          "all_complete_replica_states_equal": true,
+          "recovered_state_digest": "b75483add3c57b6fd544ef3dd178d81133a969909db6d763b6a4a3097d93042b",
+          "complete_state_on_load_exact": true,
+          "cpu_rng_on_load_exact": true,
+          "warm_updates": 0,
+          "warm_seconds": null,
+          "warm_targets_per_second": null,
+          "warm_model_matmuls": 0,
+          "warm_optimizer_matmuls_all_replicas": 0,
+          "test_accessed": false,
+          "wall_seconds": 134.8231008052826,
+          "local_batch": 2,
+          "accumulation_steps": 8,
+          "scope": "Finite actual-update qualification of four-cell causal objective,full gradients,global token/anchor normalization,FP16 body and FP32 heads/masters,moments,manual8192 unscale,runtime schedule,owned32-rank DDP and exact state load. Independent CPU gradient/first-update/recovery checks are mandatory before any scientific adoption."
+        }
+      },
+      "initial_cpu": {
+        "status": "PASS_INDEPENDENT_FUTURE_SPAN_QUALIFICATION_AUDIT",
+        "case": {
+          "identity": "one-b2",
+          "arm": "one",
+          "objective_weight": 0.0,
+          "gradient_rule": "all_sampled_steps"
+        },
+        "update": 0,
+        "native_mode": "warm",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.00034689375127148776,
+              "maximum_absolute_error": 6.507337093353271e-05,
+              "reference_l2": 21.150209228432452
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0002357593309809958,
+                "maximum_absolute_error": 1.3043172657489777e-06,
+                "reference_l2": 0.5835576943636668
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0002564765545777589,
+                "maximum_absolute_error": 1.4377059414982796e-05,
+                "reference_l2": 0.6953565131825522
+              },
+              "transformer_body": {
+                "relative_l2": 0.00034705005025615146,
+                "maximum_absolute_error": 6.507337093353271e-05,
+                "reference_l2": 21.13071911089144
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0,
+                "maximum_absolute_error": 0.0,
+                "reference_l2": 0.0
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 1.0394243474820541e-06,
+          "future_mean": 3.1259002586381257e-07
+        },
+        "cpu_ntp_nll": 10.56133880625148,
+        "cpu_future_mean": 6.876280556300214,
+        "first_or_recovered_update": {
+          "update_comparison": {
+            "relative_l2": 1.4064313073152026e-05,
+            "maximum_absolute_error": 1.4901161193847656e-08,
+            "reference_l2": 0.02531813805838072,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.828550826409036e-05,
+            "maximum_absolute_error": 3.2887328416109085e-08,
+            "reference_l2": 0.1451515282087055
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 1.4020705455642802e-05,
+                "maximum_absolute_error": 1.4901161193847656e-08,
+                "reference_l2": 0.025314682556541502,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.821317722518246e-05,
+                "maximum_absolute_error": 1.641456037759781e-08,
+                "reference_l2": 0.00858674783656471
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 6.843678420360444e-05,
+                "maximum_absolute_error": 9.246292620446184e-11,
+                "reference_l2": 0.0004182843587318721,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.8285762039492614e-05,
+                "maximum_absolute_error": 3.2887328416109085e-08,
+                "reference_l2": 0.14489732193147628
+              }
+            }
+          },
+          "future_head": {
+            "update_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          }
+        },
+        "optimizer_step_passes_two_percent_gate": true,
+        "cpu_raw_gradient_norm_before_clip": 21.14948081970215,
+        "gold_fingerprint": {
+          "case": {
+            "identity": "one-b2",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "update": 0,
+          "model_digest": "a1f7ae4efd9c714eb86f202302195f6c9af227fc9657be1f6c82287d4d233521",
+          "source_cursor": 0,
+          "real_targets": 523314,
+          "valid_anchors": 31241,
+          "noise_sha256_by_rank": [
+            "06bbedfd4f9080630ef56e46e24abef663e255095075db27c0e4aaef0e8ca7f4",
+            "70e86e0f1ef21a6ce08d234f2785bdbace1508a0ec43ec4afb462565a6e03330",
+            "50c216b93e39bc85fa4c0eb4ff8f6747cfe14ca8e085ccf052b4442abbe438bc",
+            "0963dd803e22ad2174edda60e3bdfa8ea6a4bddfa0ba700ef768ba0313ac6e30",
+            "f4c287d267629a4406a21e1d712b5192a9d02ec109256a5d044a89f454e96847",
+            "1abe0a3c8391cfe0eb4edb28c1329bc332c300cea678cdaf69e42fb7f85b2802",
+            "54c0c59ec8a27e682c29c4aa03a8d8a538886dfad938e97c685d36b30804bda8",
+            "40b92f076ddcd798c93925c7b28045ee873f889fbc396b2f78660f1fb24db498",
+            "ed45d4624623070af25770424bd5147794d0e8192d297fc88435245bce24ae86",
+            "8e53c1ba2a585539cc37eb0e6dccecd86da2c75db9a4d1e85de9120031de88a7",
+            "ad1dd0a070176fd5a7f12e7ec903a719398c0527f0bd3cbef1f722e3315742db",
+            "cb5f605356b9fa13bd4bba951782f2c131355b3abcb1194823ff3fd8f2267cc3",
+            "df5eb08843fb68ff9867272ade29cf97cb777e70fec8a22958344e4245df61a9",
+            "77b4436835900228e42e08759b47e36bb0550a205a76833cc1d9b76a53c37f17",
+            "9d924db18d608d6339e81d2342ea4e00581e2fa5064d3a1a3aa5f5b2880a024b",
+            "0b75f7fa09c6a3601f75a2d2f0744abfdcc11b284e13026e1362d43b19f9f2f6",
+            "3e771c8b42401c5870ff58f26ac1146a6827c41e9ce2dc989e7b61c0a1391a68",
+            "21a804c034b69b902aedc5fdcccada875e7a175f72f1bdc604c8884d92b723da",
+            "248a1e25c4eda33c66e94101feb4de6546ee343f16a5f61a84d8dbdb78e2f404",
+            "b08dd1fa5b9785c258cf20b08c1c8a212ed801cecbb9c81fbe41977129221093",
+            "b3b2a15c900545715047492207cc24b7322c6ebb00b5d44f897d8b0a0eea8c51",
+            "78dd48f314db0966959b08266909403d1adc7ad0f68c7eb8b24c7333089282d5",
+            "d94156953bb663d0ff1b8ff22bfe98cd945fafea7b225d994f12a43bdc4531b5",
+            "72913c85925ec1b93e7f779029f38fc1754044638374554b65c6307e82505dc4",
+            "154ebb1545bc13c7f608c3bd1aecb4a33f4534686c9f0e57d7d1b7c413899987",
+            "0036dd8d797b57644b7a071d1fca187411020da6f64e7e79124b244fa1e1da8d",
+            "7d006c4cd9b604200da5dc159c5c253b4c19099639a4658025a32330761a9c91",
+            "37eee32ba9407e3c27faf117a42d36a457e31c00b7469b7e8788cefa2d9b633e",
+            "979bf225664e31ce13db633e0ee603e60b7e1ff5f1d63c4fc96de109641238c0",
+            "0be3c69731eab48c4543010991f9ad8a03a4245e1b75f5b71015cb0d2606502b",
+            "a819138ea3369cd4045722a4dbee34a5454e399b226b4b43897c03d5273c65a5",
+            "1268521411d3415b1cb19abac4ff41014ca3d416ed029cbc3f2837b6d590921c"
+          ],
+          "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+          "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c"
+        },
+        "reused_gold": false,
+        "cpu_global_sha256": "7898f52842c38985ad6b85fa5a30a3fc4d796fb9e3b0aa1d944533a78249dbb2",
+        "diagnostic_matrix_operations": 249055892471808,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "prescribed_cpu_reference_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 431.9921269416809,
+        "scope": "Independent pinned upstream FP32 full512-window natural TRAIN objective with separately constructed dense presence targets. Exact state/source/depth/noise required for gold reuse. Native raw-gradient replay isolates clipping and independent optimizer arithmetic;no held-out score or scientific training adoption."
+      },
+      "trained_cpu": {
+        "status": "PASS_INDEPENDENT_FUTURE_SPAN_QUALIFICATION_AUDIT",
+        "case": {
+          "identity": "one-b2",
+          "arm": "one",
+          "objective_weight": 0.0,
+          "gradient_rule": "all_sampled_steps"
+        },
+        "update": 120,
+        "native_mode": "warm",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.0009009557197328055,
+              "maximum_absolute_error": 3.430480137467384e-05,
+              "reference_l2": 3.0718031853293697
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0011837629501422885,
+                "maximum_absolute_error": 1.0163748811464757e-06,
+                "reference_l2": 0.09132043108030466
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0007222839298760348,
+                "maximum_absolute_error": 1.1724419891834259e-05,
+                "reference_l2": 0.2270767850923374
+              },
+              "transformer_body": {
+                "relative_l2": 0.0009015496867743266,
+                "maximum_absolute_error": 3.430480137467384e-05,
+                "reference_l2": 3.0620371340929866
+              },
+              "value_embeddings": {
+                "relative_l2": 0.00038860689311863954,
+                "maximum_absolute_error": 1.610169420018792e-08,
+                "reference_l2": 0.00033372849030622443
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": -1.4639704062346937e-06,
+          "future_mean": -2.3372132256227474e-06
+        },
+        "cpu_ntp_nll": 6.5855307466927595,
+        "cpu_future_mean": 6.8938972557628,
+        "first_or_recovered_update": {
+          "update_comparison": {
+            "relative_l2": 0.0002329201926403505,
+            "maximum_absolute_error": 2.384185791015625e-07,
+            "reference_l2": 0.04121656394116233,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.090497071786125e-06,
+            "maximum_absolute_error": 5.21540641784668e-08,
+            "reference_l2": 0.8494936750302596
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 0.00023231221496280562,
+                "maximum_absolute_error": 2.384185791015625e-07,
+                "reference_l2": 0.04117935264164015,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 1.13797785600557e-05,
+                "maximum_absolute_error": 1.885928213596344e-08,
+                "reference_l2": 0.07044134730578838
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 0.0004590071874224237,
+                "maximum_absolute_error": 5.21540641784668e-08,
+                "reference_l2": 0.0017510165993980407,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 2.9530830881421946e-06,
+                "maximum_absolute_error": 5.21540641784668e-08,
+                "reference_l2": 0.8465680837984395
+              }
+            }
+          },
+          "future_head": {
+            "update_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          }
+        },
+        "optimizer_step_passes_two_percent_gate": true,
+        "cpu_raw_gradient_norm_before_clip": 3.0718135833740234,
+        "gold_fingerprint": {
+          "case": {
+            "identity": "one-b2",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "update": 120,
+          "model_digest": "2a622b96813cbfc6ec73b6a6b844962958b5dcf91dca58e90d6f0dd9cc53ffa5",
+          "source_cursor": 61440,
+          "real_targets": 523312,
+          "valid_anchors": 31246,
+          "noise_sha256_by_rank": [
+            "c2041ee1e9262e50fec9f16b2e75ef4b36b5bdc6c3eda80367de4ded36526324",
+            "b5c4777aae48b4547a072ac4cdd067182bbc0483386eb8ad85b181c7b27bf97c",
+            "f161eed4e82ae54c3f34d0ece9f46c299a09f00ab0a593d07665c21b251f0410",
+            "5d8b6b7dbad5b2507c22800d93e3205b30d5ec41b8a2d42a67fee6a2154a881c",
+            "5b56b082a9de45410265963012fd3d19a678630435df00b86b4bc6f3fa876eb6",
+            "a53cbdeede1f7ac524666564d5e96e2b88a929384621596ab96c3423ba76c293",
+            "953afb44aa5c47445192e5fc8a00b78453fc682ac953eeb21619544866c46dde",
+            "39ac8b7e065b37c3a60af1708c7a8afb292044a0eec933e232aecd33f499a6b5",
+            "c99d6d5e10ff61a9416024b6e1bae5adc64f60fc45583b21f01585913021e3f3",
+            "3ecb49878ce3589583fc862f6fc8b981242308db66870687137350aa4864bf9c",
+            "52c12a2ba961fe640ce47057796d12d40ad0137c43db1e4756fe72de0752073b",
+            "b0fa2b3a149d984be052fb27dcb44081acc16e7ae8416bcad8f6aeab79c0b27c",
+            "754788249aa1e8217dd1b8dcc33c415d310e80b21ce318c444f971dd3a9d8d05",
+            "9c6188c3f4f859d1a6888797eeb2f8be8be6a3aae8c40ba5bc22332fb8b726f5",
+            "2a7e3b21cc62362b6c98f1a7139c7a6f2be406617138dc3f6a985ddf761ebf6a",
+            "a579f05dbd99b4643ddc68ac604c5ff6734073f6826160657cb68b8f7992229e",
+            "e870fd523d00a5431a6dd529a8dcd15d774f9851feabeb05a6f25a65ecc0f9d1",
+            "5a2e2941acf73ac2fd4e3e0ac1f64c59dce36180ea9f248ada3e0ea0d9bdfa0d",
+            "35cec73f34acf4369fa18783599418a13189814c7071cbe3ae9558dba3e96370",
+            "40a2247cd665d20aa6bfe5e430c560afb19a93c1d8ad9589fc6dfb5c51d29aa6",
+            "0fc9f248e35acafcb22844e9e82c856204ba0b03f8bf1ba05cc406804f75fed5",
+            "309c2421518df988d0de3013006da1cf5b3c8abd835cf2636d91195c16b931a8",
+            "e664647ec0b83a5abbdd53aefb5f89bca87ed7d48056a02ec59d5eb3484bf92a",
+            "f3fd74f3f45a142160878d428b6819d8eb44c65d41129453b8ad3a7a1e32100e",
+            "137fbb1d8612ca7054a428f137dfe9f3ac36ad964a14743108522fd61562c50e",
+            "6c419c8d62efef26bf895e53feb2cdb8de580c90f969b4744967c0c908fc807a",
+            "2fc72c2b4288038322393b8a71459b89d5efa507bbb0687a24d879d4729a2d03",
+            "31a493238c7af4dd999ab13c210bccb98175a71330c7e21516593a38273fdfea",
+            "be06cd840ec9701e2d83eea298331c1f89f0f7f61a299833da88f642c9b6337e",
+            "7228670749023467cc5d086f4e1be756068fbe11b4737d3687fb5449fc97bd24",
+            "e1f10e4f381f7ff1f10def2444a7d1fba1a346ff0461fd132190597e28bf30ca",
+            "891e232578db66f0780566419d96cf99436a67d8e5b2917efcb35d0ac8502165"
+          ],
+          "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+          "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c"
+        },
+        "reused_gold": false,
+        "cpu_global_sha256": "95b958345989a555023eaca143683618009ee00503670faa11270dd1d9e0048c",
+        "diagnostic_matrix_operations": 249055892471808,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "prescribed_cpu_reference_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 401.4860453605652,
+        "scope": "Independent pinned upstream FP32 full512-window natural TRAIN objective with separately constructed dense presence targets. Exact state/source/depth/noise required for gold reuse. Native raw-gradient replay isolates clipping and independent optimizer arithmetic;no held-out score or scientific training adoption."
+      },
+      "replay_cpu": {
+        "status": "PASS_INDEPENDENT_FUTURE_SPAN_QUALIFICATION_AUDIT",
+        "case": {
+          "identity": "one-b2",
+          "arm": "one",
+          "objective_weight": 0.0,
+          "gradient_rule": "all_sampled_steps"
+        },
+        "update": 120,
+        "native_mode": "replay",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.000900955817415271,
+              "maximum_absolute_error": 3.43050342053175e-05,
+              "reference_l2": 3.0718031853293697
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0011837628705838174,
+                "maximum_absolute_error": 1.0163639672100544e-06,
+                "reference_l2": 0.09132043108030466
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0007222832592067692,
+                "maximum_absolute_error": 1.1724885553121567e-05,
+                "reference_l2": 0.2270767850923374
+              },
+              "transformer_body": {
+                "relative_l2": 0.0009015497880639804,
+                "maximum_absolute_error": 3.43050342053175e-05,
+                "reference_l2": 3.0620371340929866
+              },
+              "value_embeddings": {
+                "relative_l2": 0.00038860757846411885,
+                "maximum_absolute_error": 1.609805622138083e-08,
+                "reference_l2": 0.00033372849030622443
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": -1.4639704062346937e-06,
+          "future_mean": -2.3372132256227474e-06
+        },
+        "cpu_ntp_nll": 6.5855307466927595,
+        "cpu_future_mean": 6.8938972557628,
+        "first_or_recovered_update": {
+          "update_comparison": {
+            "relative_l2": 0.00023296563177787978,
+            "maximum_absolute_error": 2.384185791015625e-07,
+            "reference_l2": 0.041216563927482464,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.0913007905630186e-06,
+            "maximum_absolute_error": 5.587935447692871e-08,
+            "reference_l2": 0.84949367241064
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 0.0002323586979448865,
+                "maximum_absolute_error": 2.384185791015625e-07,
+                "reference_l2": 0.04117935262817952,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 1.1380036613548306e-05,
+                "maximum_absolute_error": 1.885928213596344e-08,
+                "reference_l2": 0.07044134731929871
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 0.0004587712260744521,
+                "maximum_absolute_error": 5.21540641784668e-08,
+                "reference_l2": 0.001751016593951492,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 2.9539231341362936e-06,
+                "maximum_absolute_error": 5.587935447692871e-08,
+                "reference_l2": 0.8465680811686427
+              }
+            }
+          },
+          "future_head": {
+            "update_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          }
+        },
+        "optimizer_step_passes_two_percent_gate": true,
+        "cpu_raw_gradient_norm_before_clip": 3.0718135833740234,
+        "gold_fingerprint": {
+          "case": {
+            "identity": "one-b2",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "update": 120,
+          "model_digest": "2a622b96813cbfc6ec73b6a6b844962958b5dcf91dca58e90d6f0dd9cc53ffa5",
+          "source_cursor": 61440,
+          "real_targets": 523312,
+          "valid_anchors": 31246,
+          "noise_sha256_by_rank": [
+            "c2041ee1e9262e50fec9f16b2e75ef4b36b5bdc6c3eda80367de4ded36526324",
+            "b5c4777aae48b4547a072ac4cdd067182bbc0483386eb8ad85b181c7b27bf97c",
+            "f161eed4e82ae54c3f34d0ece9f46c299a09f00ab0a593d07665c21b251f0410",
+            "5d8b6b7dbad5b2507c22800d93e3205b30d5ec41b8a2d42a67fee6a2154a881c",
+            "5b56b082a9de45410265963012fd3d19a678630435df00b86b4bc6f3fa876eb6",
+            "a53cbdeede1f7ac524666564d5e96e2b88a929384621596ab96c3423ba76c293",
+            "953afb44aa5c47445192e5fc8a00b78453fc682ac953eeb21619544866c46dde",
+            "39ac8b7e065b37c3a60af1708c7a8afb292044a0eec933e232aecd33f499a6b5",
+            "c99d6d5e10ff61a9416024b6e1bae5adc64f60fc45583b21f01585913021e3f3",
+            "3ecb49878ce3589583fc862f6fc8b981242308db66870687137350aa4864bf9c",
+            "52c12a2ba961fe640ce47057796d12d40ad0137c43db1e4756fe72de0752073b",
+            "b0fa2b3a149d984be052fb27dcb44081acc16e7ae8416bcad8f6aeab79c0b27c",
+            "754788249aa1e8217dd1b8dcc33c415d310e80b21ce318c444f971dd3a9d8d05",
+            "9c6188c3f4f859d1a6888797eeb2f8be8be6a3aae8c40ba5bc22332fb8b726f5",
+            "2a7e3b21cc62362b6c98f1a7139c7a6f2be406617138dc3f6a985ddf761ebf6a",
+            "a579f05dbd99b4643ddc68ac604c5ff6734073f6826160657cb68b8f7992229e",
+            "e870fd523d00a5431a6dd529a8dcd15d774f9851feabeb05a6f25a65ecc0f9d1",
+            "5a2e2941acf73ac2fd4e3e0ac1f64c59dce36180ea9f248ada3e0ea0d9bdfa0d",
+            "35cec73f34acf4369fa18783599418a13189814c7071cbe3ae9558dba3e96370",
+            "40a2247cd665d20aa6bfe5e430c560afb19a93c1d8ad9589fc6dfb5c51d29aa6",
+            "0fc9f248e35acafcb22844e9e82c856204ba0b03f8bf1ba05cc406804f75fed5",
+            "309c2421518df988d0de3013006da1cf5b3c8abd835cf2636d91195c16b931a8",
+            "e664647ec0b83a5abbdd53aefb5f89bca87ed7d48056a02ec59d5eb3484bf92a",
+            "f3fd74f3f45a142160878d428b6819d8eb44c65d41129453b8ad3a7a1e32100e",
+            "137fbb1d8612ca7054a428f137dfe9f3ac36ad964a14743108522fd61562c50e",
+            "6c419c8d62efef26bf895e53feb2cdb8de580c90f969b4744967c0c908fc807a",
+            "2fc72c2b4288038322393b8a71459b89d5efa507bbb0687a24d879d4729a2d03",
+            "31a493238c7af4dd999ab13c210bccb98175a71330c7e21516593a38273fdfea",
+            "be06cd840ec9701e2d83eea298331c1f89f0f7f61a299833da88f642c9b6337e",
+            "7228670749023467cc5d086f4e1be756068fbe11b4737d3687fb5449fc97bd24",
+            "e1f10e4f381f7ff1f10def2444a7d1fba1a346ff0461fd132190597e28bf30ca",
+            "891e232578db66f0780566419d96cf99436a67d8e5b2917efcb35d0ac8502165"
+          ],
+          "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+          "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c"
+        },
+        "reused_gold": true,
+        "cpu_global_sha256": "95b958345989a555023eaca143683618009ee00503670faa11270dd1d9e0048c",
+        "diagnostic_matrix_operations": 0,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "prescribed_cpu_reference_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 47.90402293205261,
+        "scope": "Independent pinned upstream FP32 full512-window natural TRAIN objective with separately constructed dense presence targets. Exact state/source/depth/noise required for gold reuse. Native raw-gradient replay isolates clipping and independent optimizer arithmetic;no held-out score or scientific training adoption."
+      },
+      "exact_future_trajectory_digest_equal": false
+    },
+    {
+      "case": {
+        "identity": "one-b4",
+        "arm": "one",
+        "objective_weight": 0.0,
+        "gradient_rule": "all_sampled_steps"
+      },
+      "model_variant": "fixed1_local_batch_geometry_fullgrad",
+      "native": {
+        "warm": {
+          "status": "CAPTURED_FUTURE_SPAN_TRAINING_QUALIFICATION",
+          "case": {
+            "identity": "one-b4",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "mode": "warm",
+          "signature": {
+            "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c",
+            "case": {
+              "identity": "one-b4",
+              "arm": "one",
+              "objective_weight": 0.0,
+              "gradient_rule": "all_sampled_steps"
+            },
+            "preparation_manifest_sha256": "3a9a9d760261cc31b7246e74a3e906f1af9aa6ceb13ba7c7a3371f34db393cb8",
+            "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+            "initial_sha256": "30cbb12c185465757368ba2d5c576d678fdb4916f097404210dda36c1133167a",
+            "state_seed": 2009,
+            "routing_seed": 271828,
+            "precision": "fp16_body_fp32_heads_masters_moments",
+            "manual_loss_scale": 8192,
+            "world": 32,
+            "accumulation": 4,
+            "local_batch": 4,
+            "global_windows": 512,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "qualification_only": true,
+          "research_optimizer_updates": 0,
+          "actual_optimizer_calls_per_replica": 121,
+          "phase_real_targets": 63328362,
+          "real_targets": 63328362,
+          "valid_anchors": 3787431,
+          "cursor": 61952,
+          "model_matmuls": 30135762989088768,
+          "optimizer_matmuls_all_replicas": 3157123377830400,
+          "model_matmul_scope": "Nominal dense autograd operators including zero-weight control head;native optimizer/dead-code/tile work and communication require separate profiling.",
+          "probes": [
+            {
+              "update": 0,
+              "cursor": 0,
+              "real_targets": 523314,
+              "valid_anchors": 31241,
+              "noise_sha256_by_rank": [
+                "7dcbe80e9968f5ccd571509893316c93070acbf67e5160ae7d6befc3b44b79b1",
+                "070c4cec068c0939d44f76cdd41b75993b8ea866edffb7373e29f9614bc610ec",
+                "c85dc4b4d522604978e0d6d317c665b9372ccb1b0bb58812e4f2c0988d6a1e16",
+                "20bba4ac795b4b96fc889b6ffc6a25676b08377fba7f183f2ac2aeed6122a5d2",
+                "86ca0bd93a8a18ab3045820afbbbdd84019532185a6b3b0399dce299ad1d7acf",
+                "3c9b690c0af1b00d73f241240994457c42e8af6029adc4247da5af2ac8ae74a2",
+                "a32180c0726384a3830917132fc356440f818eacda85b0988d253ec31b961174",
+                "31c2df415d0011165553b12e6575d8638b0827f3a63859883e15a6e99ee482d9",
+                "faf4a7e6d11ed6012f86c93d73f91cff8ad34e38cc485689ea6fc8823a3a6489",
+                "6235225ee4d6c232f8b03bea17f2aa18e5c6a0553938d544288d00cae7204855",
+                "d463fabd7bd2ebd3ed367b7b6092457b4ac78dba646c0f5788232a3292709a09",
+                "bc4866b3c23c59be4eb7158132427053056a0be7d60b61f6d811ed05132becae",
+                "c5e6a93400d049f50a6212ea40eb6fd7dc347b8c20fd1762e1cfeaef4c88be3a",
+                "bd09cc1fe6e375c10cb7112e4072094c96ab4a3f9b31941ca3162f4618995a26",
+                "b6457c8c5d5e3c421bff52f5d8b6d6e0cf0b75f28348937ca55700de6b86bb5a",
+                "75d99d9f5fe6c3b3b3c7516cbfc642b5fa1840b70de6272c2e087d8c44dbc1a2",
+                "8466e8b512f88abd32beec3f50c0bd047cd94f81102b48f214f92ac4d9b08479",
+                "379df83a2b92f171e116d8018fd91602fb82d7086d57398599fc9bd45b9827cc",
+                "60c8ac2c12cf27b6dd191c35adb4b4f1d48b2c1a6175f788e665b1ee2432d61c",
+                "f46a3624f80f5a751d77b587959e19291ed94cc429cea405d9b9fc98a9b07d5f",
+                "87ac10e7b0a858cae02704b76b554f3bcd536eed11dc217b55aa23c854be2492",
+                "8ecab5ff4cbeeca1a717401d0bc2313c18f52f54e33d72fe4c52a06a3828f47b",
+                "be636a9235464c1bee5458e1fe76b60e75ed9211b3c8c3f61e0a2e41d7bbeb44",
+                "91781f3a539eb696075d24211907de56f8cbb3330d2738f1a4caff0911fe9aff",
+                "b88147760de7a91581cd02ea57ed71133cc64e5e6e6efc5b486e5f79cd225854",
+                "2262f2006f246e1075397759da6d4c38c4428296140ec5eecb5ce3276541e716",
+                "1c52fa93e5a7ad10525d5e066190ace93815912b00bb1229d3bd0113b50b2618",
+                "d520f1b54f4842b0330a37579590d946737686ed0d04df68c30e88eda2cdd018",
+                "cd49543ec22e7e8c9274c349322b879ab33513b265c704c2178cf38be050d1b8",
+                "44e4d79a8fc0434b132c71dd681d62ae750838cf220ef34e0256333b27badcdb",
+                "724cc399d9f48da4c885d6e7372b117cf15f0a3d87d55c8d6d767f22dd0d9b5d",
+                "43f3293743b0034dcfdb9145f9712ad934b4001f02dfa8e8cf558ad452c74e04"
+              ],
+              "gradient_file": "gradient-u0.pt",
+              "gradient_sha256": "c799fc080a6be84f5ca82cb80bdf9ca7a7399e9311d73ec9b7329d9a28c53de0",
+              "raw_gradient_norm": 21.150291442871094
+            },
+            {
+              "update": 120,
+              "cursor": 61440,
+              "real_targets": 523312,
+              "valid_anchors": 31246,
+              "noise_sha256_by_rank": [
+                "da18650268a15ce09520540f69f0bfd4d29d2182a102dd20357ed5b94364100f",
+                "e56128a6a00f2ee59ff2c24abb72455edb5d811172979f1101d0c4a55b6bf629",
+                "673ceb121700c498db2c0c25586182df243ef0f862bd320082b227c2bf41f69b",
+                "5177301e69e2d481c27d6e192129c7bfa2145c75a7603efc43b60548b1004f58",
+                "7b8a3b134ac4ef10b1a7a26843ded5721681226256b9fc94dff33095befd4a65",
+                "13781a7a1af79c42d252683a43e9d1efba67bcc0842ea04f20548e508e10e7fa",
+                "0b0d98b2f42bc8185c4b9c63551b5f5b1c16bcaa5993d08252301a50aa989ee3",
+                "ec09ce233b4867b45cca32311a7ea156576ad2cd79d0b5fc06c1add8451046a1",
+                "c1450615b37d133985a5ad9fdc88201da151ef41f09e37c6d1df572e67cf760c",
+                "109f38884a46ff8877b80e0181be34937b82984403dab82d341fc3518a58e126",
+                "0b730b1d24acacaeb4145dd92b386cb5ae31c36a8ab85cd1cbef21f3e201353d",
+                "fe5c377cac91a5d3c9f8308282f5358cd27ecccdd0701585fa38ba7cf04fbf65",
+                "1b9fabd0bba9ae194f853b858521b4f492a30994a180eacad6b6839b9b3c71a3",
+                "4b2f2420a3d7c1efe718ac887bc5cc6485c46878547515b7489ed98f0ae2a721",
+                "0d47f6d6e6a16825173167504f27b5e0dc13fdbac6eb603ebfd07f6459f8d998",
+                "f646aa89a12d9929b509f47a543f36267503c347457556b9fab4c3cd2c319fdf",
+                "ae43f65635ca7a43e85707be26595aefd8734a4bd7dcc5c7f48df21f796e7b74",
+                "5ebfcea094cc9c93c561b5e0a03c9ca7fd1c434f7e58a10572123ee336142842",
+                "14b6898f19b14a20a0b2c8fef5a4304658dcc5cdb9572709f62af53bcbabf488",
+                "0a108e9f07959afea9142052d2df7929cb04d2da33440d57671774a03eb60a11",
+                "6f2a63ed4b399e0cf78d9db7ff3a68449f1a56ddcc5bff4b9746d6b0d6152145",
+                "3f9040f016174d70810dc035f0b9ad1467356348d7faa63c32552215a7d5e875",
+                "618dc83e89fb95f0b56d6af6d7bb66eb5a885d6606559ae037c085f882c843ba",
+                "f4c663a06725c8e9c78242b48849165903f132d2464e99fa0535581c5dec195c",
+                "88d4e7cb5bbf946c806bb520777dc40e6aedc6f9bc0e35e47e6096991ba1e9e4",
+                "d1fa4b117b1e941d739477a11cbba5f087d9cbbfc5832ae9e2ce8f94be74f50b",
+                "c3d4033518581a9e533bd0d347b058df87df84f7787004ee8f9ae063b497c0d7",
+                "3e78707556324242fc835e4088cf3ebb7f7750d9aa9cd9f7baf4799c4f61406d",
+                "a628852691a9477afdf99f3e7e1e925d01f989ff233275fc3dc2da973008d13b",
+                "a0e7b702b750484f89a44e098a38b6b16211154bb7df61b6404eb988f311b946",
+                "86f3de7f8b06f9a7d35e96bb978b16cec2650913668642929fccb7dc7f2249d3",
+                "f972ca20ce297f5a0b6dbb0b29d317a43847dd460454d194be43267f852d689d"
+              ],
+              "gradient_file": "gradient-u120.pt",
+              "gradient_sha256": "39c0efe4ecc584076402f76a4e15ba0b3ad2aa590d57b64157a10d9bdef26a2b",
+              "raw_gradient_norm": 3.0720643997192383
+            }
+          ],
+          "full_checkpoint_sha256": "4911eb40c99fba6db03b0c2c1cfc03dda54477cc91c9a1b0b1515b6a189c63a0",
+          "full_checkpoint_state_digest": "ce09464261090b3643d3a3fac573e16a2a2951459ad10aee082f4a9cdbdd6838",
+          "first_update_sha256": "dff7e596ee196e56ae15c5ced68022b54fee54065fcf6c0be083fb45bc6ace15",
+          "final_sha256": "05a698e0d0b2018b20dacd742885368166b98a07595fa29cd6e57522de04fcdb",
+          "final_model_optimizer_digest": "e837fc337d785f8cc59ce708adcd0f6d980eb5c0e5a4bcb41d8559b0c62f12a4",
+          "all_complete_replica_states_equal": true,
+          "recovered_state_digest": null,
+          "complete_state_on_load_exact": false,
+          "cpu_rng_on_load_exact": false,
+          "warm_updates": 100,
+          "warm_seconds": 85.92691850662231,
+          "warm_targets_per_second": 609092.4347062021,
+          "warm_model_matmuls": 24905589247180800,
+          "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+          "test_accessed": false,
+          "wall_seconds": 250.7696750164032,
+          "local_batch": 4,
+          "accumulation_steps": 4,
+          "scope": "Finite actual-update qualification of four-cell causal objective,full gradients,global token/anchor normalization,FP16 body and FP32 heads/masters,moments,manual8192 unscale,runtime schedule,owned32-rank DDP and exact state load. Independent CPU gradient/first-update/recovery checks are mandatory before any scientific adoption."
+        },
+        "replay": {
+          "status": "CAPTURED_FUTURE_SPAN_TRAINING_QUALIFICATION",
+          "case": {
+            "identity": "one-b4",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "mode": "replay",
+          "signature": {
+            "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c",
+            "case": {
+              "identity": "one-b4",
+              "arm": "one",
+              "objective_weight": 0.0,
+              "gradient_rule": "all_sampled_steps"
+            },
+            "preparation_manifest_sha256": "3a9a9d760261cc31b7246e74a3e906f1af9aa6ceb13ba7c7a3371f34db393cb8",
+            "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+            "initial_sha256": "30cbb12c185465757368ba2d5c576d678fdb4916f097404210dda36c1133167a",
+            "state_seed": 2009,
+            "routing_seed": 271828,
+            "precision": "fp16_body_fp32_heads_masters_moments",
+            "manual_loss_scale": 8192,
+            "world": 32,
+            "accumulation": 4,
+            "local_batch": 4,
+            "global_windows": 512,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "qualification_only": true,
+          "research_optimizer_updates": 0,
+          "actual_optimizer_calls_per_replica": 1,
+          "phase_real_targets": 523312,
+          "real_targets": 63328362,
+          "valid_anchors": 3787431,
+          "cursor": 61952,
+          "model_matmuls": 30135762989088768,
+          "optimizer_matmuls_all_replicas": 3157123377830400,
+          "model_matmul_scope": "Nominal dense autograd operators including zero-weight control head;native optimizer/dead-code/tile work and communication require separate profiling.",
+          "probes": [
+            {
+              "update": 120,
+              "cursor": 61440,
+              "real_targets": 523312,
+              "valid_anchors": 31246,
+              "noise_sha256_by_rank": [
+                "da18650268a15ce09520540f69f0bfd4d29d2182a102dd20357ed5b94364100f",
+                "e56128a6a00f2ee59ff2c24abb72455edb5d811172979f1101d0c4a55b6bf629",
+                "673ceb121700c498db2c0c25586182df243ef0f862bd320082b227c2bf41f69b",
+                "5177301e69e2d481c27d6e192129c7bfa2145c75a7603efc43b60548b1004f58",
+                "7b8a3b134ac4ef10b1a7a26843ded5721681226256b9fc94dff33095befd4a65",
+                "13781a7a1af79c42d252683a43e9d1efba67bcc0842ea04f20548e508e10e7fa",
+                "0b0d98b2f42bc8185c4b9c63551b5f5b1c16bcaa5993d08252301a50aa989ee3",
+                "ec09ce233b4867b45cca32311a7ea156576ad2cd79d0b5fc06c1add8451046a1",
+                "c1450615b37d133985a5ad9fdc88201da151ef41f09e37c6d1df572e67cf760c",
+                "109f38884a46ff8877b80e0181be34937b82984403dab82d341fc3518a58e126",
+                "0b730b1d24acacaeb4145dd92b386cb5ae31c36a8ab85cd1cbef21f3e201353d",
+                "fe5c377cac91a5d3c9f8308282f5358cd27ecccdd0701585fa38ba7cf04fbf65",
+                "1b9fabd0bba9ae194f853b858521b4f492a30994a180eacad6b6839b9b3c71a3",
+                "4b2f2420a3d7c1efe718ac887bc5cc6485c46878547515b7489ed98f0ae2a721",
+                "0d47f6d6e6a16825173167504f27b5e0dc13fdbac6eb603ebfd07f6459f8d998",
+                "f646aa89a12d9929b509f47a543f36267503c347457556b9fab4c3cd2c319fdf",
+                "ae43f65635ca7a43e85707be26595aefd8734a4bd7dcc5c7f48df21f796e7b74",
+                "5ebfcea094cc9c93c561b5e0a03c9ca7fd1c434f7e58a10572123ee336142842",
+                "14b6898f19b14a20a0b2c8fef5a4304658dcc5cdb9572709f62af53bcbabf488",
+                "0a108e9f07959afea9142052d2df7929cb04d2da33440d57671774a03eb60a11",
+                "6f2a63ed4b399e0cf78d9db7ff3a68449f1a56ddcc5bff4b9746d6b0d6152145",
+                "3f9040f016174d70810dc035f0b9ad1467356348d7faa63c32552215a7d5e875",
+                "618dc83e89fb95f0b56d6af6d7bb66eb5a885d6606559ae037c085f882c843ba",
+                "f4c663a06725c8e9c78242b48849165903f132d2464e99fa0535581c5dec195c",
+                "88d4e7cb5bbf946c806bb520777dc40e6aedc6f9bc0e35e47e6096991ba1e9e4",
+                "d1fa4b117b1e941d739477a11cbba5f087d9cbbfc5832ae9e2ce8f94be74f50b",
+                "c3d4033518581a9e533bd0d347b058df87df84f7787004ee8f9ae063b497c0d7",
+                "3e78707556324242fc835e4088cf3ebb7f7750d9aa9cd9f7baf4799c4f61406d",
+                "a628852691a9477afdf99f3e7e1e925d01f989ff233275fc3dc2da973008d13b",
+                "a0e7b702b750484f89a44e098a38b6b16211154bb7df61b6404eb988f311b946",
+                "86f3de7f8b06f9a7d35e96bb978b16cec2650913668642929fccb7dc7f2249d3",
+                "f972ca20ce297f5a0b6dbb0b29d317a43847dd460454d194be43267f852d689d"
+              ],
+              "gradient_file": "gradient-u120.pt",
+              "gradient_sha256": "13e857e8c7d655ccf639723f519956214a9538ed72f1b42b621991e264f7a343",
+              "raw_gradient_norm": 3.0720643997192383
+            }
+          ],
+          "full_checkpoint_sha256": "db6ad044f1893bcef2c1d4b8ee0695c3754195d6f2e4383e4c01a31aca4625a5",
+          "full_checkpoint_state_digest": "ce09464261090b3643d3a3fac573e16a2a2951459ad10aee082f4a9cdbdd6838",
+          "first_update_sha256": null,
+          "final_sha256": "ddb064d09e24ce61eb01f3693edb387df2593630c8a7215086477436342f04a3",
+          "final_model_optimizer_digest": "8a12d6b369df762c2918e53904b8e2ebb231b60c1817f0da8b009782c154c246",
+          "all_complete_replica_states_equal": true,
+          "recovered_state_digest": "ce09464261090b3643d3a3fac573e16a2a2951459ad10aee082f4a9cdbdd6838",
+          "complete_state_on_load_exact": true,
+          "cpu_rng_on_load_exact": true,
+          "warm_updates": 0,
+          "warm_seconds": null,
+          "warm_targets_per_second": null,
+          "warm_model_matmuls": 0,
+          "warm_optimizer_matmuls_all_replicas": 0,
+          "test_accessed": false,
+          "wall_seconds": 161.53477668762207,
+          "local_batch": 4,
+          "accumulation_steps": 4,
+          "scope": "Finite actual-update qualification of four-cell causal objective,full gradients,global token/anchor normalization,FP16 body and FP32 heads/masters,moments,manual8192 unscale,runtime schedule,owned32-rank DDP and exact state load. Independent CPU gradient/first-update/recovery checks are mandatory before any scientific adoption."
+        }
+      },
+      "initial_cpu": {
+        "status": "PASS_INDEPENDENT_FUTURE_SPAN_QUALIFICATION_AUDIT",
+        "case": {
+          "identity": "one-b4",
+          "arm": "one",
+          "objective_weight": 0.0,
+          "gradient_rule": "all_sampled_steps"
+        },
+        "update": 0,
+        "native_mode": "warm",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.00034688786644488794,
+              "maximum_absolute_error": 6.508827209472656e-05,
+              "reference_l2": 21.150209228432452
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.00023575900265185044,
+                "maximum_absolute_error": 1.30385160446167e-06,
+                "reference_l2": 0.5835576943636668
+              },
+              "tied_input_output": {
+                "relative_l2": 0.00025647102095275486,
+                "maximum_absolute_error": 1.437193714082241e-05,
+                "reference_l2": 0.6953565131825522
+              },
+              "transformer_body": {
+                "relative_l2": 0.0003470441618224441,
+                "maximum_absolute_error": 6.508827209472656e-05,
+                "reference_l2": 21.13071911089144
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0,
+                "maximum_absolute_error": 0.0,
+                "reference_l2": 0.0
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 1.0394243474820541e-06,
+          "future_mean": 3.1259002586381257e-07
+        },
+        "cpu_ntp_nll": 10.56133880625148,
+        "cpu_future_mean": 6.876280556300214,
+        "first_or_recovered_update": {
+          "update_comparison": {
+            "relative_l2": 1.4084069804411042e-05,
+            "maximum_absolute_error": 1.4901161193847656e-08,
+            "reference_l2": 0.025318138734522405,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.8206601261889005e-05,
+            "maximum_absolute_error": 3.2887328416109085e-08,
+            "reference_l2": 0.14515151694407188
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 1.4040473389218712e-05,
+                "maximum_absolute_error": 1.4901161193847656e-08,
+                "reference_l2": 0.025314683232791808,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.8134851921244396e-05,
+                "maximum_absolute_error": 1.635635271668434e-08,
+                "reference_l2": 0.00858674698796887
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 6.847852795477005e-05,
+                "maximum_absolute_error": 9.063683137355838e-11,
+                "reference_l2": 0.00041828435774376766,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.8206852997808055e-05,
+                "maximum_absolute_error": 3.2887328416109085e-08,
+                "reference_l2": 0.14489731069736866
+              }
+            }
+          },
+          "future_head": {
+            "update_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          }
+        },
+        "optimizer_step_passes_two_percent_gate": true,
+        "cpu_raw_gradient_norm_before_clip": 21.14948272705078,
+        "gold_fingerprint": {
+          "case": {
+            "identity": "one-b4",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "update": 0,
+          "model_digest": "a1f7ae4efd9c714eb86f202302195f6c9af227fc9657be1f6c82287d4d233521",
+          "source_cursor": 0,
+          "real_targets": 523314,
+          "valid_anchors": 31241,
+          "noise_sha256_by_rank": [
+            "7dcbe80e9968f5ccd571509893316c93070acbf67e5160ae7d6befc3b44b79b1",
+            "070c4cec068c0939d44f76cdd41b75993b8ea866edffb7373e29f9614bc610ec",
+            "c85dc4b4d522604978e0d6d317c665b9372ccb1b0bb58812e4f2c0988d6a1e16",
+            "20bba4ac795b4b96fc889b6ffc6a25676b08377fba7f183f2ac2aeed6122a5d2",
+            "86ca0bd93a8a18ab3045820afbbbdd84019532185a6b3b0399dce299ad1d7acf",
+            "3c9b690c0af1b00d73f241240994457c42e8af6029adc4247da5af2ac8ae74a2",
+            "a32180c0726384a3830917132fc356440f818eacda85b0988d253ec31b961174",
+            "31c2df415d0011165553b12e6575d8638b0827f3a63859883e15a6e99ee482d9",
+            "faf4a7e6d11ed6012f86c93d73f91cff8ad34e38cc485689ea6fc8823a3a6489",
+            "6235225ee4d6c232f8b03bea17f2aa18e5c6a0553938d544288d00cae7204855",
+            "d463fabd7bd2ebd3ed367b7b6092457b4ac78dba646c0f5788232a3292709a09",
+            "bc4866b3c23c59be4eb7158132427053056a0be7d60b61f6d811ed05132becae",
+            "c5e6a93400d049f50a6212ea40eb6fd7dc347b8c20fd1762e1cfeaef4c88be3a",
+            "bd09cc1fe6e375c10cb7112e4072094c96ab4a3f9b31941ca3162f4618995a26",
+            "b6457c8c5d5e3c421bff52f5d8b6d6e0cf0b75f28348937ca55700de6b86bb5a",
+            "75d99d9f5fe6c3b3b3c7516cbfc642b5fa1840b70de6272c2e087d8c44dbc1a2",
+            "8466e8b512f88abd32beec3f50c0bd047cd94f81102b48f214f92ac4d9b08479",
+            "379df83a2b92f171e116d8018fd91602fb82d7086d57398599fc9bd45b9827cc",
+            "60c8ac2c12cf27b6dd191c35adb4b4f1d48b2c1a6175f788e665b1ee2432d61c",
+            "f46a3624f80f5a751d77b587959e19291ed94cc429cea405d9b9fc98a9b07d5f",
+            "87ac10e7b0a858cae02704b76b554f3bcd536eed11dc217b55aa23c854be2492",
+            "8ecab5ff4cbeeca1a717401d0bc2313c18f52f54e33d72fe4c52a06a3828f47b",
+            "be636a9235464c1bee5458e1fe76b60e75ed9211b3c8c3f61e0a2e41d7bbeb44",
+            "91781f3a539eb696075d24211907de56f8cbb3330d2738f1a4caff0911fe9aff",
+            "b88147760de7a91581cd02ea57ed71133cc64e5e6e6efc5b486e5f79cd225854",
+            "2262f2006f246e1075397759da6d4c38c4428296140ec5eecb5ce3276541e716",
+            "1c52fa93e5a7ad10525d5e066190ace93815912b00bb1229d3bd0113b50b2618",
+            "d520f1b54f4842b0330a37579590d946737686ed0d04df68c30e88eda2cdd018",
+            "cd49543ec22e7e8c9274c349322b879ab33513b265c704c2178cf38be050d1b8",
+            "44e4d79a8fc0434b132c71dd681d62ae750838cf220ef34e0256333b27badcdb",
+            "724cc399d9f48da4c885d6e7372b117cf15f0a3d87d55c8d6d767f22dd0d9b5d",
+            "43f3293743b0034dcfdb9145f9712ad934b4001f02dfa8e8cf558ad452c74e04"
+          ],
+          "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+          "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c"
+        },
+        "reused_gold": false,
+        "cpu_global_sha256": "88fcfa9af454e8cc211684ce316abf73bc1c10ed64e1fc31afb6c5ada21caa66",
+        "diagnostic_matrix_operations": 249055892471808,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "prescribed_cpu_reference_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 430.68516302108765,
+        "scope": "Independent pinned upstream FP32 full512-window natural TRAIN objective with separately constructed dense presence targets. Exact state/source/depth/noise required for gold reuse. Native raw-gradient replay isolates clipping and independent optimizer arithmetic;no held-out score or scientific training adoption."
+      },
+      "trained_cpu": {
+        "status": "PASS_INDEPENDENT_FUTURE_SPAN_QUALIFICATION_AUDIT",
+        "case": {
+          "identity": "one-b4",
+          "arm": "one",
+          "objective_weight": 0.0,
+          "gradient_rule": "all_sampled_steps"
+        },
+        "update": 120,
+        "native_mode": "warm",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.0008850848804624851,
+              "maximum_absolute_error": 3.2032839953899384e-05,
+              "reference_l2": 3.0718283626293514
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0011673480172389012,
+                "maximum_absolute_error": 1.007108949124813e-06,
+                "reference_l2": 0.09132042476877175
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0007079918220998544,
+                "maximum_absolute_error": 1.166854053735733e-05,
+                "reference_l2": 0.22707615687977725
+              },
+              "transformer_body": {
+                "relative_l2": 0.0008856700814005659,
+                "maximum_absolute_error": 3.2032839953899384e-05,
+                "reference_l2": 3.0620624384678754
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0003737021509803941,
+                "maximum_absolute_error": 1.4362740330398083e-08,
+                "reference_l2": 0.00033372900558731544
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": -1.4005223576418757e-06,
+          "future_mean": -2.8753680476611976e-06
+        },
+        "cpu_ntp_nll": 6.585530683244711,
+        "cpu_future_mean": 6.893897293853613,
+        "first_or_recovered_update": {
+          "update_comparison": {
+            "relative_l2": 0.00023247039655074998,
+            "maximum_absolute_error": 2.384185791015625e-07,
+            "reference_l2": 0.041216528394122195,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.074574596709245e-06,
+            "maximum_absolute_error": 4.842877388000488e-08,
+            "reference_l2": 0.8494919441334464
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 0.00023186954398081352,
+                "maximum_absolute_error": 2.384185791015625e-07,
+                "reference_l2": 0.041179317054197556,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 1.1318153878978069e-05,
+                "maximum_absolute_error": 1.885928213596344e-08,
+                "reference_l2": 0.07044142075048343
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 0.00045645159831312634,
+                "maximum_absolute_error": 5.21540641784668e-08,
+                "reference_l2": 0.00175101679413845,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 2.9379476140907655e-06,
+                "maximum_absolute_error": 4.842877388000488e-08,
+                "reference_l2": 0.846566340808726
+              }
+            }
+          },
+          "future_head": {
+            "update_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          }
+        },
+        "optimizer_step_passes_two_percent_gate": true,
+        "cpu_raw_gradient_norm_before_clip": 3.071911573410034,
+        "gold_fingerprint": {
+          "case": {
+            "identity": "one-b4",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "update": 120,
+          "model_digest": "3de5433147c4953e1f86c24cda0f4c5b7a8107fc534807d3bbf3620811e53549",
+          "source_cursor": 61440,
+          "real_targets": 523312,
+          "valid_anchors": 31246,
+          "noise_sha256_by_rank": [
+            "da18650268a15ce09520540f69f0bfd4d29d2182a102dd20357ed5b94364100f",
+            "e56128a6a00f2ee59ff2c24abb72455edb5d811172979f1101d0c4a55b6bf629",
+            "673ceb121700c498db2c0c25586182df243ef0f862bd320082b227c2bf41f69b",
+            "5177301e69e2d481c27d6e192129c7bfa2145c75a7603efc43b60548b1004f58",
+            "7b8a3b134ac4ef10b1a7a26843ded5721681226256b9fc94dff33095befd4a65",
+            "13781a7a1af79c42d252683a43e9d1efba67bcc0842ea04f20548e508e10e7fa",
+            "0b0d98b2f42bc8185c4b9c63551b5f5b1c16bcaa5993d08252301a50aa989ee3",
+            "ec09ce233b4867b45cca32311a7ea156576ad2cd79d0b5fc06c1add8451046a1",
+            "c1450615b37d133985a5ad9fdc88201da151ef41f09e37c6d1df572e67cf760c",
+            "109f38884a46ff8877b80e0181be34937b82984403dab82d341fc3518a58e126",
+            "0b730b1d24acacaeb4145dd92b386cb5ae31c36a8ab85cd1cbef21f3e201353d",
+            "fe5c377cac91a5d3c9f8308282f5358cd27ecccdd0701585fa38ba7cf04fbf65",
+            "1b9fabd0bba9ae194f853b858521b4f492a30994a180eacad6b6839b9b3c71a3",
+            "4b2f2420a3d7c1efe718ac887bc5cc6485c46878547515b7489ed98f0ae2a721",
+            "0d47f6d6e6a16825173167504f27b5e0dc13fdbac6eb603ebfd07f6459f8d998",
+            "f646aa89a12d9929b509f47a543f36267503c347457556b9fab4c3cd2c319fdf",
+            "ae43f65635ca7a43e85707be26595aefd8734a4bd7dcc5c7f48df21f796e7b74",
+            "5ebfcea094cc9c93c561b5e0a03c9ca7fd1c434f7e58a10572123ee336142842",
+            "14b6898f19b14a20a0b2c8fef5a4304658dcc5cdb9572709f62af53bcbabf488",
+            "0a108e9f07959afea9142052d2df7929cb04d2da33440d57671774a03eb60a11",
+            "6f2a63ed4b399e0cf78d9db7ff3a68449f1a56ddcc5bff4b9746d6b0d6152145",
+            "3f9040f016174d70810dc035f0b9ad1467356348d7faa63c32552215a7d5e875",
+            "618dc83e89fb95f0b56d6af6d7bb66eb5a885d6606559ae037c085f882c843ba",
+            "f4c663a06725c8e9c78242b48849165903f132d2464e99fa0535581c5dec195c",
+            "88d4e7cb5bbf946c806bb520777dc40e6aedc6f9bc0e35e47e6096991ba1e9e4",
+            "d1fa4b117b1e941d739477a11cbba5f087d9cbbfc5832ae9e2ce8f94be74f50b",
+            "c3d4033518581a9e533bd0d347b058df87df84f7787004ee8f9ae063b497c0d7",
+            "3e78707556324242fc835e4088cf3ebb7f7750d9aa9cd9f7baf4799c4f61406d",
+            "a628852691a9477afdf99f3e7e1e925d01f989ff233275fc3dc2da973008d13b",
+            "a0e7b702b750484f89a44e098a38b6b16211154bb7df61b6404eb988f311b946",
+            "86f3de7f8b06f9a7d35e96bb978b16cec2650913668642929fccb7dc7f2249d3",
+            "f972ca20ce297f5a0b6dbb0b29d317a43847dd460454d194be43267f852d689d"
+          ],
+          "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+          "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c"
+        },
+        "reused_gold": false,
+        "cpu_global_sha256": "5cbc31eb7025399ed19b92c6a213bdee7ba21eda5514be135532d67b81f0d5fb",
+        "diagnostic_matrix_operations": 249055892471808,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "prescribed_cpu_reference_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 378.3300278186798,
+        "scope": "Independent pinned upstream FP32 full512-window natural TRAIN objective with separately constructed dense presence targets. Exact state/source/depth/noise required for gold reuse. Native raw-gradient replay isolates clipping and independent optimizer arithmetic;no held-out score or scientific training adoption."
+      },
+      "replay_cpu": {
+        "status": "PASS_INDEPENDENT_FUTURE_SPAN_QUALIFICATION_AUDIT",
+        "case": {
+          "identity": "one-b4",
+          "arm": "one",
+          "objective_weight": 0.0,
+          "gradient_rule": "all_sampled_steps"
+        },
+        "update": 120,
+        "native_mode": "replay",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.0008850849522241159,
+              "maximum_absolute_error": 3.20324907079339e-05,
+              "reference_l2": 3.0718283626293514
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0011673479129763005,
+                "maximum_absolute_error": 1.0070943972095847e-06,
+                "reference_l2": 0.09132042476877175
+              },
+              "tied_input_output": {
+                "relative_l2": 0.0007079925702742125,
+                "maximum_absolute_error": 1.1668074876070023e-05,
+                "reference_l2": 0.22707615687977725
+              },
+              "transformer_body": {
+                "relative_l2": 0.0008856701504061051,
+                "maximum_absolute_error": 3.20324907079339e-05,
+                "reference_l2": 3.0620624384678754
+              },
+              "value_embeddings": {
+                "relative_l2": 0.00037370079138053904,
+                "maximum_absolute_error": 1.4359102351590991e-08,
+                "reference_l2": 0.00033372900558731544
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": -1.4005223576418757e-06,
+          "future_mean": -2.8753680476611976e-06
+        },
+        "cpu_ntp_nll": 6.585530683244711,
+        "cpu_future_mean": 6.893897293853613,
+        "first_or_recovered_update": {
+          "update_comparison": {
+            "relative_l2": 0.00023249258277703382,
+            "maximum_absolute_error": 2.384185791015625e-07,
+            "reference_l2": 0.04121652838416573,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.0755272336553515e-06,
+            "maximum_absolute_error": 5.587935447692871e-08,
+            "reference_l2": 0.8494919418529662
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 0.0002318917751194481,
+                "maximum_absolute_error": 2.384185791015625e-07,
+                "reference_l2": 0.04117931704590985,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 1.1318145934957335e-05,
+                "maximum_absolute_error": 1.8742866814136505e-08,
+                "reference_l2": 0.07044142075562539
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 0.0004564664386193082,
+                "maximum_absolute_error": 5.21540641784668e-08,
+                "reference_l2": 0.0017510167546820562,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 2.9389516501863205e-06,
+                "maximum_absolute_error": 5.587935447692871e-08,
+                "reference_l2": 0.8465663385199369
+              }
+            }
+          },
+          "future_head": {
+            "update_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moment_comparison": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          }
+        },
+        "optimizer_step_passes_two_percent_gate": true,
+        "cpu_raw_gradient_norm_before_clip": 3.071911573410034,
+        "gold_fingerprint": {
+          "case": {
+            "identity": "one-b4",
+            "arm": "one",
+            "objective_weight": 0.0,
+            "gradient_rule": "all_sampled_steps"
+          },
+          "update": 120,
+          "model_digest": "3de5433147c4953e1f86c24cda0f4c5b7a8107fc534807d3bbf3620811e53549",
+          "source_cursor": 61440,
+          "real_targets": 523312,
+          "valid_anchors": 31246,
+          "noise_sha256_by_rank": [
+            "da18650268a15ce09520540f69f0bfd4d29d2182a102dd20357ed5b94364100f",
+            "e56128a6a00f2ee59ff2c24abb72455edb5d811172979f1101d0c4a55b6bf629",
+            "673ceb121700c498db2c0c25586182df243ef0f862bd320082b227c2bf41f69b",
+            "5177301e69e2d481c27d6e192129c7bfa2145c75a7603efc43b60548b1004f58",
+            "7b8a3b134ac4ef10b1a7a26843ded5721681226256b9fc94dff33095befd4a65",
+            "13781a7a1af79c42d252683a43e9d1efba67bcc0842ea04f20548e508e10e7fa",
+            "0b0d98b2f42bc8185c4b9c63551b5f5b1c16bcaa5993d08252301a50aa989ee3",
+            "ec09ce233b4867b45cca32311a7ea156576ad2cd79d0b5fc06c1add8451046a1",
+            "c1450615b37d133985a5ad9fdc88201da151ef41f09e37c6d1df572e67cf760c",
+            "109f38884a46ff8877b80e0181be34937b82984403dab82d341fc3518a58e126",
+            "0b730b1d24acacaeb4145dd92b386cb5ae31c36a8ab85cd1cbef21f3e201353d",
+            "fe5c377cac91a5d3c9f8308282f5358cd27ecccdd0701585fa38ba7cf04fbf65",
+            "1b9fabd0bba9ae194f853b858521b4f492a30994a180eacad6b6839b9b3c71a3",
+            "4b2f2420a3d7c1efe718ac887bc5cc6485c46878547515b7489ed98f0ae2a721",
+            "0d47f6d6e6a16825173167504f27b5e0dc13fdbac6eb603ebfd07f6459f8d998",
+            "f646aa89a12d9929b509f47a543f36267503c347457556b9fab4c3cd2c319fdf",
+            "ae43f65635ca7a43e85707be26595aefd8734a4bd7dcc5c7f48df21f796e7b74",
+            "5ebfcea094cc9c93c561b5e0a03c9ca7fd1c434f7e58a10572123ee336142842",
+            "14b6898f19b14a20a0b2c8fef5a4304658dcc5cdb9572709f62af53bcbabf488",
+            "0a108e9f07959afea9142052d2df7929cb04d2da33440d57671774a03eb60a11",
+            "6f2a63ed4b399e0cf78d9db7ff3a68449f1a56ddcc5bff4b9746d6b0d6152145",
+            "3f9040f016174d70810dc035f0b9ad1467356348d7faa63c32552215a7d5e875",
+            "618dc83e89fb95f0b56d6af6d7bb66eb5a885d6606559ae037c085f882c843ba",
+            "f4c663a06725c8e9c78242b48849165903f132d2464e99fa0535581c5dec195c",
+            "88d4e7cb5bbf946c806bb520777dc40e6aedc6f9bc0e35e47e6096991ba1e9e4",
+            "d1fa4b117b1e941d739477a11cbba5f087d9cbbfc5832ae9e2ce8f94be74f50b",
+            "c3d4033518581a9e533bd0d347b058df87df84f7787004ee8f9ae063b497c0d7",
+            "3e78707556324242fc835e4088cf3ebb7f7750d9aa9cd9f7baf4799c4f61406d",
+            "a628852691a9477afdf99f3e7e1e925d01f989ff233275fc3dc2da973008d13b",
+            "a0e7b702b750484f89a44e098a38b6b16211154bb7df61b6404eb988f311b946",
+            "86f3de7f8b06f9a7d35e96bb978b16cec2650913668642929fccb7dc7f2249d3",
+            "f972ca20ce297f5a0b6dbb0b29d317a43847dd460454d194be43267f852d689d"
+          ],
+          "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+          "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c"
+        },
+        "reused_gold": true,
+        "cpu_global_sha256": "5cbc31eb7025399ed19b92c6a213bdee7ba21eda5514be135532d67b81f0d5fb",
+        "diagnostic_matrix_operations": 0,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "prescribed_cpu_reference_optimizer_steps": 1,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 46.938616037368774,
+        "scope": "Independent pinned upstream FP32 full512-window natural TRAIN objective with separately constructed dense presence targets. Exact state/source/depth/noise required for gold reuse. Native raw-gradient replay isolates clipping and independent optimizer arithmetic;no held-out score or scientific training adoption."
+      },
+      "exact_future_trajectory_digest_equal": false
+    }
+  ],
+  "scientific_training_admitted": false,
+  "qualification_native_optimizer_updates": 244,
+  "plan_sha256": "b79f563b8105835f4f54ca937e766a455c374572121ee8e3a659f14553f0d53c",
+  "qualification_only": true,
+  "research_optimizer_updates": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "# Reduce dispatch overhead without changing the learning task\n\nThis is a bounded implementation qualification,not a new scientific model.\nThe current optimizer-only speedup gave less than5% whole-training improvement\nand is closed. Keep the original qualified optimizer,FP16 body,FP32 primitive\nattention and FP32 heads/masters/moments.\n\nCompare local batches2 and4 at context1024 on32 ranks per eight-chip job.\nReduce accumulation from16 to8 or4 so every optimizer update still covers the\nsame512 original TRAIN windows. Keep initialization,source order,per-window\nlatent noise,global objective normalization,schedule and parameter inventory.\nOnly deterministic-one depth is eligible here. Later recurrent/curriculum\nshapes are not admitted by this qualification.\n\nThe native driver derives from the already qualified121-update path,with\nexplicitly recorded batch/accumulation geometry. At each probe,`micro` names\nthe logical per-rank source slot0..15;additional fields record the actual\nhardware microbatch and its within-batch offset. The CPU auditor independently\nchecks this mapping and reconstructs each window with its original noise.\nIts FP32 objective and optimizer-reference arithmetic remain unchanged.\n\nEach geometry performs121 qualification updates,including100 changing-schedule\nwarm updates,and repeats update121 after exact restoration of the120-update\ncheckpoint. Require complete32-replica equality,independent full512-window\ngradients and observed-gradient optimizer checks at0/120,and replay checks.\nThe CPU tests compare stacked and sequential objective gradients and verify\nthat changing one sample cannot alter another sample's prediction.\n\nRun both geometries on all16 idle chips under a1,800-second cap,native phases\ncapped at600 seconds and CPU phases900. Preserve512GiB MemAvailable and35GiB\nfree on output filesystems. Failures remain charged;ordinary failure cancels\nonly owned workers. The existing batch-one110.170-second100-update measurement\nis a descriptive reference,not a swapped-hardware causal speedup estimate.\nNo new held-out access,corpus generation,scientific state adoption or automatic\ntraining follows. Measure and qualify the eventual task driver separately.\n",
+  "canonical_private_report_sha256": "328b1a85b8ccc661785cb4fa1ebe2c43a267fa3e479804d04477a44b31e0d224"
+}

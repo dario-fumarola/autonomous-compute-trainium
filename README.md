@@ -50,6 +50,11 @@ work,but still does not earn its training cost under these controls.
 [Completed control](results/small_core_mixing_main_20261025/recovery-v2/REPORT.md) ·
 [Live status](STATUS.md).
 
+A source-only feasibility scan now finds1,727 exactly checked,original
+arithmetic chains across668 source groups. These are candidates for hiding
+intermediate work,not a trained curriculum or a model result.
+[Pool and remaining data gates](results/natural_source_chain_pool_20261025/REPORT.md).
+
 The next investigation audits naturally occurring worked reasoning before
 considering a curriculum that hides intermediate steps. This would change
 the training data view and add natural procedural supervision. No curriculum

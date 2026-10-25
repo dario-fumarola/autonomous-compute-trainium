@@ -1,7 +1,7 @@
 {
   "status": "PARTIAL_AGENT_ELIGIBILITY_INSPECTION",
   "sampled_documents": 200,
-  "complete_documents_inspected": 18,
+  "complete_documents_inspected": 34,
   "review_order": "Initial complete documents followed by shortest documents;not a random yield estimate",
   "decision_counts": {
     "reject_no_standalone_problem": 1,
@@ -15,18 +15,32 @@
     "needs_mcq_label_and_span_qualification": 1,
     "valid_mcq_outside_open_ended_scope": 1,
     "needs_answer_first_span_extraction": 1,
-    "reject_missing_original_question": 1,
+    "reject_missing_original_question": 2,
     "reject_diagram_and_math_rendering_ambiguity": 1,
-    "needs_mcq_notation_and_span_qualification": 1
+    "needs_mcq_notation_and_span_qualification": 1,
+    "valid_mcq_series_needs_span_qualification": 1,
+    "needs_expression_task_span_extraction": 2,
+    "reject_ambiguous_temporal_baseline": 1,
+    "clean_unit_conversion_word_candidate_pending_unit_verifier": 1,
+    "plausible_symbolic_algebra_pending_verifier": 1,
+    "reject_missing_case_premises": 1,
+    "plausible_physics_symbolic_needs_source_selection": 1,
+    "reject_no_compact_conclusion_and_sign_error": 1,
+    "reject_ambiguous_flash_phase": 1,
+    "reject_incomplete_source_conclusion": 1,
+    "reject_rendering_ambiguity_outside_exact_scope": 1,
+    "reject_indeterminate_main_question_and_mixed_tasks": 1,
+    "advanced_proof_outside_initial_scope": 1,
+    "reject_locked_computational_definition": 1
   },
   "exact_integer_word_problem_span_candidates": 3,
   "training_views_created": 0,
-  "annotation_sha256": "093ad4ca78af7ceebd74847b462ae76026219ab56772742afd8afc372c10c2f2",
+  "annotation_sha256": "06760a1d0af23b8187827c452fccdad9af6b5d16eaaa5de4cbf07682c8cc3aea",
   "candidate_spans_sha256": "bbcafb3a30de84df6b9df23562f138dfc5f805676780f41be841025ce78b9440",
   "agent_inspection_not_independent_human_review": true,
   "model_predictions_read": 0,
   "assigned_chips": 0,
   "research_optimizer_updates": 0,
   "test_accessed": false,
-  "scope": "Source-span feasibility only. All targets and intermediate work remain original source substrings. Numeric consistency checks create no training labels. MCQ options are distinguished from accidental answer leakage.182 documents and an extraction/verifier/curriculum protocol remain;no training admission or source-population quality estimate."
+  "scope": "Partial agent inspection only;not independent human review or population yield. Original source spans only.166 sampled documents remain;standalone numeric chains are audited separately. No training admission or model predictions."
 }

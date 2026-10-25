@@ -1,3 +1,38 @@
+# Status — 2026-10-25 19:44 UTC
+
+**A viable narrow natural-worked-task candidate pool is available.** Exact
+source reconstruction over242,700 accepted TRAIN documents yields1,727 original
+arithmetic chains across668 source groups and1,623 expression trees. Each has
+an original numeric premise,intermediate simplification and conclusion checked
+with bounded rational arithmetic. All20,000 original-cohort positive/negative
+extractions reproduce exactly. No computed answer or worked trace becomes data.
+[Source-pool feasibility](results/natural_source_chain_pool_20261025/REPORT.md).
+
+This is a candidate pool,not a training result or an admitted curriculum.
+Word-problem inspection remains partial:34/200 complete documents inspected,
+three clean integer candidates;166 remain. The initial whole-document960-token
+scope admits81/200 by length only. A standalone numeric-expression task is
+narrower and separately registered;it does not establish general reasoning.
+Next:freeze provenance-preserving task views,duplicate controls and numerical
+objective tests before a bounded curriculum learnability experiment. Existing
+TRAIN sources cannot become fresh evaluation merely by hiding their steps.
+
+**Local batches2 and4 pass the complete numerical qualification.** Both keep
+512 original windows/update. Six full-batch CPU FP32 gradient/optimizer audits
+pass;maximum body relative-L2 error0.09010%. All32 replicas and full model/
+optimizer/RNG restoration pass. Future-update state digests differ across
+restart,so strict bit-exact future trajectory remains unestablished.100 warm
+updates take82.993s at local batch2 and85.927s at4,versus the previous110.170s
+batch-one reference. Batch2 is the preferred qualified deterministic-one path;
+new recurrent/task shapes need their own qualification. The initial asset-link
+failure,costs and same-deadline recovery remain preserved.
+[Qualification and scope](results/local_batch_qualification_20261025/recovery-v2/REPORT.md).
+
+**257 CPU tests pass.** No curriculum training,new architecture,larger exposure,
+TEST or terminal alpha is admitted. The owner/broadcast optimizer remains closed
+below its5% whole-training screen;keep the original scientific optimizer. The
+broad research objective is active and unachieved.
+
 # Status — 2026-10-25 18:46 UTC
 
 **The natural worked-reasoning feasibility inventory is complete.** It
