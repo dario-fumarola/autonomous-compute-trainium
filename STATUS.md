@@ -42,7 +42,15 @@ assigned. No held-out MAIN outcome is available. MAIN retains its original
 remain frozen. No terminal confirmation has been opened.
 [Actual fresh-update receipt](results/future_span_main_20261025/primitive-v2/native-start-receipt.json).
 
-All **216 CPU tests pass**. Resource guards pass. Fresh confirmation sources
+A separate pre-outcome CPU audit reconstructs the complete matrix ledger and
+checks a possible one-pass work-matched continuation:2365 updates/1.238B
+real targets,0.021527% below recurrence's1.005B matrix budget. Its own cooldown
+would start at1182 updates,after the preserved stable960-update state. No
+checkpoint was adopted,no scores read and no control run admitted;cross-plan
+full-state recovery still needs qualification.
+[Work/source feasibility](docs/FUTURE_SPAN_COMPUTE_READINESS_20261025.md).
+
+All **218 CPU tests pass**. Resource guards pass. Fresh confirmation sources
 and terminal alpha remain untouched;the overall research goal is active and
 unachieved. Complete the primary factorial readout and the separately disclosed
 NTP secondary before selecting a follow-up.

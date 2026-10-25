@@ -1,0 +1,84 @@
+{
+  "status": "PASS_PROSPECTIVE_WORK_MATCHED_CONTINUATION_GEOMETRY",
+  "identity": "future-span-compute-readiness-v1",
+  "main_plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+  "analysis_source_sha256": {
+    "scripts/audit_future_span_compute_readiness.py": "2eb7383cdcc6a557eeca8d6ea17fb52a628ca7fd9af2e5b4c6b9d09d7e84a8d4",
+    "compute_trainium/future_span_control_budget.py": "fd61bf0288349536c3deaff13349b08b8278af330ed461728a14193ffb56f6df",
+    "tests/test_future_span_control_budget.py": "df07531cd15767c97c23ca559c6e588ba662687b2495fbbaae01d660a5eb4291"
+  },
+  "frozen_ledger_sha256": {
+    "one-depth_table": "c3f55d005d07bd1ab48330a71a0b96706cd77a1af0a841c8233aeb624a13b9f1",
+    "one-work_table": "bfa0a713e28d334da1f1167dae19594050b2a2ac777c6cf483156eb54704f42f",
+    "recurrent-depth_table": "7a9edd362ce30e3ea3a0c0f0b1173e1598634f8cfc1599bd66205455ab70af68",
+    "recurrent-work_table": "92cb962ee4036ff2fa7e1b2eb2a25c5ebd85a02ee37951b6a68ecde39820ecb4"
+  },
+  "source_count_prefix_sha256": "d22360f1ba69b325036e4c576df68520e5395ae28b4c676d66bf255119125af1",
+  "model_training_parameters": 166571840,
+  "candidate_updates": 1920,
+  "candidate_real_targets": 1004887590,
+  "candidate_training_matrix_ops": 650864708520837120,
+  "one_pass_control_branch": {
+    "matched_work": {
+      "updates": 2365,
+      "executed_matmuls": 650724597171601920,
+      "budget_matmuls": 650864708520837120,
+      "unused_budget_matmuls": 140111349235200,
+      "relative_shortfall": 0.00021526954434757835,
+      "next_update_would_exceed_budget": true
+    },
+    "origin_update": 960,
+    "cooldown_start_update": 1182,
+    "total_updates": 2365,
+    "origin_source": {
+      "source_cursor": 491520,
+      "domain_targets": [
+        301465509,
+        100489101,
+        100489626
+      ],
+      "real_targets": 502444236
+    },
+    "cooldown_source": {
+      "source_cursor": 605184,
+      "domain_targets": [
+        371178296,
+        123726723,
+        123729329
+      ],
+      "real_targets": 618634348
+    },
+    "final_source": {
+      "source_cursor": 1210880,
+      "domain_targets": [
+        742668971,
+        247556903,
+        247562408
+      ],
+      "real_targets": 1237788282
+    },
+    "inherited_matrix_ops_charged": 264141908365639680,
+    "additional_branch_matrix_ops": 386582688805962240,
+    "checkpoint_adopted": false,
+    "training_launched": false,
+    "scope": "Complete conceptual model cost includes the shared prefix; incremental campaign cost is separate. Requires an actually stable, fully recovered parent and a separately qualified branch registration before launch. Not chip-time matching or an efficiency result."
+  },
+  "eligible_parent_cells": [
+    "one-ntp",
+    "one-future"
+  ],
+  "pilot_seeds": [
+    5231,
+    7283
+  ],
+  "registered_branch": false,
+  "checkpoint_adopted": false,
+  "training_launched": false,
+  "assigned_chips": 0,
+  "model_forwards": 0,
+  "test_accessed": false,
+  "scientific_quality_scores_read": 0,
+  "terminal_alpha_spent": 0,
+  "wall_seconds": 1.3684217929840088,
+  "scope": "Pre-outcome feasibility evidence only, not an admitted experiment. Actual stable parent recovery and cross-plan provenance transport still require qualification, as do stronger ordinary/cheap controls. All source exposure and complete inherited training cost are charged. Existing MAIN source, schedule, budget and analysis remain untouched."
+}
