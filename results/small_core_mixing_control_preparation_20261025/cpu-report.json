@@ -1,0 +1,28 @@
+{
+  "status": "PASS_CPU_PREPARATION_ONLY",
+  "observed_utc": "2026-10-25T14:58:25.947905+00:00",
+  "tests": {
+    "passed": 242,
+    "wall_seconds": 27.55
+  },
+  "native_qualified": false,
+  "scientific_training_admitted": false,
+  "model_forwards": "Numerical software fixtures only;no research examples or model checkpoints read.",
+  "assigned_chips": 0,
+  "research_optimizer_updates": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "source_sha256": {
+    "compute_trainium/parcae_mixing_control.py": "40be59f7ce9034fecec94a1e2656dcf0bc93dd9a7650279b365077c1ec8b00a0",
+    "tests/test_parcae_mixing_control.py": "35aabd19c6a8d35b42a2b47eb3868c92eca8b5a9e747354aef38b07e7a79c987",
+    "docs/SMALL_CORE_MIXING_CONTROL_PREPARATION_20261025.md": "8888dfac5e2a2abf76cf5b178e587d6e54a46d6c56046c7bb5e211c26ad0b092"
+  },
+  "checks": [
+    "Exact one-step function,parameter inventory and full gradients in FP32/FP16",
+    "Exactly one core execution for multiple mixing steps",
+    "All mixing gradients reach earlier states",
+    "Causal prefix invariance",
+    "Independent ATen matrix-operation trace equals declared forward ledger"
+  ],
+  "initial_test_failure": "Operator counter initially used inference_mode,which exposes composite operators and counted zero;no_grad exposes ATen mm/bmm/addmm. Fixed counter passes at mixing depths1/2/3/5;production model function unchanged."
+}

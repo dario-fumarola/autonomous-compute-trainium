@@ -485,6 +485,168 @@
         "wall_seconds": 581.2342400550842,
         "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
       }
+    },
+    {
+      "case_id": "one-ntp-s7283-lr32000-work",
+      "update": 2365,
+      "native_identity": "future-span-work-control-v1-one-ntp-s7283-lr32000-work-final-gradient",
+      "native_report_sha256": "80a90d52f147551194e1e97fb7cc3ecf9370204cea54cdcef00308310320fb04",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "one-ntp-s7283-lr32000-work",
+        "cell": "one-ntp",
+        "training_update": 2365,
+        "checkpoint_sha256": "c1e946cffddf6e0ff0c2f72d7170445c6617ea19692f7a51387fc1fddfe531d9",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.0029787477948416785,
+              "maximum_absolute_error": 2.0570434571709484e-05,
+              "reference_l2": 0.06207343936815755
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.003279629418405995,
+                "maximum_absolute_error": 3.0028168112039566e-06,
+                "reference_l2": 0.002424006375423977
+              },
+              "tied_input_output": {
+                "relative_l2": 0.002303117789531827,
+                "maximum_absolute_error": 2.4681794457137585e-06,
+                "reference_l2": 0.0029866901355742187
+              },
+              "transformer_body": {
+                "relative_l2": 0.00297971432939862,
+                "maximum_absolute_error": 2.0570434571709484e-05,
+                "reference_l2": 0.0619522668966423
+              },
+              "value_embeddings": {
+                "relative_l2": 0.001768423915628107,
+                "maximum_absolute_error": 5.762035470979754e-08,
+                "reference_l2": 0.00048205444246173646
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 1.5808387439086857e-06,
+          "future_mean": -3.6635514089056187e-07
+        },
+        "cpu_ntp_nll": 2.510628475065176,
+        "cpu_future_mean": 6.682134058606346,
+        "windows": 512,
+        "real_targets": 523398,
+        "valid_anchors": 31321,
+        "diagnostic_matrix_ops": 249055892471808,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 386.7282519340515,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
+    },
+    {
+      "case_id": "one-future-s7283-lr32000-work",
+      "update": 2365,
+      "native_identity": "future-span-work-control-v1-one-future-s7283-lr32000-work-final-gradient",
+      "native_report_sha256": "d3f0bb9f1cf252a2db66b87b368881307e860cdbd8a517a98be9bf5afe96fc76",
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+        "case_id": "one-future-s7283-lr32000-work",
+        "cell": "one-future",
+        "training_update": 2365,
+        "checkpoint_sha256": "24ab66455a2e32e0a7fed7a192f40ca3d6e98aa7ba9e6e2bc329ca90c5a69c58",
+        "gradient": {
+          "body": {
+            "overall": {
+              "relative_l2": 0.004120471131868454,
+              "maximum_absolute_error": 8.875841740518808e-05,
+              "reference_l2": 0.06402825561411021
+            },
+            "families": {
+              "recurrent_injection_readout": {
+                "relative_l2": 0.0029179759115048613,
+                "maximum_absolute_error": 9.190407581627369e-07,
+                "reference_l2": 0.0024390386638913648
+              },
+              "tied_input_output": {
+                "relative_l2": 0.002869854680706174,
+                "maximum_absolute_error": 2.7543719625100493e-06,
+                "reference_l2": 0.0029568559890099985
+              },
+              "transformer_body": {
+                "relative_l2": 0.004124333645024436,
+                "maximum_absolute_error": 8.875841740518808e-05,
+                "reference_l2": 0.06391152293835134
+              },
+              "value_embeddings": {
+                "relative_l2": 0.0018449541568365054,
+                "maximum_absolute_error": 6.367952209984651e-08,
+                "reference_l2": 0.0004927938136029978
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "future_head": {
+            "relative_l2": 0.0020752840457032976,
+            "maximum_absolute_error": 3.3232663554372266e-07,
+            "reference_l2": 0.0003835271529638665
+          },
+          "future_head_named": {
+            "future_lm_head.weight": {
+              "relative_l2": 0.0017819168471035994,
+              "maximum_absolute_error": 1.918651832966134e-07,
+              "reference_l2": 0.0003182224823489887
+            },
+            "future_lm_head.bias": {
+              "relative_l2": 0.0026090724695179528,
+              "maximum_absolute_error": 3.3232663554372266e-07,
+              "reference_l2": 0.00021407365271844321
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "loss_differences": {
+          "ntp_nll": 4.309793512291549e-06,
+          "future_mean": 1.591537834633172e-05
+        },
+        "cpu_ntp_nll": 2.514962312165303,
+        "cpu_future_mean": 3.5566441030597624,
+        "windows": 512,
+        "real_targets": 523398,
+        "valid_anchors": 31321,
+        "diagnostic_matrix_ops": 249055892471808,
+        "full_state_readback_exact": true,
+        "model_unchanged": true,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 364.6802189350128,
+        "scope": "Independent pinned-upstream FP32 full512-window natural TRAIN objective,dense independently constructed future targets. No optimizer step,held-out quality score or threshold change."
+      }
     }
   ]
 }

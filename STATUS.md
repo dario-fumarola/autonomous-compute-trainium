@@ -1,3 +1,35 @@
+# Status — 2026-10-25 15:01 UTC
+
+**All four matched-work controls are complete. Recurrence loses in both paired
+seeds at the declared two-pass exit.**
+
+| Seed | Recurrent NTP1.005B | One-pass NTP1.238B | Candidate gain |
+| --- | ---: | ---: | ---: |
+| 5231 | 2.592239 | 2.581290 | −0.010950 |
+| 7283 | 2.589951 | 2.581382 | −0.008568 |
+
+Both independently tuned one-pass objectives beat recurrence in both seeds.
+Complete nominal matrix work matches within0.021527%;all endpoints finish
+their own cooldowns. All eight full512-window gradient gates,model/optimizer/
+RNG restoration and replica equality pass. The largest body-gradient relative
+error is0.4121%. These two consumed-DEV seeds establish the observed budget
+negative,not independent confirmation or a universal result. The original
+mean0.023747-nat equal-data benefit remains.
+[Complete controls](results/future_span_work_controls_20261025/REPORT.md).
+
+Even free,target-informed selection among supported depths1/2/3 loses to
+both long one-pass controls in both seeds. Its best NLLs are2.586341/2.584255.
+That bounds whole-document policies restricted to these saved predictions;
+it does not bound token routing,new training or other architectures.
+[Retrospective bound](results/future_span_depth_oracle_20261025/REPORT.md).
+
+The read-only prefill benchmark is admitted on all16 chips. It retains its
+original30-minute total budget,including spent CPU preparation. No cached
+serving claim. A stronger cheap control has CPU preparation only:repeat input
+mixing,execute the core once. **242 CPU tests pass**;no new scientific fit or
+larger-exposure run is admitted. Both original scientific source freezes are
+unchanged. The overall goal remains active and unachieved;no TEST/terminal alpha.
+
 # Status — 2026-10-25 14:51 UTC
 
 **The first complete matched-work pair favors one-pass training.** Seed5231's
