@@ -1,4 +1,36 @@
-# Status — 2026-10-25, 08:14 UTC
+# Status — 2026-10-25, 08:48 UTC
+
+**Eight cooled tuning scores are available; the recurrent grids are unfinished.**
+All models below see the same 301,465,908 real training targets. Scores use
+independent FP32 inference on the same 556-document consumed TUNE panel.
+
+| Cell | Peak LR | TUNE NLL |
+| --- | ---: | ---: |
+| One-pass NTP, best of three | .032 | 2.938677 |
+| One-pass future loss, best of three | .032 | 2.935304 |
+| Recurrent NTP, two-pass readout | .008 | 2.990030 |
+| Recurrent NTP, two-pass readout | .016 | 2.935299 |
+
+The better available recurrent NTP score gains 0.003377 nats over the best
+completed one-pass NTP grid and essentially ties the best one-pass future-loss
+score. At the shared LR .016 its gain is 0.013729, but that comparison omits the
+better independently tuned one-pass baseline. Neither establishes the useful
+0.01-nat effect. This is one tuning seed, not training-seed confirmation.
+
+Recurrent training uses 1.232× the estimated matrix work at this exposure.
+There is no matched-compute outcome here. The .032 recurrent NTP trial and
+all three recurrent future-loss trials are unfinished. Both completed one-pass
+grids have upper-edge winners, so their optima remain unbracketed.
+[Partial comparison](results/future_span_tune_20261025/primitive-v2/partial-recurrent-ntp-tune.json).
+
+All 16 chips are training recurrent NTP at .032 and recurrent future loss at
+.008. The study still requires all twelve frozen tuning opportunities and
+four distinct selected-checkpoint gradient gates before the separate two-seed
+1B main study. No recipe, threshold, grid, data order or admitted budget changes.
+Confirmation sources and terminal alpha remain untouched. The overall research
+goal is active and unachieved.
+
+# Earlier status — 2026-10-25, 08:14 UTC
 
 **All six one-pass 301.5M-target tuning endpoints are scored;the factorial
 comparison is unfinished.** Both one-pass three-rate grids are complete. Independent FP32 scores use

@@ -1,0 +1,52 @@
+{
+  "status": "PARTIAL_RECURRENT_NTP_TUNE_COMPARISON",
+  "observed_unix": 1792917638.5433064,
+  "recurrent_rates_completed": [
+    0.008,
+    0.016
+  ],
+  "scores": [
+    {
+      "cell": "one-ntp",
+      "peak_lr": 0.032,
+      "weighted_nll": 2.9386766324009748,
+      "training_real_targets": 301465908,
+      "training_parameters": 166571840,
+      "estimated_training_dense_matrix_ops": 158485145019383808
+    },
+    {
+      "cell": "one-future",
+      "peak_lr": 0.032,
+      "weighted_nll": 2.935303951984701,
+      "training_real_targets": 301465908,
+      "training_parameters": 166571840,
+      "estimated_training_dense_matrix_ops": 158485145019383808
+    },
+    {
+      "cell": "recurrent-ntp",
+      "peak_lr": 0.008,
+      "weighted_nll": 2.990029653469279,
+      "training_real_targets": 301465908,
+      "training_parameters": 166571840,
+      "estimated_training_dense_matrix_ops": 195255114469244928
+    },
+    {
+      "cell": "recurrent-ntp",
+      "peak_lr": 0.016,
+      "weighted_nll": 2.9352994715945,
+      "training_real_targets": 301465908,
+      "training_parameters": 166571840,
+      "estimated_training_dense_matrix_ops": 195255114469244928
+    }
+  ],
+  "same_rate_recurrent_gains": {
+    "0.008": 0.00379180973809623,
+    "0.016": 0.013729496044138312
+  },
+  "best_available_recurrent_gain_over_best_complete_one_ntp": 0.003377160806474766,
+  "best_available_recurrent_gain_over_best_complete_one_future": 4.480390201067053e-06,
+  "recurrent_vs_one_training_matrix_work_ratio": 1.2320089333632114,
+  "terminal_success": false,
+  "main_admitted": false,
+  "scope": "One TUNE seed at equal source exposure and parameter inventory. Recurrent grid unfinished;extra training/inference compute charged. Same-rate gains are not best-recipe comparisons. No selected model,compute-matched outcome or useful-effect confirmation."
+}
