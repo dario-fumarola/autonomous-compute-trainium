@@ -1,7 +1,7 @@
-# Status — 2026-10-25, 09:19 UTC
+# Status — 2026-10-25, 09:31 UTC
 
-**All twelve 301M-target tuning scores are complete;selected gradient gates
-are running before MAIN admission.** Independent FP32 scores use the same
+**All twelve tuning scores and four selected gradient gates pass;the
+fresh two-seed MAIN study is running on all16 chips.** Independent FP32 scores use the same
 556-document consumed TUNE panel and 301,465,908 training targets per fit.
 
 | Cell | Selected peak LR | TUNE NLL |
@@ -27,13 +27,25 @@ and improve at a supported second inference pass. It cannot override the
 original primary or serve as independent confirmation.
 [Disclosed secondary protocol](docs/NTP_SECONDARY_DISCOVERY_20261025.md).
 
-The selected one-pass checkpoints are undergoing independent complete
-512-window gradient audits. All four distinct selected checkpoints must pass
-before the frozen controller admits eight 1.005B-target MAIN fits across two
-fresh seeds. Current device idleness is the bounded CPU-audit prerequisite;
-no new model,LR,objective,data or deadline changes. Resource guards pass.
-All **216 CPU tests pass**. Fresh confirmation sources and terminal alpha
-remain untouched;the overall research goal is active and unachieved.
+All four selected checkpoints pass independent complete512-window gradient
+checks;the largest backbone discrepancy is0.330%,below the fixed2% gate.
+The complete TUNE stage took1h51m,24.652 assigned native chip-hours and29.628
+whole-instance opportunity chip-hours,including CPU tails;these costs are
+separate and are not added.
+[Completed tuning audit](results/future_span_tune_20261025/primitive-v2/complete-tuning-closure-audit.json).
+
+The controller admitted all eight1.005B-target MAIN fits:four cells across
+fresh seeds5231/7283. Both first seed5231 one-pass cells have already performed
+20 actual optimizer updates and10,467,614 real targets each. All16 chips are
+assigned. No held-out MAIN outcome is available. MAIN retains its original
+8h cap,ending17:29 UTC;architecture,objective,rates,data and decision rules
+remain frozen. No terminal confirmation has been opened.
+[Actual fresh-update receipt](results/future_span_main_20261025/primitive-v2/native-start-receipt.json).
+
+All **216 CPU tests pass**. Resource guards pass. Fresh confirmation sources
+and terminal alpha remain untouched;the overall research goal is active and
+unachieved. Complete the primary factorial readout and the separately disclosed
+NTP secondary before selecting a follow-up.
 
 # Earlier status — 2026-10-25, 08:14 UTC
 
