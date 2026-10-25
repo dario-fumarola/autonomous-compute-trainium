@@ -1,4 +1,4 @@
-# Status — 2026-10-25, 09:31 UTC
+# Status — 2026-10-25, 09:45 UTC
 
 **All twelve tuning scores and four selected gradient gates pass;the
 fresh two-seed MAIN study is running on all16 chips.** Independent FP32 scores use the same
@@ -35,12 +35,15 @@ separate and are not added.
 [Completed tuning audit](results/future_span_tune_20261025/primitive-v2/complete-tuning-closure-audit.json).
 
 The controller admitted all eight1.005B-target MAIN fits:four cells across
-fresh seeds5231/7283. Both first seed5231 one-pass cells have already performed
-20 actual optimizer updates and10,467,614 real targets each. All16 chips are
-assigned. No held-out MAIN outcome is available. MAIN retains its original
+fresh seeds5231/7283. Both first seed5231 one-pass cells have saved independently
+audited stable301M-target checkpoints. Exact complete model/optimizer digests,
+all32 replica/RNG records and source/anchor/work counters pass. The zero-weight
+NTP head stays unchanged;the future-loss head changes. All16 chips are assigned.
+No held-out MAIN outcome is available. MAIN retains its original
 8h cap,ending17:29 UTC;architecture,objective,rates,data and decision rules
 remain frozen. No terminal confirmation has been opened.
-[Actual fresh-update receipt](results/future_span_main_20261025/primitive-v2/native-start-receipt.json).
+[Actual fresh-update receipt](results/future_span_main_20261025/primitive-v2/native-start-receipt.json)
+· [Stable checkpoint audit](results/future_span_main_20261025/primitive-v2/stable301m-custody-audit.json).
 
 A separate pre-outcome CPU audit reconstructs the complete matrix ledger and
 checks a possible one-pass work-matched continuation:2365 updates/1.238B

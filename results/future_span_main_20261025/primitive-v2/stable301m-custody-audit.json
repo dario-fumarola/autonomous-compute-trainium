@@ -1,0 +1,57 @@
+{
+  "status": "PASS_MAIN_STABLE_CHECKPOINT_CUSTODY_AND_OBJECTIVE_HEAD_CONTROL",
+  "observed_utc": "2026-10-25T09:44:31.777053+00:00",
+  "plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+  "records": [
+    {
+      "case_id": "one-ntp-s5231-lr32000",
+      "checkpoint_sha256": "7dd76003ca54874e9e5f1784f33ec6f02f120915d30a6011265c287fa821497c",
+      "complete_model_optimizer_digest": "456af8cd1044c71c0da6f69d6ac1a7ef6043d5d5b9fc60ef82e8a347dfd1608e",
+      "update": 576,
+      "source_cursor": 294912,
+      "real_targets": 301465908,
+      "domain_targets": [
+        180878087,
+        60295034,
+        60292787
+      ],
+      "valid_anchors": 18031448,
+      "estimated_dense_matrix_ops": 158485145019383808,
+      "full_state_readback_exact": true,
+      "replica_states_equal": 32,
+      "random_state_ranks": 32,
+      "qualification_only": false,
+      "before_cooldown": true,
+      "initial_state_sha256": "4b8a1a60c0b9ba37f9cae68ec7a3020a313e1f0f3e6f998387b9333e1a1ec31c",
+      "future_head_equal_to_initializer": true
+    },
+    {
+      "case_id": "one-future-s5231-lr32000",
+      "checkpoint_sha256": "1a06bc99ec9d3d02089ee115e2097dddc347da77c71c6d3c93fef7d0aa4be3a0",
+      "complete_model_optimizer_digest": "42b5b977d8cdb4b48371480fe01869c7131ddd524d5e4aa600c3584dcaa8009a",
+      "update": 576,
+      "source_cursor": 294912,
+      "real_targets": 301465908,
+      "domain_targets": [
+        180878087,
+        60295034,
+        60292787
+      ],
+      "valid_anchors": 18031448,
+      "estimated_dense_matrix_ops": 158485145019383808,
+      "full_state_readback_exact": true,
+      "replica_states_equal": 32,
+      "random_state_ranks": 32,
+      "qualification_only": false,
+      "before_cooldown": true,
+      "initial_state_sha256": "4b8a1a60c0b9ba37f9cae68ec7a3020a313e1f0f3e6f998387b9333e1a1ec31c",
+      "future_head_equal_to_initializer": false
+    }
+  ],
+  "wall_seconds": 9.57093334197998,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "model_forwards": 0,
+  "test_accessed": false,
+  "scope": "Read-only CPU deserialization of the first two fresh MAIN stable checkpoints. Exact complete model/optimizer digests,32 replica/RNG records,signature and source/domain/anchor/work counters pass. NTP zero-weight head stays at initialization;future-loss head changes. No held-out quality,gradient,trajectory-after-restart or transfer claim."
+}
