@@ -1,4 +1,18 @@
-# Status — 2026-10-25, 05:52 UTC
+# Status — 2026-10-25, 06:02 UTC
+
+All three cooled matched-work scores are available:ordinary **2.454545**,
+true one-pass **2.448818**,recurrence at its declared two-pass exit **2.450674**.
+The recurrent gain versus ordinary is0.003871,and it loses0.001856 to its
+parameter-exact one-pass control. Neither comparison shows a0.01-nat useful
+gain in this one-seed pilot. These are consumed-DEV source intervals,not
+training-seed confirmation;the prefix-only-noise audit remains pending.
+[Complete primary readout](results/parcae_low_depth_pilot_20261024/main-recovery-v2/three-arm-matched-work.json).
+
+Ordinary's final equal-data branch is running. The compiled-attention numerical
+queue is confirmed live and waits for the remaining native work/gates;all
+future-objective queues remain stopped before hardware admission.
+
+## Earlier status — 05:52 UTC
 
 The authentic-code diagnostic is complete after an execution-only path repair.
 At the matched-work checkpoint,extra supported depth improves full-context
