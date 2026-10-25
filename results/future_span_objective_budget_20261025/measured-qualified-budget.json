@@ -1,0 +1,75 @@
+{
+  "status": "MEASURED_HARDWARE_FEASIBILITY_NOT_SCIENTIFIC_ADMISSION",
+  "hardware_report_sha256": "a80403709b57b4542bd1b384c342367eb7b517e46d65a17975621e94c904269f",
+  "checked_unix": 1792913249.2723713,
+  "stages": {
+    "tune": {
+      "measurement_by_cell": {
+        "one-ntp": {
+          "measured_warm_seconds_per_update": 1.0990169548988342,
+          "measured_warm_targets_per_second": 476220.46017313463,
+          "setup_seconds_allowance_per_worker": 248.90075182914734
+        },
+        "one-future": {
+          "measured_warm_seconds_per_update": 1.099031264781952,
+          "measured_warm_targets_per_second": 476214.25956780004,
+          "setup_seconds_allowance_per_worker": 249.38937377929688
+        },
+        "recurrent-ntp": {
+          "measured_warm_seconds_per_update": 1.6058094596862793,
+          "measured_warm_targets_per_second": 325925.567845546,
+          "setup_seconds_allowance_per_worker": 245.49594569206238
+        },
+        "recurrent-future": {
+          "measured_warm_seconds_per_update": 1.6060377144813538,
+          "measured_warm_targets_per_second": 325879.2463469739,
+          "setup_seconds_allowance_per_worker": 246.41977751255035
+        }
+      },
+      "training_two_half_seconds_allowance": 8496.843232784273,
+      "diagnostic_and_readout_seconds_allowance": 3300.0,
+      "predicted_seconds_with_margin": 11796.843232784273,
+      "execution_seconds_cap": 14400,
+      "fits_registered_cap": true,
+      "assigned_training_chip_hours_allowance": 37.762369793987276,
+      "whole_instance_opportunity_chip_hours_cap": 64.0,
+      "scope": "Prospective feasibility estimate from actual100 warm updates at exact geometry. Not measured scientific throughput or wall-time equivalence. Includes conservative launches,full-gradient diagnostics,CPU scoring/tails;failed work stays in actual receipts."
+    },
+    "main": {
+      "measurement_by_cell": {
+        "one-ntp": {
+          "measured_warm_seconds_per_update": 1.0990169548988342,
+          "measured_warm_targets_per_second": 476220.46017313463,
+          "setup_seconds_allowance_per_worker": 248.90075182914734
+        },
+        "one-future": {
+          "measured_warm_seconds_per_update": 1.099031264781952,
+          "measured_warm_targets_per_second": 476214.25956780004,
+          "setup_seconds_allowance_per_worker": 249.38937377929688
+        },
+        "recurrent-ntp": {
+          "measured_warm_seconds_per_update": 1.6058094596862793,
+          "measured_warm_targets_per_second": 325925.567845546,
+          "setup_seconds_allowance_per_worker": 245.49594569206238
+        },
+        "recurrent-future": {
+          "measured_warm_seconds_per_update": 1.6060377144813538,
+          "measured_warm_targets_per_second": 325879.2463469739,
+          "setup_seconds_allowance_per_worker": 246.41977751255035
+        }
+      },
+      "training_two_half_seconds_allowance": 17560.91043190956,
+      "diagnostic_and_readout_seconds_allowance": 6300.0,
+      "predicted_seconds_with_margin": 23860.91043190956,
+      "execution_seconds_cap": 28800,
+      "fits_registered_cap": true,
+      "assigned_training_chip_hours_allowance": 78.04849080848693,
+      "whole_instance_opportunity_chip_hours_cap": 128,
+      "scope": "Prospective feasibility estimate from actual100 warm updates at exact geometry. Not measured scientific throughput or wall-time equivalence. Includes conservative launches,full-gradient diagnostics,CPU scoring/tails;failed work stays in actual receipts.",
+      "supersedes_unexecuted_main_cap_seconds": 21600,
+      "prospective_amendment": "Before any objective scientific scores,retain the frozen1B exposure and two paired pilot seeds;allow8h for the measured full-gradient primitive-attention path including cold setup,complete-gradient audits and scoring. TUNE remains4h. No automatic extension after admission."
+    }
+  },
+  "driver_pass_still_required": true,
+  "scientific_runs_admitted": false
+}

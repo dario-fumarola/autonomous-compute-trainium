@@ -292,3 +292,10 @@ fallback is separately registered for qualification;no speed or training
 benefit is established. See native-v2/operator-audit.json and the adjoint
 CPU report. Full-model errors and the scientific ranking cannot be inferred
 from these operator relative errors.
+
+The subsequent eight-case native primitive route passes on all32 replicas and
+both exact-input mature full-batch audits. A standalone CPU reproducer and a
+local review draft now isolate the saved-output correction:replacing only
+that Python-backward input with recomputed unrounded output changes saturated
+query error67.09%→0.0743%. This counterfactual is not a native patch. See
+[review draft](OSS_SDPA_MATH2_REVIEW_DRAFT_20261025.md). No upstream submission.

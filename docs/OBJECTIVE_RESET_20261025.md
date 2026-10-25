@@ -55,3 +55,16 @@ this natural-only small-budget claim.
 next observed token;it is a different intervention,with language-model loss
 and downstream metrics that need not improve together. These limitations are
 reasons for controls,not reasons to assume that the objective must be the cause.
+
+## Pre-outcome measured budget amendment
+
+All four actual100-update paths are measured before any new scientific scores.
+One pass reaches476k real targets/second per eight-chip job;full-gradient
+recurrence reaches326k. The conservative main estimate,including launches,
+complete-gradient checks and scoring,is6.63hours. Before admission or outcomes,
+the new primitive-path registry therefore fixes an8hour main cap,retaining
+the1.005B endpoint and both pilot seeds. Tuning remains capped at4hours. The
+old6hour allocation is retained in the amendment record,and the projection is
+recomputed only after complete independent hardware/driver passes. Admitted
+deadlines cannot be extended automatically. No scientific criterion,grid,
+source order,precision policy or confirmation allocation changes.

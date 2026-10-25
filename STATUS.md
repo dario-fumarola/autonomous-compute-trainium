@@ -1,4 +1,42 @@
-# Status — 2026-10-25, 06:50 UTC
+# Status — 2026-10-25, 07:28 UTC
+
+**The four-cell objective hardware qualification passes completely.** All four
+paths perform121 actual optimizer updates plus a fresh-process replay update;
+all12 independent objective,gradient and optimizer audits pass. Model,
+optimizer and CPU RNG restore exactly,and all32 replica states agree.
+The largest trained body-gradient relative error is0.113%,under the fixed2%
+gate. These are qualification weights,not scientific results.
+[Completed hardware evidence](results/future_span_qualification_20261025/math-sdpa-v2/REPORT.md).
+
+Measured100-update throughput is476k real targets/second for one pass and326k
+for recurrence per eight-chip job. Qualification costs3.885 assigned chip-hours
+and9.233 whole-instance opportunity chip-hours,including the CPU-only audit
+period. The two quantities are reported separately.
+
+The final driver checks run on all16 chips. Both one-pass cells pass independent
+continuation,replay and shorter-branch checks;the two recurrent cells are
+running. Scientific fitting is not admitted until all four pass.
+The waiting discovery queue is now registered against the correct primitive
+execution and exact fresh initializers. It enforces all12 fixed TUNE
+opportunities and four distinct selected checkpoint-gradient gates.
+[Driver](results/future_span_driver_20261025/primitive-v2/status.json)
+· [Waiting science queue](results/future_span_science_queue_20261025/primitive-v2/status.json).
+
+The conservative measured projections are3.28h TUNE and6.63h main. Before any
+new scientific scores,the main cap is prospectively amended6h→8h,retaining
+both1.005B-target paired pilot fits;TUNE remains4h. No admitted deadline can
+extend automatically. Architecture,objective,grid,source order,threshold and
+confirmation policy are unchanged.
+[Measured budgets](results/future_span_objective_budget_20261025/measured-qualified-budget.json).
+
+A project-independent CPU reproducer and an upstream-review draft are ready.
+The numerical diagnostic isolates the saved-output backward correction;
+no SDK patch or upstream submission is made.
+[Review draft](docs/OSS_SDPA_MATH2_REVIEW_DRAFT_20261025.md).
+All **214 CPU tests pass**. The overall research goal remains unachieved;
+completed negative results and sealed confirmation data remain intact.
+
+# Earlier status — 2026-10-25, 06:50 UTC
 
 **The small-core recipe is closed at its declared budget;the next hypothesis
 changes the predictive objective.** The completed trained controls show no
