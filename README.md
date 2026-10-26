@@ -9,41 +9,55 @@ teacher models,added reasoning traces or reinforcement learning. Real-token
 negative log likelihood (NLL) remains the broad-text primary outcome. Equal-data and training-work comparisons answer different
 questions and are reported separately.
 
-The fixed-two candidate now has **two positive paired development comparisons**
-at matched nominal training matrix work:
+The fixed-two candidate has a small positive development signal,while a useful
+advantage over the stronger alternatives remains **unconfirmed**. Completed
+comparisons use the same two reused development seeds and consumed DEV panel:
 
-| Seed | One pass NLL |Fixed two NLL|Recurrent gain|
+| Model | Training targets | Mean DEV NLL ↓ | Fixed-two advantage |
 | --- | ---: | ---: | ---: |
-|5231|2.496663|2.484648|0.012016|
-|17293|2.496188|2.483076|0.013111|
+| Fixed two passes | 2.010B | 2.483862 | — |
+| Original same-family One,matched work | 2.421B | 2.496426 | 0.012563 |
+| Corrected head-free cheap mixing,matched work | 2.446B | 2.494629 | 0.010767 |
+| Conventional ordinary8,matched work | 2.761B | Running | Pending |
+| Head-free One,matched work | 2.463B | Pending | Pending |
 
-Both have141.96M deployed parameters. Fixed-two sees2.010B authentic targets;
-One receives2.421B to match work. The mean gain is**0.012563 nats**. All endpoint
-gradient audits pass. The nominal two-seed interval**[0.005601,0.019526]** overlaps
-the0.01 useful-effect threshold;it does not replace fresh confirmation. At1B,
-the original matched-work gain is only0.004255. Equal-data gains remain larger.
+The corrected cheap models trained afresh and passed both full512-window
+mature gradient audits. Recurrence wins by0.009852 and0.011682 nats. Their
+nominal paired-seed95% interval is**[-0.000858,0.022392]**;one seed point is
+below0.01 and both conditional source-group intervals overlap it. This does
+not establish a useful gain. The historical failed cheap run remains
+inadmissible;the new runs do not retroactively certify its training history.
+[Corrected cheap comparison](results/lean_baseline_controls_20261026/main/mixing/REPORT.md).
+
+Against the original same-family One comparator,the mean gain remains
+0.012563,with nominal seed interval[0.005601,0.019526],also overlapping0.01.
+At1B,the original matched-work gain was only0.004255. Equal-data gains remain
+larger. All relevant completed endpoint gradient audits pass.
 [Original curve](results/fixed_two_small_core_main_20261025/REPORT.md) ·
 [Completed second pair](results/one_control_recovery_20261026/REPORT.md).
 
-Work includes the common unused training head and replicated optimizer matrices;
-it is not a chip-time match. The first retained fixed training path costs about
-2.6% more assigned chip-time. Measured full-window prefill is16.4–17.6% slower;
-KV-cached decoding and end-to-end serving remain unmeasured.
-[Prediction cost](results/fixed_two_prefill_20261025/REPORT.md).
+Both fixed-two and same-family controls have141.96M deployed parameters.
+Ordinary8 has141.73M,slightly below that ceiling,and receives its own three-rate
+tuning. It and corrected cheap select0.032 at the upper grid edge;their optima
+remain unbracketed. Both ordinary8 seeds are now training concurrently on all16
+chips. The bounded queue then runs the declared lean One controls;it stops on
+failed audits or unresolved resource limits.
+[Qualified tuning](results/lean_baseline_controls_20261026/tune/REPORT.md) ·
+[Conventional challenger](results/lean_baseline_controls_20261026/main/ordinary8/REPORT.md).
 
-**Stronger controls remain decisive.** The earlier fixed-mixing control fails a
-mature gradient gate;its training history cannot be certified by a zero-update
-precision repair. Corrected head-free mixing,head-free One and the conventional
-eight-layer challenger now pass bounded numerical training/replay qualification.
-They still need appropriate new predictive fits;ordinary8 needs independent
-tuning. Its141.73M parameters are slightly below the recurrent ceiling.
-[Baseline qualification](results/baseline_numerical_recovery_20261026/REPORT.md).
+Matching uses nominal neural/head/attention/backward and replicated optimizer
+matrix work. The original candidate's unused training head remains charged;
+it is not retrospectively subtracted. Hardware time is reported separately.
+The original fixed training path used about2.6% more assigned chip-time than
+its original One comparator. Measured prefill is16.4–17.6% slower than that
+comparator;costs against the new challengers and KV-cached decoding remain
+outstanding. [Prediction cost](results/fixed_two_prefill_20261025/REPORT.md).
 
-No4B extension is admitted before those controls. The estimated larger-exposure
-gain is an untested hypothesis. Fresh source groups,at least five fresh paired
-seeds with adequate power,and terminal alpha allocation remain required. No new
-TEST,reserve or terminal alpha has been used;the goal is unachieved.
-[Live status](STATUS.md).
+No4B extension is admitted before the stronger comparisons. Fresh source
+groups,adequately powered five-or-more fresh paired seeds,and terminal alpha
+allocation remain required. Five seeds are a minimum,not a power guarantee.
+No new TEST,reserve or terminal alpha has been used;the overall goal is
+unachieved. [Live status](STATUS.md).
 
 The earlier sampled-depth small-core study found useful additional computation
 at equal data,but no training-efficiency win. These are two paired development
