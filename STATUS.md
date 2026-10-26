@@ -1,3 +1,9 @@
+## October 26, 2026, 23:11 UTC — paired final-quarter MAIN training on all16 chips
+
+The separately published MAIN starts23:08:35 UTC,after the complete TUNE review and registration commit. Both original random seeds5231/17293 have passed startup and reached at least40 actual counted updates /20,934,888 authentic targets each on disjoint eight-chip halves. The controller and owned native workers are verified live;all534 registered source hashes and the effective original clock verify. [Live comparison](results/late_two_allocation_20261026/main/REPORT.md).
+
+The14,400-second MAIN clock ends03:08:35 UTC October27,earlier than the unchanged04:15:38 composite deadline. Endpoints remain4,400 updates /2.302851B targets per seed,switching after3,300 with complete cooldowns. Next are the121-update independent full512 gradient/state audits,then continuation under the same frozen plan. No main held-out score or research positive is available. Ordinary8 remains primary;the0.01 useful-effect/fresh-confirmation requirements and all earlier negative results remain intact.
+
 ## October 26, 2026, 23:08 UTC — complete TUNE passes; bounded paired MAIN registered
 
 All three final-quarter fits complete576 actual updates /301,465,908 authentic targets each. Consumed TUNE NLLs are2.993878979 /2.944134294 /2.930166077 for rates0.008/0.016/0.032. Exact document sums reproduce the complete grid;0.032 wins at the upper boundary and remains unbracketed. All prefix audits,both100-update warm regimes,complete checkpoint/RNG restoration and the selected mature full512 audit pass. Its overall/family-max gradient discrepancies are0.308965% /0.310220%,within the unchanged2% limit. All13 native phases close with exit0. [Complete TUNE](results/late_two_allocation_20261026/tune/REPORT.md).
