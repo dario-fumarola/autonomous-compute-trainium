@@ -1,3 +1,9 @@
+## October 26, 2026, 20:19 UTC — fixed target-independent mixture does not recover oracle gain
+
+One registered equal-probability mixture of the recorded depth1/2/3 distributions scores2.591299672 and2.588881480; mean2.590090576. It loses0.004611762 to constant supported depth3 and0.008754669 to original matched-work One. Fixed weights use no targets for selection and no fitting/search. Normalized-probability software and per-target oracle/Jensen checks pass. This is arithmetic on existing loss arrays:zero new model forwards,updates or chips. It rules out this simple combination,not every prefix-dependent selector or other training. [Exact check](results/future_span_depth_oracle_20261025/token/uniform-mixture-check.json).
+
+Both admitted lean One fits remain live on all16 chips,around1.6B of their2.463B endpoints,with the original cooldowns and audits still required. No4B,routing campaign,fresh reserve,TEST or terminal alpha has been admitted.
+
 ## October 26, 2026, 20:11 UTC — token-output oracle complete; matched-family headroom, no router admission
 
 The free per-target selector over the old sampled-depth1/2/3 outputs scores2.503926265 and2.502679342. Mean2.503302803 is0.078033103 better than the original same-seed matched-work One controls and about0.081995 better than whole-document selection. Every original aggregate reproduces exactly; document/position checks pass, and an independent minimum-identity calculation reproduces both oracle losses within1e-12.

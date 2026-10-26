@@ -1,0 +1,21 @@
+{
+  "selected_after_token_oracle": true,
+  "parent_report_sha256": "2dce40859e49efa65a8f074e7a7072edfd2bf6f094e7a1ea3f008cf02f93ba1b",
+  "registered_unix": 1793045834.62381,
+  "depths": [
+    1,
+    2,
+    3
+  ],
+  "probability_weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "formula": "min(losses)-log(mean(exp(-(losses-min(losses)))))",
+  "fitted_parameters": 0,
+  "new_model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "scope": "One fixed equal-probability mixture of the recorded normalized causal distributions. Targets score the mixture but do not select its weights. Retrospective consumed-DEV arithmetic only. Requires all three predictions;no early-exit,hardware saving or deployment-latency claim. No other weights searched,router trained,TEST accessed or alpha spent."
+}

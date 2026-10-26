@@ -21,3 +21,13 @@ The needed token arrays had not previously been saved for these checkpoints. Six
 This is retrospective development analysis, not a primary result, an efficiency win or confirmation. No fresh reserve,TEST or terminal alpha was used. The current4B gate remains unmet. Finish the remaining declared One controls; retain ordinary8 as the strong comparator.
 
 [Full result and cost receipt](report.json) · [Independent verification](independent-verification.json) · [Registration](registration.json).
+
+## Fixed target-independent mixture check
+
+A single equal-probability mixture of the three recorded causal distributions scores2.591299672 and2.588881480 (mean2.590090576). Unlike the oracle, its weights are fixed and do not depend on the actual target. No parameters or mixture weights were fitted or searched.
+
+It is worse than always using supported depth3 by0.004611762 nats on average, and worse than the original matched-work One by0.008754669. This simple realizable combination does not recover the target-informed upper-bound gain. It does not test every prefix-dependent selector or changed recurrent training.
+
+The exact target probability of a fixed arithmetic mixture is available from the saved per-target losses. A normalized-probability software fixture and the per-target oracle/Jensen bounds pass. This arithmetic check used no model forward,optimizer update or accelerator chip. It requires all three predictions if deployed;actual serving cost is unmeasured. It is retrospective consumed-DEV analysis, with no new policy campaign or terminal claim.
+
+[Fixed registration](uniform-mixture-registration.json) · [Exact result and cost](uniform-mixture-check.json).

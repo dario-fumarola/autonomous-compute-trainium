@@ -111,6 +111,9 @@ their training work; that higher-budget reference is still better. This bounds
 selection among the recorded outputs, not changed routing trajectories or all
 adaptive computation. No router or confirmation is admitted.
 [Token-output diagnostic](results/future_span_depth_oracle_20261025/token/REPORT.md).
+A fixed equal-probability mixture scores2.590091, worse than supported depth3
+by0.004612. It does not realize the target-informed oracle gain; no mixture
+weights were fitted and no router was trained.
 
 The completed cheap-mixing control repeats the input adapter while executing
 the core once. At equal data,it scores **2.613655**, versus recurrence's
