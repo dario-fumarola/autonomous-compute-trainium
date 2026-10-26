@@ -1,0 +1,35 @@
+{
+  "status": "PASS_READ_ONLY_SUPPLEMENTAL_HOST_GUARD_PROVENANCE",
+  "checked_unix": 1793054246.5740724,
+  "pre_admission_commit": "a7df768",
+  "primary_tune_plan_unchanged": true,
+  "records": [
+    {
+      "file": "scripts/run_fixed_two_ntp_tune.py",
+      "sha256": "f92fa232fd2ecdc5ef68b9612b65dd8ed917ac5cd2bea4fe58c25baf3d6a4bc5",
+      "bound_in_primary_tune_source_map": false,
+      "matches_pre_admission_git_commit": true
+    },
+    {
+      "file": "scripts/run_fixed_control_replication.py",
+      "sha256": "c54be3a58b4b1fc1c3ff146b51f0c5aca365b7b9cf3d941ce76a44f361f4ec7b",
+      "bound_in_primary_tune_source_map": false,
+      "matches_pre_admission_git_commit": true
+    },
+    {
+      "file": "compute_trainium/inode_reserve.py",
+      "sha256": "cd93a7a6cd26b360eaa1202c0e91c5049fc6e6f7149950d24ca2f0ad3b09e46b",
+      "bound_in_primary_tune_source_map": false,
+      "matches_pre_admission_git_commit": true
+    },
+    {
+      "file": "compute_trainium/native_inode_projection.py",
+      "sha256": "5f7cf3d512b8d9d4f1715a1071d210743038076462eb055c934fe5dbd407f171",
+      "bound_in_primary_tune_source_map": false,
+      "matches_pre_admission_git_commit": true
+    }
+  ],
+  "scope": "These stable host reservation/admission helpers were imported indirectly but omitted from the primary TUNE source hash map. Their bytes exactly match the pre-admission committed versions. This supplementary read-only evidence does not retroactively expand the prospective map or alter the live plan. Model,optimizer,scientific worker and objective sources remain prospectively bound;new MAIN freezes every repository executable Python source including host helpers.",
+  "model_updates": 0,
+  "assigned_chips": 0
+}
