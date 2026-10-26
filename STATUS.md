@@ -1,3 +1,24 @@
+# Status — 2026-10-26 01:16 UTC
+
+**The frozen primary2B pair has an audited favorable development result.**
+Fixed2 at2.0098B targets scores2.484647907,versus2.496663431 for One at2.4206B
+matched nominal total matrix work:a0.012015524-nat gain. All three domains favor
+fixed2. Both complete512-window trained-gradient audits pass;body errors are
+0.347744%/0.369447%,with every declared family passing.
+
+The conditional source-group95% interval,[0.009628350,0.014405026],overlaps the
+0.01 useful-gain threshold. This is one reused development seed,not training-
+seed uncertainty or independent confirmation. The margin is small enough that
+stronger cheap/lean controls matter. The older cheap-mixing fit trained varying
+depths;it does not settle fixed-two mixing with one core execution.
+[First audited pair and limitations](results/fixed_two_small_core_main_20261025/REPORT.md).
+
+All remaining frozen fits and audits continue on the existing16-chip queue.
+The prefill-cost queue still owns zero chips while waiting for complete MAIN.
+Do not spend the confirmation reserve on this preliminary point or change the
+primary endpoint. No new TEST,reserve access,terminal alpha or terminal success.
+281 CPU tests remain current;only readout aggregates/documentation changed.
+
 # Status — 2026-10-26 00:42 UTC
 
 **Both primary cooled fits remain live on all16 chips.** Fixed2 has processed

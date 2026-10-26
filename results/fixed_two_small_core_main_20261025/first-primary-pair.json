@@ -1,0 +1,72 @@
+{
+  "status": "AUDITED_FIRST_PRIMARY_PAIR_REMAINING_CURVE_RUNNING",
+  "plan_sha256": "07f41a3e08f3f15b9c73b70cb295c62369cc678ce946ae8e80fcc7c0a82ef42c",
+  "seed": 5231,
+  "training_seed_scope": "One reused development seed;no training-seed confidence interval or independent confirmation.",
+  "cases": {
+    "one-work-2b": {
+      "nll": 2.4966634305813464,
+      "domain_nll": {
+        "web": 2.9807836960895675,
+        "code": 1.3539787551171825,
+        "math": 2.1869873095208487
+      },
+      "training_real_targets": 2420609556,
+      "estimated_training_dense_matrix_ops": 1272558673115712000,
+      "deployed_parameters": 141963840,
+      "checkpoint_sha256": "f549b2aaeca1ba6447c5258e7a705ceda8c2c6c1f26a9730f588265feca9ddbc",
+      "score_sha256": "905f88abdbf11aa683c6ac45fb826ecf1db638667565b71b357fb7c35ec36a9e"
+    },
+    "fixed-2b": {
+      "nll": 2.4846479069926946,
+      "domain_nll": {
+        "web": 2.968282817428533,
+        "code": 1.344304744972602,
+        "math": 2.174086337705271
+      },
+      "training_real_targets": 2009762680,
+      "estimated_training_dense_matrix_ops": 1272689958300549120,
+      "deployed_parameters": 141963840,
+      "checkpoint_sha256": "6768431d51f45f6fbfb6195de42fe287aee01cb35771175ea86901d75b7f07ef",
+      "score_sha256": "789b26c894b47c52d4303f996f5dac52dc3bb13cc81ad682fd08ed9102dbec27"
+    }
+  },
+  "independent_gradient_gates": {
+    "one-work-2b": {
+      "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+      "report_sha256": "224d2fc8638200f761860055e677e0b0997b9248c7996f217e3f68dd22ff9dac",
+      "body_gradient_relative_l2": 0.003477443596221429,
+      "all_families_pass": true,
+      "ntp_loss_difference": 3.1609911195218388e-06
+    },
+    "fixed-2b": {
+      "status": "PASS_INDEPENDENT_MATURE_FUTURE_SPAN_GRADIENT",
+      "report_sha256": "c583657315a060800bc200970b151212a879bcecbdd02c7f76a6266623775bb1",
+      "body_gradient_relative_l2": 0.0036944661392012534,
+      "all_families_pass": true,
+      "ntp_loss_difference": 3.852835782414132e-06
+    }
+  },
+  "conditional_source_group_interval": {
+    "gain_nats": 0.012015523588651877,
+    "interval_95": [
+      0.009628349862542438,
+      0.01440502634110761
+    ],
+    "source_groups": 518,
+    "accepted_draws": 2000,
+    "warning": "Within-seed uncertainty only; report paired training seeds separately."
+  },
+  "minimum_useful_gain_nats": 0.01,
+  "point_clears_threshold": true,
+  "conditional_source_interval_clears_threshold": false,
+  "remaining_curve_endpoints_pending": true,
+  "stronger_lean_baseline_pending": true,
+  "new_inference_cost_pending": true,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "Preliminary readout of the frozen primary pair,not the complete curve. All other fits/audits continue regardless of this score. Source-group interval conditions on these two fitted models;it does not estimate training variation or meet the terminal criterion.",
+  "observed_at_utc": "2026-10-26T01:11:26.797520+00:00",
+  "fixed_two_mixing_only_control_pending": true
+}
