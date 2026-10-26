@@ -1,0 +1,19 @@
+{
+  "first_cpu_attempt": {
+    "status": "STOPPED_BEFORE_NATIVE_ADMISSION",
+    "reason": "A cross-PyTorch regenerated normal state differs from the exact native supplied state. No model forward occurred; no diagnostic plan was created.",
+    "exact_wall_seconds_retained": false,
+    "assigned_chips": 0,
+    "optimizer_updates": 0
+  },
+  "successful_preparation": {
+    "status": "PASS_CPU_PRECISION_WIRING",
+    "wall_seconds": 42.79605412483215,
+    "actual_train_windows": 1,
+    "variants": 3,
+    "loss_and_gradient_exact": true,
+    "supplied_state_policy": "Load the original native state bytes and verify its captured hash; do not regenerate across PyTorch versions.",
+    "optimizer_updates": 0,
+    "assigned_chips": 0
+  }
+}

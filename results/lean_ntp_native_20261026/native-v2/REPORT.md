@@ -1,4 +1,13 @@
-# Lean NTP qualification: conditional queue registered
+# Lean qualification queue stopped before native admission
+
+The predecessor development comparison failed its complete gradient gate.
+This queue stopped with **zero native jobs**, preserving the original admission
+rule. No scientific fit, TEST access or terminal alpha followed.
+[Terminal queue receipt](queue-failure.json).
+
+The following registration records the original conditional scope; it is not
+an active queue and its deadline is not reset.
+
 
 This queue waits with zero chips for the complete five-endpoint development
 comparison and every independent audit. It proceeds only if both seeds favor

@@ -1,3 +1,29 @@
+# Status — 2026-10-26 05:53 UTC
+
+**The development comparison stopped at a failed numerical prerequisite.**
+The completed cheap seed-5231 control has 4.407005% injection/readout gradient
+error against the independent full-512-window FP32 reference; the unchanged
+family threshold is 2%. Overall error is 0.695354%, despite close scalar loss.
+Remaining owned workers stopped and the conditional lean queue admitted no
+native work. All partial costs are preserved: 35.402682 assigned chip-hours.
+[Stopped comparison](results/fixed_control_replication_20261026/main/REPORT.md).
+
+The new recurrent seed-17293 endpoint independently scores 2.483076417 and
+passes its complete gradient gate. Its controls are incomplete; it cannot yet
+establish a second efficiency win. The cheap seed-5231 descriptive score is
+2.493658352, with a 0.009010445 gap from recurrence and a failed numerical gate.
+
+A separate, bounded zero-update precision diagnosis is prepared on the exact
+failed checkpoint and TRAIN batch. CPU wiring parity passes. It will distinguish
+localized mixing/readout precision from a broader discrepancy, without changing
+the 2% gate or adopting weights. Passing would not qualify scientific training.
+[Diagnosis](results/mixing_precision_diagnosis_20261026/REPORT.md).
+
+The explicit eight-layer conventional challenger passes independent CPU model
+parity; it has no native or learning result. 289 CPU tests pass. No TEST, fresh
+reserve access, terminal alpha or terminal success. Strongest qualified controls
+and fresh-source/five-seed confirmation remain required. The goal is unachieved.
+
 # Status — 2026-10-26 04:54 UTC
 
 **The new recurrent endpoint is independently scored and audited.** Seed17293

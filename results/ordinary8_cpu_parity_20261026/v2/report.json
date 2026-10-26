@@ -1,0 +1,116 @@
+{
+  "status": "PASS_ORDINARY8_CPU_MODEL_PARITY",
+  "source_sha256": {
+    "scripts/check_ordinary8_cpu.py": "920ded5cb3e7be6577733deb431c28f1d0ecdbc2ec3749bf5a22c313bdac0430",
+    "docs/ORDINARY8_CPU_PARITY_20261026.md": "2c8615687f4b10c1bd8c6cdac378a226ad0deac597807817f352ab190563784e",
+    "scripts/audit_parcae_precise_training_point.py": "47962e12645197d43b2365b6c6dec0fb57328f4fe0e409a9c85435f820044001",
+    "scripts/qualify_parcae_candidate_cpu.py": "f1f8cf41b9ce3c817ecebd5cb4c7e3ebbe07e323aca21406c3846ef81313c3e7",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_primitive_sdpa_candidate.py": "911e11b3ea6cb2f1276b5609ec2dc528fdf3700b5ba0b7722b5d6312048816b9",
+    "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+    "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+    "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+    "compute_trainium/metrics.py": "0296fee74cd632e0dfc04d8ee129a7235f984691eb3f211c968d681e6af38275",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd",
+    "tests/test_ordinary8_reference.py": "e9aed05d630d8f45963b16def169d7a33f5de4ccd7f9652336615495b7cf0ceb"
+  },
+  "records": [
+    {
+      "phase": "original",
+      "real_targets": 4088,
+      "upstream_ntp_nll": 15.621002734757216,
+      "local_ntp_nll": 15.62100177921661,
+      "ntp_difference": -9.555406066536203e-07,
+      "maximum_logit_absolute_error": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 2.5314864393399545e-07,
+          "maximum_absolute_error": 5.848705768585205e-07,
+          "reference_l2": 50.87361933990842
+        },
+        "families": {
+          "tied_input_output": {
+            "relative_l2": 3.278301284898157e-06,
+            "maximum_absolute_error": 5.848705768585205e-07,
+            "reference_l2": 2.8333020752294975
+          },
+          "transformer_body": {
+            "relative_l2": 1.7562767587008614e-07,
+            "maximum_absolute_error": 5.960464477539063e-08,
+            "reference_l2": 50.794660586447506
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_gate": true
+    },
+    {
+      "phase": "activated_projection_probe",
+      "real_targets": 4088,
+      "upstream_ntp_nll": 8.887071822254159,
+      "local_ntp_nll": 8.887071583369007,
+      "ntp_difference": -2.388851516634051e-07,
+      "maximum_logit_absolute_error": 2.86102294921875e-06,
+      "gradient": {
+        "overall": {
+          "relative_l2": 1.4497057101155182e-07,
+          "maximum_absolute_error": 1.1175870895385742e-08,
+          "reference_l2": 4.042783807326759
+        },
+        "families": {
+          "tied_input_output": {
+            "relative_l2": 6.283722401598771e-08,
+            "maximum_absolute_error": 1.1175870895385742e-08,
+            "reference_l2": 1.8697988360956548
+          },
+          "transformer_body": {
+            "relative_l2": 1.601903479502636e-07,
+            "maximum_absolute_error": 7.450580596923828e-09,
+            "reference_l2": 3.5844041351150486
+          },
+          "value_embeddings": {
+            "relative_l2": 1.0709822174031228e-07,
+            "maximum_absolute_error": 3.637978807091713e-12,
+            "reference_l2": 0.0004706260919120139
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "passes_gate": true
+    }
+  ],
+  "model": {
+    "dim": 640,
+    "heads": 5,
+    "ffn_dim": 2560,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 4,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "upstream_n_layer": 8,
+  "parameters": 141733120,
+  "initial_model_digest": "ba632dbdc060cfdf1ced1ccef6c4c9b3978e4a563b522f33b5ebe0c47454f274",
+  "initializer_sha256": "14689fad5234023f9b726481b9f33a5faf34ebbb837f00ee408705bd2ecf76be",
+  "upstream_commit": "69284c13746e849104f738d6d1a347b1f457df76",
+  "model_forwards": 16,
+  "backward_calls": 16,
+  "manual_qualification_model_updates": 2,
+  "target_optimizer_steps": 0,
+  "research_optimizer_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "native_launch_allowed": false,
+  "scientific_fit_admitted": false,
+  "wall_seconds": 53.94688868522644,
+  "scope": "Two CPU FP32 implementations,on four authentic TRAIN windows before/after the same natural-gradient state intervention. Updated probe states are not saved or adopted. No native FP16/full-global/optimizer/recovery/throughput/learning claim."
+}

@@ -1,5 +1,11 @@
 # CPU check of the conventional eight-layer control
 
+The first preparation is preserved as a failure before any forward or saved
+weights: the convenience upstream helper retained its six-layer release
+default. Version two explicitly replaces `n_layer` before construction,
+including rebuilding the release's depth-dependent initializer. The intended
+eight-layer geometry, source windows and numerical thresholds are unchanged.
+
 The metadata inventory identified one conventional control from the parameter
 constraint, before observing its quality: eight unique layers, width 640,
 five 128-dimensional heads, 4x MLP and the existing alternating value tables.

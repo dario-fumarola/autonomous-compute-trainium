@@ -1,33 +1,34 @@
-# Stronger controls and a new development seed: running
+# Development replication stopped at its numerical gate
 
-Five new endpoints are frozen: the fixed-two cheap work control for seed 5231,
-and fixed recurrence, equal-data One, work-matched One and work-matched cheap
-for unused development seed 17293. All start from original random weights.
-The new One endpoints share only their untouched stable prefix. Every endpoint
-gets its own completed cooldown and complete independent gradient audit.
+The seed-5231 cheap work control completed its own cooldown, but its full
+512-window independent audit fails the unchanged 2% family criterion:
+injection/readout relative-L2 error is **4.407005%**, versus 0.695354% overall.
+Scalar NTP agreement is 0.000003814 nats. The controller stopped its remaining
+owned workers; the conditional lean queue also stopped without native admission.
+The original study remains stopped. No threshold or partial identity is reused.
 
-The same qualified numerical stack and independently selected rates (all 0.032)
-are retained. No architecture, source order, objective or rate-grid change.
-The new seed is development, not independent terminal confirmation.
+The independently scored and numerically passing recurrent seed-17293 endpoint
+has DEV NLL **2.483076417** at 2.009762680B targets. Its family gates pass; body
+relative error is 0.374622%. Its controls remain unfinished, so this is a second
+recurrent checkpoint, not a replicated matched-work win. The preserved One
+stable prefix completed 1,920 updates and exact full-replica readback.
 
-Six fit segments make 19,573 actual updates. The complete measured bound is
-20,761.35 seconds under a 21,600-second cap, including 50% training slowdown,
-cold setup and independent CPU tails. At registration, memory, inode and
-projected storage reserves pass. 281 CPU tests and independent checks of both
-scientific child snapshots, all five case signatures, initializers, tables and
-cross-endpoint branch identity pass. Registration itself uses zero chips. The scientific stage has now launched
-on both eight-chip halves; both first models have made actual updates. The
-original cutoff is 09:09:41 UTC. The first new recurrent endpoint is complete and independently scored: seed
-17293 at2.009762680B targets gives2.483076417 DEV NLL. Its complete512-window
-gradient audit passes, with0.374622% body relative-L2 error and all families
-below2%. The other cooled controls remain pending;this is not a replicated
-efficiency result.
+The cheap seed-5231 score is 2.493658352. Its descriptive gap from the earlier
+recurrent endpoint is 0.009010445 nats, below 0.01 even as a point estimate;
+the failed numerical prerequisite prevents treating it as a qualified result.
+Neither interrupted fit has a cooled endpoint or final checkpoint.
 
-All outcomes are retained. Readouts compare recurrence against both work-matched
-controls for each seed, as well as equal-data One. The existing single-seed
-0.012016-nat development point is not confirmation; its source interval overlaps
-0.01. Stronger lean training and fresh-source/five-seed confirmation remain
-outstanding. No TEST, reserve access or terminal alpha.
+All seven native closures, including both canceled workers, cost **35.402682
+assigned chip-hours**. Separate whole-instance opportunity cost is 35.539202;
+these are not additive. Completed segments made 10,354 updates. Durable partial
+logs bound actual total work at 13,044–13,064 updates; exact unlogged interruption
+counters are unavailable. Partial work and failures remain charged.
 
-[Admission protocol](../../../docs/FIXED_CONTROL_REPLICATION_ADMISSION_20261026.md) ·
-[Plan](plan.json) · [Prelaunch checks](prelaunch-checks.json).
+A separately registered zero-update precision diagnosis uses the exact failed
+checkpoint and batch. It changes no trained weights, numerical threshold or
+scientific outcome. A passing probe would not qualify new optimizer updates or
+retroactively repair the trained control. No TEST, fresh reserve or terminal alpha.
+
+[Terminal receipt](report.json) · [Costs](execution-costs.json) ·
+[Partial-work bounds](partial-work-accounting.json) ·
+[Original admission protocol](../../../docs/FIXED_CONTROL_REPLICATION_ADMISSION_20261026.md).

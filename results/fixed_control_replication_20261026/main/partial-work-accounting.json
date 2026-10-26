@@ -1,0 +1,27 @@
+{
+  "status": "STOPPED_PARTIAL_WORK_ACCOUNTING",
+  "completed_segment_updates": 10354,
+  "partial_segments": [
+    {
+      "node": "one-s17293-work-finish",
+      "restored_update": 1920,
+      "last_durable_logged_update": 2360,
+      "actual_new_updates_at_least": 440,
+      "actual_new_updates_at_most": 450,
+      "scope": "Per-ten-update stdout; no final checkpoint or exact interruption counter. Upper bound includes possibly completed but unlogged work."
+    },
+    {
+      "node": "cheap-s17293-work-finish",
+      "restored_update": 0,
+      "last_durable_logged_update": 2250,
+      "actual_new_updates_at_least": 2250,
+      "actual_new_updates_at_most": 2260,
+      "scope": "Per-ten-update stdout; no final checkpoint or exact interruption counter. Upper bound includes possibly completed but unlogged work."
+    }
+  ],
+  "actual_updates_lower_bound": 13044,
+  "actual_updates_upper_bound": 13064,
+  "assigned_native_chip_hours": 35.40268212530348,
+  "whole_instance_opportunity_chip_hours": 35.53920240826077,
+  "scope": "All seven native closures, including both canceled workers; assigned and opportunity costs are separate, not additive. Partial updates cannot become cooled scientific endpoints."
+}
