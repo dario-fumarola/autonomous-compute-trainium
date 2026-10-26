@@ -1,3 +1,11 @@
+## October 26, 2026, 22:04 UTC — complete artifacts restored; source-inode sharing registered
+
+The byte-identical hidden-array operation completes2,144 verified alias replacements. All3,072 original array paths retain exact hashes;observed free-space recovery is85.69GiB,with123.99GiB now free. No source/corpus/model/optimizer/checkpoint/receipt file changed. [Completed storage receipt](results/closed_hidden_array_storage_20261026/sharing-report.json).
+
+A separate read-only inventory verifies180,275 Python source paths across793 closed snapshots against their original launch hashes. It identifies179,673 byte-identical source copies eligible for sharing. The separately executed atomic operation preserves every path/hash and launch/closure receipt,and records original inode/mtime metadata;current worktree files are excluded. This addresses the inode reserve without reducing its conservative admission threshold. [Frozen source inventory](results/closed_source_inode_sharing_20261026/inventory-report.json).
+
+The final-quarter TUNE controller is implemented and the complete346-test CPU suite passes with2 skips. It retains all three rates,counts actual prefixes,checks exact restoration at the switch,and measures100 real warm updates in each depth regime. No training is admitted before the complete13-phase inode and artifact-space reservation passes. The stronger ordinary8 comparator and all failed earlier gates remain unchanged.
+
 ## October 26, 2026, 21:52 UTC — new final-quarter allocation prepared, no fit admitted yet
 
 A new bounded schedule hypothesis keeps the qualified2/2/2 model,NTP objective and full gradients,and runs one pass for the first75% of registered updates before two for the final quarter. It is separate from the failed4B/router gates. Exact CPU preparation finds4,400 updates /2.302851B targets at the original2B fixed-two nominal-work budget,switching after3,300 updates. Original random state hashes/digests,accepted6.5B source/anchor counters,integer work floors and full table readbacks pass. This takes4.104 seconds with zero forwards,updates or chips. [Preparation](results/late_two_allocation_20261026/preparation/REPORT.md).

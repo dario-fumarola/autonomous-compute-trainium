@@ -1,0 +1,13 @@
+{
+  "identity": "closed-source-inode-sharing-v1",
+  "registered_unix": 1793051854.5270405,
+  "seconds_limit": 900,
+  "source_sha256": {
+    "scripts/share_closed_source_snapshots.py": "a4ac5fe9d1a453b9543c9fd715d6eb89a5560d57e06a708182fec22834f9a93d",
+    "compute_trainium/closed_source_storage.py": "30c83bfaf29f178569792a1a84fb5c0f290060b85f8d61c63fd07808cf431d50",
+    "tests/test_closed_source_storage.py": "d8fa3a08bf2a4dc3d65223ff668cda1c92a58df6fce5bad7b14db77e0358213e"
+  },
+  "maximum_closed_source_paths": 250000,
+  "array_or_source_content_rewritten": false,
+  "scope": "Read-only inventory,then separately executed atomic hard links between byte-identical manifest-listed .py files in CLOSED source snapshots only. Preserve all file paths,byte hashes,launch/closure receipts,models,corpora and checkpoints. Original inode/mtime/owner metadata stays in the private inventory. Never edit these immutable historical source aliases;make a separate copy for intentional debugging. Current live worktree sources are excluded."
+}
