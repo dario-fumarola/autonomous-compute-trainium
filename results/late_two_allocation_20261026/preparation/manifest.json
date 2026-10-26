@@ -1,0 +1,175 @@
+{
+  "status": "COMPLETE_CPU_ONLY_LATE_TWO_ALLOCATION_PREPARATION",
+  "identity": "late-two-allocation-preparation-v1",
+  "registration_sha256": "8940ed26ac26b07ea65e36cbd539a73d15f2b49d59bcb0d30a64afb746eee13d",
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "future_config": {
+    "context": 1024,
+    "horizon": 32,
+    "stride": 16,
+    "weight": 0.1
+  },
+  "data": {
+    "corpus": "natural-append-6500m-v2/source.json",
+    "packed": "natural-append-6500m-v2/packed",
+    "corpus_sha256": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+    "manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+    "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1"
+  },
+  "auxiliary_data": {
+    "directory": "fixed-two-ntp-main-preparation-v1",
+    "counts_file": "anchor-counts.npy",
+    "counts_sha256": "11489cbf06ed1d03257907f7a7883cb3bf2f8a9b20863e0b2ce33338f6342382",
+    "prefix_file": "anchor-prefix.npy",
+    "prefix_sha256": "a713bf777d4b6924aea2675bf9659896523a68d4b866ce832fa54e96f703a366",
+    "source_windows": 2621952,
+    "valid_anchors": 160294153,
+    "valid_anchors_by_domain": {
+      "web": 95704526,
+      "math": 32184305,
+      "code": 32405322
+    }
+  },
+  "endpoints": {
+    "tune": {
+      "source_cursor": 294912,
+      "domain_targets": [
+        180878087,
+        60295034,
+        60292787
+      ],
+      "real_targets": 301465908,
+      "total_updates": 576,
+      "switch_after_update": 432,
+      "switch_targets": 226099410,
+      "actual_two_pass_target_fraction": 0.250000069659618,
+      "cooldown_start_update": 288,
+      "cooldown_start_targets": 150732802,
+      "end_anchors": 18031448,
+      "training_matrix_ops": 166589732200808448,
+      "depth_file": "tune-depths.npy",
+      "depth_sha256": "3e4620c543499678ac9fa4c5075f424e2c48d06681259656da56d594e4e3145e",
+      "work_file": "tune-work.npy",
+      "work_sha256": "0307de109c0f87165c81c903719095a6d876a26353702bddef9705af729aaf78"
+    },
+    "main": {
+      "source_cursor": 2252800,
+      "domain_targets": [
+        1381709813,
+        460570391,
+        460571060
+      ],
+      "real_targets": 2302851264,
+      "total_updates": 4400,
+      "switch_after_update": 3300,
+      "switch_targets": 1727141284,
+      "actual_two_pass_target_fraction": 0.24999876848320848,
+      "cooldown_start_update": 2200,
+      "cooldown_start_targets": 1151431272,
+      "end_anchors": 137726174,
+      "training_matrix_ops": 1272560454311731200,
+      "depth_file": "main-depths.npy",
+      "depth_sha256": "bc769ef08892224ed7fc56e511971aeb9f087f258da847c1d8ebda2c64fe4de1",
+      "work_file": "main-work.npy",
+      "work_sha256": "514c7c96987562e6038dd42b914a991323f5fb064f89542a1c28bc4eee740c92"
+    }
+  },
+  "main_work_floor": {
+    "total_updates": 4400,
+    "switch_after_update": 3300,
+    "training_matrix_ops": 1272560454311731200,
+    "budget_matrix_ops": 1272689958300549120,
+    "unused_budget_matrix_ops": 129503988817920,
+    "relative_shortfall": 0.00010175611740572663,
+    "next_endpoint_would_exceed_budget": true
+  },
+  "initial_states": {
+    "s4127-family": {
+      "file": "future-span-study-preparation-v1/initial-s4127.pt",
+      "sha256": "dbd14b97d9aabad324289c8da580dfaaafe5c044a3322b50cd4f0edfa2de9efe",
+      "model_digest": "a68523a6ba1f1d681027f1fc3dc7cb66ac62623ffa971ff7ef0b9bd5610ac383",
+      "seed": 4127,
+      "head_seed": 108856,
+      "backbone_digest": "bdae381380a26330876d72a1e60a10da965ebf72fc4c3bfa53ee4cfbddf5b58e",
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "file_is_root_relative": true,
+      "source_plan_sha256": "8e8c82c7ee8a3a0b1ba19e5bc116823b35183c80f6da47da708aaf03cee0a8e7"
+    },
+    "s5231-family": {
+      "file": "future-span-study-preparation-v1/initial-s5231.pt",
+      "sha256": "4b8a1a60c0b9ba37f9cae68ec7a3020a313e1f0f3e6f998387b9333e1a1ec31c",
+      "model_digest": "a30a5bc26ca4e65a771594d4d322851f4534d772ab8a91b5d5123821aadb2f38",
+      "seed": 5231,
+      "head_seed": 109960,
+      "backbone_digest": "30a1dbdb15af95e3e8e5050026219019638b54c45fd003eced338365931d2ab4",
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "file_is_root_relative": true,
+      "source_plan_sha256": "9a8a772627b94327ce4752d92f9823785dd2d8582c135fedf1a964e1bcde53d7"
+    },
+    "s17293-family": {
+      "file": "fixed-control-replication-preparation-v1/initial-s17293.pt",
+      "sha256": "fe808c6fcebf9d3b189ab5269e6a1981b0c852f22c7c768e22f87bbe73577916",
+      "model_digest": "c3fb89f49e7ece8794cad3580178b07051a2d12811e806a2193309eaed91607e",
+      "backbone_digest": "635d918d0fd896788a19a5245638d60c14a5bbcdadfa64b67cebe48c1a0680f4",
+      "seed": 17293,
+      "head_seed": 122022,
+      "training_parameters": 166571840,
+      "deployed_parameters": 141963840,
+      "file_is_root_relative": true,
+      "source_plan_sha256": "9a8a772627b94327ce4752d92f9823785dd2d8582c135fedf1a964e1bcde53d7"
+    }
+  },
+  "training_parameters": 166571840,
+  "deployed_parameters": 141963840,
+  "optimizer_matrix_ops_per_replica": 815372773200,
+  "routing_seed": 271828,
+  "source_total_real_targets": 6500009163,
+  "evaluation": {
+    "scope": "consumed_development_only",
+    "corpus": "variable-depth-fresh-v1/dev.json",
+    "corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+    "weights": {
+      "web": 0.6,
+      "math": 0.2,
+      "code": 0.2
+    },
+    "noise_policy": "original_prefix_window_index_only_fixed1024_draw"
+  },
+  "reference_reports": {
+    "ordinary8": {
+      "file": "lean-baseline-main-ordinary8-v1/report.json",
+      "sha256": "afd253499d2c5824ef10f76017212dff0192ccff504d95a8bb9a4e218c195ec9"
+    },
+    "fixed5231": {
+      "file": "fixed-two-ntp-main-v1/report.json",
+      "sha256": "4a00a51437a0d32d5f0a09a4aaa8e4b0337240d7a39a78d048890f28b6dc018e"
+    },
+    "fixed17293": {
+      "file": "fixed-control-replication-main-v1/report.json",
+      "sha256": "83ed10074bd8244595408e10d0bd797223673b5fbfd410644b2c1cdd3ddf5a61"
+    }
+  },
+  "original_initializer_bytes_unchanged": true,
+  "initializers_copied": false,
+  "all_table_readbacks_exact": true,
+  "scientific_launch_allowed": false,
+  "model_forwards": 0,
+  "model_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "scope": "# Prospective final-quarter recurrence allocation\n\nThe fixed-two and current-prefix diagnostic families are closed at their original endpoints. Their failed advancement gates do not admit4B or a router. This is a new bounded schedule hypothesis at the existing2B fixed-two nominal-work budget,using the existing qualified model and ordinary next-token objective.\n\nHypothesis: learning the ordinary path first and paying for the second pass only in the final quarter can preserve enough useful recurrent learning to improve prediction at fixed total training work. The experiment tests when to buy the existing computation,not another architecture or auxiliary objective.\n\n## Primary-source rationale and limits\n\n[Elastic Latent Recurrence,section6.5](https://arxiv.org/html/2610.12582v1) reports that delaying mixed depths to the final quarter retains84% of its five-loop improvement with lower estimated cost. Its0.5B/300B-token gated setup and same-data comparisons differ from ours;this is no forecast of an ordinary-more-tokens win here.\n\n[Chen et al.,sections4.2/A.2.3](https://arxiv.org/html/2609.19107) finds benefits from model growth,including conventional untied growth. Its tied experiment grows2\u21924 with additional boundary operators. Therefore a candidate that wins our static ordinary8 screen must face a separately tuned conventional-growth challenger before independent confirmation. General growth benefits cannot be attributed specifically to weight sharing.\n\n[LoopMTP,appendixD](https://arxiv.org/html/2608.03624v1) offers a later objective hypothesis,but its three-loop training costs2.49 times its non-looped reference. It does not establish our matched-training-work claim. Ordered/cosine objectives are deferred;this experiment retains ordinary NTP.\n\n## Frozen design\n\nKeep the existing2/2/2,width768 recurrent family,original random initializers,real source order,tokenizer,precision,primitive FP32 attention,full gradients and runtime-scalar optimizer. Keep and charge the original zero-weight auxiliary head to preserve the qualified engine and direct fixed-two reference. It is not a scientific auxiliary objective. Deployment removes it as before.\n\nFor a registered endpoint ofU updates,run exactly one core pass through update floor(3U/4),then exactly two throughU. All32 ranks and16 microbatches use the same depth at a given update. Both applications receive gradients. The integer switch,source counts,realized token fraction and complete work vector are frozen before training. It is the final quarter of updates;the actual source-token fraction is reported rather than assumed exactly25%.\n\nUse the original50M-target warmup and half-horizon cooldown,including cooldown before and after the switch. Do not reheat or reset LR,weights,moments,RNG or source order. Every endpoint finishes its own complete cooldown to zero. A fresh process at the switch must restore the exact complete state under the same plan. This is from-random-initialization training,not continuation from a cooled checkpoint.\n\nTUNE uses seed4127,three rates0.008/0.016/0.032,and576 updates /the original301M targets. All three opportunities finish their cooldowns. Stage endpoints121/432/576 preserve the full history. Count the121-update prefixes inside each fit. Require full512-window independent FP32 gradient audits after the prefixes and at the selected final endpoint,with the original2% overall/family and0.003-nat gates. Select the minimum original TUNE NLL,lower LR breaking ties;an edge winner stays unbracketed. Equal-rate opportunities and all costs for the historical conventional tuning remain disclosed.\n\nMeasure100 actual warm one-pass updates from progress20\u2192120,and100 actual two-pass updates from440\u2192540 after the registered switch. Include actual changing runtime scalars,optimizer,data and logging;separate cold compilation and checkpoint overhead. No scientific MAIN before the complete TUNE numerical/timing/restore gates and a measured complete budget.\n\nMAIN,if separately admitted,uses both reused development seeds5231/17293. The sole primary comparator is the completed independently tuned conventional ordinary8 at1,272,689,958,300,549,120 nominal matrix work. Compute the largest complete staged endpoint within that same budget. Include all model/head/attention/backward and replicated optimizer matrix work;report hardware time separately. Compare the exact original same-seed ordinary8 and fixed-two endpoints,not a favorable cross-seed pairing. No terminal positive is possible on these consumed data/seeds.\n\nBoth paired MAIN fits must finish regardless of an early unfavorable quality mean,subject to numerical/resource/deadline gates. Require exact prefix and switch restoration,all-rank RNG/replica checks,an independent full512 gradient audit on the first two-pass objective before learning after the switch,and final mature audits. Score only the final supported two-pass exit on the original consumed DEV curve panel with frozen60/20/20 weights. Unsupported deletion/extra passes do not establish thinking.\n\nThe development advancement criterion is a mean gain at least0.01 over ordinary8 with both seed points positive and every required audit passing. Report source-group and nominal seed uncertainty separately. A positive must additionally survive conventional model growth and equal-source-exposure ordinary controls before any fresh confirmation. The strongest eligible ordinary alternative remains the standard. Failure closes this75% timing recipe at this budget;no automatic timing/LR sweep,larger model,4B exposure or new objective follows.\n\n## Admission and cost limits\n\nPreparation is CPU-only,zero model updates and no held-out scoring. It validates byte-identical original initializers,accepted6.5B source/count/anchor prefixes,integer work floors and frozen depth/readback tables. Scientific admission is separate.\n\nProspective caps:TUNE7,200 seconds and a later paired MAIN14,400 seconds,with an original composite21,600-second execution cap beginning once at TUNE admission. TUNE admission cutoff23:30 UTC October26. Registration/recovery cannot renew the original composite deadline. Each native/CPU phase is separately capped,failures cancel only owned workers,and initiating exceptions survive cleanup. Use all16 chips for valid independent work.\n\nMaintain512GiB host memory,35GiB filesystem and10,000 free-inode reserves,and reserve complete projected artifacts before admission. Storage maintenance may share byte-identical immutable closed numerical h0 arrays while preserving every path,byte hash and scientific checkpoint,and recording original per-path metadata;it needs separate verified receipts. Do not delete source/corpus/model/optimizer evidence to make room. Count preparation,tuning,audits,failed/stopped work and reserved-instance opportunity without overlapping double counts.\n\nNo fresh reserve,TEST,terminal alpha,router or claim of independent confirmation is admitted. At least five adequately powered fresh paired training seeds and genuinely fresh source groups remain required by the unchanged charter.\n"
+}

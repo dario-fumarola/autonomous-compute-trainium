@@ -1,3 +1,11 @@
+## October 26, 2026, 21:52 UTC — new final-quarter allocation prepared, no fit admitted yet
+
+A new bounded schedule hypothesis keeps the qualified2/2/2 model,NTP objective and full gradients,and runs one pass for the first75% of registered updates before two for the final quarter. It is separate from the failed4B/router gates. Exact CPU preparation finds4,400 updates /2.302851B targets at the original2B fixed-two nominal-work budget,switching after3,300 updates. Original random state hashes/digests,accepted6.5B source/anchor counters,integer work floors and full table readbacks pass. This takes4.104 seconds with zero forwards,updates or chips. [Preparation](results/late_two_allocation_20261026/preparation/REPORT.md).
+
+The primary stronger comparator remains independently tuned ordinary8. Any positive would additionally need conventional growth and equal-source ordinary controls before fresh confirmation. No quality forecast,TUNE or MAIN launch follows from preparation alone. The three-rate TUNE and later paired MAIN require their own measured,resource-guarded admission under a fixed composite deadline. [New protocol](docs/LATE_TWO_ALLOCATION_20261026.md).
+
+Storage inventory independently finds2,144 byte-identical closed-run h0 array copies,with85.69GiB conservative reclaimable storage. A separately registered atomic hard-link operation will preserve every path and byte hash,record original metadata,and leave source/corpus/model/optimizer/checkpoint/receipt files untouched. All341 CPU tests pass with2 skips,including exact schedule boundaries and byte-preserving storage guards. No jobs are training and no fresh reserve,TEST or terminal alpha is opened.
+
 ## October 26, 2026, 21:26 UTC — current-prefix probe complete; advancement screen fails
 
 The fixed nonlinear readout saves0.004565475 and0.004987744 nats versus random allocation at its realized51.785%/46.910% second-output fractions. It loses0.004220596 and0.003480313 to the descriptive cost-matched entropy reference. Both declared information screens fail. A fixed secondary linear probe saves about0.0092 versus random,so some value is predictable;these results do not rule out all prefix selectors. No evaluated nontrivial allocation point improves NLL over constant supported depth2. [Complete curves and limits](results/first_pass_hidden_value_20261026/REPORT.md).
