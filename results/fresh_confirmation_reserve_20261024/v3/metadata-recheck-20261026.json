@@ -1,0 +1,75 @@
+{
+  "status": "PASS_METADATA_IDENTITY_CHAIN_RECHECK",
+  "checked_utc": "2026-10-26T18:06:25.718461+00:00",
+  "purpose": "Check that active and referenced fixed-two training source is included in the existing fresh-reserve exclusion lineage, without accessing held-out contents or model scores.",
+  "accepted_generation_manifest_sha256": "61dac8f7d6c3df53041ea194e7732d5db7a9d50324bd406f8bc5475f570feae1",
+  "accepted_independent_audit_sha256": "f8cc5e9279e787b52dd781e18e61862710e02941ccc1dec86113345a408ca598",
+  "accepted_packing_manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+  "accepted_source_sha256_from_metadata": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+  "accepted_packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+  "accepted_real_targets_from_audit": 6500009163,
+  "reserve_plan_sha256": "94e2b632961eeef3dc58f9cd1200e8d06355df547579ebce44f0755e7c58a8a0",
+  "reserve_manifest_sha256": "31507c6b30b9323b989af4b8335158d39b27ccb2122c8ae33e651835d8634c41",
+  "reserve_independent_audit_sha256": "e62294147138ea193be9b63960b4513e18e7cbbf5c2f25b1a292dde803f2642b",
+  "accepted_generation_explicitly_excluded_by_reserve_plan": true,
+  "independent_audits_bind_current_manifest_bytes": true,
+  "recorded_identity_group_and_index_checks_pass": true,
+  "scientific_plan_checks": [
+    {
+      "plan": "fixed-two-ntp-main-v1/plan.json",
+      "plan_sha256": "07f41a3e08f3f15b9c73b70cb295c62369cc678ce946ae8e80fcc7c0a82ef42c",
+      "training_packing_matches": true,
+      "evaluation_is_old_consumed_dev": true,
+      "reserve_dev_or_test_referenced": false
+    },
+    {
+      "plan": "fixed-control-replication-main-v1/full-plan.json",
+      "plan_sha256": "9a8a772627b94327ce4752d92f9823785dd2d8582c135fedf1a964e1bcde53d7",
+      "training_packing_matches": true,
+      "evaluation_is_old_consumed_dev": true,
+      "reserve_dev_or_test_referenced": false
+    },
+    {
+      "plan": "lean-baseline-main-mixing-v1/5231/plan.json",
+      "plan_sha256": "161b3f96bd2ca69479c8c160d5ec2c744dba82dd510724935722f1b4274bcbca",
+      "training_packing_matches": true,
+      "evaluation_is_old_consumed_dev": true,
+      "reserve_dev_or_test_referenced": false
+    },
+    {
+      "plan": "lean-baseline-main-mixing-v1/17293/plan.json",
+      "plan_sha256": "9f9097097353a11b6ba0cf6feafb5917b2c4eb284bbceb690810ab8ed58e324a",
+      "training_packing_matches": true,
+      "evaluation_is_old_consumed_dev": true,
+      "reserve_dev_or_test_referenced": false
+    },
+    {
+      "plan": "lean-baseline-main-ordinary8-v1/5231/plan.json",
+      "plan_sha256": "45001e38d2cc4bfffbc40db7b24d68ed4d67562ebf9ab9f3d0d7945b1bee2620",
+      "training_packing_matches": true,
+      "evaluation_is_old_consumed_dev": true,
+      "reserve_dev_or_test_referenced": false
+    },
+    {
+      "plan": "lean-baseline-main-ordinary8-v1/17293/plan.json",
+      "plan_sha256": "b1781179322fefae4738ff4f19054caf8c6d95beb1c44f0035c08280754cd675",
+      "training_packing_matches": true,
+      "evaluation_is_old_consumed_dev": true,
+      "reserve_dev_or_test_referenced": false
+    }
+  ],
+  "raw_source_or_heldout_tokens_read": false,
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "fresh_confirmation_registered": false,
+  "alpha_spent": false,
+  "limitations": [
+    "This is a metadata recheck, not a new raw-document, whole-array or near-duplicate audit.",
+    "The prior independent audit does not independently repeat every approximate minhash comparison.",
+    "Frozen plans show which panel they reference; this check is not a forensic proof that no other process has ever accessed a reserve file.",
+    "Any future corpus, source-group use or confirmation design requires its own exclusion and freshness validation.",
+    "No terminal admission follows from this receipt; stronger controls and prospective adequate power remain required."
+  ],
+  "recheck_process_wall_seconds": 0.0025548934936523438
+}

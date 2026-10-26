@@ -1,3 +1,9 @@
+## October 26, 2026, 18:06 UTC — conventional controls active; reserve identity checked
+
+Both independently tuned ordinary8 seeds are live beyond 1.06B of their planned 2.7608B targets on all 16 chips. No conventional-control quality result is available yet. The bounded queue will require complete cooldowns, independent scores and mature numerical audits before admitting the already registered lean One comparison. The corrected-cheap result remains complete; 4B remains conditional.
+
+A metadata-only recheck binds the active 6.5B-target training corpus to the existing fresh reserve's exclusion lineage and verifies both recorded independent audits against current manifest bytes. Six scientific plans reference the older consumed DEV panel, not the reserve. No raw held-out text, token arrays or model scores were opened. This is not a repeated near-duplicate audit or confirmation admission; the original approximate-screening limitation remains. [Identity receipt](results/fresh_confirmation_reserve_20261024/v3/metadata-recheck-20261026.json).
+
 ## October 26, 2026, 17:38 UTC — corrected cheap complete; ordinary8 running
 
 The fresh corrected-cheap comparison is complete and audited in both development seeds. DEV NLL5231:cheap2.494500060 versus fixed-two2.484647907,gain0.009852153. Seed17293:cheap2.494758352 versus fixed-two2.483076417,gain0.011681936. Mean gain0.010767044;nominal paired-seed95% interval[-0.000857755,0.022391844]. One seed point and both conditional source intervals overlap/below the0.01 criterion. This does not establish a useful gain or terminal confirmation. Weighted losses were independently recomputed from per-domain sums/counts.
