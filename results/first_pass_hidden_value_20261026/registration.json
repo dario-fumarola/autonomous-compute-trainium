@@ -1,0 +1,109 @@
+{
+  "identity": "first-pass-hidden-value-probe-v1",
+  "registered_unix": 1793049011.9306805,
+  "seeds": [
+    5231,
+    7283
+  ],
+  "source_sha256": {
+    "scripts/probe_first_pass_hidden_value.py": "8401afb5be5f39213a254aa9987a40a7e781a8182bb206b5e7b2f5e6ca472757",
+    "compute_trainium/hidden_value_probe.py": "3e200da71e307d692dfa2cf3a1490a37a298eb5fe20c74d518180210b74ddf39",
+    "tests/test_hidden_value_probe.py": "93ed4dde0a7add5734e688f607d3621d3b26146ab2b7894d341ce5a565cc89f0",
+    "scripts/audit_parcae_precise_training_point.py": "47962e12645197d43b2365b6c6dec0fb57328f4fe0e409a9c85435f820044001",
+    "scripts/qualify_parcae_candidate_cpu.py": "f1f8cf41b9ce3c817ecebd5cb4c7e3ebbe07e323aca21406c3846ef81313c3e7",
+    "compute_trainium/future_span_evaluation.py": "b808d46e21633a877b51d3d435b861845c7b0b8321150d5bcb0cb527c169d8ab",
+    "compute_trainium/training.py": "9559c09ff08c9dcdf05485c435539c2a1914c6c5b3852fa75565e0687a9aadbd",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20"
+  },
+  "jobs": [
+    {
+      "seed": 5231,
+      "depth": 1,
+      "case": "recurrent-ntp-s5231-lr32000",
+      "checkpoint": "runs/future-span-main-v2-recurrent-ntp-s5231-lr32000-finish/checkpoint-u1920.pt",
+      "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349",
+      "original_score": "future-span-main-v2/scores/recurrent-ntp-s5231-lr32000-cooled1b-d1",
+      "original_score_sha256": "f00b5a1a1f399105887c3750ff1b4027e2febd9eb20f770e7d103f50deb55acf",
+      "original_documents_sha256": "3211b4d2299b592db19479ae82e9ed8e06f9bbd17441fb015859ba67c4b5cabf",
+      "prior_score_seconds": 182.13175916671753
+    },
+    {
+      "seed": 7283,
+      "depth": 1,
+      "case": "recurrent-ntp-s7283-lr32000",
+      "checkpoint": "runs/future-span-main-v2-recurrent-ntp-s7283-lr32000-finish/checkpoint-u1920.pt",
+      "checkpoint_sha256": "b791212f06f2f8884ca350d6a4d6f41ab4d0f5213f7d8f589746c57def3a429a",
+      "original_score": "future-span-main-v2/scores/recurrent-ntp-s7283-lr32000-cooled1b-d1",
+      "original_score_sha256": "59d0f614c7d883052483e0d8b0a3f7fdd9964427705cda2477f571b703ded786",
+      "original_documents_sha256": "24244b670f516954d5d15f5f2de50517b81ca2c919b8038985fddf185091696a",
+      "prior_score_seconds": 191.22660303115845
+    }
+  ],
+  "parent_plan_sha256": "05902ddcb213b74c671019532298b4b153fad3d8bc9580fc000cb7f7e7530d3a",
+  "parent_report_sha256": "2dce40859e49efa65a8f074e7a7072edfd2bf6f094e7a1ea3f008cf02f93ba1b",
+  "scientific_plan_sha256": "8d99b0caafb839520139932b5eba963cb22917d2d997c3b711e206d104301dcf",
+  "data": {
+    "corpus": "natural-append-6500m-v2/source.json",
+    "packed": "natural-append-6500m-v2/packed",
+    "corpus_sha256": "893ce2290a1d21793c92541c997b4596747ea45c2453a7ae941c9a686c1069e9",
+    "manifest_sha256": "654bed969a293e2943399a29ac4baf3be58cf923bf2b569f886545428544a3fb",
+    "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1"
+  },
+  "train_source_isolation_audit_sha256": "f8cc5e9279e787b52dd781e18e61862710e02941ccc1dec86113345a408ca598",
+  "train_first_window": 983040,
+  "train_windows": 512,
+  "fitting_windows": 384,
+  "calibration_windows": 128,
+  "train_positions_follow_original_checkpoint_cursor": true,
+  "feature_columns": [
+    "768 first-core-pass state coordinates before projection/coda",
+    "current first-pass prediction entropy",
+    "top1-minus-top2 probability margin",
+    "window position /1023"
+  ],
+  "feature_storage": "float16 private cache;original FP32 values checked for relative quantization error<=0.001",
+  "feature_width": 771,
+  "quantization_relative_l2_limit": 0.001,
+  "loss_labels": "FP64 loss(depth1)-loss(depth2) on genuine source next tokens;no target tokens/losses in predictors",
+  "fit": {
+    "ridge": 0.01,
+    "epochs": 8,
+    "hidden_width": 64,
+    "batch_size": 2048,
+    "seed": 31415
+  },
+  "requested_extra_pass_fractions": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    1.0
+  ],
+  "primary_fraction": 0.5,
+  "threshold_policy": "Quantile of unlabeled final128 TRAIN-window scores;apply independently per DEV position.No held-out global top-k.",
+  "comparison": "Report realized fractions. Random comparator matches each policy expected token fraction. Entropy cost interpolation uses DEV feature frequencies only and is explicitly retrospective,not a freshly calibrated policy.",
+  "advancement_rule": "Primary MLP at TRAIN-calibrated half allocation must save>0.01 nats against both same-fraction expected random and descriptive cost-matched entropy in BOTH base seeds to motivate actual routed-semantics preparation.No native work admitted automatically.",
+  "controls": [
+    "constant supported depth1",
+    "constant supported depth2",
+    "same-fraction expected random",
+    "TRAIN-thresholded current entropy",
+    "one fixed linear readout"
+  ],
+  "max_parallel_cpu_workers": 2,
+  "worker_seconds_limit": 2400,
+  "total_seconds_limit": 3000,
+  "anticipated_window_forwards": 4148,
+  "projected_private_cache_bytes": 3995714712,
+  "measured_prior_token_replay_seconds": 1117.793517589569,
+  "measured_prior_window_forwards": 6300,
+  "projected_trace_seconds_with_2x_allowance": 1471.9388923687404,
+  "language_model_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "native_routing_campaign_admitted": false,
+  "scope": "Exploratory frozen-model information test on TRAIN-source traces and already consumed source-disjoint DEV. Same original sampled-depth checkpoints support both exits. Train windows are the next512 beyond their1.005B cursor;fit on first384,calibrate unlabeled thresholds on final128. Source isolation relies on published whole-corpus independent exact/group audit;its approximate-near-duplicate limitation persists. One fixed linear and one small nonlinear readout per seed;no DEV fitting,hyperparameter search,new LM objective or LM update. Offline selection among uniform-depth predictions is not execution with mixed KV states,no actual FLOP/latency saving or broad efficiency claim. Current ordinary8 has1.955x these checkpoints training work and a different second seed;not a matched-budget comparator. Broad NLL/0.01/strongest eligible ordinary criterion unchanged;no4B,reserve,TEST or confirmation."
+}

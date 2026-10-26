@@ -1,0 +1,19 @@
+# Frozen first-pass value diagnostic
+
+The completed lag-surprisal probe did not test the current hidden representation. This CPU-only experiment asks whether that representation predicts the value of a second supported pass. It changes no language-model weights or primary research criterion.
+
+Use the original sampled-depth NTP models from seeds5231/7283. Both depths1/2 received training support. From each unchanged checkpoint, capture the first core-pass state before its output projection/coda, current first-pass entropy, probability margin and known window position. Actual current/future tokens are labels only. Source/domain/document identities and second-pass tensors are excluded from features.
+
+Read the next512 packed TRAIN windows beyond each model's original1.005B cursor. Fit one fixed ridge and one64-unit MLP on the first384 windows, using the observed loss reduction from depth1 to2. Calibrate allocation thresholds on the final128 unlabeled TRAIN windows. Evaluate on the original consumed DEV panel, with TRAIN/held-out source isolation inherited from the accepted independent whole-corpus audit. This does not repeat approximate near-duplicate screening or open the fresh reserve.
+
+The linear penalty is0.01. The MLP uses eight epochs, batches2048, AdamW learning rate0.001/decay0.001 and seed31415. Normalization uses fitting TRAIN rows only. No DEV tuning, feature search, validation-selected stopping or fitted mixture search is permitted. Quantized private feature caches must remain finite and within0.001 relative-L2 error of the original FP32 features. All held-out first-pass position losses must reproduce within1e-9.
+
+Freeze requested TRAIN allocation fractions0,0.1,0.25,0.5,0.75,0.9,1. Apply each TRAIN threshold independently to every DEV position. A top-k over the whole held-out window would let later prefixes change earlier decisions, so it is excluded. Report actual fractions and full/domain NLL. Compare each policy with random selection at the same expected token fraction and with constant supported exits. Entropy curves use the same TRAIN calibration. Interpolation between adjacent entropy points uses only observed feature frequencies to match expected cost; this secondary descriptive comparison is retrospective, not fresh policy calibration.
+
+The primary readout is the fixed MLP at the TRAIN-calibrated half allocation. Saving more than0.01 nats against both same-fraction expected random and the descriptive cost-matched entropy reference in both base seeds can motivate preparation of actual routed semantics. It automatically admits no accelerator run. Linear and other allocation points are fixed secondary diagnostics. Failure closes these tested readouts, not all adaptive computation.
+
+This is offline selection among recorded uniform-depth predictions. Changed keys/values, future-token causality, actual masked/padded work, confidence-head costs and measured latency must be qualified before a routed implementation could claim efficiency. Ordinary8's current endpoint has1.955 times these historical models' training work and a different second seed; it remains a higher-budget descriptive reference. No probe outcome constitutes a matched-work win over it.
+
+Measured prior readout time, two CPU workers and a2x trace allowance plus600 seconds for fits must fit the3,000-second total cap. The maximum is4,148 model-window forwards,zero LM updates/chips. Preserve544GiB host memory,35GiB filesystem and prospective cache-space reserves. Source and artifact hashes are frozen before execution. All stopped attempts and CPU costs remain recorded separately from reserved-instance opportunity. No4B, objective change, fresh sources, TEST or terminal alpha is admitted.
+
+[Registration](../results/first_pass_hidden_value_20261026/registration.json) · [Implementation](../scripts/probe_first_pass_hidden_value.py) · [Causality/statistical fixtures](../tests/test_hidden_value_probe.py).
