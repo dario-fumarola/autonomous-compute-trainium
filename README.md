@@ -9,17 +9,26 @@ teacher models,added reasoning traces or reinforcement learning. Real-token
 negative log likelihood (NLL) remains the broad-text primary outcome. Equal-data and training-work comparisons answer different
 questions and are reported separately.
 
-The fixed-two candidate has a small positive development signal,while a useful
-advantage over the stronger alternatives remains **unconfirmed**. Completed
-comparisons use the same two reused development seeds and consumed DEV panel:
+The conventional eight-layer challenger now slightly outperforms fixed
+recurrence at matched nominal training work in both development seeds. The
+original same-family gain remains, but a useful advantage over the stronger
+ordinary model has not been demonstrated. These comparisons use two reused
+development seeds and a consumed DEV panel:
 
 | Model | Training targets | Mean DEV NLL ↓ | Fixed-two advantage |
 | --- | ---: | ---: | ---: |
 | Fixed two passes | 2.010B | 2.483862 | — |
 | Original same-family One,matched work | 2.421B | 2.496426 | 0.012563 |
 | Corrected head-free cheap mixing,matched work | 2.446B | 2.494629 | 0.010767 |
-| Conventional ordinary8,matched work | 2.761B | Running | Pending |
-| Head-free One,matched work | 2.463B | Pending | Pending |
+| Conventional ordinary8,matched work | 2.761B | **2.480522** | **-0.003340** |
+| Head-free One,matched work | 2.463B | Running | Pending |
+
+Ordinary8 beats recurrence by 0.002361 and 0.004319 nats. Both completed
+cooldowns and full512 mature numerical audits pass. The nominal paired-seed
+95% interval for recurrence's advantage is [-0.015782,0.009102]; it spans zero
+and does not establish a useful positive effect. This is descriptive development
+evidence, not fresh confirmation or a universal negative.
+[Conventional comparison](results/lean_baseline_controls_20261026/main/ordinary8/REPORT.md).
 
 The corrected cheap models trained afresh and passed both full512-window
 mature gradient audits. Recurrence wins by0.009852 and0.011682 nats. Their
@@ -39,9 +48,11 @@ larger. All relevant completed endpoint gradient audits pass.
 Both fixed-two and same-family controls have141.96M deployed parameters.
 Ordinary8 has141.73M,slightly below that ceiling,and receives its own three-rate
 tuning. It and corrected cheap select0.032 at the upper grid edge;their optima
-remain unbracketed. Both ordinary8 seeds are now training concurrently on all16
-chips. The bounded queue then runs the declared lean One controls;it stops on
-failed audits or unresolved resource limits.
+remain unbracketed. Ordinary8 changes width, unique depth and value-table
+allocation, so it tests practical prediction quality under a parameter ceiling.
+The remaining paired lean One control is running under an explicit recovery
+after an inode admission stop. All scientific budgets and the original overall
+deadline are preserved.
 [Qualified tuning](results/lean_baseline_controls_20261026/tune/REPORT.md) ·
 [Conventional challenger](results/lean_baseline_controls_20261026/main/ordinary8/REPORT.md).
 
@@ -50,11 +61,12 @@ matrix work. The original candidate's unused training head remains charged;
 it is not retrospectively subtracted. Hardware time is reported separately.
 The original fixed training path used about2.6% more assigned chip-time than
 its original One comparator. Measured prefill is16.4–17.6% slower than that
-comparator;costs against the new challengers and KV-cached decoding remain
-outstanding. [Prediction cost](results/fixed_two_prefill_20261025/REPORT.md).
+comparator. Prefill measurements against the new challengers and KV-cached
+decoding remain outstanding. [Prediction cost](results/fixed_two_prefill_20261025/REPORT.md).
 
-No4B extension is admitted before the stronger comparisons. Fresh source
-groups,adequately powered five-or-more fresh paired seeds,and terminal alpha
+The proposed 4B follow-up has not passed its stronger-control gate and is not
+admitted. The remaining lean One comparison will finish as declared. Fresh
+source groups, adequately powered five-or-more fresh paired seeds, and terminal alpha
 allocation remain required. Five seeds are a minimum,not a power guarantee.
 No new TEST,reserve or terminal alpha has been used;the overall goal is
 unachieved. [Live status](STATUS.md).
