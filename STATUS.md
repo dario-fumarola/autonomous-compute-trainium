@@ -1,3 +1,11 @@
+## October 26, 2026, 20:11 UTC — token-output oracle complete; matched-family headroom, no router admission
+
+The free per-target selector over the old sampled-depth1/2/3 outputs scores2.503926265 and2.502679342. Mean2.503302803 is0.078033103 better than the original same-seed matched-work One controls and about0.081995 better than whole-document selection. Every original aggregate reproduces exactly; document/position checks pass, and an independent minimum-identity calculation reproduces both oracle losses within1e-12.
+
+New ordinary8 remains better at2.480522151, a0.022780652 difference. It used1.955151 times these old checkpoints' training work and a different second seed. This reference is explicitly higher-budget and descriptive. The result bounds only target-informed selection among recorded uniform-depth outputs, not jointly trained routing, mixed hidden trajectories or the whole research program. It is an upper bound, not a learned policy or terminal positive. [Completed token diagnostic](results/future_span_depth_oracle_20261025/token/REPORT.md).
+
+The CPU replay used18.63 wall minutes,6.478 child CPU core-hours and6,300 window forwards,zero model updates or accelerator chips. Arrays remain private. Native lean One training continued throughout on all16 chips and is now in its own planned cooldown. The original deadline and scientific budget remain unchanged; no4B,router,fresh reserve,TEST or terminal alpha is admitted.
+
 ## October 26, 2026, 19:44 UTC — CPU-only token-output oracle registered
 
 The final paired lean One fits continue on all16 chips under their original budget. A retrospective token-output selection diagnostic is now registered separately, using the unchanged position-loss evaluator and the old sampled-depth checkpoints from seeds5231/7283. Only document totals were previously saved for these checkpoints, so six CPU readouts at supported depths1/2/3 are required. Every original aggregate and per-document score must reproduce before the minimum is calculated. The source suite passes 324 tests with 2 skips; the small exhaustive software fixture passes.

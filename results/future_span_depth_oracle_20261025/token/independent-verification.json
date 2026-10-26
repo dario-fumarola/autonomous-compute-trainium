@@ -1,0 +1,41 @@
+{
+  "status": "PASS_INDEPENDENT_TOKEN_ORACLE_ARITHMETIC_AND_REPLAY_CHECK",
+  "parent_report_sha256": "2dce40859e49efa65a8f074e7a7072edfd2bf6f094e7a1ea3f008cf02f93ba1b",
+  "method": "Pairwise minimum identity (a+b-abs(a-b))/2, followed by document/domain math.fsum aggregation. Does not call argmin or the oracle helper.",
+  "rows": [
+    {
+      "seed": 5231,
+      "independent_token_oracle_nll": 2.503926264581063,
+      "domain_nll": {
+        "web": 2.9902122478587176,
+        "math": 2.1825388597468964,
+        "code": 1.366455719582267
+      },
+      "absolute_difference": 4.440892098500626e-16
+    },
+    {
+      "seed": 7283,
+      "independent_token_oracle_nll": 2.5026793420985025,
+      "domain_nll": {
+        "web": 2.988472709376456,
+        "math": 2.1806733226951205,
+        "code": 1.3673052596680242
+      },
+      "absolute_difference": 4.440892098500626e-16
+    }
+  ],
+  "all_six_original_weighted_nll_deltas": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "maximum_original_document_mean_nll_difference": 1.795055332446569e-15,
+  "confirmed_new_model_window_forwards": 6300,
+  "verification_wall_seconds_after_imports": 0.08899569511413574,
+  "test_accessed": false,
+  "terminal_claim": false,
+  "scope": "Independent arithmetic check on private loss arrays only;no model forward,training,target-policy fit or new source data."
+}

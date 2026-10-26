@@ -103,6 +103,15 @@ one-pass control.
 [Prefill costs](results/future_span_prefill_20261025/REPORT.md) ·
 [Oracle bound](results/future_span_depth_oracle_20261025/REPORT.md).
 
+The token-level hindsight oracle on those old sampled-depth models is now
+complete: mean NLL **2.503303**, versus **2.581336** for their original
+work-matched One controls, a **0.078033** gap. It knows the actual targets and
+has free selection. The newer ordinary8 scores **2.480522** after **1.955×**
+their training work; that higher-budget reference is still better. This bounds
+selection among the recorded outputs, not changed routing trajectories or all
+adaptive computation. No router or confirmation is admitted.
+[Token-output diagnostic](results/future_span_depth_oracle_20261025/token/REPORT.md).
+
 The completed cheap-mixing control repeats the input adapter while executing
 the core once. At equal data,it scores **2.613655**, versus recurrence's
 **2.591095**, across the same two seeds. It does not recover recurrence's
