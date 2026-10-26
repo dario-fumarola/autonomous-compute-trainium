@@ -30,7 +30,7 @@ def main():
     if proof['status']!='PASS_BYTE_EXACT_ZERO_STORAGE_PROOF' or not proof['byte_sha256_unchanged']:raise ValueError('Existing same-filesystem proof required')
     candidates=[]
     for folder in sorted((a.root/'runs').iterdir()):
-        if folder.name.startswith(('baseline-','one-control-','fixed-control-')):continue
+        if folder.name.startswith(('baseline-','one-control-','fixed-control-','lean-baseline-')):continue
         receipt=folder/'report.json';closure=a.root/'snapshots'/folder.name/'closure.json'
         if not receipt.is_file() or not closure.is_file() or json.loads(closure.read_text())['exit_code']!=0:continue
         for name,sha in recorded_roles(json.loads(receipt.read_text())).items():
@@ -49,6 +49,9 @@ def main():
             for item in candidates:
                 if reclaimed>=15*1024**3 or scanned+item['size']>128*1024**3 or time.time()-started>=600:break
                 require_inode_reserve([a.root,Path('/')])
+                available=next(int(line.split()[1])*1024 for line in Path('/proc/meminfo').read_text().splitlines()
+                               if line.startswith('MemAvailable:'))
+                if available<512*1024**3:raise RuntimeError('Protected available-memory reserve failed')
                 if min(shutil.disk_usage(a.root).free,shutil.disk_usage('/').free)<35*1024**3:raise RuntimeError('Protected byte-space reserve failed')
                 file=a.root/item['file'];before=file.stat()
                 if file_sha256(file)!=item['sha256']:raise AssertionError('Recorded closed artifact bytes differ')
