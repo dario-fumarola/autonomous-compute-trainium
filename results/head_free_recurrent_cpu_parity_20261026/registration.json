@@ -1,0 +1,52 @@
+{
+  "identity": "head-free-recurrent-cpu-parity-v1",
+  "registered_unix": 1793057953.8031712,
+  "root": "/run/user/1000/autonomous-compute/instance-nvme",
+  "active_main_plan": "late-two-allocation-main-v1/plan.json",
+  "active_main_plan_sha256": "146c9ee37cdaf4fa8c2b78ee9806c67f121b3f2e156521b3e4da1f5692740b57",
+  "script_sha256": "f35b23b93118d4699c5fd43803f0782d0785e286b82430a7dcf99d96692c38bb",
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "future_config": {
+    "context": 1024,
+    "horizon": 32,
+    "stride": 16,
+    "weight": 0.1
+  },
+  "points": {
+    "original_initialization": {
+      "file": "future-span-study-preparation-v1/initial-s5231.pt",
+      "sha256": "4b8a1a60c0b9ba37f9cae68ec7a3020a313e1f0f3e6f998387b9333e1a1ec31c"
+    },
+    "audited_mature_fixed_two": {
+      "file": "runs/fixed-two-ntp-main-v1-fixed-2b-finish/checkpoint-u3840.pt",
+      "sha256": "6768431d51f45f6fbfb6195de42fe287aee01cb35771175ea86901d75b7f07ef"
+    }
+  },
+  "cpu_threads": 4,
+  "seconds_limit": 300,
+  "maximum_model_forwards": 8,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "depth": 2,
+  "backward_depth": 2,
+  "fixture_source_policy": "Generated numerical arrays for correctness only;no source corpus,training optimizer,research panel,teacher or scientific evaluation.",
+  "criteria": {
+    "maximum_logit_error": 2e-06,
+    "maximum_ntp_loss_difference": 2e-06,
+    "overall_and_each_parameter_gradient_relative_l2": 1e-06,
+    "unused_head_gradient_zero": true,
+    "states_unchanged": true
+  },
+  "scope": "Separate CPU algebra parity screen only. No Native qualification,scientific training,hardware-cost or quality claim. Active MAIN sources and clocks may not change. Eight model forwards cover two identical-weight checkpoints,two CPU body precision modes and paid/head-free paths."
+}

@@ -1,0 +1,26 @@
+{
+  "status": "COMPLETE_BOUNDED_CPU_PARITY_ACCOUNTING",
+  "registered_unix": 1793057953.8031712,
+  "original_deadline_unix": 1793058253.8031712,
+  "completed_report_unix": 1793058170.6378667,
+  "complete_wall_seconds_from_registration": 216.83469557762146,
+  "successful_attempt_wall_seconds": 68.13631772994995,
+  "successful_attempt_cpu_seconds": 174.17945545,
+  "failed_launch_attempts": [
+    {
+      "exit_code": 1,
+      "log_sha256": "fba9e9ecfbbbdc4827bd1c2ae9f7d4062d661744b5ab83ee85b4f62a7facd62d",
+      "reason": "Checkout absent from Python import path;failed at source import before model construction.",
+      "model_forwards": 0,
+      "optimizer_updates": 0,
+      "cpu_seconds": null,
+      "scope": "Import failed before model construction;exact CPU duration not separately measured,wall delay retained inside original cap."
+    }
+  ],
+  "model_forwards": 8,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "overlaps_active_main": true,
+  "additional_instance_opportunity_chip_hours": 0,
+  "scope": "CPU-only work overlaps the active MAIN reservation already accounted by its clock. Do not add a second reserved-instance opportunity interval. Original300-second cap retained across the launcher correction;no allowance renewal."
+}

@@ -1,3 +1,11 @@
+## October 26, 2026, 23:48 UTC — head-free recurrent CPU parity passes; MAIN continues unchanged
+
+A separate bounded CPU correctness screen checks the existing paid/head-free full two-pass paths at original seed5231 initialization and its audited mature checkpoint,in FP32 and FP16 body modes. All four paired cases have exactly equal NTP logits,loss and every body gradient;future-head gradients are zero and model states remain unchanged. Eight numerical-fixture forwards make zero optimizer updates and use no chips or research quality panel. [Complete parity screen](results/head_free_recurrent_cpu_parity_20261026/REPORT.md).
+
+The successful attempt takes68.136 wall /174.179 CPU seconds,5.159GiB peak RSS. A launcher import error before any forward is corrected only by adding the checkout to `PYTHONPATH`;the failed log is preserved and the original300-second allowance is not renewed. The full registration-to-receipt interval is216.835 seconds. This overlaps the active MAIN reservation and adds no duplicate opportunity-chip interval. Native precision/optimizer/recovery and measured savings remain unqualified;no head-free scientific fit is admitted.
+
+The original paired MAIN continuations remain live on all16 chips,toward their frozen3,300-update switch. Its534 source hashes,paid-head ledger and03:08:35 /04:15:38 UTC deadlines remain unchanged. Final cooldowns,first-deep/final audits and independent main scoring are still outstanding. No held-out gain,4B,router,fresh reserve,TEST or terminal alpha is established or admitted.
+
 ## October 26, 2026, 23:31 UTC — both MAIN prefix gates pass; long continuations active
 
 Both seeds complete121 counted prefix updates /63,328,362 authentic targets and pass exact full-state/all32-RNG readback plus the full512-window independent gradient audits. Overall discrepancies are0.030222% /0.033257%;largest families0.038442% /0.036027%. Every original2%/0.003-nat gate passes,and all534 MAIN source hashes remain unchanged. These prefix updates are included in the4,400-update endpoints,not added qualification training. [Independent prefix verification](results/late_two_allocation_20261026/main/prefix-verification.json).
