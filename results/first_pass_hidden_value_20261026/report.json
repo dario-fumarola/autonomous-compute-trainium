@@ -1,0 +1,775 @@
+{
+  "status": "COMPLETE_TRAIN_SOURCE_HIDDEN_VALUE_INFORMATION_DIAGNOSTIC",
+  "records": [
+    {
+      "status": "COMPLETE_TRAIN_SOURCE_TO_CONSUMED_DEV_HIDDEN_VALUE_PROBE",
+      "seed": 5231,
+      "checkpoint_sha256": "962ca5ca12d890f2d9ba39df911a72609ec13dbd2069627763316668c0a64349",
+      "source_isolation": "Original independent whole-corpus TRAIN/held-out exact/group audit;no fresh reserve read",
+      "train_targets": 523350,
+      "fitting_targets": 392502,
+      "calibration_targets": 130848,
+      "dev_targets": 754750,
+      "dev_source_groups": 518,
+      "original_depth_one_max_position_loss_error": 0.0,
+      "feature_quantization_relative_l2": 0.00020753898502677163,
+      "constant_depth_nll": {
+        "1": 2.625521871605385,
+        "2": 2.5922390606534167
+      },
+      "two_depth_target_informed_oracle_nll": 2.5282655850627807,
+      "primary": {
+        "requested_train_fraction": 0.5,
+        "realized_token_fraction": 0.5178522689632329,
+        "threshold": 0.028644662350416183,
+        "selected_targets": 390849,
+        "nll": 2.6037208177226985,
+        "expected_same_fraction_random_nll": 2.6082862924364347,
+        "gain_over_same_fraction_random": 0.004565474713736251,
+        "gain_over_all_depth_two": -0.011481757069280007,
+        "domain_nll": {
+          "web": 3.0990538322932903,
+          "math": 2.282393751071383,
+          "code": 1.4390488406622397
+        },
+        "descriptive_cost_matched_entropy_nll": 2.5995002216850134,
+        "gain_over_descriptive_cost_matched_entropy": -0.004220596037685098
+      },
+      "curves": {
+        "linear": [
+          {
+            "requested_train_fraction": 0.0,
+            "realized_token_fraction": 0.0,
+            "threshold": null,
+            "selected_targets": 0,
+            "nll": 2.625521871605385,
+            "expected_same_fraction_random_nll": 2.625521871605386,
+            "gain_over_same_fraction_random": 8.881784197001252e-16,
+            "gain_over_all_depth_two": -0.033282810951966724,
+            "domain_nll": {
+              "web": 3.1214175233927137,
+              "math": 2.3058198187152406,
+              "code": 1.4575369691335456
+            }
+          },
+          {
+            "requested_train_fraction": 0.1,
+            "realized_token_fraction": 0.09588737992712819,
+            "threshold": 0.0661384468833833,
+            "selected_targets": 72371,
+            "nll": 2.6169207943104857,
+            "expected_same_fraction_random_nll": 2.6223304700665917,
+            "gain_over_same_fraction_random": 0.005409675756105958,
+            "gain_over_all_depth_two": -0.024681733657067273,
+            "domain_nll": {
+              "web": 3.112889902990221,
+              "math": 2.296883766711603,
+              "code": 1.4490504958701664
+            }
+          },
+          {
+            "requested_train_fraction": 0.25,
+            "realized_token_fraction": 0.2378005962239152,
+            "threshold": 0.049371930649713715,
+            "selected_targets": 179480,
+            "nll": 2.60911195183859,
+            "expected_same_fraction_random_nll": 2.6176071993170003,
+            "gain_over_same_fraction_random": 0.008495247478410128,
+            "gain_over_all_depth_two": -0.016872891185171657,
+            "domain_nll": {
+              "web": 3.104543116041563,
+              "math": 2.288520833933484,
+              "code": 1.4434095771347792
+            }
+          },
+          {
+            "requested_train_fraction": 0.5,
+            "realized_token_fraction": 0.47650745279894,
+            "threshold": 0.030752509111834216,
+            "selected_targets": 359644,
+            "nll": 2.6004051892948032,
+            "expected_same_fraction_random_nll": 2.6096623641366747,
+            "gain_over_same_fraction_random": 0.009257174841871496,
+            "gain_over_all_depth_two": -0.008166128641384773,
+            "domain_nll": {
+              "web": 3.0951209714876,
+              "math": 2.279602828858634,
+              "code": 1.4370602031525854
+            }
+          },
+          {
+            "requested_train_fraction": 0.75,
+            "realized_token_fraction": 0.7270314673733024,
+            "threshold": 0.012386177771891436,
+            "selected_targets": 548727,
+            "nll": 2.5947883916610004,
+            "expected_same_fraction_random_nll": 2.6013242207206684,
+            "gain_over_same_fraction_random": 0.006535829059667986,
+            "gain_over_all_depth_two": -0.002549331007581923,
+            "domain_nll": {
+              "web": 3.089013764102622,
+              "math": 2.2740362843948057,
+              "code": 1.4328643816023328
+            }
+          },
+          {
+            "requested_train_fraction": 0.9,
+            "realized_token_fraction": 0.8867757535607818,
+            "threshold": -0.002945074278722691,
+            "selected_targets": 669294,
+            "nll": 2.5929653658773777,
+            "expected_same_fraction_random_nll": 2.5960074818428334,
+            "gain_over_same_fraction_random": 0.0030421159654556718,
+            "gain_over_all_depth_two": -0.0007263052239592227,
+            "domain_nll": {
+              "web": 3.087079412829567,
+              "math": 2.272279629055646,
+              "code": 1.4313089618425459
+            }
+          },
+          {
+            "requested_train_fraction": 1.0,
+            "realized_token_fraction": 1.0,
+            "threshold": null,
+            "selected_targets": 754750,
+            "nll": 2.5922390606534167,
+            "expected_same_fraction_random_nll": 2.5922390606534176,
+            "gain_over_same_fraction_random": 8.881784197001252e-16,
+            "gain_over_all_depth_two": 1.7763568394002505e-15,
+            "domain_nll": {
+              "web": 3.0863411358384685,
+              "math": 2.2715425397811457,
+              "code": 1.4306293559705343
+            }
+          }
+        ],
+        "mlp": [
+          {
+            "requested_train_fraction": 0.0,
+            "realized_token_fraction": 0.0,
+            "threshold": null,
+            "selected_targets": 0,
+            "nll": 2.625521871605385,
+            "expected_same_fraction_random_nll": 2.625521871605386,
+            "gain_over_same_fraction_random": 8.881784197001252e-16,
+            "gain_over_all_depth_two": -0.033282810951966724,
+            "domain_nll": {
+              "web": 3.1214175233927137,
+              "math": 2.3058198187152406,
+              "code": 1.4575369691335456
+            }
+          },
+          {
+            "requested_train_fraction": 0.1,
+            "realized_token_fraction": 0.10716131169261345,
+            "threshold": 0.11055762171745301,
+            "selected_targets": 80880,
+            "nll": 2.618834616854618,
+            "expected_same_fraction_random_nll": 2.621955241926956,
+            "gain_over_same_fraction_random": 0.0031206250723379014,
+            "gain_over_all_depth_two": -0.026595556201199688,
+            "domain_nll": {
+              "web": 3.1150555827837754,
+              "math": 2.298155237419346,
+              "code": 1.450851098502419
+            }
+          },
+          {
+            "requested_train_fraction": 0.25,
+            "realized_token_fraction": 0.26246041735674064,
+            "threshold": 0.06983069144189358,
+            "selected_targets": 198092,
+            "nll": 2.612143155106173,
+            "expected_same_fraction_random_nll": 2.616786451152127,
+            "gain_over_same_fraction_random": 0.004643296045954148,
+            "gain_over_all_depth_two": -0.01990409445275443,
+            "domain_nll": {
+              "web": 3.108126450808157,
+              "math": 2.2909196422217475,
+              "code": 1.4454167808846474
+            }
+          },
+          {
+            "requested_train_fraction": 0.5,
+            "realized_token_fraction": 0.5178522689632329,
+            "threshold": 0.028644662350416183,
+            "selected_targets": 390849,
+            "nll": 2.6037208177226985,
+            "expected_same_fraction_random_nll": 2.6082862924364347,
+            "gain_over_same_fraction_random": 0.004565474713736251,
+            "gain_over_all_depth_two": -0.011481757069280007,
+            "domain_nll": {
+              "web": 3.0990538322932903,
+              "math": 2.282393751071383,
+              "code": 1.4390488406622397
+            }
+          },
+          {
+            "requested_train_fraction": 0.75,
+            "realized_token_fraction": 0.7646319973501159,
+            "threshold": -0.009603064507246017,
+            "selected_targets": 577106,
+            "nll": 2.5973984673144166,
+            "expected_same_fraction_random_nll": 2.6000727693897563,
+            "gain_over_same_fraction_random": 0.002674302075339696,
+            "gain_over_all_depth_two": -0.005159406660998123,
+            "domain_nll": {
+              "web": 3.0920927385883012,
+              "math": 2.276251129279286,
+              "code": 1.4344629915278975
+            }
+          },
+          {
+            "requested_train_fraction": 0.9,
+            "realized_token_fraction": 0.9094468367008943,
+            "threshold": -0.0445100050419569,
+            "selected_targets": 686405,
+            "nll": 2.5941998756156064,
+            "expected_same_fraction_random_nll": 2.5952529244686047,
+            "gain_over_same_fraction_random": 0.001053048852998284,
+            "gain_over_all_depth_two": -0.001960814962187918,
+            "domain_nll": {
+              "web": 3.088560954054321,
+              "math": 2.2732882676211554,
+              "code": 1.4320282482939142
+            }
+          },
+          {
+            "requested_train_fraction": 1.0,
+            "realized_token_fraction": 1.0,
+            "threshold": null,
+            "selected_targets": 754750,
+            "nll": 2.5922390606534167,
+            "expected_same_fraction_random_nll": 2.5922390606534176,
+            "gain_over_same_fraction_random": 8.881784197001252e-16,
+            "gain_over_all_depth_two": 1.7763568394002505e-15,
+            "domain_nll": {
+              "web": 3.0863411358384685,
+              "math": 2.2715425397811457,
+              "code": 1.4306293559705343
+            }
+          }
+        ],
+        "entropy": [
+          {
+            "requested_train_fraction": 0.0,
+            "realized_token_fraction": 0.0,
+            "threshold": null,
+            "selected_targets": 0,
+            "nll": 2.625521871605385,
+            "expected_same_fraction_random_nll": 2.625521871605386,
+            "gain_over_same_fraction_random": 8.881784197001252e-16,
+            "gain_over_all_depth_two": -0.033282810951966724,
+            "domain_nll": {
+              "web": 3.1214175233927137,
+              "math": 2.3058198187152406,
+              "code": 1.4575369691335456
+            }
+          },
+          {
+            "requested_train_fraction": 0.1,
+            "realized_token_fraction": 0.07647830407419676,
+            "threshold": 5.21484375,
+            "selected_targets": 57722,
+            "nll": 2.620370877051456,
+            "expected_same_fraction_random_nll": 2.6229764586689575,
+            "gain_over_same_fraction_random": 0.0026055816175012403,
+            "gain_over_all_depth_two": -0.028131816398037746,
+            "domain_nll": {
+              "web": 3.114515815376502,
+              "math": 2.3030657093468085,
+              "code": 1.4552412297809603
+            }
+          },
+          {
+            "requested_train_fraction": 0.25,
+            "realized_token_fraction": 0.20289367340178868,
+            "threshold": 4.0859375,
+            "selected_targets": 153134,
+            "nll": 2.612884763402787,
+            "expected_same_fraction_random_nll": 2.6187689998302037,
+            "gain_over_same_fraction_random": 0.005884236427416756,
+            "gain_over_all_depth_two": -0.0206457027493685,
+            "domain_nll": {
+              "web": 3.1052703907843635,
+              "math": 2.2972945010087624,
+              "code": 1.4513181436520814
+            }
+          },
+          {
+            "requested_train_fraction": 0.5,
+            "realized_token_fraction": 0.42472474329248094,
+            "threshold": 2.53515625,
+            "selected_targets": 320561,
+            "nll": 2.602232051959134,
+            "expected_same_fraction_random_nll": 2.611385838267759,
+            "gain_over_same_fraction_random": 0.009153786308624845,
+            "gain_over_all_depth_two": -0.009992991305715737,
+            "domain_nll": {
+              "web": 3.0933428800217957,
+              "math": 2.2863873594585984,
+              "code": 1.4447442602716862
+            }
+          },
+          {
+            "requested_train_fraction": 0.75,
+            "realized_token_fraction": 0.7010255051341504,
+            "threshold": 0.748046875,
+            "selected_targets": 529099,
+            "nll": 2.594126964010913,
+            "expected_same_fraction_random_nll": 2.602189772245498,
+            "gain_over_same_fraction_random": 0.008062808234584828,
+            "gain_over_all_depth_two": -0.001887903357494558,
+            "domain_nll": {
+              "web": 3.087164924917159,
+              "math": 2.2742927227389114,
+              "code": 1.434847322564178
+            }
+          },
+          {
+            "requested_train_fraction": 0.9,
+            "realized_token_fraction": 0.8945743623716462,
+            "threshold": 0.062469482421875,
+            "selected_targets": 675180,
+            "nll": 2.5923280830886593,
+            "expected_same_fraction_random_nll": 2.595747922220093,
+            "gain_over_same_fraction_random": 0.003419839131433733,
+            "gain_over_all_depth_two": -8.902243524078202e-05,
+            "domain_nll": {
+              "web": 3.08639819025998,
+              "math": 2.2715902708856843,
+              "code": 1.4308555737776705
+            }
+          },
+          {
+            "requested_train_fraction": 1.0,
+            "realized_token_fraction": 1.0,
+            "threshold": null,
+            "selected_targets": 754750,
+            "nll": 2.5922390606534167,
+            "expected_same_fraction_random_nll": 2.5922390606534176,
+            "gain_over_same_fraction_random": 8.881784197001252e-16,
+            "gain_over_all_depth_two": 1.7763568394002505e-15,
+            "domain_nll": {
+              "web": 3.0863411358384685,
+              "math": 2.2715425397811457,
+              "code": 1.4306293559705343
+            }
+          }
+        ]
+      },
+      "passes_information_screen": false,
+      "statistical_optimizer_updates": 1536,
+      "fitted_readout_parameters": 50245,
+      "language_model_window_forwards": 2074,
+      "language_model_updates": 0,
+      "assigned_chips": 0,
+      "trace_wall_seconds": 596.4720573425293,
+      "wall_seconds": 609.2399814128876,
+      "cpu_seconds": 5597.551136655,
+      "peak_rss_gib": 8.503471374511719,
+      "private_trace_hashes": {
+        "dev-features.npy": "1b541e8316c5fad96ddbaf2013e2120b949328d0bb1364efe3d19d560b241d17",
+        "train-domains.npy": "75478adbf52ac35761f6f92c6c3e7ff20deca0a5815b0f49c85f05f866bd9c64",
+        "train-features.npy": "606b032dfb3694fa90352bbc98396aed2b34d6d32c6c4349bf108fc33e797ed3",
+        "train-losses.npy": "a409e281a1d135daa6fb0a8da6410375eba121735d79c7b72010957a5fce4527"
+      },
+      "deployable_routing_or_cost_established": false,
+      "test_accessed": false,
+      "terminal_alpha_spent": 0,
+      "scope": "Exploratory frozen-model information test on TRAIN-source traces and already consumed source-disjoint DEV. Same original sampled-depth checkpoints support both exits. Train windows are the next512 beyond their1.005B cursor;fit on first384,calibrate unlabeled thresholds on final128. Source isolation relies on published whole-corpus independent exact/group audit;its approximate-near-duplicate limitation persists. One fixed linear and one small nonlinear readout per seed;no DEV fitting,hyperparameter search,new LM objective or LM update. Offline selection among uniform-depth predictions is not execution with mixed KV states,no actual FLOP/latency saving or broad efficiency claim. Current ordinary8 has1.955x these checkpoints training work and a different second seed;not a matched-budget comparator. Broad NLL/0.01/strongest eligible ordinary criterion unchanged;no4B,reserve,TEST or confirmation."
+    },
+    {
+      "status": "COMPLETE_TRAIN_SOURCE_TO_CONSUMED_DEV_HIDDEN_VALUE_PROBE",
+      "seed": 7283,
+      "checkpoint_sha256": "b791212f06f2f8884ca350d6a4d6f41ab4d0f5213f7d8f589746c57def3a429a",
+      "source_isolation": "Original independent whole-corpus TRAIN/held-out exact/group audit;no fresh reserve read",
+      "train_targets": 523350,
+      "fitting_targets": 392502,
+      "calibration_targets": 130848,
+      "dev_targets": 754750,
+      "dev_source_groups": 518,
+      "original_depth_one_max_position_loss_error": 0.0,
+      "feature_quantization_relative_l2": 0.0002079664858364028,
+      "constant_depth_nll": {
+        "1": 2.6218147275213406,
+        "2": 2.5899505911173026
+      },
+      "two_depth_target_informed_oracle_nll": 2.5266282603143893,
+      "primary": {
+        "requested_train_fraction": 0.5,
+        "realized_token_fraction": 0.4690997018880424,
+        "threshold": 0.02673371136188507,
+        "selected_targets": 354053,
+        "nll": 2.6018795262876995,
+        "expected_same_fraction_random_nll": 2.606867270633287,
+        "gain_over_same_fraction_random": 0.004987744345587686,
+        "gain_over_all_depth_two": -0.01192893517039506,
+        "domain_nll": {
+          "web": 3.0958562804511245,
+          "math": 2.2818699983674984,
+          "code": 1.439958791717627
+        },
+        "descriptive_cost_matched_entropy_nll": 2.598399213165689,
+        "gain_over_descriptive_cost_matched_entropy": -0.003480313122010692
+      },
+      "curves": {
+        "linear": [
+          {
+            "requested_train_fraction": 0.0,
+            "realized_token_fraction": 0.0,
+            "threshold": null,
+            "selected_targets": 0,
+            "nll": 2.6218147275213406,
+            "expected_same_fraction_random_nll": 2.6218147275213415,
+            "gain_over_same_fraction_random": 8.881784197001252e-16,
+            "gain_over_all_depth_two": -0.03186413640403618,
+            "domain_nll": {
+              "web": 3.1161546648442844,
+              "math": 2.303464220498683,
+              "code": 1.4571454225751714
+            }
+          },
+          {
+            "requested_train_fraction": 0.1,
+            "realized_token_fraction": 0.09219344153693276,
+            "threshold": 0.06469585079634076,
+            "selected_targets": 69583,
+            "nll": 2.614101312905377,
+            "expected_same_fraction_random_nll": 2.6188770631246507,
+            "gain_over_same_fraction_random": 0.004775750219273789,
+            "gain_over_all_depth_two": -0.024150721788072538,
+            "domain_nll": {
+              "web": 3.109064391042418,
+              "math": 2.2944284300260596,
+              "code": 1.4488849613735755
+            }
+          },
+          {
+            "requested_train_fraction": 0.25,
+            "realized_token_fraction": 0.23096257038754556,
+            "threshold": 0.04851945088788538,
+            "selected_targets": 174319,
+            "nll": 2.6064505713110306,
+            "expected_same_fraction_random_nll": 2.6144553046742853,
+            "gain_over_same_fraction_random": 0.00800473336325469,
+            "gain_over_all_depth_two": -0.016499980193726227,
+            "domain_nll": {
+              "web": 3.1008513725460762,
+              "math": 2.286423119586818,
+              "code": 1.4432756193301062
+            }
+          },
+          {
+            "requested_train_fraction": 0.5,
+            "realized_token_fraction": 0.47102749254720105,
+            "threshold": 0.030339819684120625,
+            "selected_targets": 355508,
+            "nll": 2.597637970818509,
+            "expected_same_fraction_random_nll": 2.606805843248765,
+            "gain_over_same_fraction_random": 0.009167872430256185,
+            "gain_over_all_depth_two": -0.0076873797012044776,
+            "domain_nll": {
+              "web": 3.091173453624732,
+              "math": 2.277634800177686,
+              "code": 1.4370346930406634
+            }
+          },
+          {
+            "requested_train_fraction": 0.75,
+            "realized_token_fraction": 0.7218681682676383,
+            "threshold": 0.012421925634472968,
+            "selected_targets": 544830,
+            "nll": 2.592422086967892,
+            "expected_same_fraction_random_nll": 2.5988130217419276,
+            "gain_over_same_fraction_random": 0.006390934774035628,
+            "gain_over_all_depth_two": -0.0024714958505875906,
+            "domain_nll": {
+              "web": 3.0855368368309324,
+              "math": 2.2724710536249115,
+              "code": 1.4330288707217538
+            }
+          },
+          {
+            "requested_train_fraction": 0.9,
+            "realized_token_fraction": 0.8845352765816495,
+            "threshold": -0.002619575894044154,
+            "selected_targets": 667603,
+            "nll": 2.590556449354536,
+            "expected_same_fraction_random_nll": 2.5936297748141595,
+            "gain_over_same_fraction_random": 0.003073325459623355,
+            "gain_over_all_depth_two": -0.0006058582372316934,
+            "domain_nll": {
+              "web": 3.0836646061563195,
+              "math": 2.270259470066415,
+              "code": 1.4315289582373072
+            }
+          },
+          {
+            "requested_train_fraction": 1.0,
+            "realized_token_fraction": 1.0,
+            "threshold": null,
+            "selected_targets": 754750,
+            "nll": 2.5899505911173026,
+            "expected_same_fraction_random_nll": 2.5899505911173026,
+            "gain_over_same_fraction_random": 0.0,
+            "gain_over_all_depth_two": 1.7763568394002505e-15,
+            "domain_nll": {
+              "web": 3.083113532713275,
+              "math": 2.2695621512291075,
+              "code": 1.4308502062175799
+            }
+          }
+        ],
+        "mlp": [
+          {
+            "requested_train_fraction": 0.0,
+            "realized_token_fraction": 0.0,
+            "threshold": null,
+            "selected_targets": 0,
+            "nll": 2.6218147275213406,
+            "expected_same_fraction_random_nll": 2.6218147275213415,
+            "gain_over_same_fraction_random": 8.881784197001252e-16,
+            "gain_over_all_depth_two": -0.03186413640403618,
+            "domain_nll": {
+              "web": 3.1161546648442844,
+              "math": 2.303464220498683,
+              "code": 1.4571454225751714
+            }
+          },
+          {
+            "requested_train_fraction": 0.1,
+            "realized_token_fraction": 0.08439350778403445,
+            "threshold": 0.10847691893577577,
+            "selected_targets": 63696,
+            "nll": 2.6165219545271228,
+            "expected_same_fraction_random_nll": 2.6191256012776956,
+            "gain_over_same_fraction_random": 0.0026036467505727856,
+            "gain_over_all_depth_two": -0.02657136340981836,
+            "domain_nll": {
+              "web": 3.111316770492979,
+              "math": 2.297414868432335,
+              "code": 1.4512445927243436
+            }
+          },
+          {
+            "requested_train_fraction": 0.25,
+            "realized_token_fraction": 0.22412851937727724,
+            "threshold": 0.06749906577169895,
+            "selected_targets": 169161,
+            "nll": 2.610138308316844,
+            "expected_same_fraction_random_nll": 2.6146730658078687,
+            "gain_over_same_fraction_random": 0.00453475749102461,
+            "gain_over_all_depth_two": -0.020187717199539712,
+            "domain_nll": {
+              "web": 3.1047131408004196,
+              "math": 2.2907000938299378,
+              "code": 1.4458520253530245
+            }
+          },
+          {
+            "requested_train_fraction": 0.5,
+            "realized_token_fraction": 0.4690997018880424,
+            "threshold": 0.02673371136188507,
+            "selected_targets": 354053,
+            "nll": 2.6018795262876995,
+            "expected_same_fraction_random_nll": 2.606867270633287,
+            "gain_over_same_fraction_random": 0.004987744345587686,
+            "gain_over_all_depth_two": -0.01192893517039506,
+            "domain_nll": {
+              "web": 3.0958562804511245,
+              "math": 2.2818699983674984,
+              "code": 1.439958791717627
+            }
+          },
+          {
+            "requested_train_fraction": 0.75,
+            "realized_token_fraction": 0.7302259026167606,
+            "threshold": -0.011529951356351376,
+            "selected_targets": 551138,
+            "nll": 2.5953879437921765,
+            "expected_same_fraction_random_nll": 2.5985467097545984,
+            "gain_over_same_fraction_random": 0.0031587659624219278,
+            "gain_over_all_depth_two": -0.005437352674872109,
+            "domain_nll": {
+              "web": 3.088955153030114,
+              "math": 2.275170615500114,
+              "code": 1.4349036443704266
+            }
+          },
+          {
+            "requested_train_fraction": 0.9,
+            "realized_token_fraction": 0.8905028155018218,
+            "threshold": -0.045063674449920675,
+            "selected_targets": 672107,
+            "nll": 2.5919162754753615,
+            "expected_same_fraction_random_nll": 2.593439624340011,
+            "gain_over_same_fraction_random": 0.001523348864649332,
+            "gain_over_all_depth_two": -0.001965684358057107,
+            "domain_nll": {
+              "web": 3.085222963938448,
+              "math": 2.271511665094024,
+              "code": 1.432400820467443
+            }
+          },
+          {
+            "requested_train_fraction": 1.0,
+            "realized_token_fraction": 1.0,
+            "threshold": null,
+            "selected_targets": 754750,
+            "nll": 2.5899505911173026,
+            "expected_same_fraction_random_nll": 2.5899505911173026,
+            "gain_over_same_fraction_random": 0.0,
+            "gain_over_all_depth_two": 1.7763568394002505e-15,
+            "domain_nll": {
+              "web": 3.083113532713275,
+              "math": 2.2695621512291075,
+              "code": 1.4308502062175799
+            }
+          }
+        ],
+        "entropy": [
+          {
+            "requested_train_fraction": 0.0,
+            "realized_token_fraction": 0.0,
+            "threshold": null,
+            "selected_targets": 0,
+            "nll": 2.6218147275213406,
+            "expected_same_fraction_random_nll": 2.6218147275213415,
+            "gain_over_same_fraction_random": 8.881784197001252e-16,
+            "gain_over_all_depth_two": -0.03186413640403618,
+            "domain_nll": {
+              "web": 3.1161546648442844,
+              "math": 2.303464220498683,
+              "code": 1.4571454225751714
+            }
+          },
+          {
+            "requested_train_fraction": 0.1,
+            "realized_token_fraction": 0.07580258363696589,
+            "threshold": 5.21875,
+            "selected_targets": 57212,
+            "nll": 2.6168200593432114,
+            "expected_same_fraction_random_nll": 2.619399343656555,
+            "gain_over_same_fraction_random": 0.002579284313343422,
+            "gain_over_all_depth_two": -0.026869468225906967,
+            "domain_nll": {
+              "web": 3.109572618857124,
+              "math": 2.3005857188242413,
+              "code": 1.4547967213204447
+            }
+          },
+          {
+            "requested_train_fraction": 0.25,
+            "realized_token_fraction": 0.20279430274925472,
+            "threshold": 4.0859375,
+            "selected_targets": 153059,
+            "nll": 2.609501690531497,
+            "expected_same_fraction_random_nll": 2.6153528621965774,
+            "gain_over_same_fraction_random": 0.0058511716650802015,
+            "gain_over_all_depth_two": -0.019551099414192752,
+            "domain_nll": {
+              "web": 3.100515640548712,
+              "math": 2.294900342538702,
+              "code": 1.4510611884726483
+            }
+          },
+          {
+            "requested_train_fraction": 0.5,
+            "realized_token_fraction": 0.4234620735342829,
+            "threshold": 2.541015625,
+            "selected_targets": 319608,
+            "nll": 2.59971380720846,
+            "expected_same_fraction_random_nll": 2.608321474248308,
+            "gain_over_same_fraction_random": 0.008607667039847833,
+            "gain_over_all_depth_two": -0.009763216091155602,
+            "domain_nll": {
+              "web": 3.089833523190823,
+              "math": 2.2842378376064203,
+              "code": 1.4448306288634079
+            }
+          },
+          {
+            "requested_train_fraction": 0.75,
+            "realized_token_fraction": 0.6999841006955946,
+            "threshold": 0.75537109375,
+            "selected_targets": 528313,
+            "nll": 2.591748577140335,
+            "expected_same_fraction_random_nll": 2.5995103386561187,
+            "gain_over_same_fraction_random": 0.007761761515783672,
+            "gain_over_all_depth_two": -0.0017979860230306066,
+            "domain_nll": {
+              "web": 3.0839246995685294,
+              "math": 2.271918628479004,
+              "code": 1.4350501585170858
+            }
+          },
+          {
+            "requested_train_fraction": 0.9,
+            "realized_token_fraction": 0.8930917522358397,
+            "threshold": 0.0648193359375,
+            "selected_targets": 674061,
+            "nll": 2.5899952070072416,
+            "expected_same_fraction_random_nll": 2.5933571301067766,
+            "gain_over_same_fraction_random": 0.0033619230995349803,
+            "gain_over_all_depth_two": -4.461588993720511e-05,
+            "domain_nll": {
+              "web": 3.083128501554248,
+              "math": 2.2696636077625074,
+              "code": 1.430926922610957
+            }
+          },
+          {
+            "requested_train_fraction": 1.0,
+            "realized_token_fraction": 1.0,
+            "threshold": null,
+            "selected_targets": 754750,
+            "nll": 2.5899505911173026,
+            "expected_same_fraction_random_nll": 2.5899505911173026,
+            "gain_over_same_fraction_random": 0.0,
+            "gain_over_all_depth_two": 1.7763568394002505e-15,
+            "domain_nll": {
+              "web": 3.083113532713275,
+              "math": 2.2695621512291075,
+              "code": 1.4308502062175799
+            }
+          }
+        ]
+      },
+      "passes_information_screen": false,
+      "statistical_optimizer_updates": 1536,
+      "fitted_readout_parameters": 50245,
+      "language_model_window_forwards": 2074,
+      "language_model_updates": 0,
+      "assigned_chips": 0,
+      "trace_wall_seconds": 608.3031144142151,
+      "wall_seconds": 619.9363296031952,
+      "cpu_seconds": 5643.561757036,
+      "peak_rss_gib": 8.509666442871094,
+      "private_trace_hashes": {
+        "dev-features.npy": "8546310f89ec7620a1fad7f2e958242aaaa72421e0bcb48d87d3d5a2a1ff9688",
+        "train-domains.npy": "75478adbf52ac35761f6f92c6c3e7ff20deca0a5815b0f49c85f05f866bd9c64",
+        "train-features.npy": "265c147adb727000d81c1d7e0ed232f3961b70a41d67145fcdcae094935ddbfd",
+        "train-losses.npy": "5590341cc67363e69ef27d2ec7d3ed6331ab91094129ca1c2e165b0c2f9bea51"
+      },
+      "deployable_routing_or_cost_established": false,
+      "test_accessed": false,
+      "terminal_alpha_spent": 0,
+      "scope": "Exploratory frozen-model information test on TRAIN-source traces and already consumed source-disjoint DEV. Same original sampled-depth checkpoints support both exits. Train windows are the next512 beyond their1.005B cursor;fit on first384,calibrate unlabeled thresholds on final128. Source isolation relies on published whole-corpus independent exact/group audit;its approximate-near-duplicate limitation persists. One fixed linear and one small nonlinear readout per seed;no DEV fitting,hyperparameter search,new LM objective or LM update. Offline selection among uniform-depth predictions is not execution with mixed KV states,no actual FLOP/latency saving or broad efficiency claim. Current ordinary8 has1.955x these checkpoints training work and a different second seed;not a matched-budget comparator. Broad NLL/0.01/strongest eligible ordinary criterion unchanged;no4B,reserve,TEST or confirmation."
+    }
+  ],
+  "both_seed_information_gates_pass": false,
+  "language_model_window_forwards": 4148,
+  "statistical_optimizer_updates": 3072,
+  "native_routing_campaign_admitted": false,
+  "scope": "Exploratory frozen-model information test on TRAIN-source traces and already consumed source-disjoint DEV. Same original sampled-depth checkpoints support both exits. Train windows are the next512 beyond their1.005B cursor;fit on first384,calibrate unlabeled thresholds on final128. Source isolation relies on published whole-corpus independent exact/group audit;its approximate-near-duplicate limitation persists. One fixed linear and one small nonlinear readout per seed;no DEV fitting,hyperparameter search,new LM objective or LM update. Offline selection among uniform-depth predictions is not execution with mixed KV states,no actual FLOP/latency saving or broad efficiency claim. Current ordinary8 has1.955x these checkpoints training work and a different second seed;not a matched-budget comparator. Broad NLL/0.01/strongest eligible ordinary criterion unchanged;no4B,reserve,TEST or confirmation.",
+  "plan_sha256": "24bc784cf6cb4a93973229afbe9582db1244163608395cc527fb4545c5f6c1c0",
+  "wall_seconds": 622.2773656845093,
+  "child_cpu_seconds": 11273.537387,
+  "language_model_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "cost_scope": "CPU-only statistical experiment;CPU model forwards and probe fits counted separately.No accelerator jobs;reserved-instance opportunity is not productive chip computation."
+}

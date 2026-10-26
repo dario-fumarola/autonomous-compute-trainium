@@ -1,0 +1,33 @@
+{
+  "status": "DESCRIPTIVE_POSTRESULT_STATIC_READOUT_COST_CHECK",
+  "shape": {
+    "positions": 1024,
+    "batch": 1
+  },
+  "model": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "scope": "Existing dense full-square-attention forward matmul ledger,FMA=2. No new forward,fit,latency measurement or actual routed-execution claim. Excludes norms,elementwise,embedding gathers,router,padding,communication and additional mixed-depth KV costs. Descriptive calculation after probe results;primary screen unchanged.",
+  "one_pass_forward_matmul_flops": 159049187328,
+  "two_pass_forward_matmul_flops": 195691020288,
+  "extra_recurrent_application_matmul_flops": 36641832960,
+  "first_pass_vocabulary_head_matmul_flops": 50331648000,
+  "head_to_extra_recurrence_ratio": 1.373611632773515,
+  "first_pass_C_coda_head_matmul_flops": 86973480960,
+  "first_pass_decoder_to_extra_recurrence_ratio": 2.373611632773515,
+  "confidence_readout_is_free": false,
+  "all_costs_need_actual_routed_semantics_and_measurement": true,
+  "language_model_updates": 0,
+  "model_forwards": 0,
+  "assigned_chips": 0,
+  "ledger_source_sha256": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02"
+}

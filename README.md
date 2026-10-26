@@ -118,6 +118,18 @@ A fixed equal-probability mixture scores2.590091, worse than supported depth3
 by0.004612. It does not realize the target-informed oracle gain; no mixture
 weights were fitted and no router was trained.
 
+A stronger frozen-prefix diagnostic is also complete. Readouts fit on TRAIN
+traces using current first-pass hidden states and confidence,then evaluate on
+source-separated consumed DEV. The registered nonlinear probe saves0.004565
+and0.004988 nats versus same-fraction random allocation,but loses0.004221
+and0.003480 to the descriptive cost-matched entropy reference. Its screen
+fails in both seeds. The secondary linear readout finds modest predictable
+value;this does not rule out all routing. Recorded-output selection remains
+distinct from actual mixed-depth attention. The first-pass vocabulary head
+alone costs1.37 times another core application in the dense ledger,so the
+confidence signal is not free. No accelerator router is admitted.
+[Completed current-prefix diagnostic](results/first_pass_hidden_value_20261026/REPORT.md).
+
 The completed cheap-mixing control repeats the input adapter while executing
 the core once. At equal data,it scores **2.613655**, versus recurrence's
 **2.591095**, across the same two seeds. It does not recover recurrence's
