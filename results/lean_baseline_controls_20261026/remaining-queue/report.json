@@ -1,0 +1,79 @@
+{
+  "status": "STOPPED_REMAINING_LEAN_CONTROLS_QUEUE",
+  "error": "Bounded permitted maintenance cannot satisfy next admission;no invented training or destructive cleanup",
+  "error_kind": "RuntimeError",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/ubuntu/autonomous-compute-trainium/scripts/run_remaining_lean_controls.py\", line 157, in main\n    prepare_resources(role)\n  File \"/home/ubuntu/autonomous-compute-trainium/scripts/run_remaining_lean_controls.py\", line 150, in prepare_resources\n    raise RuntimeError('Bounded permitted maintenance cannot satisfy next admission;no invented training or destructive cleanup')\nRuntimeError: Bounded permitted maintenance cannot satisfy next admission;no invented training or destructive cleanup\n",
+  "completed_controls": {
+    "mixing": {
+      "report_sha256": "958d631d24e38c597d2b611137294ce7152c921041b48bfdd225910267d72869",
+      "recurrence_advantage": {
+        "5231": {
+          "gain_nats": 0.009852152862941388,
+          "interval_95": [
+            0.007279801302156449,
+            0.012380801393021206
+          ],
+          "source_groups": 518,
+          "accepted_draws": 10000,
+          "warning": "Within-seed uncertainty only; report paired training seeds separately."
+        },
+        "17293": {
+          "gain_nats": 0.011681935959809042,
+          "interval_95": [
+            0.009465669348879035,
+            0.01389910993285616
+          ],
+          "source_groups": 518,
+          "accepted_draws": 10000,
+          "warning": "Within-seed uncertainty only; report paired training seeds separately."
+        }
+      }
+    },
+    "ordinary8": {
+      "report_sha256": "afd253499d2c5824ef10f76017212dff0192ccff504d95a8bb9a4e218c195ec9",
+      "recurrence_advantage": {
+        "5231": {
+          "gain_nats": -0.00236077698446735,
+          "interval_95": [
+            -0.004785676115493907,
+            9.128542594635974e-05
+          ],
+          "source_groups": 518,
+          "accepted_draws": 10000,
+          "warning": "Within-seed uncertainty only; report paired training seeds separately."
+        },
+        "17293": {
+          "gain_nats": -0.004319243918643245,
+          "interval_95": [
+            -0.006561496958681137,
+            -0.002107613349201713
+          ],
+          "source_groups": 518,
+          "accepted_draws": 10000,
+          "warning": "Within-seed uncertainty only; report paired training seeds separately."
+        }
+      }
+    }
+  },
+  "maintenance": [
+    {
+      "kind": "byte_exact_zero_storage",
+      "control": "ordinary8",
+      "report_sha256": "4fda89e095e369f0a5b41a20b0efcc8683c0c345acf28bd087e0994dc8f2bf3a",
+      "reclaimed_bytes": 16115425280,
+      "wall_seconds": 271.24750566482544
+    },
+    {
+      "kind": "regenerable_closed_bytecode",
+      "control": "one",
+      "report_sha256": "d4542131c0551f63ec5b44ab5986a09a0a79fb20aef73bd6b517fba66cd8b351",
+      "removed_files": 8723,
+      "wall_seconds": 3.5915005207061768
+    }
+  ],
+  "operator_attention_required": true,
+  "plan_sha256": "07ffed8480ba88b81b98c60ff0a35403b46d39784a370aaecb5defebefa4db29",
+  "finished_unix": 1793041618.3219876,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0
+}
