@@ -11,6 +11,15 @@ parameters. The nominal global512-window matrix ledger becomes
 270,391,480,478,208 operations/update for One and326,673,335,904,768 for fixed2.
 One's counted work falls1.72865%;this is not a measured throughput improvement.
 
+A subsequent read-only check of both stable1,004,887,590-target scientific
+checkpoints finds the entire auxiliary weight,bias and fixed-position buffer
+exactly equal to their original unfitted initializer. Checkpoint/signature
+hashes are verified before and after access. The check takes7.60 CPU seconds,
+uses zero chips and makes zero model forwards or optimizer updates. This
+supports treating the head as unused capacity;it neither removes its charged
+work nor qualifies future native lean trajectories.
+[Trained-state check](trained-head-invariance.json).
+
 A prospective lean One challenger to the running full-head recurrent candidate
 would receive2,353 updates/1,231,507,928 targets at the1B comparison,or
 4,706 updates/2,463,002,486 targets at2B. Each is0.0178874% below the candidate's

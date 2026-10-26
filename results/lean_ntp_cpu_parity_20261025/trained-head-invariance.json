@@ -1,0 +1,38 @@
+{
+  "status": "PASS_TRAINED_ZERO_WEIGHT_HEAD_INVARIANCE",
+  "plan_sha256": "07f41a3e08f3f15b9c73b70cb295c62369cc678ce946ae8e80fcc7c0a82ef42c",
+  "initializer_sha256": "4b8a1a60c0b9ba37f9cae68ec7a3020a313e1f0f3e6f998387b9333e1a1ec31c",
+  "records": [
+    {
+      "case": "one-2b",
+      "training_update": 1920,
+      "real_targets": 1004887590,
+      "checkpoint_sha256": "4c80cb6083870085be277044b872dd0a37cb827ca341210ff7442072935e5b51",
+      "unchanged_initializer_tensors": {
+        "future_lm_head.weight": true,
+        "future_lm_head.bias": true,
+        "future_positions": true
+      },
+      "stable_unfinished_endpoint": true
+    },
+    {
+      "case": "fixed-2b",
+      "training_update": 1920,
+      "real_targets": 1004887590,
+      "checkpoint_sha256": "9735b5411af019a21d1d1630c27ae0f52d293f3e65a3949328c7f1e7c71575f4",
+      "unchanged_initializer_tensors": {
+        "future_lm_head.weight": true,
+        "future_lm_head.bias": true,
+        "future_positions": true
+      },
+      "stable_unfinished_endpoint": true
+    }
+  ],
+  "method": "torch.equal of full FP32 auxiliary weight,bias and fixed-position buffer against the original unfitted initializer;exact checkpoint/signature hashes verified before and after read-only access.",
+  "wall_seconds": 7.596144676208496,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "scientific_updates": 0,
+  "test_accessed": false,
+  "scope": "Read-only capacity control at both stable1B prefixes. The auxiliary head remains exactly at initialization. This does not show identical future native lean trajectories,qualify a lean trainer,change the frozen MAIN or establish a quality advantage."
+}

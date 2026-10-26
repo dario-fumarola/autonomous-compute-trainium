@@ -1,3 +1,23 @@
+# Status — 2026-10-26 00:42 UTC
+
+**Both primary cooled fits remain live on all16 chips.** Fixed2 has processed
+about1.85B of2.0098B targets,and the One work control about2.29B of2.4206B.
+No cooled primary quality scores are available yet. Keep all remaining frozen
+fits,audits and the original04:15:35 UTC cutoff;do not substitute training loss
+or an unfinished stable checkpoint for an endpoint.
+
+The auxiliary head's entire weight,bias and fixed-position buffer are exactly
+unchanged from random initialization in both stable1.0049B checkpoints. This
+read-only7.60-second CPU check makes zero forwards/updates and uses zero chips.
+It strengthens the capacity-control interpretation without removing charged
+head work or qualifying a lean native trainer.
+[Actual trained-state check](results/lean_ntp_cpu_parity_20261025/trained-head-invariance.json).
+
+The prefill-cost queue remains live with zero chips while waiting for complete
+MAIN fits and audits.281 CPU tests remain the latest source-suite result;no
+source code changed for the new tensor-identity check. No TEST,reserve access,
+terminal alpha or terminal success;the research goal remains active.
+
 # Status — 2026-10-25 23:59 UTC
 
 **The fixed-two MAIN remains live on all16 chips.** One's stable1.0049B prefix
