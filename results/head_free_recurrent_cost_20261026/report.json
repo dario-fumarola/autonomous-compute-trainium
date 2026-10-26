@@ -1,0 +1,42 @@
+{
+  "status": "COMPLETE_READ_ONLY_HEAD_FREE_RECURRENT_COST_CHECK",
+  "parent_main_plan_sha256": "146c9ee37cdaf4fa8c2b78ee9806c67f121b3f2e156521b3e4da1f5692740b57",
+  "model_config": {
+    "dim": 768,
+    "heads": 6,
+    "ffn_dim": 3072,
+    "vocab_size": 32000,
+    "prelude": 2,
+    "core": 2,
+    "coda": 2,
+    "max_seq": 2048,
+    "rope_base": 50000.0,
+    "norm_eps": 1e-05
+  },
+  "source_sha256": {
+    "compute_trainium/future_span_scientific_state.py": "28e5c84fd6b0884f9f4adac370a228ff5eac101f736c8d2d149820860a24a04f",
+    "compute_trainium/parcae_scientific_schedule.py": "10b8f724af0843fac3d8167d84994880ef7b09836b51fa85cc9d92a912739459"
+  },
+  "packed_count_sha256": "d22360f1ba69b325036e4c576df68520e5395ae28b4c676d66bf255119125af1",
+  "nominal_matrix_budget": 1272689958300549120,
+  "paid_two_pass_work_per_update": 331429676640768,
+  "head_free_two_pass_work_per_update": 326673335904768,
+  "auxiliary_nominal_matrix_work_per_update": 4756340736000,
+  "nominal_savings_fraction": 0.014350980226660063,
+  "original_updates": 3840,
+  "proposed_complete_updates_at_old_budget": 3895,
+  "original_real_targets": 2009762680,
+  "proposed_exact_real_targets": 2038547734,
+  "proposed_work": 1272392643349071360,
+  "next_complete_step_exceeds_budget": true,
+  "training_only_parameters_removable": 24608000,
+  "deployed_parameters_unchanged": 141963840,
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "hardware_savings_measured": false,
+  "qualification_or_training_admitted": false,
+  "wall_seconds": 0.28771448135375977,
+  "cpu_seconds": 0.28771805999999955,
+  "scope": "Algebra/counters only at the original fixed-two budget. This uses the existing nominal matrix ledger,which excludes pointwise optimizer/neural operations and does not establish realized pruning,compilation,memory or elapsed-time savings. It does not retroactively alter earlier results or the active paid-head MAIN. A new head-free recurrent path requires separate source-matched prediction/gradient/state qualification and complete from-random training/cooldown against ordinary8."
+}

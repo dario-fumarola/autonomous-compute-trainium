@@ -1,0 +1,66 @@
+{
+  "status": "PASS_BOTH_MAIN_COUNTED_PREFIX_GRADIENT_AND_STATE_GATES",
+  "observed_unix": 1793057440.889045,
+  "plan_sha256": "146c9ee37cdaf4fa8c2b78ee9806c67f121b3f2e156521b3e4da1f5692740b57",
+  "seeds": {
+    "5231": {
+      "checkpoint_sha256": "b49724ed8ce2e059b3afdbb3d5b9d3bf63475252f7ad55c38ec94e5b2af416e6",
+      "native_report_sha256": "16c5da0b08cebf16c1c3d443a80acc6b1ade367b82b89466fac544227e6e8426",
+      "cpu_report_sha256": "a3917b9599b45d1c37808c1c64462cf86db6f9fc0c0141bd35a42ea50f87814a",
+      "windows": 512,
+      "overall_relative_l2": 0.0003022244380980654,
+      "maximum_family_relative_l2": 0.00038441584781716373,
+      "loss_differences": {
+        "ntp_nll": 2.7532692756793153e-06,
+        "future_mean": -1.1797957322201569e-06
+      },
+      "all_gates_pass": true,
+      "actual_prefix_optimizer_updates": 121,
+      "gradient_optimizer_updates": 0,
+      "cpu_audit_wall_seconds": 369.3727033138275,
+      "state_readback": {
+        "update": 121,
+        "checkpoint_sha256": "b49724ed8ce2e059b3afdbb3d5b9d3bf63475252f7ad55c38ec94e5b2af416e6",
+        "complete_state_readback_exact": true,
+        "all32_rng_states_recoverable": true,
+        "replicas_equal": true,
+        "next_forward_backward_depth": [
+          1,
+          1
+        ],
+        "wall_seconds": 4.299832582473755
+      }
+    },
+    "17293": {
+      "checkpoint_sha256": "422b716e8e9eaac7013bdcc4908fe04f2e3cd86007154bc1b37f5517f2334f2e",
+      "native_report_sha256": "85eba37c9bb4e19dc9948666cc50f9248eb272f64bac8696c35ff9f8edaab42b",
+      "cpu_report_sha256": "3995f231755e53e9b5c50970eec92915afda9c4f2fbf1157b94f671fd656064a",
+      "windows": 512,
+      "overall_relative_l2": 0.00033257432186558164,
+      "maximum_family_relative_l2": 0.0003602684413198665,
+      "loss_differences": {
+        "ntp_nll": 2.416924452575131e-06,
+        "future_mean": 7.29931520560001e-07
+      },
+      "all_gates_pass": true,
+      "actual_prefix_optimizer_updates": 121,
+      "gradient_optimizer_updates": 0,
+      "cpu_audit_wall_seconds": 379.1358013153076,
+      "state_readback": {
+        "update": 121,
+        "checkpoint_sha256": "422b716e8e9eaac7013bdcc4908fe04f2e3cd86007154bc1b37f5517f2334f2e",
+        "complete_state_readback_exact": true,
+        "all32_rng_states_recoverable": true,
+        "replicas_equal": true,
+        "next_forward_backward_depth": [
+          1,
+          1
+        ],
+        "wall_seconds": 4.13815712928772
+      }
+    }
+  },
+  "all534_main_sources_unchanged": true,
+  "terminal_success": false,
+  "scope": "Both counted121-update prefix states and full512 independent audits verify. Long continuations are allowed under the original schedule/deadline;no held-out quality result or fresh confirmation follows."
+}
