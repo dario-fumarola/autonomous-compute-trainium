@@ -1,3 +1,24 @@
+# Status — 2026-10-25 23:59 UTC
+
+**The fixed-two MAIN remains live on all16 chips.** One's stable1.0049B prefix
+is complete,including exact saved model/optimizer and per-rank CPU-RNG restore
+from its earlier stable checkpoint. Its2.4206B work control is now continuing
+from that stable state;fixed2 is approaching its1.0049B stable prefix. None of
+these unfinished stable paths is a cooled held-out quality result. The original
+MAIN04:15:35 UTC deadline and all six endpoints remain unchanged.
+
+A separate read-only cost queue is live,owning zero chips while waiting for
+all MAIN fits and audits. After successful completion,it measures the frozen
+primary prediction pair on both chip halves under a30-minute cap,including
+independent actual-weight CPU references. This is fixed-window prefill only;
+KV-cached decoding remains unmeasured. No quality-based admission or training
+updates.281 CPU tests pass,including half assignment,restart and failure cases.
+[Registered cost queue](results/fixed_two_prefill_20261025/REPORT.md).
+
+The auxiliary-objective and bridge families remain closed. The lean CPU parity
+result is an implementation prerequisite,not a trained new baseline. No TEST,
+reserve access,terminal alpha or terminal success;the broad goal remains active.
+
 # Status — 2026-10-25 23:44 UTC
 
 **The frozen fixed-two MAIN continues on all16 chips.** Both arms saved their
