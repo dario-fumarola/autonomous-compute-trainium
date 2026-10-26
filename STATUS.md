@@ -1,3 +1,13 @@
+## October 26, 2026, 23:08 UTC — complete TUNE passes; bounded paired MAIN registered
+
+All three final-quarter fits complete576 actual updates /301,465,908 authentic targets each. Consumed TUNE NLLs are2.993878979 /2.944134294 /2.930166077 for rates0.008/0.016/0.032. Exact document sums reproduce the complete grid;0.032 wins at the upper boundary and remains unbracketed. All prefix audits,both100-update warm regimes,complete checkpoint/RNG restoration and the selected mature full512 audit pass. Its overall/family-max gradient discrepancies are0.308965% /0.310220%,within the unchanged2% limit. All13 native phases close with exit0. [Complete TUNE](results/late_two_allocation_20261026/tune/REPORT.md).
+
+Training uses6.808283 assigned chip-hours and native gradient diagnostics0.944864. Whole-stage reserved-instance opportunity is13.475597 chip-hours,including independent CPU validation tails;this overlaps assigned work and is not added to it. No DEV quality or compute-efficiency result follows from rate selection.
+
+The separately registered MAIN binds534 source files,original random initializers,exact same-seed ordinary8/fixed-two references and the unchanged04:15:38 UTC composite deadline. Both reused development seeds receive4,400 updates /2,302,851,264 targets at the original fixed-two nominal-work budget,with the switch after3,300 and no reheat. The complete measured projection is12,134.7 seconds inside the14,400-second local cap. Full prefix,before-switch and final gradient/state audits remain required. The registration is being published before execution;no MAIN optimizer update has run at this entry. [Frozen MAIN plan](results/late_two_allocation_20261026/main/plan.json).
+
+Ordinary8 is the sole primary comparator. The mean0.01-nat/both-positive development rule,subsequent conventional-growth/equal-source controls and fresh adequately powered confirmation requirements remain unchanged. No4B,router,fresh reserve,TEST or terminal alpha is admitted;the overall goal is unachieved.
+
 ## October 26, 2026, 22:44 UTC — prefix audits pass; paired MAIN implementation ready, not admitted
 
 All three counted121-update TUNE prefixes pass their complete512-window independent gradient audits. The0.008/0.016 fits reach the frozen432-update switch;0.008 is now training at depth2 while0.032 continues its one-pass segment on the other half. All three cooled scores,both measured depth regimes and the selected mature audit remain outstanding. No predictive result is inferred from these numerical passes. The original00:15:38 TUNE and04:15:38 composite deadlines remain unchanged.

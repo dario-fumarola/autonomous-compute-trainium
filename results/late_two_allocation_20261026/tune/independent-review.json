@@ -1,0 +1,83 @@
+{
+  "status": "PASS_INDEPENDENT_COMPLETE_TUNE_REVIEW",
+  "plan_sha256": "cb972c57209a6872e5af7df8e8d1fae89ffabcbdb9ff71deaccc567c3c7ef8ee",
+  "private_report_sha256": "a22e28c25bd0975c8eac8463a541545a18dcb99824d14efd6c2573cb3bcc2dd2",
+  "grid": [
+    {
+      "case_id": "recurrent-ntp-s4127-lr8000",
+      "peak_lr": 0.008,
+      "weighted_nll": 2.993878978607184,
+      "domain_loss_sums": {
+        "web": 904042.6331457389,
+        "math": 662795.4199582224,
+        "code": 448852.5172188644
+      },
+      "domain_targets": {
+        "web": 257141,
+        "math": 252312,
+        "code": 250020
+      },
+      "documents": 556,
+      "document_scores_sha256": "180febe5ff192b571d744dae42beea6249b12b5dbe3ba65e496d273402a126f4"
+    },
+    {
+      "case_id": "recurrent-ntp-s4127-lr16000",
+      "peak_lr": 0.016,
+      "weighted_nll": 2.94413429399082,
+      "domain_loss_sums": {
+        "web": 889655.4574192745,
+        "math": 652074.4037715467,
+        "code": 439256.5695155547
+      },
+      "domain_targets": {
+        "web": 257141,
+        "math": 252312,
+        "code": 250020
+      },
+      "documents": 556,
+      "document_scores_sha256": "cd77eff143d1e676c1c007644b142a14053cb6f80b01fdf5005d1ae20cf7ec15"
+    },
+    {
+      "case_id": "recurrent-ntp-s4127-lr32000",
+      "peak_lr": 0.032,
+      "weighted_nll": 2.930166076543386,
+      "domain_loss_sums": {
+        "web": 885396.3993387215,
+        "math": 648541.8798229388,
+        "code": 437718.67165574926
+      },
+      "domain_targets": {
+        "web": 257141,
+        "math": 252312,
+        "code": 250020
+      },
+      "documents": 556,
+      "document_scores_sha256": "87352db02074f2da55402f4cd932daa245470948138a11a39e79c8881201ac2f"
+    }
+  ],
+  "selected_rate": 0.032,
+  "selected_final_gradient_relative_l2": 0.003089651273983399,
+  "selected_maximum_family_relative_l2": 0.0031021964497680854,
+  "all13_native_phases_closed_exit_zero": true,
+  "all_source_hashes_unchanged": true,
+  "scientific_optimizer_updates": 1728,
+  "training_assigned_chip_hours": 6.808283183309767,
+  "native_diagnostic_chip_hours": 0.9448644722832573,
+  "reserved_instance_opportunity_chip_hours": 13.475597034030491,
+  "main_complete_measured_budget": {
+    "one_seconds_per_update": 1.121210014820099,
+    "two_seconds_per_update": 1.3662043905258179,
+    "largest_observed_cpu_audit_seconds": 428.9902231693268,
+    "parts": {
+      "training": 7804.226817727089,
+      "cold_native_phases": 1500.0,
+      "six_independent_full_gradients": 1930.4560042619705,
+      "independent_scores": 600,
+      "closure_margin": 300
+    },
+    "complete_seconds": 12134.68282198906
+  },
+  "model_updates_in_this_review": 0,
+  "assigned_chips_in_this_review": 0,
+  "scope": "Complete consumed-TUNE numerical/selection review;no DEV efficiency result or terminal success."
+}
