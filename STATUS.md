@@ -1,3 +1,11 @@
+## October 26, 2026, 16:20 UTC — live stronger controls; confirmation power sensitivity
+
+Both corrected-cheap main seeds are progressing beyond811M authentic targets on all16 chips;no phase failures are reported. The original source/recipe/endpoints and bounded remaining-control queue are unchanged. Mature quality outcomes remain pending.
+
+A CPU-only analytic sensitivity calculation quantifies the existing charter's adequate-power requirement. At first-attempt alpha0.025,requiring the lower two-sided paired-seed bound above0.01,a hypothetical true gain0.0125 with paired-seed SD0.003 gives18.2% power at five seeds and needs17 for80%;with SD0.005,it needs41. At hypothetical gain0.015 and SD0.003,eight seeds reach90% power. These assumptions are NOT measured variance or effect estimates against the stronger controls. The calculation uses the same Student-t threshold as the existing confirmation helper and noncentral-t survival probabilities;its central-null tail and minimal integer counts are checked. No sampled research data,model updates,fresh panel access,confirmation registration or alpha spending.
+
+The implication is to choose a prospective confirmation sample size from actual development variance,meaningful margin and measured budget after the strongest controls—not automatically five. This calculation does not authorize any confirmation or4B run.
+
 ## October 26, 2026, 16:14 UTC — bounded remaining-control continuation registered
 
 The corrected-cheap paired main remains active on all16 chips,without recipe or endpoint changes. A separate continuation queue is frozen to observe that original controller,require both final numerical audits/scores,and then register/run only the already-declared paired ordinary8 and lean One controls. It preserves negative quality outcomes and does not admit4B or any new scientific branch.

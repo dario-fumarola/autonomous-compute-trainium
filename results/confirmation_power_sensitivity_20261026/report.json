@@ -1,0 +1,110 @@
+{
+  "status": "CPU_ONLY_CONDITIONAL_POWER_SENSITIVITY",
+  "scipy_version": "1.18.1",
+  "existing_analysis_helper_sha256": "bfdfe7591314372ef4bc2fa397cc9398ee18dfabba6a1b5b0ea6a721ce4dcbd3",
+  "attempt_alpha_used_as_hypothesis": 0.025,
+  "minimum_useful_gain_nats": 0.01,
+  "one_frozen_primary_comparison": true,
+  "formula": "nct.sf(t.isf(alpha/2,n-1),n-1,sqrt(n)*(true_mean-threshold)/paired_seed_sd)",
+  "assumptions": "Independent approximately normal paired-seed differences,conditional on a fixed evaluation source panel. The power event is lower two-sided confidence bound greater than0.01,not merely greater than zero. Mean and SD values are hypothetical sensitivity cases;two development seeds do not establish these SDs or the candidate gain against stronger controls.",
+  "rows": [
+    {
+      "assumed_true_mean_gain": 0.0125,
+      "assumed_paired_seed_sd": 0.001,
+      "power_at_five_seeds": 0.9259090186111938,
+      "minimum_seeds_by_power": {
+        "0.8": 5,
+        "0.9": 5
+      }
+    },
+    {
+      "assumed_true_mean_gain": 0.015,
+      "assumed_paired_seed_sd": 0.001,
+      "power_at_five_seeds": 0.9999977671758928,
+      "minimum_seeds_by_power": {
+        "0.8": 5,
+        "0.9": 5
+      }
+    },
+    {
+      "assumed_true_mean_gain": 0.02,
+      "assumed_paired_seed_sd": 0.001,
+      "power_at_five_seeds": 1.0,
+      "minimum_seeds_by_power": {
+        "0.8": 5,
+        "0.9": 5
+      }
+    },
+    {
+      "assumed_true_mean_gain": 0.0125,
+      "assumed_paired_seed_sd": 0.003,
+      "power_at_five_seeds": 0.1820354424587253,
+      "minimum_seeds_by_power": {
+        "0.8": 17,
+        "0.9": 21
+      }
+    },
+    {
+      "assumed_true_mean_gain": 0.015,
+      "assumed_paired_seed_sd": 0.003,
+      "power_at_five_seeds": 0.622146885041751,
+      "minimum_seeds_by_power": {
+        "0.8": 7,
+        "0.9": 8
+      }
+    },
+    {
+      "assumed_true_mean_gain": 0.02,
+      "assumed_paired_seed_sd": 0.003,
+      "power_at_five_seeds": 0.9942274755776125,
+      "minimum_seeds_by_power": {
+        "0.8": 5,
+        "0.9": 5
+      }
+    },
+    {
+      "assumed_true_mean_gain": 0.0125,
+      "assumed_paired_seed_sd": 0.005,
+      "power_at_five_seeds": 0.0769292122007047,
+      "minimum_seeds_by_power": {
+        "0.8": 41,
+        "0.9": 53
+      }
+    },
+    {
+      "assumed_true_mean_gain": 0.015,
+      "assumed_paired_seed_sd": 0.005,
+      "power_at_five_seeds": 0.2560580000381664,
+      "minimum_seeds_by_power": {
+        "0.8": 13,
+        "0.9": 16
+      }
+    },
+    {
+      "assumed_true_mean_gain": 0.02,
+      "assumed_paired_seed_sd": 0.005,
+      "power_at_five_seeds": 0.7803291429659408,
+      "minimum_seeds_by_power": {
+        "0.8": 6,
+        "0.9": 6
+      }
+    }
+  ],
+  "central_null_tail_identity_checked": true,
+  "minimal_integer_seed_counts_checked": true,
+  "sources": [
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nct.html",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html"
+  ],
+  "assigned_chips": 0,
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "research_examples_generated": 0,
+  "fresh_panel_accessed": false,
+  "confirmation_attempt_registered": false,
+  "terminal_alpha_spent": 0,
+  "automatic_confirmation_admission": false,
+  "scope": "Planning sensitivity only. All stronger-control quality results,actual seed variance,source-group uncertainty and measured confirmation budget must be assessed before a prospective fixed sample size is frozen. Existing main runs and their continuation queue are unchanged.",
+  "calculation_seconds_after_imports": 0.02406864194199443,
+  "observed_whole_process_wall_seconds": 3.462921533
+}
