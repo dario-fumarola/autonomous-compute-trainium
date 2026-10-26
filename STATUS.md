@@ -1,3 +1,9 @@
+## October 26, 2026, 15:46 UTC — tuning complete; corrected-cheap paired main registered
+
+All six stronger-control TUNE trials and both selected full512-window independent gradient audits pass. Both choose0.032,the upper grid edge (optima unbracketed). Selected weighted TUNE NLL:cheap2.951345521,ordinary8 2.869165712. Mature overall gradient discrepancies are0.267214% and0.264360%;all original2% family gates pass.3456 scientific updates count every prefix step. TUNE is not the decisive efficiency result.
+
+The paired corrected-cheap main is frozen for seeds5231/17293,each freshly initialized,4674updates/2.446254768B targets at the original fixed-two2B nominal work budget,with its own complete cooldown. Measured complete-stage projection10844.3seconds under a14400second cap,full storage/inode admission and mature independent audits. Both seeds run concurrently across16 chips. Next:execute this registered comparison,then ordinary8 and lean One under the same frozen endpoint rules. No4B,TEST,fresh reserve or terminal alpha admitted.
+
 ## October 26, 2026, 15:25 UTC — four stronger-control TUNE scores complete
 
 All four lower-rate trials completed their301.466M-target cooldowns and independent CPU scores. Cheap mixing:3.002942964 at0.008,2.964246543 at0.016. Ordinary8:2.936441610 at0.008,2.893036718 at0.016. These are TUNE selection outcomes,not the decisive2B comparison. Both0.032 trials run on all16 chips;selected mature full512 gradient audits remain pending. No main fit,4B or fresh confirmation is admitted yet.
