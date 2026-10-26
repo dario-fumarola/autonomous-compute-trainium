@@ -1,3 +1,11 @@
+## October 26, 2026, 22:16 UTC — preservation checks complete; bounded TUNE registered
+
+All180,275 historical source paths across793 closed snapshots retain exact original hashes after179,673 atomic alias replacements. Every launch/closure receipt is unchanged. Free inodes rise from26,042 to205,712;all complete scientific reservation guards remain intact. Current source/model/optimizer/checkpoint/corpus files were excluded. [Verified storage recovery](results/closed_source_inode_sharing_20261026/REPORT.md).
+
+Final-quarter TUNE is registered with three original rates and the qualified unchanged model/optimizer/NTP stack. Conservative measured complete time is5,291.9 seconds under the7,200-second cap. The full13-native-phase inode projection and40GiB artifact allowance fit. Every source/initializer/packing/work identity verifies. A pre-admission metadata-only revision removes an inherited CPU-manifest path flag after rebasing the initializer;the resolved file and SHA were already correct,all cases/caps remain unchanged,and the unexecuted prior plan is preserved. No model update preceded that correction. [TUNE plan](results/late_two_allocation_20261026/tune/plan.json).
+
+The complete346-test suite passes with2 skips;the final unchanged timing tests also pass after the metadata correction. Only counted TUNE prefixes are now eligible to start. Their complete independent gradients,restoration,timing and cooled selection gates must finish before a separate paired MAIN admission. Ordinary8 remains the primary stronger comparator;no4B,router,fresh reserve,TEST,terminal alpha or positive research claim is admitted.
+
 ## October 26, 2026, 22:04 UTC — complete artifacts restored; source-inode sharing registered
 
 The byte-identical hidden-array operation completes2,144 verified alias replacements. All3,072 original array paths retain exact hashes;observed free-space recovery is85.69GiB,with123.99GiB now free. No source/corpus/model/optimizer/checkpoint/receipt file changed. [Completed storage receipt](results/closed_hidden_array_storage_20261026/sharing-report.json).

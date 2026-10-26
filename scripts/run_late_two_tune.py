@@ -46,6 +46,11 @@ def register(root):
     if time.time()>ADMISSION_CUTOFF:raise TimeoutError('Original fixed TUNE admission cutoff elapsed')
     if managed_running():raise RuntimeError('Predecessor native owners must be terminal')
     reserves(root)
+    storage_file=root/'closed-source-inode-sharing-v1/report.json'
+    storage=read(storage_file)
+    if (storage['status']!='COMPLETE_BYTE_PRESERVING_CLOSED_SOURCE_SHARING'
+            or not storage['all_launch_and_closure_receipts_unchanged']):
+        raise ValueError('Complete source-path/byte/receipt preservation must precede scientific admission')
     if __import__('shutil').disk_usage(root).free<75*1024**3:
         raise RuntimeError('Forty GiB complete TUNE artifacts plus protected storage required')
     inode=project_snapshot_inodes(Path.cwd(),13)
@@ -88,6 +93,7 @@ def register(root):
     if len(cases)!=3 or {c['peak_lr'] for c in cases.values()}!={.008,.016,.032}:
         raise AssertionError('Exactly three original rate opportunities required')
     initial=copy.deepcopy(prepared['initial_states']['s4127-family']);initial['file']='../'+initial['file']
+    initial.pop('file_is_root_relative',None)  # engine paths are relative to this plan directory
     names=[IDENTITY+'-'+key+'-'+phase for key in cases for phase in ['prefix','prefix-gradient','one-finish','two-finish','final-gradient']]
     plan=copy.deepcopy(old)
     for key in ['primary_interaction','absolute_candidate_gates','primary_interval_scope','strongest_baseline_required']:
@@ -98,6 +104,7 @@ def register(root):
         root_comm_ports=reserve_ports(root,names),seconds_limit=7200,phase_seconds_limit=1200,cpu_phase_seconds_limit=1200,
         admission_cutoff_unix=ADMISSION_CUTOFF,composite_seconds_limit=21600,
         preparation_manifest_sha256=file_sha256(prepared_file),launch_receipts=receipts,
+        completed_source_storage_receipt_sha256=file_sha256(storage_file),
         historical_ordinary8_tune_report_sha256=file_sha256(root/'lean-baseline-tune-v1/report.json'),
         measured_budget=dict(one_seconds_per_update=one,two_seconds_per_update=two,cold_allowance=cold,
             complete_seconds_with_margin=projected,cap_seconds=7200),
@@ -115,6 +122,8 @@ def run(root):
     if time.time()>plan['admission_cutoff_unix']:raise TimeoutError('Original fixed admission cutoff elapsed')
     if file_sha256(root/PREP/'manifest.json')!=plan['preparation_manifest_sha256']:
         raise AssertionError('Frozen schedule preparation changed')
+    if file_sha256(root/'closed-source-inode-sharing-v1/report.json')!=plan['completed_source_storage_receipt_sha256']:
+        raise AssertionError('Verified source-preservation receipt changed')
     execution=GuardedExecution(root,plan_file,out/'execution');cpu=cf.ThreadPoolExecutor(3)
     result=dict(status='STOPPED_LATE_TWO_ALLOCATION_TUNING');prefixes={};before_switch={};fits={};scores={};gates={};warm={}
     def interrupted(number,frame):execution.failed.set();raise KeyboardInterrupt('Late-depth TUNE interrupted: '+str(number))
