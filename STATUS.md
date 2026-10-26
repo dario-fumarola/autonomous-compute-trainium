@@ -1,3 +1,11 @@
+## October 26, 2026, 15:25 UTC — four stronger-control TUNE scores complete
+
+All four lower-rate trials completed their301.466M-target cooldowns and independent CPU scores. Cheap mixing:3.002942964 at0.008,2.964246543 at0.016. Ordinary8:2.936441610 at0.008,2.893036718 at0.016. These are TUNE selection outcomes,not the decisive2B comparison. Both0.032 trials run on all16 chips;selected mature full512 gradient audits remain pending. No main fit,4B or fresh confirmation is admitted yet.
+
+Execution-only scheduling improvement to the unlaunched main prototype:run both paired seeds of each control concurrently,in the order corrected cheap,ordinary8,lean One. All six fits,initializers,endpoints and decision rules remain unchanged. Each paired control has a measured four-hour complete cap and independent resource admission. This avoids a long half-idle interval after an odd number of models. Current source suite:322 passed,2 skipped.
+
+The qualification-to-tuning admission interval (14:01:30–14:52:24 UTC) is also explicitly retained:50.91minutes/13.575 instance-opportunity chip-hours,zero assigned accelerator updates. It includes CPU initializer/storage/source/controller work and interaction latency;the ledger does not claim every minute was productive CPU execution. Main preparation now runs while tuning occupies the chips.
+
 ## October 26, 2026, 15:03 UTC — stronger controls training on all16 chips
 
 The two counted prefixes passed exact complete model/optimizer readback,all32 saved RNG states,replica equality and source/work counters. Their fresh-process continuations restored exact state. Corrected cheap mixing and conventional ordinary8 are executing the six frozen TUNE trials at301.466M targets each; the first pair has entered cooldown. No new quality result is asserted yet. Original two-seed fixed-two work gain remains0.012563484 nats on consumed DEV.

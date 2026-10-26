@@ -14,13 +14,14 @@ def test_stronger_controls_require_complete_qualified_rate_selection():
     with pytest.raises(AssertionError):selected_rates(tune,plans)
 
 
-def test_each_main_seed_has_a_measured_complete_finite_cap():
+def test_both_main_seeds_run_together_under_a_measured_complete_cap():
     profiles={r:{'matched_work':{'updates':u}} for r,u in [('one',4706),('mixing',4674),('ordinary8',5275)]}
     qualified={'records':{r:{'warm':{'warm_seconds':s}} for r,s in [('one',119.24426625296474),('mixing',116.16462083300576),('ordinary8',94.0157756889239)]}}
-    result=project_main_seconds(profiles,qualified)
-    assert 15000<result['complete_seconds']<18000
-    assert identity(17293)=='lean-baseline-main-s17293-v1'
-    with pytest.raises(ValueError):identity(999)
+    for role,profile in profiles.items():
+        result=project_main_seconds(role,profile,qualified)
+        assert 9000<result['complete_seconds']<14400
+    assert identity('mixing')=='lean-baseline-main-mixing-v1'
+    with pytest.raises(ValueError):identity('unqualified')
 
 
 def test_recurrence_advantage_is_positive_when_cheaper_baseline_loss_is_higher(tmp_path):

@@ -19,11 +19,15 @@ mixing/core/backward work and all32 replicas' optimizer matrices. Work endpoints
 are floors,short of the target by at most0.018%. Report chip-time separately.
 The accepted6.5B natural stream covers all endpoints without wrapping.
 
-Each seed has a separate five-hour complete execution cap based on qualified
-warm-update measurements,with own storage/inode admission. This permits
-maintenance between seeds without silently renewing a stopped execution's
-clock. A stopped seed requires explicit preserved recovery;no automatic retry.
-Both seeds belong to the declared comparison;do not select the favorable one.
+Run both seeds of each control concurrently,using all16 chips. This changes
+only the unlaunched prototype's scheduling:all six scientific fits,initializers,
+endpoints,rates and decisions remain unchanged. It avoids leaving half the
+instance idle while the third model in a seed completes. Order:corrected cheap,
+ordinary8,lean One. Each paired control has a separate four-hour complete cap
+based on qualified warm-update measurements,with own storage/inode admission.
+This permits maintenance between controls without renewing a stopped stage's
+clock. A stopped stage requires explicit preserved recovery;no automatic retry.
+Both seeds belong to every control;do not select the favorable one.
 
 Lean One starts with a counted two-update state/counter readback and fresh-process
 restore. Mixing/ordinary8 have the identical scientific-engine counted restore
