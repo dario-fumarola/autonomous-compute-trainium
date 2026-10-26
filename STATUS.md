@@ -1,3 +1,11 @@
+## October 26, 2026, 17:38 UTC — corrected cheap complete; ordinary8 running
+
+The fresh corrected-cheap comparison is complete and audited in both development seeds. DEV NLL5231:cheap2.494500060 versus fixed-two2.484647907,gain0.009852153. Seed17293:cheap2.494758352 versus fixed-two2.483076417,gain0.011681936. Mean gain0.010767044;nominal paired-seed95% interval[-0.000857755,0.022391844]. One seed point and both conditional source intervals overlap/below the0.01 criterion. This does not establish a useful gain or terminal confirmation. Weighted losses were independently recomputed from per-domain sums/counts.
+
+Both full512 mature gradient audits pass all original overall/family gates (overall0.317890%/0.356649%). Final source/work counters,model/optimizer readback and replicas pass. The historical failed cheap run remains inadmissible;these new corrected histories are separate. Retained scientific training used12.332845/12.333085 assigned chip-hours;diagnostics0.485651 combined. Whole-stage opportunity26.672276 is separate.
+
+The bounded queue completed byte-exact zero-storage maintenance (15.008GiB reclaimed,all recorded bytes/hashes/identities retained) and automatically registered/published/launched paired ordinary8. Both seeds now train on all16 chips at their own5275-update/2.760803936B matched-work endpoint. No ordinary8 quality result yet. Lean One follows under its frozen budget;no4B or fresh confirmation is admitted.
+
 ## October 26, 2026, 16:20 UTC — live stronger controls; confirmation power sensitivity
 
 Both corrected-cheap main seeds are progressing beyond811M authentic targets on all16 chips;no phase failures are reported. The original source/recipe/endpoints and bounded remaining-control queue are unchanged. Mature quality outcomes remain pending.
