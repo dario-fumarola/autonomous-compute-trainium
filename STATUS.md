@@ -13,8 +13,9 @@ at least 0.01. Native qualification is not admitted by preparation.
 [Lean preparation](results/lean_ntp_native_20261026/preparation/REPORT.md).
 
 A completed-checkpoint storage proof retains every byte and scientific hash
-while reclaiming zero-filled blocks. A bounded lossless pass is active, with the
-whole running campaign excluded and no state deletion. This protects space for
+while reclaiming zero-filled blocks. The bounded lossless pass is complete: 86 closed checkpoints
+retain exact checksums and 17.999443 GiB is reclaimed, plus 0.186314 GiB from the
+separate proof. The whole running campaign was excluded; no state is deleted. This protects space for
 later audits and replication. All shared memory/disk/inode reserves pass.
 [Storage proof and scope](results/checkpoint_zero_storage_20261026/REPORT.md).
 

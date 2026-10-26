@@ -13,7 +13,8 @@ not a new numerical result from this metadata check.
 
 The legacy worker selector `poisson2` is supplied an all-(2,2) table here. It is
 fixed two-pass full-gradient qualification; it does not sample depths. No native
-job or scientific fit has been admitted. No trained qualification state may
+job or scientific fit has been admitted. Native admission still needs a separate
+owned-port execution wrapper, fixed budget and all numerical/recovery gates. No trained qualification state may
 enter science. No TEST, confirmation reserve or terminal alpha is accessed.
 
 Before the running development outcomes, the follow-up gate is frozen: both
