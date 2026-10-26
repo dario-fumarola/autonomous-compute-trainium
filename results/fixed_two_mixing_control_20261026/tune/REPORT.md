@@ -1,4 +1,4 @@
-# Fixed-two mixing control: counted prefixes complete, audits running
+# Fixed-two mixing control: prefix gates pass, cooled tuning running
 
 The control performs exactly two adapter/input mixes,then one transformer-core
 execution. It retains the same parameter inventory and original NTP objective.
@@ -26,9 +26,11 @@ check;that check is not numerical or hardware qualification.
 
 The predecessor curve and prefill are complete. Native TUNE was admitted under
 its own original90-minute clock. All three counted121-update prefixes finish
-with complete replica states equal;their independent global-gradient gates
-are running. No cooled selection outcome is available yet. After the prefix
-audits,the actual100-update timings must reconfirm remaining feasibility.
+with complete replica states equal;all three independent global-gradient gates
+pass. Actual100-update times are107.640,107.548 and103.616 seconds for the three
+rates. The remaining conservative bound is3080.00 seconds against4341.90 seconds
+remaining on the original clock,so all three continue to their cooled endpoints.
+No cooled selection outcome is available yet.
 This registration admits no full scientific control fit or confirmation run.
 No TEST,reserve groups or terminal alpha are accessed.
 
