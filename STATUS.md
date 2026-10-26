@@ -1,3 +1,11 @@
+## October 26, 2026, 21:03 UTC — all declared lean comparisons complete
+
+The final head-free One pair completes4,706 updates /2.463B authentic targets per seed,with its own complete cooldowns and full512 mature gradient audits. Scores2.493708833 and2.494779121 leave recurrence ahead0.009060926 and0.011702705; mean0.010381816. Independent domain sums, source counts and checkpoint/reference hashes reconcile. Nominal paired-seed95% interval[-0.006401675,0.027165306] remains inconclusive about a useful effect. Overall gradient discrepancies0.412379% and0.381042% pass every unchanged2% family gate. [Final control](results/lean_baseline_controls_20261026/main/one/REPORT.md).
+
+All six stronger-control fits are now complete and audited. Conventional ordinary8 still wins both points by mean0.003340010. The existing4B gate remains unmet;no confirmation,source reserve,TEST or terminal alpha is admitted. Both native controllers have closed normally. Retained One training costs12.982695 and12.998305 assigned chip-hours;its native gradient diagnostics and28.302178 whole-stage opportunity chip-hours remain separate,with overlapping intervals not double-added. The original queue failure,maintenance and deadline remain preserved.
+
+Next is CPU feasibility/preparation for the reviewer's stronger information diagnostic: current first-pass hidden state and prefix-only confidence,fit on TRAIN-source traces and scored on source-separated consumed DEV. The completed past-surprisal probe did not test those representations. No new language-model training, actual routed execution,4B run or objective change is admitted.
+
 ## October 26, 2026, 20:35 UTC — past-surprisal predictability probe closed negative
 
 The registered five-source-fold statistical selector gains0.000001341 and0.000000000 nats over constant supported depth3. Mean0.000000670 fails the0.01 advancement rule in both base seeds. It selects depth3 nearly everywhere. No current/future target loss was an input;training-fold normalization and label exclusion are covered by five focused tests. Full suite329 passed,2 skipped.

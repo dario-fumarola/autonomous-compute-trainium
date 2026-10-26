@@ -21,7 +21,7 @@ development seeds and a consumed DEV panel:
 | Original same-family One,matched work | 2.421B | 2.496426 | 0.012563 |
 | Corrected head-free cheap mixing,matched work | 2.446B | 2.494629 | 0.010767 |
 | Conventional ordinary8,matched work | 2.761B | **2.480522** | **-0.003340** |
-| Head-free One,matched work | 2.463B | Running | Pending |
+| Head-free One,matched work | 2.463B | 2.494244 | 0.010382 |
 
 Ordinary8 beats recurrence by 0.002361 and 0.004319 nats. Both completed
 cooldowns and full512 mature numerical audits pass. The nominal paired-seed
@@ -50,9 +50,12 @@ Ordinary8 has141.73M,slightly below that ceiling,and receives its own three-rate
 tuning. It and corrected cheap select0.032 at the upper grid edge;their optima
 remain unbracketed. Ordinary8 changes width, unique depth and value-table
 allocation, so it tests practical prediction quality under a parameter ceiling.
-The remaining paired lean One control is running under an explicit recovery
-after an inode admission stop. All scientific budgets and the original overall
-deadline are preserved.
+The paired head-free One control is complete after an explicit recovery from
+an inode admission stop. Its gains are0.009061 and0.011703,with nominal seed
+interval[-0.006402,0.027165]. Both complete cooldowns and full512 mature
+gradient audits pass. All six declared stronger-control fits are now complete;
+the unfavorable conventional result remains decisive for the advancement gate.
+[Head-free One comparison](results/lean_baseline_controls_20261026/main/one/REPORT.md).
 [Qualified tuning](results/lean_baseline_controls_20261026/tune/REPORT.md) ·
 [Conventional challenger](results/lean_baseline_controls_20261026/main/ordinary8/REPORT.md).
 
@@ -65,7 +68,7 @@ comparator. Prefill measurements against the new challengers and KV-cached
 decoding remain outstanding. [Prediction cost](results/fixed_two_prefill_20261025/REPORT.md).
 
 The proposed 4B follow-up has not passed its stronger-control gate and is not
-admitted. The remaining lean One comparison will finish as declared. Fresh
+admitted. The declared lean comparisons are closed. Fresh
 source groups, adequately powered five-or-more fresh paired seeds, and terminal alpha
 allocation remain required. Five seeds are a minimum,not a power guarantee.
 No new TEST,reserve or terminal alpha has been used;the overall goal is
