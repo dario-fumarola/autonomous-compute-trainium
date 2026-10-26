@@ -55,3 +55,32 @@ Our decision remains to finish the current fixed-versus-variable comparison,
 independent audits and sealed analysis. These papers motivate bounded future
 tests; none explains away our completed negative compute comparison or
 justifies scaling the present recipe on faith.
+
+## Primary-source recheck, October26
+
+This read-only recheck changes no active recipe or budget.
+
+[RINS, abstract and section3](https://arxiv.org/html/2502.07503v3) explicitly
+studies fixed model size and training compute, reducing recurrent models' token
+exposure accordingly. Its positive result contradicts a universal prohibition
+on dense recurrence winning under that constraint. It does not establish a
+break-even exposure or expected effect for our topology.
+
+[Parcae, appendixO](https://arxiv.org/html/2604.12946v1) includes140M/370M
+fixed-parameter, fixed-FLOP experiments with token budgets adjusted for depth.
+It separately trains depth-one Parcae references. That supports a within-family
+comparison, while leaving the strongest conventional backbone a separate
+question. Our prepared eight-layer control addresses that question; it has
+no learning result yet. Parameter and work-accounting conventions also differ.
+
+[Truncate or Not, sections5.2 and6](https://arxiv.org/html/2610.26030v2) finds
+that fewer fully differentiated loops beat deeper truncated alternatives when
+forward depth is also selectable. Its fixed-size and freely sized model
+frontiers answer different resource questions. This supports retaining our
+small fixed-two/full-gradient candidate while finishing strong controls. It
+does not predict that our current gain will survive those controls.
+
+Decision: complete the frozen development comparison and qualify the eligible
+stronger baselines. None of these papers justifies an automatic30B run, a
+portable Chinchilla-constant forecast, or a claim that the scientific ranking
+is explained by the newly localized mixing precision mismatch.

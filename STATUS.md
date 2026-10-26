@@ -1,3 +1,31 @@
+# Status — 2026-10-26 06:47 UTC
+
+**Both original One controls continue under their frozen schedules.** The
+seed-17293 equal-data fit is nearing its complete cooldown; the work-matched
+fit continues longer. Exact restored model/optimizer state and rank RNG pass,
+and the stable prefix's full512-window independent gradient error is0.078928%.
+No new cooled control score is published yet. The original09:09:41 UTC cutoff
+is unchanged. [Recovery](results/one_control_recovery_20261026/REPORT.md).
+
+Corrected lean cheap mixing passes CPU parity at both random and mature weights:
+removing the unused head preserves ordered NTP loss, every retained gradient
+and checked optimizer updates exactly. Original checkpoints remain unchanged.
+Its prospective update work is272,246,906,350,080, including all32 replicas'
+Muon work. This is not native qualification or repricing of old training.
+[Parity and preserved first fixture failure](results/lean_mixing_precision_20261026/preparation-v2/REPORT.md).
+
+A separate baseline-only numerical queue waits with zero chips. It can qualify
+head-free One, corrected head-free mixing and ordinary8 only after complete
+recovery/numerical gates, positive gains in both seeds and a two-seed mean at
+least0.01. It never admits a recurrent candidate or scientific fit automatically.
+The old stopped main and old lean queue are unchanged.
+[Conditional numerical scope](results/baseline_numerical_20261026/REPORT.md).
+
+310 CPU tests pass. A primary-literature recheck supports completing strong
+controls; it supplies no portable break-even guarantee or reason to change the
+live recipe. No TEST, fresh reserve, terminal alpha or terminal success. The
+research objective remains active and unachieved.
+
 # Status — 2026-10-26 06:17 UTC
 
 **Both original One controls are training on all16 chips.** The migrated stable
