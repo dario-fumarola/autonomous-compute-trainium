@@ -1,4 +1,4 @@
-# Fixed-two mixing control: prefix gates pass, cooled tuning running
+# Fixed-two mixing control: tuning complete
 
 The control performs exactly two adapter/input mixes,then one transformer-core
 execution. It retains the same parameter inventory and original NTP objective.
@@ -30,7 +30,14 @@ with complete replica states equal;all three independent global-gradient gates
 pass. Actual100-update times are107.640,107.548 and103.616 seconds for the three
 rates. The remaining conservative bound is3080.00 seconds against4341.90 seconds
 remaining on the original clock,so all three continue to their cooled endpoints.
-No cooled selection outcome is available yet.
+All three cooled trials and the selected endpoint's independent 512-window
+gradient audit pass. Their TUNE NLLs are 3.003628408, 2.959936488 and 2.946774035,
+respectively. The selected rate is 0.032, at the upper grid boundary; the grid
+was not extended. This selection score does not establish the longer control's
+quality. The stage made 1,728 counted training updates and 904,397,724 source
+target presentations. Its 10 native phases used 6.421885 assigned chip-hours;
+elapsed whole-instance opportunity cost was separately 13.117270 chip-hours,
+including independent CPU tails. These costs are not additive.
 This registration admits no full scientific control fit or confirmation run.
 No TEST,reserve groups or terminal alpha are accessed.
 

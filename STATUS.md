@@ -1,3 +1,27 @@
+# Status — 2026-10-26 03:08 UTC
+
+**Fixed-two mixing-only tuning is complete.** All three prefix gates, cooled
+scores and the selected endpoint's full 512-window independent gradient gate
+pass. Rate 0.032 wins within the original three-rate grid, at its upper boundary.
+The stage made 1,728 training updates and used 6.421885 assigned chip-hours;
+whole-instance opportunity cost including CPU tails is separately 13.117270.
+[Completed tuning](results/fixed_two_mixing_control_20261026/tune/REPORT.md).
+
+CPU preparation also passes for the missing work control and a new development
+pair using unused seed 17293. The new initializer matches the pinned upstream
+random weights, reads back exactly and has zero optimizer updates. Proposed
+endpoints retain identical parameter inventories and source order within seed.
+Cheap work matching uses 4,594 updates / 2.404385B targets.
+[Preparation and exact scope](results/fixed_control_replication_20261026/preparation/REPORT.md).
+
+No full fit is admitted by preparation alone. A separate measured, frozen
+five-endpoint execution is being implemented. The existing primary matched-work
+gain is 0.012015524 nats in one reused seed; its conditional source interval
+[0.009628350, 0.014405026] overlaps the 0.01 threshold. Stronger cheap/lean
+controls, training-seed replication and fresh confirmation remain outstanding.
+281 CPU tests pass. No TEST, reserve access, terminal alpha or terminal success.
+The research objective remains active and unachieved.
+
 # Status — 2026-10-26 02:12 UTC
 
 **The complete fixed-two curve and prefill measurement have finished.** All
