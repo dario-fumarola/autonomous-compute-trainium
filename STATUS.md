@@ -1,3 +1,9 @@
+## October 26, 2026, 14:52 UTC — stronger baseline tuning registered
+
+Both paired work results remain audited (mean fixed-two gain0.012563484 nats, development only). All three stronger baseline numerical profiles pass. The bounded corrected-cheap/ordinary8 three-rate TUNE stage is frozen at six576-update trials with complete cooldowns and full512 selected-endpoint gradient gates; no main comparison or4B launch yet. Fresh random scientific C0 states and work/source tables pass readback. CPU suite:319 passed,2 skipped.
+
+This stage has a measured two-hour complete-work cap and projects every native snapshot plus terminal artifacts before admission. Closed reproducible bytecode reclamation restored44,752 free inodes; lossless zero-hole storage reclaimed15.26GiB with every recorded byte hash unchanged. These maintenance receipts and earlier stopped/preparation attempts remain charged. Next action: run the registered TUNE stage, then freeze the main controls only after qualified selection. No TEST,fresh reserve or terminal alpha used.
+
 # Status — 2026-10-26 14:09 UTC
 
 **The second paired work comparison is complete and audited.** Seed17293 gives
