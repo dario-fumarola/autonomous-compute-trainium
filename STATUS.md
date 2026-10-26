@@ -1,3 +1,11 @@
+## October 26, 2026, 16:14 UTC — bounded remaining-control continuation registered
+
+The corrected-cheap paired main remains active on all16 chips,without recipe or endpoint changes. A separate continuation queue is frozen to observe that original controller,require both final numerical audits/scores,and then register/run only the already-declared paired ordinary8 and lean One controls. It preserves negative quality outcomes and does not admit4B or any new scientific branch.
+
+The composite deadline is03:46:59 UTC October27,twelve hours from the ORIGINAL corrected-cheap main admission,including postprocessing and bounded maintenance. Individual control caps remain four hours. The complete conservative remaining-work projection fits this fixed window. If admission needs it,the queue uses only the bounded byte-exact zero-hole and closed-bytecode maintenance;otherwise it stops with the initiating error retained. No stopped-run restart,clock renewal,instance shutdown,TEST,fresh reserve or alpha.
+
+This removes dependence on a new chat turn between the registered controls. Numerical/technical failures still stop admission. Main training continues while the queue is prepared. Full source suite:324 passed,2 skipped.
+
 ## October 26, 2026, 15:51 UTC — corrected-cheap paired main running
 
 Both original paired seeds are actively training fresh corrected-cheap models across all16 chips. Source/random-state/model-inventory checks passed and actual updates are recorded. Each endpoint is4674updates/2.446254768B authentic targets,with its own full cooldown;final full512 gradient audits and independent consumed-DEV scores remain required. No mature cheap-control quality result yet.
