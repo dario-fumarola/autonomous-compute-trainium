@@ -1,3 +1,9 @@
+## October 26, 2026, 15:51 UTC — corrected-cheap paired main running
+
+Both original paired seeds are actively training fresh corrected-cheap models across all16 chips. Source/random-state/model-inventory checks passed and actual updates are recorded. Each endpoint is4674updates/2.446254768B authentic targets,with its own full cooldown;final full512 gradient audits and independent consumed-DEV scores remain required. No mature cheap-control quality result yet.
+
+The completed six-trial TUNE stage used10.903072 assigned chip-hours and13.790585 whole-instance opportunity chip-hours;these are separate quantities. Both selected0.032 checkpoints pass the original numerical gates. Next after this control:independently tuned ordinary8 and lean One,both paired seeds concurrently. All six frozen fits remain part of the comparison.4B stays conditional.
+
 ## October 26, 2026, 15:46 UTC — tuning complete; corrected-cheap paired main registered
 
 All six stronger-control TUNE trials and both selected full512-window independent gradient audits pass. Both choose0.032,the upper grid edge (optima unbracketed). Selected weighted TUNE NLL:cheap2.951345521,ordinary8 2.869165712. Mature overall gradient discrepancies are0.267214% and0.264360%;all original2% family gates pass.3456 scientific updates count every prefix step. TUNE is not the decisive efficiency result.
