@@ -1,31 +1,16 @@
-# Prefill cost: registered queue, measurement pending
+# Completed read-only prefill cost measurement
 
-The queue is live and owns zero chips while waiting for the complete six-endpoint
-fixed-two MAIN and its audits. It then measures the frozen primary prediction
-pair:fixed2 at2.0098B targets and One at2.4206B matched nominal training work.
-No prediction-cost result is available yet.
+Both trained primary prediction models pass CPU/native numerical checks with the training-only head removed. Each model is measured on both physical eight-chip halves in two reversed rounds. No weights change,gradients appear or optimizer update runs.
 
-Use the actual trained weights,remove the training-only head,and compare native
-predictions against independent pinned upstream CPU FP32 references on64 fixed
-authentic TRAIN windows. Time only the supported operating points:One depth1
-and fixed depth2. Two rounds explicitly exchange the eight-chip halves,with
-100 warm and100 timed synchronized forwards per rank. Preserve numerical gates,
-checkpoint identities,weights and the exact trained endpoint updates.
+| Round | One median | Fixed2 median | Fixed2 latency increase |
+| --- | ---: | ---: | ---: |
+| 1 | 22.269ms | 26.190ms | 17.61% |
+| 2 | 22.217ms | 25.868ms | 16.43% |
 
-The separate post-MAIN stage has a30-minute cap including CPU preparation;
-it makes zero training updates and runs regardless of the quality ranking.
-The reused conservative measured-training bound is1566.03 seconds,even though
-the older bound allowed all three recurrent exits and the new measurement uses
-only the trained depth2. Failed work and CPU-only tails remain charged.
+The fixed path uses23.038% more nominal forward matrix work. Maximum observed mean-NLL discrepancy is0.00011330 nats;maximum sampled-logit relative-L2 discrepancy is0.065776%,below the frozen0.003-nat/2% gates.
 
-281 CPU tests pass,including actual half-lease order,the reused-first-phase
-restart case and failure before admitting a sibling. The native benchmark is
-the qualified previous prefill driver with a dynamic exact completed-update
-check and a guard against using a stable unfinished checkpoint.
+The stage performs26,112 registered native forwards plus128 independent CPU-reference forwards. CPU preparation takes68.66 seconds. Native assigned cost is0.547304 chip-hours;the separate complete post-MAIN whole-instance opportunity cost is0.981388 chip-hours. Those intervals are not additive. Zero training updates,TEST accesses or terminal alpha.
 
-This is fixed1024-window,preloaded full-logits prefill at batch1 per core.
-It does not report KV-cached decoding or end-to-end serving. No TEST,reserve,
-terminal alpha or scientific-quality claim follows from this registration.
+Scope:preloaded authentic TRAIN windows,1024 positions,full logits,batch1 per core,32 independent cores per eight-chip job,100 warm/100 synchronized timed forwards per rank. This is prefill,not KV-cached token decoding or end-to-end serving. Timing does not establish a favorable deployment frontier or the research goal.
 
-[Protocol](../../docs/FIXED_TWO_PREFILL_COST_20261025.md) ·
-[Frozen queue](queue-plan.json) · [CPU tests](cpu-tests.json).
+[Exact result](report.json) · [Native costs](native-execution-costs.json) · [CPU references](preparation-report.json) · [Protocol](../../docs/FIXED_TWO_PREFILL_COST_20261025.md).

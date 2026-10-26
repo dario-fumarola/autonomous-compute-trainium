@@ -9,8 +9,39 @@ teacher models,added reasoning traces or reinforcement learning. Real-token
 negative log likelihood (NLL) remains the broad-text primary outcome. Equal-data and training-work comparisons answer different
 questions and are reported separately.
 
-The latest completed small-core study finds **useful additional computation at
-equal data, but no training-efficiency win**. These are two paired development
+The latest completed fixed-depth curve has an **audited favorable matched-work
+development point**,from one reused training seed:
+
+| Model | Authentic training targets | DEV NLL ↓ |
+| --- | ---: | ---: |
+| One pass,matched nominal matrix work | 2.421B | 2.496663 |
+| Fixed two passes | 2.010B | **2.484648** |
+
+Both have141.96M deployed parameters. The gain is**0.012016 nats**,with a
+conditional source-group95% interval of**[0.009628,0.014405]**. It overlaps the
+0.01 useful-gain threshold and does not measure training-seed variation. All
+six cooled1B/2B endpoints and their full512-window gradient audits pass. At1B,
+the matched-work gain is only0.004255. This is not independent confirmation.
+[Complete curve](results/fixed_two_small_core_main_20261025/REPORT.md).
+
+The work match includes the common zero-weight training-only head and replicated
+optimizer matrices;the2B budgets differ by0.010316%. It is not a chip-time match:
+the fixed model's retained training path uses about2.6% more assigned chip-time.
+Its measured full-window prefill is16.4–17.6% slower across swapped hardware
+halves. KV-cached decoding and end-to-end serving remain unmeasured.
+[Measured prediction cost](results/fixed_two_prefill_20261025/REPORT.md).
+
+The next strong cheap control is now tuning **exactly two input mixes with one
+core execution**,using the existing qualified operators and the original three
+learning-rate opportunities. The previous cheap control trained varying depths.
+Stronger cheap/lean baselines,fresh training seeds and independent held-out
+confirmation remain necessary. No new TEST,reserve or terminal alpha is spent;
+the broad research goal remains unachieved.
+[Current control](results/fixed_two_mixing_control_20261026/tune/REPORT.md) ·
+[Live status](STATUS.md).
+
+The earlier sampled-depth small-core study found useful additional computation
+at equal data,but no training-efficiency win. These are two paired development
 seeds, with independently scored, cooled endpoints:
 
 | Model | Authentic training targets | Mean DEV NLL ↓ |
@@ -66,11 +97,10 @@ only 11/135 and 9/135. The bridge family is closed at this scale.
 [Completed history comparison](results/natural_chain_foundation_pilot_20261025/REPORT.md) ·
 [Scaffold diagnosis](results/natural_chain_scaffold_readout_20261025/REPORT.md).
 
-The next bounded control uses **fixed two-pass small-core NTP from random
-initialization**, keeping the qualified operators, optimizer and source order.
-Its counted integration prefixes are running; there is no new learning result
-yet. The original broad goal remains unachieved.
-[Protocol](docs/FIXED_TWO_SMALL_CORE_NTP_20261025.md) · [Live status](STATUS.md).
+The fixed two-pass control is now complete and reported above. Its architecture,
+optimizer and source order were frozen before the curve. The new mixing-only
+control changes no completed result.
+[Fixed-depth protocol](docs/FIXED_TWO_SMALL_CORE_NTP_20261025.md).
 
 The curriculum used source-authored arithmetic rather than generated problems
 or solutions. Its extraction,views and verifier remain reproducible;human
@@ -87,8 +117,8 @@ Earlier studies remain preserved, including the
 [fixed-pause negative](results/learning_curve_20261022/REPORT.md).
 The previous [1.7B repository](https://github.com/dario-fumarola/useful-thoughts-trainium)
 and [archived pause pilot](https://github.com/dario-fumarola/pause-pretraining-trainium)
-remain intact. None of the completed recipes has established a competitive
-training-compute advantage.
+remain intact. No completed recipe has independently confirmed a minimum useful
+training-compute advantage against the required strongest eligible controls.
 
 A terminal positive claim requires a frozen candidate, fresh source groups,
 at least five fresh paired training seeds, the declared useful-effect threshold

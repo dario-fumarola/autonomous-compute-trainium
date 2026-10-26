@@ -1,0 +1,33 @@
+{
+  "status": "PASS_MIXING_MODULE_ROUTING_SMOKE",
+  "records": [
+    {
+      "kind": "native",
+      "source": "scripts.train_future_span_primitives",
+      "target": "scripts.train_mixing_control_scientific_v2",
+      "passes": true
+    },
+    {
+      "kind": "native",
+      "source": "scripts.capture_future_span_primitives",
+      "target": "scripts.capture_mixing_control_gradient",
+      "passes": true
+    },
+    {
+      "kind": "cpu",
+      "source": "scripts.evaluate_future_span_cpu",
+      "target": "scripts.evaluate_mixing_prediction_v2",
+      "passes": true
+    },
+    {
+      "kind": "cpu",
+      "source": "scripts.audit_future_span_gradient",
+      "target": "scripts.audit_mixing_scientific_gradient",
+      "passes": true
+    }
+  ],
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "scope": "Mocked base dispatcher checks only;not numerical or hardware qualification."
+}

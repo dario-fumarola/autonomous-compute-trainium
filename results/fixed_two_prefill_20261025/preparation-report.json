@@ -1,0 +1,43 @@
+{
+  "status": "PASS_INDEPENDENT_HEAD_REMOVED_PREFILL_REFERENCES",
+  "plan_sha256": "59f367a4b1e5b5ed5a0e5f28e9f0d1352bf69097eee9afa2eebaa9cac9cd6803",
+  "records": [
+    {
+      "case_id": "one-work-2b",
+      "depth": 1,
+      "logits_file": "one-work-2b-d1-logits.npy",
+      "nll_file": "one-work-2b-d1-nll.npy",
+      "prediction_state_digest": "37e057f496b37abb71b5dfdc4be52a22e0ab2200ba236b24a2477616856a24ca",
+      "deployed_parameters": 141963840,
+      "head_removed": true,
+      "model_unchanged": true
+    },
+    {
+      "case_id": "fixed-2b",
+      "depth": 2,
+      "logits_file": "fixed-2b-d2-logits.npy",
+      "nll_file": "fixed-2b-d2-nll.npy",
+      "prediction_state_digest": "5738c7d4914f8b458a22418715ff3a30b17aa7146b616d130b57b72c29776f6e",
+      "deployed_parameters": 141963840,
+      "head_removed": true,
+      "model_unchanged": true
+    }
+  ],
+  "files_sha256": {
+    "inputs.npy": "695dfe5bd38bc0371af19d5a66c343fd20325c8e4bb758b6f3b65f43d0904f1c",
+    "targets.npy": "fff2b8f154abe890d77a1633e6d48dc0967d200729faa34372ca716f3eacf8cc",
+    "real-mask.npy": "5a3720e634dcabc5be511c38d067caba58a65d5566090e577cd47a0cdc5ea19d",
+    "noise.npy": "33b39dbe759621792fafd6ce178eed6394b511bb6ab88163e7b6d6d1e275d313",
+    "one-work-2b-d1-logits.npy": "69b6c59963df388c04e6db386dc7d3bc8da4ecd65882abfcccfc031c86f2f65b",
+    "one-work-2b-d1-nll.npy": "73859218dc56e270b1ffb46fae024b30a6b1f7aa46ae855066c5034786302a43",
+    "fixed-2b-d2-logits.npy": "ff56d46b15cac94a4ff6b23a2aa8a77ee3314bac4437aab0ca37dff67600a964",
+    "fixed-2b-d2-nll.npy": "14333d64b8176aebd53dc74e2c071de3d39a7d0bf190f07e7317e69be647cee1"
+  },
+  "wall_seconds": 68.66156554222107,
+  "model_forwards": 128,
+  "estimated_forward_matrix_ops": 22703373287424,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "scope": "# Prediction cost after the complete fixed-two curve\n\nMeasure the frozen primary pair:fixed2 at2.0098B original targets and its\nOne2.4206B work control. Wait without owning chips until all six scientific\nendpoints and independent audits finish successfully. Timing runs regardless\nof their quality ranking. A stopped predecessor prevents admission.\n\nUse actual trained prediction weights with the common training-only head\nremoved. Freeze64 original TRAIN windows beginning at window2,621,440,\ncontext1024,the original exogenous state-noise policy and local batch1.\nPrepare independent pinned upstream CPU FP32 references on the same complete\ntarget masks and eight full-vocabulary logit positions per window. No fresh\nheld-out source groups or TEST are used for this implementation measurement.\n\nOnly the trained operating points are timed:One depth1 and fixed depth2.\nThe native benchmark derives from the qualified previous prefill benchmark;\nit replaces only the hard-coded1920-update endpoint condition with each exact\nregistered completed cooldown. Retain0.003-nat loss and2% logit relative-L2\nagreement gates,unchanged weights,no gradients and no optimizer updates.\n\nIn each native round,use two isolated eight-chip/32-rank jobs with authentic\ninputs preloaded. Per rank,perform100 warm forwards,100 synchronized timed\nforwards,and four numerical-check forwards. In round1 One gets chips0\u20137 and\nfixed2 gets8\u201315;in round2 fixed2 gets0\u20137 and One gets8\u201315. Wait for the actual\nfirst lease before starting its sibling;check reported physical assignment.\nReport each round's latency ratio,absolute medians/p95,matrix work and all\nCPU/native/setup costs. No throughput gain is assumed from nominal work.\n\nThe entire post-MAIN stage is capped at1800 seconds,including at most300\nseconds for independent CPU references. Each native phase is capped at660\nseconds;four phases run as two paired rounds. The previous same-model-shape\nmeasurement took about50\u201367 seconds per native phase including checks,with\nmedian forward latency22\u201330 milliseconds. This cap retains substantial setup\nand failure allowance. The deadline is not reset between CPU and native work.\nPreserve512GiB host MemAvailable,35GiB filesystem free and10,000 free inodes.\nCancel only owned workers on ordinary failure;retain stopped work and receipts.\n\nThis measures full-logits,preloaded fixed-window prefill at batch1 per core.\nIt does not measure KV-cached token decoding,end-to-end serving or a saturated\nbatch. Do not present prefill throughput as decode throughput. The scientific\nquality endpoint,threshold,confirmation reserve and alpha allocation remain\nunchanged;this read-only measurement cannot establish the research goal alone.\n"
+}

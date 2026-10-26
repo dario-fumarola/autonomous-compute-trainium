@@ -1,3 +1,57 @@
+# Status — 2026-10-26 02:12 UTC
+
+**The complete fixed-two curve and prefill measurement have finished.** All
+six cooled endpoints and512-window gradient gates pass. Matched-work gains are
+0.004254790 at1B and0.012015524 at the primary2B point;the latter conditional
+source interval remains[0.009628350,0.014405026],overlapping0.01. One reused
+seed is not confirmation. Equal-data gains are0.034678854/0.032071579.
+[Final curve](results/fixed_two_small_core_main_20261025/REPORT.md).
+
+MAIN makes13,657 actual shared/branched updates and7.14774B source presentations.
+All16 native phases exit0. Assigned native cost is40.299804 chip-hours;separate
+whole-instance opportunity cost is42.627241,including CPU tails. Retained2B
+training paths use12.292222 chip-hours for fixed versus11.976412 for One:about
+2.64% more. This is nominal-matrix-work matching,not a chip-time win.
+
+Both hardware-swapped prefill rounds pass independent predictions and unchanged-
+weight checks. Fixed2 is16.43–17.61% slower at preloaded1024-position prefill,
+with23.038% more forward matmuls. No cached-decoding or serving claim.
+[Complete timing](results/fixed_two_prefill_20261025/REPORT.md).
+
+The fixed-two mixing-only TUNE has started on the same instance after both
+predecessors completed. All three121-update prefixes are complete,with replica
+equality;complete-gradient gates are active. It keeps the original3-rate/301M
+selection budget,exactly two adapter mixes and one core execution. Its90-minute
+clock never resets. No cooled selection scores or full control main yet.
+[Running cheap control](results/fixed_two_mixing_control_20261026/tune/REPORT.md).
+
+README now leads with the current result and its limits.281 CPU tests remain
+current;these later changes are aggregates/docs. Stronger cheap/lean controls,
+fresh training-seed replication and independent confirmation remain outstanding.
+No TEST,reserve access,terminal alpha or terminal success.
+
+# Status — 2026-10-26 01:53 UTC
+
+**Four fixed-core curve endpoints are independently scored and audited.**
+The2B equal-data gain is0.032071579 nats;extra One training at matched nominal
+work recovers0.020056055,leaving the audited primary0.012015524 gain. The
+conditional source interval still overlaps0.01,and only reused seed5231 has
+run. The two1B endpoints' final audits remain active;all other frozen work and
+the original MAIN cutoff remain unchanged. No terminal claim is supported.
+
+The fixed-two mixing-only control has passed CPU preparation and is queued
+with zero chips. It executes the adapter twice and the core once,using the
+existing qualified model/operators and the original three-rate301M selection
+budget. This directly addresses a missing cheap control for the fixed-depth
+candidate. Its90-minute tuning cap includes measured-prefix/full-gradient
+gates;the queue waits for complete MAIN and prefill. No full control fit is
+admitted yet,and no learning-rate grid,objective or model size is expanded.
+[Queued control and exact scope](results/fixed_two_mixing_control_20261026/tune/REPORT.md).
+
+281 CPU tests pass after adding the explicit model/module-routing wrapper.
+No TEST,reserve access,terminal alpha or terminal success. Stronger lean
+implementations and independent training-seed confirmation remain outstanding.
+
 # Status — 2026-10-26 01:16 UTC
 
 **The frozen primary2B pair has an audited favorable development result.**
