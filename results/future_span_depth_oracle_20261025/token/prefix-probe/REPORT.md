@@ -16,4 +16,4 @@ All five source folds are fixed by source-group hash, keeping every occurrence o
 
 This is analysis on already-consumed DEV,not fresh confirmation or a new language-model training result. Ten small statistical fits used2.122 wall seconds,7.694 CPU seconds and0.779GiB peak RSS,with zero language-model forwards,language-model updates or accelerator chips. Prior depth-one probabilities would have inference costs in any future implementation. The selected outputs come from recorded uniform-depth forwards;deployable sparse execution and its costs remain unestablished. Parameters are not exported as a deployed policy.
 
-[Explicit protocol](registration.json) · [Full result and costs](report.json) · [Causality and leakage tests](../../../../../tests/test_prefix_value_probe.py).
+[Explicit protocol](registration.json) · [Full result and costs](report.json) · [Causality and leakage tests](../../../../tests/test_prefix_value_probe.py).
