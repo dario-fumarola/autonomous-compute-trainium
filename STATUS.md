@@ -1,3 +1,29 @@
+# Status — 2026-10-26 03:12 UTC
+
+**The fixed-control comparison and new development seed are running on all
+16 chips.** One and fixed-two seed-17293 models have made their first actual
+optimizer updates from the same original random initializer. Both owned workers
+are healthy; available memory and protected disk/inode reserves pass.
+
+The frozen five-endpoint stage includes the missing seed-5231 cheap work control
+and seed-17293 fixed2, equal-data One, work-matched One and work-matched cheap.
+It makes 19,573 actual updates with only an untouched One stable prefix shared.
+Every endpoint has its own cooldown and independent whole-batch gradient audit.
+The measured full-stage bound is 20,761.35 seconds under a six-hour cap. Its
+original cutoff is 09:09:41 UTC; no rates, seeds or exposure are added midstream.
+[Running comparison and frozen scope](results/fixed_control_replication_20261026/main/REPORT.md).
+
+281 CPU tests pass after the controller change. Independent prelaunch checks
+verify both qualified worker snapshots, all five case signatures, original
+initializers, exact work tables and One's cross-endpoint branch identity.
+
+The completed primary seed-5231 gain remains 0.012015524 nats at matched nominal
+work, with a conditional source interval overlapping 0.01. This stage tests
+stronger controls and development replication; it is not terminal confirmation.
+The bridge/future-objective branches stay closed. Stronger lean training and
+fresh-source/five-seed confirmation remain outstanding. No TEST, reserve access,
+terminal alpha or terminal success. The ongoing goal remains unachieved.
+
 # Status — 2026-10-26 03:08 UTC
 
 **Fixed-two mixing-only tuning is complete.** All three prefix gates, cooled
