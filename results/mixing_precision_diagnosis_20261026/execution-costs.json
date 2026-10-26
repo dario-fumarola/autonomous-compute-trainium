@@ -1,0 +1,44 @@
+{
+  "native_attempts": [
+    {
+      "identity": "mixing-precision-diagnosis-v1-mix32",
+      "exit_code": 0,
+      "wall_seconds": 100.34255194664001,
+      "assigned_chip_hours": 0.22298344877031115,
+      "whole_instance_opportunity_chip_hours": 0.4459668975406223,
+      "report_exists": true
+    },
+    {
+      "identity": "mixing-precision-diagnosis-v1-full32",
+      "exit_code": 0,
+      "wall_seconds": 99.68241620063782,
+      "assigned_chip_hours": 0.2215164804458618,
+      "whole_instance_opportunity_chip_hours": 0.4430329608917236,
+      "report_exists": true
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "mix32-reference",
+      "assigned_chips": 0,
+      "wall_seconds": 385.27092123031616,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "full32-reference",
+      "assigned_chips": 0,
+      "wall_seconds": 15.01341700553894,
+      "reused": false,
+      "exit_code": 0
+    }
+  ],
+  "execution": {
+    "started_unix": 1792994023.7006564,
+    "deadline_unix": 1792996723.7006564,
+    "plan_sha256": "b52a79456c145f7f9f9286d2b2f5d8b1f2ea9dbb68115f3bb0e2bb8fd851677c"
+  },
+  "wall_seconds_since_admission": 511.21670269966125,
+  "whole_instance_opportunity_chip_hours": 2.272074238459269,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

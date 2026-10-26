@@ -1,3 +1,27 @@
+# Status — 2026-10-26 06:05 UTC
+
+**The exact-checkpoint diagnosis localizes the failed cheap-control gradient
+mismatch to mixing precision.** Adapter FP32 lowers injection/readout error from
+4.407005% to0.594890%; full-body FP32 gives0.052329%. Both pass the unchanged
+2% gate. No optimizer update or weight change occurred, and the third optional
+capture was not needed. This does not repair the trained model's history or
+explain the quality ranking. The failed main remains stopped.
+[Complete precision result](results/mixing_precision_diagnosis_20261026/REPORT.md).
+
+A separate recovery now checks the original One stable prefix before completing
+only its two originally planned seed-17293 endpoints. Every tensor, optimizer
+moment, rank RNG byte and counter survives signature-only migration exactly.
+The original model, precision, source order, rate, endpoints and cooldowns remain
+unchanged; the original09:09:41 UTC absolute cutoff remains. Native prefix capture
+is complete; its independent CPU gate is running. No fit starts before it passes.
+[Recovery scope](results/one_control_recovery_20261026/REPORT.md).
+
+296 CPU tests pass. The independently audited recurrent seed-17293 score remains
+2.483076417; its controls are incomplete. The old lean queue stays stopped with
+zero native admission. No TEST, fresh reserve, terminal alpha or terminal success.
+Strongest qualified controls and fresh-source/five-seed confirmation are still
+required. The research objective remains active and unachieved.
+
 # Status — 2026-10-26 05:53 UTC
 
 **The development comparison stopped at a failed numerical prerequisite.**

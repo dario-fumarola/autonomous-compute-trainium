@@ -1,0 +1,342 @@
+{
+  "status": "COMPLETE_MIXING_PRECISION_DIAGNOSIS",
+  "comparisons": {
+    "mix32": {
+      "status": "COMPLETE_MIXING_PRECISION_REFERENCE_COMPARISON",
+      "probe_plan_sha256": "b52a79456c145f7f9f9286d2b2f5d8b1f2ea9dbb68115f3bb0e2bb8fd851677c",
+      "precision_override": "mix32",
+      "passes_original_gate": true,
+      "gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 0.00426549735697779,
+            "maximum_absolute_error": 0.00010693399235606194,
+            "reference_l2": 0.06693703845982035
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.005948903479633803,
+              "maximum_absolute_error": 9.38553421292454e-06,
+              "reference_l2": 0.0027415910257281755
+            },
+            "tied_input_output": {
+              "relative_l2": 0.004623465149796147,
+              "maximum_absolute_error": 9.158044122159481e-06,
+              "reference_l2": 0.002508217660474426
+            },
+            "transformer_body": {
+              "relative_l2": 0.004261635352586878,
+              "maximum_absolute_error": 0.00010693399235606194,
+              "reference_l2": 0.0668325859565549
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0022498303722832238,
+              "maximum_absolute_error": 6.766276783309877e-08,
+              "reference_l2": 0.0004063187744849372
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "future_head": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.0
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "named_injection_readout": {
+        "transformer.adapter.A_log": {
+          "relative_l2": 0.013655353133092381,
+          "maximum_absolute_error": 4.419540346134454e-06,
+          "reference_l2": 0.0003392275441917683
+        },
+        "transformer.adapter.dt_bias": {
+          "relative_l2": 0.011697353266754506,
+          "maximum_absolute_error": 9.38553421292454e-06,
+          "reference_l2": 0.0008582063488438358
+        },
+        "transformer.adapter.B": {
+          "relative_l2": 0.004967037122398997,
+          "maximum_absolute_error": 3.0872179195284843e-06,
+          "reference_l2": 0.0012914232888990595
+        },
+        "transformer.C.weight": {
+          "relative_l2": 0.004531673782805899,
+          "maximum_absolute_error": 1.5699260984547436e-06,
+          "reference_l2": 0.002235386717619159
+        }
+      },
+      "loss_differences": {
+        "ntp_nll": 3.574753340895853e-06,
+        "future_mean": 4.318479120968277e-07
+      },
+      "original_failed_gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 0.006953538750770867,
+            "maximum_absolute_error": 0.00017421116353943944,
+            "reference_l2": 0.06693703845982035
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.04407004927438934,
+              "maximum_absolute_error": 0.00010126324195880443,
+              "reference_l2": 0.0027415910257281755
+            },
+            "tied_input_output": {
+              "relative_l2": 0.004851704782252022,
+              "maximum_absolute_error": 9.868061169981956e-06,
+              "reference_l2": 0.002508217660474426
+            },
+            "transformer_body": {
+              "relative_l2": 0.006723193357908374,
+              "maximum_absolute_error": 0.00017421116353943944,
+              "reference_l2": 0.0668325859565549
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0024328267113352935,
+              "maximum_absolute_error": 6.740856406395324e-08,
+              "reference_l2": 0.0004063187744849372
+            }
+          },
+          "passes_two_percent_gate": false
+        },
+        "future_head": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.0
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          }
+        },
+        "passes_two_percent_gate": false
+      },
+      "original_failed_named_injection_readout": {
+        "transformer.adapter.A_log": {
+          "relative_l2": 0.14099628659499017,
+          "maximum_absolute_error": 4.750009247800335e-05,
+          "reference_l2": 0.0003392275441917683
+        },
+        "transformer.adapter.dt_bias": {
+          "relative_l2": 0.11907623158371593,
+          "maximum_absolute_error": 0.00010126324195880443,
+          "reference_l2": 0.0008582063488438358
+        },
+        "transformer.adapter.B": {
+          "relative_l2": 0.032260537294291784,
+          "maximum_absolute_error": 2.4192762793973088e-05,
+          "reference_l2": 0.0012914232888990595
+        },
+        "transformer.C.weight": {
+          "relative_l2": 0.005127041919148335,
+          "maximum_absolute_error": 1.8085520423483104e-06,
+          "reference_l2": 0.002235386717619159
+        }
+      },
+      "gold_reused": false,
+      "gold_gradient_sha256": "2c52ca60e9bc21645d6a2a9b5b319157d95bd1eb53b0652827efb06f40621dae",
+      "gold_meta_sha256": "8986e65ad174f4c49472f84c6a4e92165124268ae83e3790a5f06480f3be3cab",
+      "gold_directory": "mixing-precision-diagnosis-v1/cpu/mix32",
+      "windows": 512,
+      "optimizer_updates": 0,
+      "assigned_chips": 0,
+      "test_accessed": false,
+      "terminal_alpha_spent": 0,
+      "wall_seconds": 382.6665029525757,
+      "scope": "Diagnostic completion can include a failing variant;passes_original_gate preserves the unchanged2%/0.003-nat criterion. One independent pinned-upstream full512-window FP32 vector,exact objective/latent-state identities for reuse. No new training qualification or scientific fit."
+    },
+    "full32": {
+      "status": "COMPLETE_MIXING_PRECISION_REFERENCE_COMPARISON",
+      "probe_plan_sha256": "b52a79456c145f7f9f9286d2b2f5d8b1f2ea9dbb68115f3bb0e2bb8fd851677c",
+      "precision_override": "full32",
+      "passes_original_gate": true,
+      "gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 0.0006421011487744131,
+            "maximum_absolute_error": 3.309082239866257e-05,
+            "reference_l2": 0.06693703845982035
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0005232888617480519,
+              "maximum_absolute_error": 1.9571962184272707e-07,
+              "reference_l2": 0.0027415910257281755
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0001406139703590966,
+              "maximum_absolute_error": 2.1187588572502136e-07,
+              "reference_l2": 0.002508217660474426
+            },
+            "transformer_body": {
+              "relative_l2": 0.0006427235600124531,
+              "maximum_absolute_error": 3.309082239866257e-05,
+              "reference_l2": 0.0668325859565549
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0001957160731574199,
+              "maximum_absolute_error": 6.699792720610276e-09,
+              "reference_l2": 0.0004063187744849372
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "future_head": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.0
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "named_injection_readout": {
+        "transformer.adapter.A_log": {
+          "relative_l2": 0.00044912250177681713,
+          "maximum_absolute_error": 5.5351392802549526e-08,
+          "reference_l2": 0.0003392275441917683
+        },
+        "transformer.adapter.dt_bias": {
+          "relative_l2": 0.00043926220646095374,
+          "maximum_absolute_error": 1.2195778253953904e-07,
+          "reference_l2": 0.0008582063488438358
+        },
+        "transformer.adapter.B": {
+          "relative_l2": 0.0003353736788757764,
+          "maximum_absolute_error": 8.995993994176388e-08,
+          "reference_l2": 0.0012914232888990595
+        },
+        "transformer.C.weight": {
+          "relative_l2": 0.0005841806740623202,
+          "maximum_absolute_error": 1.9571962184272707e-07,
+          "reference_l2": 0.002235386717619159
+        }
+      },
+      "loss_differences": {
+        "ntp_nll": 2.619293076655538e-06,
+        "future_mean": 4.318479120968277e-07
+      },
+      "original_failed_gradient": {
+        "body": {
+          "overall": {
+            "relative_l2": 0.006953538750770867,
+            "maximum_absolute_error": 0.00017421116353943944,
+            "reference_l2": 0.06693703845982035
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.04407004927438934,
+              "maximum_absolute_error": 0.00010126324195880443,
+              "reference_l2": 0.0027415910257281755
+            },
+            "tied_input_output": {
+              "relative_l2": 0.004851704782252022,
+              "maximum_absolute_error": 9.868061169981956e-06,
+              "reference_l2": 0.002508217660474426
+            },
+            "transformer_body": {
+              "relative_l2": 0.006723193357908374,
+              "maximum_absolute_error": 0.00017421116353943944,
+              "reference_l2": 0.0668325859565549
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0024328267113352935,
+              "maximum_absolute_error": 6.740856406395324e-08,
+              "reference_l2": 0.0004063187744849372
+            }
+          },
+          "passes_two_percent_gate": false
+        },
+        "future_head": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.0
+        },
+        "future_head_named": {
+          "future_lm_head.weight": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          },
+          "future_lm_head.bias": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.0
+          }
+        },
+        "passes_two_percent_gate": false
+      },
+      "original_failed_named_injection_readout": {
+        "transformer.adapter.A_log": {
+          "relative_l2": 0.14099628659499017,
+          "maximum_absolute_error": 4.750009247800335e-05,
+          "reference_l2": 0.0003392275441917683
+        },
+        "transformer.adapter.dt_bias": {
+          "relative_l2": 0.11907623158371593,
+          "maximum_absolute_error": 0.00010126324195880443,
+          "reference_l2": 0.0008582063488438358
+        },
+        "transformer.adapter.B": {
+          "relative_l2": 0.032260537294291784,
+          "maximum_absolute_error": 2.4192762793973088e-05,
+          "reference_l2": 0.0012914232888990595
+        },
+        "transformer.C.weight": {
+          "relative_l2": 0.005127041919148335,
+          "maximum_absolute_error": 1.8085520423483104e-06,
+          "reference_l2": 0.002235386717619159
+        }
+      },
+      "gold_reused": true,
+      "gold_gradient_sha256": "2c52ca60e9bc21645d6a2a9b5b319157d95bd1eb53b0652827efb06f40621dae",
+      "gold_meta_sha256": "8986e65ad174f4c49472f84c6a4e92165124268ae83e3790a5f06480f3be3cab",
+      "gold_directory": "mixing-precision-diagnosis-v1/cpu/mix32",
+      "windows": 512,
+      "optimizer_updates": 0,
+      "assigned_chips": 0,
+      "test_accessed": false,
+      "terminal_alpha_spent": 0,
+      "wall_seconds": 8.228628396987915,
+      "scope": "Diagnostic completion can include a failing variant;passes_original_gate preserves the unchanged2%/0.003-nat criterion. One independent pinned-upstream full512-window FP32 vector,exact objective/latent-state identities for reuse. No new training qualification or scientific fit."
+    }
+  },
+  "optimizer_updates": 0,
+  "scientific_fit_admitted": false,
+  "scope": "# Diagnose the failed mature cheap-control gradient\n\nThe fixed-control comparison stopped because the completed seed-5231 cheap\ncontrol fails its unchanged 2% family gate: injection/readout error is 4.407%,\nalthough overall error is 0.695% and scalar loss agrees to 0.000003814 nats.\nKeep that failure and all interrupted-worker costs. Do not relax the threshold\nor restart partial scientific phases under their old identities.\n\nUse the exact failed checkpoint and original next 512 authentic TRAIN windows\nfor zero-update precision diagnosis. Keep weights, initial states, data order,\nobjective, full gradients and matrix accounting unchanged. No held-out quality\nselection, optimizer update or scientific-state adoption is permitted.\n\nTwo initial native variants: `mix32` executes only the input/state adapter in\nFP32, retaining the FP16 core/coda and readout projection; `full32` disables body\nautocast completely. Attention and both vocabulary heads already use FP32.\nIf mix32 fails while full32 passes, allow one prespecified `mixc32` follow-up,\nalso executing the readout C projection in FP32. No additional variants.\n\nBefore native admission, check the new class against the existing full-FP32\nlocal implementation on one actual TRAIN window at this checkpoint. All\nvariants with autocast disabled must preserve parameters, loss and gradients.\nThis is an implementation screen, not native or complete-global qualification.\n\nThen use both eight-chip halves for the two original full-global captures.\nRequire exact saved source/point hashes, complete model/optimizer readback,\nunchanged model weights, equal replica gradients, original routing/latent\nstates and only the existing fallback allowance. The independent pinned\nupstream FP32 512-window objective remains the numerical reference. Export\nthat complete vector once; other variants may reuse it only after every point,\nrow, state/noise, source and count identity agrees. Preserve all original\n2% body/family/head and 0.003-nat loss gates, including failures. Report named\ninjection/readout errors to locate the discrepancy.\n\nUse a fixed 45-minute diagnostic clock, 600-second native phase caps and\n1,200-second CPU phase caps; require complete conservative measured budget\nand the standard memory/disk/inode reserves before admission. Three captures\nat most, zero optimizer updates. All precision overrides must be explicit in\nthe new diagnostic receipt; the checkpoint's parent plan describes its trained\nhistory and is never edited. Stop after diagnosis. Passing here does not\nqualify a new training recipe, retune a rate, complete the interrupted study,\nor authorize a scientific fit. No TEST, reserve access or terminal alpha.\n",
+  "plan_sha256": "b52a79456c145f7f9f9286d2b2f5d8b1f2ea9dbb68115f3bb0e2bb8fd851677c",
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false
+}

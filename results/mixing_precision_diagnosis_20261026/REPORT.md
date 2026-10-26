@@ -1,22 +1,38 @@
-# Mature cheap-control precision diagnosis
+# Mature mixing precision diagnosis: localized repair passes
 
-The failed scientific comparison remains stopped. This separately frozen
-45-minute diagnostic uses its exact checkpoint and next 512 TRAIN windows,
-with zero optimizer updates. Initial native variants move only the adapter to
-FP32 or execute the full body in FP32; a prespecified readout-plus-adapter FP32
-variant is conditional on the first failing and the full-FP32 reference passing.
-The original 2% gradient-family and 0.003-nat loss gates remain unchanged.
+All variants use the same unchanged failed checkpoint, original 512 authentic
+TRAIN windows and exact supplied latent states. No optimizer updates occurred.
+The original independent gradient-family threshold remains 2%.
 
-The one-window CPU implementation screen passes: all three branches with
-body autocast disabled give exactly the same loss and gradients as the existing
-FP32 implementation. It uses captured native latent states, avoiding cross-
-PyTorch random-number differences. Preparation took 42.796054 seconds. This
-admission evidence is not native qualification or a learning result.
+| Native arithmetic | Overall gradient error | Injection/readout error | Gate |
+| --- | ---: | ---: | --- |
+| Original FP16 mixing | 0.695354% | 4.407005% | Fail |
+| Adapter alone moved to FP32 | 0.426550% | 0.594890% | Pass |
+| Full body FP32 | 0.064210% | 0.052329% | Pass |
 
-Independent reference computation covers the complete 512-window objective.
-The same pinned FP32 vector may be reused only with exact point, state, source
-and count identities. No trained weights, source groups or quality targets are
-changed. No TEST, reserve access, terminal alpha or scientific fit is admitted.
+The original adapter A_log and dt_bias named gradient errors are 14.0996% and
+11.9076%; adapter FP32 lowers them to 1.3655% and 1.1697%. The C readout error
+is already 0.5127% originally. This localizes the observed mismatch to precision
+in the mixing path. It does not establish an SDK defect, identify a single
+operator as its cause, or explain the scientific quality ranking.
 
-[Plan](plan.json) · [Protocol](../../docs/MIXING_PRECISION_DIAGNOSIS_20261026.md) ·
-[Preparation attempts](preparation-attempts.json).
+One independent pinned-upstream full-FP32 gradient covers the complete global
+objective; the full-FP32 comparison reuses it only after all state, objective,
+source, routing, supplied-noise and count identities agree. NTP scalar differences
+are below 0.0000036 nats for both new paths. All model/optimizer readbacks,
+unchanged-weight and complete gradient-replica checks pass. The conditional
+readout-plus-adapter third capture is unnecessary and did not run.
+
+The two native closures cost **0.444500 assigned chip-hours**. Separate whole-
+instance opportunity cost, including the independent CPU tail, is **2.272074**;
+these are not additive. CPU comparison phases take 385.27 and 15.01 seconds.
+The earlier CPU wiring screen takes 42.796054 seconds; its initial cross-version
+random-state preparation failure is preserved separately.
+
+This is a zero-update numerical diagnosis. It does not repair the FP16 model's
+training history, qualify a new training/optimizer recipe, complete the stopped
+control study, or admit another scientific fit. The original study stays stopped.
+No TEST, fresh reserve, terminal alpha or terminal success.
+
+[Complete result](report.json) · [Costs](execution-costs.json) · [Plan](plan.json) ·
+[Protocol](../../docs/MIXING_PRECISION_DIAGNOSIS_20261026.md).
