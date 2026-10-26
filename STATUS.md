@@ -1,3 +1,9 @@
+## October 26, 2026, 22:20 UTC — counted late-allocation TUNE prefixes running on16 chips
+
+The new TUNE execution started22:15:38 UTC and is live under its original00:15:38 UTC cutoff. Its composite deadline is04:15:38 UTC October27,including any separately admitted MAIN;neither clock may renew. The first two rates complete121 actual counted updates /63,328,362 authentic targets each. Their100 real warm one-pass updates take112.118/112.121 seconds. The third prefix and first complete512-window gradient capture are now running on the two eight-chip halves. No held-out quality result is published yet. [Live TUNE status](results/late_two_allocation_20261026/tune/status.json).
+
+All prefix gradients,complete restoration,warm measurements in both depth regimes and the selected cooled final audit remain required. MAIN is not admitted. The original stronger-baseline result,minimum0.01 broad-NLL criterion,fresh-source/seed requirements and failed4B/router gates stay unchanged. Attended preparation and maintenance opportunity costs are recorded separately from the scientific clock. [Preparation costs](results/late_two_allocation_20261026/preparation/execution-costs.json) · [Original clocks](results/late_two_allocation_20261026/tune/composite-clock.json).
+
 ## October 26, 2026, 22:16 UTC — preservation checks complete; bounded TUNE registered
 
 All180,275 historical source paths across793 closed snapshots retain exact original hashes after179,673 atomic alias replacements. Every launch/closure receipt is unchanged. Free inodes rise from26,042 to205,712;all complete scientific reservation guards remain intact. Current source/model/optimizer/checkpoint/corpus files were excluded. [Verified storage recovery](results/closed_source_inode_sharing_20261026/REPORT.md).

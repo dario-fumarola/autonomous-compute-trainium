@@ -74,6 +74,16 @@ allocation remain required. Five seeds are a minimum,not a power guarantee.
 No new TEST,reserve or terminal alpha has been used;the overall goal is
 unachieved. [Live status](STATUS.md).
 
+A separately registered final-quarter schedule is now in bounded TUNE. It
+keeps the qualified model and NTP objective,executes one pass for the first75%
+of updates,then two for the final quarter. Exact preparation fits2.303B targets
+at the old2B fixed-two nominal-work budget;there is no new quality result or
+MAIN admission yet. Conventional ordinary8 remains the primary stronger
+comparator,and any positive would still face conventional-growth/equal-source
+controls before fresh confirmation. This does not admit the failed4B extension.
+[Protocol](docs/LATE_TWO_ALLOCATION_20261026.md) ·
+[TUNE status](results/late_two_allocation_20261026/tune/status.json).
+
 The earlier sampled-depth small-core study found useful additional computation
 at equal data,but no training-efficiency win. These are two paired development
 seeds, with independently scored, cooled endpoints:

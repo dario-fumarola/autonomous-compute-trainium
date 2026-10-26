@@ -1,0 +1,35 @@
+{
+  "status": "COMPLETE_ATTENDED_PREPARATION_INTERVAL_BEFORE_TUNE",
+  "previous_diagnostic_cost_receipt_unix": 1793050062.4541333,
+  "tune_admission_unix": 1793052938.594774,
+  "attended_interval_seconds": 2876.140640735626,
+  "whole_instance_opportunity_chip_hours": 12.782847292158339,
+  "assigned_accelerator_chip_hours": 0,
+  "research_model_updates": 0,
+  "known_metered_cpu_seconds_lower_bound": 920.96506224,
+  "component_wall_seconds": {
+    "array_inventory": 60.762510776519775,
+    "array_sharing": 93.47492551803589,
+    "source_inventory": 289.57297706604004,
+    "source_sharing": 400.1399233341217,
+    "schedule_preparation": 4.104335069656372
+  },
+  "reported_full_test_suites": [
+    {
+      "passed": 341,
+      "skipped": 2,
+      "wall_seconds": 28.35
+    },
+    {
+      "passed": 343,
+      "skipped": 2,
+      "wall_seconds": 27.99
+    },
+    {
+      "passed": 346,
+      "skipped": 2,
+      "wall_seconds": 29.09
+    }
+  ],
+  "scope": "Attended primary-source review,source/tests,CPU schedule/state preparation,byte-preserving maintenance and publication before TUNE. Component wall intervals overlap and are not added as sequential reservation time. CPU metering excludes unmetered review/tests/controller work and is explicitly a lower bound. Reserved16-chip opportunity is elapsed reservation,not productive accelerator training. Earlier diagnostic costs stop at their prior receipt;TUNE costs begin at this admission and remain separate."
+}
