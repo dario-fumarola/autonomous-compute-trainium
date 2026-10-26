@@ -1,3 +1,31 @@
+# Status — 2026-10-26 14:09 UTC
+
+**The second paired work comparison is complete and audited.** Seed17293 gives
+One-work2.496187862 versus fixed2.483076417,a0.013111445-nat gain. The two-seed
+development mean is0.012563484;its nominal seed interval[0.005600984,0.019525985]
+overlaps0.01. All endpoints pass full-gradient gates. Equal-data gain is0.034069420.
+This is promising development evidence,not fresh confirmation.
+[Completed recovery and analysis](results/one_control_recovery_20261026/REPORT.md).
+
+All three stronger baseline numerical profiles now pass:lean One,corrected lean
+mixing and conventional ordinary8. The old stopped stage remains preserved;
+242 successful warm updates plus124 new qualification updates total366. No
+qualification-updated state enters science.316 CPU tests pass.
+[Complete baseline qualification](results/baseline_numerical_recovery_20261026/REPORT.md).
+
+The resource investigation reproduces an inode-guard failure. Removing only
+regenerable closed-snapshot bytecode restores38,258 free inodes;all referenced
+sources and execution receipts verify unchanged. Future admission projects every
+new snapshot/artifact allocation above the10,000 reserve. The post-stop idle
+interval is explicitly retained in instance opportunity accounting.
+[Maintenance](results/closed_bytecode_maintenance_20261026/REPORT.md) ·
+[Gap accounting](results/operational_gap_20261026/REPORT.md).
+
+Next:independently tune ordinary8 and train corrected cheap/lean controls under
+frozen matched-work budgets,own cooldowns and mature audits.4B stays conditional;
+no larger-exposure gain is assumed. No TEST,fresh reserve,terminal alpha or
+terminal success. The ongoing research objective remains active and unachieved.
+
 # Status — 2026-10-26 06:47 UTC
 
 **Both original One controls continue under their frozen schedules.** The

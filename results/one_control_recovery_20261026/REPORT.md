@@ -1,38 +1,29 @@
-# Original One controls: both original continuations running
+# Original One controls complete; second paired work result positive
 
-Both original seed-17293 One endpoints retain their model, precision, objective,
-source/depth order, rate and independent cooldowns: 3,840 equal-data updates and
-4,625 work-matched updates. Only their untouched stable update-1,920 checkpoint
-is reused. The canceled partial attempts remain separately charged.
+Both original seed-17293 endpoints complete their own cooldowns and pass all
+full512-window independent gradient gates, exact model/optimizer/RNG restoration
+and32-replica checks. The stable prefix remains preserved and no cooled state
+was extended as if it were stable. This is development, not fresh confirmation.
 
-A new scientific plan and worker identities preserve the old stopped execution.
-Only the checkpoint signature's plan hash changes. Independent disk readback
-verifies every other state field, model/optimizer tensor, per-rank RNG and counter
-exactly; the original checkpoint remains unchanged. No weights are adopted from
-a numerical probe. Future trajectory identity after restart remains unestablished.
+| Seed17293 endpoint | Training targets | DEV NLL |
+| --- | ---: | ---: |
+| One equal-data |2.009762680B|2.517145837|
+| One matched nominal work |2.420609556B|2.496187862|
+| Pinned audited fixed-two |2.009762680B|2.483076417|
 
-The separate precision diagnosis completed and all native owners closed before
-admission. The prefix full512-window independent gradient gate passes: body relative-L2
-error is0.078928%. Both original continuations now run on all16 chips, after
-exact full-state/RNG readback. A fresh
-full-512-window gradient capture and independent FP32 gate must pass at the
-stable prefix before either fit. Both endpoints then require final gradient gates,
-complete-state replica/recovery checks and whole-DEV FP32 scores. The new cap
-is at most 9,000 seconds, with the original 09:09:41 UTC absolute cutoff retained.
-The complete conservative measured estimate is below that cap. No cheap worker,
-new rate/seed, lean qualification, TEST, fresh reserve or terminal alpha follows.
+The equal-data gain is**0.034069420**. The work-matched gain is**0.013111445**,
+with conditional source-group95% interval**[0.010917825,0.015233340]**. Alongside
+the original seed5231 gain0.012015524,the two-seed mean is**0.012563484**.
+The nominal two-seed Student interval is**[0.005600984,0.019525985]**;it overlaps
+0.01 and is conditional on this consumed panel. Training-seed and source-group
+uncertainty are distinct. The stronger cheap/conventional comparisons remain open.
 
-300 CPU tests pass. Both original scientific continuation segments have launched. Finishing these controls
-would clarify development replication; it would neither repair the failed cheap
-control nor independently confirm the research objective.
+All five recovery native phases exit0. The stage makes4,625 new scientific
+updates,with the original1,920-update prefix included in each conceptual path.
+Assigned native cost is**12.394987 chip-hours**;separate whole-instance opportunity
+cost is**17.921442**,including CPU tails. Prior canceled attempts stay charged in
+the original stopped main. Nominal work matching does not imply hardware-time
+matching. No TEST,fresh reserve,terminal alpha or terminal success.
 
-[Protocol](../../docs/ONE_CONTROL_RECOVERY_20261026.md) ·
-[Migration check](migration.json) · [Plan](plan.json) · [CPU tests](cpu-tests.json).
-
-The recovered equal-data One fit has now completed its original cooldown and all32
-complete replicas agree. Its independent whole-DEV FP32 score is**2.517145837**
-on603 documents/754,750 targets. Against the already audited recurrent
-seed-17293 score2.483076417,the descriptive equal-data gain is**0.034069420**.
-The One final gradient audit is still running and the work-matched endpoint is
-pending;this partial readout does not establish efficiency or confirmation.
-[Partial score](partial-readout.json).
+[Complete receipt](report.json) · [Two-seed analysis](two-seed-analysis.json) ·
+[Costs](execution-costs.json) · [Protocol](../../docs/ONE_CONTROL_RECOVERY_20261026.md).

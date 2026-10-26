@@ -1,0 +1,966 @@
+{
+  "records": {
+    "mixing": {
+      "warm": {
+        "status": "CAPTURED_PARCAE_TRAINING_QUALIFICATION",
+        "arm": "poisson2",
+        "accumulation": 16,
+        "world": 32,
+        "precision": "fp16",
+        "mode": "warm",
+        "qualification_only": true,
+        "test_accessed": false,
+        "research_optimizer_updates": 0,
+        "actual_optimizer_calls_per_replica": 121,
+        "phase_real_targets": 63328362,
+        "total_real_targets": 63328362,
+        "cursor": 61952,
+        "model_matmuls": 29784752290529280,
+        "optimizer_matmuls": 3157123377830400,
+        "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+        "recovered_state_digest": null,
+        "complete_state_on_load_exact": false,
+        "per_rank_cpu_rng_on_load_exact": false,
+        "all_replica_model_optimizer_states_equal": true,
+        "final_model_optimizer_digest": "58648eada58bd4c46ed1ea87cd57f683762f69069fcdf8b1d47aed32583a4a94",
+        "warm_updates": 100,
+        "warm_real_targets": 52337436,
+        "warm_seconds": 116.16462083300576,
+        "warm_targets_per_second": 450545.4037958639,
+        "warm_model_matmuls": 24615497760768000,
+        "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+        "warm_started_unix": 1792998736.299712,
+        "warm_finished_unix": 1792998852.4643319,
+        "checkpoint_sha256": "fd7f114ec4313f99270a7a7d7a43ce5e31678376e86ce13b000088322232ba09",
+        "checkpoint_state_digest": "334a8824dce4542d6ebcc94041ee458631191eb2c89ba0b0d413e5dde0bbc73f",
+        "probe_initial_states_sha256": "1d439cec2b69f9c299232ae81f32f796e6e892ab68813828726508bb159b5e48",
+        "probe_depths_sha256": "b7381e9258c291f4fbb696de40c3dff4dd09a3585eb373d31cfb1a9a1129df61",
+        "updated_global_gradient_sha256": "4fbb846417f55e7f588170f2637e3fd5dc8a08288abe701feea333e9d6517283",
+        "initial_global_gradient_sha256": "4a079611cd83164dbd17d9d2438a3a377f4b00da53f829546df8b6348b2bad6f",
+        "first_checkpoint_sha256": "a330d8791a07e3b87c5efc676a69c1a05d3b09fff5e5fb50102395b377972102",
+        "final_checkpoint_sha256": "bb013ec0d7e8060e013576cedf8adb5cf18fa4600da74764ffaef50705545744",
+        "extra_initial_probe_model_matmuls": 15384686100480,
+        "extra_initial_probe_real_targets": 32722,
+        "checkpoint_seconds": 5.196060419082642,
+        "progress": [
+          {
+            "update": 1,
+            "real_targets": 523314,
+            "global_train_nll": 10.561345578371686,
+            "gradient_norm_before_clip": 21.135560989379883,
+            "lr": 5e-06,
+            "elapsed_seconds": 75.24008083343506
+          },
+          {
+            "update": 10,
+            "real_targets": 5233798,
+            "global_train_nll": 10.398645653403445,
+            "gradient_norm_before_clip": 21.244150161743164,
+            "lr": 5e-05,
+            "elapsed_seconds": 86.33269619941711
+          },
+          {
+            "update": 20,
+            "real_targets": 10467614,
+            "global_train_nll": 9.889988726689086,
+            "gradient_norm_before_clip": 25.405475616455078,
+            "lr": 0.0001,
+            "elapsed_seconds": 97.93409252166748
+          },
+          {
+            "update": 30,
+            "real_targets": 15701370,
+            "global_train_nll": 9.297992670745268,
+            "gradient_norm_before_clip": 44.53600311279297,
+            "lr": 9.824819231794262e-05,
+            "elapsed_seconds": 109.54249095916748
+          },
+          {
+            "update": 40,
+            "real_targets": 20934888,
+            "global_train_nll": 8.61028464868872,
+            "gradient_norm_before_clip": 63.69736099243164,
+            "lr": 9.236745922441589e-05,
+            "elapsed_seconds": 121.17416834831238
+          },
+          {
+            "update": 50,
+            "real_targets": 26168398,
+            "global_train_nll": 7.861253898248082,
+            "gradient_norm_before_clip": 51.54164123535156,
+            "lr": 8.29004296357349e-05,
+            "elapsed_seconds": 132.77202773094177
+          },
+          {
+            "update": 60,
+            "real_targets": 31402312,
+            "global_train_nll": 7.366542157855519,
+            "gradient_norm_before_clip": 21.33974838256836,
+            "lr": 7.075569021361259e-05,
+            "elapsed_seconds": 144.36978769302368
+          },
+          {
+            "update": 70,
+            "real_targets": 36636094,
+            "global_train_nll": 6.963392301019882,
+            "gradient_norm_before_clip": 5.05036735534668,
+            "lr": 5.7098817567433805e-05,
+            "elapsed_seconds": 155.97749257087708
+          },
+          {
+            "update": 80,
+            "real_targets": 41869746,
+            "global_train_nll": 6.819441737834585,
+            "gradient_norm_before_clip": 4.29653787612915,
+            "lr": 4.324051345542129e-05,
+            "elapsed_seconds": 167.6143035888672
+          },
+          {
+            "update": 90,
+            "real_targets": 47103690,
+            "global_train_nll": 6.695316888357324,
+            "gradient_norm_before_clip": 4.023792266845703,
+            "lr": 3.051081177597877e-05,
+            "elapsed_seconds": 179.2532663345337
+          },
+          {
+            "update": 100,
+            "real_targets": 52337398,
+            "global_train_nll": 6.659814485775969,
+            "gradient_norm_before_clip": 3.2021923065185547,
+            "lr": 2.0131430180369964e-05,
+            "elapsed_seconds": 190.87381410598755
+          },
+          {
+            "update": 110,
+            "real_targets": 57571286,
+            "global_train_nll": 6.607635147012741,
+            "gradient_norm_before_clip": 3.5680463314056396,
+            "lr": 1.3098517205605332e-05,
+            "elapsed_seconds": 202.49547266960144
+          },
+          {
+            "update": 120,
+            "real_targets": 62805050,
+            "global_train_nll": 6.6213903176253,
+            "gradient_norm_before_clip": 3.1532833576202393,
+            "lr": 1.0087048128988257e-05,
+            "elapsed_seconds": 214.09794759750366
+          },
+          {
+            "update": 121,
+            "real_targets": 63328362,
+            "global_train_nll": 6.589326252789923,
+            "gradient_norm_before_clip": 3.0906786918640137,
+            "lr": 1.0021767296860541e-05,
+            "elapsed_seconds": 229.69570136070251
+          }
+        ],
+        "signature": {
+          "preparation_sha256": "56be47de0f8fd931b2c154cd3b4d57ee9d7278a78d10edae54727922c69aa5ba",
+          "world": 32,
+          "accumulation": 16,
+          "context": 1024,
+          "arm": "poisson2",
+          "precision": "fp16",
+          "master_dtype": "fp32",
+          "manual_loss_scale": 8192,
+          "depth_table_sha256": "b1a835db7ab804cc865ee1e5746a77c2e65820d32f6c888cbb1141c1fc0a303f",
+          "initial_sha256": "ecd37ea195a31f60f96023e91c82bd07379c62340be208878f4841cc63e10459",
+          "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+          "state_seed": 2009,
+          "routing_seed": 271828,
+          "clip": 1.0,
+          "peak_lr": 0.0001,
+          "gate_policy": "release_muon",
+          "optimizer_recipe": "parcae_muon_adamw_fp32_polar_v2",
+          "optimizer_execution": "eager_muon_fused_adamw",
+          "training_source_sha256": {
+            "scripts/train_parcae_precise_qualification.py": "e0c8dd00a7dd9793c01016536b010cb47313dca4f93aa44b296e17698c2a7e71",
+            "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+            "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+            "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+            "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+            "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+            "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7"
+          }
+        },
+        "wall_seconds": 238.42739582061768,
+        "scope": "Complete qualification updates, natural packing/H2D, per-sequence depth, no_sync normalization, manual unscale, finite clipping and two-family optimizer. Warm100 updates exclude initial probe/compilation, final checkpoint and updated-point/replay numerical audits. Extra overheads/failed attempts remain in phase receipts. No scientific learning claim or budget authorization.",
+        "managed_qualification_plan_sha256": "cd7ea2cb2a39eb06ada692237023823514e8c5c2f80f7d63c4ccd5f64d35a5a2",
+        "qualification_profile": "mixing"
+      },
+      "replay": {
+        "status": "CAPTURED_PARCAE_TRAINING_QUALIFICATION",
+        "arm": "poisson2",
+        "accumulation": 16,
+        "world": 32,
+        "precision": "fp16",
+        "mode": "replay",
+        "qualification_only": true,
+        "test_accessed": false,
+        "research_optimizer_updates": 0,
+        "actual_optimizer_calls_per_replica": 1,
+        "phase_real_targets": 523312,
+        "total_real_targets": 63328362,
+        "cursor": 61952,
+        "model_matmuls": 29784752290529280,
+        "optimizer_matmuls": 3157123377830400,
+        "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+        "recovered_state_digest": "334a8824dce4542d6ebcc94041ee458631191eb2c89ba0b0d413e5dde0bbc73f",
+        "complete_state_on_load_exact": true,
+        "per_rank_cpu_rng_on_load_exact": true,
+        "all_replica_model_optimizer_states_equal": true,
+        "final_model_optimizer_digest": "3b564de15fda0536772143007f5210909bdbf164ed6d1c5fd29a39a4217733a4",
+        "warm_updates": 0,
+        "warm_real_targets": 0,
+        "warm_seconds": null,
+        "warm_targets_per_second": null,
+        "warm_model_matmuls": 0,
+        "warm_optimizer_matmuls_all_replicas": 0,
+        "warm_started_unix": null,
+        "warm_finished_unix": null,
+        "checkpoint_sha256": null,
+        "checkpoint_state_digest": null,
+        "probe_initial_states_sha256": null,
+        "probe_depths_sha256": null,
+        "updated_global_gradient_sha256": "cf5aedfa3ae22cfe8bb8ddf512a4afff9db97f2b27b8028db6f319ffcb152a24",
+        "initial_global_gradient_sha256": null,
+        "first_checkpoint_sha256": null,
+        "final_checkpoint_sha256": "e1c8dea9273fdd3f231f6e51b7dc23f4c725279d5d2c0f925991d3821a715bc9",
+        "extra_initial_probe_model_matmuls": 0,
+        "extra_initial_probe_real_targets": 0,
+        "checkpoint_seconds": 0.0,
+        "progress": [
+          {
+            "update": 121,
+            "real_targets": 63328362,
+            "global_train_nll": 6.589326252789923,
+            "gradient_norm_before_clip": 3.0906786918640137,
+            "lr": 1.0021767296860541e-05,
+            "elapsed_seconds": 72.32020807266235
+          }
+        ],
+        "signature": {
+          "preparation_sha256": "56be47de0f8fd931b2c154cd3b4d57ee9d7278a78d10edae54727922c69aa5ba",
+          "world": 32,
+          "accumulation": 16,
+          "context": 1024,
+          "arm": "poisson2",
+          "precision": "fp16",
+          "master_dtype": "fp32",
+          "manual_loss_scale": 8192,
+          "depth_table_sha256": "b1a835db7ab804cc865ee1e5746a77c2e65820d32f6c888cbb1141c1fc0a303f",
+          "initial_sha256": "ecd37ea195a31f60f96023e91c82bd07379c62340be208878f4841cc63e10459",
+          "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+          "state_seed": 2009,
+          "routing_seed": 271828,
+          "clip": 1.0,
+          "peak_lr": 0.0001,
+          "gate_policy": "release_muon",
+          "optimizer_recipe": "parcae_muon_adamw_fp32_polar_v2",
+          "optimizer_execution": "eager_muon_fused_adamw",
+          "training_source_sha256": {
+            "scripts/train_parcae_precise_qualification.py": "e0c8dd00a7dd9793c01016536b010cb47313dca4f93aa44b296e17698c2a7e71",
+            "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+            "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+            "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+            "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+            "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+            "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7"
+          }
+        },
+        "wall_seconds": 78.57163715362549,
+        "scope": "Complete qualification updates, natural packing/H2D, per-sequence depth, no_sync normalization, manual unscale, finite clipping and two-family optimizer. Warm100 updates exclude initial probe/compilation, final checkpoint and updated-point/replay numerical audits. Extra overheads/failed attempts remain in phase receipts. No scientific learning claim or budget authorization.",
+        "managed_qualification_plan_sha256": "8c8316023ef18173a0ec3c00a49c4b10c1fdf79bf54eba865d62aca45a721106",
+        "qualification_profile": "mixing"
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+        "arm": "poisson2",
+        "precision": "fp16",
+        "accumulation": 16,
+        "source_cursor": 61440,
+        "real_targets": 523312,
+        "windows": 512,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.000696947766999466,
+            "maximum_absolute_error": 2.4345703423023224e-05,
+            "reference_l2": 3.0905920651248886
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0011107416949326747,
+              "maximum_absolute_error": 8.604838512837887e-07,
+              "reference_l2": 0.0916868404338977
+            },
+            "tied_input_output": {
+              "relative_l2": 0.000599185378993778,
+              "maximum_absolute_error": 8.545815944671631e-06,
+              "reference_l2": 0.22787914709155888
+            },
+            "transformer_body": {
+              "relative_l2": 0.0006969698361947841,
+              "maximum_absolute_error": 2.4345703423023224e-05,
+              "reference_l2": 3.080815446970927
+            },
+            "value_embeddings": {
+              "relative_l2": 0.000267674165067497,
+              "maximum_absolute_error": 5.871697794646025e-09,
+              "reference_l2": 0.00033515716101559126
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 6.58932641887452,
+        "native_minus_cpu_nll": -1.6608459674216647e-07,
+        "checkpoint_sha256": "fd7f114ec4313f99270a7a7d7a43ce5e31678376e86ce13b000088322232ba09",
+        "full_state_readback_exact": true,
+        "cpu_global_gradient_sha256": "737fe71a2a2b1427eab82a7def1fd003cad32307e5d34d81a572466cb5acd908",
+        "first_actual_update": {
+          "update_comparison": {
+            "relative_l2": 1.4049943874890194e-05,
+            "maximum_absolute_error": 3.725290298461914e-09,
+            "reference_l2": 0.025318155145001197,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.833745334387367e-05,
+            "maximum_absolute_error": 3.306195139884949e-08,
+            "reference_l2": 0.145151706010779
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 1.4005660192963405e-05,
+                "maximum_absolute_error": 3.725290298461914e-09,
+                "reference_l2": 0.025314699833614437,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.8265008490474505e-05,
+                "maximum_absolute_error": 1.641456037759781e-08,
+                "reference_l2": 0.008593278396364036
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 6.890730881106016e-05,
+                "maximum_absolute_error": 9.197975714414497e-11,
+                "reference_l2": 0.00041827297348971123,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.8337707906044875e-05,
+                "maximum_absolute_error": 3.306195139884949e-08,
+                "reference_l2": 0.14489711289132784
+              }
+            }
+          },
+          "passes_registered_gate": true,
+          "cpu_norm_before_clip": 21.134750366210938,
+          "independent_group_membership_validated": true,
+          "reference_registration_order_aligned_by_name": true,
+          "native_norm_before_clip": 21.135560989379883,
+          "prescribed_cpu_optimizer_steps": 1,
+          "research_optimizer_updates": 0,
+          "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+        },
+        "wall_seconds": 338.57361340522766,
+        "assigned_chips": 0,
+        "prescribed_cpu_optimizer_steps": 1,
+        "native_optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+      },
+      "restored": {
+        "status": "PASS_BASELINE_RECOVERY_NAMED_REPLAY_AND_GLOBAL_GRADIENT",
+        "profile": "mixing",
+        "plan_sha256": "8c8316023ef18173a0ec3c00a49c4b10c1fdf79bf54eba865d62aca45a721106",
+        "original_warm_plan_sha256": "cd7ea2cb2a39eb06ada692237023823514e8c5c2f80f7d63c4ccd5f64d35a5a2",
+        "pair": {
+          "arm": "poisson2",
+          "precision": "fp16",
+          "accumulation": 16,
+          "parameters": 141963840,
+          "complete_state_on_load_exact": true,
+          "per_rank_cpu_rng_on_load_exact": true,
+          "all_replica_model_optimizer_states_equal": true,
+          "replay": {
+            "update": {
+              "relative_l2": 1.1055035331191713e-05,
+              "maximum_absolute_error": 2.384185791015625e-07,
+              "reference_l2": 0.04093093632274137,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 2.9463221074608487e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.8491322028007678
+            },
+            "families": {
+              "adamw": {
+                "update": {
+                  "relative_l2": 1.0828055675712301e-05,
+                  "maximum_absolute_error": 2.384185791015625e-07,
+                  "reference_l2": 0.04089351306247324,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moments": {
+                  "relative_l2": 4.076759094521461e-08,
+                  "maximum_absolute_error": 1.1641532182693481e-10,
+                  "reference_l2": 0.07044581617689487
+                }
+              },
+              "muon": {
+                "update": {
+                  "relative_l2": 5.324261601391897e-05,
+                  "maximum_absolute_error": 7.450580596923828e-09,
+                  "reference_l2": 0.0017498964728345774,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moments": {
+                  "relative_l2": 2.936969926776091e-08,
+                  "maximum_absolute_error": 7.450580596923828e-09,
+                  "reference_l2": 0.8462049898319292
+                }
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "passes_recovery_gate": true,
+          "warm_real_targets": 52337436,
+          "warm_seconds": 116.16462083300576,
+          "warm_targets_per_second_per_eight_chips": 450545.4037958639,
+          "warm_model_matmuls": 24615497760768000,
+          "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+          "actual_optimizer_calls_per_replica_including_replay": 122,
+          "phase_training_real_targets_including_replay": 63851674,
+          "extra_initial_probe_model_matmuls": 15384686100480,
+          "extra_initial_probe_real_targets": 32722
+        },
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0006969477480726993,
+            "maximum_absolute_error": 2.43443064391613e-05,
+            "reference_l2": 3.0905920651248886
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0011107416946386018,
+              "maximum_absolute_error": 8.604692993685603e-07,
+              "reference_l2": 0.0916868404338977
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0005991851204350761,
+              "maximum_absolute_error": 8.545815944671631e-06,
+              "reference_l2": 0.22787914709155888
+            },
+            "transformer_body": {
+              "relative_l2": 0.0006969698183648542,
+              "maximum_absolute_error": 2.43443064391613e-05,
+              "reference_l2": 3.080815446970927
+            },
+            "value_embeddings": {
+              "relative_l2": 0.00026767602918979826,
+              "maximum_absolute_error": 5.869878805242479e-09,
+              "reference_l2": 0.00033515716101559126
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "replay_minus_cpu_nll": -1.6608459674216647e-07,
+        "serialized_future_checkpoint_bytes_equal": false,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 14.081127405166626,
+        "scope": "Exact completed warm state/signature,original2% named update/moment and independent512-window gradient criteria. New phase identities;future trajectory identity remains unestablished."
+      },
+      "inherited_warm": true
+    },
+    "one": {
+      "warm": {
+        "status": "CAPTURED_PARCAE_TRAINING_QUALIFICATION",
+        "arm": "fixed1",
+        "accumulation": 16,
+        "world": 32,
+        "precision": "fp16",
+        "mode": "warm",
+        "qualification_only": true,
+        "test_accessed": false,
+        "research_optimizer_updates": 0,
+        "actual_optimizer_calls_per_replica": 121,
+        "phase_real_targets": 63328362,
+        "total_real_targets": 63328362,
+        "cursor": 61952,
+        "model_matmuls": 29560245760032768,
+        "optimizer_matmuls": 3157123377830400,
+        "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+        "recovered_state_digest": null,
+        "complete_state_on_load_exact": false,
+        "per_rank_cpu_rng_on_load_exact": false,
+        "all_replica_model_optimizer_states_equal": true,
+        "final_model_optimizer_digest": "43601b40d9fcae17be61daf73aefad718164bb29bdc65904f98187b8cdb14717",
+        "warm_updates": 100,
+        "warm_real_targets": 52337436,
+        "warm_seconds": 119.24426625296474,
+        "warm_targets_per_second": 438909.4557298997,
+        "warm_model_matmuls": 24429955173580800,
+        "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+        "warm_started_unix": 1792998736.9708104,
+        "warm_finished_unix": 1792998856.2150767,
+        "checkpoint_sha256": "e4e4b5454c387b5395cdfff8c04742f7b59d202a23c0997dde8c63bd9d7e2f21",
+        "checkpoint_state_digest": "a5c3176f66dda4b6160356dd9fa1a97a545035d0373f5c8ea58e8fb4775b33e6",
+        "probe_initial_states_sha256": "1d439cec2b69f9c299232ae81f32f796e6e892ab68813828726508bb159b5e48",
+        "probe_depths_sha256": "7c66937e45f599876e009b325bad2ff03164ce2739cc36fc3e30b97128f4e1e8",
+        "updated_global_gradient_sha256": "e25d4b5c06d81cdc3b5c2604b01e17daf2a52ee6759b786353e3e6459a6da8c9",
+        "initial_global_gradient_sha256": "98e1c27e9dcb7eac4f3b4fe4cacf1ea2845b8544389d18dd7e2434f6ff91727e",
+        "first_checkpoint_sha256": "5ad0671a7aa261144cff7074ac3458d29107e9c7a026803d06b009198bdf33a2",
+        "final_checkpoint_sha256": "b1e7b23da61036ecceebf582bd7268e8cda16bba394445b90ba8714361d37e9e",
+        "extra_initial_probe_model_matmuls": 15268721983488,
+        "extra_initial_probe_real_targets": 32722,
+        "checkpoint_seconds": 4.604065418243408,
+        "progress": [
+          {
+            "update": 1,
+            "real_targets": 523314,
+            "global_train_nll": 10.561340801125137,
+            "gradient_norm_before_clip": 21.15028953552246,
+            "lr": 5e-06,
+            "elapsed_seconds": 75.76622319221497
+          },
+          {
+            "update": 10,
+            "real_targets": 5233798,
+            "global_train_nll": 10.398222420092022,
+            "gradient_norm_before_clip": 21.258731842041016,
+            "lr": 5e-05,
+            "elapsed_seconds": 87.09687328338623
+          },
+          {
+            "update": 20,
+            "real_targets": 10467614,
+            "global_train_nll": 9.887955709263222,
+            "gradient_norm_before_clip": 25.430627822875977,
+            "lr": 0.0001,
+            "elapsed_seconds": 99.02990889549255
+          },
+          {
+            "update": 30,
+            "real_targets": 15701370,
+            "global_train_nll": 9.29319884902423,
+            "gradient_norm_before_clip": 44.60900115966797,
+            "lr": 9.824819231794262e-05,
+            "elapsed_seconds": 110.96604251861572
+          },
+          {
+            "update": 40,
+            "real_targets": 20934888,
+            "global_train_nll": 8.601920776794005,
+            "gradient_norm_before_clip": 63.59491729736328,
+            "lr": 9.236745922441589e-05,
+            "elapsed_seconds": 122.88095045089722
+          },
+          {
+            "update": 50,
+            "real_targets": 26168398,
+            "global_train_nll": 7.8520557525911885,
+            "gradient_norm_before_clip": 50.897369384765625,
+            "lr": 8.29004296357349e-05,
+            "elapsed_seconds": 134.8027503490448
+          },
+          {
+            "update": 60,
+            "real_targets": 31402312,
+            "global_train_nll": 7.358645560671774,
+            "gradient_norm_before_clip": 20.737279891967773,
+            "lr": 7.075569021361259e-05,
+            "elapsed_seconds": 146.71900129318237
+          },
+          {
+            "update": 70,
+            "real_targets": 36636094,
+            "global_train_nll": 6.956803574362717,
+            "gradient_norm_before_clip": 4.924890518188477,
+            "lr": 5.7098817567433805e-05,
+            "elapsed_seconds": 158.64493250846863
+          },
+          {
+            "update": 80,
+            "real_targets": 41869746,
+            "global_train_nll": 6.814514911828203,
+            "gradient_norm_before_clip": 4.320187091827393,
+            "lr": 4.324051345542129e-05,
+            "elapsed_seconds": 170.57758212089539
+          },
+          {
+            "update": 90,
+            "real_targets": 47103690,
+            "global_train_nll": 6.691187175440675,
+            "gradient_norm_before_clip": 4.008687496185303,
+            "lr": 3.051081177597877e-05,
+            "elapsed_seconds": 182.53083419799805
+          },
+          {
+            "update": 100,
+            "real_targets": 52337398,
+            "global_train_nll": 6.655886398807818,
+            "gradient_norm_before_clip": 3.1877119541168213,
+            "lr": 2.0131430180369964e-05,
+            "elapsed_seconds": 194.48486828804016
+          },
+          {
+            "update": 110,
+            "real_targets": 57571286,
+            "global_train_nll": 6.603572424888603,
+            "gradient_norm_before_clip": 3.5405375957489014,
+            "lr": 1.3098517205605332e-05,
+            "elapsed_seconds": 206.40695357322693
+          },
+          {
+            "update": 120,
+            "real_targets": 62805050,
+            "global_train_nll": 6.617494516454458,
+            "gradient_norm_before_clip": 3.1451010704040527,
+            "lr": 1.0087048128988257e-05,
+            "elapsed_seconds": 218.27465558052063
+          },
+          {
+            "update": 121,
+            "real_targets": 63328362,
+            "global_train_nll": 6.585529282722353,
+            "gradient_norm_before_clip": 3.072009563446045,
+            "lr": 1.0021767296860541e-05,
+            "elapsed_seconds": 233.10901618003845
+          }
+        ],
+        "signature": {
+          "preparation_sha256": "94568f0575faa83422657d74d4d9394a202936c6cc1ed745bcbcd5992312eb40",
+          "world": 32,
+          "accumulation": 16,
+          "context": 1024,
+          "arm": "fixed1",
+          "precision": "fp16",
+          "master_dtype": "fp32",
+          "manual_loss_scale": 8192,
+          "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+          "initial_sha256": "ecd37ea195a31f60f96023e91c82bd07379c62340be208878f4841cc63e10459",
+          "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+          "state_seed": 2009,
+          "routing_seed": 271828,
+          "clip": 1.0,
+          "peak_lr": 0.0001,
+          "gate_policy": "release_muon",
+          "optimizer_recipe": "parcae_muon_adamw_fp32_polar_v2",
+          "optimizer_execution": "eager_muon_fused_adamw",
+          "training_source_sha256": {
+            "scripts/train_parcae_precise_qualification.py": "e0c8dd00a7dd9793c01016536b010cb47313dca4f93aa44b296e17698c2a7e71",
+            "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+            "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+            "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+            "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+            "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+            "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7"
+          }
+        },
+        "wall_seconds": 239.88853216171265,
+        "scope": "Complete qualification updates, natural packing/H2D, per-sequence depth, no_sync normalization, manual unscale, finite clipping and two-family optimizer. Warm100 updates exclude initial probe/compilation, final checkpoint and updated-point/replay numerical audits. Extra overheads/failed attempts remain in phase receipts. No scientific learning claim or budget authorization.",
+        "managed_qualification_plan_sha256": "cd7ea2cb2a39eb06ada692237023823514e8c5c2f80f7d63c4ccd5f64d35a5a2",
+        "qualification_profile": "one"
+      },
+      "replay": {
+        "status": "CAPTURED_PARCAE_TRAINING_QUALIFICATION",
+        "arm": "fixed1",
+        "accumulation": 16,
+        "world": 32,
+        "precision": "fp16",
+        "mode": "replay",
+        "qualification_only": true,
+        "test_accessed": false,
+        "research_optimizer_updates": 0,
+        "actual_optimizer_calls_per_replica": 1,
+        "phase_real_targets": 523312,
+        "total_real_targets": 63328362,
+        "cursor": 61952,
+        "model_matmuls": 29560245760032768,
+        "optimizer_matmuls": 3157123377830400,
+        "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+        "recovered_state_digest": "a5c3176f66dda4b6160356dd9fa1a97a545035d0373f5c8ea58e8fb4775b33e6",
+        "complete_state_on_load_exact": true,
+        "per_rank_cpu_rng_on_load_exact": true,
+        "all_replica_model_optimizer_states_equal": true,
+        "final_model_optimizer_digest": "06602da63315da2d27728f184ace702cb1b2ec5d3a7f27c2aed4ef46657bffd7",
+        "warm_updates": 0,
+        "warm_real_targets": 0,
+        "warm_seconds": null,
+        "warm_targets_per_second": null,
+        "warm_model_matmuls": 0,
+        "warm_optimizer_matmuls_all_replicas": 0,
+        "warm_started_unix": null,
+        "warm_finished_unix": null,
+        "checkpoint_sha256": null,
+        "checkpoint_state_digest": null,
+        "probe_initial_states_sha256": null,
+        "probe_depths_sha256": null,
+        "updated_global_gradient_sha256": "40a233028faa75fa27bc4e66dffa77e6d9a2cb06170bfd70a2b34e1aea2178d3",
+        "initial_global_gradient_sha256": null,
+        "first_checkpoint_sha256": null,
+        "final_checkpoint_sha256": "9c6cfb436ef4440f0f4d0bda8c6de6c524aa8bfb0e7ca93416f9dbd3453a8c71",
+        "extra_initial_probe_model_matmuls": 0,
+        "extra_initial_probe_real_targets": 0,
+        "checkpoint_seconds": 0.0,
+        "progress": [
+          {
+            "update": 121,
+            "real_targets": 63328362,
+            "global_train_nll": 6.585529282722353,
+            "gradient_norm_before_clip": 3.072009563446045,
+            "lr": 1.0021767296860541e-05,
+            "elapsed_seconds": 72.4986743927002
+          }
+        ],
+        "signature": {
+          "preparation_sha256": "94568f0575faa83422657d74d4d9394a202936c6cc1ed745bcbcd5992312eb40",
+          "world": 32,
+          "accumulation": 16,
+          "context": 1024,
+          "arm": "fixed1",
+          "precision": "fp16",
+          "master_dtype": "fp32",
+          "manual_loss_scale": 8192,
+          "depth_table_sha256": "0be872430599007db09978f0fc3e205c87159fd1267e3b1b13848b762c706692",
+          "initial_sha256": "ecd37ea195a31f60f96023e91c82bd07379c62340be208878f4841cc63e10459",
+          "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+          "state_seed": 2009,
+          "routing_seed": 271828,
+          "clip": 1.0,
+          "peak_lr": 0.0001,
+          "gate_policy": "release_muon",
+          "optimizer_recipe": "parcae_muon_adamw_fp32_polar_v2",
+          "optimizer_execution": "eager_muon_fused_adamw",
+          "training_source_sha256": {
+            "scripts/train_parcae_precise_qualification.py": "e0c8dd00a7dd9793c01016536b010cb47313dca4f93aa44b296e17698c2a7e71",
+            "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+            "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+            "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+            "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+            "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+            "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7"
+          }
+        },
+        "wall_seconds": 78.76813626289368,
+        "scope": "Complete qualification updates, natural packing/H2D, per-sequence depth, no_sync normalization, manual unscale, finite clipping and two-family optimizer. Warm100 updates exclude initial probe/compilation, final checkpoint and updated-point/replay numerical audits. Extra overheads/failed attempts remain in phase receipts. No scientific learning claim or budget authorization.",
+        "managed_qualification_plan_sha256": "8c8316023ef18173a0ec3c00a49c4b10c1fdf79bf54eba865d62aca45a721106",
+        "qualification_profile": "one"
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+        "arm": "fixed1",
+        "precision": "fp16",
+        "accumulation": 16,
+        "source_cursor": 61440,
+        "real_targets": 523312,
+        "windows": 512,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0008911872206671724,
+            "maximum_absolute_error": 3.298022784292698e-05,
+            "reference_l2": 3.0718263184635677
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0011790038303398699,
+              "maximum_absolute_error": 1.0058101906906813e-06,
+              "reference_l2": 0.0913204407120718
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0007190635190817238,
+              "maximum_absolute_error": 1.1893920600414276e-05,
+              "reference_l2": 0.22707629329251447
+            },
+            "transformer_body": {
+              "relative_l2": 0.0008917448902871582,
+              "maximum_absolute_error": 3.298022784292698e-05,
+              "reference_l2": 3.062060377190968
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0003791303075244449,
+              "maximum_absolute_error": 1.4319084584712982e-08,
+              "reference_l2": 0.00033372926855210005
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 6.5855307550902955,
+        "native_minus_cpu_nll": -1.472367942234598e-06,
+        "checkpoint_sha256": "e4e4b5454c387b5395cdfff8c04742f7b59d202a23c0997dde8c63bd9d7e2f21",
+        "full_state_readback_exact": true,
+        "cpu_global_gradient_sha256": "13c78b6d338e1a8d456c5c7616f49dc32afe2789b6b15cefc4893cc1b65c9aec",
+        "first_actual_update": {
+          "update_comparison": {
+            "relative_l2": 1.410715965397583e-05,
+            "maximum_absolute_error": 1.4901161193847656e-08,
+            "reference_l2": 0.025318138984273618,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.836411723783416e-05,
+            "maximum_absolute_error": 3.306195139884949e-08,
+            "reference_l2": 0.14515153369453804
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 1.406360192455664e-05,
+                "maximum_absolute_error": 1.4901161193847656e-08,
+                "reference_l2": 0.0253146834818154,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.8292001178294873e-05,
+                "maximum_absolute_error": 1.641456037759781e-08,
+                "reference_l2": 0.008586749052256778
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 6.850800948305806e-05,
+                "maximum_absolute_error": 9.233858122570382e-11,
+                "reference_l2": 0.0004182844038425712,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.8364370260232204e-05,
+                "maximum_absolute_error": 3.306195139884949e-08,
+                "reference_l2": 0.14489732735489008
+              }
+            }
+          },
+          "passes_registered_gate": true,
+          "cpu_norm_before_clip": 21.149477005004883,
+          "independent_group_membership_validated": true,
+          "reference_registration_order_aligned_by_name": true,
+          "native_norm_before_clip": 21.15028953552246,
+          "prescribed_cpu_optimizer_steps": 1,
+          "research_optimizer_updates": 0,
+          "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+        },
+        "wall_seconds": 351.35263657569885,
+        "assigned_chips": 0,
+        "prescribed_cpu_optimizer_steps": 1,
+        "native_optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+      },
+      "restored": {
+        "status": "PASS_BASELINE_RECOVERY_NAMED_REPLAY_AND_GLOBAL_GRADIENT",
+        "profile": "one",
+        "plan_sha256": "8c8316023ef18173a0ec3c00a49c4b10c1fdf79bf54eba865d62aca45a721106",
+        "original_warm_plan_sha256": "cd7ea2cb2a39eb06ada692237023823514e8c5c2f80f7d63c4ccd5f64d35a5a2",
+        "pair": {
+          "arm": "fixed1",
+          "precision": "fp16",
+          "accumulation": 16,
+          "parameters": 141963840,
+          "complete_state_on_load_exact": true,
+          "per_rank_cpu_rng_on_load_exact": true,
+          "all_replica_model_optimizer_states_equal": true,
+          "replay": {
+            "update": {
+              "relative_l2": 8.160284439621746e-06,
+              "maximum_absolute_error": 1.1920928955078125e-07,
+              "reference_l2": 0.04121632651778469,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 3.956338724725173e-08,
+              "maximum_absolute_error": 1.1175870895385742e-08,
+              "reference_l2": 0.8494911936576359
+            },
+            "families": {
+              "adamw": {
+                "update": {
+                  "relative_l2": 7.804768619377492e-06,
+                  "maximum_absolute_error": 1.1920928955078125e-07,
+                  "reference_l2": 0.041179115097619276,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moments": {
+                  "relative_l2": 4.078431351211102e-08,
+                  "maximum_absolute_error": 1.1641532182693481e-10,
+                  "reference_l2": 0.07044111164218927
+                }
+              },
+              "muon": {
+                "update": {
+                  "relative_l2": 5.661873454304935e-05,
+                  "maximum_absolute_error": 1.30385160446167e-08,
+                  "reference_l2": 0.0017510143910502273,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moments": {
+                  "relative_l2": 3.955480269395778e-08,
+                  "maximum_absolute_error": 1.1175870895385742e-08,
+                  "reference_l2": 0.8465656134597529
+                }
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "passes_recovery_gate": true,
+          "warm_real_targets": 52337436,
+          "warm_seconds": 119.24426625296474,
+          "warm_targets_per_second_per_eight_chips": 438909.4557298997,
+          "warm_model_matmuls": 24429955173580800,
+          "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+          "actual_optimizer_calls_per_replica_including_replay": 122,
+          "phase_training_real_targets_including_replay": 63851674,
+          "extra_initial_probe_model_matmuls": 15268721983488,
+          "extra_initial_probe_real_targets": 32722
+        },
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0008911872172498268,
+            "maximum_absolute_error": 3.297976218163967e-05,
+            "reference_l2": 3.0718263184635677
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0011790040623346463,
+              "maximum_absolute_error": 1.0058101906906813e-06,
+              "reference_l2": 0.0913204407120718
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0007190630939199929,
+              "maximum_absolute_error": 1.189415343105793e-05,
+              "reference_l2": 0.22707629329251447
+            },
+            "transformer_body": {
+              "relative_l2": 0.0008917448884626447,
+              "maximum_absolute_error": 3.297976218163967e-05,
+              "reference_l2": 3.062060377190968
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0003791394382655011,
+              "maximum_absolute_error": 1.4322722563520074e-08,
+              "reference_l2": 0.00033372926855210005
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "replay_minus_cpu_nll": -1.472367942234598e-06,
+        "serialized_future_checkpoint_bytes_equal": false,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 14.410756587982178,
+        "scope": "Exact completed warm state/signature,original2% named update/moment and independent512-window gradient criteria. New phase identities;future trajectory identity remains unestablished."
+      },
+      "inherited_warm": true
+    }
+  }
+}

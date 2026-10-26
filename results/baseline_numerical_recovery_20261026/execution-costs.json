@@ -1,0 +1,74 @@
+{
+  "native_attempts": [
+    {
+      "identity": "baseline-numerical-recovery-v1-one-replay",
+      "exit_code": 0,
+      "wall_seconds": 107.82914423942566,
+      "assigned_chip_hours": 0.239620320532057,
+      "whole_instance_opportunity_chip_hours": 0.479240641064114,
+      "report_exists": true
+    },
+    {
+      "identity": "baseline-numerical-recovery-v1-mixing-replay",
+      "exit_code": 0,
+      "wall_seconds": 107.05958199501038,
+      "assigned_chip_hours": 0.23791018221113416,
+      "whole_instance_opportunity_chip_hours": 0.4758203644222683,
+      "report_exists": true
+    },
+    {
+      "identity": "baseline-numerical-recovery-v1-ordinary8-warm",
+      "exit_code": 0,
+      "wall_seconds": 287.2203321456909,
+      "assigned_chip_hours": 0.638267404768202,
+      "whole_instance_opportunity_chip_hours": 1.276534809536404,
+      "report_exists": true
+    },
+    {
+      "identity": "baseline-numerical-recovery-v1-ordinary8-replay",
+      "exit_code": 0,
+      "wall_seconds": 135.0410885810852,
+      "assigned_chip_hours": 0.3000913079579671,
+      "whole_instance_opportunity_chip_hours": 0.6001826159159342,
+      "report_exists": true
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "mixing-replay-check",
+      "assigned_chips": 0,
+      "wall_seconds": 15.014917850494385,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "one-replay-check",
+      "assigned_chips": 0,
+      "wall_seconds": 15.015403985977173,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "ordinary8-reference",
+      "assigned_chips": 0,
+      "wall_seconds": 350.3399279117584,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "ordinary8-replay-check",
+      "assigned_chips": 0,
+      "wall_seconds": 15.015225887298584,
+      "reused": false,
+      "exit_code": 0
+    }
+  ],
+  "execution": {
+    "started_unix": 1793022493.2776873,
+    "deadline_unix": 1793026093.2776873,
+    "plan_sha256": "8c8316023ef18173a0ec3c00a49c4b10c1fdf79bf54eba865d62aca45a721106"
+  },
+  "wall_seconds_since_admission": 797.3201117515564,
+  "whole_instance_opportunity_chip_hours": 3.543644946416219,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

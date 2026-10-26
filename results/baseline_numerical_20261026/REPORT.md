@@ -1,3 +1,25 @@
+# First baseline qualification stopped; valid warm states retained
+
+Two121-update warm processes complete,with100 measured warm updates each and
+complete replica equality. The controller then stops with a paired-stop error;
+its retained top receipt does not contain the initiating exception. The
+preserved filesystem reproduces the protected inode guard failure. Source,
+byte-space and memory checks otherwise pass. The native models have no failed
+gradient finding from this stop; CPU audit children were interrupted early.
+
+All four native closures,including both canceled starts,cost**1.224963 assigned
+chip-hours**;whole-instance opportunity is separately**1.345524**.242 completed
+qualification updates are retained. The two interrupted starts have no completed
+update artifact;possible partial-rank updates remain bounded rather than silently
+called zero. No science fit was admitted.
+
+Independent reruns of the two complete CPU checks pass under the unchanged
+original plan. A separately registered recovery reuses those warm states/vectors
+and new identities for the missing phases. The original stage stays stopped.
+
+[Stopped receipt](report.json) · [Costs](execution-costs.json) ·
+[Recovery](../baseline_numerical_recovery_20261026/REPORT.md).
+
 # Stronger baseline numerics: conditional queue prepared
 
 The original One recovery remains the only scientific execution. This new
