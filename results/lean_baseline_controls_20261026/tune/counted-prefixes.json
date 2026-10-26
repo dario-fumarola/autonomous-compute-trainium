@@ -1,0 +1,37 @@
+{
+  "status": "PASS_COMPLETE_COUNTED_PREFIX_READBACK",
+  "records": {
+    "mixing-lr0": {
+      "checkpoint_sha256": "96d20f963bbb9d33b6fd20dda1fba5cee64d1c6f39def1d317765ee0390dd393",
+      "full_state_digest": "f24eedbb6fe28f1244fdcee2f061767c07185ce287706a50298f4c791d111a20",
+      "update": 2,
+      "source_cursor": 1024,
+      "domain_targets": [
+        627567,
+        209522,
+        209621
+      ],
+      "executed_matmuls": 544493812700160,
+      "complete_state_readback_exact": true,
+      "all32_rng_states_present": true,
+      "replicas_equal": true
+    },
+    "ordinary8-lr0": {
+      "checkpoint_sha256": "e5d6e7d2728ba796ff1185629964cea4f3970315e6f5cef5dfee384e7e4022a4",
+      "full_state_digest": "76d549577a61446f3f86d463c396965235e850be444377779b34e2e18bcfbcb5",
+      "update": 2,
+      "source_cursor": 1024,
+      "domain_targets": [
+        627567,
+        209522,
+        209621
+      ],
+      "executed_matmuls": 482479182144000,
+      "complete_state_readback_exact": true,
+      "all32_rng_states_present": true,
+      "replicas_equal": true
+    }
+  },
+  "strict_future_trajectory_identity_established": false,
+  "scope": "The two updates count inside each trial. Fresh-process continuation must restore exact model/optimizer/RNG state; bit-exact future trajectories are not asserted."
+}

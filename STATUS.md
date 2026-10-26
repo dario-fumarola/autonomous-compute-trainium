@@ -1,3 +1,9 @@
+## October 26, 2026, 15:03 UTC — stronger controls training on all16 chips
+
+The two counted prefixes passed exact complete model/optimizer readback,all32 saved RNG states,replica equality and source/work counters. Their fresh-process continuations restored exact state. Corrected cheap mixing and conventional ordinary8 are executing the six frozen TUNE trials at301.466M targets each; the first pair has entered cooldown. No new quality result is asserted yet. Original two-seed fixed-two work gain remains0.012563484 nats on consumed DEV.
+
+Main-control implementation/protocol are prepared,with original random initializers,own complete cooldowns and matched endpoints (One2.463B,cheap2.446B,ordinary8 2.761B). Each main seed has a measured five-hour complete-stage cap and separate resource admission. No main training is admitted before qualified tuning selection,and4B remains conditional. Both existing recurrence references are pinned to their exact independent DEV scores and passing mature gradient audits. Latest complete CPU suite:322 passed,2 skipped; focused main checks pass after reference validation.
+
 ## October 26, 2026, 14:52 UTC — stronger baseline tuning registered
 
 Both paired work results remain audited (mean fixed-two gain0.012563484 nats, development only). All three stronger baseline numerical profiles pass. The bounded corrected-cheap/ordinary8 three-rate TUNE stage is frozen at six576-update trials with complete cooldowns and full512 selected-endpoint gradient gates; no main comparison or4B launch yet. Fresh random scientific C0 states and work/source tables pass readback. CPU suite:319 passed,2 skipped.
