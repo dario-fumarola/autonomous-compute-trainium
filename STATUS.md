@@ -1,3 +1,31 @@
+# Status — 2026-10-26 04:54 UTC
+
+**The new recurrent endpoint is independently scored and audited.** Seed17293
+finishes3,840 updates/2.009762680B authentic targets and its complete cooldown,
+with all32 complete replicas equal. Independent whole-DEV FP32 NLL is2.483076417
+on603 documents/754,750 targets. The complete512-window gradient gate passes:
+body relative-L2 error0.374622%,with every declared family below2%.
+[Running comparison and first completed endpoint](results/fixed_control_replication_20261026/main/REPORT.md).
+
+This is a second recurrent checkpoint,not a second matched-work win. Its One
+and cheap controls remain pending;all remaining frozen fits and audits continue
+on all16 chips. Both cheap fits are active. The original09:09:41 UTC cutoff and
+all five endpoints remain unchanged. The conditional lean queue is alive with
+zero chips and no native admission;it still requires the complete development
+comparison and its original advancement gate.
+
+A metadata-only check identifies an additional conventional challenger:eight
+unique layers,width640,five128-dimensional heads,and141,733,120 parameters,
+0.1625% below the recurrent cap. It has no learning or hardware result. This is
+a control to consider before an unrestricted efficiency claim,not a new fit or
+an architectural intervention in the running study.
+[Exact conventional inventory](results/ordinary_challenger_inventory_20261026/REPORT.md).
+
+288 CPU tests pass. No TEST,reserve access,terminal alpha or terminal success.
+The prior single-seed0.012016-nat point remains development evidence. Strongest
+qualified controls and fresh-source/five-seed confirmation remain required;
+the research objective is active and unachieved.
+
 # Status — 2026-10-26 04:14 UTC
 
 **The new One stable prefix has completed 1,920 updates / 1.004888B targets,

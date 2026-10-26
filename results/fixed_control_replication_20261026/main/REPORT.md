@@ -17,7 +17,11 @@ projected storage reserves pass. 281 CPU tests and independent checks of both
 scientific child snapshots, all five case signatures, initializers, tables and
 cross-endpoint branch identity pass. Registration itself uses zero chips. The scientific stage has now launched
 on both eight-chip halves; both first models have made actual updates. The
-original cutoff is 09:09:41 UTC. No cooled endpoint scores are available yet.
+original cutoff is 09:09:41 UTC. The first new recurrent endpoint is complete and independently scored: seed
+17293 at2.009762680B targets gives2.483076417 DEV NLL. Its complete512-window
+gradient audit passes, with0.374622% body relative-L2 error and all families
+below2%. The other cooled controls remain pending;this is not a replicated
+efficiency result.
 
 All outcomes are retained. Readouts compare recurrence against both work-matched
 controls for each seed, as well as equal-data One. The existing single-seed
