@@ -28,3 +28,11 @@ control nor independently confirm the research objective.
 
 [Protocol](../../docs/ONE_CONTROL_RECOVERY_20261026.md) ·
 [Migration check](migration.json) · [Plan](plan.json) · [CPU tests](cpu-tests.json).
+
+The recovered equal-data One fit has now completed its original cooldown and all32
+complete replicas agree. Its independent whole-DEV FP32 score is**2.517145837**
+on603 documents/754,750 targets. Against the already audited recurrent
+seed-17293 score2.483076417,the descriptive equal-data gain is**0.034069420**.
+The One final gradient audit is still running and the work-matched endpoint is
+pending;this partial readout does not establish efficiency or confirmation.
+[Partial score](partial-readout.json).
