@@ -1,0 +1,95 @@
+{
+  "identity": "past-surprisal-value-probe-v1",
+  "registered_unix": 1793046571.219647,
+  "source_sha256": {
+    "scripts/probe_prefix_surprisal_value.py": "e5fab87c5e4f39bcee34b9a184e026d979303dcb78334b94797396874b354c66",
+    "compute_trainium/prefix_value_probe.py": "19fccf1621a4203caf3d13577dd865a99d80b16b29e129997000bda86c22e938",
+    "tests/test_prefix_value_probe.py": "aecbdb9f8f47a42fe17aa421c24ed3a8513a036a1b26271c20798ffa05db4065"
+  },
+  "parent_report_sha256": "2dce40859e49efa65a8f074e7a7072edfd2bf6f094e7a1ea3f008cf02f93ba1b",
+  "input_hashes": [
+    {
+      "seed": 5231,
+      "depth": 1,
+      "replay_report_sha256": "eba496a8ccf36a7d29b8b299127c760d6ea513789312806e0d02bc7e5f274d88",
+      "token_losses_sha256": "c04db9ce0570a414777ebf9c0b09b51f795fe67cd16172a63b6e0e2e677a9b36",
+      "index_sha256": "280eb492c51be9990ce62c337ee6c14fae75f72a80eaa5a19acbde323fb5d5be"
+    },
+    {
+      "seed": 5231,
+      "depth": 2,
+      "replay_report_sha256": "2f332a38c28ce5930b19c4f4059e15c19d744be8b4ccd49927dd53843862e84e",
+      "token_losses_sha256": "6e30f4998baba3347f87b4508a450a533e66d8a5e9f40a14061b6ae35b460888",
+      "index_sha256": "280eb492c51be9990ce62c337ee6c14fae75f72a80eaa5a19acbde323fb5d5be"
+    },
+    {
+      "seed": 5231,
+      "depth": 3,
+      "replay_report_sha256": "cc66e0e268711aa9266732f14b920efd358df5031def119721d26e1307112e7d",
+      "token_losses_sha256": "b26b3454d86f10f9b59c0b088f4dccbf422002e8f8cff9bd424eee4195398d39",
+      "index_sha256": "280eb492c51be9990ce62c337ee6c14fae75f72a80eaa5a19acbde323fb5d5be"
+    },
+    {
+      "seed": 7283,
+      "depth": 1,
+      "replay_report_sha256": "c44e6b668a9a71a5a9a8f28c4c7c89332ed2a2faa63db279021ffd19de4375b4",
+      "token_losses_sha256": "2c8caed52a1886e2c4a9bc5485ae8b28708210d5ec74ef5eac683b372fcba383",
+      "index_sha256": "280eb492c51be9990ce62c337ee6c14fae75f72a80eaa5a19acbde323fb5d5be"
+    },
+    {
+      "seed": 7283,
+      "depth": 2,
+      "replay_report_sha256": "b914d67cb7442a377eaa2a77da878e6c6ef096b0d86653fb43a5629c0f9360c3",
+      "token_losses_sha256": "edcbe408702cab8f905d6c74c490921285c790219116d6c398bcf88f7246aeab",
+      "index_sha256": "280eb492c51be9990ce62c337ee6c14fae75f72a80eaa5a19acbde323fb5d5be"
+    },
+    {
+      "seed": 7283,
+      "depth": 3,
+      "replay_report_sha256": "56f8f46bcad956e2578fc794902a79033ece53048e5b05b706241e5afaac0994",
+      "token_losses_sha256": "78c801c2801daab9b783c90d83949a4c5a0e9fffcae3f1166a53958d2f53c6ba",
+      "index_sha256": "280eb492c51be9990ce62c337ee6c14fae75f72a80eaa5a19acbde323fb5d5be"
+    }
+  ],
+  "seeds": [
+    5231,
+    7283
+  ],
+  "depths": [
+    1,
+    2,
+    3
+  ],
+  "source_group_folds": 5,
+  "fold_hash": "SHA256(past-surprisal-probe-v1\\0 + raw source group),first8 bytes big endian,mod5",
+  "context": 1024,
+  "past_loss_clip": 20.0,
+  "ridge": 0.001,
+  "features": [
+    "previous depth-one loss",
+    "mean preceding up-to4 depth-one losses",
+    "mean preceding up-to16 depth-one losses",
+    "position within window /1023",
+    "has prior target"
+  ],
+  "fit": "Weighted training-fold feature normalization;intercept unpenalized;fixed linear ridge predicts depth1/2 loss differences to depth3.",
+  "weights": {
+    "web": 0.6,
+    "math": 0.2,
+    "code": 0.2
+  },
+  "seconds_limit": 180,
+  "only_one_feature_family_and_penalty": true,
+  "coefficient_fits": 10,
+  "advancement_rule": "A point improvement above0.01 over constant depth3 in BOTH base seeds may motivate further diagnosis after declared controls finish. No routing campaign is automatically admitted. Failure closes this cheap feature family,not all prefix selectors.",
+  "current_target_loss_in_features": false,
+  "other_depth_loss_in_features": false,
+  "group_or_domain_or_document_ids_in_features": false,
+  "language_model_forwards": 0,
+  "language_model_updates": 0,
+  "accelerator_chips": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": false,
+  "native_routing_campaign_admitted": false,
+  "scope": "Retrospective statistical probe on consumed DEV,selected after oracle and uniform-mixture results. Fit separate low-capacity readout regressions on other source groups and evaluate each held-out group. Only PREVIOUS observed depth-one token surprisals in the SAME1024-position window and prefix position are features;reset at document/window boundaries. Current/future target losses are labels only. Prior depth-one probabilities would require an inference head and their cost must be charged in any future method. This predicts selections among frozen uniform-depth distributions,not mixed-state routing. Cross-fitted policies are an analysis device,not one deployed/pretrained model. No external teacher,generated text,language-model updates,fresh panel,TEST,alpha,4B or new native work. No hardware efficiency or terminal claim;ordinary8 remains the strong benchmark."
+}

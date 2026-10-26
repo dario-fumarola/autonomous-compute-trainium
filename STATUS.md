@@ -1,3 +1,11 @@
+## October 26, 2026, 20:31 UTC — one causal past-surprisal predictability probe registered
+
+A separate retrospective CPU statistical probe is frozen before fitting. Five source-group folds predict depth1/2 loss differences to depth3 from only earlier depth-one token surprisals and known prefix position. History resets at each document and1024-position window; current/future target losses and source/domain/document IDs are excluded from predictors. Training-fold normalization and a single fixed linear-ridge penalty are used. Held-out source groups are never used to fit their predictions.
+
+This fits ten small out-of-fold statistical readouts on already consumed DEV; it is not language-model training, a deployed router or confirmation. All needed losses already exist, so no new model forwards,updates or chips are used. The explicit protocol caps computation at180 seconds and permits no feature/penalty search. A point gain above0.01 over constant depth3 in both seeds could motivate further diagnosis after the declared controls finish; no native routing campaign is admitted automatically. Prior depth-one probabilities would themselves have inference costs in a future method.
+
+Five focused causality/reset/held-out-label checks and the full329-test suite pass (2 skipped). All active native source hashes remain unchanged. The paired lean One fits continue around1.95B of2.463B targets on all16 chips. [Probe protocol](results/future_span_depth_oracle_20261025/token/prefix-probe/registration.json).
+
 ## October 26, 2026, 20:19 UTC — fixed target-independent mixture does not recover oracle gain
 
 One registered equal-probability mixture of the recorded depth1/2/3 distributions scores2.591299672 and2.588881480; mean2.590090576. It loses0.004611762 to constant supported depth3 and0.008754669 to original matched-work One. Fixed weights use no targets for selection and no fitting/search. Normalized-probability software and per-target oracle/Jensen checks pass. This is arithmetic on existing loss arrays:zero new model forwards,updates or chips. It rules out this simple combination,not every prefix-dependent selector or other training. [Exact check](results/future_span_depth_oracle_20261025/token/uniform-mixture-check.json).
