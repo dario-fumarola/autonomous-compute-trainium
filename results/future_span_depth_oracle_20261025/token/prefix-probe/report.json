@@ -1,0 +1,161 @@
+{
+  "status": "COMPLETE_CROSS_FITTED_PAST_SURPRISAL_PROBE",
+  "records": [
+    {
+      "seed": 5231,
+      "cross_fitted_selection_nll": 2.5865113130392916,
+      "domain_nll": {
+        "web": 3.0799511236715107,
+        "math": 2.2658478349531745,
+        "code": 1.426855359228752
+      },
+      "constant_depth3_nll": 2.58651265368253,
+      "gain_over_constant_depth3": 1.3406432382012667e-06,
+      "training_fold_chosen_constant_nll": 2.58651265368253,
+      "gain_over_training_only_constant": 1.3406432382012667e-06,
+      "token_oracle_nll": 2.503926264581063,
+      "remaining_oracle_gap": 0.08258504845822845,
+      "chosen_target_counts": {
+        "1": 0,
+        "2": 1050,
+        "3": 753700
+      },
+      "source_groups_by_fold": {
+        "0": 111,
+        "1": 103,
+        "2": 110,
+        "3": 88,
+        "4": 106
+      },
+      "fitted_regression_coefficients": 60,
+      "fit_records": [
+        {
+          "heldout_fold": 0,
+          "training_targets": 609261,
+          "validation_targets": 145489,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.039637580759120286
+        },
+        {
+          "heldout_fold": 1,
+          "training_targets": 592589,
+          "validation_targets": 162161,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.039775482537307505
+        },
+        {
+          "heldout_fold": 2,
+          "training_targets": 599931,
+          "validation_targets": 154819,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.04002492508827809
+        },
+        {
+          "heldout_fold": 3,
+          "training_targets": 622911,
+          "validation_targets": 131839,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.04032678220224664
+        },
+        {
+          "heldout_fold": 4,
+          "training_targets": 594308,
+          "validation_targets": 160442,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.040063434414698826
+        }
+      ]
+    },
+    {
+      "seed": 7283,
+      "cross_fitted_selection_nll": 2.584444973538192,
+      "domain_nll": {
+        "web": 3.0770702028339274,
+        "math": 2.2637719804730265,
+        "code": 1.4272422787161496
+      },
+      "constant_depth3_nll": 2.584444973538192,
+      "gain_over_constant_depth3": 0.0,
+      "training_fold_chosen_constant_nll": 2.584444973538192,
+      "gain_over_training_only_constant": 0.0,
+      "token_oracle_nll": 2.5026793420985025,
+      "remaining_oracle_gap": 0.08176563143968929,
+      "chosen_target_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 754750
+      },
+      "source_groups_by_fold": {
+        "0": 111,
+        "1": 103,
+        "2": 110,
+        "3": 88,
+        "4": 106
+      },
+      "fitted_regression_coefficients": 60,
+      "fit_records": [
+        {
+          "heldout_fold": 0,
+          "training_targets": 609261,
+          "validation_targets": 145489,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.03797458321595964
+        },
+        {
+          "heldout_fold": 1,
+          "training_targets": 592589,
+          "validation_targets": 162161,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.03817641457193571
+        },
+        {
+          "heldout_fold": 2,
+          "training_targets": 599931,
+          "validation_targets": 154819,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.03805086313907965
+        },
+        {
+          "heldout_fold": 3,
+          "training_targets": 622911,
+          "validation_targets": 131839,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.0386278900935453
+        },
+        {
+          "heldout_fold": 4,
+          "training_targets": 594308,
+          "validation_targets": 160442,
+          "fitted_coefficients": 12,
+          "training_only_constant_depth": 3,
+          "coefficient_l2": 0.03858102017353408
+        }
+      ]
+    }
+  ],
+  "mean_selection_nll": 2.585478143288742,
+  "mean_gain_over_constant_depth3": 6.703216191006334e-07,
+  "both_seed_point_gains_exceed_001": false,
+  "native_routing_campaign_admitted": false,
+  "deployable_inference_cost_established": false,
+  "terminal_claim": false,
+  "scope": "Retrospective statistical probe on consumed DEV,selected after oracle and uniform-mixture results. Fit separate low-capacity readout regressions on other source groups and evaluate each held-out group. Only PREVIOUS observed depth-one token surprisals in the SAME1024-position window and prefix position are features;reset at document/window boundaries. Current/future target losses are labels only. Prior depth-one probabilities would require an inference head and their cost must be charged in any future method. This predicts selections among frozen uniform-depth distributions,not mixed-state routing. Cross-fitted policies are an analysis device,not one deployed/pretrained model. No external teacher,generated text,language-model updates,fresh panel,TEST,alpha,4B or new native work. No hardware efficiency or terminal claim;ordinary8 remains the strong benchmark.",
+  "plan_sha256": "ccfa64178d5be0697e4e09642cd019269352b2229904888f829900226c154c2e",
+  "wall_seconds": 2.1215622425079346,
+  "cpu_seconds": 7.6944336159999995,
+  "peak_rss_gib": 0.7790374755859375,
+  "language_model_forwards": 0,
+  "language_model_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "terminal_alpha_spent": false
+}

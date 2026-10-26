@@ -31,3 +31,8 @@ It is worse than always using supported depth3 by0.004611762 nats on average, an
 The exact target probability of a fixed arithmetic mixture is available from the saved per-target losses. A normalized-probability software fixture and the per-target oracle/Jensen bounds pass. This arithmetic check used no model forward,optimizer update or accelerator chip. It requires all three predictions if deployed;actual serving cost is unmeasured. It is retrospective consumed-DEV analysis, with no new policy campaign or terminal claim.
 
 [Fixed registration](uniform-mixture-registration.json) · [Exact result and cost](uniform-mixture-check.json).
+
+## Bounded prefix-predictability follow-up
+
+A five-source-fold linear probe using only previous depth-one surprisals and prefix position gains0.000000670 nats on average over constant depth3. It fails its declared0.01 gate in both old base seeds. This closes that cheap feature family,not all prefix selectors or adaptive training. The language models remain unchanged.
+[Probe report and limits](prefix-probe/REPORT.md).

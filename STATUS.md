@@ -1,3 +1,11 @@
+## October 26, 2026, 20:35 UTC — past-surprisal predictability probe closed negative
+
+The registered five-source-fold statistical selector gains0.000001341 and0.000000000 nats over constant supported depth3. Mean0.000000670 fails the0.01 advancement rule in both base seeds. It selects depth3 nearly everywhere. No current/future target loss was an input;training-fold normalization and label exclusion are covered by five focused tests. Full suite329 passed,2 skipped.
+
+This closes the declared cheap past-surprisal feature family. It does not test every prefix representation or jointly trained routing,and admits no native campaign. Ten statistical fits used2.122 wall seconds,7.694 CPU seconds and0.779GiB RSS,zero language-model forwards/updates/chips. Consumed DEV cross-fitting remains exploratory,not confirmation. [Probe result](results/future_span_depth_oracle_20261025/token/prefix-probe/REPORT.md).
+
+The final paired lean One training continues on all16 chips,around2.0B of2.463B targets. Complete cooldowns,independent scoring and full512 mature gradient audits are still required. No4B,fresh reserve,TEST or terminal alpha is admitted.
+
 ## October 26, 2026, 20:31 UTC — one causal past-surprisal predictability probe registered
 
 A separate retrospective CPU statistical probe is frozen before fitting. Five source-group folds predict depth1/2 loss differences to depth3 from only earlier depth-one token surprisals and known prefix position. History resets at each document and1024-position window; current/future target losses and source/domain/document IDs are excluded from predictors. Training-fold normalization and a single fixed linear-ridge penalty are used. Held-out source groups are never used to fit their predictions.
