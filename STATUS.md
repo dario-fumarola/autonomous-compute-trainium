@@ -1,3 +1,28 @@
+# Status — 2026-10-26 06:17 UTC
+
+**Both original One controls are training on all16 chips.** The migrated stable
+prefix passes its complete512-window independent FP32 gradient gate, with
+0.078928% overall relative-L2 error. Model/optimizer state and rank RNG restore
+exactly. Both continuations retain their originally planned endpoint, source
+order, rate and complete cooldown; the original09:09:41 UTC cutoff remains.
+No new cooled control score is available yet.
+[Recovery](results/one_control_recovery_20261026/REPORT.md).
+
+The exact failed cheap checkpoint's adapter-FP32 diagnosis passes the unchanged
+gate, reducing injection/readout error from4.407005% to0.594890%. This is a
+zero-update localization, not repaired training. The old main and conditional
+lean queue remain stopped, with their failed and partial work preserved.
+
+Numerical input preparation passes for the conventional eight-layer challenger:
+zero new model forwards or updates, no native admission or learning sweep. Its
+141,733,120 parameters are0.1625% below the recurrent ceiling; it is a prospective
+strong baseline, not an exact-inventory replacement for One.
+[Prepared control](results/ordinary8_native_20261026/preparation/REPORT.md).
+
+300 CPU tests pass. No TEST, fresh reserve, terminal alpha or terminal success.
+Fresh-source/five-seed confirmation and strongest qualified controls are still
+required. The ongoing research goal remains active and unachieved.
+
 # Status — 2026-10-26 06:05 UTC
 
 **The exact-checkpoint diagnosis localizes the failed cheap-control gradient
