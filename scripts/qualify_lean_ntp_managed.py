@@ -21,11 +21,11 @@ def validate_phase(plan, output, port, *, arm, mode):
 
 
 def main():
-    p=argparse.ArgumentParser(add_help=False)
+    p=argparse.ArgumentParser(add_help=False,allow_abbrev=False)
     p.add_argument('--qualification-plan',type=Path,required=True)
     p.add_argument('--qualification-sha',required=True);p.add_argument('--comm-port',type=int,required=True)
     p.add_argument('--resume-sha');a,remaining=p.parse_known_args()
-    q=argparse.ArgumentParser(add_help=False)
+    q=argparse.ArgumentParser(add_help=False,allow_abbrev=False)
     q.add_argument('--output',type=Path,required=True);q.add_argument('--preparation-root',type=Path,required=True)
     q.add_argument('--arm',required=True);q.add_argument('--mode',required=True);q.add_argument('--resume',type=Path)
     b,_=q.parse_known_args(remaining)

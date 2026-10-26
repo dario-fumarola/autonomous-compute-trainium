@@ -1,3 +1,27 @@
+# Status — 2026-10-26 04:14 UTC
+
+**The new One stable prefix has completed 1,920 updates / 1.004888B targets,
+with all 32 complete replica states equal.** The cheap seed-5231 work control
+now trains from its original C0 on that half. Fixed seed-17293 training remains
+live on the other half, past its planned cooldown boundary. No cooled score is
+available yet. The original five endpoints and 09:09:41 UTC cutoff are unchanged.
+
+The conditional lean numerical queue is registered separately with zero chips.
+It waits for all five endpoints and audits; only both-positive seeds and both
+matched-work mean gains at least 0.01 can admit its bounded one-hour numerical
+qualification. It never automatically launches a scientific fit or changes main.
+[Conditional queue](results/lean_ntp_native_20261026/native-v2/REPORT.md).
+
+Prelaunch review retired the first unexecuted queue after finding an argument-
+abbreviation ambiguity in replay forwarding. Its source snapshot and zero-work
+receipt are preserved. The replacement uses exact parsing; all 288 CPU tests
+pass, including warm/replay forwarding and wrong resume-checksum rejection.
+No lean native job has launched. No TEST, reserve access or terminal alpha.
+
+The prior single-seed matched-work point is still development evidence. Fresh
+training-seed/source-group confirmation and the relevant strongest controls
+remain required. The research goal stays active and unachieved.
+
 # Status — 2026-10-26 03:36 UTC
 
 **The original five-endpoint development comparison remains live on all

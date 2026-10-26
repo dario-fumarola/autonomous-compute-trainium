@@ -17,10 +17,10 @@ from compute_trainium.queue import write_state
 from compute_trainium.training import file_sha256
 from scripts.run_fixed_control_replication import reserves
 
-IDENTITY='lean-ntp-native-v1'
-QUEUE='lean-ntp-native-queue-v1'
+IDENTITY='lean-ntp-native-v2'
+QUEUE='lean-ntp-native-queue-v2'
 PREP='lean-ntp-native-preparation-v1'
-PUBLIC=Path('results/lean_ntp_native_20261026/native')
+PUBLIC=Path('results/lean_ntp_native_20261026/native-v2')
 DOC='docs/LEAN_NTP_NATIVE_ADMISSION_20261026.md'
 
 

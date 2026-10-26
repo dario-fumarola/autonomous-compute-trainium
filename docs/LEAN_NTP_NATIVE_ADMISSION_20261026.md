@@ -1,5 +1,12 @@
 # Conditional native qualification of lean NTP
 
+The first unexecuted queue is retired with its exact source snapshot. Prelaunch
+review caught argument abbreviation consuming the legacy replay checkpoint
+argument. Version two uses exact parsing and a regression covering both warm
+and replay forwarding, including rejection of a wrong resume checksum. Neither
+the retired queue nor this replacement changes the main campaign's deadline or
+advancement gate. No native phase ran in the retired queue.
+
 This implements the gate fixed in the lean preparation before any new main
 outcomes. Wait without chips for the entire five-endpoint fixed-control study,
 including all independent scoring and gradient audits. Preserve its original
