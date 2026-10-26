@@ -1,0 +1,60 @@
+{
+  "native_attempts": [
+    {
+      "identity": "baseline-numerical-v1-one-warm",
+      "exit_code": 0,
+      "wall_seconds": 267.77616024017334,
+      "assigned_chip_hours": 0.5950581338670519,
+      "whole_instance_opportunity_chip_hours": 1.1901162677341037,
+      "report_exists": true
+    },
+    {
+      "identity": "baseline-numerical-v1-one-replay",
+      "exit_code": 137,
+      "wall_seconds": 4.932514190673828,
+      "assigned_chip_hours": 0.01096114264594184,
+      "whole_instance_opportunity_chip_hours": 0.02192228529188368,
+      "report_exists": false
+    },
+    {
+      "identity": "baseline-numerical-v1-mixing-warm",
+      "exit_code": 0,
+      "wall_seconds": 266.70162081718445,
+      "assigned_chip_hours": 0.5926702684826322,
+      "whole_instance_opportunity_chip_hours": 1.1853405369652643,
+      "report_exists": true
+    },
+    {
+      "identity": "baseline-numerical-v1-ordinary8-warm",
+      "exit_code": 137,
+      "wall_seconds": 11.82311463356018,
+      "assigned_chip_hours": 0.02627358807457818,
+      "whole_instance_opportunity_chip_hours": 0.05254717614915636,
+      "report_exists": false
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "one-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 5.161635160446167,
+      "reused": false,
+      "exit_code": -15
+    },
+    {
+      "identity": "mixing-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 5.10792875289917,
+      "reused": false,
+      "exit_code": -15
+    }
+  ],
+  "execution": {
+    "started_unix": 1792998612.7263014,
+    "deadline_unix": 1793004012.7263014,
+    "plan_sha256": "cd7ea2cb2a39eb06ada692237023823514e8c5c2f80f7d63c4ccd5f64d35a5a2"
+  },
+  "wall_seconds_since_admission": 302.7428364753723,
+  "whole_instance_opportunity_chip_hours": 1.3455237208472357,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

@@ -1,0 +1,100 @@
+{
+  "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+  "arm": "poisson2",
+  "precision": "fp16",
+  "accumulation": 16,
+  "source_cursor": 61440,
+  "real_targets": 523312,
+  "windows": 512,
+  "gradient": {
+    "overall": {
+      "relative_l2": 0.000696947766999466,
+      "maximum_absolute_error": 2.4345703423023224e-05,
+      "reference_l2": 3.0905920651248886
+    },
+    "families": {
+      "recurrent_injection_readout": {
+        "relative_l2": 0.0011107416949326747,
+        "maximum_absolute_error": 8.604838512837887e-07,
+        "reference_l2": 0.0916868404338977
+      },
+      "tied_input_output": {
+        "relative_l2": 0.000599185378993778,
+        "maximum_absolute_error": 8.545815944671631e-06,
+        "reference_l2": 0.22787914709155888
+      },
+      "transformer_body": {
+        "relative_l2": 0.0006969698361947841,
+        "maximum_absolute_error": 2.4345703423023224e-05,
+        "reference_l2": 3.080815446970927
+      },
+      "value_embeddings": {
+        "relative_l2": 0.000267674165067497,
+        "maximum_absolute_error": 5.871697794646025e-09,
+        "reference_l2": 0.00033515716101559126
+      }
+    },
+    "passes_two_percent_gate": true
+  },
+  "cpu_nll": 6.58932641887452,
+  "native_minus_cpu_nll": -1.6608459674216647e-07,
+  "checkpoint_sha256": "fd7f114ec4313f99270a7a7d7a43ce5e31678376e86ce13b000088322232ba09",
+  "full_state_readback_exact": true,
+  "cpu_global_gradient_sha256": "737fe71a2a2b1427eab82a7def1fd003cad32307e5d34d81a572466cb5acd908",
+  "first_actual_update": {
+    "update_comparison": {
+      "relative_l2": 1.4049943874890194e-05,
+      "maximum_absolute_error": 3.725290298461914e-09,
+      "reference_l2": 0.025318155145001197,
+      "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+    },
+    "moment_comparison": {
+      "relative_l2": 3.833745334387367e-05,
+      "maximum_absolute_error": 3.306195139884949e-08,
+      "reference_l2": 0.145151706010779
+    },
+    "families": {
+      "adamw": {
+        "update_comparison": {
+          "relative_l2": 1.4005660192963405e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.025314699833614437,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.8265008490474505e-05,
+          "maximum_absolute_error": 1.641456037759781e-08,
+          "reference_l2": 0.008593278396364036
+        }
+      },
+      "muon": {
+        "update_comparison": {
+          "relative_l2": 6.890730881106016e-05,
+          "maximum_absolute_error": 9.197975714414497e-11,
+          "reference_l2": 0.00041827297348971123,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moment_comparison": {
+          "relative_l2": 3.8337707906044875e-05,
+          "maximum_absolute_error": 3.306195139884949e-08,
+          "reference_l2": 0.14489711289132784
+        }
+      }
+    },
+    "passes_registered_gate": true,
+    "cpu_norm_before_clip": 21.134750366210938,
+    "independent_group_membership_validated": true,
+    "reference_registration_order_aligned_by_name": true,
+    "native_norm_before_clip": 21.135560989379883,
+    "prescribed_cpu_optimizer_steps": 1,
+    "research_optimizer_updates": 0,
+    "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+  },
+  "wall_seconds": 338.57361340522766,
+  "assigned_chips": 0,
+  "prescribed_cpu_optimizer_steps": 1,
+  "native_optimizer_updates": 0,
+  "research_optimizer_updates": 0,
+  "test_accessed": false,
+  "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+}
