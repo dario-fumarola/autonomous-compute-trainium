@@ -1,0 +1,53 @@
+{
+  "status": "PASS_LEAN_NTP_NATIVE_PREPARATION_ONLY",
+  "plan_sha256": "94568f0575faa83422657d74d4d9394a202936c6cc1ed745bcbcd5992312eb40",
+  "records": [
+    {
+      "label": "one",
+      "legacy_worker_selector": "fixed1",
+      "forward_depth": 1,
+      "backward_depth": 1,
+      "inherited_cpu_work_ledger": {
+        "model_forward_backward_matmuls": 244299551735808,
+        "one_replica_optimizer_matmuls": 815372773200,
+        "executed_optimizer_matmuls_all_replicas": 26091928742400,
+        "total_executed_matmuls": 270391480478208,
+        "optimizer_over_model_matmul_ratio": 0.10680301522049661,
+        "world": 32,
+        "batch": 1,
+        "accumulation": 16,
+        "global_windows": 512,
+        "positions_per_window": 1024,
+        "scope": "Executed dense matrix multiplies, FMA=2, full-square attention. Counts redundant optimizer work on every DDP replica. Excludes embedding gathers, elementwise/AdamW work, communication, idle time and compilation; not chip time or a hardware counter."
+      }
+    },
+    {
+      "label": "fixed2",
+      "legacy_worker_selector": "poisson2",
+      "forward_depth": 2,
+      "backward_depth": 2,
+      "inherited_cpu_work_ledger": {
+        "model_forward_backward_matmuls": 300581407162368,
+        "one_replica_optimizer_matmuls": 815372773200,
+        "executed_optimizer_matmuls_all_replicas": 26091928742400,
+        "total_executed_matmuls": 326673335904768,
+        "optimizer_over_model_matmul_ratio": 0.08680486590544727,
+        "world": 32,
+        "batch": 1,
+        "accumulation": 16,
+        "global_windows": 512,
+        "positions_per_window": 1024,
+        "scope": "Executed dense matrix multiplies, FMA=2, full-square attention. Counts redundant optimizer work on every DDP replica. Excludes embedding gathers, elementwise/AdamW work, communication, idle time and compilation; not chip time or a hardware counter."
+      }
+    }
+  ],
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "native_launch_allowed": false,
+  "scientific_main_admitted": false,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "wall_seconds": 0.4936833381652832,
+  "scope": "Fixed numerical inputs only;no new hardware qualification,scientific state or held-out result."
+}

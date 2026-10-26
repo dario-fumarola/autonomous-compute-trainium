@@ -1,3 +1,28 @@
+# Status — 2026-10-26 03:36 UTC
+
+**The original five-endpoint development comparison remains live on all
+16 chips.** The same controller and original 09:09:41 UTC cutoff are preserved;
+no cooled scores are available yet. No model, objective, rate or source change.
+
+Lean NTP numerical preparation now passes using zero chips and zero forwards
+or updates. It reuses the existing trainer/checker with the already checked
+primitive attention and runtime optimizer, and removes the unused head only in
+this separately prepared qualification. Before main outcomes, advancement is
+fixed to positive gains in both seeds against both work controls and both means
+at least 0.01. Native qualification is not admitted by preparation.
+[Lean preparation](results/lean_ntp_native_20261026/preparation/REPORT.md).
+
+A completed-checkpoint storage proof retains every byte and scientific hash
+while reclaiming zero-filled blocks. A bounded lossless pass is active, with the
+whole running campaign excluded and no state deletion. This protects space for
+later audits and replication. All shared memory/disk/inode reserves pass.
+[Storage proof and scope](results/checkpoint_zero_storage_20261026/REPORT.md).
+
+284 CPU tests pass. The prior single-seed 0.012016-nat point remains development
+evidence, not confirmation. Stronger qualified controls and fresh-source/five-
+seed confirmation remain required. No TEST, reserve access, terminal alpha or
+terminal success. The ongoing goal remains active and unachieved.
+
 # Status — 2026-10-26 03:12 UTC
 
 **The fixed-control comparison and new development seed are running on all

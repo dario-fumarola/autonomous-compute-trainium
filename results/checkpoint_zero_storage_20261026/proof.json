@@ -1,0 +1,32 @@
+{
+  "status": "PASS_BYTE_EXACT_ZERO_STORAGE_PROOF",
+  "file": "runs/future-span-tune-v2-one-ntp-s4127-lr16000-fit/checkpoint-u288.pt",
+  "checkpoint_sha256": "f677f0d1c1fba632c34ad5def46cc6c0fc409d0cdee13630877e2b888a7e0e80",
+  "size_bytes": 1928784155,
+  "before_allocated_bytes": 1928790016,
+  "after_allocated_bytes": 1728745472,
+  "reclaimed_bytes": 200044544,
+  "byte_sha256_unchanged": true,
+  "inode_unchanged": true,
+  "permissions_and_owners_unchanged": true,
+  "command": [
+    "sudo",
+    "-n",
+    "ionice",
+    "-c",
+    "3",
+    "fallocate",
+    "--dig-holes",
+    "--keep-size"
+  ],
+  "wall_seconds": 4.784095525741577,
+  "earlier_attempt": {
+    "status": "UNPRIVILEGED_OPEN_PERMISSION_DENIED",
+    "bytes_changed": 0,
+    "wall_seconds_retained": false
+  },
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "scope": "Only zero-filled storage blocks of one completed checkpoint are made sparse;every byte,size,path,inode,owner,permission and scientific checksum retained. No deletion or modification of model/optimizer values. No active run file touched."
+}
