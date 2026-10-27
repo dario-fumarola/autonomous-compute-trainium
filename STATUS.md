@@ -1,3 +1,11 @@
+## October27,2026,09:52 UTC — recurrent0.016 stops nonfinite; original ordinary cell continues with failure preservation
+
+The recurrent0.016 cell completes62 updates /32,449,078 targets, then stops before the next update on a nonfinite global gradient. Zero OOM,no supervisor reserve/compiler failure,and no quality score. It is ineligible. The short TUNE saved only endpoints, so the exact failed model was not captured; that limitation is explicit and no reconstructed state will be mislabeled as original. [Failure evidence](results/scale_recurrent_lr1_nonfinite_20261027/REPORT.md).
+
+A separately frozen continuation runs the already registered ordinary0.016 case on all16 chips. It changes no successful mathematical update; a failure-only wrapper captures model,gradient,optimizer and RNG shards before rethrowing. The CPU fault fixture tests preservation and ineligible tagging;426 source tests pass,two skipped. Real64-rank failure capture is not yet observed. This30-minute cell stays within the original11:58:26UTC TUNE cutoff,with no new rate or main admission. [Single-cell continuation](results/scale_ordinary_lr1_continuation_20261027/REPORT.md).
+
+The source of the recurrent nonfiniteness remains unresolved: fixed-scale overflow and true training instability are distinct possibilities. Do not attribute it to Trainium,a general recurrence limit,or a repaired history. Preserve every invalid cell and its costs. The original initial scale cap remains October28,02:09:45UTC.
+
 ## October27,2026,09:24 UTC — first two TUNE cells qualified; next recurrent rate live
 
 Both0.008 trials pass mature512-window gradients,actual replay and exact retained-weight readback. Their consumed-TUNE NLLs are3.397839 recurrent and3.097228 conventional at the same157,013,162 targets; these are unselected screening cells, not matched-work main endpoints. Conventional full-gradient discrepancy is0.136607% overall /0.137144% largest family. The fixed sweep moves automatically to recurrent0.016 on all16 chips. [Partial sweep evidence](results/scale_tune_readout_recovery_20261027/REPORT.md).

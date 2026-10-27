@@ -1,0 +1,38 @@
+{
+  "status": "INELIGIBLE_NONFINITE_GLOBAL_GRADIENT",
+  "case": "fixed-two-lr1",
+  "rate": 0.016,
+  "completed_optimizer_updates": 62,
+  "completed_real_targets": 32449078,
+  "last_finite_progress": {
+    "update": 62,
+    "cursor": 31744,
+    "real_targets": 32449078,
+    "domain_targets": [
+      19469260,
+      6489577,
+      6490241
+    ],
+    "work": 60683800177711872,
+    "global_train_nll": 8.116028575577396,
+    "gradient_norm": 1.85650634765625,
+    "lr": 0.016,
+    "update_seconds": 2.3014226120430976,
+    "elapsed_seconds": 281.01731634140015
+  },
+  "original_study_plan_sha256": "ce4a9ba2f4121a1fca5838991d8a28bc9f12c692684bde87373fa0ff9bfc7da2",
+  "supervisor": {
+    "worker_exit_code": 1,
+    "supervisor_failure": null,
+    "sampled_container_peak_bytes": 165589958656,
+    "container_oom_kill_delta": 0,
+    "elapsed_seconds": 295.486682676943
+  },
+  "original_error": "Nonfinite global sharded gradient; no update",
+  "failing_model_and_optimizer_snapshot_available": false,
+  "original_states_not_retroactively_reconstructed": true,
+  "quality_score_available": false,
+  "eligible_for_science": false,
+  "main_fit_admitted": false,
+  "scope": "Preserved source,C0,complete scalar update log,error log,supervisor/closure andcosts. TUNE saved only its planned endpoints; the live failed model at this early event was not captured. Neither fixed-scale overflow nor true training divergence has been causally established."
+}
