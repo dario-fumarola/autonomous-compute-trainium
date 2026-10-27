@@ -1,3 +1,9 @@
+## October 27, 2026, 02:59 UTC — larger-model sharding fixture registered
+
+Exact meta inventories are 955.96M recurrent and 953.20M conventional parameters. Their existing master/gradient/moment inventories exceed 12GiB per full replica before activations, so the first scale work tests sharded state rather than naive 64-way full-state replication. The optimizer still applies FP32 Muon to complete matrices on group owners, and elementwise AdamW to local shards. Tied aliases and twice-used weights are checked explicitly. [Bounded scope](docs/SCALE_FEASIBILITY_20261027.md).
+
+The four-process CPU fixture matches an unsharded independent path and replays exactly in a fresh process. The full suite passes 405 tests with two skips. The new Native registration uses all 16 chips for only three fixture updates plus a separate-process replay update, no research examples, with an original 30-minute cap. It is not activated yet and admits no large scientific fit. The overall 24-instance-hour scale clock includes preparation and ends October 28 at 02:09:45 UTC. [Registration](results/scale_sharding_fixture_20261027/REPORT.md).
+
 ## October 27, 2026, 02:46 UTC — clean fixed-two numerical qualification passes
 
 Both distinct-half trials pass independent full 512-window gradient audits, first optimizer updates/moments, complete model/optimizer/RNG restoration, replica agreement and separate-process replay. Overall gradient discrepancy is 0.099386%, largest family 0.138513%, within the unchanged 2% gate. The Native rejected-state fixture also passes. All 244 actual updates are qualification only and their weights cannot initialize science. [Complete receipt](results/head_free_fixed2_numerical_v2_20261027/recovery/REPORT.md).
