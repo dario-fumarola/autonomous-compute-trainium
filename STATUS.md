@@ -1,3 +1,11 @@
+## October27,2026,02:04 UTC — new clean-baseline numerical registration prepared
+
+The closed late-two attempt does not advance. A separate numerical-only registration binds its exact stopped-pair and audited-single closure chain,without changing either status or the original inactive head-free registration. The source bundle adds head-free fixed-two role support,bounded rejected-state evidence,and preservation of initiating host failures. Model/loss/optimizer kernels remain unchanged;no conditioning or scientific fit is admitted. [New registration](results/head_free_fixed2_numerical_v2_20261027/REPORT.md).
+
+All398 CPU tests pass with2 skips. Complete measured projection is2370.02 seconds under a one-time3600-second cap. Full artifact admission requires75.657GiB NVMe and36GiB on other mounted filesystems,retaining protected35GiB reserves and the complete four-state diagnostic allowance.548 source files are frozen. Activation has not occurred.
+
+First is a300-second zero-update32-rank Native agreement/rejection/private-capture fixture. Only if it passes,two independent hardware trials each perform121 qualification updates plus a one-update replay,total244;all weights remain ineligible for science. Independent full512 gradients,first optimizer updates/moments,complete state/RNG/replica and named replay gates remain unchanged. No held-out scoring,4B,router,confirmation or terminal alpha is admitted.
+
 ## October27,2026,01:36 UTC — late-two completion audited; ordinary8 difference is0.000440 nats
 
 The intact seed5231 completes its original4400 updates /2.302851B authentic targets and full cooldown. Final state/all32 RNG readback and all32 replica digests agree;the final512-window gradient audit passes at0.361360% overall/0.401994% largest family,with NTP loss discrepancy0.000003485. Every one of538 frozen source hashes is unchanged. All three recovery Native phases close normally;the controller and managed workers are terminal. [Completed recovery](results/late_two_allocation_20261026/single-recovery/REPORT.md).
