@@ -1,0 +1,13 @@
+{
+  "status": "PASS_CPU_LOCAL_SHARD_ACCUMULATION",
+  "tests_passed": 2,
+  "seconds": 16.4,
+  "world": 4,
+  "source_sha256": {
+    "compute_trainium/workspace_sharded_optimizer.py": "91e458e252e4041e15307c24b901a07f859c017a9f72160f78920c0afd98ce52",
+    "scripts/qualify_workspace_sharded_fixture.py": "79b4ee277b5c0411d9b25551127563853c9f40208d223a76be59f473d9ab8d1a",
+    "tests/test_workspace_sharded_fixture.py": "540dc46160af52302072adde7f297d07a8c170b1f982f264fea334b54981545c",
+    "tests/test_workspace_joint_terms.py": "82cb9ba0a2999acb7d0d64068eca20afd4202e5452267cbec895b0a3cb252abc"
+  },
+  "scope": "Two half-weight backwards per numerical objective,immediate reduction/clear,complete CPU gradients,AdamW deltas,moments,EMA and exact fresh-process replay. Separate padded sequential/batched full-gradient parity. No research optimizer updates."
+}

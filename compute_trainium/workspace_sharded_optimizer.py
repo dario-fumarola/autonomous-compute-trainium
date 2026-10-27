@@ -46,3 +46,31 @@ def sharded_ema(scorer,actor,decay=.99):
         a,b=local_parameter(target),local_parameter(source)
         if a.data_ptr()==b.data_ptr():raise ValueError('Independent actor/scorer shards required')
         a.mul_(decay).add_(b,alpha=1-decay)
+
+
+class ShardedGradientAccumulator:
+    """Reduce each objective term before retaining its contribution.
+
+    A Partial gradient contains a full local matrix. Keeping those across
+    several backward calls defeats parameter sharding and grows transient
+    storage. Only accumulated local shards survive between terms here.
+    """
+    def __init__(self,model):
+        self.named=list(model.named_parameters());self.values={};self.terms=0
+    @torch.no_grad()
+    def add_and_clear(self):
+        for name,p in self.named:
+            if p.grad is None:raise ValueError('Every term must cover the complete predictor')
+            reduced=p.grad.redistribute(placements=p.placements).to_local()
+            if name not in self.values:self.values[name]=reduced.detach().clone()
+            else:self.values[name].add_(reduced)
+            p.grad=None
+            del reduced
+        self.terms+=1
+    def install(self):
+        from torch.distributed.tensor import DTensor
+        if not self.terms:raise ValueError('No gradient terms accumulated')
+        for name,p in self.named:
+            if p.grad is not None:raise ValueError('No live gradient may be overwritten')
+            p.grad=DTensor.from_local(self.values[name],p.device_mesh,p.placements,
+                shape=p.shape,stride=p.stride(),run_check=False)

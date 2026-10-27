@@ -1,3 +1,11 @@
+## October27,2026,19:46 UTC — full-size128GiB attempt stops;local gradient accumulation retested
+
+The actual1.485B Native run reaches its third sequential reader backward and stops on a worker OOM. The supervisor records126.432GiB sampled usage and one OOM kill;the128GiB cap and host reserve remain enforced. Its complete source,stop and0-update costs remain. This does not certify actual-model Native gradients. [Preserved stop](results/workspace_native_full_model_20261027/report.json) · [Supervisor](results/workspace_native_full_model_20261027/supervisor.json).
+
+The original sequential objective retained Partial gradients until all nine terms finished. The correction reduces each term immediately,retains only local-shard accumulators,and clears the temporary gradients. The independent four-process CPU fixture retests complete gradients,AdamW deltas,moments,EMA and exact fresh-process replay with two separately reduced backward terms. Those tests plus padded/sequential objective parity pass in16.40seconds. A distinct v2 retry uses the same source anchor,losses,2% criteria and128GiB cap;it is not a scientific fit or a resumed partial run.
+
+An earlier admission-only stop required37GiB root space rather than the35GiB protected minimum. Evicting only regenerable CPU .pyc caches with existing source restores the complete allowance;no model,state,data,Native package or host driver changes. [Receipt](results/workspace_host_bytecode_20261027/report.json).
+
 ## October27,2026,19:38 UTC — all16-chip sharded fixture and actual1.485B CPU objective pass
 
 The all64-rank Native numerical fixture passes three AdamW/EMA updates and an exact fresh-process update replay. Largest named gradient error is0.000131%;largest parameter-delta error0.018507%,both below2%. Actor/scorer masters,optimizer,moments,EMA and RNG are covered. Warm/replay compute portions take48.09/37.22seconds;complete launch costs and measured memory are separate. No scientific optimizer update or full-size fit is admitted. [Native fixture](results/workspace_native_sharded_fixture_20261027/report.json).

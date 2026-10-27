@@ -15,7 +15,7 @@ def run(a):
     from torch.distributed.device_mesh import init_device_mesh
     from compute_trainium.training import file_sha256
     from compute_trainium.workspace_olmo_candidate import WorkspaceOlmoCandidate,OlmoWorkspaceConfig,rotary_tensors
-    from compute_trainium.workspace_sharded_optimizer import WorkspaceShardedAdamW
+    from compute_trainium.workspace_sharded_optimizer import WorkspaceShardedAdamW,ShardedGradientAccumulator
     from compute_trainium.scale_model_sharding import shard_model_from_cpu
     from compute_trainium.scale_sharded_candidate import local_parameter
     from compute_trainium.workspace_joint_terms import workspace_joint_terms,padded_prediction_inputs
@@ -57,7 +57,7 @@ def run(a):
     for i in range(z.shape[0]):gains.append(prediction(identity_reader_context(c,z[i:i+1],fmt),y)-raw)
     expected_rewards=rewards+plan['cost_per_token']*z.shape[1]
     if max(abs(x-float(y)) for x,y in zip(gains,expected_rewards))>.002:raise AssertionError('Actual frozen-reader absolute gains differ from independent CPU')
-    losses={};optimizer.zero_grad()
+    losses={};optimizer.zero_grad();accumulator=ShardedGradientAccumulator(model)
     for index,(phase,context,target,weight,reduction) in enumerate(workspace_joint_terms(c,y,z,rewards,fmt)):
         progress('joint_forward_backward_'+str(index+1)+'_'+phase)
         padded,positions=padded_prediction_inputs(context,target,plan['padded_positions'],config.pad_token_id)
@@ -65,10 +65,10 @@ def run(a):
         nll=-torch.log_softmax(logits.float(),-1).gather(-1,target.to('neuron').unsqueeze(-1)).squeeze(-1)
         loss=weight*(nll.mean() if reduction=='mean' else nll.sum())
         losses[phase]=losses.get(phase,0.)+float(loss.detach().cpu())
-        (loss/world*256).backward()
+        (loss/world*256).backward();accumulator.add_and_clear()
         del loss,nll,logits
     progress('full_named_gradient_comparison')
-    norm=optimizer.finish_gradients(scale=256,clip=1e30)
+    accumulator.install();norm=optimizer.finish_gradients(scale=256,clip=1e30)
     expected=torch.load(root/plan['gradient_relative'],weights_only=True,mmap=True,map_location='cpu')
     numbers=[];names=[]
     for name,p in model.named_parameters():

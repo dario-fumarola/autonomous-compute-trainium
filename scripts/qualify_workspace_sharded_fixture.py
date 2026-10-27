@@ -15,7 +15,7 @@ def worker(rank,world,backend,output,mode,parent=None,port=None):
     import torch.distributed as dist
     from torch.distributed.device_mesh import init_device_mesh
     from compute_trainium.workspace_olmo_candidate import WorkspaceOlmoCandidate,OlmoWorkspaceConfig,rotary_tensors
-    from compute_trainium.workspace_sharded_optimizer import WorkspaceShardedAdamW,sharded_ema
+    from compute_trainium.workspace_sharded_optimizer import WorkspaceShardedAdamW,ShardedGradientAccumulator,sharded_ema
     from compute_trainium.scale_model_sharding import shard_model_from_cpu
     from compute_trainium.scale_sharded_candidate import local_parameter
     from compute_trainium.scale_sharded_fixture import cpu_tree,relative
@@ -56,9 +56,13 @@ def worker(rank,world,backend,output,mode,parent=None,port=None):
         cpu_before={n:p.detach().clone() for n,p in reference.named_parameters()}
         ema_before={n:p.full_tensor().detach().cpu() for n,p in scorer.named_parameters()}
         cpu_ema_before={n:p.detach().clone() for n,p in ema_reference.named_parameters()}
-        logits=model(inputs[rank:rank+1].to(device),cos,sin)
-        loss=torch.nn.functional.cross_entropy(logits.reshape(-1,128),targets[rank].to(device).reshape(-1))/world
-        (loss*256).backward();norm=optimizer.finish_gradients(scale=256)
+        accumulator=ShardedGradientAccumulator(model)
+        for _ in range(2):
+            logits=model(inputs[rank:rank+1].to(device),cos,sin)
+            loss=torch.nn.functional.cross_entropy(logits.reshape(-1,128),targets[rank].to(device).reshape(-1))/world
+            (loss*128).backward();accumulator.add_and_clear()
+            assert all(p.grad is None for p in model.parameters())
+        accumulator.install();norm=optimizer.finish_gradients(scale=256)
         expected=reference(inputs,cpu_cos,cpu_sin)
         cpu_loss=torch.nn.functional.cross_entropy(expected.reshape(-1,128),targets.reshape(-1));cpu_loss.backward()
         torch.nn.utils.clip_grad_norm_(reference.parameters(),1.,error_if_nonfinite=True)

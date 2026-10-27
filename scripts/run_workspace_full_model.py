@@ -15,8 +15,8 @@ from compute_trainium.training import file_sha256
 from compute_trainium.queue import write_state
 from scripts.run_scale_sharding_fixture import AllChipExecution
 
-IDENTITY='workspace-native-full-model-v1'
-PUBLIC=Path('results/workspace_native_full_model_20261027')
+IDENTITY='workspace-native-full-model-v2'
+PUBLIC=Path('results/workspace_native_full_model_20261027/recovery-v2')
 
 
 def prepare(root):
@@ -29,6 +29,8 @@ def prepare(root):
     cpu=root/'workspace-identity-gradient-v1/report.json';proof=json.loads(cpu.read_text())
     tiny=root/'workspace-native-sharded-fixture-v1/report.json'
     if proof['status']!='PASS_WORKSPACE_IDENTITY_FULL_MODEL_GRADIENT' or json.loads(tiny.read_text())['status']!='PASS_WORKSPACE_NATIVE_SHARDED_SOFTWARE_FIXTURE':raise AssertionError('CPU actual-model and Native sharded numerical closure required')
+    accumulation=json.loads(Path('results/workspace_gradient_accumulation_20261027/report.json').read_text())
+    if accumulation['status']!='PASS_CPU_LOCAL_SHARD_ACCUMULATION' or any(file_sha256(n)!=h for n,h in accumulation['source_sha256'].items()):raise AssertionError('Current CPU local gradient accumulation proof required')
     original=json.loads((root/'workspace-identity-gradient-v1/plan.json').read_text())
     if any(file_sha256(n)!=h for n,h in original['source_sha256'].items()):raise AssertionError('Actual-model CPU reference source changed')
     for path in [root,Path('/')]:
@@ -44,7 +46,7 @@ def prepare(root):
     gradient='workspace-identity-gradient-v1/gradients.pt';inputs='workspace-identity-gradient-v1/private-objective-inputs.pt';checkpoint='workspace-reader-bootstrap-v1/checkpoint.pt'
     if file_sha256(root/gradient)!=proof['full_gradient_sha256'] or file_sha256(root/inputs)!=proof['objective_inputs_sha256'] or file_sha256(root/checkpoint)!=original['calibrated_checkpoint_sha256']:raise AssertionError('Exact qualified states required')
     config=asdict(OlmoWorkspaceConfig.from_hf(AutoConfig.from_pretrained(root/'workspace-olmo2-stage1-base-v1',local_files_only=True)))
-    plan=dict(identity=IDENTITY,purpose='workspace_actual_model_zero_update_gradient',world=64,worker_memory_gib=128,
+    plan=dict(identity=IDENTITY,predecessor='workspace-native-full-model-v1',change='Immediately reduce every objective-term gradient into local shards and clear Partial temporaries;CPU exactness retested. Same model, data, losses,2% limits and128GiB cap.',purpose='workspace_actual_model_zero_update_gradient',world=64,worker_memory_gib=128,
         source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,
         registered_unix=start,absolute_deadline_unix=start+1800,seconds_limit=1800,phase_seconds_limit=1500,cpu_phase_seconds_limit=60,
         clock_admission_waiver=True,inode_projection=projection,root_comm_ports=reserve_ports(root,[phase]),phases={phase:dict(mode='gradient')},
@@ -53,7 +55,7 @@ def prepare(root):
         gradient_sha256=proof['full_gradient_sha256'],inputs_relative=inputs,inputs_sha256=proof['objective_inputs_sha256'],
         model_config=config,padded_positions=192,opening_ids=reader['opening_ids'],closing_ids=reader['closing_ids'],cost_per_token=.001,
         optimizer_updates=0,policy_fit_admitted=False,scope='Actual1.485B fully sharded FP32 model plus independent frozen scorer,activation checkpointing,selective vocabulary head,sequential exact joint-objective terms.No optimizer update. Full179 named gradients compared with independent HF CPU reference at2% limit. Runtime memory and failures measured. No scientific campaign admitted.')
-    out.mkdir();PUBLIC.mkdir();write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
+    out.mkdir();PUBLIC.mkdir(parents=True);write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
 
 
 def run(root):
