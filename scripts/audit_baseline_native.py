@@ -11,7 +11,7 @@ os.environ.setdefault('USE_TORCH_XLA','0')
 def main():
     p=argparse.ArgumentParser(allow_abbrev=False);p.add_argument('--root',type=Path,required=True)
     p.add_argument('--plan',type=Path,required=True);p.add_argument('--plan-sha',required=True)
-    p.add_argument('--profile',choices=['one','mixing','ordinary8'],required=True);p.add_argument('--mode',choices=['audit','replay'],required=True)
+    p.add_argument('--profile',choices=['one','mixing','ordinary8','fixed2'],required=True);p.add_argument('--mode',choices=['audit','replay'],required=True)
     p.add_argument('--warm',type=Path,required=True);p.add_argument('--replay',type=Path);p.add_argument('--gold',type=Path)
     p.add_argument('--upstream',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();started=time.time()
     import torch

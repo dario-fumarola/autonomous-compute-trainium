@@ -5,7 +5,7 @@ from .native_snapshot_manifest import split_snapshot_sources
 from .parcae_scientific_schedule import update_work as original_work
 from .parcae_scientific_state import signature as original_signature,schedule_identity
 
-ROLES={'one':('fixed1',1),'mixing':('poisson2',2),'ordinary8':('ordinary',1)}
+ROLES={'one':('fixed1',1),'mixing':('poisson2',2),'ordinary8':('ordinary',1),'fixed2':('poisson2',2)}
 EXECUTION='lean_fp16_primitive_attention_runtime_scalar_baselines'
 
 

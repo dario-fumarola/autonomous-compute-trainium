@@ -12,7 +12,7 @@ if 'RESEARCH_VISIBLE_CORES' in os.environ:
 
 def validate_phase(plan,output,port,*,profile,arm,mode):
     if plan.get('purpose')!='baseline_native_qualification_only':raise ValueError('Numerical-only baseline plan required')
-    expected={'one':'fixed1','mixing':'poisson2','ordinary8':'ordinary'}
+    expected={'one':'fixed1','mixing':'poisson2','ordinary8':'ordinary','fixed2':'poisson2'}
     if (profile not in expected or arm!=expected[profile] or mode not in ['warm','replay']
             or not 16000<=port<30000 or plan['root_comm_ports'].get(output)!=port
             or plan['phases'][output]['profile']!=profile or plan['phases'][output]['mode']!=mode):
