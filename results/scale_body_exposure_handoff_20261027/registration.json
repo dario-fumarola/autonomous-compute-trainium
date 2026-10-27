@@ -1,0 +1,27 @@
+{
+  "identity": "scale-body-exposure-main-handoff-v1",
+  "registered_unix": 1793116633.872374,
+  "operational_wait_seconds": 28800,
+  "tuning_plan_sha256": "a720db0845add8f7a6d646fb9c03fb9dcbf02cd4e4c7edb657d4b0e56f6e9fc8",
+  "scientific_scope_sha256": "5297bf4c03a554e61e3f0b9b72ee6c9120307980ce1e76348d5ff44f3c4ab96c",
+  "clock_amendment_sha256": "a9249fc812ade3dce66ebd6fbb4effcb4816eb79ab10da74e9c2743d86d34e59",
+  "preceding_archival_plan_sha256": "fdee4d7d5d22bad3093281e2b5427be02c7ec03a9fd1f120746bf9846190195d",
+  "source_sha256": {
+    "scripts/queue_scale_body_exposure_main.py": "b7d5199dbbfeabd321a200bd896d639f74718019693b9bb6b3453077011a114d",
+    "scripts/run_scale_main.py": "e31103d8188fca3a7489025837a558a6a542ce867cabd40fc4eb0250cefb6662",
+    "scripts/prepare_scale_boundary_main_storage.py": "abb99049a0ab7e3bd6fcab66c0eb3111d5628568fcb95abce78d91608e806a89",
+    "scripts/archive_closed_legacy_after_tune.py": "f82f79c0f62156e0377fa6a087d8ebf475d44a54daf429aeb9b48f34b752ec18",
+    "scripts/run_scale_body_exposure_main.py": "df4ea37e90e74c5a57af4dd837c2981758e745829a68acc51f2073fe40c81438",
+    "docs/SCALE_BODY_EXPOSURE_HANDOFF_20261027.md": "9b4b5e138f56539bc6835a5df90440ab3411d98ab44416b9ff6de4c9a5df2264"
+  },
+  "inactive_archive_maximum_original_bytes": 53687091200,
+  "inactive_archive_maximum_attempts": 1,
+  "main_identity": "scale-body-exposure-main-v1",
+  "main_optimizer_endpoints": {
+    "recurrent": 15286,
+    "ordinary_work": 20703
+  },
+  "scientific_main_fit_admitted": false,
+  "scope": "Wait for exact complete independent TUNE and archival closure. On failure stop,never retry rates or weaken gates. If needed perform one at-most50GiB inactive exact archive of closed historical binaries. Only fresh full storage,numerical,source,pristine-C0 and scope admission may start the fixed8B/10.835B main. All old failures retained. No automatic confirmation or further science.",
+  "private_registration_sha256": "c4920e447f822c9d7a99533aa8a03a487292925c86a115e1553181daac046534"
+}

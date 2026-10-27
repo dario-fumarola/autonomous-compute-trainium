@@ -1,3 +1,9 @@
+## October27,2026,16:01 UTC — ordinary0.004 qualified but worse; guarded handoff waiting
+
+Ordinary0.004 passes its300-update cooldown,replay,full512 mature numerical audit and192-document consumed-TUNE readout. NLL3.149815 is worse than the qualified0.008 point3.097228. Overall gradient discrepancy0.233366%. Neither0.004 condition improves its0.008 reference;the two0.002 opportunities still precede final independent selection. [Score and numerical proof](results/scale_boundary_lower_rates_20261027/completed-ordinary-lr0/score.json).
+
+The guarded main handoff is now registered and live in a frozen execution checkout. It is waiting for the complete exact TUNE result and verified archival closure;scientific main admission is false. Any failed prerequisite stops it. If actual space remains short,it permits only the separately bounded inactive exact-preservation step,then fresh full admission. It cannot launch a smaller point,renew a failed TUNE or automatically start confirmation. [Registration](results/scale_body_exposure_handoff_20261027/registration.json). All445 source tests pass,two skipped. The8B/10.835B point,primary,source and0.01 threshold remain fixed;no TEST or terminal alpha is used.
+
 ## October27,2026,15:57 UTC — ordinary0.004 mature audit passes; guarded main handoff prepared
 
 Ordinary0.004 completes its300-update cooldown and actual replay,then passes the full512 mature numerical audit:0.233366% overall gradient error. Its consumed-TUNE readout remains pending. Both0.002 opportunities still follow through the original gates;no final six-rate selection,main fit or confirmation is admitted.

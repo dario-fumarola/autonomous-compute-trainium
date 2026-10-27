@@ -1,0 +1,55 @@
+{
+  "status": "COMPLETE_SCALE_CONSUMED_DEVELOPMENT_READOUT",
+  "case": "ordinary8-lower-lr0",
+  "phase": "tune",
+  "study_sha256": "a720db0845add8f7a6d646fb9c03fb9dcbf02cd4e4c7edb657d4b0e56f6e9fc8",
+  "seed": 38213,
+  "role": "ordinary8",
+  "depth": 1,
+  "parameters": 374888960,
+  "endpoint_updates": 300,
+  "real_targets": 157013162,
+  "work": 216800956603104000,
+  "metrics": {
+    "domains": {
+      "web": {
+        "nll_sum": 243899.7403749413,
+        "real_targets": 66571,
+        "documents": 64,
+        "nll": 3.6637535920286806
+      },
+      "math": {
+        "nll_sum": 238921.44098208856,
+        "real_targets": 84913,
+        "documents": 64,
+        "nll": 2.8137204077360187
+      },
+      "code": {
+        "nll_sum": 259645.7033661553,
+        "real_targets": 133556,
+        "documents": 64,
+        "nll": 1.9440961347012138
+      }
+    },
+    "weighted_nll": 3.1498154637046545,
+    "weights": {
+      "web": 0.6,
+      "math": 0.2,
+      "code": 0.2
+    },
+    "unit": "nats per real source token"
+  },
+  "documents": 192,
+  "windows": 380,
+  "cohort": "tune",
+  "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+  "retained_model_sha256": "99cacdaf9ddbec134cf4a811c99c640654dfb623aaae78905f5505f69d14e02c",
+  "model_digest": "3db1884b964cf6544dce4c6ecce19d19b1e22995fc1ce3a8b6b4993d772e0bf4",
+  "model_unchanged": true,
+  "full_final_training_shards_retained": false,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "test_accessed": false,
+  "wall_seconds": 99.81127905845642,
+  "scope": "Independent FP32 prediction on explicitly consumed DEV. No fresh-source or training-seed confirmation."
+}
