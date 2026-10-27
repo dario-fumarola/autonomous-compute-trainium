@@ -8,6 +8,7 @@ from .workspace_streaming_checkpoint import save_streaming,restore_streaming
 
 def complete_state_tensors(model,scorer,optimizer):
     for label,current in [('model',model),('scorer',scorer)]:
+        if current is None:continue
         for name,p in current.named_parameters():yield label+'.'+name,local_parameter(p)
     for index,alias in enumerate(optimizer.local):
         for name,value in sorted(optimizer.adam.state[alias].items()):
@@ -18,6 +19,7 @@ def complete_state_tensors(model,scorer,optimizer):
 def restore_complete_state(path,model,scorer,optimizer,generator):
     with zipfile.ZipFile(path) as archive:receipt=torch.load(io.BytesIO(archive.read('metadata.pt')),weights_only=True)
     metadata=receipt['metadata']
+    if metadata.get('scorer_present',True)!=(scorer is not None):raise ValueError('Exact optional frozen-scorer coverage required')
     if metadata['parameter_names']!=[n for n,p in optimizer.named]:raise ValueError('Complete exact parameter order required')
     if len(optimizer.adam.param_groups)!=len(metadata['param_groups']):raise ValueError('Complete optimizer groups required')
     for group,values in zip(optimizer.adam.param_groups,metadata['param_groups'],strict=True):group.update(values)
@@ -34,11 +36,12 @@ def restore_complete_state(path,model,scorer,optimizer,generator):
     return restored
 
 
-def save_complete_state(path,model,scorer,optimizer,generator,*,extra):
+def save_complete_state(path,model,scorer,optimizer,generator,*,extra,compress=False):
     metadata=dict(extra,update=optimizer.update,parameter_names=[n for n,p in optimizer.named],
+        scorer_present=scorer is not None,
         param_groups=[{k:v for k,v in g.items() if k!='params'} for g in optimizer.adam.param_groups],
         torch_rng=torch.get_rng_state(),sampling_rng=generator.get_state())
-    return save_streaming(path,complete_state_tensors(model,scorer,optimizer),metadata)
+    return save_streaming(path,complete_state_tensors(model,scorer,optimizer),metadata,compress=compress)
 
 
 @torch.no_grad()

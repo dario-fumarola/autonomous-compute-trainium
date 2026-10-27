@@ -18,39 +18,39 @@ policy gradients are authorized for this new phase. Earlier results retain
 their original criteria;no larger recurrence main or confirmation completed.
 [New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
 
-The first implementation passes471 CPU tests,two skipped,including an exact
-policy-gradient check. A zero-update1.485B stage-one reader check on ten natural
-TRAIN anchors finds content sensitivity but severe framing interference.
-This is numerical/interface qualification,not a learned-thinking result.
-[Reader diagnostic](results/workspace_reader_qualification_20261027/report.json).
+The current implementation passes491 CPU tests,two skipped. The framing-free
+reader has exact empty-workspace identity. Its initial ten-TRAIN-anchor
+privileged-copy diagnostic improves NLL by0.972423nats,while sampled workspaces
+still hurt by0.038068nats. This qualifies an interface,not useful writing.
+[Reader interface](results/workspace_identity_reader_20261027/recovery-v2/report.json).
 
-A bounded30-update reader-only calibration repairs much of that framing
-damage,with exact model/AdamW/RNG restoration. The subsequent real-base
-policy-gradient reference is finite,while all sampled workspaces on its
-single TRAIN anchor still hurt raw prediction. No policy optimization or
-efficient-thinking result is established. [Preparation summary and next gates](results/workspace_discovery_preparation_20261027/summary.json).
+The full1.485B model now runs with all179 parameters sharded over64 Native
+ranks/all16chips. A fresh qualification completes101 online generate/score/
+reader+policy/AdamW/EMA updates on6,464 source views across3,690 TRAIN groups.
+The100warm updates average12.4619seconds with no CPU fallback. Its independent
+mature HF-body/FP64-loss audit passes every named gradient:largest error0.000668%.
+The earlier saturated qualification remains failed;an equivalent stable target
+loss repairs FP32 cancellation without changing the numerical thresholds.
+These are qualification updates,not a held-out learning result.
+[Fresh online qualification](results/workspace_online_throughput_20261027/recovery-v2/report.json) ·
+[Mature audit](results/workspace_online_mature_audit_20261027/recovery-v2/report.json) ·
+[Fixed-weight loss diagnosis](results/workspace_loss_stability_20261027/report.json).
 
-The framing-free reader passes both registered interface point checks: empty
-workspace is exactly the raw input, and a privileged future-copy probe helps
-by0.972423nats on the original roomy anchors. Sampled workspaces still hurt
-by0.038068nats; useful writing has not been learned.
-[Interface result](results/workspace_identity_reader_20261027/recovery-v2/report.json).
+The first bounded four-condition diagnostic is prepared:ordinary continuation,
+learned workspaces,trained pauses and supervised drafts whose reader uses its
+OWN samples. The uncached workspace update costs about19.38ordinary updates
+in nominal matrix work,including generation,scoring,backward,recomputation and
+the vocabulary head;whole time is reported separately. All conditions start
+from the same common C0 weights. Fresh qualification weights are excluded.
+No held-out workspace-versus-baseline result or from-scratch finding exists yet.
+[Diagnostic protocol](docs/WORKSPACE_DISCOVERY_PILOT_20261027.md) ·
+[CPU helper proof](results/workspace_discovery_cpu_20261027/report.json).
 
-The previous replicated-body memory estimate was wrong: the existing loader
-already shards all179 OLMo parameters across64 ranks. A new OLMo path passes
-four-process CPU gradients, AdamW deltas/moments, EMA and exact restart checks.
-The actual1.485B model subsequently passes all64-rank Native gradients,one
-qualification optimizer update and streamed full-state recovery. Largest named
-gradient discrepancy is0.012%;an independent saved-state CPU audit also passes.
-No learned useful writing or matched-compute advantage is established.
-[Actual-size Native gate](results/workspace_native_full_model_20261027/recovery-v3/report.json) ·
-[Update/recovery](results/workspace_native_full_update_20261027/report.json) ·
-[Independent state audit](results/workspace_full_update_cpu_audit_20261027/report.json).
-Reversible preservation
-and verified public-cache eviction leave105.08GiB free.
+The earlier replicated-body estimate was wrong:the existing loader already
+shards all179 parameters. Full-state recovery and exact archival preservation
+remain mandatory;the35GiB filesystem and512GiB host reserves are unchanged.
 [Sharding correction](results/workspace_sharding_correction_20261027/report.json) ·
-[CPU proof](results/workspace_sharded_cpu_20261027/report.json) ·
-[Storage receipt](results/workspace_public_cache_20261027/report.json).
+[Actual-size update/recovery](results/workspace_native_full_update_20261027/report.json).
 
 The conventional eight-layer challenger now slightly outperforms fixed
 recurrence at matched nominal training work in both development seeds. The

@@ -15,10 +15,10 @@ NAMES=['workspace-native-fixture-worktree-v1','workspace-native-full-model-workt
        'workspace-native-full-update-worktree-v1','workspace-native-online-throughput-worktree-v1']
 
 
-def run(root):
+def run(root,*,scale_closed=False,recovery=False):
     if managed_running():raise RuntimeError('Closed execution checkout maintenance only')
-    out=root/'workspace-closed-checkout-preservation-v1';out.mkdir(mode=0o700)
-    public=Path('results/workspace_closed_checkouts_20261027');public.mkdir()
+    out=root/('workspace-scale-closed-checkout-preservation-v2' if recovery else 'workspace-scale-closed-checkout-preservation-v1' if scale_closed else 'workspace-closed-checkout-preservation-v1');out.mkdir(mode=0o700)
+    public=Path('results/workspace_scale_closed_checkouts_20261027/recovery-v2' if recovery else 'results/workspace_scale_closed_checkouts_20261027' if scale_closed else 'results/workspace_closed_checkouts_20261027');public.mkdir()
     started=time.time();before=os.statvfs(root).f_favail;rows=[]
     for name in NAMES:
         tree=root/name
@@ -46,11 +46,18 @@ def run(root):
         rows.append(row)
     result=dict(status='COMPLETE_EXACT_CLOSED_CHECKOUT_PRESERVATION',checkouts=rows,free_inodes_before=before,
         free_inodes_after=os.statvfs(root).f_favail,wall_seconds=time.time()-started,
-        scope='Only six duplicated closed execution source checkouts.No source snapshot,run receipt,checkpoint,optimizer,gradient,corpus or current/future execution checkout removed.Full per-file SHA coverage verified in private tar archives before git worktree removal.Initial loss-fixture admission stopped before registration on complete-snapshot inode reserve;no Native worker or optimizer ran.')
+        scope='Only listed duplicated closed execution source checkouts.No source snapshot,run receipt,checkpoint,optimizer,gradient,corpus or current/future execution checkout removed.Full per-file SHA coverage verified in private tar archives before git worktree removal.No Native worker or optimizer ran during this maintenance.')
     for d in [out,public]:(d/'report.json').write_text(json.dumps(result,indent=2)+'\n')
     print(result['free_inodes_before'],result['free_inodes_after'])
 
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);a=p.parse_args();run(a.root)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--scale-closed',action='store_true');p.add_argument('--recovery',action='store_true');a=p.parse_args()
+    if a.scale_closed:
+        NAMES=['scale-feasibility-worktree-v1','scale-model-worktree-v1','scale-runtime-worktree-v1',
+            'scale-audit-worktree-v1','scale-body-main-handoff-worktree-v1','scale-final-lower-rate-recovery-worktree-v1']
+    if a.recovery:
+        NAMES=['scale-audit-worktree-v1','scale-body-main-handoff-worktree-v1','scale-final-lower-rate-recovery-worktree-v1',
+            'workspace-stable-loss-fixture-worktree-v1','workspace-stable-model-worktree-v1']
+    run(a.root,scale_closed=a.scale_closed,recovery=a.recovery)

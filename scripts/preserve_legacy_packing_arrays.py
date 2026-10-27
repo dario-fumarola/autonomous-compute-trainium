@@ -35,11 +35,11 @@ def active_scope():
 def remaining_native_allowance(root):
     out=root/'runs'/NATIVE
     if not out.exists():return 30*1024**3
-    written=sum(p.stat().st_size for p in out.iterdir() if p.is_file() and ('u102.zip' in p.name or 'mature-gradients.pt' in p.name))
+    written=sum(p.stat().st_size for p in out.iterdir() if p.is_file() and (p.name.endswith('.zip') or 'mature-gradients.pt' in p.name))
     return max(0,30*1024**3-written)
 
 
-def run(root):
+def run(root,*,capacity=False):
     out=root/IDENTITY
     if out.exists() or PUBLIC.exists():raise FileExistsError('Preserve every archival attempt')
     active_scope();out.mkdir(mode=0o700);PUBLIC.mkdir()
@@ -50,6 +50,7 @@ def run(root):
         rows.append(dict(relative=relative,sha256=m['files'][path.name],bytes=stat.st_size,mode=stat.st_mode&0o777,mtime_ns=stat.st_mtime_ns,
             archive_relative=IDENTITY+'/'+str(len(rows))+'.gz',manifest_sha256=file_sha256(manifest)))
     plan=dict(registered_unix=time.time(),files=rows,source_sha256=file_sha256(__file__),native_final_artifact_allowance_bytes=30*1024**3,
+        compressed_output_cap_per_file_bytes=28*1024**3 if capacity else None,
         scope='Only the listed cold legacy packing arrays. No raw source cache,accepted metadata/database,model,optimizer,gradient,source code or ZIP dependency parent is removed. Native online qualification reads only explicit checkpoint/input files;source-view extraction reads raw sources/databases,never these arrays. Whole-original SHA matched to frozen packing manifest,complete gzip readback plus first materialized restore before unlink. Original bytes remain exactly restorable;legacy mmap loaders must restore first.35GiB filesystem reserve plus remaining Native30GiB checkpoint/gradient allowance protected throughout.')
     for d in [out,PUBLIC]:(d/'plan.json').write_text(json.dumps(plan,indent=2)+'\n')
     def guard(extra=0):
@@ -70,14 +71,17 @@ def run(root):
         for index,row in enumerate(rows):
             active_scope();path=root/row['relative'];archive=root/row['archive_relative'];temporary=archive.with_suffix('.gz.incomplete')
             # Full worst-case compressed output and first materialized restore.
-            guard(row['bytes']+128*1024**2+(row['bytes'] if index==0 else 0))
+            allowance=min(row['bytes']+128*1024**2,28*1024**3) if capacity else row['bytes']+128*1024**2
+            guard(allowance+(row['bytes'] if index==0 else 0))
             if file_sha256(path)!=row['sha256']:raise AssertionError('Frozen original packing bytes changed')
             digest=hashlib.sha256();written=0
             with temporary.open('xb') as raw:
                 with gzip.GzipFile(filename='',fileobj=raw,mode='wb',compresslevel=1,mtime=0) as encoded:
                     with path.open('rb') as source:
                         while data:=source.read(8*1024**2):
-                            guard(16*1024**2);digest.update(data);written+=len(data);encoded.write(data)
+                            guard(16*1024**2)
+                            if capacity and raw.tell()+32*1024**2>28*1024**3:raise RuntimeError('Registered compressed-output cap;original retained')
+                            digest.update(data);written+=len(data);encoded.write(data)
             if digest.hexdigest()!=row['sha256'] or written!=row['bytes']:raise AssertionError('Original changed during compression')
             if decompress(temporary)!=(row['sha256'],row['bytes']):raise AssertionError('Complete byte-exact decompression failed')
             if index==0:
@@ -113,5 +117,14 @@ def restore(root,relative):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--restore');a=p.parse_args()
-    restore(a.root,a.restore) if a.restore else run(a.root)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--restore');p.add_argument('--capacity',action='store_true');a=p.parse_args()
+    if a.capacity:
+        IDENTITY='workspace-discovery-capacity-preservation-v1'
+        PUBLIC=Path('results/workspace_discovery_storage_20261027')
+        NATIVE='workspace-native-online-throughput-v2-online'
+        RELATIVES=['natural-append-capacity-v4/packed/prefix_counts.npy',
+            'natural-append-capacity-v4/packed/tokens.npy',
+            'natural-append-6500m-v2/packed/tokens.npy',
+            'natural-append-6500m-v2/extension/packed/tokens.npy',
+            'natural-append-3250m/extension/packed/tokens.npy']
+    restore(a.root,a.restore) if a.restore else run(a.root,capacity=a.capacity)

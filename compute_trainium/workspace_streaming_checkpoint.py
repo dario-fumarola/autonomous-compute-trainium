@@ -17,12 +17,13 @@ def tensor_hash(value):
     return hashlib.sha256(data).hexdigest()
 
 
-def save_streaming(path,tensors,metadata):
+def save_streaming(path,tensors,metadata,*,compress=False):
     path=Path(path);temporary=path.with_suffix(path.suffix+'.incomplete')
     if path.exists() or temporary.exists():raise FileExistsError('Never overwrite a preserved full state')
     keys=[];signatures={}
     try:
-        with zipfile.ZipFile(temporary,'x',compression=zipfile.ZIP_STORED,allowZip64=True) as archive:
+        with zipfile.ZipFile(temporary,'x',compression=zipfile.ZIP_DEFLATED if compress else zipfile.ZIP_STORED,
+                             compresslevel=1 if compress else None,allowZip64=True) as archive:
             for index,(name,value) in enumerate(tensors):
                 if name in signatures:raise ValueError('Duplicate checkpoint tensor')
                 cpu=value.detach().cpu().contiguous();member=f'tensor-{index}.pt'
