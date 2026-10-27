@@ -10,7 +10,7 @@ if 'RESEARCH_VISIBLE_CORES' in os.environ:
     os.environ['NEURON_RT_VISIBLE_CORES'] = os.environ['RESEARCH_VISIBLE_CORES'].split(',')[int(os.environ.get('LOCAL_RANK','0'))]
 
 
-def worker(rank, world, backend, output, mode='warm', parent=None, comm_port=None):
+def worker(rank, world, backend, output, mode='warm', parent=None, comm_port=None, execution='materialized'):
     import torch
     import torch.distributed as dist
     from torch.distributed.device_mesh import init_device_mesh
@@ -28,15 +28,23 @@ def worker(rank, world, backend, output, mode='warm', parent=None, comm_port=Non
     dist.init_process_group(backend, rank=rank, world_size=world)
     mesh = init_device_mesh(device, (world,))
     torch.manual_seed(92017)
-    model = SoftwareModel().to(device)
+    model = SoftwareModel()
+    original_state={n:v.detach().clone() for n,v in model.state_dict().items()}
     reference = None
     if rank == 0:
         torch.manual_seed(92017);reference = SoftwareModel()
         cpu_optimizer = ParcaeRuntimeScalarOptimizer(reference,gate_policy='release_muon',lr=1e-4,muon_lr=1e-4)
-    model = shard_model(model, mesh)
+    if execution=='streamed':
+        from compute_trainium.scale_model_sharding import shard_model_from_cpu,StreamingOwnerOptimizer
+        with torch.device('meta'):model=SoftwareModel()
+        model=shard_model_from_cpu(model,mesh,original_state,device)
+        optimizer_class=StreamingOwnerOptimizer
+    elif execution=='materialized':
+        model=shard_model(model.to(device),mesh);optimizer_class=ShardedExactOptimizer
+    else:raise ValueError('Unknown physical optimizer execution')
     if model.transformer.wte._parameters['weight'] is not model.lm_head._parameters['weight']:
         raise AssertionError('Sharding broke tied input/output alias')
-    optimizer = ShardedExactOptimizer(model,lr=1e-4,muon_lr=1e-4)
+    optimizer = optimizer_class(model,lr=1e-4,muon_lr=1e-4)
     if mode == 'replay':
         saved = torch.load(Path(parent)/f'rank{rank}-u2.pt',map_location='cpu',weights_only=False)
         if saved['rank']!=rank or saved['world']!=world or saved['purpose']!='scale_sharded_qualification_only':
@@ -94,7 +102,7 @@ def worker(rank, world, backend, output, mode='warm', parent=None, comm_port=Non
             torch.save(dict(weights=actual,moments=moments),output/'expected-u3.pt')
         dist.barrier()
     if rank == 0:
-        row=dict(status='PASS_SCALE_SHARDED_SOFTWARE_FIXTURE',backend=backend,world=world,mode=mode,
+        row=dict(status='PASS_SCALE_SHARDED_SOFTWARE_FIXTURE',backend=backend,world=world,mode=mode,execution=execution,
             tied_parameter_alias_preserved=True,shared_core_applications=2,records=records,
             actual_optimizer_updates_per_rank=len(updates),research_examples=0,research_optimizer_updates=0,
             scientific_fit_admitted=False,wall_seconds=time.time()-started,
@@ -118,7 +126,8 @@ def main():
         raise ValueError('Exact registered all-chip numerical fixture required')
     if any(file_sha256(source/f)!=sha for f,sha in plan['worker_source_sha256'].items()):
         raise AssertionError('Frozen source changed')
-    worker(int(os.environ['RANK']),int(os.environ['WORLD_SIZE']),'neuron',args.output,args.mode,args.parent,args.comm_port)
+    worker(int(os.environ['RANK']),int(os.environ['WORLD_SIZE']),'neuron',args.output,args.mode,args.parent,args.comm_port,
+        plan.get('optimizer_execution','materialized'))
 
 
 if __name__=='__main__':main()

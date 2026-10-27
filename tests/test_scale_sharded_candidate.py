@@ -36,12 +36,13 @@ def test_nonfinite_and_small_families_cannot_hide_in_numerical_aggregate():
     assert result['largest_named_relative_l2']==1.
 
 
-def test_sharded_shared_tied_model_matches_complete_optimizer_and_fresh_process(tmp_path,monkeypatch):
+@pytest.mark.parametrize('execution',['materialized','streamed'])
+def test_sharded_shared_tied_model_matches_complete_optimizer_and_fresh_process(tmp_path,monkeypatch,execution):
     monkeypatch.setenv('MASTER_ADDR','127.0.0.1')
     monkeypatch.setenv('MASTER_PORT',free_port())
-    mp.spawn(worker,args=(4,'gloo',str(tmp_path/'warm')),nprocs=4,join=True)
+    mp.spawn(worker,args=(4,'gloo',str(tmp_path/'warm'),'warm',None,None,execution),nprocs=4,join=True)
     monkeypatch.setenv('MASTER_PORT',free_port())
-    mp.spawn(worker,args=(4,'gloo',str(tmp_path/'replay'),'replay',str(tmp_path/'warm')),nprocs=4,join=True)
+    mp.spawn(worker,args=(4,'gloo',str(tmp_path/'replay'),'replay',str(tmp_path/'warm'),None,execution),nprocs=4,join=True)
     report=json.loads((tmp_path/'warm/report.json').read_text())
     replay=json.loads((tmp_path/'replay/report.json').read_text())
     assert report['tied_parameter_alias_preserved']

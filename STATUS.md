@@ -1,3 +1,9 @@
+## October 27, 2026, 03:13 UTC — larger random initializers ready; bounded workspace variant prepared
+
+Both prospective large random initializers finish in 35.97 CPU seconds, zero forwards or learning updates, approximately 4.70GiB peak RSS. Direct local-shard loading avoids 64 full model construction copies. A second physical optimizer variant retains full Muon groups only on their owner and streams each matrix elsewhere, preserving complete-matrix update math. Four-process CPU tests match the independent path and replay exactly; 406 full-suite tests pass with two skips.
+
+Its separately frozen all-chip software fixture remains under the original 03:29:59 UTC numerical deadline, with a tighter ten-minute cap. It is prepared, not activated. No large scientific fit or prediction gain is admitted. Actual-shape gradients, precision, recovery and 100-warm-update measurement are next if this small memory-layout check passes. [Scope and registration](results/scale_streamed_sharding_fixture_20261027/REPORT.md).
+
 ## October 27, 2026, 03:03 UTC — all-chip sharding fixture and replay pass
 
 Both 64-rank numerical phases pass on all 16 chips: three software-fixture updates and one fresh-process replay. Largest named CPU differences are 0.000131% for gradients, 0.028875% for updates and 0.001474% for moments, all within 2%. Separate-process replay weights and moments are exactly equal. Both supervisors close without OOM or fatal compiler failure. These are small software arrays, zero research examples and zero scientific updates. [Complete result](results/scale_sharding_fixture_20261027/REPORT.md).

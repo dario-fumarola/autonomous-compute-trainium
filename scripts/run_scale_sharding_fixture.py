@@ -30,6 +30,8 @@ class AllChipExecution(Execution):
         super().check()
         require_inode_reserve([self.root,Path('/')])
         if time.time()>SCALE_END: raise TimeoutError('Original 24-hour scale feasibility cap')
+        if time.time()>self.plan.get('absolute_deadline_unix',SCALE_END):
+            raise TimeoutError('Unchanged original numerical fixture cap')
 
     def native(self,identity,module,options,status):
         container=process=None;primary=None
