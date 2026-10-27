@@ -1,3 +1,9 @@
+## October27,2026,12:15 UTC — corrected rate stage active after zero-update binding stop
+
+The five remaining fixed opportunities are admitted under the outcome-blind14:45UTC corrected-stage cap. The first launch stops before distributed initialization or learning on a malformed numerical-proof directory key;zero forward/gradient/optimizer updates,zero OOM. Registration2 corrects only that metadata and verifies every worker proof path on the host,with all original cases,rates,C0,source,precision and clocks unchanged. The corrected recurrent0.008 case is now active on all16 chips. [Both registrations and failure/cost evidence](results/scale_boundary_rate_completion_20261027/REPORT.md).
+
+The certified corrected recurrent0.016 score remains3.691627,ordinary0.008 is3.097228 and ordinary0.016 is3.136751 on the same consumed tuning panel. These are unselected,unequal-work screening points. No main or confirmation is admitted. The3.750B/5.079B proposal still requires complete independently audited selection,full raw-state storage and an11-hour allowance before the unchanged October28,02:09:45UTC scale end. No renewed14:45UTC rate cap or hidden release of failed histories.
+
 ## October27,2026,12:03 UTC — corrected0.016 cell certified; remaining fixed grid next
 
 The corrected375.94M recurrent trial completes300 updates /157,013,162 targets,cooldown,replay and the mature full512 audit. Gradient discrepancy0.191243% overall /0.191616% largest family;all original gates pass. Its complete192-document consumed-TUNE NLL is3.691627. This is weak screening performance versus the already qualified ordinary0.008/0.016 cells;no rate or main fit is selected.

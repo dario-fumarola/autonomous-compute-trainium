@@ -1,0 +1,5 @@
+# Boundary-corrected fixed rate completion
+
+The new registration retains the outcome-blind14:45UTC deadline,original four rates and300-update opportunities per family. It reuses only the two exact unchanged ordinary cells and the fully certified corrected recurrent0.016 endpoint. Five remaining original cells start from untouched C0,each with completed schedules,full independent mature audit,replay,readout and successful-only diagnostic closure. A failed phase stops the controller;no automatic retry or main fit follows.
+
+The first launch stops before distributed initialization/learning because the proof map supplied a filename where the worker appends that filename. No model forward,gradient or optimizer update occurs. Its source,closure and costs remain. Registration2 corrects only the directory bindings and checks every actual worker proof path on the host. Same model/data/precision/rates/cases and frozen deadline. The corrected first recurrent0.008 case is active on all16 chips;no new quality result or rate selection yet. See [registration2](registration-v2/plan.json) and [preserved first failure](stopped-binding-v1/diagnosis.json).
