@@ -1,3 +1,9 @@
+## October27,2026,12:46 UTC — lower-rate cell qualified; conventional0.032 active
+
+The fresh corrected recurrent0.008 cell completes every original mature512/replay/readout gate and successful-only diagnostic closure. Consumed-TUNE NLL3.409389 versus recurrent0.0163.691627;the completed ordinary0.008/0.016 scores remain3.097228/3.136751. These are unselected equal-data screening points with unequal work,not a matched-work result. [New score](results/scale_boundary_rate_completion_20261027/registration-v2/recurrent-lr0-score.json).
+
+All16 chips now execute the ordinary0.032 cell in the remaining fixed grid. No main or confirmation is admitted. The owner-authorized clock amendment remains prospective;scientific endpoints,rate opportunities and numerical/resource gates stay fixed. Eight closed historical checkpoint binaries are already exactly archived,recovering2.417GiB;the single-stream operation continues without altering the corpus or original model/optimizer values. Latest source suite429 passes,two skipped.
+
 ## October27,2026,12:43 UTC — owner relaxes clock gates; lower-rate mature audit passes
 
 The owner directs continued work without treating overall wall-clock budgets as research stopping gates. A prospective amendment preserves old clocks/stops and keeps every scientific endpoint,source,rate opportunity,threshold and numerical/resource gate unchanged. Future main admission records the11-hour estimate as a forecast,with an explicit operational watchdog rather than the old overall deadline. Active frozen bundles remain immutable;any continuation must bind the amendment explicitly. [Clock accounting amendment](docs/RESEARCH_CLOCK_ACCOUNTING_AMENDMENT_20261027.md).
