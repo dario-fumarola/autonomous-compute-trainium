@@ -1,3 +1,9 @@
+## October27,2026,10:08 UTC — ordinary0.016 audit active; ineligible reproduction queued
+
+The original ordinary0.016 cell completes300 updates /157,013,162 targets and actual replay on all16 chips. Its independent512-window audit is active before scoring. The failed recurrent0.016 cell stays ineligible with its missing live-state limitation; neither learning rate selection nor the larger main fit is admitted.
+
+A separately frozen62-update numerical reproduction is queued behind successful completion of the ordinary cell. Its pristine C0 clone has exactly unchanged tensors but gate-only,ineligible metadata; all original rate/source/seed/precision/math/schedule settings remain. It saves a complete reproduced prefix without cooldown or held-out score.45minutes includes the wait and remains inside the original11:58:26UTC TUNE cutoff. Scalar agreement cannot prove exact identity to the unavailable original failure. [Reproduction registration](results/scale_recurrent_prefix_reproduction_20261027/REPORT.md). Four targeted state/failure tests pass after this host-only registration; the preceding full suite has426 passes,two skips.
+
 ## October27,2026,09:52 UTC — recurrent0.016 stops nonfinite; original ordinary cell continues with failure preservation
 
 The recurrent0.016 cell completes62 updates /32,449,078 targets, then stops before the next update on a nonfinite global gradient. Zero OOM,no supervisor reserve/compiler failure,and no quality score. It is ineligible. The short TUNE saved only endpoints, so the exact failed model was not captured; that limitation is explicit and no reconstructed state will be mislabeled as original. [Failure evidence](results/scale_recurrent_lr1_nonfinite_20261027/REPORT.md).
