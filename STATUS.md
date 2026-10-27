@@ -1,3 +1,9 @@
+## October 27, 2026, 03:15 UTC — direct shard loading and streamed owner workspace pass Native
+
+Both 64-core phases pass on all 16 chips. Independent CPU gradients, updates and named moments meet every criterion; separate-process replay weights and moments are exactly equal. This is another four-update software fixture, zero research examples or scientific updates. Both phases close under the original numerical deadline. [Complete receipt](results/scale_streamed_sharding_fixture_20261027/REPORT.md).
+
+The next measurement uses the actual 956M model, context 1024, global 512 windows and the qualified FP16-body/FP32 primitive-attention path. Its state, gradient and recovery artifacts must fit a complete prospective allowance on the existing private tmpfs, with the protected host and filesystem reserves unchanged. A scientific token budget remains unset until throughput is measured. No prediction gain or scale claim is established.
+
 ## October 27, 2026, 03:13 UTC — larger random initializers ready; bounded workspace variant prepared
 
 Both prospective large random initializers finish in 35.97 CPU seconds, zero forwards or learning updates, approximately 4.70GiB peak RSS. Direct local-shard loading avoids 64 full model construction copies. A second physical optimizer variant retains full Muon groups only on their owner and streams each matrix elsewhere, preserving complete-matrix update math. Four-process CPU tests match the independent path and replay exactly; 406 full-suite tests pass with two skips.

@@ -1,0 +1,154 @@
+{
+  "status": "PASS_SCALE_SHARDED_SOFTWARE_FIXTURE_AND_REPLAY",
+  "records": {
+    "warm": {
+      "status": "PASS_SCALE_SHARDED_SOFTWARE_FIXTURE",
+      "backend": "neuron",
+      "world": 64,
+      "mode": "warm",
+      "execution": "streamed",
+      "tied_parameter_alias_preserved": true,
+      "shared_core_applications": 2,
+      "records": [
+        {
+          "update": 1,
+          "gradient": {
+            "relative_l2": 4.6676302257653026e-07,
+            "maximum_absolute_error": 2.421438694000244e-08,
+            "largest_named_relative_l2": 1.2938376646697674e-06
+          },
+          "parameter_update": {
+            "relative_l2": 3.138525600737053e-06,
+            "maximum_absolute_error": 1.862645149230957e-08,
+            "largest_named_relative_l2": 0.00028873954866511853
+          },
+          "weights": {
+            "relative_l2": 3.4221922438100826e-09,
+            "maximum_absolute_error": 1.862645149230957e-08,
+            "largest_named_relative_l2": 2.2591393267226605e-07
+          },
+          "moments": {
+            "relative_l2": 5.707190636247483e-08,
+            "maximum_absolute_error": 3.42843122780323e-08,
+            "largest_named_relative_l2": 1.4736204810153538e-05
+          },
+          "loss_difference": -7.227063179016113e-07,
+          "global_norm_difference": -3.5762786865234375e-07
+        },
+        {
+          "update": 2,
+          "gradient": {
+            "relative_l2": 3.6411375495143405e-07,
+            "maximum_absolute_error": 2.2351741790771484e-08,
+            "largest_named_relative_l2": 1.302869476338674e-06
+          },
+          "parameter_update": {
+            "relative_l2": 3.990078978308812e-06,
+            "maximum_absolute_error": 8.381903171539307e-09,
+            "largest_named_relative_l2": 0.00013542378740950277
+          },
+          "weights": {
+            "relative_l2": 5.546212120624787e-09,
+            "maximum_absolute_error": 2.60770320892334e-08,
+            "largest_named_relative_l2": 7.563328095021807e-07
+          },
+          "moments": {
+            "relative_l2": 4.296615085375507e-08,
+            "maximum_absolute_error": 7.543712854385376e-08,
+            "largest_named_relative_l2": 1.153185565320603e-05
+          },
+          "loss_difference": -8.419156074523926e-07,
+          "global_norm_difference": -1.1920928955078125e-07
+        },
+        {
+          "update": 3,
+          "gradient": {
+            "relative_l2": 3.8346080331168935e-07,
+            "maximum_absolute_error": 2.0489096641540527e-08,
+            "largest_named_relative_l2": 1.1989607284458857e-06
+          },
+          "parameter_update": {
+            "relative_l2": 4.658244230024348e-06,
+            "maximum_absolute_error": 7.450580596923828e-09,
+            "largest_named_relative_l2": 0.00015326801284106846
+          },
+          "weights": {
+            "relative_l2": 7.498012043574957e-09,
+            "maximum_absolute_error": 2.9802322387695312e-08,
+            "largest_named_relative_l2": 9.59655845770678e-07
+          },
+          "moments": {
+            "relative_l2": 3.381937148125336e-08,
+            "maximum_absolute_error": 9.406358003616333e-08,
+            "largest_named_relative_l2": 9.600942158129843e-06
+          },
+          "loss_difference": 7.674098014831543e-07,
+          "global_norm_difference": 1.1920928955078125e-07
+        }
+      ],
+      "actual_optimizer_updates_per_rank": 3,
+      "research_examples": 0,
+      "research_optimizer_updates": 0,
+      "scientific_fit_admitted": false,
+      "wall_seconds": 28.972771406173706,
+      "scope": "Small numerical arrays only. Qualifies this fixture,not large-model training,precision or throughput."
+    },
+    "replay": {
+      "status": "PASS_SCALE_SHARDED_SOFTWARE_FIXTURE",
+      "backend": "neuron",
+      "world": 64,
+      "mode": "replay",
+      "execution": "streamed",
+      "tied_parameter_alias_preserved": true,
+      "shared_core_applications": 2,
+      "records": [
+        {
+          "update": 3,
+          "gradient": {
+            "relative_l2": 3.8346080331168935e-07,
+            "maximum_absolute_error": 2.0489096641540527e-08,
+            "largest_named_relative_l2": 1.1989607284458857e-06
+          },
+          "parameter_update": {
+            "relative_l2": 4.658244230024348e-06,
+            "maximum_absolute_error": 7.450580596923828e-09,
+            "largest_named_relative_l2": 0.00015326801284106846
+          },
+          "weights": {
+            "relative_l2": 7.498012043574957e-09,
+            "maximum_absolute_error": 2.9802322387695312e-08,
+            "largest_named_relative_l2": 9.59655845770678e-07
+          },
+          "moments": {
+            "relative_l2": 3.381937148125336e-08,
+            "maximum_absolute_error": 9.406358003616333e-08,
+            "largest_named_relative_l2": 9.600942158129843e-06
+          },
+          "loss_difference": 7.674098014831543e-07,
+          "global_norm_difference": 1.1920928955078125e-07,
+          "separate_process_replay_weights": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "largest_named_relative_l2": 0.0
+          },
+          "separate_process_replay_moments": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "largest_named_relative_l2": 0.0
+          }
+        }
+      ],
+      "actual_optimizer_updates_per_rank": 1,
+      "research_examples": 0,
+      "research_optimizer_updates": 0,
+      "scientific_fit_admitted": false,
+      "wall_seconds": 24.12578010559082,
+      "scope": "Small numerical arrays only. Qualifies this fixture,not large-model training,precision or throughput."
+    }
+  },
+  "scientific_fit_admitted": false,
+  "plan_sha256": "ec36db8ae15490d0831b43b3847b4a5895f8463d6470b27858824ce6efc04e57",
+  "research_examples": 0,
+  "research_optimizer_updates": 0,
+  "scope": "All-chip small-array qualification only; no large scientific fit or scale result."
+}
