@@ -1,0 +1,62 @@
+{
+  "status": "COMPLETE_REPRODUCED_BOUNDARY_DIAGNOSIS",
+  "optimizer_updates": 0,
+  "scientific_fit_admitted": false,
+  "native": {
+    "status": "CAPTURED_REPRODUCED_POINT_SCALE_OBSERVATION",
+    "variant": "boundary",
+    "world": 64,
+    "plan_sha256": "2fcb94e3e10a5ec6388348487d139e54e455ef472801c9d9f4ea573623bdec59",
+    "optimizer_updates": 0,
+    "parameters_unchanged": true,
+    "parameters": 375940224,
+    "manual_loss_scale": 8192,
+    "global_norm_finite": true,
+    "gradient_finite": true,
+    "original_error": null,
+    "nll": 8.12664883454337,
+    "raw_gradient_norm": 2.6578149795532227,
+    "gradient_sha256": "f89cb7fa97889ba9dfe81c09a2adacfd0e460ad31378fa84b26eaf0b0bf63a02",
+    "wall_seconds": 147.89283442497253,
+    "scientific_fit_admitted": false
+  },
+  "comparison": {
+    "native_gradient_finite": true,
+    "global_norm_finite": true,
+    "native_minus_cpu_nll": 5.532112758999119e-07,
+    "passes_original_thresholds": true,
+    "gradient": {
+      "overall": {
+        "relative_l2": 0.00040991489609781026,
+        "maximum_absolute_error": 2.2738563529856037e-06,
+        "reference_l2": 0.9999996056599686
+      },
+      "families": {
+        "recurrent_injection_readout": {
+          "relative_l2": 6.263235055271531e-05,
+          "maximum_absolute_error": 2.8080830816179514e-07,
+          "reference_l2": 0.08373200896167533
+        },
+        "tied_input_output": {
+          "relative_l2": 3.802406777576464e-05,
+          "maximum_absolute_error": 6.230548024177551e-07,
+          "reference_l2": 0.3067441634750872
+        },
+        "transformer_body": {
+          "relative_l2": 0.00043214306995876796,
+          "maximum_absolute_error": 2.2738563529856037e-06,
+          "reference_l2": 0.9481006340548545
+        },
+        "value_embeddings": {
+          "relative_l2": 0.0002214457263935375,
+          "maximum_absolute_error": 2.0776496967300773e-08,
+          "reference_l2": 0.0011695614934083536
+        }
+      },
+      "passes_two_percent_gate": true
+    }
+  },
+  "original_failed_state_available": false,
+  "no_training_history_repaired": true,
+  "plan_sha256": "2fcb94e3e10a5ec6388348487d139e54e455ef472801c9d9f4ea573623bdec59"
+}

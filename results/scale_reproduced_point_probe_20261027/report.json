@@ -1,0 +1,78 @@
+{
+  "status": "COMPLETE_REPRODUCED_POINT_SCALE_DIAGNOSIS",
+  "records": {
+    "high": {
+      "status": "CAPTURED_REPRODUCED_POINT_SCALE_OBSERVATION",
+      "variant": "high",
+      "world": 64,
+      "plan_sha256": "8e5936d197f78bf3c693643e5a6b38207e16c3060e03067cb145eefa6c7ee7ff",
+      "optimizer_updates": 0,
+      "parameters_unchanged": true,
+      "parameters": 375940224,
+      "manual_loss_scale": 65536,
+      "global_norm_finite": false,
+      "gradient_finite": false,
+      "original_error": "Nonfinite global sharded gradient; no update",
+      "nll": null,
+      "raw_gradient_norm": null,
+      "gradient_sha256": "7ae39b1c9f537898ed1e0e44388692c5adb3561fdb2c49953d8c35c1afef0830",
+      "wall_seconds": 145.8457736968994,
+      "scientific_fit_admitted": false
+    },
+    "low": {
+      "status": "CAPTURED_REPRODUCED_POINT_SCALE_OBSERVATION",
+      "variant": "low",
+      "world": 64,
+      "plan_sha256": "8e5936d197f78bf3c693643e5a6b38207e16c3060e03067cb145eefa6c7ee7ff",
+      "optimizer_updates": 0,
+      "parameters_unchanged": true,
+      "parameters": 375940224,
+      "manual_loss_scale": 8192,
+      "global_norm_finite": false,
+      "gradient_finite": false,
+      "original_error": "Nonfinite global sharded gradient; no update",
+      "nll": null,
+      "raw_gradient_norm": null,
+      "gradient_sha256": "ee9414b257f933b1f07ab2ccc5db75bb5333f6fd1f53c0a1cad878b735903812",
+      "wall_seconds": 146.11717557907104,
+      "scientific_fit_admitted": false
+    }
+  },
+  "scientific_fit_admitted": false,
+  "cpu": {
+    "status": "CAPTURED_INDEPENDENT_REPRODUCED_POINT_FP32_REFERENCE",
+    "windows": 512,
+    "real_targets": 523400,
+    "cpu_nll": 8.126648281332095,
+    "gradient_finite": true,
+    "raw_gradient_norm": 2.6577374316097524,
+    "norm_reduction_dtype": "float64",
+    "model_unchanged": true,
+    "optimizer_updates": 0,
+    "assigned_chips": 0,
+    "gradient_sha256": "ffd0848193540988f38004ad9e6424e637c57b52525b9d29e8f3916de4dab1c2",
+    "wall_seconds": 611.2675926685333,
+    "scientific_fit_admitted": false
+  },
+  "comparisons": {
+    "high": {
+      "native_gradient_finite": false,
+      "native_global_norm_finite": false,
+      "cpu_gradient_finite": true,
+      "native_minus_cpu_nll": null,
+      "passes_same_point_numerical_thresholds": false
+    },
+    "low": {
+      "native_gradient_finite": false,
+      "native_global_norm_finite": false,
+      "cpu_gradient_finite": true,
+      "native_minus_cpu_nll": null,
+      "passes_same_point_numerical_thresholds": false
+    }
+  },
+  "loss_scale_only_determined_nonfiniteness_at_this_point": false,
+  "original_failed_state_available": false,
+  "optimizer_updates": 0,
+  "no_training_history_repaired": true,
+  "plan_sha256": "8e5936d197f78bf3c693643e5a6b38207e16c3060e03067cb145eefa6c7ee7ff"
+}

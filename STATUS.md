@@ -1,3 +1,17 @@
+## October27,2026,10:54 UTC — FP32 boundary point check passes; fresh qualification next
+
+The same reproduced point that produces forward NaNs at both original loss scales becomes finite with FP32 injection/readout/residual boundaries: NLL8.12664883454, Native minus CPU0.0000005532113, gradient discrepancy0.0409915% overall /0.0432143% largest family. Zero optimizer updates, unchanged parameters and all16 chips. This identifies a sufficient point-level numerical intervention, not a repaired training history or a scientific result. [Complete observation](results/scale_reproduced_boundary_followup_20261027/REPORT.md).
+
+All426 CPU tests pass,two skipped. Next is bounded fresh qualification from the original quarantined random initializer, including100 warm updates,first optimizer/moment checks,full512 upstream reference and separate-process replay. The ordinary class must retain its existing exact computation. The incomplete original TUNE remains stopped; its deadline and every failed cost remain preserved. No main fit or rate selection is admitted.
+
+## October27,2026,10:50 UTC — failure reproduced; forward-boundary diagnosis active
+
+The ordinary0.016 cell finishes its complete512-window audit, replay and consumed-TUNE score3.136751; no rate is selected. The ineligible recurrent reproduction captures all64 update-62 shards and matches every original scalar loss and norm exactly. This is not full tensor identity to the unavailable original failure state. [Reproduction](results/scale_recurrent_prefix_reproduction_20261027/REPORT.md).
+
+At that unchanged reproduced point, both65536 and8192 loss scales give nonfinite forward NLL and gradients, while every saved parameter/buffer is finite and independent full512 FP32 gives finite NLL8.12664828133 and gradients. Loss scaling alone does not fix this observation. [Complete diagnosis](results/scale_reproduced_point_probe_20261027/REPORT.md).
+
+A distinct single10-minute zero-update forward-boundary follow-up is active on all16 chips. It checks FP32 injection/readout/residual boundaries with the same point/noise/reference. The earlier conditional child was not activated when its allowance no longer fit; its parent deadline remains unchanged. No failed history is repaired and no main or rate selection is admitted. The original TUNE11:58:26UTC and initial scale October28,02:09:45UTC deadlines remain unchanged. [Follow-up scope](results/scale_reproduced_boundary_followup_20261027/REPORT.md).
+
 ## October27,2026,10:08 UTC — ordinary0.016 audit active; ineligible reproduction queued
 
 The original ordinary0.016 cell completes300 updates /157,013,162 targets and actual replay on all16 chips. Its independent512-window audit is active before scoring. The failed recurrent0.016 cell stays ineligible with its missing live-state limitation; neither learning rate selection nor the larger main fit is admitted.

@@ -1,5 +1,5 @@
-# Ineligible numerical reproduction of a missing failing prefix
+# Ineligible numerical prefix reproduction — complete
 
-Prepare an exact tensor clone of the original unupdated seed38213 recurrent C0,now explicitly gate-tagged and ineligible. The private C0 clone's complete model digest matches the original. Preserve source order,state seed38246,0.016 rate,the original300-update learning schedule,all operators/precision and65536 loss scale. Stop at62 completed updates and save every model/optimizer/RNG shard,with full readback and replica checks. No cooldown,score,hyperparameter opportunity or scientific candidate is created.
+The all-16-chip reproduction completes 62 updates / 32,449,078 authentic targets and captures all 64 state shards. Every recorded update loss and gradient norm equals the corresponding original scalar exactly. The original failed live state was not saved, so this is not proof of full tensor identity to it. The reproduced state is explicitly ineligible for scientific comparison. No cooldown or held-out quality score was performed.
 
-The45-minute clock includes waiting behind the current ordinary cell and fits the original11:58:26UTC TUNE cutoff. Activation requires that exact ordinary cell to close successfully; a failed prerequisite stops the queue. The prefix may then be compared with the62 preserved scalar loss/norm receipts. Agreement is not proof of tensor identity to the unavailable original failed state. This is a labeled reproduction for subsequent zero-update numerical probes,not a repair of the invalid training history. No main or larger campaign is admitted.
+This numerical reproduction is charged separately. It cannot repair or certify the failed training history. See [receipt](report.json).
