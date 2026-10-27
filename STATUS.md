@@ -1,3 +1,9 @@
+## October27,2026,11:06 UTC — boundary warm/replay captured; full independent audit active
+
+The fresh corrected-boundary recurrent qualification completes101 updates,including100 warm intervals in235.400seconds,and a fresh-process replay on all16 chips. Its full512 independent FP32 gradient/NLL,first-update/moments and complete-state replay audit is active. Qualification weights remain excluded.427 full-suite CPU tests pass,two skipped. [Current numerical evidence](results/scale_boundary_numerical_20261027/REPORT.md).
+
+A single new0.016 corrected-boundary learning cell is prepared from the original untouched TUNE C0. It may start only after every fresh numerical gate passes and if its complete35-minute allowance fits before the unchanged11:58:26UTC cutoff. A conditional queue will stop on failed/missing qualification or insufficient resources/time. This is not recovery of the original failed history,complete rate selection or admission of the main fit. The old TUNE remains incomplete and stopped. Canonical retained-model serialization is now an explicit future-source correction; all old frozen sources and failures stay unchanged. Six targeted parity/serialization/state tests pass.
+
 ## October27,2026,10:54 UTC — FP32 boundary point check passes; fresh qualification next
 
 The same reproduced point that produces forward NaNs at both original loss scales becomes finite with FP32 injection/readout/residual boundaries: NLL8.12664883454, Native minus CPU0.0000005532113, gradient discrepancy0.0409915% overall /0.0432143% largest family. Zero optimizer updates, unchanged parameters and all16 chips. This identifies a sufficient point-level numerical intervention, not a repaired training history or a scientific result. [Complete observation](results/scale_reproduced_boundary_followup_20261027/REPORT.md).

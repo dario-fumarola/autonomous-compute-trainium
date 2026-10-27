@@ -15,6 +15,7 @@ def main():
     import torch
     from torch.nn.attention import sdpa_kernel,SDPBackend
     from compute_trainium.training import file_sha256,atomic_checkpoint
+    from compute_trainium.canonical_prediction_checkpoint import canonical_prediction_checkpoint
     from compute_trainium.scale_training_state import reconstruct_training_weights
     from compute_trainium.parcae_candidate import ParcaeCandidateConfig
     from compute_trainium.parcae_training_candidate import initial_state
@@ -67,8 +68,8 @@ def main():
         retained.parent.mkdir(parents=True,exist_ok=True)
         if shutil.disk_usage(retained.parent).free<35*1024**3+case['parameters']*4+256*1024**2:
             raise RuntimeError('Complete final-weight retention and protected reserve required')
-        atomic_checkpoint(retained,dict(purpose='scale_retained_prediction_weights',phase=case['phase'],signature=signature,
-            update=case['endpoint_updates'],eligible_for_science=True,model=model.state_dict(),model_digest=model_digest))
+        atomic_checkpoint(retained,canonical_prediction_checkpoint(dict(purpose='scale_retained_prediction_weights',phase=case['phase'],signature=signature,
+            update=case['endpoint_updates'],eligible_for_science=True,model=model.state_dict(),model_digest=model_digest)))
         readback=torch.load(retained,map_location='cpu',mmap=True,weights_only=False)
         if digest(readback['model'])!=model_digest:raise AssertionError('Exact retained final-weight readback failed')
         del readback;retained_sha=file_sha256(retained)
