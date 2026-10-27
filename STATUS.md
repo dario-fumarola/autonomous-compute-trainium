@@ -1,3 +1,11 @@
+## October27,2026,17:50 UTC — real-base policy gradient qualifies; no learned-workspace claim
+
+The separate zero-update1.485B CPU reference completes in49.273seconds. Policy-only gradients reach input embeddings,transformer body and output head;body norm63.8071,head26.0319. The joint ordinary/reader/policy gradient is finite and saved in full FP32,5.940GB,SHA948427ac31da248a2c327e7807fca55acbc9e8f5fe11b6def72c95e6c72314c7. Scorer gradients are absent and both actor/scorer parameter versions stay unchanged. Two backward calls are counted. [Complete reference](results/workspace_policy_gradient_20261027/report.json).
+
+The four absolute workspace gains on this new TRAIN anchor are all negative,from-1.659 to-2.086nats. Positive relative advantages identify less harmful samples,not useful thought. There are still zero writer-policy optimizer updates or Native discovery fits. The30-update reader bootstrap only demonstrates interface adaptation. [Small combined summary](results/workspace_discovery_preparation_20261027/summary.json).
+
+A conservative memory preflight blocks silently reusing the old64-rank trainer:replicated FP32 body plus globally sharded input/output tables require more than the192GiB worker allowance before gradients,optimizer,scorer or activations. A separately qualified sharded/parallel path or explicitly narrower discovery scope is required. Actual NVMe free37.151GiB still respects the35GiB floor,but any next large artifact needs new full storage admission. No old main resumes,no scientific threshold changes,and no TEST/fresh confirmation source is used. All460 source tests pass,two skipped.
+
 ## October27,2026,17:43 UTC — reader bootstrap completes and full-state restoration passes
 
 The fixed30-update CPU reader-only bootstrap completes its own warmup/stable/cooldown schedule with finite gradients. There are zero policy-gradient or accelerator updates. The complete17.819GB model/AdamW/RNG checkpoint is saved,then parameters,moments and RNG are deliberately perturbed and restored. Every restored tensor/nested value matches exactly. Total wall561.901seconds. [Receipt and full cost ledger](results/workspace_reader_bootstrap_20261027/report.json).

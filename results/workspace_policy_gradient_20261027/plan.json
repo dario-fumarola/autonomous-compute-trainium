@@ -1,0 +1,24 @@
+{
+  "registered_unix": 1793123045.3173018,
+  "bootstrap_report_sha256": "5a87dd8712fa43664e2e405a1522fd76de972181765046774c0453a2ca8f9bb9",
+  "calibrated_checkpoint_sha256": "883b05baa6f104f9ecabd2a2d1e5b986dc99ee80f22e350312591b46e9828db2",
+  "private_source_sha256": "5431fe936e226cf7a0b7f8b27886097c855d18cf57c9efbe7727fc335fd0dd39",
+  "source_sha256": {
+    "scripts/qualify_workspace_policy_gradient.py": "8a5818f57316bc6544131b51af832fe4f79910b2a2862b7c584ab5243a66fb46",
+    "compute_trainium/workspace_learning.py": "ed160b4cc82b17b3c392d55b742b3a6b973d6fafa37ca49a322a131e090b8c13",
+    "docs/WORKSPACE_POLICY_GRADIENT_REFERENCE_20261027.md": "336dc3000f9fd891e5474fbc456cc7ccffffa91826ea74e19c281cd468ab16b9"
+  },
+  "group_size": 4,
+  "workspace_length": 8,
+  "horizon": 4,
+  "temperature": 1.0,
+  "cost_per_token": 0.001,
+  "seed": 415031,
+  "ordinary_weight": 0.5,
+  "reader_weight": 0.5,
+  "policy_weight": 0.1,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "maximum_seconds": 900,
+  "scope": "# One zero-update joint-objective gradient reference\n\nConditional on complete thirty-update reader calibration and exact restored\nstate,qualify the information-gain computation on one new accepted TRAIN\nsource group,excluded from both the calibration and its ten diagnostic groups.\nThis is not another scientific fit or a test of useful learned thoughts.\n\nActor starts from the complete calibrated checkpoint. The lagged scorer is\nan independently frozen copy of those same weights. Generate G4 workspaces of\nlength8 from the prefix only,temperature1,seed415031. Score the four actual\nnext tokens with and without work using the same frozen scorer. Charge0.001\nper workspace token;this fixed cost cancels within the group and does not\ntrain allocation. Use detached leave-one-out advantages.\n\nCompute policy-only gradients for a signal audit,clear them,then recompute\nthe joint loss0.5 ordinary NTP +0.5 workspace-reader NTP +0.1 policy loss.\nRecord every component,absolute reward,group advantage and gradient family.\nRetain the full FP32 joint gradient and all private causal inputs. Perform\nzero optimizer updates;actor/scorer parameter versions must stay unchanged\nand scorer gradients must remain absent. Preserve zero or harmful signals\nhonestly. A nonzero gradient is qualification,not evidence of useful thought.\n\nRequire512GiB host reserve and35GiB output reserve plus the full6GiB gradient\nand1GiB margin before admission. CPU16 threads,15-minute operational cap.\nAll forward/backward and source preparation costs are reported separately\nfrom later Native qualification or scientific training. No TEST or fresh\nconfirmation source is used and no automatic policy fit follows.\n"
+}

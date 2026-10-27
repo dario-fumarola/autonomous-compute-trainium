@@ -1,0 +1,63 @@
+{
+  "status": "COMPLETE_CPU_DISCOVERY_PREPARATION_NOT_A_MECHANISM_RESULT",
+  "base": {
+    "repository": "allenai/OLMo-2-0425-1B",
+    "revision": "9d3e43659f00c17e6da23cf32333afd1fc39fa1a",
+    "parameters": 1484916736,
+    "stage_one_only": true
+  },
+  "tests": {
+    "passed": 460,
+    "skipped": 2
+  },
+  "reader_before": {
+    "raw_nll": 2.744311824539909,
+    "framed_empty_nll": 5.7575623989105225,
+    "own_nll": 6.424814629554748,
+    "sampled_gain_std": 0.39812222123146057
+  },
+  "reader_after": {
+    "raw_nll": 2.7532519948435947,
+    "framed_empty_nll": 4.061399340629578,
+    "fixed_workspace_nll": 3.677842938899994,
+    "fresh_workspace_nll": 3.6939515113830566,
+    "fresh_reward_std": 0.09073231182992458
+  },
+  "reader_optimizer_updates": 30,
+  "policy_optimizer_updates": 0,
+  "native_training_updates": 0,
+  "complete_reader_state_restore_exact": true,
+  "policy_only_gradient": {
+    "input_embedding": {
+      "l2": 2.961890935897827,
+      "elements": 205520896
+    },
+    "transformer_body": {
+      "l2": 63.807076417144145,
+      "elements": 1073874944
+    },
+    "output_head": {
+      "l2": 26.031856536865234,
+      "elements": 205520896
+    }
+  },
+  "frozen_scorer_gradients_absent": true,
+  "all_fixture_workspaces_harmful_against_raw": true,
+  "native_preflight": {
+    "assumption": "Existing64-rank replicated FP32 body with only lookup tables sharded;parameter storage alone,no gradients,optimizer,EMA or activations.",
+    "world": 64,
+    "non_lookup_parameters": 1073874944,
+    "parameter_storage_floor_bytes": 276556152832,
+    "existing_worker_allowance_bytes": 206158430208,
+    "existing_recipe_fits": false,
+    "consequence": "A separately qualified parameter-sharded/parallel implementation or explicitly narrower discovery scope is required. Do not reuse the old trainer at this size."
+  },
+  "private_root_free_after": 39891017728,
+  "protected_output_bytes": 37580963840,
+  "next_required": [
+    "Qualify full-cost hardware execution and storage before a policy fit.",
+    "Freeze the ordinary,workspace,trained extra-computation and draft controls before discovery scoring.",
+    "Retain separate content,transfer,supported-budget and allocation claims."
+  ],
+  "scope": "Ten calibration-diagnostic groups and one separate TRAIN gradient fixture;not a held-out generalization,reasoning,compute-efficiency or from-scratch result. Old recurrence goal remains unachieved and paused."
+}

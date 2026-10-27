@@ -18,11 +18,17 @@ policy gradients are authorized for this new phase. Earlier results retain
 their original criteria;no larger recurrence main or confirmation completed.
 [New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
 
-The first implementation passes458 CPU tests,two skipped,including an exact
+The first implementation passes460 CPU tests,two skipped,including an exact
 policy-gradient check. A zero-update1.485B stage-one reader check on ten natural
 TRAIN anchors finds content sensitivity but severe framing interference.
 This is numerical/interface qualification,not a learned-thinking result.
 [Reader diagnostic](results/workspace_reader_qualification_20261027/report.json).
+
+A bounded30-update reader-only calibration repairs much of that framing
+damage,with exact model/AdamW/RNG restoration. The subsequent real-base
+policy-gradient reference is finite,while all sampled workspaces on its
+single TRAIN anchor still hurt raw prediction. No policy optimization or
+efficient-thinking result is established. [Preparation summary and next gates](results/workspace_discovery_preparation_20261027/summary.json).
 
 The conventional eight-layer challenger now slightly outperforms fixed
 recurrence at matched nominal training work in both development seeds. The

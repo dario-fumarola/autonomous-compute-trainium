@@ -1,0 +1,194 @@
+{
+  "status": "COMPLETE_WORKSPACE_POLICY_GRADIENT_REFERENCE",
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "policy_only_gradient": {
+    "input_embedding": {
+      "l2": 2.961890935897827,
+      "elements": 205520896
+    },
+    "transformer_body": {
+      "l2": 63.807076417144145,
+      "elements": 1073874944
+    },
+    "output_head": {
+      "l2": 26.031856536865234,
+      "elements": 205520896
+    }
+  },
+  "joint_gradient": {
+    "input_embedding": {
+      "l2": 4.0419158935546875,
+      "elements": 205520896
+    },
+    "transformer_body": {
+      "l2": 64.5445103432033,
+      "elements": 1073874944
+    },
+    "output_head": {
+      "l2": 24.316801071166992,
+      "elements": 205520896
+    }
+  },
+  "scorer_gradients_absent": true,
+  "actor_and_scorer_parameter_versions_unchanged": true,
+  "losses": {
+    "ordinary": 2.600175619125366,
+    "reader": 8.211613655090332,
+    "policy": -0.6029981970787048,
+    "joint": 5.345594882965088
+  },
+  "absolute_gains": [
+    -1.6585283279418945,
+    -1.8772802352905273,
+    -2.085738182067871,
+    -1.7303991317749023
+  ],
+  "rewards": [
+    -1.666528344154358,
+    -1.8852802515029907,
+    -2.093738079071045,
+    -1.7383991479873657
+  ],
+  "advantages": [
+    0.23927752673625946,
+    -0.05239168927073479,
+    -0.33033546805381775,
+    0.1434497833251953
+  ],
+  "full_gradient_sha256": "948427ac31da248a2c327e7807fca55acbc9e8f5fe11b6def72c95e6c72314c7",
+  "full_gradient_bytes": 5939725586,
+  "backward_calls": 2,
+  "warning": "Real-base gradient qualification only;no writer policy update,held-out benefit or efficiency claim.",
+  "wall_seconds": 49.273151874542236,
+  "forward_ledger": {
+    "forward_calls": 15,
+    "processed_positions": 7043,
+    "projected_positions": 7043,
+    "forward_wall_seconds": 11.179829788859934,
+    "events": [
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 132,
+        "output_positions": 132,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7243060909677297
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 133,
+        "output_positions": 133,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7662913959939033
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 134,
+        "output_positions": 134,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7914531530113891
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 135,
+        "output_positions": 135,
+        "vocabulary": 100352,
+        "wall_seconds": 0.8358042689505965
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 136,
+        "output_positions": 136,
+        "vocabulary": 100352,
+        "wall_seconds": 0.8119371349457651
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 137,
+        "output_positions": 137,
+        "vocabulary": 100352,
+        "wall_seconds": 0.8015706889564171
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 138,
+        "output_positions": 138,
+        "vocabulary": 100352,
+        "wall_seconds": 0.8555363520281389
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 139,
+        "output_positions": 139,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7875711299711838
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 131,
+        "output_positions": 131,
+        "vocabulary": 100352,
+        "wall_seconds": 0.266579338000156
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 141,
+        "output_positions": 141,
+        "vocabulary": 100352,
+        "wall_seconds": 0.28344153601210564
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 149,
+        "output_positions": 149,
+        "vocabulary": 100352,
+        "wall_seconds": 0.801637576892972
+      },
+      {
+        "phase": "actor_policy",
+        "batch": 4,
+        "input_positions": 139,
+        "output_positions": 139,
+        "vocabulary": 100352,
+        "wall_seconds": 1.1455160320037976
+      },
+      {
+        "phase": "joint_ordinary_ntp",
+        "batch": 1,
+        "input_positions": 131,
+        "output_positions": 131,
+        "vocabulary": 100352,
+        "wall_seconds": 0.29464015702251345
+      },
+      {
+        "phase": "actor_workspace_reader",
+        "batch": 4,
+        "input_positions": 149,
+        "output_positions": 149,
+        "vocabulary": 100352,
+        "wall_seconds": 0.9925965570146218
+      },
+      {
+        "phase": "actor_policy",
+        "batch": 4,
+        "input_positions": 139,
+        "output_positions": 139,
+        "vocabulary": 100352,
+        "wall_seconds": 1.0209483770886436
+      }
+    ],
+    "warning": "Full recomputation reference. Positions are not FLOPs. Backward,optimizer,EMA and sampling costs need separate measurement."
+  },
+  "plan_sha256": "deea8e655cfd0cab5573de47a91424e955fd0251834ca7a25659568c0d0cccfc"
+}
