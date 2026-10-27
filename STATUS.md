@@ -1,3 +1,9 @@
+## October27,2026,00:59 UTC — complete switch audit passes; intact-seed deep continuation starts
+
+The independent512-window audit passes on the exact unchanged update3300 state. Overall body gradient discrepancy is0.103353%;largest family0.218401%,within the original2% limit. NTP/future-loss discrepancies are0.000001059/0.000000755 nats,within0.003. Complete state readback passes,and every one of538 registered source files remains unchanged. CPU comparison takes439.463 seconds after the successful zero-update Native capture. [Switch verification](results/late_two_allocation_20261026/single-recovery/switch-verification.json).
+
+The owned continuation worker is now live for exactly the1100 original remaining updates,on one eight-chip half. Its4400 endpoint,source order,full gradients,cooldown and02:48:50 recovery cutoff remain fixed. Final mature audit,state/RNG/replica checks and independent DEV scoring remain outstanding. The failed other seed remains excluded from any paired result;no advancement,4B,router or fresh confirmation is admitted.
+
 ## October27,2026,00:51 UTC — intact-seed switch capture passes; independent CPU audit active
 
 The published single-seed completion launches00:48:50 UTC under its02:48:50 UTC recovery cutoff,earlier than the unchanged03:08:35 original MAIN deadline. Its full512-window Native deep-objective capture closes successfully with zero optimizer updates;the independent CPU reference audit is now active. No deep-training update is permitted before that complete gate passes. The source plan,migrated complete state and original endpoint remain fixed. [Live recovery](results/late_two_allocation_20261026/single-recovery/REPORT.md).

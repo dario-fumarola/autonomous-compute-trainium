@@ -1,0 +1,27 @@
+{
+  "status": "PASS_COMPLETE_PRE_DEEP_SWITCH_AUDIT",
+  "observed_unix": 1793062717.0103343,
+  "case_id": "late-two-ntp-s5231",
+  "update": 3300,
+  "checkpoint_sha256": "055799b6225051139f83d270f91e5bdef61170914dc757ce6f083fc1e75cdd5e",
+  "native_report_sha256": "49a0186da2fca15ac9510ca4496f0b3d3476e6a5831383f165ab5f83735ae52b",
+  "independent_cpu_report_sha256": "41323bd439107d65a269990a7e6954c58e2499b1e1a6922fe57de80b1168c599",
+  "windows": 512,
+  "optimizer_updates": 0,
+  "overall_gradient_relative_l2": 0.0010335316859540144,
+  "body_gradient_family_relative_l2": {
+    "recurrent_injection_readout": 0.0021840075719963717,
+    "tied_input_output": 0.0008067457830524215,
+    "transformer_body": 0.0010320849971665632,
+    "value_embeddings": 0.0011916291865359974
+  },
+  "loss_differences": {
+    "ntp_nll": 1.0594065535940445e-06,
+    "future_mean": 7.552604852634204e-07
+  },
+  "full_state_readback_exact": true,
+  "all_registered_sources_unchanged": true,
+  "registered_source_files": 538,
+  "independent_cpu_wall_seconds": 439.4631049633026,
+  "scope": "Complete original gradient/family/loss/state gate passes before update3301. Only the intact seed continues;no paired advancement or quality result."
+}
