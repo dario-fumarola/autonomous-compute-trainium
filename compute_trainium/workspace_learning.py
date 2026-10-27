@@ -65,6 +65,25 @@ def framed_context(prefix,workspace,format):
     return torch.cat([prefix,_constant(prefix,format.opening),workspace,_constant(prefix,format.closing)],dim=1)
 
 
+def prefix_preserving_context(prefix,workspace,format):
+    """Read the generated note before the unchanged observed prefix.
+
+    Generation still uses the observed prefix first. Reader order changes only;
+    no continuation enters either context. A second prefill is charged.
+    """
+    _tokens(prefix,'prefix');_tokens(workspace,'workspace',empty=True)
+    if prefix.shape[0] not in [1,workspace.shape[0]]:raise ValueError('Incompatible context batch')
+    prefix=prefix.expand(workspace.shape[0],-1)
+    return torch.cat([_constant(prefix,format.opening),workspace,_constant(prefix,format.closing),prefix],dim=1)
+
+
+def identity_reader_context(prefix,workspace,format):
+    """No reader-side prose: zero work is exactly the ordinary input."""
+    _tokens(prefix,'prefix');_tokens(workspace,'workspace',empty=True)
+    if prefix.shape[0] not in [1,workspace.shape[0]]:raise ValueError('Incompatible context batch')
+    return torch.cat([workspace,prefix.expand(workspace.shape[0],-1)],dim=1)
+
+
 def target_log_probs(reader,context,targets,*,phase,temperature=1.):
     _tokens(context,'context');_tokens(targets,'targets')
     if not math.isfinite(temperature) or temperature<=0:raise ValueError('Positive finite sampling temperature required')
@@ -92,12 +111,12 @@ def sample_workspaces(reader,prefix,*,format,length,group_size,generator,tempera
 
 
 @torch.no_grad()
-def score_workspaces(scorer,prefix,targets,workspace,*,format,cost_per_token=0.):
+def score_workspaces(scorer,prefix,targets,workspace,*,format,cost_per_token=0.,context_builder=framed_context):
     if not math.isfinite(cost_per_token) or cost_per_token<0:raise ValueError('Nonnegative finite cost required')
     raw=target_log_probs(scorer,prefix,targets,phase='scorer_raw_no_workspace').mean(-1)
-    framed=target_log_probs(scorer,framed_context(prefix,workspace[:1,:0],format),targets,
+    framed=target_log_probs(scorer,context_builder(prefix,workspace[:1,:0],format),targets,
                             phase='scorer_empty_frame').mean(-1)
-    worked=target_log_probs(scorer,framed_context(prefix,workspace,format),targets,
+    worked=target_log_probs(scorer,context_builder(prefix,workspace,format),targets,
                             phase='scorer_workspace').mean(-1)
     gain=worked-raw
     return dict(rewards=(gain-cost_per_token*workspace.shape[1]).detach(),

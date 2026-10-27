@@ -1,0 +1,31 @@
+{
+  "registered_unix": 1793128466.074712,
+  "checkpoint_sha256": "883b05baa6f104f9ecabd2a2d1e5b986dc99ee80f22e350312591b46e9828db2",
+  "source_views_sha256": "b402265205192d0faf35f736cc4354e7bc9cbba3f114063209a70a630df10ad0",
+  "source_sha256": {
+    "scripts/check_workspace_identity_reader.py": "f3f34e77a4559e8258f634b73045e36f1cb15a5c63b63b69fc7effe547287728",
+    "compute_trainium/workspace_learning.py": "f8953f62dc50fb054bc61c84d0d258a88043cce74f012a233e2d554857201c1b",
+    "docs/WORKSPACE_IDENTITY_READER_20261027.md": "5d21ca0d6f2625f3d15f37abb03faa8857ce618a19a88998f935e91040a8fc1f"
+  },
+  "group_size": 4,
+  "length": 8,
+  "horizon": 4,
+  "seed": 204137,
+  "maximum_seconds": 900,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "empty_frame_tolerance": 0.05,
+  "privileged_copy_roomy_gain": 0.1,
+  "roomy_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9
+  ],
+  "scope": "# Remove reader-side framing,retain exact zero-work identity\n\nThe first reordered reader preserved the original natural suffix but still\ninserted prose before it. Its point empty-frame penalty0.0556868 misses the\nregistered0.05 gate;keep that failure. The privileged-copy gate passes.\n\nTest one structural refinement: the reader input is simply workspace+prefix,\nwith no reader-side opening or closing prose. Zero workspace yields exactly\nthe original prefix,without a bypass or output mixture. The writer still\ngenerates from prefix+opening without seeing future text. This changes the\nreader interface only;charge its second prefill and all processing. It does\nnot make sampled thoughts informative or save their generation cost.\n\nUse the same calibrated weights,ten consumed TRAIN groups,seeds,G4,length8\nand horizon4. Freeze the unchanged point gates: empty-minus-raw at most0.05,\nand privileged future-copy mean improvement at least0.1 on the original\nraw-NLL>=0.1 subset. The latter is a diagnostic positive control,never a\nsampled thought or inference input. Report own,donor and fixed-pause controls\neven if they lose. No optimization,TEST or new confirmation data.\n\nPassing permits further policy qualification,not an efficiency or thinking\nclaim. No further framing or length search follows automatically. CPU16\nthreads,15-minute operational cap;preserve all outcomes.\n"
+}

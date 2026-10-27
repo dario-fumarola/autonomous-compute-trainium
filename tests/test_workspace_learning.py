@@ -7,7 +7,7 @@ import torch.nn.functional as F
 from compute_trainium.model import LanguageModel,ModelConfig
 from compute_trainium.workspace_learning import (Reader,ForwardLedger,WorkspaceFormat,
     framed_context,target_log_probs,sample_workspaces,score_workspaces,group_advantages,
-    policy_loss,reader_loss,make_frozen_scorer,update_ema)
+    policy_loss,reader_loss,make_frozen_scorer,update_ema,prefix_preserving_context,identity_reader_context)
 
 
 @pytest.fixture
@@ -104,3 +104,23 @@ def test_policy_temperature_matches_sample_distribution_and_rejects_nonfinite():
     observed=target_log_probs(Reader(actor),c,y,phase='fixture',temperature=.5)
     torch.testing.assert_close(observed[0,0],(actor.logits/.5).log_softmax(-1)[1])
     with pytest.raises(ValueError):target_log_probs(Reader(actor),c,y,phase='fixture',temperature=float('nan'))
+
+
+def test_alternate_reader_preserves_the_natural_suffix_and_matches_token_cost(model):
+    c=torch.tensor([[1,2,3]]);z=torch.tensor([[4,5],[6,7]]);fmt=WorkspaceFormat((8,),(9,))
+    alternative=prefix_preserving_context(c,z,fmt)
+    assert alternative.tolist()==[[8,4,5,9,1,2,3],[8,6,7,9,1,2,3]]
+    assert alternative.shape==framed_context(c,z,fmt).shape
+    y=torch.tensor([[10,11]])
+    scored=score_workspaces(Reader(model),c,y,z,format=fmt,context_builder=prefix_preserving_context)
+    direct=target_log_probs(Reader(model),alternative,y,phase='fixture').mean(-1)
+    torch.testing.assert_close(scored['workspace_log_probability'],direct)
+
+
+def test_framing_free_reader_is_exactly_ordinary_with_zero_work(model):
+    prefix=torch.tensor([[1,2,3]]);empty=torch.empty((1,0),dtype=torch.long);fmt=WorkspaceFormat((8,),(9,))
+    context=identity_reader_context(prefix,empty,fmt)
+    torch.testing.assert_close(context,prefix,rtol=0,atol=0)
+    torch.testing.assert_close(model(context),model(prefix),rtol=0,atol=0)
+    note=torch.tensor([[4,5],[6,7]])
+    assert identity_reader_context(prefix,note,fmt).tolist()==[[4,5,1,2,3],[6,7,1,2,3]]

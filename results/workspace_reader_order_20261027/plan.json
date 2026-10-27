@@ -1,0 +1,31 @@
+{
+  "registered_unix": 1793127229.7249923,
+  "checkpoint_sha256": "883b05baa6f104f9ecabd2a2d1e5b986dc99ee80f22e350312591b46e9828db2",
+  "source_views_sha256": "b402265205192d0faf35f736cc4354e7bc9cbba3f114063209a70a630df10ad0",
+  "source_sha256": {
+    "scripts/check_workspace_reader_order.py": "1dcf0f1b734890ccb29fbc0dc2db3479cd438cdc0bc77cc2cb26940a44385fda",
+    "compute_trainium/workspace_learning.py": "07fd7d4e46e30eea1d30f0945a969a52f77ded9c171a5045fecfc8f79216c104",
+    "docs/WORKSPACE_READER_ORDER_20261027.md": "563cc8f0af162f85eb51518f68cf90b5cfc632dbe5c327f6bfa47167c3d17365"
+  },
+  "group_size": 4,
+  "length": 8,
+  "horizon": 4,
+  "seed": 204137,
+  "maximum_seconds": 900,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "empty_frame_tolerance": 0.05,
+  "privileged_copy_roomy_gain": 0.1,
+  "roomy_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9
+  ],
+  "scope": "# One prefix-preserving reader-order check\n\nThe inline reader predicts from prefix/open/work/close. Even empty framing\nchanges the immediate continuation context and costs1.308nats after bootstrap.\nTest exactly one alternative order,open/work/close/prefix,on the same calibrated\nweights and ten previously consumed TRAIN diagnostic anchors. Generation is\nunchanged and prefix-only;reader sees the same observed information in another\norder. No true continuation is available to workspace generation or selection.\n\nThe natural prefix is uninterrupted at the end of this reader input. Both\norders have the same token count and use uncached complete recomputation.\nThe alternative requires another prefill and cannot reuse writer-prefix K/V;\ncharge that actual cost. No new normalization,heads,optimizer or reader fit.\nThis is one declared interface candidate,not a prompt/length search.\n\nBefore policy optimization,diagnostic gate A is empty-framed minus raw mean\nNLL at most0.05. Gate B is privileged true-future-copy gain at least0.1nats on\nanchors with ORIGINAL frozen raw NLL at least0.1. The latter excludes an\nalready near-perfect target with no useful improvement room. It is a labeled\nsoftware positive control,never a generated thought or performance result.\nThese small-sample point gates qualify an interface;they do not establish\ngeneralization,noninferiority or efficient thought. Preserve a failure.\n\nReport raw,empty,own,independent donor,fixed-pause and privileged-copy scores\nfor both orders. Use G4,length8,horizon4,temperature1,original per-anchor seeds,\nno optimization and unchanged weights. No further interface variant or policy\nfit is admitted automatically. CPU16threads and15-minute cap.\n"
+}

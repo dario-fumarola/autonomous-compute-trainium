@@ -18,7 +18,7 @@ policy gradients are authorized for this new phase. Earlier results retain
 their original criteria;no larger recurrence main or confirmation completed.
 [New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
 
-The first implementation passes460 CPU tests,two skipped,including an exact
+The first implementation passes468 CPU tests,two skipped,including an exact
 policy-gradient check. A zero-update1.485B stage-one reader check on ten natural
 TRAIN anchors finds content sensitivity but severe framing interference.
 This is numerical/interface qualification,not a learned-thinking result.
@@ -29,6 +29,21 @@ damage,with exact model/AdamW/RNG restoration. The subsequent real-base
 policy-gradient reference is finite,while all sampled workspaces on its
 single TRAIN anchor still hurt raw prediction. No policy optimization or
 efficient-thinking result is established. [Preparation summary and next gates](results/workspace_discovery_preparation_20261027/summary.json).
+
+The framing-free reader passes both registered interface point checks: empty
+workspace is exactly the raw input, and a privileged future-copy probe helps
+by0.972423nats on the original roomy anchors. Sampled workspaces still hurt
+by0.038068nats; useful writing has not been learned.
+[Interface result](results/workspace_identity_reader_20261027/recovery-v2/report.json).
+
+The previous replicated-body memory estimate was wrong: the existing loader
+already shards all179 OLMo parameters across64 ranks. A new OLMo path passes
+four-process CPU gradients, AdamW deltas/moments, EMA and exact restart checks.
+Actual Native runtime memory remains to be measured. Reversible preservation
+and verified public-cache eviction leave105.08GiB free.
+[Sharding correction](results/workspace_sharding_correction_20261027/report.json) ·
+[CPU proof](results/workspace_sharded_cpu_20261027/report.json) ·
+[Storage receipt](results/workspace_public_cache_20261027/report.json).
 
 The conventional eight-layer challenger now slightly outperforms fixed
 recurrence at matched nominal training work in both development seeds. The
