@@ -83,7 +83,9 @@ def audit(root,output,registration):
     if (file_sha256(plan_file)!=registered['native_plan_sha256']
             or file_sha256(folder/'report.json')!=registered['native_capture_report_sha256']):
         raise AssertionError('Frozen Native capture binding changed')
-    artifact=Path(plan['host_artifact_root']);warm=artifact/'warm';replay=artifact/'replay'
+    artifact=Path(plan['host_artifact_root'])
+    warm=Path(plan.get('host_artifact_roots',{}).get('warm',str(artifact)))/'warm'
+    replay=Path(plan.get('host_artifact_roots',{}).get('replay',str(artifact)))/'replay'
     upstream=root/'upstream-parcae-69284c1'
     if subprocess.check_output(['git','-C',str(upstream),'rev-parse','HEAD'],text=True).strip()!=PIN:
         raise AssertionError('Pinned independent upstream changed')
@@ -155,8 +157,14 @@ def audit(root,output,registration):
     actual=torch.load(warm/'gradient-u100.pt',map_location='cpu',mmap=True,weights_only=False)
     delta=gradient_comparison({n:p.grad for n,p in model.named_parameters()},actual['gradients'])
     nll=total_loss/targets;difference=actual['loss']-nll
+    diagnostic=dict(gradient=delta,cpu_nll=nll,native_minus_cpu_nll=difference,cpu_norm_before_clip=norm,
+        native_norm_before_clip=actual['raw_gradient_norm'],windows=512,real_targets=targets,source_cursor=cursor)
+    (output/'full-gradient.json').write_text(json.dumps(diagnostic,indent=2)+'\n')
     if (not delta['passes_two_percent_gate'] or abs(difference)>.003 or actual['source_cursor']!=cursor
-            or actual['real_targets']!=targets or not actual['clipped']):raise AssertionError('Full512 independent gradient/NLL gate failed')
+            or actual['real_targets']!=targets or not actual['clipped']):
+        torch.save(dict(gradients={n:p.grad.detach().clone() for n,p in model.named_parameters()},
+            cpu_nll=nll,source_cursor=cursor,real_targets=targets),output/'failed-cpu-gradient.pt')
+        raise AssertionError('Full512 independent gradient/NLL gate failed')
     if digest(dict(model.state_dict()))!=model_digest:raise AssertionError('CPU backward changed checkpoint weights')
     gradient=dict(gradient=delta,cpu_nll=nll,native_minus_cpu_nll=difference,cpu_norm_before_clip=norm,
         native_norm_before_clip=actual['raw_gradient_norm'],windows=512,real_targets=targets,source_cursor=cursor)
