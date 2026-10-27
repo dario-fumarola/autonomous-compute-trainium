@@ -3,7 +3,7 @@ import os
 
 import pytest
 
-from scripts.closed_raw_cache_maintenance import validate_candidate
+from scripts.closed_raw_cache_maintenance import validate_candidate,verify
 
 
 def record(path):
@@ -22,3 +22,12 @@ def test_cache_scope_cannot_target_states_arrays_symlinks_or_unpinned_sources(tm
     with pytest.raises(ValueError):validate_candidate(cache,bad)
     os.link(path,cache/'shared-copy')
     with pytest.raises(ValueError):validate_candidate(cache,item)
+
+
+def test_manifest_retention_rejects_release_before_any_file_or_remote_action(tmp_path):
+    import json
+    source=tmp_path/'natural-append-17000m-v3';source.mkdir()
+    (source/'failure.json').write_text(json.dumps(dict(status='STOPPED_CHAINED_DATA_PREPARATION')))
+    capacity=tmp_path/'natural-append-capacity-v4';capacity.mkdir()
+    (capacity/'manifest.json').write_text(json.dumps(dict(scope='Original raw sources remain indispensable private dependencies.')))
+    with pytest.raises(ValueError,match='indispensable dependencies'):verify(tmp_path)

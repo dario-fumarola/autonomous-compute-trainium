@@ -1,3 +1,9 @@
+## October27,2026,04:46 UTC — raw source dependency release reversed
+
+The capacity manifest explicitly retains original raw sources as indispensable private dependencies. The earlier cache classification missed that condition. All28 files are restored at their original logical paths and individually match their original SHA256 and lengths; three are stored on another existing owned filesystem through links, retaining35GiB filesystem reserves. Packed corpora, checkpoints and original source metadata remained intact. [Restoration and correction](results/raw_source_restoration_20261027/REPORT.md).
+
+A regression guard now rejects release under that retention declaration. Original release receipts stay preserved. Storage recovery is being replaced with exact restorable archival of completed duplicate replay evidence; no source dependency or unique state will be discarded. The medium numerical capture has completed237.100 warm seconds and its independent CPU audit is active; no scientific fit or quality result is admitted.
+
 ## October27,2026,04:23 UTC — complete956M numerical proof passes; budget-fit joint-scale profile prepared
 
 The full512 independent upstream gradient passes at0.213204% overall /0.213232% largest family and0.000001244 NLL difference. First update/moments pass, and named fresh-process replay updates/moments are exactly equal. Both original worker bundles remain unchanged and close successfully. All102 updates remain numerical only, with no held-out quality or scientific fit. [Complete proof](results/scale_956m_numerical_20261027/completion-verification.json).

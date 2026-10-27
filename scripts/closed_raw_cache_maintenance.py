@@ -53,6 +53,9 @@ def verify(root):
     source=root/'natural-append-17000m-v3';cache=source/'raw'
     failure=json.loads((source/'failure.json').read_text())
     capacity=root/'natural-append-capacity-v4'
+    retention=json.loads((capacity/'manifest.json').read_text()).get('scope','').lower()
+    if 'raw sources' in retention and 'indispensable' in retention:
+        raise ValueError('Source manifest retains raw sources as indispensable dependencies; do not release them')
     if (failure['status']!='STOPPED_CHAINED_DATA_PREPARATION'
             or json.loads((capacity/'independent-audit.json').read_text())['status']!='PASS_INDEPENDENT_CHAINED_EXTENSION_AUDIT'
             or json.loads((capacity/'subset-audit.json').read_text())['status']!='PASS_INDEPENDENT_CAPACITY_SUBSET_PROOF'):
