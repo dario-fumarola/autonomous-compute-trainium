@@ -37,6 +37,9 @@ comparison. However:
   while keeping the original prefix and declared compute control fixed.
   Test token-content use and latent-state use separately: uninformative text
   can still accompany input-dependent, useful hidden computation.
+  Do not move a thought generated from a later prefix into an earlier
+  prediction: it may already encode that prediction's target. Use donors
+  independent of that target or an explicitly past-only control.
 * Measure a curve over lengths supported during training, with uncertainty
   and equal-resource alternatives. Improvement at useful finite budgets is
   evidence even if a forced longer thought eventually hurts. Strict
