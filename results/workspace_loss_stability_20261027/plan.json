@@ -1,0 +1,13 @@
+{
+  "registered_unix": 1793136334.9002807,
+  "native_report_sha256": "74fb64f8f5a5589ed63b5ad144b5c7461c6eed35bb59e5469b6117612f62e91a",
+  "inputs_sha256": "754b3f8bb1ea90ec34fd0e970815b2df09449e2679ded257a481c644f75b3ee8",
+  "source_sha256": {
+    "scripts/diagnose_workspace_loss_stability.py": "1fa3ff06370d384e568c97f64da27d122b1acd8bc2d2d462d6e94524f63511c3",
+    "compute_trainium/stable_target_loss.py": "ee435d79f11caa02caef8a0543528f8f79616eaa162f961cc622ee165ac99fdf",
+    "compute_trainium/workspace_cpu_reconstruction.py": "95a5801cd1426710e2329f3389ff3133742d9bd6255e76934eb3357a4be40a40"
+  },
+  "optimizer_updates": 0,
+  "maximum_seconds": 900,
+  "scope": "Same fixed u102 actor and generated notes as failed audit. Policy advantages are exactly zero. Recompute only ordinary/reader gradient with stable FP32 versus stable FP64 target loss. This diagnoses arithmetic and does not repair or certify historical training."
+}

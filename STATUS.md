@@ -1,3 +1,19 @@
+## October27,2026,21:23 UTC — mature gate fails;loss arithmetic localized;no scientific fit admitted
+
+The complete online qualification finishes101 actual policy-containing updates,including100warm updates at23.6459seconds mean,no CPU fallback. Final counter102/full actor-scorer-optimizer-RNG state and every gradient are saved. It repeats one TRAIN source and reaches near-zero loss:memorization,not transfer. The independent mature audit fails unchanged2% limits:16.8407% overall,41.6367% largest named difference versus the standard-FP32 CPU reference. Timing and exact-state recovery remain recorded;the history is not a numerically qualified scientific fit. [Execution](results/workspace_online_throughput_20261027/report.json) · [Failed mature gate](results/workspace_online_mature_audit_20261027/report.json).
+
+At the SAME fixed mature weights,a CPU diagnosis finds standard-FP32 versus stable-FP64 loss-gradient differences11.4753% overall/35.9067% largest named. An equivalent target-relative logsumexp/softplus calculation in FP32 reduces those to0.0000604%/0.000172%. Five independent analytic FP64 probability-gradient fixtures also pass,including confidence margins where p_y-1 cancels. A new all16-chip numerical-only fixture will test the primitive before actual-model requalification. No thresholds or historical results are relaxed. [Fixed-weight diagnosis](results/workspace_loss_stability_20261027/report.json).
+
+The corrected source-view extractor completes its original quotas:65,600 TRAIN views across10,460 groups;500 tuning views across118 groups;1,000 consumed-DEV views across59 groups. All groups are disjoint. No model selects the views and no TEST is processed. [Source receipt](results/workspace_source_views_20261027/recovery-v2/report.json).
+
+Lossless preservation finishes all eight registered cold packing arrays:73,964,596,698 bytes recovered,with original hashes matched to packing manifests,all full gzip roundtrips verified,and a materialized first restore checked. Old mmap paths for those arrays require explicit restoration via scripts/preserve_legacy_packing_arrays.py --restore RELATIVE_PATH;original metadata/manifests and all states remain. [Preservation](results/workspace_legacy_array_preservation_20261027/report.json). All481 CPU tests pass,two skipped,123.90seconds. No scientific baseline comparison or learned-thinking result yet.
+
+## October27,2026,20:42 UTC — source extractor stops before producing views;canonical hash fix registered
+
+The first source extraction emits zero views and stops at its unchanged yield guard. Diagnosis:it compared plaintext canonical groups against stored SHA256 group IDs in both the original acceptance records and document databases. The failed source,plan and empty outputs remain. It did not score or train any model and does not affect the live online numerical qualification. [Retained stop](results/workspace_source_views_20261027/report.json).
+
+A separate v2 fixes only the group representation comparison and adds an upfront schema validation. Requested counts,selection seeds,spacing,TRAIN/tuning/DEV isolation,source receipts and no-model-scoring rule remain fixed. No quota is lowered and no new source is substituted.
+
 ## October27,2026,20:19 UTC — online/state CPU helpers pass;fixed101-update Native cost qualification prepared
 
 Selective-head/padded prediction matches the full CPU reference,including every joint gradient with tensor-valued runtime policy coefficients. Prefix-only workspace sampling has exact RNG replay. Four-process CPU tests also reconstruct a completely empty optimizer state from the streamed full checkpoint and preserve exact replay. The full suite passes472 tests,two skipped,121.20seconds;the additional direct runtime-gradient and partial-controller tests also pass. [Bound helper proof](results/workspace_online_cpu_20261027/report.json).

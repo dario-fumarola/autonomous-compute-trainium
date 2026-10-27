@@ -1,0 +1,68 @@
+{
+  "registered_unix": 1793133784.2080526,
+  "predecessor": "workspace-source-views-v1",
+  "change": "Only fix canonical group comparison:existing metadata stores SHA256(source_group),not plaintext.Original quotas,seeds,source rows,split rules and no-scoring scope unchanged.",
+  "purpose": "SOURCE_VIEWS_ONLY_NO_SCIENTIFIC_FIT_OR_MODEL_SELECTION",
+  "source_sha256": {
+    "scripts/prepare_workspace_source_views.py": "87f9568b3fbb0c524172ed788761107bce3494ca6bbd0573d0539851467ad400",
+    "scripts/prepare_natural.py": "b7bc340b26689250ccfbc70b51740ec2c752b91568135988a354a19b85f356ef",
+    "compute_trainium/data.py": "15c768b03eafe6e61cc4ee78a0de583d7e94a42ebdc74eef65a17e1eee9efd20"
+  },
+  "raw_receipts": {
+    "web": {
+      "repository": "HuggingFaceFW/fineweb-edu",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "file": "data/CC-MAIN-2013-20/train-00000-of-00014.parquet",
+      "sha256": "fb989c566f6fba00ab61decc5f7aa1538a07d9b142e58a52ff790154528ffd03"
+    },
+    "math": {
+      "repository": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "file": "finemath-4plus/train-00000-of-00064.parquet",
+      "sha256": "5d0b26114b4cf309c82a4ba8f6f45857480b27812e23a46b61b45e8bbed61fe5"
+    },
+    "code": {
+      "repository": "codeparrot/codeparrot-clean",
+      "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+      "file": "file-000000000001.json.gz",
+      "sha256": "3726a0239b5cb7d0ef3ea36886c533d0becc7404217763015559edb546d53c94"
+    }
+  },
+  "accepted_database_sha256": {
+    "natural-append-3250m": "6f11de3a7c16df42897b1de0d2bde26de0b40477e2cd677b62cf98a8c621c5e4",
+    "natural-append-6500m-v2": "2f91b555ea7003462e6051461993a4bbbf684f8cb1f48acbaee5593fa5b3cfcb",
+    "natural-append-17000m-v3": "241edebd73b7dd27bac1603da6b905882adf854fe4263355952077e8862ce28a",
+    "natural-append-capacity-v4": "d651ea3855a99a606392986c94120dca80f39d8094d3c4f2fdc8fcfee76081ce"
+  },
+  "original_acceptance_manifest_sha256": "81fe046e2487b71b7a5f823ac5a0f5a2c0a013de06d76b30fa2b9776b4f51e31",
+  "base_report_sha256": "02ca686ace432b59a6433fed7cafba9866262cbda84fd50d61891914383f75ee",
+  "quota_by_split_domain": {
+    "train": {
+      "web": 39360,
+      "math": 13120,
+      "code": 13120
+    },
+    "tune": {
+      "web": 300,
+      "math": 100,
+      "code": 100
+    },
+    "dev": {
+      "web": 600,
+      "math": 200,
+      "code": 200
+    }
+  },
+  "prefix_tokens": 128,
+  "ordered_future_tokens": 32,
+  "training_anchor_spacing": 256,
+  "maximum_document_tokens": 16384,
+  "maximum_source_characters": 2000000,
+  "maximum_train_views_per_document": 32,
+  "maximum_tune_views_per_document": 16,
+  "maximum_dev_views_per_document": 16,
+  "selection_seed": 7403,
+  "tune_group_rule": "SHA256(source_group) first8hex mod10 ==0 among accepted TRAIN groups;all other accepted TRAIN groups train.Exclude every prior calibration group.",
+  "dev_rule": "Previously consumed original DEV documents only;up to16 distinct uniform eligible positions per document.Source-group clustered inference required,not independent windows.No TEST processing or confirmation.",
+  "scope": "Authentic source substrings re-tokenized with pinned OLMo tokenizer. No generated targets,teacher,reasoning labels or loss-based selection. Full four-generation accepted TRAIN ID membership/source-group/domain checked;old DEV accepted IDs frozen. Quotas are requested caps;if yields fall short,stop without replacing by unregistered data. This is a new view protocol,not unchanged raw-text packing or the old exact source-token prefix."
+}

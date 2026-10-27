@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETE_FIXED_WEIGHT_LOSS_STABILITY_DIAGNOSIS",
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "losses": {
+    "fp32": {
+      "ordinary": 6.2113258536555804e-06,
+      "reader": 8.517367859894875e-07
+    },
+    "fp64": {
+      "ordinary": 6.211326090577479e-06,
+      "reader": 8.517368902018903e-07
+    }
+  },
+  "stable_fp32_vs_fp64": {
+    "relative_l2": 6.042081390213444e-07,
+    "maximum_absolute_error": 3.069544618483633e-12,
+    "largest_named_relative_l2": 1.7197750565594409e-06
+  },
+  "standard_fp32_vs_stable_fp64": {
+    "relative_l2": 0.11475334431658378,
+    "maximum_absolute_error": 6.988733503021649e-07,
+    "largest_named_relative_l2": 0.3590666032177122
+  },
+  "gradient_sha256": {
+    "fp32": "27be95fe3ae966ada2e48c9b895085dd0d9703fae60b083c9a285e92f0c85522",
+    "fp64": "e63d0fc6b1ec1c16c7168f03f311986058d51f26b25c7f72498ac0b30dac8e65"
+  },
+  "warning": "No weight update.Same failed-history checkpoint;better loss arithmetic does not retroactively certify it.",
+  "wall_seconds": 70.06177520751953,
+  "plan_sha256": "6e1b605ba6f576752dd361f5a5d46aa716cd18f977a01dc492a3b62630a6877b"
+}

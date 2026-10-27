@@ -1,0 +1,53 @@
+{
+  "status": "PASS_WORKSPACE_NATURAL_SOURCE_VIEWS",
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "source_group_isolation": true,
+  "files": {
+    "train": {
+      "sha256": "fa0e984f744e8b180c45669f9a73b1caabf791b43bb942c537d17114fbef64d9",
+      "bytes": 61728007
+    },
+    "tune": {
+      "sha256": "4bacc8bcce7afa247305c3e8904124ec85d8d7e8098e5e80ec4eb9a94e71007f",
+      "bytes": 469996
+    },
+    "dev": {
+      "sha256": "19ed4202a72ef8e8fde8242430ef66a6ce8a9076142c5884b5c1eb04cd0c3b06",
+      "bytes": 936979
+    }
+  },
+  "warning": "New-tokenizer source views only.No model scored or trained. DEV was previously consumed and is not fresh confirmation;upstream base contamination cannot be ruled out.",
+  "wall_seconds": 222.22112584114075,
+  "counts": {
+    "train": {
+      "web": 39360,
+      "math": 13120,
+      "code": 13120
+    },
+    "tune": {
+      "web": 300,
+      "math": 100,
+      "code": 100
+    },
+    "dev": {
+      "web": 600,
+      "math": 200,
+      "code": 200
+    }
+  },
+  "source_groups": {
+    "train": 10460,
+    "tune": 118,
+    "dev": 59
+  },
+  "documents_at_token_cap": 0,
+  "rejected": {
+    "prior_calibration_group": 139,
+    "short_document": 856,
+    "alternate_source_for_same_content": 275,
+    "invalid_source_identity": 523,
+    "alternate_source_for_original_content": 2
+  },
+  "plan_sha256": "d416889743f5db1bbd4ae5a694704c71af6dfe90909c2dba21b3d98b6655e171"
+}
