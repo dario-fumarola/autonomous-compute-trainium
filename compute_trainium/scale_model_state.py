@@ -104,3 +104,38 @@ def reconstruct_weights(folder,update,config):
         elif placement=='S(0)':result[name]=torch.cat(tensors,0)
         else:raise ValueError('Unexpected sharding placement')
     return result,rows
+
+
+def share_exact_replay_shard(model,optimizer,folder,parent,signature,update,packed,neural_ops,optimizer_ops):
+    """Reuse existing bytes only after checking the actual live replay state.
+
+    A differing replay always retains every raw rank shard through save_shard;
+    nothing is majority-selected or overwritten to manufacture equivalence.
+    """
+    rank,world=dist.get_rank(),dist.get_world_size();folder=Path(folder);parent=Path(parent)
+    folder.mkdir(exist_ok=True,parents=True)
+    parent_note=json.loads((parent/f'rank{rank}-u{update}.json').read_text())
+    file=parent/parent_note['file']
+    if file_sha256(file)!=parent_note['sha256']:raise AssertionError('Immutable warm state changed')
+    saved=torch.load(file,map_location='cpu',mmap=True,weights_only=False);validate_shard(saved,signature,rank,world,update)
+    if (saved['neural_ops']!=neural_ops or saved['optimizer_ops']!=optimizer_ops
+            or saved['real_targets']!=sum(packed.counts(0,update*512))):
+        raise AssertionError('Live replay work/source counters differ')
+    live={**saved,'model_shards':{n:local_parameter(p) for n,p in model.named_parameters()},
+        'optimizer':optimizer.state_dict(),'cpu_rng':torch.get_rng_state()}
+    equal=digest(live)==parent_note['state_digest']
+    flag=torch.tensor(1. if equal else 0.,device=local_parameter(next(model.parameters())).device)
+    dist.all_reduce(flag)
+    if int(float(flag.cpu()))!=world:return save_shard(model,optimizer,folder,signature,update,packed,neural_ops,optimizer_ops)
+    target=folder/file.name
+    if target.exists() or target.is_symlink():raise FileExistsError('Preserve all replay artifacts')
+    import os
+    target.symlink_to(os.path.relpath(file,folder))
+    note={**parent_note,'shared_existing_bytes_after_exact_live_replay_check':True}
+    (folder/f'rank{rank}-u{update}.json').write_text(json.dumps(note,indent=2)+'\n');dist.barrier()
+    if rank==0:
+        notes=[json.loads((folder/f'rank{i}-u{update}.json').read_text()) for i in range(world)]
+        (folder/f'manifest-u{update}.json').write_text(json.dumps(dict(purpose=PURPOSE,qualification_only=True,
+            eligible_for_science=False,signature=signature,world=world,update=update,
+            all_replicated_states_equal=True,all_live_replay_states_exact=True,shards=notes),indent=2)+'\n')
+    dist.barrier();return parent_note['state_digest']
