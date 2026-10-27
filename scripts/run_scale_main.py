@@ -24,8 +24,13 @@ def prepare(root,*,boundary_corrected=False):
     if managed_running():raise RuntimeError('Complete prior Native closure required')
     tune_identity='scale-boundary-rate-completion-v2' if boundary_corrected else 'scale-medium-tune-65536-v1'
     tune_file=root/tune_identity/'report.json' if boundary_corrected else root/'scale-tune-readout-recovery-v1/report.json'
+    if boundary_corrected:
+        from scripts.run_scale_boundary_lower_rates import selection_source
+        tune_plan_file,tune_file=selection_source(root)
+        tune_identity=tune_plan_file.parent.name
     tune=json.loads(tune_file.read_text())
-    expected='COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION' if boundary_corrected else 'COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION'
+    expected=('COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION' if tune_identity=='scale-boundary-lower-rates-v1'
+              else 'COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION') if boundary_corrected else 'COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION'
     if tune['status']!=expected:raise ValueError('Complete independently audited corrected TUNE required')
     tune_plan=json.loads((root/tune_identity/'plan.json').read_text())
     if tune['plan_sha256']!=file_sha256(root/tune_identity/'plan.json'):raise AssertionError('Original TUNE registration changed')
@@ -54,7 +59,8 @@ def prepare(root,*,boundary_corrected=False):
     if tune_plan.get('manual_loss_scale')!=65536:raise ValueError('Both roles must retain the freshly qualified scaler')
     for role in ['fixed_two','ordinary8']:
         choice=tune['selected'][role]
-        if choice['rate'] not in [.008,.016,.032,.064] or choice['score']>=4.:raise ValueError('Prespecified healthy independent rate required')
+        allowed=tune_plan.get('selection_rate_grid',[.008,.016,.032,.064])
+        if choice['rate'] not in allowed or choice['score']>=4.:raise ValueError('Prespecified healthy independent rate required')
     storage=root/('scale-boundary-main-state-allowance-v1' if boundary_corrected else 'scale-main-state-allowance-v2')/'report.json'
     storage_proof=json.loads(storage.read_text())
     if storage_proof['status']!='ADMITTED_COMPLETE_SCALE_MAIN_STATE_STORAGE':raise ValueError('Complete prospective raw-state storage required')

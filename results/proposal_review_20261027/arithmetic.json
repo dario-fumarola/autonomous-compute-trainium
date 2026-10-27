@@ -1,0 +1,148 @@
+{
+  "status": "COMPLETE_PROPOSAL_ARITHMETIC_ONLY",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "new_research_examples": 0,
+  "proposed_invalid_gqa_shapes": [
+    {
+      "layers": 12,
+      "dim": 960,
+      "heads": 15,
+      "reason": "Invalid grouped-query model dimensions."
+    },
+    {
+      "layers": 16,
+      "dim": 832,
+      "heads": 13,
+      "reason": "Invalid grouped-query model dimensions."
+    },
+    {
+      "layers": 24,
+      "dim": 704,
+      "heads": 11,
+      "reason": "Invalid grouped-query model dimensions."
+    },
+    {
+      "layers": 28,
+      "dim": 640,
+      "heads": 10,
+      "reason": "Invalid grouped-query model dimensions."
+    }
+  ],
+  "illustrative_valid_shapes_not_admitted": [
+    {
+      "layers": 12,
+      "dim": 960,
+      "heads": 12,
+      "kv_heads": 4,
+      "head_dim": 80,
+      "ffn_dim": 2560,
+      "parameters": 148708800
+    },
+    {
+      "layers": 16,
+      "dim": 832,
+      "heads": 16,
+      "kv_heads": 4,
+      "head_dim": 52,
+      "ffn_dim": 2304,
+      "parameters": 146352960
+    },
+    {
+      "layers": 20,
+      "dim": 768,
+      "heads": 12,
+      "kv_heads": 4,
+      "head_dim": 64,
+      "ffn_dim": 2048,
+      "parameters": 150436608
+    },
+    {
+      "layers": 24,
+      "dim": 704,
+      "heads": 16,
+      "kv_heads": 4,
+      "head_dim": 44,
+      "ffn_dim": 1920,
+      "parameters": 149620416
+    },
+    {
+      "layers": 28,
+      "dim": 640,
+      "heads": 16,
+      "kv_heads": 4,
+      "head_dim": 40,
+      "ffn_dim": 1792,
+      "parameters": 145526400
+    }
+  ],
+  "family_A_work": {
+    "ordinary": {
+      "forward_matmul_flops": 372454195200,
+      "training_matmul_flops": 1117362585600,
+      "lm_head_forward_flops": 50331648000,
+      "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter."
+    },
+    "middle_loop": {
+      "forward_matmul_flops": 501303214080,
+      "training_matmul_flops": 1503909642240,
+      "lm_head_forward_flops": 50331648000,
+      "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter."
+    },
+    "whole_neural_matmul_ratio": 1.345945945945946,
+    "matched_loop_targets_at_ordinary_16_4B": 12184738955.823294,
+    "head_over_eight_block_core": 0.390625,
+    "q_point_2_routing_head_over_selected_core": 1.953125,
+    "excludes": "Optimizer, boundaries, elementwise, communication, padding differences and compiler effects"
+  },
+  "fp16_unshared_logical_KV_bytes_per_token": {
+    "ordinary": 20480,
+    "middle_loop": 28672,
+    "assumption": "Separate K/V per logical application; no unqualified cache sharing"
+  },
+  "muennighoff_15_4_fit_illustration": [
+    {
+      "epochs": 2,
+      "marginal_at_endpoint": 0.937128313889631,
+      "total_effective_fraction": 0.984111983049841
+    },
+    {
+      "epochs": 4,
+      "marginal_at_endpoint": 0.8229949661357898,
+      "total_effective_fraction": 0.9314693803772092
+    },
+    {
+      "epochs": 8,
+      "marginal_at_endpoint": 0.6347364189402819,
+      "total_effective_fraction": 0.8281323935399574
+    },
+    {
+      "epochs": 16,
+      "marginal_at_endpoint": 0.3775599276970477,
+      "total_effective_fraction": 0.6615985695915916
+    }
+  ],
+  "small_sample_variance_illustrations": [
+    {
+      "source": "family_A_review_rounding",
+      "n": 3,
+      "paired_sd": 0.0006506407098647707,
+      "normal_sd_one_sided_95_upper": 0.002872836675813881
+    },
+    {
+      "source": "family_B_review_rounding",
+      "n": 2,
+      "paired_sd": 0.0007742819253992686,
+      "normal_sd_one_sided_95_upper": 0.012347659229125845
+    }
+  ],
+  "mean_at_least_delta_gate_power_at_true_delta_under_symmetric_continuous_noise": 0.5,
+  "measured_956M_warm_cost": {
+    "targets_per_second": 94239.92735423263,
+    "ordinary_100B_days": 12.281497236907882,
+    "hypothetical_3x_10B_days": 3.684449171072364,
+    "hypothetical_3x_20B_days": 7.368898342144728,
+    "scope": "Measured warm path extrapolation, not an admitted budget or new mechanism benchmark"
+  },
+  "scope": "Proposal review only. No changed charter, statistical gate, architecture, data, live source, or scientific admission."
+}
