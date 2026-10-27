@@ -1,3 +1,11 @@
+## October27,2026,05:33 UTC — both medium numerical gates complete; source capacity reverified
+
+The conventional374.89M challenger passes independent full512 FP32 gradients (0.035402% overall,0.045770% largest family), first update/moments and exact named replay.100 warm updates take160.055585s on all16 chips; all102 updates remain numerical only. The recurrent375.94M gate already passed. [Conventional proof](results/scale_medium_numerical_20261027/ordinary8/REPORT.md).
+
+The16.506B authentic-target capacity recheck passes all8,972,273 selected provenance records, packed checksums/every-window counts, unchanged6.5B prefix and all required raw dependencies. Its first attempt had an unclamped final comparison slice; one bound correction completed within the original deadline, with no corpus mutation. Original failed/audit receipts stay preserved; near-duplicate screening is inherited, not rerun. No held-out targets decoded or scientific source migration admitted yet.
+
+Complete closed replay evidence is being retained through exact byte-restorable archives, preserving every original binary SHA and immutable parent, rather than discarding sources or unique states. The new training lineage wrapper passes four-process CPU save/restore/fresh-process replay and rejects qualification/cross-seed/data/counter imports. The source suite passes417 tests with two skips. Next is its bounded Native state fixture, then a frozen independently tuned joint-scale comparison; no quality result, automatic confirmation or renewed24-hour clock.
+
 ## October27,2026,05:03 UTC — conventional medium numerical registration prepared
 
 The medium recurrent full gate is complete. Its conventional374.89M eight-layer counterpart is now separately registered from its own unupdated random initializer, with all16 chips,102 qualification updates including replay, independent full512/optimizer criteria and fixed one-hour capture cap.192GiB Native /40GiB NVMe allowances pass the unchanged reserves. [Control registration](results/scale_medium_numerical_20261027/ordinary8/REPORT.md).
