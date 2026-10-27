@@ -23,7 +23,9 @@ def main():
     from compute_trainium.execution_isolation import managed_running
     from scripts.train_scale_registered import lineage
     from scripts.audit_parcae_precise_training_point import make_reference
-    from scripts.evaluate_low_depth_cpu import window_state_key
+    # A whole-document ID hashes unseen continuation. Use only the declared
+    # window ordinal, and draw1024 states before slicing a shorter prefix.
+    from compute_trainium.lean_baseline_science import evaluation_window_key as window_state_key
     from scripts.qualify_parcae_candidate_cpu import PIN
     from scripts.qualify_native import digest
     if a.output.exists():raise FileExistsError('Preserve all readouts')
@@ -58,17 +60,20 @@ def main():
         from scripts.audit_ordinary8_native import make_reference as ordinary_reference
         model=ordinary_reference(config,False)
     model.load_state_dict(state,strict=True);model.eval();del state;gc.collect()
-    model_digest=digest(dict(model.state_dict()));retained=a.root/case['retained_model']
-    if retained.exists():raise FileExistsError('Retained model may not be overwritten')
-    retained.parent.mkdir(parents=True,exist_ok=True)
-    if shutil.disk_usage(retained.parent).free<35*1024**3+case['parameters']*4+256*1024**2:
-        raise RuntimeError('Complete final-weight retention and protected reserve required')
-    atomic_checkpoint(retained,dict(purpose='scale_retained_prediction_weights',phase=case['phase'],signature=signature,
-        update=case['endpoint_updates'],eligible_for_science=True,model=model.state_dict(),model_digest=model_digest))
-    readback=torch.load(retained,map_location='cpu',mmap=True,weights_only=False)
-    if digest(readback['model'])!=model_digest:raise AssertionError('Exact retained final-weight readback failed')
-    del readback
-    retained_sha=file_sha256(retained);scores=[];windows=0;current=None
+    model_digest=digest(dict(model.state_dict()));retained_sha=None
+    if case.get('retained_model'):
+        retained=a.root/case['retained_model']
+        if retained.exists():raise FileExistsError('Retained model may not be overwritten')
+        retained.parent.mkdir(parents=True,exist_ok=True)
+        if shutil.disk_usage(retained.parent).free<35*1024**3+case['parameters']*4+256*1024**2:
+            raise RuntimeError('Complete final-weight retention and protected reserve required')
+        atomic_checkpoint(retained,dict(purpose='scale_retained_prediction_weights',phase=case['phase'],signature=signature,
+            update=case['endpoint_updates'],eligible_for_science=True,model=model.state_dict(),model_digest=model_digest))
+        readback=torch.load(retained,map_location='cpu',mmap=True,weights_only=False)
+        if digest(readback['model'])!=model_digest:raise AssertionError('Exact retained final-weight readback failed')
+        del readback;retained_sha=file_sha256(retained)
+    elif case['phase']!='main':raise ValueError('TUNE must retain an independent exact final-weight consolidation')
+    scores=[];windows=0;current=None
     if recurrent:model.initialize_state=lambda _:current
     def guard():
         available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
@@ -95,6 +100,7 @@ def main():
         endpoint_updates=case['endpoint_updates'],real_targets=case['end_targets'],work=case['endpoint_updates']*case['work_per_update'],
         metrics=summarize(scores),documents=len(scores),windows=windows,cohort=case['cohort'],source_corpus_sha256=file_sha256(panel),
         retained_model_sha256=retained_sha,model_digest=model_digest,model_unchanged=True,
+        full_final_training_shards_retained=case['phase']=='main',
         assigned_chips=0,optimizer_updates=0,test_accessed=False,wall_seconds=time.time()-started,
         scope='Independent FP32 prediction on explicitly consumed DEV. No fresh-source or training-seed confirmation.')
     (a.output/'report.json').write_text(json.dumps(result,indent=2)+'\n')

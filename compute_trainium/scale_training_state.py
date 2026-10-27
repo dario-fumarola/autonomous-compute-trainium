@@ -132,3 +132,15 @@ def reconstruct_training_weights(folder,update,signature,per_update):
         elif schema['placements'][name]=='S(0)':result[name]=torch.cat(tensors,0)
         else:raise ValueError('Unknown training placement')
     return result,rows
+
+
+def verify_live_training_state(model,optimizer,folder,signature,update,per_update):
+    """Detect mutation by a zero-update diagnostic; never restore over it."""
+    rank,world=dist.get_rank(),dist.get_world_size();folder=Path(folder)
+    note=json.loads((folder/f'rank{rank}-u{update}.json').read_text())
+    saved=torch.load(folder/note['file'],map_location='cpu',mmap=True,weights_only=False)
+    validate_saved(saved,signature,rank,world,update,per_update)
+    live={**saved,'model_shards':{n:local_parameter(p) for n,p in model.named_parameters()},
+        'optimizer':optimizer.state_dict(),'cpu_rng':torch.get_rng_state()}
+    if digest(live)!=note['state_digest']:raise AssertionError('Zero-update diagnostic mutated live model/optimizer/RNG')
+    dist.barrier()

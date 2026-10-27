@@ -82,3 +82,35 @@ comparator. Record runtime/inference cost and all qualification/tuning/failure
 costs. No automatic larger run, additional mechanism or five-seed campaign.
 A useful development candidate must later survive a separately powered,
 frozen fresh-source/fresh-seed confirmation; the overall goal is unachieved.
+
+## Prepared main-only verification details
+
+The frozen first TUNE attempt remains preserved separately. Its final-step
+replay occurs at the completed schedule's zero learning rate; first-update
+and prior Native fixture proofs cover nonzero updates. The prepared main
+path instead repeats the last eight updates from a retained nonzero-rate
+prefix, then compares final named updates/moments. An additional512-window
+TRAIN forward/backward probe checks the exact final weights without any
+optimizer update. Detect model/optimizer/RNG mutation by comparing the live
+state with the immutable checkpoint; never restore over a mismatch. Count
+probe targets and neural work as diagnostics, separately from training and
+all actual replay updates. The independent FP32 gradient/NLL uses that exact
+completed endpoint, followed by an independent consumed-DEV readout.
+
+Before any quality use, the new readout must use the existing causal window-
+ordinal noise policy, with a full1024-position draw before prefix slicing.
+Whole-document IDs, document lengths and future source tokens cannot select
+the recurrent initial state. The first new TUNE audit stopped before scoring;
+its original source bundle and failure remain immutable. A correction to a
+future or recovered readout requires a separately bound receipt, not a silent
+edit of that frozen bundle or its scientific outcomes.
+
+All main states, including distinct replay outcomes, remain retained. A
+prospective26GiB new-task allowance on the existing private RAM filesystem,
+including earlier TUNE C0/final weights, may hold the original main recurrent
+C0 and the equal-data ordinary state branch. Its conditional resource
+registration must project the complete remaining allowance plus192GiB Native
+workers above512GiB MemAvailable and preserve35GiB filesystem space. Primary
+paths use existing NVMe, with measured actual-shape state sizes and4GiB
+additional margin. No cloud, driver, original scientific-clock change or
+raw-source/unique-state deletion. No main fit is admitted by these details.

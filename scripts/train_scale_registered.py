@@ -27,7 +27,7 @@ def main():
     from compute_trainium.parcae_candidate import ParcaeCandidateConfig
     from compute_trainium.parcae_primitive_sdpa_candidate import ParcaePrimitiveSDPACandidate
     from compute_trainium.scale_model_sharding import shard_model_from_cpu
-    from compute_trainium.scale_training_state import ScaleTrainingOptimizer,save_training_shard,load_training_shard
+    from compute_trainium.scale_training_state import ScaleTrainingOptimizer,save_training_shard,load_training_shard,verify_live_training_state
     from compute_trainium.scale_training_schedule import rates,apply_rates
     from compute_trainium.scale_work_ledger import fixed_update_work
     from compute_trainium.scale_sharded_fixture import gather_named
@@ -71,7 +71,7 @@ def main():
     mesh=init_device_mesh('neuron',(64,));model=shard_model_from_cpu(model,mesh,initial['model'],'neuron');del initial
     signature=lineage(a.plan_sha,case)
     optimizer=ScaleTrainingOptimizer(model,lineage=signature,lr=case['peak_lr'],muon_lr=case['peak_lr'],fused_adamw=True)
-    per_update=fixed_update_work(config,case['model_role'])['total_per_update']
+    one_work=fixed_update_work(config,case['model_role']);per_update=one_work['total_per_update']
     if per_update!=case['work_per_update']:raise AssertionError('Frozen arbitrary-precision work differs')
     update=0
     if case.get('resume'):
@@ -120,11 +120,36 @@ def main():
             with (a.output/'updates.jsonl').open('a') as log:log.write(json.dumps(row)+'\n')
             (a.output/'progress.json').write_text(json.dumps(row,indent=2)+'\n')
             if update==origin+1 or update%100==0:print(json.dumps(row),flush=True)
+    post_probe=None
+    if case.get('post_training_probe',False):
+        # Audit the exact completed endpoint, with no learning update. Its
+        # next512 TRAIN targets are diagnostic-only exposure, charged separately.
+        probe_start=time.perf_counter();cursor=case['endpoint_updates']*512
+        target_count=sum(packed.counts(cursor,512));optimizer.zero_grad();nll=torch.zeros((),device='neuron');noise=[]
+        for micro in range(8):
+            window=cursor+micro*64+rank;batch=packed.batch([window],0)[0]
+            state=initial_state(config,window,case['state_seed']) if recurrent else None
+            if recurrent:noise.append(state.clone())
+            inputs,targets,mask=[t.contiguous().to('neuron') for t in [batch.inputs,batch.targets,batch.target_mask]]
+            logits=model(inputs,state.contiguous().to('neuron') if recurrent else None,total_steps=depth,backward_cap=depth)
+            scalar=loss(logits,targets,mask);(scalar*(8192/target_count)).backward();nll.add_(scalar.detach())
+        norm=optimizer.finish_gradients(scale=8192);dist.all_reduce(nll);gradients=gather_named(model,gradients=True)
+        if recurrent:torch.save(dict(states=torch.cat(noise),windows=[cursor+i*64+rank for i in range(8)]),folder/f'noise-u{update}-rank{rank}.pt')
+        if rank==0:atomic_checkpoint(folder/f'gradient-u{update}.pt',dict(gradients=gradients,clipped=True,
+            loss=float(nll.cpu())/target_count,raw_gradient_norm=norm,source_cursor=cursor,real_targets=target_count,
+            signature=signature,zero_update_probe=True))
+        del gradients,noise;dist.barrier()
+        verify_live_training_state(model,optimizer,folder,signature,update,per_update)
+        post_probe=dict(model_update=update,source_cursor=cursor,diagnostic_real_targets=target_count,
+            optimizer_updates=0,live_model_optimizer_rng_unchanged=True,
+            diagnostic_neural_ops=one_work['neural_per_update'],
+            wall_seconds=time.perf_counter()-probe_start)
     if rank==0:
         result=dict(status='CAPTURED_SCALE_REGISTERED_TRAINING_PHASE',world=64,case=a.case,phase=case['phase'],signature=signature,
             stop_update=update,actual_optimizer_updates=update-origin,real_targets=rows[-1]['real_targets'],work=update*per_update,
             plan_sha256=a.plan_sha,warm_seconds=warm_seconds,checkpoint_seconds=checkpoint_seconds,
             gradient_capture_seconds=capture_seconds,wall_seconds=time.time()-started,
+            post_training_probe=post_probe,
             cooldown_complete=update==case['endpoint_updates'],eligible_for_scientific_comparison=False,
             scope='Numerically captured registered phase only; prescribed independent final audits/readouts remain required.')
         (a.output/'report.json').write_text(json.dumps(result,indent=2)+'\n')

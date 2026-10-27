@@ -13,7 +13,7 @@ import torch.distributed as dist
 from torch.distributed.device_mesh import init_device_mesh
 from compute_trainium.scale_sharded_fixture import SoftwareModel,loss,gather_named,full_moments,relative
 from compute_trainium.scale_model_sharding import shard_model_from_cpu
-from compute_trainium.scale_training_state import ScaleTrainingOptimizer,save_training_shard,load_training_shard
+from compute_trainium.scale_training_state import ScaleTrainingOptimizer,save_training_shard,load_training_shard,verify_live_training_state
 
 class CounterFixture:
     def counts(self,first,number):return [number*3,number,number]
@@ -41,6 +41,17 @@ def state_worker(rank,world,folder,mode,backend='gloo',parent=None,comm_port=Non
         optimizer.zero_grad();value=loss(model,rank,world,update+1,device);value.backward()
         optimizer.finish_gradients();optimizer.step()
         save_training_shard(model,optimizer,folder/mode,signature,update+1,counter,10**15)
+    # A diagnostic backward must leave all serialized state unchanged. The
+    # checker must detect a mutation rather than silently restoring over it.
+    optimizer.zero_grad();loss(model,rank,world,3,device).backward();optimizer.finish_gradients()
+    verify_live_training_state(model,optimizer,folder/mode,signature,2,10**15)
+    first=next(model.parameters());local=first.to_local();original=local.detach().clone()
+    with torch.no_grad():local.add_(.01)
+    detected=False
+    try:verify_live_training_state(model,optimizer,folder/mode,signature,2,10**15)
+    except AssertionError:detected=True
+    if not detected:raise AssertionError('A deliberate local parameter mutation was not detected')
+    with torch.no_grad():local.copy_(original)
     weights=gather_named(model);moments=full_moments(optimizer)
     if rank==0:
         if mode=='warm':torch.save(dict(weights=weights,moments=moments),folder/'expected.pt')

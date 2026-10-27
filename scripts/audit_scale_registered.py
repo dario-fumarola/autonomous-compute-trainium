@@ -80,7 +80,7 @@ def audit(root,plan_file,case_key,output):
         (output/'first-update.json').write_text(json.dumps(first,indent=2)+'\n')
         if not first['passes']:raise AssertionError('Independent first prescribed update/moments failed')
         del optimizer,first_weights,first_rows,first_vector,before;gc.collect();guard()
-    point=end-1;weights,rows=reconstruct(folder,point);schema=rows[0]['optimizer']['schema']
+    point=case.get('audit_model_update',end-1);weights,rows=reconstruct(folder,point);schema=rows[0]['optimizer']['schema']
     state={**initial['model'],**weights};state['lm_head.weight']=state['transformer.wte.weight']
     model.load_state_dict(state,strict=True);model.zero_grad(set_to_none=True);model_digest=digest(dict(model.state_dict()))
     del state,weights,rows;gc.collect();packed=PackedCorpus.from_mapped(root/plan['data']['packed'],1024,23,plan['data']['source_sha256'])
@@ -114,7 +114,7 @@ def audit(root,plan_file,case_key,output):
     del model,actual,initial,noises;gc.collect();guard()
     replay=None
     if case.get('replay_directory'):
-        before,rows=reconstruct(folder,point);del rows
+        before,rows=reconstruct(folder,case.get('replay_before_update',point));del rows
         expected,expected_rows=reconstruct(folder,end);seen,replay_rows=reconstruct(root/case['replay_directory'],end)
         replay=comparison(before,dict(model=expected,moments=moments_from_shards(expected_rows)),
             dict(model=seen,moments=moments_from_shards(replay_rows)),schema['groups'])
