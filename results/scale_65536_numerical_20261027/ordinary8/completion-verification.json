@@ -1,0 +1,78 @@
+{
+  "status": "PASS_SCALE_65536_COMPLETE_NUMERICAL_QUALIFICATION",
+  "role": "ordinary8",
+  "manual_loss_scale": 65536,
+  "native_plan_sha256": "515f58081eb2230de6d8b704f97207d3d225f5dca5bc750c92f728e6c98371e4",
+  "independent_cpu_report_sha256": "3c50df93cb8a1bf2167072012991a8dc4320259dcde16bb2809d444bedbccd51",
+  "full512_gradient": {
+    "overall": {
+      "relative_l2": 0.0003597837590030926,
+      "maximum_absolute_error": 1.1970987543463707e-06,
+      "reference_l2": 1.0002531736477949
+    },
+    "families": {
+      "tied_input_output": {
+        "relative_l2": 0.0004959766314933736,
+        "maximum_absolute_error": 2.2913445718586445e-07,
+        "reference_l2": 0.011558340342044261
+      },
+      "transformer_body": {
+        "relative_l2": 0.00035976212803280134,
+        "maximum_absolute_error": 1.1970987543463707e-06,
+        "reference_l2": 1.0001863900511612
+      },
+      "value_embeddings": {
+        "relative_l2": 0.00031370563631395704,
+        "maximum_absolute_error": 9.054019756149501e-10,
+        "reference_l2": 3.6296690691997085e-05
+      }
+    },
+    "passes_two_percent_gate": true
+  },
+  "native_minus_cpu_nll": -1.5390522891678415e-06,
+  "first_update_moments_pass": true,
+  "replay": {
+    "update": {
+      "relative_l2": 0.0,
+      "maximum_absolute_error": 0.0,
+      "reference_l2": 0.09311687201344473,
+      "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+    },
+    "moments": {
+      "relative_l2": 0.0,
+      "maximum_absolute_error": 0.0,
+      "reference_l2": 0.7755379165727585
+    },
+    "families": {
+      "adamw": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.09303289593260534,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.010072215858373014
+        }
+      },
+      "muon": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.003953748596113723,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.7754725079006458
+        }
+      }
+    },
+    "passes": true
+  },
+  "actual_qualification_updates": 102,
+  "scientific_fit_admitted": false
+}

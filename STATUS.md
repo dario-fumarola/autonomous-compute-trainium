@@ -1,3 +1,9 @@
+## October27,2026,08:14 UTC — both corrected numerical gates pass; fresh TUNE registered
+
+Both375.94M recurrent and374.89M conventional roles pass fresh65536-scaler first updates/moments, full512 independent gradients and exact live replay. Conventional discrepancy is0.035978% overall /0.049598% largest family; Native minus CPU NLL is-0.000001539. All qualification weights remain excluded. The original failed157M trial remains ineligible and charged. [Complete numerical proofs](results/scale_65536_numerical_20261027/ordinary8/completion-verification.json).
+
+The separately frozen corrected TUNE uses only the original zero-update seed38213 C0, all16 chips and equal300-update opportunities at0.008/0.016/0.032/0.064 for each role. Every case requires its mature full512 audit and replay before scoring. Its causal readout uses window ordinal only. The3.75-hour TUNE cap and14-hour prospective main allowance fit inside the unchanged original October28,02:09:45UTC end.422 CPU tests pass, two skipped. No main fit or confirmation is admitted. [Fresh registration](results/scale_medium_tune_65536_20261027/plan.json).
+
 ## October27,2026,08:12 UTC — first scaled TUNE rejected; corrected qualifications in progress
 
 The first recurrent rate trial failed its mature512-window independent gradient audit before any quality score:1.877596% overall,2.273423% injection/readout and2.203640% value embeddings against unchanged2% limits. Its157M-target training history remains ineligible and fully retained/costed. On the same unchanged checkpoint, zero-update probes localize a minimal correction: manual loss scaler65536 reduces overall discrepancy to0.235278% while leaving Native NLL exactly unchanged. FP32-boundary and full-FP32 alternatives also pass; neither is adopted. [Failure and unchanged-point diagnosis](results/scale_first_tune_precision_20261027/REPORT.md).

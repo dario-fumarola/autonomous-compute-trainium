@@ -1,0 +1,134 @@
+{
+  "status": "PASS_SCALE_ACTUAL_SHAPE_INDEPENDENT_CPU_AUDITS",
+  "plan_sha256": "0ffe78fca596062a9b0a7196fdb77cf4bcfc55ca5b61ef3405df7cdd9a087b59",
+  "first_update": {
+    "update": {
+      "relative_l2": 1.407368454151326e-05,
+      "maximum_absolute_error": 3.725290298461914e-09,
+      "reference_l2": 0.03694253212109195,
+      "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+    },
+    "moments": {
+      "relative_l2": 1.4692532587132e-06,
+      "maximum_absolute_error": 5.1895767683163285e-09,
+      "reference_l2": 0.14506671536416232
+    },
+    "families": {
+      "adamw": {
+        "update": {
+          "relative_l2": 1.2799434239327827e-05,
+          "maximum_absolute_error": 3.725290298461914e-09,
+          "reference_l2": 0.036939202390911585,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 8.38752905219778e-08,
+          "maximum_absolute_error": 2.9103830456733704e-11,
+          "reference_l2": 0.0061401373762942964
+        }
+      },
+      "muon": {
+        "update": {
+          "relative_l2": 0.00043604086190584596,
+          "maximum_absolute_error": 3.503526357917508e-10,
+          "reference_l2": 0.0004959901623843307,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 1.4705668319444758e-06,
+          "maximum_absolute_error": 5.1895767683163285e-09,
+          "reference_l2": 0.14493671246287854
+        }
+      }
+    },
+    "passes": true
+  },
+  "full512": {
+    "gradient": {
+      "overall": {
+        "relative_l2": 0.000891537313583014,
+        "maximum_absolute_error": 3.9869919419288635e-06,
+        "reference_l2": 1.0002739915295504
+      },
+      "families": {
+        "recurrent_injection_readout": {
+          "relative_l2": 0.0010004269272257213,
+          "maximum_absolute_error": 1.2198870535939932e-07,
+          "reference_l2": 0.025457853201493838
+        },
+        "tied_input_output": {
+          "relative_l2": 0.0008686693643398054,
+          "maximum_absolute_error": 1.5826080925762653e-06,
+          "reference_l2": 0.04661097401807719
+        },
+        "transformer_body": {
+          "relative_l2": 0.0008915114189007902,
+          "maximum_absolute_error": 3.9869919419288635e-06,
+          "reference_l2": 0.9988630386047243
+        },
+        "value_embeddings": {
+          "relative_l2": 0.0007038868428968228,
+          "maximum_absolute_error": 4.103412720724009e-09,
+          "reference_l2": 5.5238156352605906e-05
+        }
+      },
+      "passes_two_percent_gate": true
+    },
+    "cpu_nll": 5.905636013773547,
+    "native_minus_cpu_nll": -2.866304111392992e-06,
+    "cpu_norm_before_clip": 4.280642986297607,
+    "native_norm_before_clip": 4.281388759613037,
+    "windows": 512,
+    "real_targets": 523322,
+    "source_cursor": 51200
+  },
+  "replay": {
+    "update": {
+      "relative_l2": 0.0,
+      "maximum_absolute_error": 0.0,
+      "reference_l2": 0.08819803083063439,
+      "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+    },
+    "moments": {
+      "relative_l2": 0.0,
+      "maximum_absolute_error": 0.0,
+      "reference_l2": 0.5666051461079693
+    },
+    "families": {
+      "adamw": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.08806507734408907,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.025488558565798073
+        }
+      },
+      "muon": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.0048409497808946335,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.5660315582882912
+        }
+      }
+    },
+    "passes": true
+  },
+  "reference_pin": "69284c13746e849104f738d6d1a347b1f457df76",
+  "world": 64,
+  "scientific_fit_admitted": false,
+  "research_optimizer_updates": 0,
+  "prescribed_cpu_optimizer_steps": 1,
+  "wall_seconds": 680.741179227829,
+  "scope": "Independent numerical proof only, no held-out quality or efficiency claim."
+}
