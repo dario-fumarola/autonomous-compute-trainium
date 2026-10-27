@@ -31,6 +31,7 @@ from compute_trainium.parcae_training_candidate import (
 from compute_trainium.parcae_work_accounting import muon_update_matmuls
 from compute_trainium.training import PackedCorpus, atomic_checkpoint, cpu_tree, file_sha256
 from scripts.qualify_native import digest
+from compute_trainium.rejected_replica_evidence import enforce_replica_agreement
 
 
 def loss_sum(logits,targets,mask):
@@ -293,10 +294,11 @@ def main():
     if rank==0:
         atomic_checkpoint(args.output/'after-121-model-optimizer.pt',final)
     dist.barrier()
+    replicas=[json.loads((args.output/f'replica-{i}.json').read_text()) for i in range(world)]
+    enforce_replica_agreement(args.output,update=update,rank=rank,
+        digests=[r['full_state_digest'] for r in replicas],state_factory=lambda:final,
+        digest_fn=digest,barrier=dist.barrier,failure_message='Complete trained model/optimizer replicas differ')
     if rank==0:
-        replicas=[json.loads((args.output/f'replica-{i}.json').read_text()) for i in range(world)]
-        if len({r['full_state_digest'] for r in replicas})!=1:
-            raise AssertionError('Complete trained model/optimizer replicas differ')
         if any(set(r['fallback_ops'])-{'aten::_to_copy'} for r in replicas):
             raise AssertionError('Unexpected complete training fallback')
         result={'status':'CAPTURED_PARCAE_TRAINING_QUALIFICATION','arm':args.arm,
