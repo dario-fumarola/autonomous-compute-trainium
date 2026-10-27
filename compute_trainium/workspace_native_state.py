@@ -39,3 +39,18 @@ def save_complete_state(path,model,scorer,optimizer,generator,*,extra):
         param_groups=[{k:v for k,v in g.items() if k!='params'} for g in optimizer.adam.param_groups],
         torch_rng=torch.get_rng_state(),sampling_rng=generator.get_state())
     return save_streaming(path,complete_state_tensors(model,scorer,optimizer),metadata)
+
+
+@torch.no_grad()
+def restore_model_shards(path,model,*,label):
+    from .workspace_streaming_checkpoint import tensor_hash
+    with zipfile.ZipFile(path) as archive:
+        receipt=torch.load(io.BytesIO(archive.read('metadata.pt')),weights_only=True)
+        if receipt['metadata']['parameter_names']!=[n for n,p in model.named_parameters()]:raise ValueError('Exact model shard coverage/order required')
+        for name,p in model.named_parameters():
+            sig=receipt['signatures'][label+'.'+name]
+            value=torch.load(io.BytesIO(archive.read(sig['member'])),weights_only=True)
+            if tensor_hash(value)!=sig['sha256']:raise AssertionError('Original model shard changed')
+            target=local_parameter(p)
+            if target.shape!=value.shape or target.dtype!=value.dtype:raise ValueError('Exact model shard shape/dtype required')
+            target.copy_(value.to(target.device))

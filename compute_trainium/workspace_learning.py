@@ -10,6 +10,7 @@ import time
 
 import torch
 import torch.nn.functional as F
+from .stable_target_loss import stable_target_log_probs
 
 
 @dataclass(frozen=True)
@@ -91,7 +92,7 @@ def target_log_probs(reader,context,targets,*,phase,temperature=1.):
     targets=targets.expand(context.shape[0],-1)
     inputs=torch.cat([context,targets[:,:-1]],dim=1)
     logits=reader(inputs,phase)[:,context.shape[1]-1:,:].float()/temperature
-    return F.log_softmax(logits,dim=-1).gather(-1,targets.unsqueeze(-1)).squeeze(-1)
+    return stable_target_log_probs(logits,targets)
 
 
 @torch.no_grad()

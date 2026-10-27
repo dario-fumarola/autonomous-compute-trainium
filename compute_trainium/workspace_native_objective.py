@@ -6,6 +6,7 @@ import torch
 from .workspace_joint_terms import padded_prediction_inputs,workspace_joint_terms
 from .workspace_learning import identity_reader_context
 from .workspace_olmo_candidate import rotary_tensors
+from .stable_target_loss import stable_target_log_probs
 
 
 def drain_runtime(device):
@@ -26,7 +27,7 @@ class SelectiveWorkspacePredictor:
         return logits.float()
     def log_probs(self,context,targets,phase):
         logits=self.logits(context,targets,phase)
-        return torch.log_softmax(logits,-1).gather(-1,targets.to(self.device).unsqueeze(-1)).squeeze(-1)
+        return stable_target_log_probs(logits,targets.to(self.device))
     @torch.no_grad()
     def sample(self,prefix,*,format,length,group_size,generator):
         # The writer takes no continuation/target argument.
