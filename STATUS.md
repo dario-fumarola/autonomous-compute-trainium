@@ -1,3 +1,11 @@
+## October 27, 2026, 04:04 UTC — actual 956M capture complete; independent audit live
+
+The model completes 101 initial numerical updates and one separate-process replay on all 16 chips. The 100 warm intervals total 555.363 seconds, about 94,240 real targets/second. Both supervisors close with zero OOM or fatal compiler result; the warm memory peak is 278.168GiB after the registered 288GiB amendment, while replay stays under its original 256GiB cap. All 64 local final state digests agree across processes. This is captured numerical/throughput evidence, not qualification success or held-out quality. [Actual capture and costs](results/scale_956m_numerical_20261027/REPORT.md).
+
+The independent first update/moments pass, including the Muon family's 0.193168% update discrepancy within 2%. The full512 pinned-upstream FP32 gradient audit is live, beyond 240 windows; complete gradient/NLL and independent named replay remain outstanding. No scientific fit is admitted. The measured rate puts 100B targets at roughly 12.28 warm days per fit, before tuning/audits/controls, so the earlier five-day estimate is not supported.
+
+Scoped storage maintenance verifies original local and immutable public remote hashes, then releases 28 closed raw web-download caches, recovering 60.409GiB. NVMe free space reaches about 123.22GiB. Every packed corpus, SQLite, checkpoint, audit and original receipt remains preserved. Source/failed-attempt/capacity-audit metadata fingerprints remain exact. [Verification and release](results/closed_public_web_cache_20261027/REPORT.md). The 24-instance-hour initial scale cap is unchanged.
+
 ## October 27, 2026, 03:33 UTC — actual 956M warm updates live on all 16 chips
 
 The actual full-context model completes its first checkpoint and continues real packed-data updates on all 64 cores. Early synchronized updates take about 5.4 seconds; the declared 100-update interval is not complete, so this is provisional timing, not the budget estimate or a quality result. Independent gradients, first-update/moment and replay audits remain outstanding.
