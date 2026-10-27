@@ -52,12 +52,14 @@ def validate_saved(value,signature,rank,world,update,per_update):
             or value.get('rank')!=rank or value.get('world')!=world
             or value.get('update')!=update or value.get('cursor')!=update*512
             or value.get('work')!=update*per_update
-            or value.get('optimizer',{}).get('lineage')!=signature):
+            or value.get('optimizer',{}).get('lineage')!=signature
+            or value.get('optimizer',{}).get('execution',{}).get('update')!=update):
         raise ValueError('Exact lineage, topology, data cursor and Python-integer work required')
 
 
 def save_training_shard(model,optimizer,folder,signature,update,packed,per_update):
     validate_lineage(signature)
+    if optimizer.update!=update:raise AssertionError('Optimizer and source update counters differ before save')
     rank,world=dist.get_rank(),dist.get_world_size();folder=Path(folder);folder.mkdir(exist_ok=True,parents=True)
     value=dict(purpose=PURPOSE,qualification_only=signature['phase']=='gate',
         eligible_for_science=signature['phase']!='gate',signature=signature,

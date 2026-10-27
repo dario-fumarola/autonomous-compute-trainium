@@ -41,8 +41,11 @@ def main():
     if any(file_sha256(source/f)!=sha for f,sha in plan['worker_source_sha256'].items()):raise AssertionError('Frozen worker source changed')
     if time.time()>plan['absolute_deadline_unix']:raise TimeoutError('Original scale deadline')
     if case['phase']!='gate':
-        gates=json.loads((a.root/plan['trainer_gate_receipt']).read_text())
-        if gates['status']!='PASS_SCALE_REGISTERED_TRAINER_AND_REPLAY':raise ValueError('Trainer gate required before TUNE/main')
+        gate_file=a.root/plan['trainer_gate_receipt'];gates=json.loads(gate_file.read_text())
+        if gates['status']!='PASS_SCALE_REGISTERED_TRAINER_AND_REPLAY' or file_sha256(gate_file)!=plan['trainer_gate_sha256']:
+            raise ValueError('Exact trainer gate required before TUNE/main')
+        if any(file_sha256(a.root/native/'completion-verification.json')!=sha for native,sha in plan['numerical_gates'].items()):
+            raise AssertionError('Actual-shape numerical proof changed')
     os.environ['NEURON_RT_ROOT_COMM_ID']='127.0.0.1:'+str(a.comm_port)
     import torch_neuronx
     torch.set_num_threads(2);torch.neuron.set_device(0);dist.init_process_group('neuron')
