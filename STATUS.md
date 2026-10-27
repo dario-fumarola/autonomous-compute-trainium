@@ -1,3 +1,9 @@
+## October 27, 2026, 03:23 UTC — actual 956M numerical/warm registration prepared
+
+The full-context candidate is registered for 101 initial numerical updates plus one fresh-process replay, using all 64 cores / 16 chips and 512 global windows. The 100-update warm measurement includes packing, transfer, full backward, clipping and optimizer; checkpoint/capture and compilation are reported separately. Complete private artifacts have an 80GiB allowance above the protected 35GiB reserve. A 256GiB exclusive container is admitted only above 768GiB host MemAvailable. [Registration](results/scale_956m_numerical_20261027/REPORT.md).
+
+All 408 CPU tests pass with two skips. This registration is prepared, not activated, and admits only numerical/throughput capture. Full independent 512-window upstream gradient, first-update/moment and replay audits are still required before science. The overall scale cap remains October 28 at 02:09:45 UTC; no scientific token budget or prediction result is established.
+
 ## October 27, 2026, 03:15 UTC — direct shard loading and streamed owner workspace pass Native
 
 Both 64-core phases pass on all 16 chips. Independent CPU gradients, updates and named moments meet every criterion; separate-process replay weights and moments are exactly equal. This is another four-update software fixture, zero research examples or scientific updates. Both phases close under the original numerical deadline. [Complete receipt](results/scale_streamed_sharding_fixture_20261027/REPORT.md).

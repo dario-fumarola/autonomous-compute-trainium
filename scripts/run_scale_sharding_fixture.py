@@ -32,6 +32,9 @@ class AllChipExecution(Execution):
         if time.time()>SCALE_END: raise TimeoutError('Original 24-hour scale feasibility cap')
         if time.time()>self.plan.get('absolute_deadline_unix',SCALE_END):
             raise TimeoutError('Unchanged original numerical fixture cap')
+        if self.plan.get('host_artifact_root'):
+            if shutil.disk_usage(self.plan['host_artifact_root']).free<35*1024**3:
+                raise RuntimeError('Private artifact filesystem protected reserve')
 
     def native(self,identity,module,options,status):
         container=process=None;primary=None
@@ -39,7 +42,7 @@ class AllChipExecution(Execution):
             self.check()
             if (self.root/'runs'/identity).exists():
                 raise FileExistsError('No automatic partial fixture retry')
-            reclaim_host();container=create_all_chip_worker(self.root,identity)
+            reclaim_host();container=create_all_chip_worker(self.root,identity,memory_gib=self.plan.get('worker_memory_gib',128))
             self.native_active[identity]=container
             limit=min(self.deadline,time.time()+self.native_seconds_limit(identity),SCALE_END)
             env=dict(os.environ,RESEARCH_ROOT=str(self.root),RESEARCH_CONTAINER_ROOT='/work/instance-nvme',

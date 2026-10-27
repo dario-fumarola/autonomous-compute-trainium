@@ -1,0 +1,5 @@
+Prepared, not activated. Actual shape: 955,955,264 parameters, context 1024, 64 logical cores / 16 chips, global 512 windows per update. The separately qualified direct-shard/streamed-owner execution preserves the existing FP32 Muon/AdamW math, FP16 body and FP32 primitive attention/readout.
+
+Native capture permits 101 initial qualification updates including 100 warm updates, plus one separate-process replay update. The complete prospective new artifact allowance is 80GiB on the existing private tmpfs, above the unchanged 35GiB reserve. The exclusive 256GiB container requires at least 768GiB host MemAvailable. Both phases remain bounded to 30 minutes within a one-hour capture cap and the original 24-instance-hour scale clock.
+
+Full CPU suite passes 408 tests with two skips. Capture alone cannot qualify scientific training: independent full512 upstream FP32 gradients, first update/moments, complete shard/state/RNG checks and replay comparison remain mandatory. A later scientific budget is unset. There is no held-out quality result, LR selection or admitted scientific fit.

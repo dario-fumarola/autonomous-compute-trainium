@@ -7,7 +7,9 @@ import subprocess
 from .execution_isolation import metadata, managed_running, verify_owner
 
 
-def create_all_chip_worker(root, identity):
+def create_all_chip_worker(root, identity, *, memory_gib=128):
+    if type(memory_gib) is not int or memory_gib not in (128,256):
+        raise ValueError('Explicit bounded 128/256GiB worker required')
     if not identity or any(c not in 'abcdefghijklmnopqrstuvwxyz0123456789-' for c in identity):
         raise ValueError('Explicit safe all-chip identity required')
     root = Path(root)
@@ -18,6 +20,9 @@ def create_all_chip_worker(root, identity):
         fcntl.flock(lock, fcntl.LOCK_EX)
         if managed_running():
             raise RuntimeError('All-chip worker requires every prior managed owner to be terminal')
+        available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
+        if available<(512+memory_gib)*1024**3:
+            raise RuntimeError('Protected host reserve plus complete worker allowance required')
         if subprocess.run(['docker','inspect',name],capture_output=True).returncode == 0:
             raise FileExistsError('No silent all-chip container reuse')
         # No half label: the existing half factory rejects this unclassified
@@ -25,7 +30,7 @@ def create_all_chip_worker(root, identity):
         args = ['docker','run','-d','--name',name,'--label','ac-trainium-managed=1',
             '--label','ac-trainium-owner='+identity,'--label','ac-trainium-chips=all16',
             '--network','host','--ipc','private','--shm-size','64m',
-            '--memory','128g','--memory-swap','128g']
+            '--memory',str(memory_gib)+'g','--memory-swap',str(memory_gib)+'g']
         for device in source['HostConfig']['Devices']:
             args += ['--device',device['PathOnHost']+':'+device['PathInContainer']+':'+device['CgroupPermissions']]
         for mount in source['Mounts']:
