@@ -1,0 +1,32 @@
+{
+  "status": "PASS_NATIVE_REJECTED_REPLICA_EVIDENCE_FIXTURE",
+  "purpose": "rejected_replica_numerical_fixture_only",
+  "plan_sha256": "e467b540904e6f925d1dc999c9bc2192243a95fa189ddf11f347717ae85ff40e",
+  "world": 32,
+  "optimizer_updates": 0,
+  "model_forwards": 0,
+  "research_examples": 0,
+  "native_tensor_devices_verified": true,
+  "native_cpu_fixture_bits_match": true,
+  "agreement_path_no_state_factory_or_extra_barrier": true,
+  "deliberate_rejection_verified_all32": true,
+  "selected_private_ranks": [
+    0,
+    1
+  ],
+  "private_snapshot_count": 2,
+  "all_private_snapshot_readbacks_match": true,
+  "all_private_snapshots_rejected_by_scientific_validator": true,
+  "changed_leaf_paths": [
+    "['optimizer']['m']"
+  ],
+  "raw_states_remain_private": true,
+  "scientific_fit_admitted": false,
+  "terminal_alpha_spent": 0,
+  "wall_seconds": 25.24962019920349,
+  "private_snapshot_note_sha256": [
+    "05e331b3f1fcbd3a3bae4ef90ac0668d8756b638fbd7ce7ab7c98c5ab9b2ebbf",
+    "fbd9277221e2c012b747a9a78472b2a8a20c03a2ada37185d92029fed47f3549"
+  ],
+  "scope": "Numerical arrays only,zero predictor forwards or optimizer updates. Expected rejection is caught only in this isolated qualification fixture. Scientific workers still fail on any replica mismatch. No cause or repair of the unsaved earlier mismatch is established."
+}

@@ -1,0 +1,44 @@
+{
+  "status": "STOPPED_HEAD_FREE_FIXED_TWO_NUMERICAL_QUALIFICATION",
+  "records": {},
+  "rejected_state_fixture": {
+    "status": "PASS_NATIVE_REJECTED_REPLICA_EVIDENCE_FIXTURE",
+    "purpose": "rejected_replica_numerical_fixture_only",
+    "plan_sha256": "e467b540904e6f925d1dc999c9bc2192243a95fa189ddf11f347717ae85ff40e",
+    "world": 32,
+    "optimizer_updates": 0,
+    "model_forwards": 0,
+    "research_examples": 0,
+    "native_tensor_devices_verified": true,
+    "native_cpu_fixture_bits_match": true,
+    "agreement_path_no_state_factory_or_extra_barrier": true,
+    "deliberate_rejection_verified_all32": true,
+    "selected_private_ranks": [
+      0,
+      1
+    ],
+    "private_snapshot_count": 2,
+    "all_private_snapshot_readbacks_match": true,
+    "all_private_snapshots_rejected_by_scientific_validator": true,
+    "changed_leaf_paths": [
+      "['optimizer']['m']"
+    ],
+    "raw_states_remain_private": true,
+    "scientific_fit_admitted": false,
+    "terminal_alpha_spent": 0,
+    "wall_seconds": 25.24962019920349,
+    "private_snapshot_note_sha256": [
+      "05e331b3f1fcbd3a3bae4ef90ac0668d8756b638fbd7ce7ab7c98c5ab9b2ebbf",
+      "fbd9277221e2c012b747a9a78472b2a8a20c03a2ada37185d92029fed47f3549"
+    ],
+    "scope": "Numerical arrays only,zero predictor forwards or optimizer updates. Expected rejection is caught only in this isolated qualification fixture. Scientific workers still fail on any replica mismatch. No cause or repair of the unsaved earlier mismatch is established."
+  },
+  "error": "Explicit safe phase identity and half required",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/ubuntu/autonomous-compute-trainium/scripts/run_head_free_fixed_two_numerical_v2.py\", line 229, in run\n    result['records'][trial]=future.result();write_state(PUBLIC/'progress.json',result)\n                             ^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 456, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/usr/lib/python3.12/concurrent/futures/thread.py\", line 58, in run\n    result = self.fn(*self.args, **self.kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ubuntu/autonomous-compute-trainium/scripts/run_head_free_fixed_two_numerical_v2.py\", line 212, in trial_run\n    warm=native(trial,'warm');future=cpu.submit(audit,trial,warm)\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ubuntu/autonomous-compute-trainium/scripts/run_head_free_fixed_two_numerical_v2.py\", line 202, in native\n    row=execution.native(name,'scripts.qualify_baseline_managed',opts,'CAPTURED_PARCAE_TRAINING_QUALIFICATION')\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ubuntu/autonomous-compute-trainium/compute_trainium/future_span_execution.py\", line 67, in native\n    reclaim_host();container=create_compact_worker(self.root,identity,half)\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ubuntu/autonomous-compute-trainium/compute_trainium/owned_native_compact.py\", line 13, in create_compact_worker\n    container=create_worker(root,identity,half)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ubuntu/autonomous-compute-trainium/compute_trainium/owned_native_phase.py\", line 12, in create_worker\n    raise ValueError('Explicit safe phase identity and half required')\nValueError: Explicit safe phase identity and half required\n",
+  "plan_sha256": "e467b540904e6f925d1dc999c9bc2192243a95fa189ddf11f347717ae85ff40e",
+  "scope": "This is a new numerical-only registration after the late-two timing experiment closes. The original paired MAIN remains stopped and numerically incomplete;its audited single-seed recovery completes with only0.000440 nats over ordinary8. Neither is treated as a paired research success. The original unactivated head-free qualification plan is preserved byte-for-byte and remains inactive. Its successful-parent condition is not changed or bypassed;v2 binds the exact stopped-pair and audited-single plan/report chain under a distinct identity.\n\nKeep the same head-free2/2/2,width768,full-two/full-gradient candidate,original qualification-only C0,data order,precision,primitive attention,optimizer and original numerical thresholds. No iteration conditioning,initial-state change,new objective,router,held-out scoring or scientific fit is introduced. The only additions are bounded private evidence on rejection and host failure/cap handling. Original model/loss/optimizer kernels remain unchanged.\n\nFirst execute one separately identified32-rank Native software fixture,with no predictor,model forward,research example or optimizer update. It must exercise agreement without a state factory or added barrier,deliberate rank1 moment disagreement,strict rejection on all32 ranks,exact private captures for rank0/1,and rejection of those payloads by the scientific validator. Only this explicit qualification fixture catches the expected assertion;scientific workers continue to fail. The fixture does not diagnose or repair the earlier unsaved mismatch.\n\nOnly after that fixture passes,run two hardware trials on both distinct eight-chip halves from the same original qualification C0. Each performs121 updates and a separate one-update replay from its exact update120 checkpoint,total244 actual qualification updates. All qualification weights remain ineligible for science. Require original512-window independent FP32 overall/every-family2% gradient and0.003-nat loss gates,independent named first optimizer update/moments/group membership,complete model/optimizer/RNG/replica restoration,and named replay. Every actual depth-table entry is2/2. Measure100 changing-schedule warm updates per trial and keep compile/checkpoint/CPU-tail costs separate.\n\nThe one-time activation cap is3600 seconds,Native model phases900 seconds,the zero-update fixture300 seconds,and CPU phases1800 seconds. Each Native phase also obeys the original activation deadline. Failure does not renew it. Preserve initiating worker failures even when owned-container cleanup also fails,and record cleanup errors separately. No automatic retry or scientific launch follows.\n\nBefore activation,project complete time using existing measured two-pass updates,cold phases,independent audits,replay audits and the full fixture cap. Project normal output storage from complete matching head-free one-pass warm/replay inventories whose tensor/state shapes match this candidate,add25% normal margin,two independent CPU-gradient files,the full12.25GiB four-state rejection allowance,and4GiB NVMe compiler/snapshot allowance. Keep35GiB filesystem reserves,512GiB host reserve and10000 free inodes;reserve another1GiB on other mounted output filesystems above35GiB. Prior measured warm/replay monitoring shows negligible cache-filesystem and<0.02GiB root consumption;the complete matching-model payload inventories cover the large NVMe output files. Include all five snapshots in inode projection. No source,model,optimizer or data evidence is deleted to make room.\n\nNative qualification is a prerequisite for future controlled work,not a scientific positive or permission for another timing/depth/LR sweep. A later science registration must bind the complete fixture,all numerical/replay evidence,exact source/depth/model identities and strongest ordinary controls. The0.01-nat criterion,fresh sources,adequately powered fresh paired seeds,inference costs and repeated-testing requirements remain unchanged. No fresh reserve,TEST or terminal alpha is accessed here.\n",
+  "scientific_fit_admitted": false,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false
+}
