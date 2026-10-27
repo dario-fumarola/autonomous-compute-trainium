@@ -22,7 +22,7 @@ def prepare(root):
     from compute_trainium.scale_pilot_size import profiled_inventory
     from compute_trainium.scale_work_ledger import fixed_update_work,work_matched_updates
     if managed_running():raise RuntimeError('Complete prior Native closure required')
-    tune_file=root/'scale-medium-tune-65536-v1/report.json';tune=json.loads(tune_file.read_text())
+    tune_file=root/'scale-tune-readout-recovery-v1/report.json';tune=json.loads(tune_file.read_text())
     if tune['status']!='COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION':raise ValueError('Complete independently audited corrected TUNE required')
     tune_plan=json.loads((root/'scale-medium-tune-65536-v1/plan.json').read_text())
     if tune['plan_sha256']!=file_sha256(root/'scale-medium-tune-65536-v1/plan.json'):raise AssertionError('Original TUNE registration changed')

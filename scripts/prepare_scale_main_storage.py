@@ -44,7 +44,7 @@ def prepare(root):
     from compute_trainium.training import file_sha256
     from scripts.run_scale_sharding_fixture import SCALE_END
     if managed_running():raise RuntimeError('Storage admission follows Native closure')
-    tune_file=root/'scale-medium-tune-65536-v1/report.json';tune=json.loads(tune_file.read_text())
+    tune_file=root/'scale-tune-readout-recovery-v1/report.json';tune=json.loads(tune_file.read_text())
     if tune['status']!='COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION':raise ValueError('Complete corrected TUNE required before main admission')
     out=root/'scale-main-state-allowance-v2'
     if out.exists():raise FileExistsError('Preserve every resource admission')
