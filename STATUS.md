@@ -1,3 +1,11 @@
+## October27,2026,12:03 UTC — corrected0.016 cell certified; remaining fixed grid next
+
+The corrected375.94M recurrent trial completes300 updates /157,013,162 targets,cooldown,replay and the mature full512 audit. Gradient discrepancy0.191243% overall /0.191616% largest family;all original gates pass. Its complete192-document consumed-TUNE NLL is3.691627. This is weak screening performance versus the already qualified ordinary0.008/0.016 cells;no rate or main fit is selected.
+
+Directory ownership first stops scoring. The unchanged retry reaches176/192 documents before its original cell deadline. A separately bounded same-model independent readout completes before the unchanged original11:58:26UTC TUNE limit. Operational closure needs a separate180-second allowance after its preceding timeout;it now completes under the previously frozen corrected-stage cap. All old controllers,partial outputs,clocks and costs remain. No training update,changed source/target/noise/weights or numerical threshold accompanies recovery. [Complete certificate and stopped evidence](results/scale_boundary_learning_readout_recovery_20261027/REPORT.md).
+
+Read-only binding checks validate all three reused fixed opportunities. Next is direct admission of the five remaining original rates under the already frozen14:45UTC corrected-stage deadline. The preceding conditional queue stays stopped;it started no new scientific cell. The original initial24-hour scale cap ends October28,02:09:45UTC. The3.750B/5.079B main is only prepared,and still requires complete independent selection,full storage and an11-hour allowance. Latest full suite427 passes,two skipped;six targeted parity/serialization/state tests also pass.
+
 ## October27,2026,11:46 UTC — corrected cell completes cooldown/replay; mature audit finishing
 
 The boundary-corrected0.016 trial finishes300 updates /157,013,162 targets and its own cooldown on all16 chips,without the original step-62 failure. Native wall848.800seconds,actual replay140.412seconds. The independent mature audit reaches496/512 windows;its final pass and consumed-TUNE score remain pending. No rate or main fit is selected. [Completed Native phases](results/scale_boundary_learning_cell_20261027/native-completed.json).

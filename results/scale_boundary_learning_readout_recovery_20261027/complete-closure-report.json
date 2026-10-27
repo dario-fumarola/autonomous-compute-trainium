@@ -1,0 +1,236 @@
+{
+  "status": "COMPLETE_FRESH_BOUNDARY_CORRECTED_LEARNING_CELL",
+  "record": {
+    "warm": {
+      "status": "CAPTURED_SCALE_REGISTERED_TRAINING_PHASE",
+      "world": 64,
+      "case": "fixed-two-lr1",
+      "phase": "tune",
+      "signature": {
+        "study_sha256": "0ff6748c470d85d05662772853a61052b8e05a0db6a0148257d433a765292167",
+        "case": "fixed-two-lr1",
+        "phase": "tune",
+        "initializer_sha256": "fe693b941d4d25cb8fb0ab20e1e60b0a3de6be9f39793da553f5189c02375921",
+        "packing_fingerprint": "74423bef9dffbc28e5d9dbb8ba044dc8b255e210cd72e4ff4065d8291fef18b3",
+        "model_role": "fixed_two",
+        "state_seed": 38246
+      },
+      "stop_update": 300,
+      "actual_optimizer_updates": 300,
+      "real_targets": 157013162,
+      "work": 293631291182476800,
+      "plan_sha256": "0ff6748c470d85d05662772853a61052b8e05a0db6a0148257d433a765292167",
+      "warm_seconds": 700.0479562899563,
+      "checkpoint_seconds": 4.701780366012827,
+      "gradient_capture_seconds": 2.6550605449592695,
+      "wall_seconds": 848.8002624511719,
+      "post_training_probe": null,
+      "cooldown_complete": true,
+      "eligible_for_scientific_comparison": false,
+      "scope": "Numerically captured registered phase only; prescribed independent final audits/readouts remain required."
+    },
+    "replay": {
+      "status": "CAPTURED_SCALE_REGISTERED_TRAINING_PHASE",
+      "world": 64,
+      "case": "fixed-two-lr1-replay",
+      "phase": "tune",
+      "signature": {
+        "study_sha256": "0ff6748c470d85d05662772853a61052b8e05a0db6a0148257d433a765292167",
+        "case": "fixed-two-lr1",
+        "phase": "tune",
+        "initializer_sha256": "fe693b941d4d25cb8fb0ab20e1e60b0a3de6be9f39793da553f5189c02375921",
+        "packing_fingerprint": "74423bef9dffbc28e5d9dbb8ba044dc8b255e210cd72e4ff4065d8291fef18b3",
+        "model_role": "fixed_two",
+        "state_seed": 38246
+      },
+      "stop_update": 300,
+      "actual_optimizer_updates": 1,
+      "real_targets": 157013162,
+      "work": 293631291182476800,
+      "plan_sha256": "0ff6748c470d85d05662772853a61052b8e05a0db6a0148257d433a765292167",
+      "warm_seconds": 0.0,
+      "checkpoint_seconds": 1.3879382269224152,
+      "gradient_capture_seconds": 0.0,
+      "wall_seconds": 140.4124960899353,
+      "post_training_probe": null,
+      "cooldown_complete": true,
+      "eligible_for_scientific_comparison": false,
+      "scope": "Numerically captured registered phase only; prescribed independent final audits/readouts remain required."
+    },
+    "audit": {
+      "status": "PASS_SCALE_REGISTERED_ENDPOINT_NUMERICAL_AUDIT",
+      "case": "fixed-two-lr1",
+      "phase": "tune",
+      "study_sha256": "0ff6748c470d85d05662772853a61052b8e05a0db6a0148257d433a765292167",
+      "first_update": null,
+      "full512": {
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0019124264572638256,
+            "maximum_absolute_error": 5.133741069585085e-06,
+            "reference_l2": 0.14838700423457857
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0013795836049645648,
+              "maximum_absolute_error": 1.3125281839165837e-07,
+              "reference_l2": 0.002286176571181068
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0010193151060855618,
+              "maximum_absolute_error": 9.812938515096903e-07,
+              "reference_l2": 0.01076369103682246
+            },
+            "transformer_body": {
+              "relative_l2": 0.0019161597570512435,
+              "maximum_absolute_error": 5.133741069585085e-06,
+              "reference_l2": 0.147977704047625
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0012451590739008512,
+              "maximum_absolute_error": 3.247168933739886e-08,
+              "reference_l2": 0.00046742106880117925
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "native_minus_cpu_nll": 2.7578084775825573e-06,
+        "cpu_nll": 3.5192224816860525,
+        "cpu_norm_before_clip": 0.14835278689861298,
+        "windows": 512,
+        "source_cursor": 153088,
+        "real_targets": 523394
+      },
+      "replay": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.0,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.3492976295881411
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.008147461184720296
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.34920259579810925
+            }
+          }
+        },
+        "passes": true
+      },
+      "reference_pin": "69284c13746e849104f738d6d1a347b1f457df76",
+      "research_optimizer_updates": 0,
+      "prescribed_cpu_optimizer_steps": 0,
+      "assigned_chips": 0,
+      "wall_seconds": 713.7355358600616,
+      "scope": "Independent numerical audit; no prediction-efficiency or confirmation claim."
+    },
+    "score": {
+      "status": "COMPLETE_SCALE_CONSUMED_DEVELOPMENT_READOUT",
+      "case": "fixed-two-lr1",
+      "phase": "tune",
+      "study_sha256": "0ff6748c470d85d05662772853a61052b8e05a0db6a0148257d433a765292167",
+      "seed": 38213,
+      "role": "fixed_two",
+      "depth": 2,
+      "parameters": 375940224,
+      "endpoint_updates": 300,
+      "real_targets": 157013162,
+      "work": 293631291182476800,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 282216.4062193816,
+            "real_targets": 66571,
+            "documents": 64,
+            "nll": 4.23932953116795
+          },
+          "math": {
+            "nll_sum": 282271.6654383869,
+            "real_targets": 84913,
+            "documents": 64,
+            "nll": 3.324245585933684
+          },
+          "code": {
+            "nll_sum": 322658.0797171636,
+            "real_targets": 133556,
+            "documents": 64,
+            "nll": 2.4159010431366887
+          }
+        },
+        "weighted_nll": 3.6916270445148447,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 192,
+      "windows": 380,
+      "cohort": "tune",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "retained_model_sha256": "f9c23852849c7c396deaa957a761fa1c59ffc80a9e7669545c9bf38b344a267e",
+      "model_digest": "aa1394a1234a3c82f150145df35ec804110c3f45b4f5eec5fd54ece81a31f5ef",
+      "model_unchanged": true,
+      "full_final_training_shards_retained": false,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds": 176.4041349887848,
+      "scope": "Independent FP32 prediction on explicitly consumed DEV. No fresh-source or training-seed confirmation."
+    },
+    "cleanup": {
+      "status": "CLOSED_SUCCESSFUL_REGENERABLE_TUNE_DIAGNOSTICS",
+      "study_sha256": "0ff6748c470d85d05662772853a61052b8e05a0db6a0148257d433a765292167",
+      "case": "fixed-two-lr1",
+      "retained_model_sha256": "f9c23852849c7c396deaa957a761fa1c59ffc80a9e7669545c9bf38b344a267e",
+      "started_unix": 1793102466.1677587,
+      "declared_before_quality": true,
+      "failures_released": false,
+      "raw_sources_released": false,
+      "final_weights_released": false,
+      "released_bytes": 16231645366,
+      "finished_unix": 1793102478.6011052,
+      "original_inventory_entries": 257
+    }
+  },
+  "original_plan_sha256": "0ff6748c470d85d05662772853a61052b8e05a0db6a0148257d433a765292167",
+  "source_scope_sha256": "9935f8ffb11a46ab82d325d3e7769d1f724bfb01f16291b70cfda2c42ec2a811",
+  "extra_optimizer_updates": 0,
+  "assigned_chips": 0,
+  "rate_selected": false,
+  "scientific_main_fit_admitted": false,
+  "finished_unix": 1793102478.9677048,
+  "prior_stopped_receipts": {
+    "scale-boundary-learning-lr1-v1": "32098018284fe5a018cdefc61c6d1b025d134589f586d65586a7fc93f67844b3",
+    "scale-boundary-learning-readout-recovery-v1": "3cb3a304f079a54f5df1699b5c8a0a6b966c49dc26f15d66700faa5ac5775c7f",
+    "scale-boundary-learning-readout-recovery-v2": "89c290413e95e17c5d6753c666c0f66f50a5c8370af2d89e5837f3631d5263f8"
+  },
+  "scope": "Certificate assembles the unchanged completed training/replay/mature audit,complete independent same-model readout and subsequent operational artifact closure. Original stopped controller and readout receipts stay stopped;no training history or clock is rewritten. All stage costs remain."
+}

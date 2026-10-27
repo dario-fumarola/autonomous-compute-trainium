@@ -13,7 +13,7 @@ PUBLIC=Path('results/scale_boundary_rate_completion_20261027')
 REUSE={
  'ordinary8-lr0':('scale-medium-tune-65536-v1/plan.json','scale-tune-readout-recovery-v1/progress.json','records'),
  'ordinary8-lr1':('scale-ordinary-lr1-continuation-v1/plan.json','scale-ordinary-lr1-continuation-v1/report.json','record'),
- 'fixed-two-lr1':('scale-boundary-learning-lr1-v1/plan.json','scale-boundary-learning-lr1-v1/report.json','record')}
+ 'fixed-two-lr1':('scale-boundary-learning-lr1-v1/plan.json','scale-boundary-qualified-cell-closure-v1/report.json','record')}
 
 
 def eligible_reuse(root,key,entry,parent):
