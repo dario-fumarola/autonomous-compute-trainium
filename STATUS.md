@@ -1,4 +1,12 @@
-## October27,2026,19:55 UTC — second128GiB stop retained; bounded allocator/192GiB qualification next
+## October27,2026,19:55 UTC — actual1.485B all16-chip workspace gradients pass
+
+The complete all64-rank1.485B FP32 actor plus frozen scorer passes the independent HF CPU comparison:overall gradient relative error0.004256%,largest of179 named errors0.012046%,below2%. All four frozen-reader gains agree within0.000003nats;actor/scorer are unchanged and scorer gradients absent. Runtime fallback inventory is empty. The intrinsic worker time is122.44seconds;full launch/closure costs and measured peak memory remain separate. [Complete result](results/workspace_native_full_model_20261027/recovery-v3/report.json).
+
+The192GiB worker and explicit post-term cache/CPU-arena release complete all nine backward terms. Both earlier128GiB OOM attempts remain preserved and charged. This qualifies actual-model gradient mathematics and a feasible runtime footprint,not optimizer learning,throughput or predictive efficiency. All471 CPU tests pass,two skipped,127.23seconds while sharing the host with the Native qualification.
+
+Next one bounded actual-size qualification update:independent CPU AdamW delta/moment/EMA comparison and streamed exact perturb/restore of every actor/scorer/optimizer tensor and RNG. No scientific fit or four-arm campaign is admitted by this step;actual-size future trajectory and100-update throughput remain outstanding.
+
+## October27,2026,19:50 UTC — second128GiB stop retained; bounded allocator/192GiB qualification next
 
 The corrected local-shard accumulation run still stops before full Native gradient certification:the supervisor records126.069GiB sampled usage and one128GiB worker OOM. Gradient reduction alone did not fix runtime memory growth. Both stopped sources and costs remain. [Second stop](results/workspace_native_full_model_20261027/recovery-v2/report.json).
 

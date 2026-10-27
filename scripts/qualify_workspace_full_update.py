@@ -45,7 +45,8 @@ def post_gradient(model,scorer,optimizer,root,plan,out,progress):
         del pairs,actual,expected,parameter,cpu
     value=torch.tensor(records,dtype=torch.float32,device='neuron');dist.all_reduce(value);value=value.cpu().double()
     errors={label:float((value[:,2*i]/value[:,2*i+1].clamp_min(1e-30)).sqrt().max()) for i,label in enumerate(['parameter_delta','adam_m','adam_v','ema_weights'])}
-    if max(errors.values())>.02:raise AssertionError('Actual-model AdamW deltas/moments/EMA mismatch')
+    numerical_pass=max(errors.values())<=.02
+    (out/f'rank{rank}-update-audit.json').write_text(json.dumps(errors,indent=2)+'\n')
     optimizer.zero_grad();del initial,reference,records,value
     def tensors():
         for label,current in [('model',model),('scorer',scorer)]:
@@ -74,8 +75,9 @@ def post_gradient(model,scorer,optimizer,root,plan,out,progress):
     torch.set_rng_state(restored['torch_rng']);generator.set_state(restored['sampling_rng'])
     if optimizer.update!=1 or not torch.equal(generator.get_state(),metadata['sampling_rng']) or not torch.equal(torch.get_rng_state(),metadata['torch_rng']):raise AssertionError('Full counters/RNG recovery differs')
     dist.barrier()
+    if not numerical_pass:raise AssertionError('Actual-model AdamW deltas/moments/EMA mismatch;complete failed state was preserved')
     return dict(status='PASS_WORKSPACE_FULL_MODEL_UPDATE_AND_RESTORE',optimizer_updates=1,
-        actual_qualification_policy_optimizer_updates=1,scientific_policy_fit_updates=0,
+        actual_qualification_policy_optimizer_updates=1,scientific_policy_fit_updates=0,actor_and_scorer_versions_unchanged=False,zero_update_versions_checked_before_the_qualification_update=True,
         complete_model_scorer_adamw_rng_restore_exact=True,checkpoint_bytes_per_rank=receipt['bytes'],
         checkpoint_tensor_count_per_rank=receipt['tensors'],independent_cpu_largest_named_errors=errors,
         fresh_process_next_update_replay=False,ema_decay_for_this_software_qualification=.5,

@@ -1,0 +1,34 @@
+{
+  "status": "PASS_WORKSPACE_ACTUAL_MODEL_GRADIENT",
+  "optimizer_updates": 0,
+  "policy_fit_admitted": false,
+  "numerical": {
+    "status": "PASS_WORKSPACE_ACTUAL_MODEL_GRADIENT",
+    "world": 64,
+    "parameters": 1484916736,
+    "wall_seconds": 122.43517470359802,
+    "gradient_norm": 56.57843017578125,
+    "gradient_relative_l2": 4.2560871428668414e-05,
+    "largest_named_relative_l2": 0.00012046464936014926,
+    "largest_named_parameter": "model.layers.12.post_attention_layernorm.weight",
+    "absolute_gains": [
+      0.12745904922485352,
+      0.07663917541503906,
+      0.10949897766113281,
+      0.03476142883300781
+    ],
+    "weighted_losses": {
+      "ordinary_ntp": 1.3000965118408203,
+      "workspace_reader": 3.1432763934135437,
+      "workspace_policy": 0.02127249166369438
+    },
+    "actual_joint_backward_calls": 9,
+    "optimizer_updates": 0,
+    "scorer_gradients_absent": true,
+    "actor_and_scorer_versions_unchanged": true,
+    "padded_positions": 192,
+    "fallback_ops": [],
+    "scope": "Zero-update actual-model numerical qualification on one previously consumed TRAIN anchor.64 identical replicas produce one normalized objective,not64 unique examples. No policy fit,throughput or efficiency claim."
+  },
+  "plan_sha256": "d347b09d5a21a47bc12b6abcc4067d05a7946dd50f9bb0556f6065459e4e28d8"
+}

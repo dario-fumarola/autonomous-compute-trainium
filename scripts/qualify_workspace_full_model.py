@@ -93,6 +93,7 @@ def run(a,post_gradient=None):
     if float(named.max())>.02:raise AssertionError('Full actual-model named gradient family exceeds2%')
     if any(p.grad is not None for p in scorer.parameters()) or actor_versions!=tuple(p._version for p in model.parameters()) or scorer_versions!=tuple(p._version for p in scorer.parameters()):raise AssertionError('Frozen scorer or zero-update actor changed')
     del accumulator
+    plan['registered_plan_sha256']=a.plan_sha
     additional=post_gradient(model,scorer,optimizer,root,plan,out,progress) if post_gradient else {}
     dist.barrier()
     if rank==0:

@@ -19,11 +19,15 @@ IDENTITY='workspace-native-full-model-v3'
 PUBLIC=Path('results/workspace_native_full_model_20261027/recovery-v3')
 
 
-def prepare(root):
+def prepare(root,update=False):
     from compute_trainium.workspace_olmo_candidate import OlmoWorkspaceConfig
     from transformers import AutoConfig
     from dataclasses import asdict
     if managed_running():raise RuntimeError('Exclusive actual-model qualification')
+    if update:
+        previous=json.loads((root/'workspace-native-full-model-v3/report.json').read_text())
+        if previous['status']!='PASS_WORKSPACE_ACTUAL_MODEL_GRADIENT':raise AssertionError('Complete actual-size Native gradient qualification required')
+        if shutil.disk_usage(root).free<62*1024**3:raise RuntimeError('Full24GiB streamed state plus margin and35GiB protected reserve required')
     out=root/IDENTITY
     if out.exists() or PUBLIC.exists():raise FileExistsError('Preserve every qualification')
     cpu=root/'workspace-identity-gradient-v1/report.json';proof=json.loads(cpu.read_text())
@@ -46,7 +50,7 @@ def prepare(root):
     gradient='workspace-identity-gradient-v1/gradients.pt';inputs='workspace-identity-gradient-v1/private-objective-inputs.pt';checkpoint='workspace-reader-bootstrap-v1/checkpoint.pt'
     if file_sha256(root/gradient)!=proof['full_gradient_sha256'] or file_sha256(root/inputs)!=proof['objective_inputs_sha256'] or file_sha256(root/checkpoint)!=original['calibrated_checkpoint_sha256']:raise AssertionError('Exact qualified states required')
     config=asdict(OlmoWorkspaceConfig.from_hf(AutoConfig.from_pretrained(root/'workspace-olmo2-stage1-base-v1',local_files_only=True)))
-    plan=dict(identity=IDENTITY,predecessor='workspace-native-full-model-v2',change='Same exact objective and immediate shard reduction. Release unused allocator caches and CPU arenas between terms;record allocator/worker telemetry.192GiB explicit worker cap only if full512GiB host reserve plus192GiB allowance fits. Both128GiB stops remain.',purpose='workspace_actual_model_zero_update_gradient',world=64,worker_memory_gib=192,
+    plan=dict(identity=IDENTITY,predecessor='workspace-native-full-model-v2',change='Same exact objective and immediate shard reduction. Release unused allocator caches and CPU arenas between terms;record allocator/worker telemetry.192GiB explicit worker cap only if full512GiB host reserve plus192GiB allowance fits. Both128GiB stops remain.',purpose=('workspace_actual_model_one_update_recovery' if update else 'workspace_actual_model_zero_update_gradient'),world=64,worker_memory_gib=192,
         source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,
         registered_unix=start,absolute_deadline_unix=start+1800,seconds_limit=1800,phase_seconds_limit=1500,cpu_phase_seconds_limit=60,
         clock_admission_waiver=True,inode_projection=projection,root_comm_ports=reserve_ports(root,[phase]),phases={phase:dict(mode='gradient')},
@@ -54,20 +58,22 @@ def prepare(root):
         checkpoint_relative=checkpoint,checkpoint_sha256=original['calibrated_checkpoint_sha256'],gradient_relative=gradient,
         gradient_sha256=proof['full_gradient_sha256'],inputs_relative=inputs,inputs_sha256=proof['objective_inputs_sha256'],
         model_config=config,padded_positions=192,opening_ids=reader['opening_ids'],closing_ids=reader['closing_ids'],cost_per_token=.001,
-        optimizer_updates=0,policy_fit_admitted=False,scope='Actual1.485B fully sharded FP32 model plus independent frozen scorer,activation checkpointing,selective vocabulary head,sequential exact joint-objective terms.No optimizer update. Full179 named gradients compared with independent HF CPU reference at2% limit. Runtime memory and failures measured. No scientific campaign admitted.')
+        optimizer_updates=(1 if update else 0),policy_fit_admitted=False,scope='Actual1.485B fully sharded FP32 model plus independent frozen scorer,activation checkpointing,selective vocabulary head,sequential exact joint-objective terms.No optimizer update. Full179 named gradients compared with independent HF CPU reference at2% limit. Runtime memory and failures measured. No scientific campaign admitted.')
+    if update:plan.update(actual_policy_qualification_optimizer_updates=1,scientific_policy_fit_updates=0,predecessor='workspace-native-full-model-v3',change='After actual-size gradient gate:one AdamW update atLR1e-5,CPU deltas/moments/EMA checks,streamed full-state perturb/restore.No future trajectory or100-update throughput is certified.',scope='One actual-model qualification update only;full CPU update audits and exact streaming recovery.No scientific fit or useful-writer result.')
     out.mkdir();PUBLIC.mkdir(parents=True);write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
 
 
-def run(root):
+def run(root,update=False):
     out=root/IDENTITY;execution=AllChipExecution(root,out/'plan.json',out/'execution');result=dict(status='STOPPED_WORKSPACE_ACTUAL_MODEL_GRADIENT',optimizer_updates=0,policy_fit_admitted=False)
     def stop(n,f):raise KeyboardInterrupt('Owned actual-model qualification stop')
     previous={s:signal.signal(s,stop) for s in [signal.SIGTERM,signal.SIGINT]}
     try:
         phase=IDENTITY+'-gradient'
-        result['numerical']=execution.native(phase,'scripts.qualify_workspace_full_model',
+        result['numerical']=execution.native(phase,('scripts.qualify_workspace_full_update' if update else 'scripts.qualify_workspace_full_model'),
             ['--root','/work/instance-nvme','--plan','/work/instance-nvme/'+IDENTITY+'/plan.json','--plan-sha',execution.sha,
-             '--comm-port',str(execution.plan['root_comm_ports'][phase])],'PASS_WORKSPACE_ACTUAL_MODEL_GRADIENT')
-        result['status']='PASS_WORKSPACE_ACTUAL_MODEL_GRADIENT'
+             '--comm-port',str(execution.plan['root_comm_ports'][phase])],('PASS_WORKSPACE_FULL_MODEL_UPDATE_AND_RESTORE' if update else 'PASS_WORKSPACE_ACTUAL_MODEL_GRADIENT'))
+        result['status']='PASS_WORKSPACE_FULL_MODEL_UPDATE_AND_RESTORE' if update else 'PASS_WORKSPACE_ACTUAL_MODEL_GRADIENT'
+        result['optimizer_updates']=1 if update else 0
     except BaseException as error:result.update(error_type=type(error).__name__,error=str(error));raise
     finally:
         execution.close(out/'execution-costs.json');result['plan_sha256']=execution.sha
@@ -77,5 +83,7 @@ def run(root):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--run',action='store_true');a=p.parse_args()
-    run(a.root) if a.run else prepare(a.root)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--run',action='store_true');p.add_argument('--update',action='store_true');a=p.parse_args()
+    if a.update:
+        IDENTITY='workspace-native-full-update-v1';PUBLIC=Path('results/workspace_native_full_update_20261027')
+    run(a.root,a.update) if a.run else prepare(a.root,a.update)
