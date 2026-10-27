@@ -1,3 +1,9 @@
+## October27,2026,17:00 UTC — owner stops recurrence direction; no live accelerator workers
+
+The background final ordinary recovery completes300 warm updates but stops before replay when the complete worker-plus-host reserve cannot be admitted. Its endpoint remains unqualified and has no predictive score;the state,source and costs remain. After the owner stop instruction,no Native workers are live and no old main or confirmation is admitted. The separately tested archival-stage extension was never activated and is withdrawn from working source. [Preserved stop](results/scale_final_lower_rate_recovery_20261027/stopped-summary.json).
+
+The owner now explicitly requests a new self-generated-workspace discovery direction,allowing a pretrained discovery base and policy gradients while retaining eventual from-scratch confirmation as a separate claim. Preserve all earlier science and paused goal outcomes. No automatic recovery or enlargement of the old fixed-two program follows. New preparation will be separately registered.
+
 ## October27,2026,16:41 UTC — final trial stops at inode reserve; explicit recovery prepared
 
 The last ordinary0.002 Native launch stops at the original10000-inode reserve before any recorded update or training report. Its source snapshot and137 exit remain,including0.552045 assigned chip-hours. The lower-rate controller and guarded main handoff both stay STOPPED;no main was admitted. The three completed lower opportunities and all earlier qualified/rejected results are unchanged. [Actual stop and cost](results/scale_inode_maintenance_20261027/stopped-stage-summary.json).
