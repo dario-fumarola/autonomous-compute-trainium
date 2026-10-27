@@ -17,25 +17,47 @@ IDENTITY='scale-medium-main-v1'
 PUBLIC=Path('results/scale_medium_main_20261027')
 
 
-def prepare(root):
+def prepare(root,*,boundary_corrected=False):
     import numpy as np
     from compute_trainium.scale_pilot_size import profiled_inventory
     from compute_trainium.scale_work_ledger import fixed_update_work,work_matched_updates
     if managed_running():raise RuntimeError('Complete prior Native closure required')
-    tune_file=root/'scale-tune-readout-recovery-v1/report.json';tune=json.loads(tune_file.read_text())
-    if tune['status']!='COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION':raise ValueError('Complete independently audited corrected TUNE required')
-    tune_plan=json.loads((root/'scale-medium-tune-65536-v1/plan.json').read_text())
-    if tune['plan_sha256']!=file_sha256(root/'scale-medium-tune-65536-v1/plan.json'):raise AssertionError('Original TUNE registration changed')
+    tune_identity='scale-boundary-rate-completion-v1' if boundary_corrected else 'scale-medium-tune-65536-v1'
+    tune_file=root/tune_identity/'report.json' if boundary_corrected else root/'scale-tune-readout-recovery-v1/report.json'
+    tune=json.loads(tune_file.read_text())
+    expected='COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION' if boundary_corrected else 'COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION'
+    if tune['status']!=expected:raise ValueError('Complete independently audited corrected TUNE required')
+    tune_plan=json.loads((root/tune_identity/'plan.json').read_text())
+    if tune['plan_sha256']!=file_sha256(root/tune_identity/'plan.json'):raise AssertionError('Original TUNE registration changed')
+    scope_file=root/'scale-boundary-scope-freeze-v1/scope.json'
+    frozen=json.loads(scope_file.read_text()) if boundary_corrected else None
+    if boundary_corrected and (tune_plan['scope_freeze_sha256']!=file_sha256(scope_file)
+            or tune_plan.get('precision_policy')!='fp32_recurrent_boundaries'):
+        raise AssertionError('Outcome-blind boundary scope and qualified policy required')
+    r_end=frozen['recurrent_updates'] if frozen else 9554
+    o_end=frozen['ordinary_work_updates'] if frozen else 12939
+    r_stable=frozen['stable_trunk_update'] if frozen else 8598
+    o_stable=frozen['ordinary_work_stable_update'] if frozen else 11645
+    main_seconds=frozen['main_required_seconds'] if frozen else 14*3600
+    scope_document='docs/SCALE_BOUNDARY_RATE_COMPLETION_20261027.md' if boundary_corrected else 'docs/SCALE_JOINT_DEVELOPMENT_20261027.md'
+    if boundary_corrected:
+        if file_sha256(scope_document)!=frozen['scope_sha256']:raise AssertionError('Frozen scope document changed')
+        for name,sha in tune_plan['source_sha256'].items():
+            if (name.startswith('compute_trainium/') or name in ['scripts/train_scale_registered.py','scripts/train_scale_capture_invalid_gradient.py','scripts/audit_scale_registered.py','scripts/score_scale_registered.py']) and file_sha256(name)!=sha:
+                raise AssertionError('Tuned mathematical/training/readout source changed:'+name)
     if tune_plan.get('manual_loss_scale')!=65536:raise ValueError('Both roles must retain the freshly qualified scaler')
     for role in ['fixed_two','ordinary8']:
         choice=tune['selected'][role]
         if choice['rate'] not in [.008,.016,.032,.064] or choice['score']>=4.:raise ValueError('Prespecified healthy independent rate required')
-    storage=root/'scale-main-state-allowance-v2/report.json'
-    if json.loads(storage.read_text())['status']!='ADMITTED_COMPLETE_SCALE_MAIN_STATE_STORAGE':raise ValueError('Complete prospective raw-state storage required')
+    storage=root/('scale-boundary-main-state-allowance-v1' if boundary_corrected else 'scale-main-state-allowance-v2')/'report.json'
+    storage_proof=json.loads(storage.read_text())
+    if storage_proof['status']!='ADMITTED_COMPLETE_SCALE_MAIN_STATE_STORAGE':raise ValueError('Complete prospective raw-state storage required')
+    if shutil.disk_usage(root).free<35*1024**3+storage_proof['complete_additional_bytes']:
+        raise RuntimeError('Complete additional state allowance must still fit at actual main admission')
     folder=root/IDENTITY
     if folder.exists() or PUBLIC.exists():raise FileExistsError('Preserve every main registration')
     start=time.time()
-    if start+14*3600>SCALE_END:raise TimeoutError('Complete measured14-hour main allowance does not fit the original scale cap')
+    if start+main_seconds>SCALE_END:raise TimeoutError('Complete measured main allowance does not fit the original scale cap')
     initial=root/'scale-main-original-initializers-v1';initial_report=json.loads((initial/'report.json').read_text())
     if (initial_report['phase']!='main' or initial_report['seed']!=49177
             or initial_report['optimizer_updates']!=0 or initial_report['model_forwards']!=0):raise ValueError('Fresh original main C0 required')
@@ -44,8 +66,9 @@ def prepare(root):
     def targets(u):return sum(map(int,counts[u*512]))
     rwork=fixed_update_work(inventory[0]['config'],'fixed_two')['total_per_update']
     owork=fixed_update_work(inventory[1]['config'],'ordinary8')['total_per_update']
-    matching=work_matched_updates(rwork,9554,owork)
-    if matching['updates']!=12939 or targets(9554)!=5000260971 or targets(12939)!=6771820945:
+    matching=work_matched_updates(rwork,r_end,owork)
+    expected_targets=(frozen['recurrent_targets'],frozen['ordinary_work_targets']) if frozen else (5000260971,6771820945)
+    if matching['updates']!=o_end or (targets(r_end),targets(o_end))!=expected_targets:
         raise AssertionError('Prospectively fixed data/work endpoints changed')
     cases={};phases={};names=[];limits={}
     def base(role,end,stable,lineage_case):
@@ -60,37 +83,37 @@ def prepare(root):
             post_training_probe=True,audit_model_update=end,replay_before_update=end-8,periodic_checkpoint_interval=1000)
     def add(key,case,seconds):
         cases[key]=case;name=IDENTITY+'-'+key;phases[name]=dict(case=key);names.append(name);limits[name]=seconds
-    recurrent=base('fixed_two',9554,8598,'recurrent-main')
+    recurrent=base('fixed_two',r_end,r_stable,'recurrent-main')
     recurrent.update(artifact_directory=IDENTITY+'/artifacts/recurrent/warm',replay_directory=IDENTITY+'/artifacts/recurrent/replay',
         audit_directory=IDENTITY+'/audits/recurrent',score_directory=IDENTITY+'/scores/recurrent')
     add('recurrent',recurrent,8*3600)
     add('recurrent-replay',{**recurrent,'artifact_directory':recurrent['replay_directory'],
-        'resume':dict(directory=recurrent['artifact_directory'],update=9546),'save_updates':[9554],
+        'resume':dict(directory=recurrent['artifact_directory'],update=r_end-8),'save_updates':[r_end],
         'capture_before_updates':[],'post_training_probe':False,'periodic_checkpoint_interval':0},600)
-    ordinary=base('ordinary8',12939,11645,'ordinary-main')
+    ordinary=base('ordinary8',o_end,o_stable,'ordinary-main')
     ordinary.update(artifact_directory=IDENTITY+'/artifacts/ordinary/warm',replay_directory=IDENTITY+'/artifacts/ordinary/replay',
         audit_directory=IDENTITY+'/audits/ordinary',score_directory=IDENTITY+'/scores/ordinary')
-    trunk={**ordinary,'stop_update':8598,'save_updates':[8598],'capture_before_updates':[],
+    trunk={**ordinary,'stop_update':r_stable,'save_updates':[r_stable],'capture_before_updates':[],
         'artifact_directory':IDENTITY+'/artifacts/ordinary/trunk','post_training_probe':False}
     add('ordinary-trunk',trunk,5*3600)
-    equal=base('ordinary8',9554,8598,'ordinary-main')
+    equal=base('ordinary8',r_end,r_stable,'ordinary-main')
     equal.update(artifact_directory=IDENTITY+'/artifacts/ordinary-equal/warm',
         audit_directory=IDENTITY+'/audits/ordinary-equal',score_directory=IDENTITY+'/scores/ordinary-equal',
-        resume=dict(directory=trunk['artifact_directory'],update=8598))
+        resume=dict(directory=trunk['artifact_directory'],update=r_stable))
     add('ordinary-equal',equal,3600)
-    add('ordinary',{**ordinary,'resume':dict(directory=trunk['artifact_directory'],update=8598)},3*3600)
+    add('ordinary',{**ordinary,'resume':dict(directory=trunk['artifact_directory'],update=r_stable)},3*3600)
     add('ordinary-replay',{**ordinary,'artifact_directory':ordinary['replay_directory'],
-        'resume':dict(directory=ordinary['artifact_directory'],update=12931),'save_updates':[12939],
+        'resume':dict(directory=ordinary['artifact_directory'],update=o_end-8),'save_updates':[o_end],
         'capture_before_updates':[],'post_training_probe':False,'periodic_checkpoint_interval':0},600)
     sources={str(f):file_sha256(f) for d in ['compute_trainium','scripts','configs','third_party'] for f in Path(d).rglob('*.py') if f.is_file()}
-    for f in ['docs/SCALE_JOINT_DEVELOPMENT_20261027.md','tests/test_scale_training_state.py','tests/test_scale_training_fixture.py',
+    for f in [scope_document,'tests/test_scale_training_state.py','tests/test_scale_training_fixture.py',
               'tests/test_scale_work_ledger.py','scripts/run_native_isolated.sh']:sources[f]=file_sha256(f)
-    worker,host=split_snapshot_sources(sources);deadline=min(start+14*3600,SCALE_END)
+    worker,host=split_snapshot_sources(sources);deadline=min(start+main_seconds,SCALE_END)
     if shutil.disk_usage(root).free<35*1024**3:raise RuntimeError('Protected main NVMe reserve')
     folder.mkdir();PUBLIC.mkdir()
     plan=dict(identity=IDENTITY,purpose='scale_registered_development_v1',registered_unix=start,
         source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,
-        world=64,worker_memory_gib=192,seconds_limit=14*3600,phase_seconds_limit=8*3600,
+        world=64,worker_memory_gib=192,seconds_limit=main_seconds,phase_seconds_limit=8*3600,
         native_phase_seconds_limits=limits,cpu_phase_seconds_limit=1800,readout_seconds_limit=1800,
         absolute_deadline_unix=deadline,scale_budget_started_unix=SCALE_START,scale_budget_deadline_unix=SCALE_END,
         trainer_gate_receipt=tune_plan['trainer_gate_receipt'],trainer_gate_sha256=tune_plan['trainer_gate_sha256'],
@@ -98,13 +121,15 @@ def prepare(root):
         tuning_plan_sha256=tune['plan_sha256'],tuning_report_sha256=file_sha256(tune_file),
         independently_selected_rates=tune['selected'],initializer_report_sha256=file_sha256(initial/'report.json'),
         storage_admission_sha256=file_sha256(storage),manual_loss_scale=65536,
+        precision_policy='fp32_recurrent_boundaries' if boundary_corrected else 'fp16_body',invalid_gradient_capture=boundary_corrected,
+        scope_freeze_sha256=file_sha256(scope_file) if boundary_corrected else None,
         periodic_storage_lifecycle='two_latest_periodic_until_verified_permanent_successor',
         cases=cases,phases=phases,root_comm_ports=reserve_ports(root,names),
         native_order=['recurrent','recurrent-replay','ordinary-trunk','ordinary-equal','ordinary','ordinary-replay'],
         equal_data_branch_complete_cooldown=True,work_match=matching,minimum_useful_gain=.01,
         initial_training_seed_pairs=1,consumed_development_only=True,terminal_alpha_spent=0,
         scientific_main_fit_admitted=True,no_automatic_confirmation_or_followup=True,
-        scope=Path('docs/SCALE_JOINT_DEVELOPMENT_20261027.md').read_text())
+        scope=Path(scope_document).read_text())
     write_state(folder/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
     write_state(PUBLIC/'status.json',dict(status='PREPARED_MAIN_NOT_ACTIVATED',terminal_claim=False))
 
@@ -144,7 +169,8 @@ def run(root):
             name=IDENTITY+'-'+key
             options=['--root','/work/instance-nvme','--plan','/work/instance-nvme/'+IDENTITY+'/plan.json',
                 '--plan-sha',execution.sha,'--case',key,'--comm-port',str(execution.plan['root_comm_ports'][name])]
-            records[key]=dict(native=execution.native(name,'scripts.train_scale_registered',options,'CAPTURED_SCALE_REGISTERED_TRAINING_PHASE'))
+            entry='scripts.train_scale_capture_invalid_gradient' if execution.plan.get('invalid_gradient_capture') else 'scripts.train_scale_registered'
+            records[key]=dict(native=execution.native(name,entry,options,'CAPTURED_SCALE_REGISTERED_TRAINING_PHASE'))
             if key=='recurrent-replay':evaluate('recurrent')
             elif key=='ordinary-equal':evaluate('ordinary-equal')
             elif key=='ordinary-replay':evaluate('ordinary')
