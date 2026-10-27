@@ -1,3 +1,9 @@
+## October27,2026,21:58 UTC — stable loss closes both full-model fixed-point checks
+
+All179 parameter gradients pass the unchanged2% criterion at both actual1.485B weight sets. Largest named errors versus HF-body/FP64-loss references are0.000863% at C0 and0.002986% at the same saturated checkpoint that failed before. Native execution takes113.05seconds,with no CPU fallback or updates. This requalifies the improved calculation at those fixed weights;the previous100-update history remains unqualified. [Full-model fixed points](results/workspace_stable_model_20261027/report.json).
+
+A distinct v2 online qualification is prepared from common C0 weights with fresh AdamW,stable loss and batched G4 sampling. It uses6,464 admitted natural views in frozen60/20/20 order,and chooses a mature numerical-audit view from a TRAIN group absent from those updates. Source arrays are mmap-backed to avoid64 Python copies. One cold plus100warm updates remain fixed,with every actual update,cost,RNG and final state recorded. No TUNE/DEV quality readout or scientific fit is admitted. Batched sampling/FP64 oracle/source order/state/replay/partial-stop CPU checks pass. [Next bounded controller](scripts/run_workspace_online_throughput.py).
+
 ## October27,2026,21:47 UTC — stable target loss passes analytic Native fixture on all64 ranks
 
 The zero-update numerical fixture completes in27.82seconds with no CPU fallback. Across all64 ranks,stable FP32 loss gradients differ from analytic FP64 probability gradients by at most0.000233%;standard loss loses essentially100% of the tiny target gradient in the highest-confidence rows. This confirms the cancellation mechanism in a minimal large-vocabulary fixture;it does not certify the full model or repair the old history. [All-rank fixture](results/workspace_stable_loss_20261027/all-rank-summary.json).

@@ -34,8 +34,8 @@ class ForwardLedger:
 
 class Reader:
     """A callable returning full causal logits; never retains a K/V cache."""
-    def __init__(self, logits, ledger=None):
-        self.logits=logits;self.ledger=ledger
+    def __init__(self, logits, ledger=None, *,loss_dtype=torch.float32):
+        self.logits=logits;self.ledger=ledger;self.loss_dtype=loss_dtype
 
     def __call__(self,tokens,phase):
         _tokens(tokens,'model input');started=time.perf_counter()
@@ -91,7 +91,7 @@ def target_log_probs(reader,context,targets,*,phase,temperature=1.):
     if targets.shape[0] not in [1,context.shape[0]]:raise ValueError('Incompatible target batch')
     targets=targets.expand(context.shape[0],-1)
     inputs=torch.cat([context,targets[:,:-1]],dim=1)
-    logits=reader(inputs,phase)[:,context.shape[1]-1:,:].float()/temperature
+    logits=reader(inputs,phase)[:,context.shape[1]-1:,:].to(getattr(reader,'loss_dtype',torch.float32))/temperature
     return stable_target_log_probs(logits,targets)
 
 

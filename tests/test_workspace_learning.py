@@ -136,3 +136,13 @@ def test_identity_reader_loss_uses_identical_raw_context_when_empty():
     value=reader_loss(reader,prefix,target,prefix[:,:0],format=WorkspaceFormat((9,),(10,)),context_builder=identity_reader_context)
     expected=-target_log_probs(reader,prefix,target,phase='ordinary').mean()
     assert torch.equal(value,expected)
+
+
+def test_independent_cpu_reader_can_keep_fp64_loss_arithmetic():
+    import torch
+    from compute_trainium.workspace_learning import Reader,target_log_probs
+    logits=torch.tensor([[[0.,0.,30.]]],requires_grad=True)
+    reader=Reader(lambda x:logits,loss_dtype=torch.float64)
+    value=target_log_probs(reader,torch.tensor([[1]]),torch.tensor([[2]]),phase='oracle')
+    assert value.dtype==torch.float64
+    (-value.sum()).backward();assert logits.grad[0,0,2]<0

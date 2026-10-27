@@ -31,18 +31,16 @@ class SelectiveWorkspacePredictor:
     @torch.no_grad()
     def sample(self,prefix,*,format,length,group_size,generator):
         # The writer takes no continuation/target argument.
-        if prefix.shape[0]!=1 or not 0<length<=32 or not 2<=group_size<=8:raise ValueError('Bounded single-anchor workspace sampling')
-        opening=prefix.new_tensor(format.opening).reshape(1,-1);draws=[]
-        for _ in range(group_size):
-            context=torch.cat([prefix,opening],1);tokens=[]
-            for _ in range(length):
-                logits=self.logits(context,prefix.new_zeros((1,1)),'workspace_sampling')
-                probabilities=torch.softmax(logits[:,-1,:].detach().cpu(),-1)
-                token=torch.multinomial(probabilities,1,generator=generator)
-                tokens.append(token);context=torch.cat([context,token],1)
-                del logits,probabilities;drain_runtime(self.device)
-            draws.append(torch.cat(tokens,1))
-        return torch.cat(draws,0)
+        if prefix.shape[0]!=1 or not 0<length<=32 or not 1<=group_size<=8:raise ValueError('Bounded single-anchor workspace sampling')
+        opening=prefix.new_tensor(format.opening).reshape(1,-1)
+        context=torch.cat([prefix,opening],1).expand(group_size,-1);draws=[]
+        for _ in range(length):
+            logits=self.logits(context,prefix.new_zeros((group_size,1)),'workspace_sampling')
+            probabilities=torch.softmax(logits[:,-1,:].detach().cpu(),-1)
+            token=torch.multinomial(probabilities,1,generator=generator)
+            draws.append(token);context=torch.cat([context,token],1)
+            del logits,probabilities;drain_runtime(self.device)
+        return torch.cat(draws,1)
     @torch.no_grad()
     def score(self,prefix,targets,workspace,*,format,cost_per_token=.001):
         raw=float(self.log_probs(prefix,targets,'scorer_raw').mean().cpu());worked=[]

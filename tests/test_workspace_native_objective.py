@@ -2,7 +2,7 @@ import inspect
 import torch
 from compute_trainium.workspace_olmo_candidate import WorkspaceOlmoCandidate,OlmoWorkspaceConfig,rotary_tensors
 from compute_trainium.workspace_native_objective import SelectiveWorkspacePredictor
-from compute_trainium.workspace_learning import Reader,WorkspaceFormat,target_log_probs,score_workspaces,identity_reader_context
+from compute_trainium.workspace_learning import Reader,WorkspaceFormat,target_log_probs,score_workspaces,identity_reader_context,sample_workspaces
 
 
 def test_selective_prefix_only_sampling_scores_and_rng_match_full_cpu_reference():
@@ -19,7 +19,12 @@ def test_selective_prefix_only_sampling_scores_and_rng_match_full_cpu_reference(
     expected=score_workspaces(full,c,y,z,format=fmt,cost_per_token=.001,context_builder=identity_reader_context)
     torch.testing.assert_close(actual['rewards'],expected['rewards'],rtol=2e-5,atol=2e-6)
     torch.testing.assert_close(predictor.log_probs(c,y,'ordinary'),target_log_probs(full,c,y,phase='ordinary'),rtol=2e-5,atol=2e-6)
-    assert predictor.ledger()['phases']['workspace_sampling']==16
+    assert predictor.ledger()['phases']['workspace_sampling']==4
+    rng.set_state(state)
+    reference_samples=sample_workspaces(full,c,format=fmt,length=2,group_size=4,generator=rng)
+    assert torch.equal(z,reference_samples)
+    single=predictor.sample(c,format=fmt,length=2,group_size=1,generator=torch.Generator().manual_seed(7337))
+    assert single.shape==(1,2)
 
 
 def test_selective_runtime_coefficient_backward_matches_full_batched_gradient():

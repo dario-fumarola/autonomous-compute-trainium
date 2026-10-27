@@ -1,0 +1,52 @@
+{
+  "status": "PASS_WORKSPACE_STABLE_FIXED_MODEL_POINTS",
+  "policy_fit_admitted": false,
+  "numerical": {
+    "status": "PASS_WORKSPACE_STABLE_FIXED_MODEL_POINTS",
+    "world": 64,
+    "records": {
+      "c0": {
+        "gradient_relative_l2": 3.237904759666109e-06,
+        "largest_named_relative_l2": 8.62895221013488e-06,
+        "largest_named_parameter": "model.layers.14.post_feedforward_layernorm.weight",
+        "gradient_norm": 56.57842254638672,
+        "weighted_losses": {
+          "ordinary_ntp": 1.3000967502593994,
+          "workspace_reader": 3.143275737762451,
+          "workspace_policy": 0.021272466517984867
+        },
+        "stable_absolute_gains": [
+          0.12746000289916992,
+          0.07664060592651367,
+          0.1094980239868164,
+          0.034763336181640625
+        ],
+        "frozen_reward_labels": true
+      },
+      "mature": {
+        "gradient_relative_l2": 9.377410069014727e-06,
+        "largest_named_relative_l2": 2.985892351144565e-05,
+        "largest_named_parameter": "model.layers.14.post_attention_layernorm.weight",
+        "gradient_norm": 0.00010696178651414812,
+        "weighted_losses": {
+          "ordinary_ntp": 3.105658606727957e-06,
+          "workspace_reader": 4.258686772118381e-07,
+          "workspace_policy": 0.0
+        },
+        "stable_absolute_gains": [
+          2.785439392027911e-06,
+          2.785439392027911e-06,
+          2.785439392027911e-06,
+          2.785439392027911e-06
+        ],
+        "frozen_reward_labels": true
+      }
+    },
+    "wall_seconds": 113.05314326286316,
+    "optimizer_updates": 0,
+    "fallback_ops": [],
+    "policy_fit_admitted": false,
+    "scope": "Same unchanged C0 and saturated u102 checkpoint,two independent full179-parameter FP64-loss references;stable FP32 target loss on Native.No historical update is repaired or recertified."
+  },
+  "plan_sha256": "64a8660fc2e0d65d2249cedc24e404db6cb6b37c39e94acc4dc12da8d5dfe09f"
+}

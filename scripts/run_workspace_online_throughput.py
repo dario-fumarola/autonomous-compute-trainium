@@ -15,19 +15,19 @@ from compute_trainium.training import file_sha256
 from compute_trainium.queue import write_state
 from scripts.run_scale_sharding_fixture import AllChipExecution
 
-IDENTITY='workspace-native-online-throughput-v1'
-PUBLIC=Path('results/workspace_online_throughput_20261027')
+IDENTITY='workspace-native-online-throughput-v2'
+PUBLIC=Path('results/workspace_online_throughput_20261027/recovery-v2')
 
 
 def prepare(root):
     if managed_running():raise RuntimeError('Exclusive online qualification only')
-    cpu_proof=Path('results/workspace_online_cpu_20261027/report.json')
+    cpu_proof=Path('results/workspace_stable_online_cpu_20261027/report.json')
     proof=json.loads(cpu_proof.read_text())
     if proof['status']!='PASS_WORKSPACE_ONLINE_CPU_HELPERS' or any(file_sha256(n)!=h for n,h in proof['source_sha256'].items()):raise AssertionError('Current complete CPU online/state helper proof required')
     out=root/IDENTITY
     if out.exists() or PUBLIC.exists():raise FileExistsError('Retain every online attempt')
-    gate=root/'workspace-full-update-cpu-audit-v1/report.json'
-    if json.loads(gate.read_text())['status']!='PASS_WORKSPACE_SAVED_UPDATE_CPU_AUDIT':raise AssertionError('Independent complete saved-state CPU update audit required')
+    gate=root/'workspace-stable-model-fixed-points-v1/report.json'
+    if json.loads(gate.read_text())['status']!='PASS_WORKSPACE_STABLE_FIXED_MODEL_POINTS':raise AssertionError('Complete actual-size stable-loss fixed-point audit required')
     parent=root/'workspace-native-full-update-v1/plan.json';original=json.loads(parent.read_text())
     if json.loads((parent.parent/'report.json').read_text())['status']!='PASS_WORKSPACE_FULL_MODEL_UPDATE_AND_RESTORE':raise AssertionError('Complete actual-size Native update/recovery gate required')
     for path,minimum in [(root,66),(Path('/'),37)]:
@@ -39,20 +39,36 @@ def prepare(root):
     sources={str(f):file_sha256(f) for d in ['compute_trainium','scripts','configs'] for f in Path(d).rglob('*.py') if f.is_file()}
     for n in ['scripts/run_native_isolated.sh','tests/test_workspace_native_objective.py','tests/test_workspace_sharded_fixture.py']:sources[n]=file_sha256(n)
     worker,host=split_snapshot_sources(sources);start=time.time();phase=IDENTITY+'-online'
-    shards='runs/workspace-native-full-update-v1-gradient'
-    plan=dict(identity=IDENTITY,purpose='workspace_online_throughput_qualification',world=64,worker_memory_gib=192,
+    from compute_trainium.workspace_view_batches import WorkspaceViewBatches
+    import collections
+    data_root=root/'workspace-view-batches-v1';data=WorkspaceViewBatches(data_root,'train')
+    data_report=data_root/'report.json'
+    data_receipt=json.loads(data_report.read_text())
+    if data_receipt['status']!='PASS_WORKSPACE_SHARED_VIEW_BATCHES':raise AssertionError('Exact shared source view batches required')
+    if any(file_sha256(data_root/n)!=h for n,h in data_receipt['records']['train']['files'].items()):raise AssertionError('Frozen shared source arrays changed')
+    metadata=[json.loads(line) for line in (root/'workspace-source-views-v2/train-views.jsonl').read_text().splitlines()]
+    used_rows=[int(data.order[k]) for k in range(101*64)];used_groups={metadata[k]['group'] for k in used_rows}
+    audit_index=next(k for k in range(101*64,len(data)) if metadata[int(data.order[k])]['group'] not in used_groups)
+    intervals=collections.defaultdict(list)
+    for k in used_rows:
+        v=metadata[k];intervals[v['id']].append((v['anchor']-127,v['anchor']+4))
+    unique=0
+    for ranges in intervals.values():
+        end=-1
+        for lo,hi in sorted(ranges):unique+=max(0,hi-max(lo,end));end=max(end,hi)
+    plan=dict(identity=IDENTITY,purpose='workspace_stable_online_fresh_source_qualification',world=64,worker_memory_gib=192,
         registered_unix=start,source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,
         seconds_limit=5400,absolute_deadline_unix=start+5400,phase_seconds_limit=5100,cpu_phase_seconds_limit=60,
         clock_admission_waiver=True,inode_projection=projection,root_comm_ports=reserve_ports(root,[phase]),phases={phase:dict(mode='online')},
-        parent_shards_relative=shards,parent_shard_sha256=[file_sha256(root/shards/f'rank{i}-u1.zip') for i in range(64)],
+        data_relative='workspace-view-batches-v1',data_report_sha256=file_sha256(data_report),mature_audit_index=audit_index,qualification_source_groups=len(used_groups),qualification_unique_source_targets=unique,
         parent_plan_sha256=file_sha256(parent),saved_state_cpu_audit_sha256=file_sha256(gate),
         checkpoint_relative=original['checkpoint_relative'],model_config=original['model_config'],
         inputs_relative=original['inputs_relative'],inputs_sha256=original['inputs_sha256'],opening_ids=original['opening_ids'],closing_ids=original['closing_ids'],
-        cpu_proof_sha256=file_sha256(cpu_proof),post_restore_sampling_seed_base=7351,lr=1e-5,betas=[.9,.95],epsilon=1e-8,weight_decay=.1,gradient_clip=1.,gradient_scale=256,ema_decay=.99,ordinary_weight=.5,reader_weight=.5,policy_weight=.1,cost_per_token=.001,cold_updates=1,warm_updates=100,actual_qualification_policy_optimizer_updates=101,scientific_policy_fit_updates=0,
-        group_size=4,workspace_length=8,reward_horizon=4,padded_positions=192,global_source_groups=1,
-        policy_fit_admitted=False,scope='Fresh-process exact full actor/scorer/AdamW/RNG restore from saved u1,then one cold+100warm online generate/score/gradient/AdamW/EMA updates on ONE repeated accepted TRAIN anchor. Independent per-rank exploration,post-update EMA .99,no teacher. Whole costs and all actual exposures logged. Final102-counter state and mature zero-update full gradient saved for independent CPU audit. No scientific fit,selection on generated thought quality,confirmation or original from-scratch claim.')
+        cpu_proof_sha256=file_sha256(cpu_proof),sampling_seed_base=7351,lr=1e-5,betas=[.9,.95],epsilon=1e-8,weight_decay=.1,gradient_clip=1.,gradient_scale=256,ema_decay=.99,ordinary_weight=.5,reader_weight=.5,policy_weight=.1,cost_per_token=.001,cold_updates=1,warm_updates=100,actual_qualification_policy_optimizer_updates=101,scientific_policy_fit_updates=0,
+        group_size=4,workspace_length=8,reward_horizon=4,padded_positions=192,global_source_groups=len(used_groups),
+        policy_fit_admitted=False,scope='Fresh common C0 weights and reset AdamW,then one cold+100warm online generate/score/gradient/AdamW/EMA updates on6464 admitted source views with a new untouched TRAIN group for the mature numerical audit. Independent per-rank exploration,post-update EMA .99,no teacher. Whole costs and all actual exposures logged. Final101-counter state and mature zero-update full gradient saved for independent CPU audit. No scientific fit,selection on generated thought quality,confirmation or original from-scratch claim.')
     if file_sha256(root/plan['inputs_relative'])!=plan['inputs_sha256']:raise AssertionError('Qualified source inputs changed')
-    out.mkdir();PUBLIC.mkdir();write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
+    out.mkdir();PUBLIC.mkdir(parents=True);write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
 
 
 def run(root):

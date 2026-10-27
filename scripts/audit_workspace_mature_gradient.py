@@ -17,8 +17,8 @@ from compute_trainium.workspace_learning import (Reader,WorkspaceFormat,identity
 PUBLIC=Path('results/workspace_online_mature_audit_20261027')
 
 
-def run(root):
-    started=time.time();out=root/'workspace-online-mature-cpu-audit-v1';native=root/'runs/workspace-native-online-throughput-v1-online'
+def run(root,stable=False):
+    started=time.time();out=root/('workspace-stable-online-cpu-audit-v1' if stable else 'workspace-online-mature-cpu-audit-v1');native=root/('runs/workspace-native-online-throughput-v2-online' if stable else 'runs/workspace-native-online-throughput-v1-online')
     if os.environ.get('USE_TORCH_XLA')!='0':raise RuntimeError('Independent CPU reference only')
     if out.exists() or PUBLIC.exists():raise FileExistsError('Preserve every mature audit')
     receipt=json.loads((native/'report.json').read_text())
@@ -30,9 +30,9 @@ def run(root):
         if time.time()-started>1200:raise TimeoutError('Bounded complete mature audit')
     available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
     if available<552*1024**3:raise RuntimeError('Complete40GiB CPU working allowance and512GiB reserve')
-    out.mkdir();PUBLIC.mkdir();torch.set_num_threads(12)
+    out.mkdir();PUBLIC.mkdir(parents=True);torch.set_num_threads(12)
     source=['scripts/audit_workspace_mature_gradient.py','compute_trainium/workspace_cpu_reconstruction.py','compute_trainium/workspace_learning.py']
-    shards=[native/f'rank{rank}-u102.zip' for rank in range(64)]
+    shards=[native/f'rank{rank}-u{101 if stable else 102}.zip' for rank in range(64)]
     gradient_files=[native/f'rank{rank}-mature-gradients.pt' for rank in range(64)]
     plan=dict(registered_unix=time.time(),native_report_sha256=file_sha256(native/'report.json'),
         shard_sha256=[file_sha256(p) for p in shards],gradient_sha256=[file_sha256(p) for p in gradient_files],
@@ -51,9 +51,9 @@ def run(root):
         scorer=AutoModelForCausalLM.from_pretrained(base,local_files_only=True,trust_remote_code=False,dtype=torch.float32,attn_implementation='eager').eval().requires_grad_(False)
         load_streamed_model(shards,scorer,label='scorer')
         inputs=torch.load(native/'private-mature-inputs.pt',weights_only=True);c,y,z,rewards=[inputs[k] for k in ['prefix','targets','workspace','rewards']]
-        native_plan=json.loads((root/'workspace-native-online-throughput-v1/plan.json').read_text())
+        native_plan=json.loads((root/('workspace-native-online-throughput-v2/plan.json' if stable else 'workspace-native-online-throughput-v1/plan.json')).read_text())
         fmt=WorkspaceFormat(tuple(native_plan['opening_ids']),tuple(native_plan['closing_ids']))
-        actor=Reader(lambda x:model(x,use_cache=False).logits);frozen=Reader(lambda x:scorer(x,use_cache=False).logits)
+        actor=Reader(lambda x:model(x,use_cache=False).logits,loss_dtype=torch.float64 if stable else torch.float32);frozen=Reader(lambda x:scorer(x,use_cache=False).logits,loss_dtype=torch.float64 if stable else torch.float32)
         progress('independent_frozen_reader_scores')
         scores=score_workspaces(frozen,c,y,z,format=fmt,cost_per_token=.001,context_builder=identity_reader_context)
         score_error=float((scores['rewards']-rewards).abs().max())
@@ -74,7 +74,7 @@ def run(root):
             torch.save({n:p.grad for n,p in model.named_parameters()},out/'failed-independent-gradients.pt')
             raise AssertionError('Complete mature gradient exceeds unchanged2% named limit')
         if any(p.grad is not None for p in scorer.parameters()) or versions!=tuple(p._version for p in model.parameters()):raise AssertionError('Frozen scorer/zero-update actor invariant')
-        result.update(status='PASS_WORKSPACE_ONLINE_MATURE_CPU_AUDIT',parameters_checked=len(errors),
+        result.update(status=('PASS_STABLE_ONLINE_MATURE_CPU_AUDIT' if stable else 'PASS_WORKSPACE_ONLINE_MATURE_CPU_AUDIT'),parameters_checked=len(errors),
             gradient_relative_l2=(diff_total/max(ref_total,1e-30))**.5,largest_named_relative_l2=max(errors.values()),
             worst_named_parameter=max(errors,key=errors.get),frozen_score_max_abs_error=score_error,
             losses=dict(ordinary=float(raw.detach()),reader=float(read.detach()),policy=float(pg.detach())),
@@ -87,4 +87,6 @@ def run(root):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);a=p.parse_args();run(a.root)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--stable',action='store_true');a=p.parse_args()
+    if a.stable:PUBLIC=Path('results/workspace_online_mature_audit_20261027/recovery-v2')
+    run(a.root,a.stable)
