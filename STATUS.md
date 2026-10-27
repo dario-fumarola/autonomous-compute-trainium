@@ -1,3 +1,11 @@
+## October27,2026,15:04 UTC — symmetric lower-rate check active on all16 chips
+
+The explicit original-grid certificate activates the already registered0.004/0.002 follow-up for both roles. New source registration starts recurrent0.004 from untouched38213 C0,with the same source order,157,013,162-target/300-update schedule,qualified boundary precision and65536 scaler. It reaches42 updates at15:03UTC;no endpoint,audit or held-out score yet. Ordinary0.004,then recurrent0.002 and ordinary0.002 follow only through the same complete gates. The original two numerical rejections remain in the combined selection with no quality scores. [Active registration](results/scale_boundary_lower_rates_20261027/plan.json). All438 source tests pass,two skipped.
+
+The8.000B recurrent /10.835B conventional-work scope is frozen but unadmitted. Neither old main proposal was launched or scored. Complete independent selection,current full-state storage,original unupdated49177 C0,and all numerical/source bindings are still required. No confirmation,TEST or terminal alpha is used.
+
+A single-stream200GiB maximum exact archive of closed pre-scale historical binaries is active under this lower-rate stage's resource allocation. It excludes all raw ZIP dependency parents and keeps the complete remaining18GiB Native artifact/failure peak,512GiB host and35GiB every-output floors. Original hashes and actual first-file restoration are verified before releasing raw duplicates. It stops before any unknown successor. [Bounded preservation plan](results/closed_legacy_checkpoint_archive_20261027/registration-v3/plan.json). No corpus,parameter/optimizer value,result or failure changes,and main admission cannot rely on projected savings.
+
 ## October27,2026,14:56 UTC — all original opportunities accounted; lower-rate admission next
 
 Recurrent0.064 completes its300-update cooldown and actual replay,then fails the full512 mature numerical gate:3.454750% overall /4.602181% injection/readout gradient error,despite Native minus CPU NLL0.00000237590. All lineage,cursor,target,clipping and unchanged-model checks pass. The controller stops;no quality score or automatic follow-up follows. [Complete rejection](results/scale_boundary_last_original_rates_20261027/rejected-recurrent-lr3/full-gradient-observation.json).
