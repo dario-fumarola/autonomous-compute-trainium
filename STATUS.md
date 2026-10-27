@@ -1,3 +1,11 @@
+## October27,2026,06:12 UTC — scaled TUNE learning trial complete; independent audit active
+
+The first375.94M recurrent rate trial completes300 updates /157,013,162 natural targets and its own cooldown on all16 chips. Training NLL ends3.224104 (not a development score); all gradients remain finite. Native wall833.885s, observed cgroup peak185.071GiB under192GiB, zero OOM/fatal supervisor result. Its separate-process final update completes, and the prescribed independent optimizer update/moments pass; the complete512-window gradient audit is active before quality is scored. No rate or main scientific fit is selected yet. [Frozen equal-opportunity sweep](results/scale_medium_tune_20261027/plan.json).
+
+The new lineage wrapper passes its three-update64-core small software-array/replay fixture exactly.417 CPU tests pass with two skips. Both actual medium shapes retain their complete independent numerical qualifications. Original random seed38213 initializers are fresh, zero-forward/zero-update, separate from all qualification weights. Main seed49177 initializers are also generated without forwards/updates but remain untrained and unadmitted.
+
+Closed medium replay archives retain every original binary fingerprint and parent, recovering approximately7.97GiB recurrent and4.97GiB conventional NVMe without dropping source or unique evidence. A bounded16GiB existing-RAM filesystem allowance retains TUNE C0 and every final FP32 model while preserving512GiB host and35GiB filesystem reserves; no cloud/instance/driver change. Only successful, prospectively declared TUNE diagnostics may close after complete audits, score, exact retained weights and successful ownership closure. All failures remain. The original24-hour cap ending October28,02:09:45UTC is unchanged.
+
 ## October27,2026,05:33 UTC — both medium numerical gates complete; source capacity reverified
 
 The conventional374.89M challenger passes independent full512 FP32 gradients (0.035402% overall,0.045770% largest family), first update/moments and exact named replay.100 warm updates take160.055585s on all16 chips; all102 updates remain numerical only. The recurrent375.94M gate already passed. [Conventional proof](results/scale_medium_numerical_20261027/ordinary8/REPORT.md).
