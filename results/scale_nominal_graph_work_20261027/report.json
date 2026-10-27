@@ -1,0 +1,59 @@
+{
+  "status": "PASS_INDEPENDENT_META_MATRIX_GRAPH_COUNTS",
+  "records": [
+    {
+      "role": "fixed_two",
+      "parameters": 375940224,
+      "context": 1024,
+      "global_windows": 512,
+      "forward_per_window": 632973950976,
+      "training_per_window": 1898921852928,
+      "neural_operations": {
+        "aten.mm": 1744303030272,
+        "aten.bmm": 154618822656
+      },
+      "owner_optimizer_per_update": 6522981909120,
+      "total_per_update": 978770970608256,
+      "owners_per_parameter_group": 1,
+      "owner_parameter_groups": 4,
+      "parameter_group_owners_not_replicated_across64_workers": true
+    },
+    {
+      "role": "ordinary8",
+      "parameters": 374888960,
+      "context": 1024,
+      "global_windows": 512,
+      "forward_per_window": 467080314880,
+      "training_per_window": 1401240944640,
+      "neural_operations": {
+        "aten.mm": 1272391925760,
+        "aten.bmm": 128849018880
+      },
+      "owner_optimizer_per_update": 5234491688000,
+      "total_per_update": 722669855343680,
+      "owners_per_parameter_group": 1,
+      "owner_parameter_groups": 4,
+      "parameter_group_owners_not_replicated_across64_workers": true
+    }
+  ],
+  "frozen_main_match": {
+    "updates": 12939,
+    "candidate_total": 9351177853191277824,
+    "control_total": 9350625258291875520,
+    "unmatched_work": 552594899402304
+  },
+  "source_sha256": {
+    "scripts/audit_scale_nominal_graph_work.py": "0cd05e8686e12b4ade8898c7e0b26ebe998170f61535a69c8d6779661aee5439",
+    "compute_trainium/scale_work_ledger.py": "bdadc54945b4d0a7b4857df98e6e2cc564e630823b68d0d855ba3b69be358ac4",
+    "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+    "compute_trainium/parcae_primitive_sdpa_candidate.py": "911e11b3ea6cb2f1276b5609ec2dc528fdf3700b5ba0b7722b5d6312048816b9",
+    "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+    "compute_trainium/scale_model_sharding.py": "e3defa4b0db0d8eebfd51962c09349bce36244e5a458576781c94b1169baf2fd"
+  },
+  "torch_version": "2.9.1+cu128",
+  "wall_seconds": 1.0241146087646484,
+  "assigned_chips": 0,
+  "research_examples": 0,
+  "optimizer_updates": 0,
+  "scope": "ATen mm/bmm dispatch counts actual full forward/backward and complete FP32 polar matrix algorithm shapes. Same-shape kernels across512 windows,once per owner optimizer group. No assertion about Native compiler padding,recomputation,collectives,elementwise/AdamW work,precision throughput or chip-time matching; these remain separate."
+}

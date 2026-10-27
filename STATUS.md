@@ -1,3 +1,15 @@
+## October27,2026,09:24 UTC — first two TUNE cells qualified; next recurrent rate live
+
+Both0.008 trials pass mature512-window gradients,actual replay and exact retained-weight readback. Their consumed-TUNE NLLs are3.397839 recurrent and3.097228 conventional at the same157,013,162 targets; these are unselected screening cells, not matched-work main endpoints. Conventional full-gradient discrepancy is0.136607% overall /0.137144% largest family. The fixed sweep moves automatically to recurrent0.016 on all16 chips. [Partial sweep evidence](results/scale_tune_readout_recovery_20261027/REPORT.md).
+
+All425 CPU tests pass, two skipped. Independent complete forward/backward/Muon graph matrix counts match the frozen ledger exactly. The one-window CPU thread screen establishes parity but no whole-audit speed claim; keep24 threads. Complete evidence archival and successful-only TUNE diagnostic closure leave about82GiB NVMe free before this next case, above the prospective78.38GiB main storage requirement. Actual main admission still requires the full independent rate selection and remaining measured time inside the original cap; no extension or automatic fit is admitted.
+
+## October27,2026,09:19 UTC — first recovered TUNE score complete; conventional audit active
+
+The recurrent0.008 case completes mature numerical checks,readout and successful-only diagnostic closure. Its consumed-TUNE NLL is3.397839 on192 documents; this is an LR-screening result, not a comparison win. All16 chips then complete the conventional0.008 case's300 updates and actual replay. Its independent512-window audit is active. No rate,main fit or larger campaign is admitted; the original deadlines remain unchanged. [Recovery and first score](results/scale_tune_readout_recovery_20261027/REPORT.md).
+
+Independent ATen shape dispatch counts exactly match both full forward/backward neural ledgers and whole-owner FP32 Muon matrix updates. The frozen5.000B/6.772B work endpoints remain unchanged; no hardware-time claim follows. [Independent accounting](results/scale_nominal_graph_work_20261027/REPORT.md). A48.39-second zero-update CPU thread/parity screen finds only modest single-window timing variation; keep the frozen24-thread policy. [Limited performance evidence](results/scale_cpu_reference_threads_20261027/REPORT.md).
+
 ## October27,2026,08:54 UTC — corrected mature audit passes; retained-container readout recovery active
 
 The first corrected recurrent TUNE case passes its exact512-window mature audit:0.207341% overall, every named family below2%, with completed actual replay. Its first scoring controller then stops before any held-out document on a retained-checkpoint verification assertion. The serialized weights are exact: the pre-save digest hashes a plain dict while readback is an OrderedDict; normalizing only that container reproduces the pre-save digest exactly.

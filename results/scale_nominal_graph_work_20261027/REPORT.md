@@ -1,0 +1,5 @@
+# Independent nominal matrix graph audit
+
+The actual-shape primitive-attention forward and complete backward graphs exactly match the declared neural matrix ledger for both375M models. ATen dispatch counts are1,898,921,852,928 recurrent and1,401,240,944,640 conventional training FLOPs per1024-position window. Full FP32 polar-update graphs independently match6,522,981,909,120 and5,234,491,688,000 matrix operations per optimizer update. The implementation assigns each whole parameter group to one owner; it does not duplicate those matrix updates64 times.
+
+These are shape-only meta software arrays, zero model values, source examples, chips or learning updates. Autocast is disabled for unsupported meta devices; the check does not qualify numerical precision. Counts include dense attention and all32768 output rows. Compiler padding/recomputation,collectives,embedding gathers and elementwise/AdamW work remain separately scoped; this is not a hardware FLOP counter or chip-time match. The frozen9554/12939 endpoints and Python-integer totals above2^63 remain unchanged.

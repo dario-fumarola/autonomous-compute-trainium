@@ -1,0 +1,9 @@
+# Readout-only recovery of the fixed scale tuning sweep
+
+The original controller stopped before evaluating held-out documents because its retained-state hash compared dict with OrderedDict. The unchanged serialized tensors reproduce the exact pre-save canonical digest. A separately hashed adapter canonicalizes only the flat model container, then passes the original exact disk-readback test. The failed binary remains fully restorable via exact ZIP payload sharing against the unchanged retained weights;1,504,285,195 payload bytes are identical and the28,321-byte archive reconstructs the original1,504,305,321-byte file exactly.
+
+Every original listed scientific source remains unchanged. The same original plan,source order,C0,rates,targets,precision,causal readout,case count and11:58:26UTC deadline govern the resumed controller. It reuses only successful Native/audit receipts and continues the remaining predeclared trials. The registration's zero extra updates means zero updates beyond the original2408-update TUNE allowance; it does not mean the seven unstarted registered trials are canceled. The original stopped controller and all failed costs stay preserved.
+
+The first recurrent0.008 trial completes its mature audit and scores3.397839 NLL on192 frozen consumed-DEV tune documents. This selects nothing by itself and establishes no architecture advantage. All four rates for both roles must finish before independent selection and any separately admitted main comparison. No fresh confirmation or terminal claim.
+
+The conventional0.008 case also passes its mature audit (0.136607% overall /0.137144% largest family) and scores3.097228 at the same157,013,162 targets. It uses less nominal work. These are the first two cells of a frozen eight-cell LR sweep, not independently selected model endpoints or a main-scale result. The controller proceeds to recurrent0.016 without changing sources or clocks.

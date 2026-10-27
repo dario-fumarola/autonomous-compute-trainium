@@ -1,0 +1,170 @@
+{
+  "status": "COMPLETE_CPU_REFERENCE_THREAD_TIMING_PARITY",
+  "records": [
+    {
+      "threads": 24,
+      "timed_forward_backward_seconds": [
+        1.236793254967779,
+        1.1558476100908592
+      ],
+      "median_seconds": 1.196320432529319,
+      "nll_difference_from24": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 4.146617988849161
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.1559587019850975
+          },
+          "tied_input_output": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.4596470891164076
+          },
+          "transformer_body": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 4.118096199203216
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0,
+            "maximum_absolute_error": 0.0,
+            "reference_l2": 0.011219460656510744
+          }
+        },
+        "passes_two_percent_gate": true
+      }
+    },
+    {
+      "threads": 48,
+      "timed_forward_backward_seconds": [
+        1.3156385429902002,
+        1.2370824849931523
+      ],
+      "median_seconds": 1.2763605139916763,
+      "nll_difference_from24": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 3.841671308169071e-07,
+          "maximum_absolute_error": 2.421438694000244e-08,
+          "reference_l2": 4.146617988849161
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 3.202680259255796e-07,
+            "maximum_absolute_error": 4.3655745685100555e-10,
+            "reference_l2": 0.1559587019850975
+          },
+          "tied_input_output": {
+            "relative_l2": 2.9860169724713526e-07,
+            "maximum_absolute_error": 7.683411240577698e-09,
+            "reference_l2": 0.4596470891164076
+          },
+          "transformer_body": {
+            "relative_l2": 3.851972287805873e-07,
+            "maximum_absolute_error": 2.421438694000244e-08,
+            "reference_l2": 4.118096199203216
+          },
+          "value_embeddings": {
+            "relative_l2": 3.599053602615395e-07,
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "reference_l2": 0.011219460656510744
+          }
+        },
+        "passes_two_percent_gate": true
+      }
+    },
+    {
+      "threads": 96,
+      "timed_forward_backward_seconds": [
+        1.1066639079945162,
+        1.091196462046355
+      ],
+      "median_seconds": 1.0989301850204356,
+      "nll_difference_from24": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 3.841671308169071e-07,
+          "maximum_absolute_error": 2.421438694000244e-08,
+          "reference_l2": 4.146617988849161
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 3.202680259255796e-07,
+            "maximum_absolute_error": 4.3655745685100555e-10,
+            "reference_l2": 0.1559587019850975
+          },
+          "tied_input_output": {
+            "relative_l2": 2.9860169724713526e-07,
+            "maximum_absolute_error": 7.683411240577698e-09,
+            "reference_l2": 0.4596470891164076
+          },
+          "transformer_body": {
+            "relative_l2": 3.851972287805873e-07,
+            "maximum_absolute_error": 2.421438694000244e-08,
+            "reference_l2": 4.118096199203216
+          },
+          "value_embeddings": {
+            "relative_l2": 3.599053602615395e-07,
+            "maximum_absolute_error": 2.3283064365386963e-10,
+            "reference_l2": 0.011219460656510744
+          }
+        },
+        "passes_two_percent_gate": true
+      }
+    },
+    {
+      "threads": 12,
+      "timed_forward_backward_seconds": [
+        1.5290799819631502,
+        1.6916268529603258
+      ],
+      "median_seconds": 1.610353417461738,
+      "nll_difference_from24": 0.0,
+      "gradient": {
+        "overall": {
+          "relative_l2": 6.67555058425041e-07,
+          "maximum_absolute_error": 9.406358003616333e-08,
+          "reference_l2": 4.146617988849161
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 5.840983177744831e-07,
+            "maximum_absolute_error": 1.127773430198431e-09,
+            "reference_l2": 0.1559587019850975
+          },
+          "tied_input_output": {
+            "relative_l2": 3.569086745194985e-07,
+            "maximum_absolute_error": 8.614733815193176e-09,
+            "reference_l2": 0.45964708911640756
+          },
+          "transformer_body": {
+            "relative_l2": 6.706301488303106e-07,
+            "maximum_absolute_error": 9.406358003616333e-08,
+            "reference_l2": 4.118096199203216
+          },
+          "value_embeddings": {
+            "relative_l2": 6.214426592533461e-07,
+            "maximum_absolute_error": 4.802132025361061e-10,
+            "reference_l2": 0.011219460656510742
+          }
+        },
+        "passes_two_percent_gate": true
+      }
+    }
+  ],
+  "wall_seconds": 48.391499042510986,
+  "model_unchanged": true,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "research_examples_generated": 0,
+  "diagnostic_input_presentations": 12,
+  "unique_source_windows": 1,
+  "source_sha256": "074ddd3b97845ad57fb20431e714b80e9e5ca83de8bfe642ae20a284c9685d4e",
+  "scope": "Single authentic TRAIN window,unchanged trained weights,full FP32 reference gradients. This does not alter the active frozen TUNE thread policy or demonstrate whole-audit speedup."
+}
