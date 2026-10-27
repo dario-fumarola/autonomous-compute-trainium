@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE_READ_ONLY_PRIMARY_SOURCE_TRIAGE",
+  "reviewed_unix": 1793062984.673887,
+  "source": "https://arxiv.org/html/2609.36636v1",
+  "sections": [
+    "2.2",
+    "5.1 equation3",
+    "5.2",
+    "C.1"
+  ],
+  "evidence": "From-scratch natural NTP with fixed loops and full gradients. Conditioning uses normalized time/step size with loop/branch gates or channel modulation. Effects vary with architecture and inference budget. This is not evidence of our matched-work NLL gain.",
+  "derived_check": {
+    "history_terms_before_first_three_applications": [
+      0,
+      0,
+      1
+    ],
+    "initial_state_excluded": true,
+    "implication": "The published history branch is inactive at fixed depth two; importing it unchanged would not test history conditioning."
+  },
+  "local_decisions": [
+    "Do not treat step embeddings as a demonstrated fix.",
+    "Keep any future conditioning ablation separate from state initialization,normalization,objective and routing changes.",
+    "Use the qualified head-free control and independently tuned ordinary8;count extra parameters,optimizer and executed work.",
+    "Fixed-two training supports its terminal exit only;depth scaling requires separately trained support."
+  ],
+  "model_forwards": 0,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "new_training_admitted": false,
+  "terminal_alpha_spent": 0,
+  "scope": "Read-only triage during existing recovery reservation;no additional chip interval or held-out access."
+}
