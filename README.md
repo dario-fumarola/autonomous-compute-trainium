@@ -18,7 +18,7 @@ policy gradients are authorized for this new phase. Earlier results retain
 their original criteria;no larger recurrence main or confirmation completed.
 [New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
 
-The first implementation passes468 CPU tests,two skipped,including an exact
+The first implementation passes471 CPU tests,two skipped,including an exact
 policy-gradient check. A zero-update1.485B stage-one reader check on ten natural
 TRAIN anchors finds content sensitivity but severe framing interference.
 This is numerical/interface qualification,not a learned-thinking result.
@@ -39,7 +39,14 @@ by0.038068nats; useful writing has not been learned.
 The previous replicated-body memory estimate was wrong: the existing loader
 already shards all179 OLMo parameters across64 ranks. A new OLMo path passes
 four-process CPU gradients, AdamW deltas/moments, EMA and exact restart checks.
-Actual Native runtime memory remains to be measured. Reversible preservation
+The actual1.485B model subsequently passes all64-rank Native gradients,one
+qualification optimizer update and streamed full-state recovery. Largest named
+gradient discrepancy is0.012%;an independent saved-state CPU audit also passes.
+No learned useful writing or matched-compute advantage is established.
+[Actual-size Native gate](results/workspace_native_full_model_20261027/recovery-v3/report.json) ·
+[Update/recovery](results/workspace_native_full_update_20261027/report.json) ·
+[Independent state audit](results/workspace_full_update_cpu_audit_20261027/report.json).
+Reversible preservation
 and verified public-cache eviction leave105.08GiB free.
 [Sharding correction](results/workspace_sharding_correction_20261027/report.json) ·
 [CPU proof](results/workspace_sharded_cpu_20261027/report.json) ·

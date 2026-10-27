@@ -1,0 +1,48 @@
+{
+  "status": "PASS_WORKSPACE_FULL_MODEL_UPDATE_AND_RESTORE",
+  "optimizer_updates": 1,
+  "policy_fit_admitted": false,
+  "numerical": {
+    "status": "PASS_WORKSPACE_FULL_MODEL_UPDATE_AND_RESTORE",
+    "world": 64,
+    "parameters": 1484916736,
+    "wall_seconds": 174.60781383514404,
+    "gradient_norm": 56.57843017578125,
+    "gradient_relative_l2": 4.2560871428668414e-05,
+    "largest_named_relative_l2": 0.00012046464936014926,
+    "largest_named_parameter": "model.layers.12.post_attention_layernorm.weight",
+    "absolute_gains": [
+      0.12745904922485352,
+      0.07663917541503906,
+      0.10949897766113281,
+      0.03476142883300781
+    ],
+    "weighted_losses": {
+      "ordinary_ntp": 1.3000965118408203,
+      "workspace_reader": 3.1432763934135437,
+      "workspace_policy": 0.02127249166369438
+    },
+    "actual_joint_backward_calls": 9,
+    "optimizer_updates": 1,
+    "scorer_gradients_absent": true,
+    "actor_and_scorer_versions_unchanged": false,
+    "padded_positions": 192,
+    "fallback_ops": [],
+    "scope": "One real1.485B qualification update on the already consumed single TRAIN anchor.Independent full HF gradient,CPU AdamW deltas/moments,exact perturb/restore of every model/scorer/optimizer tensor and RNG.Future actual-size fresh-process trajectory and100warm-update throughput remain unqualified.No learned useful-thought,transfer or baseline-efficiency claim.",
+    "actual_qualification_policy_optimizer_updates": 1,
+    "scientific_policy_fit_updates": 0,
+    "zero_update_versions_checked_before_the_qualification_update": true,
+    "complete_model_scorer_adamw_rng_restore_exact": true,
+    "checkpoint_bytes_per_rank": 372947122,
+    "checkpoint_tensor_count_per_rank": 895,
+    "independent_cpu_largest_named_errors": {
+      "parameter_delta": 0.019281510777427145,
+      "adam_m": 0.0010843743031522567,
+      "adam_v": 0.002309055789806474,
+      "ema_weights": 1.2553289799993465e-06
+    },
+    "fresh_process_next_update_replay": false,
+    "ema_decay_for_this_software_qualification": 0.5
+  },
+  "plan_sha256": "b6feb2ff916f19af95f470fd8c27532dec2a829fc235324b88760772c0aa073b"
+}

@@ -24,8 +24,7 @@ def post_gradient(model,scorer,optimizer,root,plan,out,progress):
     # at a time. No full CPU AdamW state is constructed on every rank.
     initial=torch.load(root/plan['checkpoint_relative'],weights_only=True,mmap=True)['model']
     reference=torch.load(root/plan['gradient_relative'],weights_only=True,mmap=True)
-    cpu_report=json.loads((root/'workspace-identity-gradient-v1/report.json').read_text())
-    norm=sum(v['l2']**2 for v in cpu_report['independent_hf_joint_gradient'].values())**.5
+    norm=plan['independent_cpu_gradient_norm']
     records=[];names=[];scorer_named=dict(scorer.named_parameters())
     progress('independent_cpu_adamw_moments_delta_ema')
     for alias,(name,p) in zip(optimizer.local,optimizer.named,strict=True):

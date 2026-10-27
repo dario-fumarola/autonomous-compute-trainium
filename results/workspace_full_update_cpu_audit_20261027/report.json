@@ -1,0 +1,25 @@
+{
+  "status": "PASS_WORKSPACE_SAVED_UPDATE_CPU_AUDIT",
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "global_fp64_reference_norm": 56.57790738382637,
+  "native_norm": 56.57843017578125,
+  "largest_named_errors": {
+    "parameter_delta": 0.01928151179200479,
+    "adam_m": 0.00012308403630471716,
+    "adam_v": 0.00035956916255957665,
+    "ema_weights": 1.25532894864355e-06
+  },
+  "worst_named_parameters": {
+    "parameter_delta": "model.layers.2.post_attention_layernorm.weight",
+    "adam_m": "model.layers.14.post_feedforward_layernorm.weight",
+    "adam_v": "model.layers.5.post_feedforward_layernorm.weight",
+    "ema_weights": "model.layers.2.post_attention_layernorm.weight"
+  },
+  "parameters_checked": 179,
+  "tensor_slices_checked": 57280,
+  "independent_complete_update_agreement": true,
+  "warning": "One qualification update only. Native execution and historical receipts unchanged.No useful-writing or efficiency finding.",
+  "wall_seconds": 86.25542140007019,
+  "plan_sha256": "18e6b2a50cb05adc5750fc46940dee261c570396966ecfd70cd3d96ddc6e62eb"
+}

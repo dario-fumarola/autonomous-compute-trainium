@@ -94,6 +94,7 @@ def run(a,post_gradient=None):
     if any(p.grad is not None for p in scorer.parameters()) or actor_versions!=tuple(p._version for p in model.parameters()) or scorer_versions!=tuple(p._version for p in scorer.parameters()):raise AssertionError('Frozen scorer or zero-update actor changed')
     del accumulator
     plan['registered_plan_sha256']=a.plan_sha
+    plan['independent_cpu_gradient_norm']=float(values[:,1].sum().sqrt())
     additional=post_gradient(model,scorer,optimizer,root,plan,out,progress) if post_gradient else {}
     dist.barrier()
     if rank==0:
