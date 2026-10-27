@@ -1,0 +1,3 @@
+Prepared, not activated. The complete956M gate passes. The outcome-blind budget profile is375,940,224 recurrent parameters versus a374,888,960 conventional eight-layer challenger. The medium candidate now has a separately frozen102-update numerical/warm/replay registration, all16 chips, context1024 and512 global windows. Full suite:411 passed, two skipped.
+
+Use192GiB Native memory only above704GiB host MemAvailable, and reserve40GiB of complete new NVMe evidence above the protected35GiB floor. Both unupdated random qualification initializers are prepared in15.111 CPU seconds, zero forwards or updates. Actual medium timings and full independent gates remain required before setting a scientific budget. No quality selection, scientific fit or100B-token run is admitted.

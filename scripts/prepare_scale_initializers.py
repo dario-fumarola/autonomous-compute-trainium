@@ -9,19 +9,20 @@ import time
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True)
-    parser.add_argument('--seed',type=int,default=1009);args=parser.parse_args();started=time.time()
+    parser.add_argument('--seed',type=int,default=1009);parser.add_argument('--profile',choices=['large','medium'],default='large')
+    args=parser.parse_args();started=time.time()
     import torch
     from compute_trainium.parcae_candidate import ParcaeCandidateConfig,ParcaeCandidate
-    from compute_trainium.scale_sharded_candidate import scale_inventory
+    from compute_trainium.scale_pilot_size import profiled_inventory
     from compute_trainium.training import atomic_checkpoint,file_sha256
     torch.set_num_threads(24)
     if args.output.exists():raise FileExistsError('Preserve every initialization attempt')
-    if shutil.disk_usage(args.output.parent).free<115*1024**3:
+    if shutil.disk_usage(args.output.parent).free<(115 if args.profile=='large' else 75)*1024**3:
         raise RuntimeError('Complete projected artifact allowance plus protected reserve required')
     available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
     if available<544*1024**3:raise RuntimeError('Protected host reserve plus CPU construction headroom required')
     args.output.mkdir();records=[]
-    for inventory in scale_inventory():
+    for inventory in profiled_inventory(args.profile):
         torch.manual_seed(args.seed)
         config=ParcaeCandidateConfig(**inventory['config']);recurrent=inventory['role']=='fixed_two'
         model=ParcaeCandidate(config,recurrent=recurrent,initialize=True)
@@ -37,7 +38,7 @@ def main():
         import gc,ctypes
         gc.collect();ctypes.CDLL(None).malloc_trim(0)
         (args.output/'progress.json').write_text(json.dumps(records,indent=2)+'\n')
-    report=dict(status='PREPARED_SCALE_QUALIFICATION_RANDOM_INITIALIZERS',seed=args.seed,records=records,
+    report=dict(status='PREPARED_SCALE_QUALIFICATION_RANDOM_INITIALIZERS',seed=args.seed,profile=args.profile,records=records,
         model_forwards=0,optimizer_updates=0,research_examples=0,assigned_chips=0,
         wall_seconds=time.time()-started,peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         scientific_fit_admitted=False)

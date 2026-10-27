@@ -1,0 +1,39 @@
+{
+  "gradient": {
+    "overall": {
+      "relative_l2": 0.0021320442636729013,
+      "maximum_absolute_error": 4.381872713565826e-06,
+      "reference_l2": 1.0015637822416081
+    },
+    "families": {
+      "recurrent_injection_readout": {
+        "relative_l2": 0.0020012268554451132,
+        "maximum_absolute_error": 9.425093594472855e-08,
+        "reference_l2": 0.02100384514293613
+      },
+      "tied_input_output": {
+        "relative_l2": 0.0019684092451966997,
+        "maximum_absolute_error": 1.4104880392551422e-06,
+        "reference_l2": 0.03744597990096546
+      },
+      "transformer_body": {
+        "relative_l2": 0.0021323204759361733,
+        "maximum_absolute_error": 4.381872713565826e-06,
+        "reference_l2": 1.000643115914731
+      },
+      "value_embeddings": {
+        "relative_l2": 0.0018695219898166345,
+        "maximum_absolute_error": 7.1540853241458535e-09,
+        "reference_l2": 3.9357860552169505e-05
+      }
+    },
+    "passes_two_percent_gate": true
+  },
+  "cpu_nll": 5.483064153383487,
+  "native_minus_cpu_nll": 1.2442111110289034e-06,
+  "cpu_norm_before_clip": 6.319563388824463,
+  "native_norm_before_clip": 6.330252170562744,
+  "windows": 512,
+  "real_targets": 523322,
+  "source_cursor": 51200
+}

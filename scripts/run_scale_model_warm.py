@@ -19,53 +19,69 @@ IDENTITY='scale-956m-numerical-v1'
 PUBLIC=Path('results/scale_956m_numerical_20261027')
 
 
-def prepare(root):
-    from compute_trainium.scale_sharded_candidate import scale_inventory
+def prepare(root,role='fixed_two',profile='large'):
+    from compute_trainium.scale_pilot_size import profiled_inventory
     if managed_running():raise RuntimeError('Actual-shape registration requires preceding owners terminal')
-    out=root/IDENTITY;artifact=root.parent/'recurrence'/IDENTITY
+    if role not in ('fixed_two','ordinary8'):raise ValueError('Explicit scale candidate role required')
+    inventory=next(r for r in profiled_inventory(profile) if r['role']==role)
+    nvme_artifacts=role=='ordinary8' or profile=='medium'
+    allowance=40 if profile=='medium' else 80;memory=192 if profile=='medium' else 256
+    out=root/IDENTITY;artifact=out/'artifacts' if nvme_artifacts else root.parent/'recurrence'/IDENTITY
     if out.exists() or artifact.exists() or PUBLIC.exists():raise FileExistsError('Preserve original registrations')
-    initial=root.parent/'recurrence/scale-random-initializers-v1'
+    initial=root/'scale-medium-random-initializers-v1' if profile=='medium' else root.parent/'recurrence/scale-random-initializers-v1'
     initializer=json.loads((initial/'report.json').read_text())
     if initializer['status']!='PREPARED_SCALE_QUALIFICATION_RANDOM_INITIALIZERS':raise ValueError('CPU initializer missing')
-    entry=next(r for r in initializer['records'] if r['role']=='fixed_two')
+    entry=next(r for r in initializer['records'] if r['role']==role)
     if file_sha256(initial/entry['file'])!=entry['sha256']:raise AssertionError('Random initializer changed')
     prior=root/'scale-streamed-sharding-fixture-v1/report.json'
     if json.loads(prior.read_text())['status']!='PASS_SCALE_SHARDED_SOFTWARE_FIXTURE_AND_REPLAY':
         raise ValueError('Complete streamed numerical prerequisite required')
-    if shutil.disk_usage(artifact.parent).free<115*1024**3:
-        raise RuntimeError('Complete 80GiB actual-shape artifacts plus protected 35GiB reserve required')
+    parent_audit=root/('scale-376m-independent-cpu-v1/audit/report.json' if profile=='medium' and role=='ordinary8'
+        else 'scale-956m-independent-cpu-v1/audit/report.json')
+    if role=='ordinary8' or profile=='medium':
+        parent_result=json.loads(parent_audit.read_text())
+        if (parent_result['status']!='PASS_SCALE_ACTUAL_SHAPE_INDEPENDENT_CPU_AUDITS'
+                or not parent_result['first_update']['passes'] or not parent_result['replay']['passes']
+                or not parent_result['full512']['gradient']['passes_two_percent_gate']
+                or parent_result['full512']['windows']!=512 or abs(parent_result['full512']['native_minus_cpu_nll'])>.003):
+            raise ValueError('Complete preceding actual-shape independent audit required')
+    if shutil.disk_usage(root if nvme_artifacts else artifact.parent).free<(35+allowance)*1024**3:
+        raise RuntimeError('Complete actual-shape artifact allowance plus protected 35GiB reserve required')
     for path in [root,root.parent,Path('/')]:
         if shutil.disk_usage(path).free<36*1024**3:raise RuntimeError('Protected output reserve plus cache allowance')
     available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
-    if available<768*1024**3:raise RuntimeError('Full 256GiB worker and 512GiB host reserve required')
+    if available<(512+memory)*1024**3:raise RuntimeError('Full worker allowance and 512GiB host reserve required')
     projection=project_snapshot_inodes(Path('.'),2)
     if os.statvfs(root).f_favail<projection['required_free_inodes']:raise RuntimeError('Complete snapshot inode allowance')
     sources={}
     for folder in ['compute_trainium','scripts','configs','third_party']:
         for file in Path(folder).rglob('*.py'):
             if file.is_file():sources[str(file)]=file_sha256(file)
-    for file in ['docs/SCALE_ACTUAL_SHAPE_QUALIFICATION_20261027.md','tests/test_scale_model_state.py',
+    document=('docs/SCALE_MEDIUM_QUALIFICATION_20261027.md' if profile=='medium' else
+        'docs/SCALE_ORDINARY_ACTUAL_SHAPE_20261027.md' if role=='ordinary8' else 'docs/SCALE_ACTUAL_SHAPE_QUALIFICATION_20261027.md')
+    for file in [document,'tests/test_scale_model_state.py',
                  'tests/test_scale_sharded_candidate.py','tests/test_owned_native_all_chips.py','scripts/run_native_isolated.sh']:
         sources[file]=file_sha256(file)
-    worker,host=split_snapshot_sources(sources);inventory=scale_inventory()[0]
+    worker,host=split_snapshot_sources(sources)
     data_dir=root/'natural-append-6500m-v2';data=json.loads((data_dir/'packed/manifest.json').read_text())
     phases={IDENTITY+'-'+mode:dict(mode=mode) for mode in ['warm','replay']}
     plan=dict(identity=IDENTITY,purpose='scale_actual_shape_numerical_only',registered_unix=time.time(),
-        model=inventory['config'],parameters=inventory['parameters'],world=64,accumulation=8,global_windows=512,
+        model=inventory['config'],parameters=inventory['parameters'],model_role=role,size_profile=profile,world=64,accumulation=8,global_windows=512,
         source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,
-        phases=phases,root_comm_ports=reserve_ports(root,list(phases)),worker_memory_gib=256,
+        phases=phases,root_comm_ports=reserve_ports(root,list(phases)),worker_memory_gib=memory,
         seconds_limit=3600,phase_seconds_limit=1800,cpu_phase_seconds_limit=7200,
         absolute_deadline_unix=min(SCALE_END,time.time()+3600),scale_budget_deadline_unix=SCALE_END,
-        host_artifact_root=str(artifact),container_artifact_root='/work/recurrence/'+IDENTITY,
-        container_initializer='/work/recurrence/scale-random-initializers-v1/'+entry['file'],initializer_sha256=entry['sha256'],
+        host_artifact_root=str(artifact),container_artifact_root=('/work/instance-nvme/'+IDENTITY+'/artifacts' if nvme_artifacts else '/work/recurrence/'+IDENTITY),
+        container_initializer=('/work/instance-nvme/scale-medium-random-initializers-v1/' if profile=='medium' else '/work/recurrence/scale-random-initializers-v1/')+entry['file'],initializer_sha256=entry['sha256'],
         source_initializer_report_sha256=file_sha256(initial/'report.json'),prior_streamed_report_sha256=file_sha256(prior),
         data=dict(packed='natural-append-6500m-v2/packed',source_sha256=data['source_sha256'],
             manifest_sha256=file_sha256(data_dir/'packed/manifest.json'),fingerprint=data['fingerprint']),
-        expected_artifact_peak_bytes=80*1024**3,inode_projection=projection,
+        expected_artifact_peak_bytes=allowance*1024**3,inode_projection=projection,
+        completed_parent_independent_audit_sha256=file_sha256(parent_audit) if role=='ordinary8' or profile=='medium' else None,
         actual_qualification_update_allowance=102,scientific_updates=0,scientific_fit_admitted=False,
-        scope=Path('docs/SCALE_ACTUAL_SHAPE_QUALIFICATION_20261027.md').read_text())
+        scope=Path(document).read_text())
     if plan['absolute_deadline_unix']+7200>SCALE_END:raise TimeoutError('Full Native and CPU audit allowance must fit scale cap')
-    out.mkdir();artifact.mkdir();PUBLIC.mkdir();write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
+    out.mkdir();artifact.mkdir();PUBLIC.mkdir(parents=True);write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
     write_state(PUBLIC/'status.json',dict(status='PREPARED_NOT_ACTIVATED',scientific_fit_admitted=False))
 
 

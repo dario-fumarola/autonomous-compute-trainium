@@ -8,8 +8,8 @@ from .execution_isolation import metadata, managed_running, verify_owner
 
 
 def create_all_chip_worker(root, identity, *, memory_gib=128):
-    if type(memory_gib) is not int or memory_gib not in (128,256):
-        raise ValueError('Explicit bounded 128/256GiB worker required')
+    if type(memory_gib) is not int or memory_gib not in (128,192,256):
+        raise ValueError('Explicit bounded 128/192/256GiB worker required')
     if not identity or any(c not in 'abcdefghijklmnopqrstuvwxyz0123456789-' for c in identity):
         raise ValueError('Explicit safe all-chip identity required')
     root = Path(root)

@@ -75,7 +75,8 @@ def audit(root,output,registration):
         raise AssertionError('Frozen independent CPU sources changed')
     if managed_running():raise RuntimeError('Large CPU audit must follow Native closure')
     torch.set_num_threads(24)
-    folder=root/'scale-956m-numerical-v1';plan_file=folder/'plan.json';plan=json.loads(plan_file.read_text())
+    folder=root/registered.get('native_identity','scale-956m-numerical-v1');plan_file=folder/'plan.json';plan=json.loads(plan_file.read_text())
+    recurrent=plan.get('model_role','fixed_two')=='fixed_two'
     captured=json.loads((folder/'report.json').read_text())
     if (captured['status']!='CAPTURED_SCALE_ACTUAL_SHAPE_CPU_AUDITS_PENDING'
             or captured['plan_sha256']!=file_sha256(plan_file)):raise ValueError('Complete captured warm and replay required')
@@ -97,10 +98,15 @@ def audit(root,output,registration):
         if time.time()-started>7200:raise TimeoutError('Original two-hour independent audit cap')
         if time.time()>registered['absolute_deadline_unix']:raise TimeoutError('Original registered CPU deadline')
     guard()
-    initializer=root.parent/'recurrence/scale-random-initializers-v1/fixed_two.pt'
+    initial_folder=root/'scale-medium-random-initializers-v1' if plan.get('size_profile')=='medium' else root.parent/'recurrence/scale-random-initializers-v1'
+    initializer=initial_folder/('fixed_two.pt' if recurrent else 'ordinary8.pt')
     if file_sha256(initializer)!=plan['initializer_sha256']:raise AssertionError('Qualification initializer changed')
     initial=torch.load(initializer,map_location='cpu',mmap=True,weights_only=False)
-    model=make_reference(config,True);model.load_state_dict(initial['model'],strict=True)
+    if recurrent:model=make_reference(config,True)
+    else:
+        from scripts.audit_ordinary8_native import make_reference as ordinary_reference
+        model=ordinary_reference(config,False)
+    model.load_state_dict(initial['model'],strict=True)
     first_weights,first_rows=reconstruct_weights(warm,1,config)
     first_vector=torch.load(warm/'gradient-u0.pt',map_location='cpu',mmap=True,weights_only=False)
     before={n:p.detach().clone() for n,p in model.named_parameters()}
@@ -129,14 +135,17 @@ def audit(root,output,registration):
     model_digest=digest(dict(model.state_dict()));del state,weights,rows;gc.collect()
     packed=PackedCorpus.from_mapped(root/plan['data']['packed'],1024,23,plan['data']['source_sha256'])
     cursor=51200;targets=sum(packed.counts(cursor,512));total_loss=0.;current_state=None
-    model.initialize_state=lambda _:current_state
-    noises=[torch.load(warm/f'noise-u100-rank{i}.pt',map_location='cpu',mmap=True,weights_only=False) for i in range(64)]
+    if recurrent:model.initialize_state=lambda _:current_state
+    noises=[torch.load(warm/f'noise-u100-rank{i}.pt',map_location='cpu',mmap=True,weights_only=False) for i in range(64)] if recurrent else None
     with sdpa_kernel(SDPBackend.MATH):
         for index in range(512):
             guard();micro,rank=divmod(index,64);window=cursor+index
-            if noises[rank]['windows'][micro]!=window:raise AssertionError('Explicit global objective state order differs')
-            current_state=noises[rank]['states'][micro:micro+1].clone();batch=packed.batch([window],0)[0]
-            logits=model(batch.inputs,return_logits=True,num_steps_pair=torch.tensor([0,2]))['logits']
+            if recurrent:
+                if noises[rank]['windows'][micro]!=window:raise AssertionError('Explicit global objective state order differs')
+                current_state=noises[rank]['states'][micro:micro+1].clone()
+            batch=packed.batch([window],0)[0]
+            kwargs={'num_steps_pair':torch.tensor([0,2])} if recurrent else {}
+            logits=model(batch.inputs,return_logits=True,**kwargs)['logits']
             value=(F.cross_entropy(logits.flatten(0,1),batch.targets.flatten(),reduction='none')*batch.target_mask.flatten()).sum()
             (value/targets).backward();total_loss+=float(value.detach())
             if (index+1)%16==0:

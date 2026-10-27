@@ -1,3 +1,11 @@
+## October27,2026,04:23 UTC — complete956M numerical proof passes; budget-fit joint-scale profile prepared
+
+The full512 independent upstream gradient passes at0.213204% overall /0.213232% largest family and0.000001244 NLL difference. First update/moments pass, and named fresh-process replay updates/moments are exactly equal. Both original worker bundles remain unchanged and close successfully. All102 updates remain numerical only, with no held-out quality or scientific fit. [Complete proof](results/scale_956m_numerical_20261027/completion-verification.json).
+
+Measured1B-scale throughput makes a well-trained paired study incompatible with the initial24-hour cap. Before any quality comparison, choose one medium feasibility profile:375.94M recurrent versus374.89M conventional, scaling model and prospective data together. Medium random qualification initializers take15.111 CPU seconds;411 full-suite tests pass with two skips. The recurrent102-update warm/replay registration is prepared but not activated, with192GiB Native and40GiB NVMe allowances retaining all protected reserves. The conventional role follows only after its complete numerical gate. [Registered scope](results/scale_medium_numerical_20261027/fixed_two/REPORT.md).
+
+The exact scientific exposure remains unset pending actual medium measurements; strong-control tuning, complete cooldowns, matched work, equal-data readout and fresh confirmation requirements are unchanged. No unsupported1B/100B fit or relaxed efficiency claim is admitted.
+
 ## October 27, 2026, 04:04 UTC — actual 956M capture complete; independent audit live
 
 The model completes 101 initial numerical updates and one separate-process replay on all 16 chips. The 100 warm intervals total 555.363 seconds, about 94,240 real targets/second. Both supervisors close with zero OOM or fatal compiler result; the warm memory peak is 278.168GiB after the registered 288GiB amendment, while replay stays under its original 256GiB cap. All 64 local final state digests agree across processes. This is captured numerical/throughput evidence, not qualification success or held-out quality. [Actual capture and costs](results/scale_956m_numerical_20261027/REPORT.md).

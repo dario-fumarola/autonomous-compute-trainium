@@ -53,17 +53,20 @@ def main():
     saved=torch.load(initializer,map_location='cpu',mmap=True,weights_only=False)
     if not saved['qualification_only'] or saved['eligible_for_science'] is not False:
         raise ValueError('Quarantined random numerical initializer required')
-    config=ParcaeCandidateConfig(**plan['model'])
-    if saved['config']!=vars(config) or not saved['recurrent']:raise ValueError('Exact recurrent scale config required')
-    with torch.device('meta'):model=ParcaePrimitiveSDPACandidate(config,recurrent=True,initialize=False,fp16_body=True)
+    config=ParcaeCandidateConfig(**plan['model']);role=plan.get('model_role','fixed_two')
+    if role not in ('fixed_two','ordinary8'):raise ValueError('Explicit qualified scale model role required')
+    recurrent=role=='fixed_two';depth=2 if recurrent else 1
+    if saved['config']!=vars(config) or saved['recurrent']!=recurrent:raise ValueError('Exact scale config required')
+    with torch.device('meta'):model=ParcaePrimitiveSDPACandidate(config,recurrent=recurrent,initialize=False,fp16_body=True)
     mesh=init_device_mesh('neuron',(64,));model=shard_model_from_cpu(model,mesh,saved['model'],'neuron');del saved
     optimizer=StreamingOwnerOptimizer(model,lr=1e-4,muon_lr=1e-4,fused_adamw=True)
     if model.transformer.wte._parameters['weight'] is not model.lm_head._parameters['weight']:
         raise AssertionError('Tied readout alias lost')
     signature=dict(plan_sha256=args.plan_sha,world=64,accumulation=8,global_windows=512,context=1024,
-        precision='fp16_body_fp32_primitive_attention_and_head',full_gradient_steps=2,manual_loss_scale=8192,
+        precision='fp16_body_fp32_primitive_attention_and_head',full_gradient_steps=depth,manual_loss_scale=8192,
         initializer_sha256=plan['initializer_sha256'],packing_fingerprint=packed.fingerprint,
-        optimizer_execution='streaming_owner_complete_matrix_fp32_muon_local_fused_adamw',state_seed=2009)
+        optimizer_execution='streaming_owner_complete_matrix_fp32_muon_local_fused_adamw',state_seed=2009 if recurrent else None,
+        model_role=role)
     update=cursor=exposure=neural_ops=optimizer_ops=0
     if args.mode=='replay':
         restored=load_shard(model,optimizer,artifact/'warm',signature,100,packed)
@@ -72,7 +75,7 @@ def main():
     def objective(logits,targets,mask):return real_token_losses(logits,targets,mask).sum()
     loss=torch.compile(objective,backend='neuron',fullgraph=True,dynamic=False)
     warm_seconds=0.;checkpoint_seconds=0.;capture_seconds=0.;rows=[];origin=update
-    one_neural=matmul_ledger(config,1024,512,recurrent=True,total_steps=2,backward_cap=2)['training_matmul_flops']
+    one_neural=matmul_ledger(config,1024,512,recurrent=recurrent,total_steps=depth,backward_cap=depth)['training_matmul_flops']
     one_optimizer=muon_update_matmuls(model.named_parameters(),gate_policy='release_muon')
     while update<101:
         if shutil.disk_usage(artifact).free<35*1024**3:raise RuntimeError('Actual artifact protected reserve')
@@ -81,16 +84,18 @@ def main():
         rate=changing_qualification_schedule(optimizer,update)
         for micro in range(8):
             window=cursor+micro*64+rank;batch=packed.batch([window],0)[0]
-            state=initial_state(config,window,2009)
-            if update in [0,100]:noise.append(state.clone())
-            values=[t.contiguous().to('neuron') for t in [batch.inputs,batch.targets,batch.target_mask,state]]
-            logits=model(values[0],values[3],total_steps=2,backward_cap=2)
+            state=initial_state(config,window,2009) if recurrent else None
+            if recurrent and update in [0,100]:noise.append(state.clone())
+            values=[t.contiguous().to('neuron') for t in [batch.inputs,batch.targets,batch.target_mask]]
+            state=state.contiguous().to('neuron') if recurrent else None
+            logits=model(values[0],state,total_steps=depth,backward_cap=depth)
             scalar=loss(logits,values[1],values[2]);(scalar*(8192/target_count)).backward();nll.add_(scalar.detach())
         norm=optimizer.finish_gradients(scale=8192)
         torch.neuron.synchronize();before_export=time.perf_counter();export_elapsed=0.
         if update in [0,100]:
             gradients=gather_named(model,gradients=True)
-            torch.save(dict(states=torch.cat(noise),windows=[cursor+i*64+rank for i in range(8)]),folder/f'noise-u{update}-rank{rank}.pt')
+            if recurrent:
+                torch.save(dict(states=torch.cat(noise),windows=[cursor+i*64+rank for i in range(8)]),folder/f'noise-u{update}-rank{rank}.pt')
             dist.all_reduce(nll)
             if rank==0:atomic_checkpoint(folder/f'gradient-u{update}.pt',dict(gradients=gradients,clipped=True,
                 loss=float(nll.cpu())/target_count,raw_gradient_norm=norm,source_cursor=cursor,real_targets=target_count))
@@ -110,7 +115,7 @@ def main():
             if update==1 or update%10==0:print(json.dumps(row),flush=True)
     if rank==0:
         row=dict(status='CAPTURED_SCALE_ACTUAL_SHAPE_NUMERICAL',plan_sha256=args.plan_sha,mode=args.mode,
-            qualification_only=True,eligible_for_science=False,parameters=plan['parameters'],world=64,
+            qualification_only=True,eligible_for_science=False,parameters=plan['parameters'],world=64,model_role=role,
             actual_optimizer_updates=101-origin,warm_updates=100 if args.mode=='warm' else 0,
             warm_seconds=warm_seconds if args.mode=='warm' else None,checkpoint_seconds=checkpoint_seconds,
             gradient_capture_seconds=capture_seconds,wall_seconds=time.time()-started,
