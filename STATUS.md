@@ -1,3 +1,11 @@
+## October27,2026,19:38 UTC — all16-chip sharded fixture and actual1.485B CPU objective pass
+
+The all64-rank Native numerical fixture passes three AdamW/EMA updates and an exact fresh-process update replay. Largest named gradient error is0.000131%;largest parameter-delta error0.018507%,both below2%. Actor/scorer masters,optimizer,moments,EMA and RNG are covered. Warm/replay compute portions take48.09/37.22seconds;complete launch costs and measured memory are separate. No scientific optimizer update or full-size fit is admitted. [Native fixture](results/workspace_native_sharded_fixture_20261027/report.json).
+
+The actual1.485B framing-free objective also passes an independent HF-versus-Native-candidate CPU gradient check on all179 parameters. Full forward logits are identical;largest named gradient discrepancy is0.000103%. All four unchanged prefix-only samples on this single TRAIN anchor now have positive absolute gains0.0348–0.1275nats,whereas the old inline interface made them harmful. This is an interface effect on one consumed anchor,not learned writing or generalization;the ten-anchor mean remainsnegative. No policy update occurred. [Full-model CPU reference](results/workspace_identity_gradient_20261027/report.json).
+
+Next:one bounded all16-chip actual-model zero-update numerical comparison. Use fully sharded FP32 actor/scorer,activation checkpointing and exact sequential objective terms with selective vocabulary projections;retain all costs and reserve guards. Only after actual-model math and runtime memory qualify can a learning pilot proceed.
+
 ## October27,2026,19:23 UTC —105GiB free;framing-free reader passes interface checks;OLMo full-shard CPU parity passes
 
 Pinned public download-cache cleanup verifies remote hashes and a complete byte-identical redownload before eviction. It recovers60.79GiB across106 caches in85.69seconds,bringing free NVMe to105.08GiB. All accepted packed corpora,private inputs,model/optimizer states and source receipts remain. Exact paths can be restored from immutable revisions and SHA256s. The three source caches used by current qualification are excluded. [Scope and receipt](results/workspace_public_cache_20261027/report.json).

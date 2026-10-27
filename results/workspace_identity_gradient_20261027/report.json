@@ -1,0 +1,141 @@
+{
+  "status": "PASS_WORKSPACE_IDENTITY_FULL_MODEL_GRADIENT",
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "independent_hf_joint_gradient": {
+    "input_embedding": {
+      "l2": 2.314650058746338,
+      "elements": 205520896
+    },
+    "transformer_body": {
+      "l2": 49.829314172535305,
+      "elements": 1073874944
+    },
+    "output_head": {
+      "l2": 26.577573776245117,
+      "elements": 205520896
+    }
+  },
+  "losses": {
+    "ordinary": 2.600175380706787,
+    "reader": 6.286533832550049,
+    "policy": 0.2127247452735901
+  },
+  "absolute_gains": [
+    0.12746047973632812,
+    0.07663965225219727,
+    0.10950183868408203,
+    0.034761905670166016
+  ],
+  "advantages": [
+    0.05382601544260979,
+    -0.013935089111328125,
+    0.029881160706281662,
+    -0.06977208703756332
+  ],
+  "scorer_gradients_absent": true,
+  "actor_versions_unchanged": true,
+  "full_model_logits_error": {
+    "relative_l2": 0.0,
+    "maximum_absolute_error": 0.0,
+    "largest_named_relative_l2": 0.0
+  },
+  "candidate_losses": {
+    "ordinary": 2.600175380706787,
+    "reader": 6.286533832550049,
+    "policy": 0.2127247452735901
+  },
+  "complete_gradient_comparison": {
+    "relative_l2": 2.6763568768603036e-07,
+    "maximum_absolute_error": 1.341104507446289e-06,
+    "largest_named_relative_l2": 1.0249440363790521e-06
+  },
+  "full_gradient_sha256": "3b0edd338bf5fb73679b6669281410f9ea45b3671aea051839ee198ccd03050f",
+  "full_gradient_bytes": 5939725031,
+  "objective_inputs_sha256": "1f3e182c80e4137222a377e6d21cc3298876a8e4972753e1b62359fa71f9838b",
+  "backward_calls": 2,
+  "warning": "Numerical qualification only. Same TRAIN anchor, zero policy optimization, no useful-thought or efficiency finding.",
+  "wall_seconds": 67.44724726676941,
+  "forward_ledger": {
+    "forward_calls": 9,
+    "processed_positions": 3304,
+    "projected_positions": 3304,
+    "forward_wall_seconds": 6.512455370044336,
+    "events": [
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 131,
+        "output_positions": 131,
+        "vocabulary": 100352,
+        "wall_seconds": 0.3560089290840551
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 131,
+        "output_positions": 131,
+        "vocabulary": 100352,
+        "wall_seconds": 0.36889418202918023
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 139,
+        "output_positions": 139,
+        "vocabulary": 100352,
+        "wall_seconds": 1.019949660054408
+      },
+      {
+        "phase": "ordinary_ntp",
+        "batch": 1,
+        "input_positions": 131,
+        "output_positions": 131,
+        "vocabulary": 100352,
+        "wall_seconds": 0.42476960190106183
+      },
+      {
+        "phase": "actor_workspace_reader",
+        "batch": 4,
+        "input_positions": 139,
+        "output_positions": 139,
+        "vocabulary": 100352,
+        "wall_seconds": 1.025336941005662
+      },
+      {
+        "phase": "actor_policy",
+        "batch": 4,
+        "input_positions": 139,
+        "output_positions": 139,
+        "vocabulary": 100352,
+        "wall_seconds": 1.0408298480324447
+      },
+      {
+        "phase": "ordinary_ntp",
+        "batch": 1,
+        "input_positions": 131,
+        "output_positions": 131,
+        "vocabulary": 100352,
+        "wall_seconds": 0.34254083991982043
+      },
+      {
+        "phase": "actor_workspace_reader",
+        "batch": 4,
+        "input_positions": 139,
+        "output_positions": 139,
+        "vocabulary": 100352,
+        "wall_seconds": 0.9814362060278654
+      },
+      {
+        "phase": "actor_policy",
+        "batch": 4,
+        "input_positions": 139,
+        "output_positions": 139,
+        "vocabulary": 100352,
+        "wall_seconds": 0.9526891619898379
+      }
+    ],
+    "warning": "Full recomputation reference. Positions are not FLOPs. Backward,optimizer,EMA and sampling costs need separate measurement."
+  },
+  "plan_sha256": "d505c9b36bb1e606bd1ac1d3f0f44d4f8ffe2e7a0825b33b3dc0535f5a9fb154"
+}

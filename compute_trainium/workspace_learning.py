@@ -141,8 +141,8 @@ def policy_loss(actor,prefix,workspace,rewards,*,format,temperature=1.):
     return -(group_advantages(rewards)*log_probs.sum(-1)).mean()
 
 
-def reader_loss(actor,prefix,targets,workspace,*,format):
-    return -target_log_probs(actor,framed_context(prefix,workspace,format),targets,
+def reader_loss(actor,prefix,targets,workspace,*,format,context_builder=framed_context):
+    return -target_log_probs(actor,context_builder(prefix,workspace,format),targets,
                              phase='actor_workspace_reader').mean()
 
 

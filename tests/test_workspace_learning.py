@@ -124,3 +124,15 @@ def test_framing_free_reader_is_exactly_ordinary_with_zero_work(model):
     torch.testing.assert_close(model(context),model(prefix),rtol=0,atol=0)
     note=torch.tensor([[4,5],[6,7]])
     assert identity_reader_context(prefix,note,fmt).tolist()==[[4,5,1,2,3],[6,7,1,2,3]]
+
+
+def test_identity_reader_loss_uses_identical_raw_context_when_empty():
+    from compute_trainium.workspace_learning import Reader,WorkspaceFormat,reader_loss,target_log_probs,identity_reader_context
+    import torch
+    torch.manual_seed(7121)
+    embedding=torch.nn.Embedding(16,8);head=torch.nn.Linear(8,16,bias=False)
+    reader=Reader(lambda x:head(embedding(x)))
+    prefix=torch.tensor([[1,2,3]]);target=torch.tensor([[4,5]])
+    value=reader_loss(reader,prefix,target,prefix[:,:0],format=WorkspaceFormat((9,),(10,)),context_builder=identity_reader_context)
+    expected=-target_log_probs(reader,prefix,target,phase='ordinary').mean()
+    assert torch.equal(value,expected)
