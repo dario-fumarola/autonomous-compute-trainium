@@ -21,6 +21,25 @@ SCOPE = 'scale-boundary-lower-rate-scope-v1'
 DOCUMENT = 'docs/SCALE_BOUNDARY_LOWER_RATE_CHECK_20261027.md'
 PUBLIC = Path('results/scale_boundary_lower_rates_20261027')
 GRID = [.002, .004, .008, .016, .032, .064]
+COMPLETION = 'scale-boundary-last-original-rates-v1'
+
+
+def original_selection_source(root):
+    """An explicit completion certificate never overwrites its stopped parent."""
+    plan_file=root/PARENT/'plan.json';report_file=root/PARENT/'report.json'
+    report=json.loads(report_file.read_text())
+    if report['status']=='COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION':
+        if report['plan_sha256']!=file_sha256(plan_file):raise AssertionError('Original selection changed')
+        return plan_file,report_file
+    completion_plan=root/COMPLETION/'plan.json';completion_report=root/COMPLETION/'report.json'
+    plan=json.loads(completion_plan.read_text());completed=json.loads(completion_report.read_text())
+    if (completed['status']!='COMPLETE_BOUNDARY_FIXED_GRID_WITH_NUMERICAL_REJECTION'
+            or completed['plan_sha256']!=file_sha256(completion_plan)
+            or plan['original_stopped_parent_plan_sha256']!=file_sha256(plan_file)
+            or plan['parent_report_sha256']!=file_sha256(report_file)
+            or select(completed['records'],plan['selection_rates'],expected=4)!=completed['selected']):
+        raise ValueError('Explicit bound completion of every original opportunity required')
+    return completion_plan,completion_report
 
 
 def needs_lower_check(selection):
@@ -29,16 +48,15 @@ def needs_lower_check(selection):
 
 def selection_source(root):
     """Never silently fall back when the registered lower-edge trigger fires."""
-    plan_file = root / PARENT / 'plan.json'
-    report_file = root / PARENT / 'report.json'
+    plan_file,report_file=original_selection_source(root)
     report = json.loads(report_file.read_text())
-    if (report['status'] != 'COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION'
+    if (report['status'] not in ['COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION','COMPLETE_BOUNDARY_FIXED_GRID_WITH_NUMERICAL_REJECTION']
             or report['plan_sha256'] != file_sha256(plan_file)):
         raise ValueError('Complete unchanged original rate selection required')
     scope_file = root / SCOPE / 'scope.json'
     if scope_file.exists():
         scope = json.loads(scope_file.read_text())
-        if scope['parent_plan_sha256'] != file_sha256(plan_file):
+        if scope['parent_plan_sha256'] != file_sha256(root/PARENT/'plan.json'):
             raise AssertionError('Prospective lower-rate parent changed')
         if needs_lower_check(report['selected']):
             plan_file = root / IDENTITY / 'plan.json'
@@ -56,19 +74,22 @@ def selection_source(root):
     return plan_file, report_file
 
 
-def select(records, rates):
+def select(records, rates, expected=6):
     selected = {}
     for role, prefix in [('fixed_two', 'fixed-two'), ('ordinary8', 'ordinary8')]:
         keys = [k for k in rates if k.startswith(prefix)]
-        if len(keys) != 6 or any(k not in records or 'score' not in records[k] for k in keys):
+        if len(keys) != expected or any(k not in records or ('score' not in records[k]
+                and not records[k].get('declared_numerically_ineligible')) for k in keys):
             raise ValueError('All six fixed opportunities per role must complete')
-        eligible = [k for k in keys if records[k]['score']['metrics']['weighted_nll'] < 4.]
+        eligible = [k for k in keys if not records[k].get('declared_numerically_ineligible')
+                    and records[k]['score']['metrics']['weighted_nll'] < 4.]
         if not eligible:
             raise ValueError('No healthy independent rate for ' + role)
         key = min(eligible, key=lambda k: (records[k]['score']['metrics']['weighted_nll'], rates[k]))
+        boundaries=[min(rates[k] for k in keys),max(rates[k] for k in keys)]
         selected[role] = dict(case=key, rate=rates[key],
                               score=records[key]['score']['metrics']['weighted_nll'],
-                              boundary_optimum=rates[key] in [min(GRID), max(GRID)])
+                              boundary_optimum=rates[key] in boundaries)
     return selected
 
 
@@ -98,13 +119,12 @@ def prepare(root):
         raise FileExistsError('Preserve every lower-rate attempt')
     scope_file = root / SCOPE / 'scope.json'
     scope = json.loads(scope_file.read_text())
-    parent_file = root / PARENT / 'plan.json'
-    result_file = root / PARENT / 'report.json'
+    parent_file,result_file=original_selection_source(root)
     parent = json.loads(parent_file.read_text()); result = json.loads(result_file.read_text())
     if (scope['document_sha256'] != file_sha256(DOCUMENT)
-            or scope['parent_plan_sha256'] != file_sha256(parent_file)
+            or scope['parent_plan_sha256'] != file_sha256(root/PARENT/'plan.json')
             or result['plan_sha256'] != file_sha256(parent_file)
-            or result['status'] != 'COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION'):
+            or result['status'] not in ['COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION','COMPLETE_BOUNDARY_FIXED_GRID_WITH_NUMERICAL_REJECTION']):
         raise ValueError('Complete unchanged parent and prospective scope required')
     if not needs_lower_check(result['selected']):
         folder.mkdir()
@@ -164,8 +184,12 @@ def prepare(root):
             'seconds_limit': 6 * 3600, 'absolute_deadline_unix': start + 6 * 3600,
             'clock_admission_waiver': True, 'user_clock_amendment_sha256': file_sha256(amendment),
             'lower_rate_scope_sha256': file_sha256(scope_file), 'parent_plan_sha256': file_sha256(parent_file),
+            'selection_parent_report':str(result_file.relative_to(root)),
             'parent_report_sha256': file_sha256(result_file), 'cases': cases, 'case_order': order,
             'selection_rates': rates, 'selection_rate_grid': GRID, 'phases': phases,
+            'selection_expected_per_role':6,
+            'complete_selection_status':'COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION',
+            'stopped_selection_status':'STOPPED_BOUNDARY_LOWER_RATES',
             'root_comm_ports': reserve_ports(root, names), 'native_phase_seconds_limits': limits,
             'case_native_phases': {k: [IDENTITY + '-' + k + '-' + s for s in ['warm', 'replay']] for k in order},
             'allowed_tune_artifact_roots': [IDENTITY + '/artifacts'],
@@ -179,11 +203,12 @@ def prepare(root):
 def run(root):
     folder = root / IDENTITY
     execution = AllChipExecution(root, folder / 'plan.json', folder / 'execution')
-    parent_file = root / PARENT / 'report.json'
+    parent_file = root / execution.plan.get('selection_parent_report',PARENT+'/report.json')
     if file_sha256(parent_file) != execution.plan['parent_report_sha256']:
         raise AssertionError('Original complete selection changed')
     records = dict(json.loads(parent_file.read_text())['records'])
-    result = dict(status='STOPPED_BOUNDARY_LOWER_RATES', records=records, scientific_main_fit_admitted=False)
+    records.update(execution.plan.get('declared_ineligible_records',{}))
+    result = dict(status=execution.plan.get('stopped_selection_status','STOPPED_BOUNDARY_LOWER_RATES'), records=records, scientific_main_fit_admitted=False)
     def stop(number, frame):
         raise KeyboardInterrupt('Bounded lower-rate follow-up stopped')
     handlers = {s: signal.signal(s, stop) for s in [signal.SIGTERM, signal.SIGINT]}
@@ -198,7 +223,7 @@ def run(root):
                 record[suffix] = execution.native(name, 'scripts.train_scale_capture_invalid_gradient', options,
                                                   'CAPTURED_SCALE_REGISTERED_TRAINING_PHASE')
                 write_state(folder / 'progress.json', result)
-            record['audit'] = execution.cpu(key + '-audit', 'scripts.audit_scale_registered',
+            record['audit'] = execution.cpu(key + '-audit', execution.plan.get('audit_entry_module','scripts.audit_scale_registered'),
                 ['--root', str(root), '--plan', str(folder / 'plan.json'), '--case', key,
                  '--output', str(root / case['audit_directory'])], root / case['audit_directory'] / 'report.json',
                 'PASS_SCALE_REGISTERED_ENDPOINT_NUMERICAL_AUDIT')
@@ -214,8 +239,8 @@ def run(root):
                 raise RuntimeError('Successful-only closure failed: ' + cleanup.stderr[-1000:])
             record['cleanup_receipt_sha256'] = file_sha256(root / case['cleanup_receipt'])
             write_state(folder / 'progress.json', result)
-        result.update(status='COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION',
-                      selected=select(records, execution.plan['selection_rates']))
+        result.update(status=execution.plan.get('complete_selection_status','COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION'),
+                      selected=select(records, execution.plan['selection_rates'],execution.plan.get('selection_expected_per_role',6)))
     except BaseException as error:
         result.update(error_type=type(error).__name__, error=str(error)); raise
     finally:

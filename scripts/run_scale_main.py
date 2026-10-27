@@ -30,6 +30,7 @@ def prepare(root,*,boundary_corrected=False):
         tune_identity=tune_plan_file.parent.name
     tune=json.loads(tune_file.read_text())
     expected=('COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION' if tune_identity=='scale-boundary-lower-rates-v1'
+              else 'COMPLETE_BOUNDARY_FIXED_GRID_WITH_NUMERICAL_REJECTION' if tune_identity=='scale-boundary-last-original-rates-v1'
               else 'COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION') if boundary_corrected else 'COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION'
     if tune['status']!=expected:raise ValueError('Complete independently audited corrected TUNE required')
     tune_plan=json.loads((root/tune_identity/'plan.json').read_text())

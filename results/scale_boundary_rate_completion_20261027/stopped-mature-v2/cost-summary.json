@@ -1,0 +1,44 @@
+{
+  "native_attempts": 6,
+  "native_assigned_chip_hours": 12.616317133373684,
+  "whole_instance_opportunity_chip_hours": 23.069762406879,
+  "wall_seconds_since_admission": 5190.696540594101,
+  "cpu_attempts": [
+    {
+      "identity": "fixed-two-lr0-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 711.5038728713989,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "fixed-two-lr0-score",
+      "assigned_chips": 0,
+      "wall_seconds": 170.3691165447235,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "ordinary8-lr2-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 596.253885269165,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "ordinary8-lr2-score",
+      "assigned_chips": 0,
+      "wall_seconds": 100.21843934059143,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "fixed-two-lr2-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 681.434796333313,
+      "reused": false,
+      "exit_code": 1
+    }
+  ],
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

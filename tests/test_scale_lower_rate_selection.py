@@ -40,6 +40,16 @@ def test_independent_selection_uses_minimum_score_then_lower_rate():
     assert not selected['ordinary8']['boundary_optimum']
 
 
+def test_declared_numerical_rejection_is_never_given_a_prediction_score():
+    rows,rates=records()
+    rows['fixed-two-fixture-0']={'declared_numerically_ineligible':True,
+                                'reason':'fixture full-gradient rejection'}
+    chosen=module.select(rows,rates)
+    assert chosen['fixed_two']['rate']==.004
+    assert chosen['ordinary8']['rate']==.002
+    assert 'score' not in rows['fixed-two-fixture-0']
+
+
 def test_registered_trigger_prevents_main_fallback_to_original_selection(tmp_path):
     parent = tmp_path / module.PARENT; parent.mkdir()
     plan = parent / 'plan.json'; plan.write_text('{}')

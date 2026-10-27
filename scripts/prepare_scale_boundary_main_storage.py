@@ -11,7 +11,7 @@ def prepare(root):
     if managed_running():raise RuntimeError('Storage admission follows Native closure')
     from scripts.run_scale_boundary_lower_rates import selection_source
     tune_plan_path,tune_path=selection_source(root);tune=json.loads(tune_path.read_text())
-    if tune['status'] not in ['COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION','COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION']:raise ValueError('Complete boundary rate selection required')
+    if tune['status'] not in ['COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION','COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION','COMPLETE_BOUNDARY_FIXED_GRID_WITH_NUMERICAL_REJECTION']:raise ValueError('Complete boundary rate selection required')
     scope_path=root/'scale-boundary-scope-freeze-v1/scope.json';scope=json.loads(scope_path.read_text())
     tune_plan=json.loads(tune_plan_path.read_text())
     if tune_plan['scope_freeze_sha256']!=file_sha256(scope_path):raise AssertionError('Frozen scope changed')
