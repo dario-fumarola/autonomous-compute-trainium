@@ -1,0 +1,5 @@
+Prepared conventional374,888,960-parameter numerical/throughput challenger after the complete medium recurrent gate passes. The role has eight unique blocks, width1280/FFN5504, no recurrent state and no auxiliary head. It is independently initialized, not a truncated recurrent exit.
+
+All64 cores /16 chips, context1024, global512 windows, same qualified precision and complete-matrix owner/local-AdamW math. Capture101 initial updates including100 warm intervals and one fresh-process replay update. Full512 independent upstream gradient, first-update/moment and named replay remain required. No quality selection or scientific fit. Original one-hour capture and30-minute phase caps,192GiB Native cap and40GiB complete NVMe allowance retain all protected reserves and the original24-hour initial scale clock.
+
+Both new scale configurations use32768 padded projection/table rows with the32000-token tokenizer. All rows/parameters and matrix work are counted. This is explicit padding in the new scale family, not a tokenizer change or free parameter credit. The historical142M model inventory remains unchanged.

@@ -1,0 +1,39 @@
+{
+  "gradient": {
+    "overall": {
+      "relative_l2": 0.0009998334471346298,
+      "maximum_absolute_error": 3.7241261452436447e-06,
+      "reference_l2": 1.0002750220452146
+    },
+    "families": {
+      "recurrent_injection_readout": {
+        "relative_l2": 0.0010062109985204519,
+        "maximum_absolute_error": 1.0980693332385272e-07,
+        "reference_l2": 0.02545524009185553
+      },
+      "tied_input_output": {
+        "relative_l2": 0.000806557128385719,
+        "maximum_absolute_error": 1.4943507267162204e-06,
+        "reference_l2": 0.04660463616823642
+      },
+      "transformer_body": {
+        "relative_l2": 0.0010002093045489385,
+        "maximum_absolute_error": 3.7241261452436447e-06,
+        "reference_l2": 0.9988644329016417
+      },
+      "value_embeddings": {
+        "relative_l2": 0.0007361856152713595,
+        "maximum_absolute_error": 3.832155925920233e-09,
+        "reference_l2": 5.523701976998211e-05
+      }
+    },
+    "passes_two_percent_gate": true
+  },
+  "cpu_nll": 5.905629446559521,
+  "native_minus_cpu_nll": -3.9425677149651506e-06,
+  "cpu_norm_before_clip": 4.281006813049316,
+  "native_norm_before_clip": 4.281630516052246,
+  "windows": 512,
+  "real_targets": 523322,
+  "source_cursor": 51200
+}

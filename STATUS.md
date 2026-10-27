@@ -1,3 +1,15 @@
+## October27,2026,05:03 UTC — conventional medium numerical registration prepared
+
+The medium recurrent full gate is complete. Its conventional374.89M eight-layer counterpart is now separately registered from its own unupdated random initializer, with all16 chips,102 qualification updates including replay, independent full512/optimizer criteria and fixed one-hour capture cap.192GiB Native /40GiB NVMe allowances pass the unchanged reserves. [Control registration](results/scale_medium_numerical_20261027/ordinary8/REPORT.md).
+
+Required raw dependencies remain present with exact hashes and original logical paths after preservation across existing filesystems. Completed duplicate956M replay bytes are retained in exact restorable archives, recovering about17.62GiB. No numerical or source history is erased. The scientific endpoint is still unset pending both medium timings; no held-out result or admitted scientific fit.
+
+## October27,2026,05:00 UTC — medium recurrent numerical gate passes
+
+The375.94M recurrent candidate passes the complete independent512-window audit:0.099983% overall /0.100621% largest-family gradient discrepancy and-0.000003943 NLL difference. First update/moments pass; named fresh-process replay updates/moments are exactly equal. The100 warm intervals total237.100460 seconds on all16 chips. All102 updates remain numerical only, ineligible for science. [Complete medium gate](results/scale_medium_numerical_20261027/fixed_two/REPORT.md).
+
+Required raw dependencies are fully restored. Exact restorable archival of completed duplicate956M replay evidence recovers about17.62GiB without losing any original binary fingerprint or unique state. Raw source files are being preserved across existing filesystems at their original logical paths, retaining all reserve floors. The next admission is the conventional medium challenger; no scientific fit, held-out win or larger automatic campaign is admitted.
+
 ## October27,2026,04:46 UTC — raw source dependency release reversed
 
 The capacity manifest explicitly retains original raw sources as indispensable private dependencies. The earlier cache classification missed that condition. All28 files are restored at their original logical paths and individually match their original SHA256 and lengths; three are stored on another existing owned filesystem through links, retaining35GiB filesystem reserves. Packed corpora, checkpoints and original source metadata remained intact. [Restoration and correction](results/raw_source_restoration_20261027/REPORT.md).

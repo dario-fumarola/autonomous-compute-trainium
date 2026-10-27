@@ -1,0 +1,1 @@
+Independent pinned-upstream full512 gradient/NLL, first actual update/moments and named replay pass. Overall gradient0.099983%, largest family0.100621%, NLL difference-0.000003943; named replay updates/moments exactly equal. CPU wall683.049 seconds, one prescribed optimizer step, zero research updates/chips. This is numerical proof, not prediction quality.
