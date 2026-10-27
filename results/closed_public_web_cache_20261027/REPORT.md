@@ -1,0 +1,5 @@
+All 28 scoped closed FineWeb-Edu raw-download files match their original content checksums. Unauthenticated HEAD requests to the immutable public dataset revisions also return matching content hashes. The verified cache occupies 60.409GiB. No file has been removed yet.
+
+The fixed scope excludes every numeric corpus, SQLite database, model/optimizer state, manifest and original receipt. Plain current-owner singly linked web-Parquet paths are required; symlinks, state/token filenames and mutable revisions are rejected. The completed capacity-subset/packing audits and all source metadata remain bound and preserved. Exact remote revisions and checksums permit refetch. This maintenance has a 20-minute original verification/application cap and makes no research examples or optimizer updates.
+
+Full CPU suite: 410 passed, two skipped. These verified redundant downloads can be released to make space for the larger conventional control without dropping private checkpoints or lowering filesystem reserves.
