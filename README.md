@@ -9,6 +9,14 @@ teacher models,added reasoning traces or reinforcement learning. Real-token
 negative log likelihood (NLL) remains the broad-text primary outcome. Equal-data and training-work comparisons answer different
 questions and are reported separately.
 
+The October27 scale follow-up is still in numerical/rate screening:375.94M
+recurrent versus374.89M conventional parameters. A mature higher-rate trial
+is rejected at6.07% overall gradient error despite close loss agreement;
+separately passing lower-rate trials remain valid. The untouched remaining
+rate controls are running. No larger main quality comparison or confirmation
+is complete. [Current status](STATUS.md) ·
+[Reproduced numerical rejection](results/scale_r032_audit_observation_20261027/REPORT.md).
+
 The conventional eight-layer challenger now slightly outperforms fixed
 recurrence at matched nominal training work in both development seeds. The
 original same-family gain remains, but a useful advantage over the stronger
