@@ -32,6 +32,23 @@ def boundary_scope_files(root,*,body_exposure=False):
     return original,chosen,document,frozen
 
 
+def validate_storage_binding(proof,*,tuning_sha256,scope_sha256,boundary_proof_sha256):
+    if (proof['tuning_report_sha256']!=tuning_sha256 or proof['scope_freeze_sha256']!=scope_sha256
+            or proof['boundary_numerical_proof_sha256']!=boundary_proof_sha256):
+        raise AssertionError('Storage receipt belongs to a different tuning result,scope or numerical proof')
+    if (proof['protected_host_bytes']!=512*1024**3 or proof['protected_filesystem_bytes']!=35*1024**3
+            or proof['native_worker_allowance_bytes']!=192*1024**3 or proof['new_ram_allowance_bytes']!=0):
+        raise AssertionError('Storage receipt changed the qualified resource reserves')
+
+
+def validate_body_scope_inputs(frozen,*,manifest_sha256,packing_fingerprint,initializer_report_sha256,clock_sha256):
+    if (frozen['accepted_packing_manifest_sha256']!=manifest_sha256
+            or frozen['packing_fingerprint']!=packing_fingerprint
+            or frozen['original_unused_initializer_report_sha256']!=initializer_report_sha256
+            or frozen['user_clock_amendment_sha256']!=clock_sha256):
+        raise AssertionError('Frozen accepted packing,unused C0 report or clock binding changed')
+
+
 def prepare(root,*,boundary_corrected=False,body_exposure=False):
     import numpy as np
     from compute_trainium.scale_pilot_size import profiled_inventory
@@ -82,6 +99,9 @@ def prepare(root,*,boundary_corrected=False,body_exposure=False):
     storage=root/('scale-body-exposure-main-state-allowance-v1' if body_exposure else 'scale-boundary-main-state-allowance-v1' if boundary_corrected else 'scale-main-state-allowance-v2')/'report.json'
     storage_proof=json.loads(storage.read_text())
     if storage_proof['status']!='ADMITTED_COMPLETE_SCALE_MAIN_STATE_STORAGE':raise ValueError('Complete prospective raw-state storage required')
+    if boundary_corrected:
+        validate_storage_binding(storage_proof,tuning_sha256=file_sha256(tune_file),scope_sha256=file_sha256(scope_file),
+            boundary_proof_sha256=file_sha256(root/'scale-boundary-fixed-two-numerical-v1/completion-verification.json'))
     if shutil.disk_usage(root).free<35*1024**3+storage_proof['complete_additional_bytes']:
         raise RuntimeError('Complete additional state allowance must still fit at actual main admission')
     folder=root/IDENTITY
@@ -93,6 +113,10 @@ def prepare(root,*,boundary_corrected=False,body_exposure=False):
             or initial_report['optimizer_updates']!=0 or initial_report['model_forwards']!=0):raise ValueError('Fresh original main C0 required')
     inventory=profiled_inventory('medium');data=root/'natural-append-capacity-v4'
     packed=json.loads((data/'packed/manifest.json').read_text());counts=np.load(data/'packed/prefix_counts.npy',mmap_mode='r')
+    if body_exposure:
+        validate_body_scope_inputs(frozen,manifest_sha256=file_sha256(data/'packed/manifest.json'),
+            packing_fingerprint=packed['fingerprint'],initializer_report_sha256=file_sha256(initial/'report.json'),
+            clock_sha256=file_sha256(clock_amendment))
     def targets(u):return sum(map(int,counts[u*512]))
     rwork=fixed_update_work(inventory[0]['config'],'fixed_two')['total_per_update']
     owork=fixed_update_work(inventory[1]['config'],'ordinary8')['total_per_update']

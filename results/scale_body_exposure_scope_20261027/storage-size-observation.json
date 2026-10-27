@@ -1,0 +1,45 @@
+{
+  "status": "READ_ONLY_STORAGE_SIZE_COMPARISON_NOT_ADMISSION",
+  "registered_unix": 1793114350.660079,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "original_complete_allowance": {
+    "complete_additional_state_bytes": 42284012960,
+    "margin_bytes": 4294967296,
+    "complete_additional_bytes": 46578980256,
+    "original_sizes": {
+      "fixed_two": {
+        "state": 3835518000,
+        "gradient": 1503780076,
+        "noise": 3221334906
+      },
+      "ordinary8": {
+        "state": 3842197744,
+        "gradient": 1499578757,
+        "noise": 0
+      }
+    },
+    "numerical_proofs": {
+      "fixed_two": "21eaf0d5a23c206764cf448b82815890b132b7d0a345e0fcda0f6467addea885",
+      "ordinary8": "812339b57d637de3886b48d12b4561267c6c8b1f684d1cde5367f1eaa715584f"
+    }
+  },
+  "new_qualified_recurrent_capture_bytes": {
+    "state": 3835522096,
+    "gradient": 1503780076,
+    "noise": 3221334906
+  },
+  "per_capture_delta_bytes": {
+    "state": 4096,
+    "gradient": 0,
+    "noise": 0
+  },
+  "planned_recurrent_permanent_and_replay_state_copies": 3,
+  "aggregate_observed_delta_bytes": 12288,
+  "margin_bytes": 4294967296,
+  "observed_delta_fits_existing_margin": true,
+  "boundary_numerical_proof_sha256": "d69cf909ce674efda2297401136039bb69fdd79f068bba3dcc0eba2fde51781b",
+  "allowance_source_sha256": "e3440271331a5026f5c0b5b6f5f807c2ddf06b069015d413f1c3df1da0613c09",
+  "root_free_at_observation": 51714035712,
+  "scope": "Compare all64 state shards,one full gradient and64 captured-noise files through exact original lengths,including lossless archive recipes. No model loading or source access. The qualified boundary metadata adds4096bytes per full state;all three copies fit the predeclared4GiB margin. No storage admission or promised-compression credit;complete TUNE and fresh actual full free-space check still required."
+}
