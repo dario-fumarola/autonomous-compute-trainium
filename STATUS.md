@@ -1,3 +1,9 @@
+## October27,2026,16:31 UTC — recurrent rate search closes; last ordinary opportunity next
+
+Recurrent0.002 completes300 updates,its own cooldown,actual replay,full512 mature audit and192-document consumed-TUNE readout. NLL3.722263 is worse than0.008's3.409389;overall gradient discrepancy0.194183%,with replay passing. Together with the qualified0.004 result3.580602,this brackets the recurrent0.008 choice among all six declared opportunities. The two higher-rate numerical rejections remain ineligible without quality scores. [Qualified endpoint and costs](results/scale_boundary_lower_rates_20261027/completed-recurrent-lr1/score.json).
+
+Only ordinary0.002 remains before final independent selection. The guarded8B/10.835B handoff stays conditional on its complete result,verified archival closure and fresh full storage/source/numerical/C0 admission. Main and confirmation remain unadmitted;the original useful-effect threshold and sealed fresh reserve are unchanged. No additional rate or mechanism is launched.
+
 ## October27,2026,16:01 UTC — ordinary0.004 qualified but worse; guarded handoff waiting
 
 Ordinary0.004 passes its300-update cooldown,replay,full512 mature numerical audit and192-document consumed-TUNE readout. NLL3.149815 is worse than the qualified0.008 point3.097228. Overall gradient discrepancy0.233366%. Neither0.004 condition improves its0.008 reference;the two0.002 opportunities still precede final independent selection. [Score and numerical proof](results/scale_boundary_lower_rates_20261027/completed-ordinary-lr0/score.json).
