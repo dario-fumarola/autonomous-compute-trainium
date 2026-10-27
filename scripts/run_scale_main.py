@@ -39,6 +39,12 @@ def prepare(root,*,boundary_corrected=False):
     r_stable=frozen['stable_trunk_update'] if frozen else 8598
     o_stable=frozen['ordinary_work_stable_update'] if frozen else 11645
     main_seconds=frozen['main_required_seconds'] if frozen else 14*3600
+    clock_amendment=root/'research-clock-accounting-amendment-20261027-v1/plan.json'
+    clock=json.loads(clock_amendment.read_text()) if boundary_corrected else None
+    if clock and (not clock['overall_clock_admission_waived'] or not clock['scientific_endpoints_unchanged']):
+        raise ValueError('Explicit unchanged-endpoint owner clock amendment required')
+    forecast_seconds=main_seconds
+    if clock:main_seconds=clock['operational_main_watchdog_seconds']
     scope_document='docs/SCALE_BOUNDARY_RATE_COMPLETION_20261027.md' if boundary_corrected else 'docs/SCALE_JOINT_DEVELOPMENT_20261027.md'
     if boundary_corrected:
         if file_sha256(scope_document)!=frozen['scope_sha256']:raise AssertionError('Frozen scope document changed')
@@ -57,7 +63,7 @@ def prepare(root,*,boundary_corrected=False):
     folder=root/IDENTITY
     if folder.exists() or PUBLIC.exists():raise FileExistsError('Preserve every main registration')
     start=time.time()
-    if start+main_seconds>SCALE_END:raise TimeoutError('Complete measured main allowance does not fit the original scale cap')
+    if not clock and start+main_seconds>SCALE_END:raise TimeoutError('Complete measured main allowance does not fit the original scale cap')
     initial=root/'scale-main-original-initializers-v1';initial_report=json.loads((initial/'report.json').read_text())
     if (initial_report['phase']!='main' or initial_report['seed']!=49177
             or initial_report['optimizer_updates']!=0 or initial_report['model_forwards']!=0):raise ValueError('Fresh original main C0 required')
@@ -108,7 +114,7 @@ def prepare(root,*,boundary_corrected=False):
     sources={str(f):file_sha256(f) for d in ['compute_trainium','scripts','configs','third_party'] for f in Path(d).rglob('*.py') if f.is_file()}
     for f in [scope_document,'tests/test_scale_training_state.py','tests/test_scale_training_fixture.py',
               'tests/test_scale_work_ledger.py','scripts/run_native_isolated.sh']:sources[f]=file_sha256(f)
-    worker,host=split_snapshot_sources(sources);deadline=min(start+main_seconds,SCALE_END)
+    worker,host=split_snapshot_sources(sources);deadline=start+main_seconds if clock else min(start+main_seconds,SCALE_END)
     if shutil.disk_usage(root).free<35*1024**3:raise RuntimeError('Protected main NVMe reserve')
     folder.mkdir();PUBLIC.mkdir()
     plan=dict(identity=IDENTITY,purpose='scale_registered_development_v1',registered_unix=start,
@@ -123,6 +129,8 @@ def prepare(root,*,boundary_corrected=False):
         storage_admission_sha256=file_sha256(storage),manual_loss_scale=65536,
         precision_policy='fp32_recurrent_boundaries' if boundary_corrected else 'fp16_body',invalid_gradient_capture=boundary_corrected,
         scope_freeze_sha256=file_sha256(scope_file) if boundary_corrected else None,
+        clock_admission_waiver=bool(clock),user_clock_amendment_sha256=file_sha256(clock_amendment) if clock else None,
+        training_time_forecast_seconds=forecast_seconds,scientific_endpoints_unchanged_by_clock_amendment=True,
         periodic_storage_lifecycle='two_latest_periodic_until_verified_permanent_successor',
         cases=cases,phases=phases,root_comm_ports=reserve_ports(root,names),
         native_order=['recurrent','recurrent-replay','ordinary-trunk','ordinary-equal','ordinary','ordinary-replay'],

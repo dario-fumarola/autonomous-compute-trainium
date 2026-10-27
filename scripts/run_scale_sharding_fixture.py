@@ -29,7 +29,8 @@ class AllChipExecution(Execution):
     def check(self):
         super().check()
         require_inode_reserve([self.root,Path('/')])
-        if time.time()>SCALE_END: raise TimeoutError('Original 24-hour scale feasibility cap')
+        if not self.plan.get('clock_admission_waiver') and time.time()>SCALE_END:
+            raise TimeoutError('Original 24-hour scale feasibility cap')
         if time.time()>self.plan.get('absolute_deadline_unix',SCALE_END):
             raise TimeoutError('Unchanged original numerical fixture cap')
         if self.plan.get('host_artifact_root'):
@@ -44,7 +45,8 @@ class AllChipExecution(Execution):
                 raise FileExistsError('No automatic partial fixture retry')
             reclaim_host();container=create_all_chip_worker(self.root,identity,memory_gib=self.plan.get('worker_memory_gib',128))
             self.native_active[identity]=container
-            limit=min(self.deadline,time.time()+self.native_seconds_limit(identity),SCALE_END)
+            research_end=self.deadline if self.plan.get('clock_admission_waiver') else SCALE_END
+            limit=min(self.deadline,time.time()+self.native_seconds_limit(identity),research_end)
             env=dict(os.environ,RESEARCH_ROOT=str(self.root),RESEARCH_CONTAINER_ROOT='/work/instance-nvme',
                 RESEARCH_RUN=identity,RESEARCH_OWNER=identity,RESEARCH_CONTAINER=container,RESEARCH_ENTRY_MODULE=module,
                 RESEARCH_DDP_RANKS='64',NEURON_RT_VISIBLE_CORES=','.join(map(str,range(64))),

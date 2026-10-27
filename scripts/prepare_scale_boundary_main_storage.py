@@ -14,7 +14,10 @@ def prepare(root):
     scope_path=root/'scale-boundary-scope-freeze-v1/scope.json';scope=json.loads(scope_path.read_text())
     tune_plan=json.loads((tune_path.parent/'plan.json').read_text())
     if tune_plan['scope_freeze_sha256']!=file_sha256(scope_path):raise AssertionError('Frozen scope changed')
-    if time.time()+scope['main_required_seconds']>SCALE_END:raise TimeoutError('Complete frozen11-hour allowance does not fit original scale cap')
+    amendment=root/'research-clock-accounting-amendment-20261027-v1/plan.json'
+    clock=json.loads(amendment.read_text())
+    if not clock['overall_clock_admission_waived'] or not clock['scientific_endpoints_unchanged']:
+        raise ValueError('Explicit owner clock amendment required')
     available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
     if available<704*1024**3:raise RuntimeError('Full192GiB worker and512GiB host reserve required')
     proof=root/'scale-boundary-fixed-two-numerical-v1/completion-verification.json'
@@ -35,6 +38,7 @@ def prepare(root):
         actual_root_free_before=shutil.disk_usage(root).free,host_available_before=available,native_worker_allowance_bytes=192*1024**3,
         protected_host_bytes=512*1024**3,protected_filesystem_bytes=35*1024**3,new_ram_allowance_bytes=0,
         main_required_seconds=scope['main_required_seconds'],original_scale_deadline_unix=SCALE_END,scientific_main_fit_admitted=False,
+        user_clock_amendment_sha256=file_sha256(amendment),overall_clock_admission_waived=True,
         scope='Complete existing-NVMe raw-state allowance,including all distinct replay fallback and periodic-write peaks. No source/state deletion or remount. Main preparation must recheck current full free space. Original qualifying sizes are exact-byte retained;new boundary model has identical parameter/state inventories,with4GiB metadata/size margin.')
     (out/'plan.json').write_text(json.dumps(value,indent=2)+'\n');(out/'report.json').write_text(json.dumps(value,indent=2)+'\n');return value
 
