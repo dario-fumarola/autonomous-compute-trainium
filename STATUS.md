@@ -1,3 +1,9 @@
+## October 27, 2026, 03:33 UTC — actual 956M warm updates live on all 16 chips
+
+The actual full-context model completes its first checkpoint and continues real packed-data updates on all 64 cores. Early synchronized updates take about 5.4 seconds; the declared 100-update interval is not complete, so this is provisional timing, not the budget estimate or a quality result. Independent gradients, first-update/moment and replay audits remain outstanding.
+
+Measured retained diagnostic files count against the Native cgroup. A separately registered resource-only amendment raises the live warm worker from 256 to 288GiB before the projected checkpoint/capture peak. Measured current use is 242.35GiB; projected full warm peak including transient copies is about 279.10GiB. Host MemAvailable is 597.19GiB, leaving a projected 551.55GiB even if the full remaining cgroup allowance is consumed, above the protected 512GiB. The original source, math, updates, all clocks, filesystem reserves and scientific exclusion remain unchanged. Both the initial cap and amendment are preserved. [Exact amendment](results/scale_956m_numerical_20261027/resource-amendment-288g.json).
+
 ## October 27, 2026, 03:23 UTC — actual 956M numerical/warm registration prepared
 
 The full-context candidate is registered for 101 initial numerical updates plus one fresh-process replay, using all 64 cores / 16 chips and 512 global windows. The 100-update warm measurement includes packing, transfer, full backward, clipping and optimizer; checkpoint/capture and compilation are reported separately. Complete private artifacts have an 80GiB allowance above the protected 35GiB reserve. A 256GiB exclusive container is admitted only above 768GiB host MemAvailable. [Registration](results/scale_956m_numerical_20261027/REPORT.md).

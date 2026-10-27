@@ -1,3 +1,7 @@
+The actual model is live on all 64 cores / 16 chips and has completed its first checkpoint. The 100 warm updates, full independent CPU reference and separate-process replay are not yet complete. No scientific fit or held-out quality result is admitted.
+
+The warm worker began with its registered 256GiB cap. A prospective resource-only amendment raises that cap to 288GiB after measured tmpfs evidence charges reveal a roughly 279.10GiB full warm peak including transient checkpoint copies. The protected host projection remains above 512GiB. The original plan, initial limit, exact amendment, source and clocks are all preserved; model, precision, optimizer math, inputs and update limits do not change. The later replay worker retains the original 256GiB admission unless separately justified.
+
 Prepared, not activated. Actual shape: 955,955,264 parameters, context 1024, 64 logical cores / 16 chips, global 512 windows per update. The separately qualified direct-shard/streamed-owner execution preserves the existing FP32 Muon/AdamW math, FP16 body and FP32 primitive attention/readout.
 
 Native capture permits 101 initial qualification updates including 100 warm updates, plus one separate-process replay update. The complete prospective new artifact allowance is 80GiB on the existing private tmpfs, above the unchanged 35GiB reserve. The exclusive 256GiB container requires at least 768GiB host MemAvailable. Both phases remain bounded to 30 minutes within a one-hour capture cap and the original 24-instance-hour scale clock.
