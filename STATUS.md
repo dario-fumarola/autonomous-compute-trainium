@@ -1,3 +1,9 @@
+## October27,2026,00:51 UTC — intact-seed switch capture passes; independent CPU audit active
+
+The published single-seed completion launches00:48:50 UTC under its02:48:50 UTC recovery cutoff,earlier than the unchanged03:08:35 original MAIN deadline. Its full512-window Native deep-objective capture closes successfully with zero optimizer updates;the independent CPU reference audit is now active. No deep-training update is permitted before that complete gate passes. The source plan,migrated complete state and original endpoint remain fixed. [Live recovery](results/late_two_allocation_20261026/single-recovery/REPORT.md).
+
+The pre-scoring ledger includes the entire stopped-to-recovery interval and all failed matrix work,separate from retained-trajectory matching and overlapping assigned/reservation costs. No paired result or advancement follows from completing one intact seed. The other seed is not silently replaced or recovered from the majority digest.
+
 ## October27,2026,00:48 UTC — intact-seed completion registered, not launched
 
 All366 CPU tests pass with2 skips. Exact same-endpoint recovery permits the cooled3300 state without extending its4400 endpoint or changing any model/optimizer/RNG/source/schedule field. Disk readback verifies all state except the new plan signature unchanged. The initial CPU directory-permission failure is corrected only for its new anchor directory;all launch logs and the exact continuation script are retained. No Native update has run. [Registered completion](results/late_two_allocation_20261026/single-recovery/REPORT.md).
