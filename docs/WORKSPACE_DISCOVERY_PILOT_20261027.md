@@ -75,7 +75,7 @@ best-of-G, target-aware selection or resampling. Report four-token and first-tok
 NLL on the deployed path, raw32-token NLL, and raw four-token NLL. Compare
 the workspace with ordinary, trained pauses and the draft arm; compare all
 absolute scores with C0. For workspace/draft/C0, recompute matching, different-
-source-group donor and fixed-content workspaces at the same length. A privileged
+source-group SAME-DOMAIN donor and fixed-content workspaces at the same length. A privileged
 true-future copy is a separately labeled reader positive control, never policy
 input or a deployable thought. No cached states survive content edits.
 
@@ -88,6 +88,9 @@ to this recipe and budget. Preserve every outcome and decide the next experiment
 from the complete table, without automatically extending the most favorable arm.
 TUNE source-group intervals, if reported, are conditional on this trained
 checkpoint; upstream base-pretraining contamination cannot be excluded.
+Descriptive paired intervals resample whole source groups5,000times with
+seed11261,keeping the60/20/20 aggregate weights fixed. They are not seed-based
+significance tests and do not alter the fixed fit duration or admit scaling.
 
 All16 chips/64 ranks,192GiB worker allowance,512GiB host reserve and35GiB
 filesystem floors remain mandatory. Register phase/source/data hashes, caps,

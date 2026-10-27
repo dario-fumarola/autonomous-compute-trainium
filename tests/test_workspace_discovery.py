@@ -6,6 +6,14 @@ from compute_trainium.workspace_olmo_candidate import OlmoWorkspaceConfig,Worksp
 from compute_trainium.workspace_native_objective import SelectiveWorkspacePredictor
 
 
+def test_donors_are_chosen_without_outcomes_within_domain_and_outside_source_group():
+    from compute_trainium.workspace_discovery import donor_indices
+    groups=['a','b','c','d']*2;domains=[0,0,1,1]*2
+    indices=donor_indices(groups,domains,world=4)
+    assert indices==[1,0,3,2,5,4,7,6]
+    with pytest.raises(ValueError):donor_indices(['a','a','b','b'],[0,0,1,1],world=4)
+
+
 def test_draft_reads_own_samples_and_pause_states_follow_prefix():
     c=torch.tensor([[1,2,3,4]]);y=torch.arange(5,37).reshape(1,-1)
     z=torch.arange(32).reshape(4,8);f=WorkspaceFormat((40,),(41,))

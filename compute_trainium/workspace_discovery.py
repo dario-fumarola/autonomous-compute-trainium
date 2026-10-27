@@ -11,6 +11,18 @@ from .workspace_learning import identity_reader_context
 ARMS=('ordinary','workspace','pause','draft')
 
 
+def donor_indices(groups,domains,*,world=64):
+    if len(groups)!=len(domains) or not groups or len(groups)%world:raise ValueError('Complete source-only evaluation batches required')
+    result=[]
+    for k in range(len(groups)):
+        lo=k//world*world
+        choices=[lo+(k-lo+offset)%world for offset in range(1,world)]
+        eligible=[j for j in choices if groups[j]!=groups[k] and domains[j]==domains[k]]
+        if not eligible:raise ValueError('No different-group same-domain donor;do not silently weaken control')
+        result.append(eligible[0])
+    return result
+
+
 def discovery_terms(arm,prefix,continuation,workspace,rewards,format,*,pause_id):
     if arm not in ARMS:raise ValueError('Unknown discovery condition')
     if prefix.shape[0]!=1 or continuation.shape[0]!=1 or continuation.shape[1]<8:

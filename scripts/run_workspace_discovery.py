@@ -19,7 +19,7 @@ PUBLIC=Path('results/workspace_discovery_20261027/main')
 
 
 def prepare(root):
-    from compute_trainium.workspace_discovery import matched_updates,step_matrix_work
+    from compute_trainium.workspace_discovery import matched_updates,step_matrix_work,donor_indices
     from compute_trainium.workspace_olmo_candidate import OlmoWorkspaceConfig
     from compute_trainium.workspace_view_batches import WorkspaceViewBatches
     if managed_running():raise RuntimeError('Exclusive pilot admission after qualifications')
@@ -47,10 +47,7 @@ def prepare(root):
     audit=next(k for k in range(consumed,len(data)) if metadata[int(data.order[k])]['group'] not in groups)
     tune_meta=[json.loads(line) for line in (root/'workspace-source-views-v2/tune-views.jsonl').read_text().splitlines()]
     eval_groups=[tune_meta[int(tune.order[k])]['group'] for k in range(320)]
-    donors=[]
-    for k in range(320):
-        lo=k//64*64
-        donors.append(next(lo+(k-lo+offset)%64 for offset in range(1,64) if eval_groups[lo+(k-lo+offset)%64]!=eval_groups[k]))
+    donors=donor_indices(eval_groups,[int(tune.domains[int(tune.order[k])]) for k in range(320)])
     sources={str(f):file_sha256(f) for d in ['compute_trainium','scripts','configs'] for f in Path(d).rglob('*.py') if f.is_file()}
     for n in ['scripts/run_native_isolated.sh','docs/WORKSPACE_DISCOVERY_PILOT_20261027.md','tests/test_workspace_discovery.py','tests/test_workspace_streaming_checkpoint.py']:sources[n]=file_sha256(n)
     worker,host=split_snapshot_sources(sources);start=time.time();phases=[IDENTITY+'-'+arm for arm in ['ordinary','workspace','pause','draft']]+[IDENTITY+'-evaluation']
@@ -94,6 +91,8 @@ def run(root):
             result['conditions'][arm].update(audit=audit,audit_pending=False);write_state(PUBLIC/'progress.json',result)
         phase=IDENTITY+'-evaluation'
         result['evaluation']=execution.native(phase,'scripts.evaluate_workspace_discovery',options(phase),'COMPLETE_WORKSPACE_DISCOVERY_TARGET_BLIND_EVALUATION')
+        from compute_trainium.workspace_discovery_analysis import analyze
+        result['conditional_analysis']=analyze(root,plan)
         result['status']='COMPLETE_WORKSPACE_DISCOVERY_PILOT'
     except BaseException as error:result.update(error_type=type(error).__name__,error=str(error));raise
     finally:

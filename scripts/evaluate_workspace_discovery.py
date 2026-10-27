@@ -51,20 +51,27 @@ def run(a):
                 z=None
                 if arm in ['c0','workspace','draft']:
                     z=actor.sample(c,format=fmt,length=8,group_size=1,generator=torch.Generator().manual_seed(plan['evaluation_seed']+index))
-                    shared=z.to('neuron',dtype=torch.float32);gathered=[torch.empty_like(shared) for _ in range(world)]
-                    dist.all_gather(gathered,shared);donor=gathered[plan['evaluation_donors'][index]%world].cpu().long()
+                    # Reuse the qualified sum collective. Each integer-token
+                    # row has exactly one contributing rank (IDs <2**24).
+                    local=torch.zeros((world,8),dtype=torch.float32);local[rank]=z[0]
+                    gathered=local.to('neuron');dist.all_reduce(gathered)
+                    donor_rank=plan['evaluation_donors'][index]%world
+                    donor=gathered.cpu()[donor_rank:donor_rank+1].long()
                 raw32=actor.log_probs(c,y,'evaluation_raw_32').detach().cpu();drain_runtime(actor.device)
                 row=dict(index=index,domain=view['domain'],source_row=view['source_row'],raw_nll=float(-raw32.mean()),raw_first4_nll=float(-raw32[:,:4].mean()),raw_first_token_nll=float(-raw32[:,0].mean()))
+                row['primary_first_token_nll']=row['raw_first_token_nll']
                 if z is not None:
                     for label,content in [('own',z),('donor',donor),('constant',z.new_full(z.shape,plan['pause_token_id'])),('privileged_copy_diagnostic_only',y[:,:8])]:
                         context=identity_reader_context(c,content,fmt)
                         value=actor.log_probs(context,y[:,:4],'evaluation_'+label).detach().cpu();drain_runtime(actor.device)
                         row[label+'_nll']=float(-value.mean());row[label+'_first_token_nll']=float(-value[:,0].mean())
-                    row['primary_nll']=row['own_nll']
+                    row['primary_nll']=row['raw_first4_nll'] if arm=='c0' else row['own_nll']
+                    if arm!='c0':row['primary_first_token_nll']=row['own_first_token_nll']
                 elif arm=='pause':
                     context=torch.cat([c,c.new_full((1,8),plan['pause_token_id'])],1)
                     value=actor.log_probs(context,y[:,:4],'evaluation_trained_pause').detach().cpu();drain_runtime(actor.device)
                     row['primary_nll']=float(-value.mean())
+                    row['primary_first_token_nll']=float(-value[:,0].mean())
                 else:row['primary_nll']=row['raw_first4_nll']
                 rows.append(row)
             (out/f'rank{rank}-{arm}-losses.json').write_text(json.dumps(rows,indent=2)+'\n')
