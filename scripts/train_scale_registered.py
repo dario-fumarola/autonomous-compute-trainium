@@ -69,7 +69,9 @@ def main():
     config=ParcaeCandidateConfig(**case['model']);recurrent=case['model_role']=='fixed_two';depth=2 if recurrent else 1
     if initial['config']!=vars(config) or initial['recurrent']!=recurrent:raise ValueError('Initializer/config mismatch')
     torch.manual_seed(case['seed']+rank)
-    with torch.device('meta'):model=ParcaePrimitiveSDPACandidate(config,recurrent=recurrent,initialize=False,fp16_body=True)
+    from compute_trainium.scale_precision_probe import precision_model
+    candidate=precision_model(plan.get('precision_policy','fp16_body'))
+    with torch.device('meta'):model=candidate(config,recurrent=recurrent,initialize=False,fp16_body=True)
     mesh=init_device_mesh('neuron',(64,));model=shard_model_from_cpu(model,mesh,initial['model'],'neuron');del initial
     signature=lineage(a.plan_sha,case)
     optimizer=ScaleTrainingOptimizer(model,lineage=signature,lr=case['peak_lr'],muon_lr=case['peak_lr'],fused_adamw=True)

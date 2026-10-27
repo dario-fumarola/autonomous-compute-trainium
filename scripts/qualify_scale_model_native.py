@@ -57,7 +57,10 @@ def main():
     if role not in ('fixed_two','ordinary8'):raise ValueError('Explicit qualified scale model role required')
     recurrent=role=='fixed_two';depth=2 if recurrent else 1
     if saved['config']!=vars(config) or saved['recurrent']!=recurrent:raise ValueError('Exact scale config required')
-    with torch.device('meta'):model=ParcaePrimitiveSDPACandidate(config,recurrent=recurrent,initialize=False,fp16_body=True)
+    from compute_trainium.scale_precision_probe import precision_model
+    precision=plan.get('precision_policy','fp16_body')
+    candidate=precision_model(precision)
+    with torch.device('meta'):model=candidate(config,recurrent=recurrent,initialize=False,fp16_body=True)
     mesh=init_device_mesh('neuron',(64,));model=shard_model_from_cpu(model,mesh,saved['model'],'neuron');del saved
     optimizer=StreamingOwnerOptimizer(model,lr=1e-4,muon_lr=1e-4,fused_adamw=True)
     if model.transformer.wte._parameters['weight'] is not model.lm_head._parameters['weight']:
@@ -68,7 +71,7 @@ def main():
         precision='fp16_body_fp32_primitive_attention_and_head',full_gradient_steps=depth,manual_loss_scale=manual_scale,
         initializer_sha256=plan['initializer_sha256'],packing_fingerprint=packed.fingerprint,
         optimizer_execution='streaming_owner_complete_matrix_fp32_muon_local_fused_adamw',state_seed=2009 if recurrent else None,
-        model_role=role)
+        model_role=role,precision_policy=precision)
     update=cursor=exposure=neural_ops=optimizer_ops=0
     if args.mode=='replay':
         warm_artifact=Path(plan.get('container_artifact_roots',{}).get('warm',str(artifact)))

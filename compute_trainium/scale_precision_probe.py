@@ -16,12 +16,21 @@ class FP32BoundaryCandidate(ParcaePrimitiveSDPACandidate):
         return state
 
     def decode(self,state,tokens):
+        if not self.recurrent:
+            return super().decode(state,tokens)
         with torch.autocast(state.device.type,enabled=False):state=self.transformer.C(state.float())
         with torch.autocast(state.device.type,dtype=torch.float16,enabled=self.fp16_body):
             for j,block in enumerate(self.transformer.coda):
                 state=self._apply_block(block,state,tokens,self.config.prelude+self.config.core+j)
         with torch.autocast(state.device.type,enabled=False):
             hidden=self.transformer.ln_f(state.float());return F.linear(hidden,self.lm_head.weight.float())
+
+
+def precision_model(policy):
+    """Explicit prospective policy; the ordinary boundary path is unchanged."""
+    if policy=='fp16_body':return ParcaePrimitiveSDPACandidate
+    if policy=='fp32_recurrent_boundaries':return FP32BoundaryCandidate
+    raise ValueError('Unknown frozen model precision policy')
 
 
 def probe_policy(variant):
