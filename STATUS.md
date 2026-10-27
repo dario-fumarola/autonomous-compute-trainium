@@ -1,3 +1,11 @@
+## October 27, 2026, 02:46 UTC — clean fixed-two numerical qualification passes
+
+Both distinct-half trials pass independent full 512-window gradient audits, first optimizer updates/moments, complete model/optimizer/RNG restoration, replica agreement and separate-process replay. Overall gradient discrepancy is 0.099386%, largest family 0.138513%, within the unchanged 2% gate. The Native rejected-state fixture also passes. All 244 actual updates are qualification only and their weights cannot initialize science. [Complete receipt](results/head_free_fixed2_numerical_v2_20261027/recovery/REPORT.md).
+
+The first controller stopped before model updates because its generated phase names contained underscores. That error and cost remain preserved. One correction completed within the original 03:06:02 UTC cap. Both warm 100-update measurements are about 145.25 seconds; this is not a measured quality gain or a cross-run speedup claim.
+
+The owner now directs continued work with judgment and full use of the existing chips, following a request to investigate scale. Initial scale feasibility is capped at 24 instance-hours, including qualification, tuning and failed work. Next is exact model/state inventory and a bounded sharded Native correctness/memory/runtime test before any large scientific fit. The existing strong ordinary comparator remains required. No five-day estimate, 100B-token fit, data-constrained campaign, confirmation or terminal success is presumed.
+
 ## October27,2026,02:04 UTC — new clean-baseline numerical registration prepared
 
 The closed late-two attempt does not advance. A separate numerical-only registration binds its exact stopped-pair and audited-single closure chain,without changing either status or the original inactive head-free registration. The source bundle adds head-free fixed-two role support,bounded rejected-state evidence,and preservation of initiating host failures. Model/loss/optimizer kernels remain unchanged;no conditioning or scientific fit is admitted. [New registration](results/head_free_fixed2_numerical_v2_20261027/REPORT.md).

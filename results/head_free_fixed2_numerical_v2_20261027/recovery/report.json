@@ -1,0 +1,1023 @@
+{
+  "status": "PASS_HEAD_FREE_FIXED_TWO_NATIVE_QUALIFICATION",
+  "records": {
+    "half_a": {
+      "warm": {
+        "status": "CAPTURED_PARCAE_TRAINING_QUALIFICATION",
+        "arm": "poisson2",
+        "accumulation": 16,
+        "world": 32,
+        "precision": "fp16",
+        "mode": "warm",
+        "qualification_only": true,
+        "test_accessed": false,
+        "research_optimizer_updates": 0,
+        "actual_optimizer_calls_per_replica": 121,
+        "phase_real_targets": 63328362,
+        "total_real_targets": 63328362,
+        "cursor": 61952,
+        "model_matmuls": 36370350266646528,
+        "optimizer_matmuls": 3157123377830400,
+        "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+        "recovered_state_digest": null,
+        "complete_state_on_load_exact": false,
+        "per_rank_cpu_rng_on_load_exact": false,
+        "all_replica_model_optimizer_states_equal": true,
+        "final_model_optimizer_digest": "776a68f2a1424bd233987b410a0b22041d41f553a0e308235bb4240debcd1185",
+        "warm_updates": 100,
+        "warm_real_targets": 52337436,
+        "warm_seconds": 145.25082873902284,
+        "warm_targets_per_second": 360324.52588643384,
+        "warm_model_matmuls": 30058140716236800,
+        "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+        "warm_started_unix": 1793067994.2640731,
+        "warm_finished_unix": 1793068139.5149014,
+        "checkpoint_sha256": "368b6933e78ed86be20d7aa2a25687b17572d31a4ef863a8f6af944009ba3376",
+        "checkpoint_state_digest": "0e76bf625bb87f67548ab70ef2e455bd82190caed66b3da27bc00d3fb624d5ad",
+        "probe_initial_states_sha256": "1d439cec2b69f9c299232ae81f32f796e6e892ab68813828726508bb159b5e48",
+        "probe_depths_sha256": "b7381e9258c291f4fbb696de40c3dff4dd09a3585eb373d31cfb1a9a1129df61",
+        "updated_global_gradient_sha256": "c8344ccda41c54c9957d9bd6474ede3d3cdb198eab95f8c28cbe2bce6e149c12",
+        "initial_global_gradient_sha256": "f6512339601aeac9251440eba0d8c62f9e955804fa73cc67d8ad2f2660d761e6",
+        "first_checkpoint_sha256": "1069f7580999ccc705b745ece180040eb2340727c816b2a323b8846c756f36e9",
+        "final_checkpoint_sha256": "ccdaddba2bae6b165ea90774ae38edd0a7107ba0066251ba2796679d60b592e2",
+        "extra_initial_probe_model_matmuls": 18786337947648,
+        "extra_initial_probe_real_targets": 32722,
+        "checkpoint_seconds": 5.475203990936279,
+        "progress": [
+          {
+            "update": 1,
+            "real_targets": 523314,
+            "global_train_nll": 10.561344622922375,
+            "gradient_norm_before_clip": 21.14019203186035,
+            "lr": 5e-06,
+            "elapsed_seconds": 83.06106114387512
+          },
+          {
+            "update": 10,
+            "real_targets": 5233798,
+            "global_train_nll": 10.398501391033186,
+            "gradient_norm_before_clip": 21.248998641967773,
+            "lr": 5e-05,
+            "elapsed_seconds": 96.76743745803833
+          },
+          {
+            "update": 20,
+            "real_targets": 10467614,
+            "global_train_nll": 9.889172844695812,
+            "gradient_norm_before_clip": 25.419021606445312,
+            "lr": 0.0001,
+            "elapsed_seconds": 111.30406045913696
+          },
+          {
+            "update": 30,
+            "real_targets": 15701370,
+            "global_train_nll": 9.29581739532502,
+            "gradient_norm_before_clip": 44.58041000366211,
+            "lr": 9.824819231794262e-05,
+            "elapsed_seconds": 125.816814661026
+          },
+          {
+            "update": 40,
+            "real_targets": 20934888,
+            "global_train_nll": 8.606093637152213,
+            "gradient_norm_before_clip": 63.6583366394043,
+            "lr": 9.236745922441589e-05,
+            "elapsed_seconds": 140.33146834373474
+          },
+          {
+            "update": 50,
+            "real_targets": 26168398,
+            "global_train_nll": 7.856335704130614,
+            "gradient_norm_before_clip": 51.19488525390625,
+            "lr": 8.29004296357349e-05,
+            "elapsed_seconds": 154.844411611557
+          },
+          {
+            "update": 60,
+            "real_targets": 31402312,
+            "global_train_nll": 7.36221507862206,
+            "gradient_norm_before_clip": 20.989971160888672,
+            "lr": 7.075569021361259e-05,
+            "elapsed_seconds": 169.35900378227234
+          },
+          {
+            "update": 70,
+            "real_targets": 36636094,
+            "global_train_nll": 6.95978268761201,
+            "gradient_norm_before_clip": 4.970946311950684,
+            "lr": 5.7098817567433805e-05,
+            "elapsed_seconds": 183.89672565460205
+          },
+          {
+            "update": 80,
+            "real_targets": 41869746,
+            "global_train_nll": 6.816797061576967,
+            "gradient_norm_before_clip": 4.291462421417236,
+            "lr": 4.324051345542129e-05,
+            "elapsed_seconds": 198.4182312488556
+          },
+          {
+            "update": 90,
+            "real_targets": 47103690,
+            "global_train_nll": 6.693144084279387,
+            "gradient_norm_before_clip": 4.014849662780762,
+            "lr": 3.051081177597877e-05,
+            "elapsed_seconds": 212.957177400589
+          },
+          {
+            "update": 100,
+            "real_targets": 52337398,
+            "global_train_nll": 6.657773542729409,
+            "gradient_norm_before_clip": 3.1946561336517334,
+            "lr": 2.0131430180369964e-05,
+            "elapsed_seconds": 227.495751619339
+          },
+          {
+            "update": 110,
+            "real_targets": 57571286,
+            "global_train_nll": 6.605529028042097,
+            "gradient_norm_before_clip": 3.5512306690216064,
+            "lr": 1.3098517205605332e-05,
+            "elapsed_seconds": 242.02786421775818
+          },
+          {
+            "update": 120,
+            "real_targets": 62805050,
+            "global_train_nll": 6.6193889190345905,
+            "gradient_norm_before_clip": 3.1474318504333496,
+            "lr": 1.0087048128988257e-05,
+            "elapsed_seconds": 256.554612159729
+          },
+          {
+            "update": 121,
+            "real_targets": 63328362,
+            "global_train_nll": 6.587374262390314,
+            "gradient_norm_before_clip": 3.078932046890259,
+            "lr": 1.0021767296860541e-05,
+            "elapsed_seconds": 273.27573704719543
+          }
+        ],
+        "signature": {
+          "preparation_sha256": "069b545a952a647c9132857f797cdf826ea9039574ed157481fa880cbd7c2121",
+          "world": 32,
+          "accumulation": 16,
+          "context": 1024,
+          "arm": "poisson2",
+          "precision": "fp16",
+          "master_dtype": "fp32",
+          "manual_loss_scale": 8192,
+          "depth_table_sha256": "b1a835db7ab804cc865ee1e5746a77c2e65820d32f6c888cbb1141c1fc0a303f",
+          "initial_sha256": "ecd37ea195a31f60f96023e91c82bd07379c62340be208878f4841cc63e10459",
+          "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+          "state_seed": 2009,
+          "routing_seed": 271828,
+          "clip": 1.0,
+          "peak_lr": 0.0001,
+          "gate_policy": "release_muon",
+          "optimizer_recipe": "parcae_muon_adamw_fp32_polar_v2",
+          "optimizer_execution": "eager_muon_fused_adamw",
+          "training_source_sha256": {
+            "scripts/train_parcae_precise_qualification.py": "21f8543d011b480d51de0c4326cdaaa47f02caaa2fdf21ee8560a69e45dac6e3",
+            "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+            "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+            "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+            "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+            "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+            "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7"
+          }
+        },
+        "wall_seconds": 282.4700074195862,
+        "scope": "Complete qualification updates, natural packing/H2D, per-sequence depth, no_sync normalization, manual unscale, finite clipping and two-family optimizer. Warm100 updates exclude initial probe/compilation, final checkpoint and updated-point/replay numerical audits. Extra overheads/failed attempts remain in phase receipts. No scientific learning claim or budget authorization.",
+        "managed_qualification_plan_sha256": "75e537f5ff5bc5d17c71f15c6c1c27c9f10f0f64e2f1e55774cf8f0c00b95414",
+        "qualification_profile": "fixed2"
+      },
+      "replay": {
+        "status": "CAPTURED_PARCAE_TRAINING_QUALIFICATION",
+        "arm": "poisson2",
+        "accumulation": 16,
+        "world": 32,
+        "precision": "fp16",
+        "mode": "replay",
+        "qualification_only": true,
+        "test_accessed": false,
+        "research_optimizer_updates": 0,
+        "actual_optimizer_calls_per_replica": 1,
+        "phase_real_targets": 523312,
+        "total_real_targets": 63328362,
+        "cursor": 61952,
+        "model_matmuls": 36370350266646528,
+        "optimizer_matmuls": 3157123377830400,
+        "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+        "recovered_state_digest": "0e76bf625bb87f67548ab70ef2e455bd82190caed66b3da27bc00d3fb624d5ad",
+        "complete_state_on_load_exact": true,
+        "per_rank_cpu_rng_on_load_exact": true,
+        "all_replica_model_optimizer_states_equal": true,
+        "final_model_optimizer_digest": "934a3d0208bfe70732d66ccf3eff757ec1632b18e744ec3aff77e30dbc0163af",
+        "warm_updates": 0,
+        "warm_real_targets": 0,
+        "warm_seconds": null,
+        "warm_targets_per_second": null,
+        "warm_model_matmuls": 0,
+        "warm_optimizer_matmuls_all_replicas": 0,
+        "warm_started_unix": null,
+        "warm_finished_unix": null,
+        "checkpoint_sha256": null,
+        "checkpoint_state_digest": null,
+        "probe_initial_states_sha256": null,
+        "probe_depths_sha256": null,
+        "updated_global_gradient_sha256": "c46f494e0395fc67ca770b3df86706c4033db2eb360d5bc1410a57115f770f8c",
+        "initial_global_gradient_sha256": null,
+        "first_checkpoint_sha256": null,
+        "final_checkpoint_sha256": "4d04f3172faacf3a8238c8bb0e095fd43704fd4f5076fcf2641e5851b13c746e",
+        "extra_initial_probe_model_matmuls": 0,
+        "extra_initial_probe_real_targets": 0,
+        "checkpoint_seconds": 0.0,
+        "progress": [
+          {
+            "update": 121,
+            "real_targets": 63328362,
+            "global_train_nll": 6.587374262390314,
+            "gradient_norm_before_clip": 3.078932046890259,
+            "lr": 1.0021767296860541e-05,
+            "elapsed_seconds": 84.64367294311523
+          }
+        ],
+        "signature": {
+          "preparation_sha256": "069b545a952a647c9132857f797cdf826ea9039574ed157481fa880cbd7c2121",
+          "world": 32,
+          "accumulation": 16,
+          "context": 1024,
+          "arm": "poisson2",
+          "precision": "fp16",
+          "master_dtype": "fp32",
+          "manual_loss_scale": 8192,
+          "depth_table_sha256": "b1a835db7ab804cc865ee1e5746a77c2e65820d32f6c888cbb1141c1fc0a303f",
+          "initial_sha256": "ecd37ea195a31f60f96023e91c82bd07379c62340be208878f4841cc63e10459",
+          "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+          "state_seed": 2009,
+          "routing_seed": 271828,
+          "clip": 1.0,
+          "peak_lr": 0.0001,
+          "gate_policy": "release_muon",
+          "optimizer_recipe": "parcae_muon_adamw_fp32_polar_v2",
+          "optimizer_execution": "eager_muon_fused_adamw",
+          "training_source_sha256": {
+            "scripts/train_parcae_precise_qualification.py": "21f8543d011b480d51de0c4326cdaaa47f02caaa2fdf21ee8560a69e45dac6e3",
+            "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+            "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+            "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+            "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+            "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+            "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7"
+          }
+        },
+        "wall_seconds": 92.85536479949951,
+        "scope": "Complete qualification updates, natural packing/H2D, per-sequence depth, no_sync normalization, manual unscale, finite clipping and two-family optimizer. Warm100 updates exclude initial probe/compilation, final checkpoint and updated-point/replay numerical audits. Extra overheads/failed attempts remain in phase receipts. No scientific learning claim or budget authorization.",
+        "managed_qualification_plan_sha256": "75e537f5ff5bc5d17c71f15c6c1c27c9f10f0f64e2f1e55774cf8f0c00b95414",
+        "qualification_profile": "fixed2"
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+        "arm": "poisson2",
+        "precision": "fp16",
+        "accumulation": 16,
+        "source_cursor": 61440,
+        "real_targets": 523312,
+        "windows": 512,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0009938633018162885,
+            "maximum_absolute_error": 4.8606423661112785e-05,
+            "reference_l2": 3.0791490065136413
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0013851347540254598,
+              "maximum_absolute_error": 1.0217627277597785e-06,
+              "reference_l2": 0.09150175535102732
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0007941717927480187,
+              "maximum_absolute_error": 1.5720841474831104e-05,
+              "reference_l2": 0.22740063686594708
+            },
+            "transformer_body": {
+              "relative_l2": 0.0009944329362522122,
+              "maximum_absolute_error": 4.8606423661112785e-05,
+              "reference_l2": 3.0693769517079996
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0004101044741400876,
+              "maximum_absolute_error": 1.881562639027834e-08,
+              "reference_l2": 0.00033430269956700136
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 6.587374887540201,
+        "native_minus_cpu_nll": -6.251498865239569e-07,
+        "checkpoint_sha256": "368b6933e78ed86be20d7aa2a25687b17572d31a4ef863a8f6af944009ba3376",
+        "full_state_readback_exact": true,
+        "cpu_global_gradient_sha256": "a780e04bbd74fa40f86e4366daafef05bfa665678eaa4ee84a3dd593af3347fe",
+        "first_actual_update": {
+          "update_comparison": {
+            "relative_l2": 1.4081536883034757e-05,
+            "maximum_absolute_error": 3.725290298461914e-09,
+            "reference_l2": 0.025318136577781317,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.850327614086382e-05,
+            "maximum_absolute_error": 3.3120159059762955e-08,
+            "reference_l2": 0.14515168243456275
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 1.4037669840878973e-05,
+                "maximum_absolute_error": 3.725290298461914e-09,
+                "reference_l2": 0.02531468115127981,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.843181050445581e-05,
+                "maximum_absolute_error": 1.650187186896801e-08,
+                "reference_l2": 0.008591434260713092
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 6.867572942654793e-05,
+                "maximum_absolute_error": 9.418243962500128e-11,
+                "reference_l2": 0.0004182797870168279,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.850352715835335e-05,
+                "maximum_absolute_error": 3.3120159059762955e-08,
+                "reference_l2": 0.1448971986303669
+              }
+            }
+          },
+          "passes_registered_gate": true,
+          "cpu_norm_before_clip": 21.13937759399414,
+          "independent_group_membership_validated": true,
+          "reference_registration_order_aligned_by_name": true,
+          "native_norm_before_clip": 21.14019203186035,
+          "prescribed_cpu_optimizer_steps": 1,
+          "research_optimizer_updates": 0,
+          "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+        },
+        "wall_seconds": 432.8846971988678,
+        "assigned_chips": 0,
+        "prescribed_cpu_optimizer_steps": 1,
+        "native_optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+      },
+      "restored": {
+        "status": "PASS_BASELINE_NAMED_REPLAY_AND_GLOBAL_GRADIENT",
+        "plan_sha256": "75e537f5ff5bc5d17c71f15c6c1c27c9f10f0f64e2f1e55774cf8f0c00b95414",
+        "profile": "fixed2",
+        "pair": {
+          "arm": "poisson2",
+          "precision": "fp16",
+          "accumulation": 16,
+          "parameters": 141963840,
+          "complete_state_on_load_exact": true,
+          "per_rank_cpu_rng_on_load_exact": true,
+          "all_replica_model_optimizer_states_equal": true,
+          "replay": {
+            "update": {
+              "relative_l2": 6.20321948434448e-06,
+              "maximum_absolute_error": 1.1920928955078125e-07,
+              "reference_l2": 0.04106682067811651,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 3.2373532351009566e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.8500674750845615
+            },
+            "families": {
+              "adamw": {
+                "update": {
+                  "relative_l2": 5.722680463043837e-06,
+                  "maximum_absolute_error": 1.1920928955078125e-07,
+                  "reference_l2": 0.04102950604778907,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moments": {
+                  "relative_l2": 4.03586745376674e-08,
+                  "maximum_absolute_error": 1.1641532182693481e-10,
+                  "reference_l2": 0.07046674306888652
+                }
+              },
+              "muon": {
+                "update": {
+                  "relative_l2": 5.646013876717322e-05,
+                  "maximum_absolute_error": 2.60770320892334e-08,
+                  "reference_l2": 0.0017502554336488283,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moments": {
+                  "relative_l2": 3.231140791471967e-08,
+                  "maximum_absolute_error": 7.450580596923828e-09,
+                  "reference_l2": 0.8471417533789165
+                }
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "passes_recovery_gate": true,
+          "warm_real_targets": 52337436,
+          "warm_seconds": 145.25082873902284,
+          "warm_targets_per_second_per_eight_chips": 360324.52588643384,
+          "warm_model_matmuls": 30058140716236800,
+          "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+          "actual_optimizer_calls_per_replica_including_replay": 122,
+          "phase_training_real_targets_including_replay": 63851674,
+          "extra_initial_probe_model_matmuls": 18786337947648,
+          "extra_initial_probe_real_targets": 32722
+        },
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.000993863311979245,
+            "maximum_absolute_error": 4.860595799982548e-05,
+            "reference_l2": 3.0791490065136413
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.001385134736285535,
+              "maximum_absolute_error": 1.0217481758445501e-06,
+              "reference_l2": 0.09150175535102732
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0007941718224826797,
+              "maximum_absolute_error": 1.572078326717019e-05,
+              "reference_l2": 0.22740063686594708
+            },
+            "transformer_body": {
+              "relative_l2": 0.0009944329463657748,
+              "maximum_absolute_error": 4.860595799982548e-05,
+              "reference_l2": 3.0693769517079996
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0004100979137316731,
+              "maximum_absolute_error": 1.8804712453857064e-08,
+              "reference_l2": 0.00033430269956700136
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "replay_minus_cpu_nll": -6.251498865239569e-07,
+        "serialized_future_checkpoint_bytes_equal": false,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 14.32998776435852,
+        "scope": "Exact full state/RNG restoration and original2% named replay update/moment/global-gradient gates. Future trajectory identity remains unestablished."
+      },
+      "warm_physical_chips": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "half_b": {
+      "warm": {
+        "status": "CAPTURED_PARCAE_TRAINING_QUALIFICATION",
+        "arm": "poisson2",
+        "accumulation": 16,
+        "world": 32,
+        "precision": "fp16",
+        "mode": "warm",
+        "qualification_only": true,
+        "test_accessed": false,
+        "research_optimizer_updates": 0,
+        "actual_optimizer_calls_per_replica": 121,
+        "phase_real_targets": 63328362,
+        "total_real_targets": 63328362,
+        "cursor": 61952,
+        "model_matmuls": 36370350266646528,
+        "optimizer_matmuls": 3157123377830400,
+        "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+        "recovered_state_digest": null,
+        "complete_state_on_load_exact": false,
+        "per_rank_cpu_rng_on_load_exact": false,
+        "all_replica_model_optimizer_states_equal": true,
+        "final_model_optimizer_digest": "776a68f2a1424bd233987b410a0b22041d41f553a0e308235bb4240debcd1185",
+        "warm_updates": 100,
+        "warm_real_targets": 52337436,
+        "warm_seconds": 145.26393664593343,
+        "warm_targets_per_second": 360292.0119641763,
+        "warm_model_matmuls": 30058140716236800,
+        "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+        "warm_started_unix": 1793067993.7419224,
+        "warm_finished_unix": 1793068139.0058591,
+        "checkpoint_sha256": "368b6933e78ed86be20d7aa2a25687b17572d31a4ef863a8f6af944009ba3376",
+        "checkpoint_state_digest": "0e76bf625bb87f67548ab70ef2e455bd82190caed66b3da27bc00d3fb624d5ad",
+        "probe_initial_states_sha256": "1d439cec2b69f9c299232ae81f32f796e6e892ab68813828726508bb159b5e48",
+        "probe_depths_sha256": "b7381e9258c291f4fbb696de40c3dff4dd09a3585eb373d31cfb1a9a1129df61",
+        "updated_global_gradient_sha256": "c8344ccda41c54c9957d9bd6474ede3d3cdb198eab95f8c28cbe2bce6e149c12",
+        "initial_global_gradient_sha256": "f6512339601aeac9251440eba0d8c62f9e955804fa73cc67d8ad2f2660d761e6",
+        "first_checkpoint_sha256": "1069f7580999ccc705b745ece180040eb2340727c816b2a323b8846c756f36e9",
+        "final_checkpoint_sha256": "ccdaddba2bae6b165ea90774ae38edd0a7107ba0066251ba2796679d60b592e2",
+        "extra_initial_probe_model_matmuls": 18786337947648,
+        "extra_initial_probe_real_targets": 32722,
+        "checkpoint_seconds": 5.535984992980957,
+        "progress": [
+          {
+            "update": 1,
+            "real_targets": 523314,
+            "global_train_nll": 10.561344622922375,
+            "gradient_norm_before_clip": 21.14019203186035,
+            "lr": 5e-06,
+            "elapsed_seconds": 83.20181107521057
+          },
+          {
+            "update": 10,
+            "real_targets": 5233798,
+            "global_train_nll": 10.398501391033186,
+            "gradient_norm_before_clip": 21.248998641967773,
+            "lr": 5e-05,
+            "elapsed_seconds": 97.02826642990112
+          },
+          {
+            "update": 20,
+            "real_targets": 10467614,
+            "global_train_nll": 9.889172844695812,
+            "gradient_norm_before_clip": 25.419021606445312,
+            "lr": 0.0001,
+            "elapsed_seconds": 111.58127522468567
+          },
+          {
+            "update": 30,
+            "real_targets": 15701370,
+            "global_train_nll": 9.29581739532502,
+            "gradient_norm_before_clip": 44.58041000366211,
+            "lr": 9.824819231794262e-05,
+            "elapsed_seconds": 126.08584451675415
+          },
+          {
+            "update": 40,
+            "real_targets": 20934888,
+            "global_train_nll": 8.606093637152213,
+            "gradient_norm_before_clip": 63.6583366394043,
+            "lr": 9.236745922441589e-05,
+            "elapsed_seconds": 140.6075255870819
+          },
+          {
+            "update": 50,
+            "real_targets": 26168398,
+            "global_train_nll": 7.856335704130614,
+            "gradient_norm_before_clip": 51.19488525390625,
+            "lr": 8.29004296357349e-05,
+            "elapsed_seconds": 155.11843752861023
+          },
+          {
+            "update": 60,
+            "real_targets": 31402312,
+            "global_train_nll": 7.36221507862206,
+            "gradient_norm_before_clip": 20.989971160888672,
+            "lr": 7.075569021361259e-05,
+            "elapsed_seconds": 169.6364665031433
+          },
+          {
+            "update": 70,
+            "real_targets": 36636094,
+            "global_train_nll": 6.95978268761201,
+            "gradient_norm_before_clip": 4.970946311950684,
+            "lr": 5.7098817567433805e-05,
+            "elapsed_seconds": 184.1634659767151
+          },
+          {
+            "update": 80,
+            "real_targets": 41869746,
+            "global_train_nll": 6.816797061576967,
+            "gradient_norm_before_clip": 4.291462421417236,
+            "lr": 4.324051345542129e-05,
+            "elapsed_seconds": 198.682452917099
+          },
+          {
+            "update": 90,
+            "real_targets": 47103690,
+            "global_train_nll": 6.693144084279387,
+            "gradient_norm_before_clip": 4.014849662780762,
+            "lr": 3.051081177597877e-05,
+            "elapsed_seconds": 213.23374581336975
+          },
+          {
+            "update": 100,
+            "real_targets": 52337398,
+            "global_train_nll": 6.657773542729409,
+            "gradient_norm_before_clip": 3.1946561336517334,
+            "lr": 2.0131430180369964e-05,
+            "elapsed_seconds": 227.77174162864685
+          },
+          {
+            "update": 110,
+            "real_targets": 57571286,
+            "global_train_nll": 6.605529028042097,
+            "gradient_norm_before_clip": 3.5512306690216064,
+            "lr": 1.3098517205605332e-05,
+            "elapsed_seconds": 242.300048828125
+          },
+          {
+            "update": 120,
+            "real_targets": 62805050,
+            "global_train_nll": 6.6193889190345905,
+            "gradient_norm_before_clip": 3.1474318504333496,
+            "lr": 1.0087048128988257e-05,
+            "elapsed_seconds": 256.8445267677307
+          },
+          {
+            "update": 121,
+            "real_targets": 63328362,
+            "global_train_nll": 6.587374262390314,
+            "gradient_norm_before_clip": 3.078932046890259,
+            "lr": 1.0021767296860541e-05,
+            "elapsed_seconds": 274.02052187919617
+          }
+        ],
+        "signature": {
+          "preparation_sha256": "069b545a952a647c9132857f797cdf826ea9039574ed157481fa880cbd7c2121",
+          "world": 32,
+          "accumulation": 16,
+          "context": 1024,
+          "arm": "poisson2",
+          "precision": "fp16",
+          "master_dtype": "fp32",
+          "manual_loss_scale": 8192,
+          "depth_table_sha256": "b1a835db7ab804cc865ee1e5746a77c2e65820d32f6c888cbb1141c1fc0a303f",
+          "initial_sha256": "ecd37ea195a31f60f96023e91c82bd07379c62340be208878f4841cc63e10459",
+          "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+          "state_seed": 2009,
+          "routing_seed": 271828,
+          "clip": 1.0,
+          "peak_lr": 0.0001,
+          "gate_policy": "release_muon",
+          "optimizer_recipe": "parcae_muon_adamw_fp32_polar_v2",
+          "optimizer_execution": "eager_muon_fused_adamw",
+          "training_source_sha256": {
+            "scripts/train_parcae_precise_qualification.py": "21f8543d011b480d51de0c4326cdaaa47f02caaa2fdf21ee8560a69e45dac6e3",
+            "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+            "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+            "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+            "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+            "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+            "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7"
+          }
+        },
+        "wall_seconds": 283.3126804828644,
+        "scope": "Complete qualification updates, natural packing/H2D, per-sequence depth, no_sync normalization, manual unscale, finite clipping and two-family optimizer. Warm100 updates exclude initial probe/compilation, final checkpoint and updated-point/replay numerical audits. Extra overheads/failed attempts remain in phase receipts. No scientific learning claim or budget authorization.",
+        "managed_qualification_plan_sha256": "75e537f5ff5bc5d17c71f15c6c1c27c9f10f0f64e2f1e55774cf8f0c00b95414",
+        "qualification_profile": "fixed2"
+      },
+      "replay": {
+        "status": "CAPTURED_PARCAE_TRAINING_QUALIFICATION",
+        "arm": "poisson2",
+        "accumulation": 16,
+        "world": 32,
+        "precision": "fp16",
+        "mode": "replay",
+        "qualification_only": true,
+        "test_accessed": false,
+        "research_optimizer_updates": 0,
+        "actual_optimizer_calls_per_replica": 1,
+        "phase_real_targets": 523312,
+        "total_real_targets": 63328362,
+        "cursor": 61952,
+        "model_matmuls": 36370350266646528,
+        "optimizer_matmuls": 3157123377830400,
+        "initial_model_digest": "3c16436303ee2c1ed8cd1f713143b887c52bcad6460ae7727037edbccacbf384",
+        "recovered_state_digest": "0e76bf625bb87f67548ab70ef2e455bd82190caed66b3da27bc00d3fb624d5ad",
+        "complete_state_on_load_exact": true,
+        "per_rank_cpu_rng_on_load_exact": true,
+        "all_replica_model_optimizer_states_equal": true,
+        "final_model_optimizer_digest": "934a3d0208bfe70732d66ccf3eff757ec1632b18e744ec3aff77e30dbc0163af",
+        "warm_updates": 0,
+        "warm_real_targets": 0,
+        "warm_seconds": null,
+        "warm_targets_per_second": null,
+        "warm_model_matmuls": 0,
+        "warm_optimizer_matmuls_all_replicas": 0,
+        "warm_started_unix": null,
+        "warm_finished_unix": null,
+        "checkpoint_sha256": null,
+        "checkpoint_state_digest": null,
+        "probe_initial_states_sha256": null,
+        "probe_depths_sha256": null,
+        "updated_global_gradient_sha256": "c46f494e0395fc67ca770b3df86706c4033db2eb360d5bc1410a57115f770f8c",
+        "initial_global_gradient_sha256": null,
+        "first_checkpoint_sha256": null,
+        "final_checkpoint_sha256": "4d04f3172faacf3a8238c8bb0e095fd43704fd4f5076fcf2641e5851b13c746e",
+        "extra_initial_probe_model_matmuls": 0,
+        "extra_initial_probe_real_targets": 0,
+        "checkpoint_seconds": 0.0,
+        "progress": [
+          {
+            "update": 121,
+            "real_targets": 63328362,
+            "global_train_nll": 6.587374262390314,
+            "gradient_norm_before_clip": 3.078932046890259,
+            "lr": 1.0021767296860541e-05,
+            "elapsed_seconds": 83.61849641799927
+          }
+        ],
+        "signature": {
+          "preparation_sha256": "069b545a952a647c9132857f797cdf826ea9039574ed157481fa880cbd7c2121",
+          "world": 32,
+          "accumulation": 16,
+          "context": 1024,
+          "arm": "poisson2",
+          "precision": "fp16",
+          "master_dtype": "fp32",
+          "manual_loss_scale": 8192,
+          "depth_table_sha256": "b1a835db7ab804cc865ee1e5746a77c2e65820d32f6c888cbb1141c1fc0a303f",
+          "initial_sha256": "ecd37ea195a31f60f96023e91c82bd07379c62340be208878f4841cc63e10459",
+          "packing_fingerprint": "52aff1614d257e26d5e4715889d46796518880fa1b806d72ebda74e528a791d1",
+          "state_seed": 2009,
+          "routing_seed": 271828,
+          "clip": 1.0,
+          "peak_lr": 0.0001,
+          "gate_policy": "release_muon",
+          "optimizer_recipe": "parcae_muon_adamw_fp32_polar_v2",
+          "optimizer_execution": "eager_muon_fused_adamw",
+          "training_source_sha256": {
+            "scripts/train_parcae_precise_qualification.py": "21f8543d011b480d51de0c4326cdaaa47f02caaa2fdf21ee8560a69e45dac6e3",
+            "compute_trainium/parcae_optimizer_precise.py": "d9db893fdcc8570d177db6b03241864254408d795701d70082ebfe2e0b376433",
+            "compute_trainium/parcae_training_candidate.py": "41ba6ecbc3602a577e2a96fd3d5bb6b665e0d86f16cec2caca1cf9aa6f096b9a",
+            "compute_trainium/parcae_candidate.py": "2fddf773a0085deec738f82d53729c5d14cf1e1fa2e819f1e8feb544914c7e02",
+            "compute_trainium/parcae_stages_candidate.py": "ccd9e92a5bd020ffca99dd34e4410afb9285818a35f69fab15c628440feb6ac4",
+            "compute_trainium/parcae_fp16_candidate.py": "fdb262268d730cbe3ffd9f5d3934c0cec0791fb36dd52aa6681345fee733ecef",
+            "compute_trainium/parcae_optimizer_candidate.py": "ffb69e1f777544ca258f983f128196bcc71b3da9fa94118b581c0b7b17206ca7"
+          }
+        },
+        "wall_seconds": 92.69176578521729,
+        "scope": "Complete qualification updates, natural packing/H2D, per-sequence depth, no_sync normalization, manual unscale, finite clipping and two-family optimizer. Warm100 updates exclude initial probe/compilation, final checkpoint and updated-point/replay numerical audits. Extra overheads/failed attempts remain in phase receipts. No scientific learning claim or budget authorization.",
+        "managed_qualification_plan_sha256": "75e537f5ff5bc5d17c71f15c6c1c27c9f10f0f64e2f1e55774cf8f0c00b95414",
+        "qualification_profile": "fixed2"
+      },
+      "independent_cpu": {
+        "status": "PASS_INDEPENDENT_TRAINED_PARCAE_GLOBAL_GRADIENT",
+        "arm": "poisson2",
+        "precision": "fp16",
+        "accumulation": 16,
+        "source_cursor": 61440,
+        "real_targets": 523312,
+        "windows": 512,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0009938633018162885,
+            "maximum_absolute_error": 4.8606423661112785e-05,
+            "reference_l2": 3.0791490065136413
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.0013851347540254598,
+              "maximum_absolute_error": 1.0217627277597785e-06,
+              "reference_l2": 0.09150175535102732
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0007941717927480187,
+              "maximum_absolute_error": 1.5720841474831104e-05,
+              "reference_l2": 0.22740063686594708
+            },
+            "transformer_body": {
+              "relative_l2": 0.0009944329362522122,
+              "maximum_absolute_error": 4.8606423661112785e-05,
+              "reference_l2": 3.0693769517079996
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0004101044741400876,
+              "maximum_absolute_error": 1.881562639027834e-08,
+              "reference_l2": 0.00033430269956700136
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "cpu_nll": 6.587374887540201,
+        "native_minus_cpu_nll": -6.251498865239569e-07,
+        "checkpoint_sha256": "368b6933e78ed86be20d7aa2a25687b17572d31a4ef863a8f6af944009ba3376",
+        "full_state_readback_exact": true,
+        "cpu_global_gradient_sha256": "a780e04bbd74fa40f86e4366daafef05bfa665678eaa4ee84a3dd593af3347fe",
+        "first_actual_update": {
+          "update_comparison": {
+            "relative_l2": 1.4081536883034757e-05,
+            "maximum_absolute_error": 3.725290298461914e-09,
+            "reference_l2": 0.025318136577781317,
+            "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+          },
+          "moment_comparison": {
+            "relative_l2": 3.850327614086382e-05,
+            "maximum_absolute_error": 3.3120159059762955e-08,
+            "reference_l2": 0.14515168243456275
+          },
+          "families": {
+            "adamw": {
+              "update_comparison": {
+                "relative_l2": 1.4037669840878973e-05,
+                "maximum_absolute_error": 3.725290298461914e-09,
+                "reference_l2": 0.02531468115127981,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.843181050445581e-05,
+                "maximum_absolute_error": 1.650187186896801e-08,
+                "reference_l2": 0.008591434260713092
+              }
+            },
+            "muon": {
+              "update_comparison": {
+                "relative_l2": 6.867572942654793e-05,
+                "maximum_absolute_error": 9.418243962500128e-11,
+                "reference_l2": 0.0004182797870168279,
+                "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+              },
+              "moment_comparison": {
+                "relative_l2": 3.850352715835335e-05,
+                "maximum_absolute_error": 3.3120159059762955e-08,
+                "reference_l2": 0.1448971986303669
+              }
+            }
+          },
+          "passes_registered_gate": true,
+          "cpu_norm_before_clip": 21.13937759399414,
+          "independent_group_membership_validated": true,
+          "reference_registration_order_aligned_by_name": true,
+          "native_norm_before_clip": 21.14019203186035,
+          "prescribed_cpu_optimizer_steps": 1,
+          "research_optimizer_updates": 0,
+          "scope": "Same observed initial raw global gradient; independently checks CPU clipping and independent released algorithm with only polar dtype changed to FP32 against the actual first native update, including zero-gradient matrices. Full gradient correctness is checked separately at the trained point."
+        },
+        "wall_seconds": 427.6098816394806,
+        "assigned_chips": 0,
+        "prescribed_cpu_optimizer_steps": 1,
+        "native_optimizer_updates": 0,
+        "research_optimizer_updates": 0,
+        "test_accessed": false,
+        "scope": "Independent pinned upstream FP32 complete next-global-update objective at the actual120-update qualification checkpoint. Exact supplied hidden states/depths and natural TRAIN targets. Numerical evidence, not held-out learning or throughput."
+      },
+      "restored": {
+        "status": "PASS_BASELINE_NAMED_REPLAY_AND_GLOBAL_GRADIENT",
+        "plan_sha256": "75e537f5ff5bc5d17c71f15c6c1c27c9f10f0f64e2f1e55774cf8f0c00b95414",
+        "profile": "fixed2",
+        "pair": {
+          "arm": "poisson2",
+          "precision": "fp16",
+          "accumulation": 16,
+          "parameters": 141963840,
+          "complete_state_on_load_exact": true,
+          "per_rank_cpu_rng_on_load_exact": true,
+          "all_replica_model_optimizer_states_equal": true,
+          "replay": {
+            "update": {
+              "relative_l2": 6.20321948434448e-06,
+              "maximum_absolute_error": 1.1920928955078125e-07,
+              "reference_l2": 0.04106682067811651,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 3.2373532351009566e-08,
+              "maximum_absolute_error": 7.450580596923828e-09,
+              "reference_l2": 0.8500674750845615
+            },
+            "families": {
+              "adamw": {
+                "update": {
+                  "relative_l2": 5.722680463043837e-06,
+                  "maximum_absolute_error": 1.1920928955078125e-07,
+                  "reference_l2": 0.04102950604778907,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moments": {
+                  "relative_l2": 4.03586745376674e-08,
+                  "maximum_absolute_error": 1.1641532182693481e-10,
+                  "reference_l2": 0.07046674306888652
+                }
+              },
+              "muon": {
+                "update": {
+                  "relative_l2": 5.646013876717322e-05,
+                  "maximum_absolute_error": 2.60770320892334e-08,
+                  "reference_l2": 0.0017502554336488283,
+                  "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+                },
+                "moments": {
+                  "relative_l2": 3.231140791471967e-08,
+                  "maximum_absolute_error": 7.450580596923828e-09,
+                  "reference_l2": 0.8471417533789165
+                }
+              }
+            },
+            "passes_two_percent_gate": true
+          },
+          "passes_recovery_gate": true,
+          "warm_real_targets": 52337436,
+          "warm_seconds": 145.26393664593343,
+          "warm_targets_per_second_per_eight_chips": 360292.0119641763,
+          "warm_model_matmuls": 30058140716236800,
+          "warm_optimizer_matmuls_all_replicas": 2609192874240000,
+          "actual_optimizer_calls_per_replica_including_replay": 122,
+          "phase_training_real_targets_including_replay": 63851674,
+          "extra_initial_probe_model_matmuls": 18786337947648,
+          "extra_initial_probe_real_targets": 32722
+        },
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.000993863311979245,
+            "maximum_absolute_error": 4.860595799982548e-05,
+            "reference_l2": 3.0791490065136413
+          },
+          "families": {
+            "recurrent_injection_readout": {
+              "relative_l2": 0.001385134736285535,
+              "maximum_absolute_error": 1.0217481758445501e-06,
+              "reference_l2": 0.09150175535102732
+            },
+            "tied_input_output": {
+              "relative_l2": 0.0007941718224826797,
+              "maximum_absolute_error": 1.572078326717019e-05,
+              "reference_l2": 0.22740063686594708
+            },
+            "transformer_body": {
+              "relative_l2": 0.0009944329463657748,
+              "maximum_absolute_error": 4.860595799982548e-05,
+              "reference_l2": 3.0693769517079996
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0004100979137316731,
+              "maximum_absolute_error": 1.8804712453857064e-08,
+              "reference_l2": 0.00033430269956700136
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "replay_minus_cpu_nll": -6.251498865239569e-07,
+        "serialized_future_checkpoint_bytes_equal": false,
+        "assigned_chips": 0,
+        "optimizer_updates": 0,
+        "test_accessed": false,
+        "wall_seconds": 14.807583332061768,
+        "scope": "Exact full state/RNG restoration and original2% named replay update/moment/global-gradient gates. Future trajectory identity remains unestablished."
+      },
+      "warm_physical_chips": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  },
+  "rejected_state_fixture": {
+    "status": "PASS_NATIVE_REJECTED_REPLICA_EVIDENCE_FIXTURE",
+    "purpose": "rejected_replica_numerical_fixture_only",
+    "plan_sha256": "75e537f5ff5bc5d17c71f15c6c1c27c9f10f0f64e2f1e55774cf8f0c00b95414",
+    "world": 32,
+    "optimizer_updates": 0,
+    "model_forwards": 0,
+    "research_examples": 0,
+    "native_tensor_devices_verified": true,
+    "native_cpu_fixture_bits_match": true,
+    "agreement_path_no_state_factory_or_extra_barrier": true,
+    "deliberate_rejection_verified_all32": true,
+    "selected_private_ranks": [
+      0,
+      1
+    ],
+    "private_snapshot_count": 2,
+    "all_private_snapshot_readbacks_match": true,
+    "all_private_snapshots_rejected_by_scientific_validator": true,
+    "changed_leaf_paths": [
+      "['optimizer']['m']"
+    ],
+    "raw_states_remain_private": true,
+    "scientific_fit_admitted": false,
+    "terminal_alpha_spent": 0,
+    "wall_seconds": 22.49921751022339,
+    "private_snapshot_note_sha256": [
+      "05e331b3f1fcbd3a3bae4ef90ac0668d8756b638fbd7ce7ab7c98c5ab9b2ebbf",
+      "fbd9277221e2c012b747a9a78472b2a8a20c03a2ada37185d92029fed47f3549"
+    ],
+    "scope": "Numerical arrays only,zero predictor forwards or optimizer updates. Expected rejection is caught only in this isolated qualification fixture. Scientific workers still fail on any replica mismatch. No cause or repair of the unsaved earlier mismatch is established."
+  },
+  "plan_sha256": "75e537f5ff5bc5d17c71f15c6c1c27c9f10f0f64e2f1e55774cf8f0c00b95414",
+  "actual_qualification_optimizer_updates": 244,
+  "research_optimizer_updates": 0,
+  "scientific_fit_admitted": false,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "terminal_success": false,
+  "scope": "Preserve the original numerical-v2 plan,activation,passing zero-update Native fixture and stopped controller. It performed zero model/optimizer updates before rejecting underscored trial identities at the owned-worker factory. This is a host phase-name defect,not a numerical model failure. The0.067140 assigned fixture chip-hours and all elapsed opportunity cost remain charged.\n\nThis one explicitly registered recovery replaces only the newly generated worker phase names with hyphens. Logical trial keys,model,original C0,source order,all-two/full-gradient table,precision,optimizer,independent gradient/first-update/moment/state/RNG/replay criteria and244 total qualification-update allowance remain unchanged. The actual factory precondition is exercised by CPU integration tests. Native rejection/capture is repeated under the exact new plan/source binding;old proof is not retagged.\n\nKeep the original absolute03:06:02.118 UTC October27 deadline. Neither preparation nor a new controller renews it. Admission must fit the complete measured remaining workload plus120 seconds. Preserve all previous errors and costs. The new private source bundle and complete artifact allowance remain separately frozen before execution. Failure closes the attempt without another automatic retry.\n\nFirst require the same zero-update Native agreement/rejection/private-capture fixture. Only after it passes,run both distinct-half121-update warm trials and their separate one-update replays from the original qualification-only C0. All resulting weights remain ineligible for scientific initialization. There is no held-out scoring,new architecture,iteration conditioning,scientific fit,4B,router,confirmation,TEST or terminal alpha. Successful numerical qualification would establish infrastructure correctness only,not the research objective.\n"
+}
