@@ -1,0 +1,5 @@
+The intact seed5231 completion is registered before Native execution. Its exact update3300 model/optimizer,all32 RNG states,source counters and cooled schedule survive a signature-only plan migration with full disk readback verification. All366 CPU tests pass,with2 skips. Preparation launch/permission errors are retained;no model update or chip assignment occurred.
+
+The measured complete estimate is6061.16 seconds under a7200-second recovery cap,also clamped to the unchanged original03:08:35.516 UTC MAIN cutoff. Before any new optimizer update,the full512-window deep-objective gradient audit must pass. Only the original1100 remaining updates and4400 endpoint are permitted. A final full audit and independent scoring are still required.
+
+The original paired experiment remains numerically incomplete. This result cannot pass the paired development gate or admit4B,routing or confirmation. [Protocol](../../../docs/LATE_TWO_SINGLE_RECOVERY_20261027.md) · [State migration](migration.json) · [Preparation receipt](preparation-verification.json).

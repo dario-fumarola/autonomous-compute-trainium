@@ -1,0 +1,30 @@
+{
+  "status": "PREPARED_EXACT_SINGLE_RECOVERY_BEFORE_NATIVE_ADMISSION",
+  "observed_unix": 1793062106.0954726,
+  "tests": {
+    "passed": 366,
+    "skipped": 2,
+    "wall_seconds": 28.43,
+    "failed_launches": [
+      "CPU test interpreter lacked pytest",
+      "CPU container backend auto-load required runtime library",
+      "CPU container lacked matplotlib",
+      "Host copied pure test dependencies lacked py.py"
+    ],
+    "final_environment": "Existing host CPU model environment plus copied pure-Python pytest dependencies; installed model/accelerator environments unchanged"
+  },
+  "original_sources_changed": false,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "preparation_permission_failure": "Exact registered anchor directory could not be created under root-owned runs. Only that new empty directory was created with host ownership; signature migration then completed against the already frozen plan.",
+  "log_sha256": {
+    "late-single-recovery-tests.log": "dfe2207b1698656afa9ccd046538cfdcf5cf2d2f4972103d50a5692d95255880",
+    "late-single-recovery-tests-v2.log": "9a3c4b898138ede2c051a5c2d3da5fb96cb6e8e4867df3b8002169d1f9008e22",
+    "late-single-recovery-tests-host.log": "d18f7bc1eae929cf4fc18db8855620a417b30eb56a9876cb3d587e955b7f8ec6",
+    "late-single-recovery-tests-host-v2.log": "754ef645313800169fa519aeb660dbf5d55491aef8f6f49594e5d04aa7ad07b5",
+    "late-single-recovery-preparation.log": "9fcdd71347575c631c78c67e80cc2e8698862bc08fd0c2ad7a8922ec5e7e4fff",
+    "late-single-signature-preparation-continuation.log": "814e0545cb9824eb7af58a69517364b283ec3e18a8c18bca3c447480cdf746b6"
+  },
+  "continuation_script_sha256": "9df486a1d8229e84e63d426083f5f1801c7da2ac793160027c31d9e4b41e090b",
+  "scope": "CPU software tests and exact signature migration only; no Native qualification, quality result or paired advancement."
+}

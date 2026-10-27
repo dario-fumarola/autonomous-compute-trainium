@@ -1,3 +1,17 @@
+## October27,2026,00:48 UTC — intact-seed completion registered, not launched
+
+All366 CPU tests pass with2 skips. Exact same-endpoint recovery permits the cooled3300 state without extending its4400 endpoint or changing any model/optimizer/RNG/source/schedule field. Disk readback verifies all state except the new plan signature unchanged. The initial CPU directory-permission failure is corrected only for its new anchor directory;all launch logs and the exact continuation script are retained. No Native update has run. [Registered completion](results/late_two_allocation_20261026/single-recovery/REPORT.md).
+
+Its complete measured allowance is6061.16 seconds under a7200-second cap,clamped to the original03:08:35.516 MAIN cutoff. The full512 switch audit must pass before the1100 remaining updates;final gradient/state checks and independent scoring remain required. Only seed5231 can complete,and no possible single-seed score can satisfy the failed paired gate. No4B,router,confirmation or inactive head-free qualification is admitted.
+
+## October27,2026,00:46 UTC — paired late-two stops before depth switch; no quality result
+
+At update3300,seed17293 fails exact full-state replica agreement: rank1 differs from the other31. Checkpoint serialization is rejected; raw divergent tensors are unavailable,so neither their identity nor numerical magnitude is established. No majority state is accepted. The paired controller stops the other half before any two-pass training. Its later Docker cleanup exception is secondary; the initiating numerical failure is preserved. [Failure analysis](results/late_two_allocation_20261026/main/failure-analysis.json).
+
+Seed5231 retains an exact verified3300 checkpoint;seed17293 retains only its audited121 prefix. All6600 actual updates and17.503491 assigned native chip-hours remain charged,including3179 discarded failed-seed updates. The19.428691 reserved-instance opportunity chip-hours overlap assigned work and are not added. The original03:08:35.516 local and04:15:38.594 composite deadlines remain fixed. No paired predictive result,advancement or fresh confirmation is available.
+
+A complete paired replay no longer fits the remaining local cap with its measured allowance. A separate,quality-blind single-seed completion is being prepared only for the intact state,with its original4400 endpoint/cooldown and all switch/final audits. It remains unlaunched and cannot pass the paired gate regardless of score. The head-free numerical branch remains prepared and inactive;its original completed-parent activation condition is unmet. The overall research goal remains unachieved.
+
 ## October 26, 2026, 23:48 UTC — head-free recurrent CPU parity passes; MAIN continues unchanged
 
 A separate bounded CPU correctness screen checks the existing paid/head-free full two-pass paths at original seed5231 initialization and its audited mature checkpoint,in FP32 and FP16 body modes. All four paired cases have exactly equal NTP logits,loss and every body gradient;future-head gradients are zero and model states remain unchanged. Eight numerical-fixture forwards make zero optimizer updates and use no chips or research quality panel. [Complete parity screen](results/head_free_recurrent_cpu_parity_20261026/REPORT.md).

@@ -1,15 +1,5 @@
-# Paired late-allocation comparison — running
+The paired late-two MAIN is numerically incomplete. Seed17293 reached update3300 but failed exact full-state replica agreement: rank1 differs from the other31. The assertion ran before checkpoint serialization; no majority state is accepted and the affected tensors/error magnitude are unknown. The other seed retains an exact verified3300 checkpoint. Neither seed performed two-pass training.
 
-Both121-update prefixes now pass exact complete-state/all32-RNG readbacks and independent full512 gradient audits. Overall discrepancies are0.030222% and0.033257%,with all original family/loss gates passing. The counted prefixes are part of the registered endpoints. Exact-restored long continuations are active toward update3,300. [Verified prefix receipts](prefix-verification.json).
+All6600 actual updates across the two trajectories are counted, including3179 failed-seed updates discarded after its last valid121 prefix. Native assignments total17.503491 chip-hours; the overlapping whole-instance reservation interval is19.428691 opportunity chip-hours, reported separately. Original local03:08:35.516 and composite04:15:38.594 UTC cutoffs are not renewed.
 
-Both original random seeds5231/17293 are training under the separately published plan. Current progress is a live observation,not a complete endpoint.
-
-The registered endpoint is4,400 updates /2,302,851,264 authentic targets per seed at the original fixed-two nominal matrix-work budget. One pass runs through3,300 updates;two fully differentiated passes run afterward. The half-horizon cooldown continues unchanged through the switch to its original zero endpoint.
-
-The sole primary comparator is independently tuned,audited ordinary8 in each same seed. Both primary paired points must be positive and their mean at least0.01 nats before further-control preparation. Original fixed-two is secondary. All prefix,before-first-deep-update and final full512 gradient/state/replica/RNG gates remain required.
-
-Execution started23:08:35 UTC October26. The local cutoff is03:08:35 UTC October27;the original04:15:38 composite cutoff is unchanged. The complete measured estimate is12,134.7 seconds under the14,400-second local cap. All534 registered source hashes match at startup.
-
-No main quality score,fresh confirmation,TEST access or terminal success is available. A positive would still need conventional-growth,equal-source and measured cost controls before fresh adequately powered confirmation.
-
-[Frozen plan](plan.json) · [Original clock](execution-clock.json) · [Live observation](live-observation.json) · [Qualified TUNE](../tune/REPORT.md)
+A full paired retry does not fit the remaining local clock with the measured complete allowance. A separately frozen completion of the intact seed may report a descriptive single-seed endpoint only; it cannot satisfy the original paired gate or authorize4B, routing or confirmation. See [failure analysis](failure-analysis.json), [unaltered machine failure](report.json) and [all costs](execution-costs.json).

@@ -74,15 +74,15 @@ allocation remain required. Five seeds are a minimum,not a power guarantee.
 No new TEST,reserve or terminal alpha has been used;the overall goal is
 unachieved. [Live status](STATUS.md).
 
-A separately registered final-quarter schedule is now in bounded TUNE. It
-keeps the qualified model and NTP objective,executes one pass for the first75%
-of updates,then two for the final quarter. Exact preparation fits2.303B targets
-at the old2B fixed-two nominal-work budget;there is no new quality result or
-MAIN admission yet. Conventional ordinary8 remains the primary stronger
-comparator,and any positive would still face conventional-growth/equal-source
-controls before fresh confirmation. This does not admit the failed4B extension.
-[Protocol](docs/LATE_TWO_ALLOCATION_20261026.md) ·
-[TUNE status](results/late_two_allocation_20261026/tune/status.json).
+The final-quarter schedule's three-rate TUNE completes, but paired MAIN
+stops at update3300 before any deep training: one seed's full replica-state
+digests disagree, so no checkpoint or paired quality result is accepted.
+The intact seed's original endpoint has a separately registered descriptive
+completion within the unchanged deadline, with all switch/final audits still
+required. It cannot pass the paired gate or admit scaling. Ordinary8 remains
+primary. [Stopped comparison](results/late_two_allocation_20261026/main/REPORT.md) ·
+[Bounded single-seed completion](results/late_two_allocation_20261026/single-recovery/REPORT.md).
+
 
 The earlier sampled-depth small-core study found useful additional computation
 at equal data,but no training-efficiency win. These are two paired development
