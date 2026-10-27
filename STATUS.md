@@ -1,3 +1,7 @@
+## October27,2026,08:29 UTC — first corrected TUNE endpoint captured
+
+The fresh recurrent0.008 trial completes300 updates /157,013,162 targets and its own cooldown on all16 chips, ending training NLL3.224110 (not held-out quality). Its actual separate-process replay and independent mature512-window audit precede any score. No rate or main fit is selected. The fixed corrected-TUNE deadline remains11:58:26UTC; the original initial scale deadline remains October28,02:09:45UTC. Prepared backup/storage changes stay isolated from active source.424 full-suite CPU tests pass, two skipped; exact-archive roundtrip/corruption tests also pass after the additional rejected-history archive wrapper. Failed training remains ineligible and exact-byte retained.
+
 ## October27,2026,08:26 UTC — corrected TUNE training active; main recovery preparation tested
 
 The corrected first recurrent trial is beyond230 updates with finite gradients, roughly2.3s per update on all16 chips. This is training progress only; its mature audit and held-out readout remain ahead. Both corrected actual-shape numerical proofs remain complete. Original failed-history exclusions and the11:58:26UTC corrected-TUNE deadline are unchanged; main remains unadmitted.
