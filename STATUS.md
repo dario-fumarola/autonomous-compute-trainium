@@ -1,3 +1,9 @@
+## October27,2026,15:37 UTC — recurrent0.004 qualified but worse; ordinary0.004 live
+
+Recurrent0.004 completes every300-update cooldown,replay,full512 mature audit and192-document consumed-TUNE readout gate. Its NLL is3.580602,worse than the qualified0.008 point3.409389. Overall gradient discrepancy is0.178112%,Native minus CPU NLL0.00000247514;no threshold is relaxed. This is an accepted screening history,not an improvement or a matched-work comparison. [Exact score,numerical proof and costs](results/scale_boundary_lower_rates_20261027/completed-recurrent-lr0/score.json).
+
+Ordinary0.004 is active on all16 chips,reaching53 updates at15:36UTC. Recurrent0.002 and ordinary0.002 remain the final declared opportunities. The two higher-rate recurrent numerical rejections stay ineligible without prediction scores. No extra rates,changed primary,main fit or confirmation is admitted. The prospective8B/10.835B budget is unchanged. All440 source tests pass,two skipped. Exact archival continues within the active-stage reserve;actual full-state space remains a later admission requirement.
+
 ## October27,2026,15:20 UTC — recurrent0.004 cooldown/replay complete; main bindings strengthened
 
 The fresh recurrent0.004 opportunity completes its full300-update cooldown and actual replay. Its independent full512 mature audit reaches48windows at15:19UTC;no quality score or rate acceptance yet. The conditional controller remains live and the remaining three registered lower-rate opportunities are unchanged. No main or confirmation is admitted.
