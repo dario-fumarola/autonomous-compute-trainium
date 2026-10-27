@@ -1,3 +1,9 @@
+## October27,2026,11:16 UTC — independent boundary audit finishing; single corrected cell queued
+
+The fresh numerical audit passes the first optimizer/moment checks and reaches480/512 windows; full completion/replay comparison remains required. The queued corrected0.016 learning trial will start only on a complete passing receipt and valid35-minute/time/resource admission. All427 source tests pass,two skipped,after the future canonical-serialization and conditional-queue changes. [Conditional scope](results/scale_boundary_learning_cell_20261027/REPORT.md).
+
+Two terminal nonfinite gradient vectors are losslessly archived with original hashes and actual restored-byte verification,recovering2.692GiB. No source/model/optimizer/history changes occur. [Exact archival receipt](results/scale_reproduced_nonfinite_archive_20261027/report.json). The completed unchanged ordinary0.016 cell's full small aggregate is now published; no independent rate selection follows its score3.136751. [Ordinary screening cell](results/scale_ordinary_lr1_continuation_20261027/REPORT.md). The original11:58:26UTC TUNE and October28,02:09:45UTC scale limits remain unchanged; no main or confirmation is admitted.
+
 ## October27,2026,11:06 UTC — boundary warm/replay captured; full independent audit active
 
 The fresh corrected-boundary recurrent qualification completes101 updates,including100 warm intervals in235.400seconds,and a fresh-process replay on all16 chips. Its full512 independent FP32 gradient/NLL,first-update/moments and complete-state replay audit is active. Qualification weights remain excluded.427 full-suite CPU tests pass,two skipped. [Current numerical evidence](results/scale_boundary_numerical_20261027/REPORT.md).

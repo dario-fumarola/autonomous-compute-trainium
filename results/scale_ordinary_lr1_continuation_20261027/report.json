@@ -1,0 +1,221 @@
+{
+  "status": "COMPLETE_ORIGINAL_REGISTERED_ORDINARY_LR1_CELL",
+  "record": {
+    "warm": {
+      "status": "CAPTURED_SCALE_REGISTERED_TRAINING_PHASE",
+      "world": 64,
+      "case": "ordinary8-lr1",
+      "phase": "tune",
+      "signature": {
+        "study_sha256": "f374bd334363d9c771ec183e15d2e6a6ac7fded8409bb2169e0a0306441ce6c4",
+        "case": "ordinary8-lr1",
+        "phase": "tune",
+        "initializer_sha256": "bf697b53bed91ed59f0ec449e96cfb7d4dca7501eb0e3a7a6b62d735874d45ea",
+        "packing_fingerprint": "74423bef9dffbc28e5d9dbb8ba044dc8b255e210cd72e4ff4065d8291fef18b3",
+        "model_role": "ordinary8",
+        "state_seed": null
+      },
+      "stop_update": 300,
+      "actual_optimizer_updates": 300,
+      "real_targets": 157013162,
+      "work": 216800956603104000,
+      "plan_sha256": "f374bd334363d9c771ec183e15d2e6a6ac7fded8409bb2169e0a0306441ce6c4",
+      "warm_seconds": 473.6619033665629,
+      "checkpoint_seconds": 3.7824235011357814,
+      "gradient_capture_seconds": 2.4325937310932204,
+      "wall_seconds": 646.108597278595,
+      "post_training_probe": null,
+      "cooldown_complete": true,
+      "eligible_for_scientific_comparison": false,
+      "scope": "Numerically captured registered phase only; prescribed independent final audits/readouts remain required."
+    },
+    "replay": {
+      "status": "CAPTURED_SCALE_REGISTERED_TRAINING_PHASE",
+      "world": 64,
+      "case": "ordinary8-lr1-replay",
+      "phase": "tune",
+      "signature": {
+        "study_sha256": "f374bd334363d9c771ec183e15d2e6a6ac7fded8409bb2169e0a0306441ce6c4",
+        "case": "ordinary8-lr1",
+        "phase": "tune",
+        "initializer_sha256": "bf697b53bed91ed59f0ec449e96cfb7d4dca7501eb0e3a7a6b62d735874d45ea",
+        "packing_fingerprint": "74423bef9dffbc28e5d9dbb8ba044dc8b255e210cd72e4ff4065d8291fef18b3",
+        "model_role": "ordinary8",
+        "state_seed": null
+      },
+      "stop_update": 300,
+      "actual_optimizer_updates": 1,
+      "real_targets": 157013162,
+      "work": 216800956603104000,
+      "plan_sha256": "f374bd334363d9c771ec183e15d2e6a6ac7fded8409bb2169e0a0306441ce6c4",
+      "warm_seconds": 0.0,
+      "checkpoint_seconds": 1.8796513109700754,
+      "gradient_capture_seconds": 0.0,
+      "wall_seconds": 167.11400890350342,
+      "post_training_probe": null,
+      "cooldown_complete": true,
+      "eligible_for_scientific_comparison": false,
+      "scope": "Numerically captured registered phase only; prescribed independent final audits/readouts remain required."
+    },
+    "audit": {
+      "status": "PASS_SCALE_REGISTERED_ENDPOINT_NUMERICAL_AUDIT",
+      "case": "ordinary8-lr1",
+      "phase": "tune",
+      "study_sha256": "f374bd334363d9c771ec183e15d2e6a6ac7fded8409bb2169e0a0306441ce6c4",
+      "first_update": null,
+      "full512": {
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0015165306917473205,
+            "maximum_absolute_error": 1.43412034958601e-06,
+            "reference_l2": 0.11539624428980604
+          },
+          "families": {
+            "tied_input_output": {
+              "relative_l2": 0.0007376615304449104,
+              "maximum_absolute_error": 6.301270332187414e-07,
+              "reference_l2": 0.01083870925284918
+            },
+            "transformer_body": {
+              "relative_l2": 0.001521700077611279,
+              "maximum_absolute_error": 1.43412034958601e-06,
+              "reference_l2": 0.11488331641356704
+            },
+            "value_embeddings": {
+              "relative_l2": 0.0008298663384202896,
+              "maximum_absolute_error": 2.961996869998984e-08,
+              "reference_l2": 0.0007994921794690035
+            }
+          },
+          "passes_two_percent_gate": true
+        },
+        "native_minus_cpu_nll": 2.8418872930480177e-06,
+        "cpu_nll": 2.9533463558490203,
+        "cpu_norm_before_clip": 0.1153738722205162,
+        "windows": 512,
+        "source_cursor": 153088,
+        "real_targets": 523394
+      },
+      "replay": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.0,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.43616613637232077
+        },
+        "families": {
+          "adamw": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0063296280824466965
+            }
+          },
+          "muon": {
+            "update": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.0,
+              "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+            },
+            "moments": {
+              "relative_l2": 0.0,
+              "maximum_absolute_error": 0.0,
+              "reference_l2": 0.43612020628067194
+            }
+          }
+        },
+        "passes": true
+      },
+      "reference_pin": "69284c13746e849104f738d6d1a347b1f457df76",
+      "research_optimizer_updates": 0,
+      "prescribed_cpu_optimizer_steps": 0,
+      "assigned_chips": 0,
+      "wall_seconds": 581.6518566608429,
+      "scope": "Independent numerical audit; no prediction-efficiency or confirmation claim."
+    },
+    "score": {
+      "status": "COMPLETE_SCALE_CONSUMED_DEVELOPMENT_READOUT",
+      "case": "ordinary8-lr1",
+      "phase": "tune",
+      "study_sha256": "f374bd334363d9c771ec183e15d2e6a6ac7fded8409bb2169e0a0306441ce6c4",
+      "seed": 38213,
+      "role": "ordinary8",
+      "depth": 1,
+      "parameters": 374888960,
+      "endpoint_updates": 300,
+      "real_targets": 157013162,
+      "work": 216800956603104000,
+      "metrics": {
+        "domains": {
+          "web": {
+            "nll_sum": 243235.29606833664,
+            "real_targets": 66571,
+            "documents": 64,
+            "nll": 3.6537726047128123
+          },
+          "math": {
+            "nll_sum": 237469.47829286405,
+            "real_targets": 84913,
+            "documents": 64,
+            "nll": 2.7966209919902023
+          },
+          "code": {
+            "nll_sum": 257204.03645611423,
+            "real_targets": 133556,
+            "documents": 64,
+            "nll": 1.9258141637673654
+          }
+        },
+        "weighted_nll": 3.1367505939792006,
+        "weights": {
+          "web": 0.6,
+          "math": 0.2,
+          "code": 0.2
+        },
+        "unit": "nats per real source token"
+      },
+      "documents": 192,
+      "windows": 380,
+      "cohort": "tune",
+      "source_corpus_sha256": "6ce42b3719717e9c009a5190c0f0f028688452b954ce7a3dd7e2b7e9cda4f32a",
+      "retained_model_sha256": "74a610437262e35d3c0905775ac67815d989e970ec87df677c9523c6aeedaabb",
+      "model_digest": "9261830854fefa39a5d9ea2f264de6b05a8b39e9dc19d31c2c5d780f7c6d4d19",
+      "model_unchanged": true,
+      "full_final_training_shards_retained": false,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "test_accessed": false,
+      "wall_seconds": 109.13031816482544,
+      "scope": "Independent FP32 prediction on explicitly consumed DEV. No fresh-source or training-seed confirmation."
+    },
+    "cleanup": {
+      "status": "CLOSED_SUCCESSFUL_REGENERABLE_TUNE_DIAGNOSTICS",
+      "study_sha256": "f374bd334363d9c771ec183e15d2e6a6ac7fded8409bb2169e0a0306441ce6c4",
+      "case": "ordinary8-lr1",
+      "retained_model_sha256": "74a610437262e35d3c0905775ac67815d989e970ec87df677c9523c6aeedaabb",
+      "started_unix": 1793095666.4014058,
+      "declared_before_quality": true,
+      "failures_released": false,
+      "raw_sources_released": false,
+      "final_weights_released": false,
+      "released_bytes": 13026151509,
+      "finished_unix": 1793095676.3929112,
+      "original_inventory_entries": 193,
+      "private_complete_cleanup_receipt_sha256": "ce660dccc818f4de803fc5a0351ce2a8d70941e5b3f4898f38924f2dccc1de56"
+    }
+  },
+  "scientific_main_fit_admitted": false,
+  "plan_sha256": "f374bd334363d9c771ec183e15d2e6a6ac7fded8409bb2169e0a0306441ce6c4"
+}

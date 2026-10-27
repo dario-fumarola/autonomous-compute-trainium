@@ -1,0 +1,15 @@
+{
+  "identity": "scale-boundary-learning-cell-queue-v1",
+  "registered_unix": 1793099257.2641315,
+  "absolute_deadline_unix": 1793102306.7875454,
+  "latest_admission_unix": 1793100206.7875454,
+  "prerequisite": "scale-boundary-fixed-two-numerical-v1/completion-verification.json",
+  "prerequisite_status": "PASS_BOUNDARY_COMPLETE_NUMERICAL_QUALIFICATION",
+  "source_sha256": {
+    "scripts/queue_scale_boundary_learning_cell.py": "5483767f269a7d6cb8d9d5c85e36c0dbac79c217009d801db053c63536fbe8b1",
+    "scripts/run_scale_boundary_learning_cell.py": "34aa823ddaaa6f450aebd81dfcf7d0c98595f6e1af6702aca9b052ccc34937f5"
+  },
+  "original_tune_plan_sha256": "ce4a9ba2f4121a1fca5838991d8a28bc9f12c692684bde87373fa0ff9bfc7da2",
+  "maximum_new_learning_updates": 301,
+  "scope": "Wait only for complete fresh numerical qualification,then admit the single corrected0.016 cell if every source,resource and full35-minute original-clock gate passes. No retry,rate selection,main fit or deadline renewal."
+}
