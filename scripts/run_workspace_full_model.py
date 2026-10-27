@@ -15,8 +15,8 @@ from compute_trainium.training import file_sha256
 from compute_trainium.queue import write_state
 from scripts.run_scale_sharding_fixture import AllChipExecution
 
-IDENTITY='workspace-native-full-model-v2'
-PUBLIC=Path('results/workspace_native_full_model_20261027/recovery-v2')
+IDENTITY='workspace-native-full-model-v3'
+PUBLIC=Path('results/workspace_native_full_model_20261027/recovery-v3')
 
 
 def prepare(root):
@@ -36,7 +36,7 @@ def prepare(root):
     for path in [root,Path('/')]:
         if shutil.disk_usage(path).free<37*1024**3:raise RuntimeError('Complete2GiB small artifacts plus35GiB reserve')
     available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
-    if available<(512+128)*1024**3:raise RuntimeError('Complete128GiB worker plus protected host reserve')
+    if available<(512+192)*1024**3:raise RuntimeError('Complete192GiB worker plus protected host reserve')
     projection=project_snapshot_inodes(Path('.'),1)
     if os.statvfs(root).f_favail<projection['required_free_inodes']:raise RuntimeError('Complete snapshot inode reserve')
     sources={str(f):file_sha256(f) for d in ['compute_trainium','scripts','configs'] for f in Path(d).rglob('*.py') if f.is_file()}
@@ -46,7 +46,7 @@ def prepare(root):
     gradient='workspace-identity-gradient-v1/gradients.pt';inputs='workspace-identity-gradient-v1/private-objective-inputs.pt';checkpoint='workspace-reader-bootstrap-v1/checkpoint.pt'
     if file_sha256(root/gradient)!=proof['full_gradient_sha256'] or file_sha256(root/inputs)!=proof['objective_inputs_sha256'] or file_sha256(root/checkpoint)!=original['calibrated_checkpoint_sha256']:raise AssertionError('Exact qualified states required')
     config=asdict(OlmoWorkspaceConfig.from_hf(AutoConfig.from_pretrained(root/'workspace-olmo2-stage1-base-v1',local_files_only=True)))
-    plan=dict(identity=IDENTITY,predecessor='workspace-native-full-model-v1',change='Immediately reduce every objective-term gradient into local shards and clear Partial temporaries;CPU exactness retested. Same model, data, losses,2% limits and128GiB cap.',purpose='workspace_actual_model_zero_update_gradient',world=64,worker_memory_gib=128,
+    plan=dict(identity=IDENTITY,predecessor='workspace-native-full-model-v2',change='Same exact objective and immediate shard reduction. Release unused allocator caches and CPU arenas between terms;record allocator/worker telemetry.192GiB explicit worker cap only if full512GiB host reserve plus192GiB allowance fits. Both128GiB stops remain.',purpose='workspace_actual_model_zero_update_gradient',world=64,worker_memory_gib=192,
         source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,
         registered_unix=start,absolute_deadline_unix=start+1800,seconds_limit=1800,phase_seconds_limit=1500,cpu_phase_seconds_limit=60,
         clock_admission_waiver=True,inode_projection=projection,root_comm_ports=reserve_ports(root,[phase]),phases={phase:dict(mode='gradient')},

@@ -9,8 +9,9 @@ if 'RESEARCH_VISIBLE_CORES' in os.environ:
     os.environ['NEURON_RT_VISIBLE_CORES']=os.environ['RESEARCH_VISIBLE_CORES'].split(',')[int(os.environ.get('LOCAL_RANK','0'))]
 
 
-def run(a):
+def run(a,post_gradient=None):
     import torch
+    import gc,ctypes
     import torch.distributed as dist
     from torch.distributed.device_mesh import init_device_mesh
     from compute_trainium.training import file_sha256
@@ -21,7 +22,7 @@ def run(a):
     from compute_trainium.workspace_joint_terms import workspace_joint_terms,padded_prediction_inputs
     from compute_trainium.workspace_learning import WorkspaceFormat,identity_reader_context
     root=a.root;plan=json.loads(a.plan.read_text());source=Path(__file__).resolve().parents[1]
-    if (file_sha256(a.plan)!=a.plan_sha or plan['purpose']!='workspace_actual_model_zero_update_gradient'
+    if (file_sha256(a.plan)!=a.plan_sha or plan['purpose']!=('workspace_actual_model_one_update_recovery' if post_gradient else 'workspace_actual_model_zero_update_gradient')
             or plan['world']!=64 or plan['root_comm_ports'][a.output.name]!=a.comm_port):raise ValueError('Frozen actual-model qualification plan required')
     if any(file_sha256(source/n)!=h for n,h in plan['worker_source_sha256'].items()):raise AssertionError('Frozen source changed')
     rank,world=int(os.environ['RANK']),int(os.environ['WORLD_SIZE']);started=time.time();torch.set_num_threads(2)
@@ -30,7 +31,14 @@ def run(a):
     torch.neuron.set_device(0);dist.init_process_group('neuron',rank=rank,world_size=world)
     mesh=init_device_mesh('neuron',(world,));out=a.output;out.mkdir(parents=True,exist_ok=True)
     def progress(stage):
-        if rank==0:(out/'progress.json').write_text(json.dumps(dict(stage=stage,wall_seconds=time.time()-started)))
+        if rank==0:
+            row=dict(stage=stage,wall_seconds=time.time()-started)
+            try:
+                row['allocator']=torch.neuron.memory_stats()
+                row['worker_memory_current']=int(Path('/sys/fs/cgroup/memory.current').read_text())
+            except (OSError,RuntimeError) as error:row['telemetry_error']=str(error)
+            (out/'progress.json').write_text(json.dumps(row))
+            with (out/'progress-history.jsonl').open('a') as log:log.write(json.dumps(row)+'\n')
     progress('loading_full_parameter_shards')
     c0=torch.load(root/plan['checkpoint_relative'],weights_only=True,mmap=True,map_location='cpu')
     config=OlmoWorkspaceConfig(**plan['model_config'])
@@ -66,7 +74,9 @@ def run(a):
         loss=weight*(nll.mean() if reduction=='mean' else nll.sum())
         losses[phase]=losses.get(phase,0.)+float(loss.detach().cpu())
         (loss/world*256).backward();accumulator.add_and_clear()
-        del loss,nll,logits
+        del loss,nll,logits,padded,positions
+        gc.collect();ctypes.CDLL(None).malloc_trim(0);torch.neuron.empty_cache()
+        progress('cleared_joint_term_'+str(index+1))
     progress('full_named_gradient_comparison')
     accumulator.install();norm=optimizer.finish_gradients(scale=256,clip=1e30)
     expected=torch.load(root/plan['gradient_relative'],weights_only=True,mmap=True,map_location='cpu')
@@ -82,6 +92,8 @@ def run(a):
     named=(values[:,0]/values[:,1].clamp_min(1e-30)).sqrt();overall=float((values[:,0].sum()/values[:,1].sum()).sqrt())
     if float(named.max())>.02:raise AssertionError('Full actual-model named gradient family exceeds2%')
     if any(p.grad is not None for p in scorer.parameters()) or actor_versions!=tuple(p._version for p in model.parameters()) or scorer_versions!=tuple(p._version for p in scorer.parameters()):raise AssertionError('Frozen scorer or zero-update actor changed')
+    del accumulator
+    additional=post_gradient(model,scorer,optimizer,root,plan,out,progress) if post_gradient else {}
     dist.barrier()
     if rank==0:
         result=dict(status='PASS_WORKSPACE_ACTUAL_MODEL_GRADIENT',world=world,parameters=sum(p.numel() for p in model.parameters()),
@@ -89,8 +101,9 @@ def run(a):
             largest_named_relative_l2=float(named.max()),largest_named_parameter=names[int(named.argmax())],
             absolute_gains=gains,weighted_losses=losses,actual_joint_backward_calls=9,optimizer_updates=0,
             scorer_gradients_absent=True,actor_and_scorer_versions_unchanged=True,
-            padded_positions=plan['padded_positions'],no_fallback=True,
+            padded_positions=plan['padded_positions'],fallback_ops=torch_neuronx.get_fallback_ops(),
             scope='Zero-update actual-model numerical qualification on one previously consumed TRAIN anchor.64 identical replicas produce one normalized objective,not64 unique examples. No policy fit,throughput or efficiency claim.')
+        result.update(additional)
         (out/'report.json').write_text(json.dumps(result,indent=2)+'\n')
     dist.barrier();dist.destroy_process_group()
 

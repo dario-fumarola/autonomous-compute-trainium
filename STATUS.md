@@ -1,3 +1,9 @@
+## October27,2026,19:55 UTC — second128GiB stop retained; bounded allocator/192GiB qualification next
+
+The corrected local-shard accumulation run still stops before full Native gradient certification:the supervisor records126.069GiB sampled usage and one128GiB worker OOM. Gradient reduction alone did not fix runtime memory growth. Both stopped sources and costs remain. [Second stop](results/workspace_native_full_model_20261027/recovery-v2/report.json).
+
+The installed Native API exposes allocator memory stats and empty_cache. The next distinct zero-update attempt releases unused allocator blocks and CPU arenas between exact objective terms,records per-stage allocator/worker usage,and requests192GiB only when a full704GiB host admission allowance is available. All numerical thresholds and source inputs stay fixed. This is bounded setup qualification,not a scientific fit. A streaming tensor-by-tensor full-state utility also passes exact CPU perturb/restore without staging an entire extra CPU model/optimizer;it has not yet qualified at actual Native size.
+
 ## October27,2026,19:46 UTC — full-size128GiB attempt stops;local gradient accumulation retested
 
 The actual1.485B Native run reaches its third sequential reader backward and stops on a worker OOM. The supervisor records126.432GiB sampled usage and one OOM kill;the128GiB cap and host reserve remain enforced. Its complete source,stop and0-update costs remain. This does not certify actual-model Native gradients. [Preserved stop](results/workspace_native_full_model_20261027/report.json) · [Supervisor](results/workspace_native_full_model_20261027/supervisor.json).
