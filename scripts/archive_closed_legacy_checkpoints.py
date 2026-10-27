@@ -7,11 +7,13 @@ IDENTITY='closed-legacy-checkpoint-exact-archive-v1'
 GIB=1024**3
 
 
-def main(root,*,identity=IDENTITY,stage_name='scale-boundary-rate-completion-v2'):
+def main(root,*,identity=IDENTITY,stage_name='scale-boundary-rate-completion-v2',maximum_gib=120):
     if not identity.startswith('closed-legacy-checkpoint-exact-archive-v'):
         raise ValueError('Explicit legacy exact-archive identity required')
     if stage_name not in ['scale-boundary-rate-completion-v2','scale-boundary-last-original-rates-v1','scale-boundary-lower-rates-v1']:
         raise ValueError('Explicit qualified rate-stage allocation required')
+    if not isinstance(maximum_gib,int) or not 1<=maximum_gib<=200:
+        raise ValueError('Explicit bounded original-byte scope at most200GiB required')
     out=root/identity
     if out.exists():raise FileExistsError('Preserve every archival attempt')
     stage=root/stage_name;pid=int((stage/'controller.pid').read_text());candidates=[]
@@ -30,7 +32,7 @@ def main(root,*,identity=IDENTITY,stage_name='scale-boundary-rate-completion-v2'
             candidates.append(dict(file=str(file.relative_to(root)),bytes=file.stat().st_size,closure=str(closure.relative_to(root)),closure_sha256=sha256_file(closure)))
     candidates.sort(key=lambda r:(-r['bytes'],r['file']));selected=[];total=0
     for row in candidates:
-        if total+row['bytes']<=120*GIB:selected.append(row);total+=row['bytes']
+        if total+row['bytes']<=maximum_gib*GIB:selected.append(row);total+=row['bytes']
     if not selected:raise ValueError('No complete closed original scope')
     # Materialize the first restoration on a separate,already task-owned
     # private filesystem;the compressed stream also verifies every byte.
@@ -40,7 +42,7 @@ def main(root,*,identity=IDENTITY,stage_name='scale-boundary-rate-completion-v2'
     sample=sample_parent/(identity+'-materialized-restore.pt')
     if sample.exists():raise FileExistsError('Never overwrite any existing task evidence')
     out.mkdir();plan=dict(identity=identity,registered_unix=time.time(),source_sha256=sha256_file(Path(__file__)),
-        maximum_original_bytes=120*GIB,selected_original_bytes=total,original_inventory=selected,
+        maximum_original_bytes=maximum_gib*GIB,selected_original_bytes=total,original_inventory=selected,
         current_stage=stage_name,current_stage_plan_sha256=sha256_file(stage/'plan.json'),
         protected_raw_zip_dependency_parents=sorted(protected),
         native_artifact_allowance_bytes=18*GIB,protected_filesystem_bytes=35*GIB,protected_host_bytes=512*GIB,
@@ -84,4 +86,5 @@ def main(root,*,identity=IDENTITY,stage_name='scale-boundary-rate-completion-v2'
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True)
     p.add_argument('--identity',default=IDENTITY);p.add_argument('--stage',default='scale-boundary-rate-completion-v2')
-    a=p.parse_args();main(a.root,identity=a.identity,stage_name=a.stage)
+    p.add_argument('--maximum-gib',type=int,default=120)
+    a=p.parse_args();main(a.root,identity=a.identity,stage_name=a.stage,maximum_gib=a.maximum_gib)

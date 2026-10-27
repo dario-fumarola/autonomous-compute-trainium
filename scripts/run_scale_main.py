@@ -17,7 +17,22 @@ IDENTITY='scale-medium-main-v1'
 PUBLIC=Path('results/scale_medium_main_20261027')
 
 
-def prepare(root,*,boundary_corrected=False):
+def boundary_scope_files(root,*,body_exposure=False):
+    original=root/'scale-boundary-scope-freeze-v1/scope.json'
+    revised=root/'scale-body-exposure-scope-v1/scope.json'
+    if revised.exists() and not body_exposure:
+        raise ValueError('Unadmitted old main superseded by the explicit body-exposure scope')
+    chosen=revised if body_exposure else original
+    frozen=json.loads(chosen.read_text())
+    if body_exposure and frozen['original_unadmitted_boundary_scope_sha256']!=file_sha256(original):
+        raise AssertionError('Original precision/source scope changed')
+    document='docs/SCALE_BODY_EXPOSURE_DEVELOPMENT_20261027.md' if body_exposure else 'docs/SCALE_BOUNDARY_RATE_COMPLETION_20261027.md'
+    if file_sha256(document)!=frozen['scope_sha256']:
+        raise AssertionError('Prospectively frozen scientific scope changed')
+    return original,chosen,document,frozen
+
+
+def prepare(root,*,boundary_corrected=False,body_exposure=False):
     import numpy as np
     from compute_trainium.scale_pilot_size import profiled_inventory
     from compute_trainium.scale_work_ledger import fixed_update_work,work_matched_updates
@@ -35,9 +50,12 @@ def prepare(root,*,boundary_corrected=False):
     if tune['status']!=expected:raise ValueError('Complete independently audited corrected TUNE required')
     tune_plan=json.loads((root/tune_identity/'plan.json').read_text())
     if tune['plan_sha256']!=file_sha256(root/tune_identity/'plan.json'):raise AssertionError('Original TUNE registration changed')
-    scope_file=root/'scale-boundary-scope-freeze-v1/scope.json'
-    frozen=json.loads(scope_file.read_text()) if boundary_corrected else None
-    if boundary_corrected and (tune_plan['scope_freeze_sha256']!=file_sha256(scope_file)
+    if body_exposure and not boundary_corrected:raise ValueError('Body-exposure scope requires qualified corrected boundaries')
+    original_scope_file=root/'scale-boundary-scope-freeze-v1/scope.json'
+    scope_file=original_scope_file;scope_document='docs/SCALE_JOINT_DEVELOPMENT_20261027.md';frozen=None
+    if boundary_corrected:
+        original_scope_file,scope_file,scope_document,frozen=boundary_scope_files(root,body_exposure=body_exposure)
+    if boundary_corrected and (tune_plan['scope_freeze_sha256']!=file_sha256(original_scope_file)
             or tune_plan.get('precision_policy')!='fp32_recurrent_boundaries'):
         raise AssertionError('Outcome-blind boundary scope and qualified policy required')
     r_end=frozen['recurrent_updates'] if frozen else 9554
@@ -51,7 +69,6 @@ def prepare(root,*,boundary_corrected=False):
         raise ValueError('Explicit unchanged-endpoint owner clock amendment required')
     forecast_seconds=main_seconds
     if clock:main_seconds=clock['operational_main_watchdog_seconds']
-    scope_document='docs/SCALE_BOUNDARY_RATE_COMPLETION_20261027.md' if boundary_corrected else 'docs/SCALE_JOINT_DEVELOPMENT_20261027.md'
     if boundary_corrected:
         if file_sha256(scope_document)!=frozen['scope_sha256']:raise AssertionError('Frozen scope document changed')
         for name,sha in tune_plan['source_sha256'].items():
@@ -62,7 +79,7 @@ def prepare(root,*,boundary_corrected=False):
         choice=tune['selected'][role]
         allowed=tune_plan.get('selection_rate_grid',[.008,.016,.032,.064])
         if choice['rate'] not in allowed or choice['score']>=4.:raise ValueError('Prespecified healthy independent rate required')
-    storage=root/('scale-boundary-main-state-allowance-v1' if boundary_corrected else 'scale-main-state-allowance-v2')/'report.json'
+    storage=root/('scale-body-exposure-main-state-allowance-v1' if body_exposure else 'scale-boundary-main-state-allowance-v1' if boundary_corrected else 'scale-main-state-allowance-v2')/'report.json'
     storage_proof=json.loads(storage.read_text())
     if storage_proof['status']!='ADMITTED_COMPLETE_SCALE_MAIN_STATE_STORAGE':raise ValueError('Complete prospective raw-state storage required')
     if shutil.disk_usage(root).free<35*1024**3+storage_proof['complete_additional_bytes']:
@@ -99,7 +116,8 @@ def prepare(root,*,boundary_corrected=False):
     recurrent=base('fixed_two',r_end,r_stable,'recurrent-main')
     recurrent.update(artifact_directory=IDENTITY+'/artifacts/recurrent/warm',replay_directory=IDENTITY+'/artifacts/recurrent/replay',
         audit_directory=IDENTITY+'/audits/recurrent',score_directory=IDENTITY+'/scores/recurrent')
-    add('recurrent',recurrent,8*3600)
+    phase_limits=frozen['phase_limits'] if body_exposure else dict(recurrent=8*3600,ordinary_trunk=5*3600,ordinary_equal=3600,ordinary_finish=3*3600)
+    add('recurrent',recurrent,phase_limits['recurrent'])
     add('recurrent-replay',{**recurrent,'artifact_directory':recurrent['replay_directory'],
         'resume':dict(directory=recurrent['artifact_directory'],update=r_end-8),'save_updates':[r_end],
         'capture_before_updates':[],'post_training_probe':False,'periodic_checkpoint_interval':0},600)
@@ -108,13 +126,13 @@ def prepare(root,*,boundary_corrected=False):
         audit_directory=IDENTITY+'/audits/ordinary',score_directory=IDENTITY+'/scores/ordinary')
     trunk={**ordinary,'stop_update':r_stable,'save_updates':[r_stable],'capture_before_updates':[],
         'artifact_directory':IDENTITY+'/artifacts/ordinary/trunk','post_training_probe':False}
-    add('ordinary-trunk',trunk,5*3600)
+    add('ordinary-trunk',trunk,phase_limits['ordinary_trunk'])
     equal=base('ordinary8',r_end,r_stable,'ordinary-main')
     equal.update(artifact_directory=IDENTITY+'/artifacts/ordinary-equal/warm',
         audit_directory=IDENTITY+'/audits/ordinary-equal',score_directory=IDENTITY+'/scores/ordinary-equal',
         resume=dict(directory=trunk['artifact_directory'],update=r_stable))
-    add('ordinary-equal',equal,3600)
-    add('ordinary',{**ordinary,'resume':dict(directory=trunk['artifact_directory'],update=r_stable)},3*3600)
+    add('ordinary-equal',equal,phase_limits['ordinary_equal'])
+    add('ordinary',{**ordinary,'resume':dict(directory=trunk['artifact_directory'],update=r_stable)},phase_limits['ordinary_finish'])
     add('ordinary-replay',{**ordinary,'artifact_directory':ordinary['replay_directory'],
         'resume':dict(directory=ordinary['artifact_directory'],update=o_end-8),'save_updates':[o_end],
         'capture_before_updates':[],'post_training_probe':False,'periodic_checkpoint_interval':0},600)
@@ -136,6 +154,8 @@ def prepare(root,*,boundary_corrected=False):
         storage_admission_sha256=file_sha256(storage),manual_loss_scale=65536,
         precision_policy='fp32_recurrent_boundaries' if boundary_corrected else 'fp16_body',invalid_gradient_capture=boundary_corrected,
         scope_freeze_sha256=file_sha256(scope_file) if boundary_corrected else None,
+        original_precision_scope_freeze_sha256=file_sha256(original_scope_file) if boundary_corrected else None,
+        prospective_body_exposure_scope=body_exposure,
         clock_admission_waiver=bool(clock),user_clock_amendment_sha256=file_sha256(clock_amendment) if clock else None,
         training_time_forecast_seconds=forecast_seconds,scientific_endpoints_unchanged_by_clock_amendment=True,
         periodic_storage_lifecycle='two_latest_periodic_until_verified_permanent_successor',

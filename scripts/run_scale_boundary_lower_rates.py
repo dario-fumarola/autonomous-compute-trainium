@@ -22,6 +22,7 @@ DOCUMENT = 'docs/SCALE_BOUNDARY_LOWER_RATE_CHECK_20261027.md'
 PUBLIC = Path('results/scale_boundary_lower_rates_20261027')
 GRID = [.002, .004, .008, .016, .032, .064]
 COMPLETION = 'scale-boundary-last-original-rates-v1'
+ORIGINAL_CERTIFICATE = 'scale-original-rate-closure-v1'
 
 
 def original_selection_source(root):
@@ -33,6 +34,15 @@ def original_selection_source(root):
         return plan_file,report_file
     completion_plan=root/COMPLETION/'plan.json';completion_report=root/COMPLETION/'report.json'
     plan=json.loads(completion_plan.read_text());completed=json.loads(completion_report.read_text())
+    if completed['status']!='COMPLETE_BOUNDARY_FIXED_GRID_WITH_NUMERICAL_REJECTION':
+        certificate_plan=root/ORIGINAL_CERTIFICATE/'plan.json'
+        certificate_report=root/ORIGINAL_CERTIFICATE/'report.json'
+        certificate=json.loads(certificate_plan.read_text())
+        if (certificate['completed_last_stage_plan_sha256']!=file_sha256(completion_plan)
+                or certificate['completed_last_stage_report_sha256']!=file_sha256(completion_report)):
+            raise AssertionError('Explicit original-grid certificate source changed')
+        completion_plan,completion_report=certificate_plan,certificate_report
+        plan=certificate;completed=json.loads(completion_report.read_text())
     if (completed['status']!='COMPLETE_BOUNDARY_FIXED_GRID_WITH_NUMERICAL_REJECTION'
             or completed['plan_sha256']!=file_sha256(completion_plan)
             or plan['original_stopped_parent_plan_sha256']!=file_sha256(plan_file)

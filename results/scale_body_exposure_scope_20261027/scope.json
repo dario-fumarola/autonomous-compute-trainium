@@ -1,0 +1,71 @@
+{
+  "identity": "scale-body-exposure-scope-v1",
+  "registered_unix": 1793112365.5212984,
+  "scope_sha256": "5af66e28ff0ed771382a9dd8af0d6134573807c4c067c6f0b6f196f2ff2d9faa",
+  "scope": "# Prospective joint-scale development point after the clock change\n\nThis is a new scientific budget registration before any larger main fit or\nmain quality result. It replaces only the unadmitted3.750B/5.079B proposal;\nit does not edit that proposal,its original clock,or any completed study.\nThe earlier5B proposal also remains unrun. The clock amendment alone changed\nno endpoint. This separate scope makes the new exposure choice explicit.\n\nThe owner authorizes continued work,use of the existing chips,and no overall\nclock stopping gate. Keeping the smaller exposure chosen solely to fit the\nold cap would couple a much larger transformer body to too little extra data.\nThe old142M recurrent model has43,659,840 non-lookup parameters;the current\n375.94M model has174,613,632,almost four times as many. Ordinary8 has\n165,173,760 non-lookup parameters. These exact inventories are not a scaling\nlaw or a guarantee of a recurrence win. They motivate one larger-data point,\nroughly preserving the old2.010B study's exposure per non-lookup parameter.\n\nFreeze the following full-update endpoints from the accepted16.506B natural\ncapacity,with unchanged packing and source order:\n\n| Endpoint | Updates | Authentic targets |\n| --- | ---: | ---: |\n| Fixed-two recurrent |15,286|8,000,125,097|\n| Conventional ordinary8,equal data |15,286|8,000,125,097|\n| Conventional ordinary8,matched work |20,703|10,835,106,429|\n\nMatched nominal training-matrix totals are14,961,493,056,717,801,216 recurrent\nand14,961,434,015,180,207,040 ordinary. Count neural projections,attention,\nhead,backward and complete owner Muon matrices. This is not chip-time matching.\nUse Python integer counters;the totals exceed signed64-bit range.\n\nUse the original unupdated main seed49177 C0s,recurrent state seed49210,\nsame qualified model/optimizer/precision,full two-pass gradients,global512\nwindows and all16 chips. No new architecture,head,objective,router,data view\nor teacher. The original independent TUNE rule and prospectively bounded\nlower-rate check still govern both learning rates. Numerical rejections keep\ntheir histories and never receive invented prediction scores.\n\nEvery endpoint completes100M-target warmup and its own10% cosine cooldown\nto zero. Recurrent stable boundary is13,757. Ordinary shares an untouched\nstable trunk at13,757 for its equal-data branch;its longer cooldown begins\n18,632. Do not resume from cooled weights to create the longer endpoint.\nSave and independently audit final checkpoints,actual eight-update replay,\nfull512 gradients/NLL,model/optimizer/RNG restoration and replica checks.\nThe equal-data ordinary branch retains its existing independently checked\ntrunk restoration and full endpoint probe;do not claim an unrun replay for it.\n\nMeasured100-update warm intervals imply about19.77 warm instance-hours for\nthe three endpoints including the extra equal-data branch,excluding cold\nsetup,checkpoints,audits,scoring and failures. Use24hours as the planning\nforecast and the existing48-hour operational watchdog. Phase limits are\n14hours recurrent,8hours ordinary trunk,2hours equal-data branch,4hours\nordinary finish,and600seconds for each actual replay. Fixed update endpoints,\nnot elapsed time or favorable scores,end the scientific training.\n\nAdmission still requires complete independent rate selection,both exact\nnumerical proofs,all frozen learned-source and original C0 bindings,and fresh\nactual storage for every full endpoint,trunk,replay,probe and rotating-write\npeak. Tensor sizes and the three-endpoint storage inventory are unchanged;\nlonger training keeps only the two latest periodic backups until a verified\npermanent successor. Preserve every failed history and all exact archive\ndependencies. Keep512GiB host and35GiB every-output floors. A space forecast\nor promised compression is not admission. Any phase failure stops its\ncontroller;there is no automatic retry or partial certification.\n\nPrimary remains the fixed60/20/20 broad-text NLL difference against the\nstrong independently tuned ordinary8 at matched nominal work. Equal-data is\nsecondary. This is one consumed-DEV training-seed pair,not confirmation.\nKeep0.01nats as the useful-effect threshold. No fresh source reserve,TEST or\nterminal alpha is opened. No projected0.02 gain or assumed crossover is used.\n\nA positive remains a development candidate. Precision and architecture\ndifferences must remain visible;causal attribution to the second execution\nneeds appropriate trained same-family/cheap controls before a terminal\nmechanism claim. A terminal positive still requires measured inference costs\nand sufficiently powered fresh-source,at-least-five-fresh-paired-seed\nconfirmation with the existing repeated-testing allocation. A negative or\ninconclusive point admits no automatic further exposure,size or mechanism.\n",
+  "source_sha256": "b3e8bd145af34495725e4a2962de3041f4e422b565b54696e08f6ff54e33d9e0",
+  "original_unused_initializer_report_sha256": "d68695e24a3819841b3b5ada005428707d8996ff5d9f3f49a516839ecf9345d8",
+  "original_unadmitted_boundary_scope_sha256": "51d7bfdd8af803ddbbdb30be0a36fe4f2b85f1e9fb7d38e5036e04ae36bf6010",
+  "old_precision_scope_document_sha256": "a83db13ced23ea3e6813842de75cece9a30e5fd75d80358741174352756e2485",
+  "user_clock_amendment_sha256": "a9249fc812ade3dce66ebd6fbb4effcb4816eb79ab10da74e9c2743d86d34e59",
+  "accepted_packing_manifest_sha256": "9d2c87addaa72771e30be0688813647365c09a1634c88c4207104cccfbb3f3af",
+  "packing_fingerprint": "74423bef9dffbc28e5d9dbb8ba044dc8b255e210cd72e4ff4065d8291fef18b3",
+  "legacy_inventory_plan_sha256": "07f41a3e08f3f15b9c73b70cb295c62369cc678ce946ae8e80fcc7c0a82ef42c",
+  "model_inventory": [
+    {
+      "role": "legacy_142M",
+      "parameters": 141963840,
+      "lookup_parameters": 98304000,
+      "non_lookup_parameters": 43659840
+    },
+    {
+      "role": "fixed_two",
+      "parameters": 375940224,
+      "lookup_parameters": 201326592,
+      "non_lookup_parameters": 174613632
+    },
+    {
+      "role": "ordinary8",
+      "parameters": 374888960,
+      "lookup_parameters": 209715200,
+      "non_lookup_parameters": 165173760
+    }
+  ],
+  "complete_numerical_proofs": [
+    {
+      "identity": "scale-boundary-fixed-two-numerical-v1",
+      "proof_sha256": "d69cf909ce674efda2297401136039bb69fdd79f068bba3dcc0eba2fde51781b",
+      "report_sha256": "79cc75debe3e1a93428d0c22e63919888b51754594a8ba2c92bc1f46f2379ded"
+    },
+    {
+      "identity": "scale-65536-ordinary-numerical-v1",
+      "proof_sha256": "812339b57d637de3886b48d12b4561267c6c8b1f684d1cde5367f1eaa715584f",
+      "report_sha256": "ff66c98320b20c3775a00ecd9ab08ab8df9c99d319b39d3cc7391270228cbeb0"
+    }
+  ],
+  "recurrent_updates": 15286,
+  "recurrent_targets": 8000125097,
+  "ordinary_work_updates": 20703,
+  "ordinary_work_targets": 10835106429,
+  "equal_data_updates": 15286,
+  "stable_trunk_update": 13757,
+  "ordinary_work_stable_update": 18632,
+  "work_match": {
+    "updates": 20703,
+    "candidate_total": 14961493056717801216,
+    "control_total": 14961434015180207040,
+    "unmatched_work": 59041537594176
+  },
+  "main_required_seconds": 86400,
+  "measured_warm_forecast_seconds": 71161.86194732328,
+  "phase_limits": {
+    "recurrent": 50400,
+    "ordinary_trunk": 28800,
+    "ordinary_equal": 7200,
+    "ordinary_finish": 14400
+  },
+  "main_quality_accessed": false,
+  "main_fit_admitted": false,
+  "terminal_alpha_spent": 0,
+  "scope_change": "New prospective scientific exposure choice;clock amendment did not retroactively change an old endpoint."
+}

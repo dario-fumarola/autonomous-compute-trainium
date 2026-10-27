@@ -31,6 +31,12 @@ comparison. However:
   intervention. A training arm denied thoughts and an ablation of one trained
   checkpoint answer different questions. Neither a 50% point-estimate ratio
   nor a distribution-shift penalty proves mediation by useful reasoning.
+  In a cached implementation, changing token IDs while retaining the original
+  thought K/V or last hidden state leaves a second information path intact.
+  Recompute or replace every thought-associated state on the predictor path,
+  while keeping the original prefix and declared compute control fixed.
+  Test token-content use and latent-state use separately: uninformative text
+  can still accompany input-dependent, useful hidden computation.
 * Measure a curve over lengths supported during training, with uncertainty
   and equal-resource alternatives. Improvement at useful finite budgets is
   evidence even if a forced longer thought eventually hurts. Strict

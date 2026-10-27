@@ -7,14 +7,15 @@ from scripts.prepare_scale_main_storage import main_state_allowance
 from scripts.run_scale_sharding_fixture import SCALE_END
 
 
-def prepare(root):
+def prepare(root,*,body_exposure=False):
     if managed_running():raise RuntimeError('Storage admission follows Native closure')
     from scripts.run_scale_boundary_lower_rates import selection_source
     tune_plan_path,tune_path=selection_source(root);tune=json.loads(tune_path.read_text())
     if tune['status'] not in ['COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION','COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION','COMPLETE_BOUNDARY_FIXED_GRID_WITH_NUMERICAL_REJECTION']:raise ValueError('Complete boundary rate selection required')
-    scope_path=root/'scale-boundary-scope-freeze-v1/scope.json';scope=json.loads(scope_path.read_text())
+    from scripts.run_scale_main import boundary_scope_files
+    original_scope,scope_path,_,scope=boundary_scope_files(root,body_exposure=body_exposure)
     tune_plan=json.loads(tune_plan_path.read_text())
-    if tune_plan['scope_freeze_sha256']!=file_sha256(scope_path):raise AssertionError('Frozen scope changed')
+    if tune_plan['scope_freeze_sha256']!=file_sha256(original_scope):raise AssertionError('Frozen original precision scope changed')
     amendment=root/'research-clock-accounting-amendment-20261027-v1/plan.json'
     clock=json.loads(amendment.read_text())
     if not clock['overall_clock_admission_waived'] or not clock['scientific_endpoints_unchanged']:
@@ -32,7 +33,7 @@ def prepare(root):
     if c0['phase']!='main' or c0['seed']!=49177 or c0['optimizer_updates']!=0 or c0['model_forwards']!=0:raise ValueError('Original untouched main C0 required')
     for row in c0['records']:
         if file_sha256(initial/row['file'])!=row['sha256']:raise AssertionError('Main C0 bytes changed')
-    out=root/'scale-boundary-main-state-allowance-v1'
+    out=root/('scale-body-exposure-main-state-allowance-v1' if body_exposure else 'scale-boundary-main-state-allowance-v1')
     if out.exists():raise FileExistsError('Preserve every resource admission')
     out.mkdir();value=dict(status='ADMITTED_COMPLETE_SCALE_MAIN_STATE_STORAGE',registered_unix=time.time(),**allowance,
         boundary_numerical_proof_sha256=file_sha256(proof),tuning_report_sha256=file_sha256(tune_path),scope_freeze_sha256=file_sha256(scope_path),
