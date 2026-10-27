@@ -1,0 +1,36 @@
+{
+  "registered_unix": 1793122113.5469284,
+  "base_revision": "9d3e43659f00c17e6da23cf32333afd1fc39fa1a",
+  "source_view_sha256": "800f3483a37d56c1fc9c4a6bf9cf9d769f2c1971aa2caf97396f8cfead51a3cb",
+  "evaluation_view_sha256": "b402265205192d0faf35f736cc4354e7bc9cbba3f114063209a70a630df10ad0",
+  "original_qualification_sha256": "7de7d29745198467ccf1d9afb379d94a73a22fd5b91faa654ca9754451956065",
+  "source_sha256": {
+    "scripts/bootstrap_workspace_reader.py": "a043aa47ada7060c6454d5b00cb7a2f106670e137302725026a31dd3dd93ccfa",
+    "compute_trainium/workspace_learning.py": "ed160b4cc82b17b3c392d55b742b3a6b973d6fafa37ca49a322a131e090b8c13",
+    "docs/WORKSPACE_READER_BOOTSTRAP_20261027.md": "642861468c24db3cfe56c8dcc38bc29a7b921154e114fbf0eeb5e51f05be8709"
+  },
+  "updates": 30,
+  "domain_updates": {
+    "web": 18,
+    "math": 6,
+    "code": 6
+  },
+  "group_size": 4,
+  "workspace_length": 8,
+  "reward_horizon": 4,
+  "ordinary_weight": 0.5,
+  "reader_weight": 0.5,
+  "peak_lr": 1e-05,
+  "betas": [
+    0.9,
+    0.95
+  ],
+  "epsilon": 1e-08,
+  "weight_decay": 0.1,
+  "gradient_clip": 1.0,
+  "seed": 315017,
+  "maximum_seconds": 1800,
+  "assigned_chips": 0,
+  "policy_gradient_updates": 0,
+  "scope": "# One bounded reader-interface bootstrap\n\nThe zero-update ten-anchor TRAIN qualification shows an input-dependent reader\nbut severe framing damage: raw/empty-frame/sampled NLL2.7443/5.7576/6.4248.\nBefore policy training, run exactly one CPU calibration from the same pinned\nstage-one base. This is interface qualification, not a mechanism comparison.\n\nUse30 updates on30 other accepted TRAIN source groups,18web/6math/6code.\nEach has128 prefix tokens and four natural continuation labels. Generate four\neight-token workspaces per prefix from the initial model,with prefix-only\nsampling. Keep those workspaces fixed during this reader-only bootstrap.\nDo not optimize the writer by policy gradient or select workspaces by targets.\n\nTrain all actor parameters with0.5 ordinary-source NTP plus0.5 workspace-reader\nNTP. Raw NTP predicts the observed prefix suffix and continuation;reader NTP\npredicts only the same four natural targets from prefix/workspace/framing.\nUse AdamW,peak LR1e-5,betas0.9/0.95,epsilon1e-8,weight decay0.1,gradient clip1.\nThree warmup updates,24 stable updates,three cosine cooldown updates to zero.\nNo LR/frame/mixture search or automatic extension follows. Keep all costs.\n\nEvaluate the original ten groups,excluded from bootstrap training,using their\nfixed initial samples and separately fresh prefix-only samples. Report raw,\nframed and sampled NLL and reward spread. This is held out only from this tiny\ncalibration,not a fresh generalization benchmark and not proof the upstream\nbase never saw the text. Better framing can result from ignoring thoughts;\ndo not label it learned thought. All comparative controls remain necessary.\n\nSave one complete model/AdamW/RNG checkpoint and independently reload it.\nPerturb parameters,moments and RNG before loading,then compare every restored\ntensor and nested state exactly. Require finite gradients and losses,512GiB\nhost reserve,35GiB output reserve,and complete20GiB checkpoint space plus1GiB\nmargin before admission. Use a30-minute operational cap and16 CPU threads.\nNo accelerator worker or full scientific fit is admitted.\n\nIf a later policy discovery uses the calibrated checkpoint,all conditions\nmust start there and charge the common bootstrap history. Otherwise rerun the\nentire discovery from the original base with separately counted preparation.\nThere is no automatic learned-router or full from-scratch campaign.\n"
+}

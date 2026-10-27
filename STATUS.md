@@ -1,3 +1,11 @@
+## October27,2026,17:43 UTC — reader bootstrap completes and full-state restoration passes
+
+The fixed30-update CPU reader-only bootstrap completes its own warmup/stable/cooldown schedule with finite gradients. There are zero policy-gradient or accelerator updates. The complete17.819GB model/AdamW/RNG checkpoint is saved,then parameters,moments and RNG are deliberately perturbed and restored. Every restored tensor/nested value matches exactly. Total wall561.901seconds. [Receipt and full cost ledger](results/workspace_reader_bootstrap_20261027/report.json).
+
+On the ten accepted TRAIN groups excluded from calibration,raw NLL is2.753252 versus2.744312 before calibration;empty-framed4.061399 versus5.757562;fixed initial-workspace3.677843 versus6.424815;fresh workspace3.693952. Mean fresh sampled reward SD is0.090732. The interface improves but remains about0.94nats worse than raw prediction. Forty diagnostic target tokens do not establish broad noninferiority,transfer,useful content or efficiency. Better framing could involve ignoring thoughts.
+
+A separate zero-update CPU joint-gradient reference is prepared on one new TRAIN group. It uses the calibrated actor plus an independently frozen scorer,G4/workspace8/horizon4,detached leave-one-out rewards and the declared0.5 ordinary/0.5 reader/0.1 policy loss. This will retain the full FP32 gradient for later Native comparison;it is not another fit or a learned-thinking result. [Frozen qualification scope](docs/WORKSPACE_POLICY_GRADIENT_REFERENCE_20261027.md). All460 tests pass,two skipped. No policy fit,Native discovery campaign,TEST or confirmation source is admitted.
+
 ## October27,2026,17:20 UTC — workspace reference tested; pretrained reader exposes framing problem
 
 The new owner-authorized charter separates pretrained discovery from eventual early-active/delayed from-scratch pretraining. Policy gradients and online temporary workspaces are permitted only in this new phase;all older results stay unchanged. The old paused goal has not been achieved or relabeled complete. [Charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md).
