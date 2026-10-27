@@ -1,3 +1,11 @@
+## October27,2026,23:14 UTC — first four-arm learning diagnostic running on all16 chips
+
+The frozen single-seed48-workspace-update diagnostic is admitted and running from common C0,fresh optimizer,not qualification-updated weights. The ordinary condition receives931 updates,trained pauses421,own-sampled drafts63,at comparable nominal matrix work. The new160-position ordinary path passes its initial full179-parameter CPU-reference gate before updates:largest named error0.0014994%. It is now fitting at about1.09seconds/update. All mature audits precede any TUNE score. No quality result yet. [Frozen registration](results/workspace_discovery_20261027/main/plan.json).
+
+Whole storage recovery completes in2094.56seconds,with69,784,134,355bytes recovered relative to original arrays and about128GiB free before launch. Every original whole-file hash matches after decoding the retained stopped gzip prefix and new tail,or its complete gzip. The original stopped prefix is a REQUIRED completed archive segment;an additional verified-name hardlink and private dependency marker protect it. All old states,accepted sources and active new-tokenizer views remain. [Exact recovery](results/workspace_discovery_storage_20261027/recovery-v2/report.json).
+
+The independent ordinary CPU reference completes with zero updates;its742.15second wall time includes waiting for the registered storage recovery,not742seconds of gradient computation. The latest14 focused tests pass,including same-domain/different-source-group donor selection,source-group bootstrap invariance,complete compressed state/RNG recovery and fail-stop control. The previous full suite passes491 tests,two skipped. Statistical readouts remain conditional on one trained pair and reused TUNE sources,not confirmation or a reasoning claim.
+
 ## October27,2026,22:48 UTC — diverse-source100warm and mature full-model audit pass
 
 The actual1.485B sharded actor/EMA reader completes101 qualification optimizer updates from common C0 weights with fresh AdamW,on6,464 admitted TRAIN views across3,690 source groups. No OOM or CPU fallback;100warm updates average12.461930seconds,median12.434226,cold100.817466. Final101-counter model/scorer/AdamW/RNG state and complete mature gradient are preserved. [Native execution](results/workspace_online_throughput_20261027/recovery-v2/report.json).
