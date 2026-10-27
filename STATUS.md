@@ -1,3 +1,9 @@
+## October27,2026,20:19 UTC — online/state CPU helpers pass;fixed101-update Native cost qualification prepared
+
+Selective-head/padded prediction matches the full CPU reference,including every joint gradient with tensor-valued runtime policy coefficients. Prefix-only workspace sampling has exact RNG replay. Four-process CPU tests also reconstruct a completely empty optimizer state from the streamed full checkpoint and preserve exact replay. The full suite passes472 tests,two skipped,121.20seconds;the additional direct runtime-gradient and partial-controller tests also pass. [Bound helper proof](results/workspace_online_cpu_20261027/report.json).
+
+Next is a separately bounded all16-chip qualification:restore the actual u1 state in fresh workers,then one cold plus100warm COMPLETE online sampling/scoring/reader+policy/AdamW/EMA updates. G4,length8,horizon4,one repeated accepted TRAIN anchor across64 ranks,not novel scientific training. Record absolute gains,all processed/projected work and completed stage times;save the final full state and an unclipped mature gradient for independent CPU checking. It admits no scientific four-arm fit by itself. All previous failures,costs and state remain. [Controller](scripts/run_workspace_online_throughput.py).
+
 ## October27,2026,20:06 UTC — actual-size update/full recovery pass; independent saved-state audit passes
 
 One actual1.485B qualification optimizer update completes on all16 chips. Every actor/scorer/AdamW tensor and RNG is deliberately perturbed and restored exactly through64 streamed archives,895 tensors each,23.87GB total. The Native worker completes in174.61seconds without OOM or CPU fallback;full launch/closure costs remain separate. This is one policy-containing qualification update,zero scientific fit updates. Actual-size fresh-process next-update equivalence and100warm-update throughput remain outstanding. [Update/recovery](results/workspace_native_full_update_20261027/report.json).

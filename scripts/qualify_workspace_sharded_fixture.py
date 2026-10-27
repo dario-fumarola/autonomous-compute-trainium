@@ -90,6 +90,15 @@ def worker(rank,world,backend,output,mode,parent=None,port=None):
                  ema=ema_error,ema_delta=ema_delta,gradient_norm=norm)
         if max(v['largest_named_relative_l2'] for v in [comparison,delta,moments,ema_delta])>.02:raise AssertionError('Complete independent CPU gradient/update/moment/EMA fixture mismatch')
         if update==2:
+            from compute_trainium.workspace_native_state import save_complete_state,restore_complete_state
+            generator=torch.Generator().manual_seed(7289+rank)
+            saved_group=[{k:v for k,v in group.items() if k!='params'} for group in optimizer.adam.param_groups]
+            save_complete_state(output/f'rank{rank}-complete.zip',model,scorer,optimizer,generator,extra={'fixture':True})
+            state_before={n:local_parameter(p).detach().clone() for n,p in model.named_parameters()}
+            for alias in optimizer.local:optimizer.adam.state[alias].clear()
+            restore_complete_state(output/f'rank{rank}-complete.zip',model,scorer,optimizer,generator)
+            assert all(torch.equal(local_parameter(p),state_before[n]) for n,p in model.named_parameters())
+            assert saved_group==[{k:v for k,v in group.items() if k!='params'} for group in optimizer.adam.param_groups]
             torch.save(cpu_tree(dict(model={n:local_parameter(p) for n,p in model.named_parameters()},
                 scorer={n:local_parameter(p) for n,p in scorer.named_parameters()},optimizer=optimizer.state_dict(),rng=torch.get_rng_state())),output/f'rank{rank}-u2.pt')
             if rank==0:torch.save(dict(model=reference.state_dict(),scorer=ema_reference.state_dict(),optimizer=reference_optimizer.state_dict()),output/'reference-u2.pt')
