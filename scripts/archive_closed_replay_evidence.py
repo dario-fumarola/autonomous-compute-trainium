@@ -14,23 +14,31 @@ IDENTITY='closed-956m-replay-exact-archive-v1'
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True)
+    parser.add_argument('--profile',choices=['large','medium_recurrent','medium_ordinary'],default='large')
     parser.add_argument('--apply',action='store_true');args=parser.parse_args();root=args.root
     if root.resolve()!=Path('/run/user/1000/autonomous-compute/instance-nvme'):
         raise ValueError('Exact existing research root required')
-    proof=json.loads((root/'scale-956m-numerical-v1/completion-verification.json').read_text())
-    if proof['status']!='PASS_SCALE_956M_COMPLETE_NUMERICAL_QUALIFICATION':raise ValueError('Complete independent closure required')
-    base=root.parent/'recurrence/scale-956m-numerical-v1';out=root/IDENTITY
+    native,status,count={
+        'large':('scale-956m-numerical-v1','PASS_SCALE_956M_COMPLETE_NUMERICAL_QUALIFICATION',129),
+        'medium_recurrent':('scale-376m-fixed-two-numerical-v1','PASS_SCALE_MEDIUM_FIXED_TWO_COMPLETE_NUMERICAL_QUALIFICATION',129),
+        'medium_ordinary':('scale-375m-ordinary-numerical-v1','PASS_SCALE_MEDIUM_ORDINARY_COMPLETE_NUMERICAL_QUALIFICATION',65),
+    }[args.profile]
+    proof_file=root/native/'completion-verification.json';proof=json.loads(proof_file.read_text())
+    if proof['status']!=status:raise ValueError('Complete independent closure required')
+    base=root.parent/'recurrence'/native if args.profile=='large' else root/native/'artifacts'
+    identity=IDENTITY if args.profile=='large' else 'closed-'+args.profile.replace('_','-')+'-replay-exact-archive-v1'
+    out=root/identity
     if out.exists():raise FileExistsError('Preserve every archival attempt')
     out.mkdir();started=time.time();deadline=started+1200
     children=sorted((base/'replay').glob('*.pt'))
-    if len(children)!=129:raise ValueError('Exact closed 64 state,64 noise,one gradient file scope required')
+    if len(children)!=count:raise ValueError('Exact registered closed replay file scope required')
     for child in children:
         if (not re.fullmatch(r'(?:rank(?:[0-9]|[1-5][0-9]|6[0-3])-u101|noise-u100-rank(?:[0-9]|[1-5][0-9]|6[0-3])|gradient-u100)\.pt',child.name)
                 or child.is_symlink() or not (base/'warm'/child.name).is_file()):
             raise ValueError('Closed exact replay filename required')
-    (out/'plan.json').write_text(json.dumps(dict(identity=IDENTITY,started_unix=started,deadline_unix=deadline,
+    (out/'plan.json').write_text(json.dumps(dict(identity=identity,profile=args.profile,started_unix=started,deadline_unix=deadline,
         source_sha256=digest_file(__file__),helper_sha256=digest_file(Path(__file__).resolve().parents[1]/'compute_trainium/lossless_zip_delta.py'),
-        completion_proof_sha256=digest_file(root/'scale-956m-numerical-v1/completion-verification.json'),
+        completion_proof_sha256=digest_file(proof_file),
         original_files=[dict(file=c.name,sha256=digest_file(c),bytes=c.stat().st_size) for c in children],
         original_bytes_retained_through_verified_archive=True,apply_requested=args.apply),indent=2)+'\n')
     def one(child):
