@@ -81,7 +81,10 @@ def main():
     origin=update;model.compile_stages('neuron')
     def objective(logits,targets,mask):return real_token_losses(logits,targets,mask).sum()
     loss=torch.compile(objective,backend='neuron',fullgraph=True,dynamic=False)
-    warm_seconds=checkpoint_seconds=capture_seconds=0.;rows=[]
+    warm_seconds=checkpoint_seconds=capture_seconds=0.;rows=[];periodic=[]
+    interval=case.get('periodic_checkpoint_interval',0)
+    if interval and (case['phase']!='main' or plan.get('periodic_storage_lifecycle')!='two_latest_periodic_until_verified_permanent_successor'):
+        raise ValueError('Explicit prospective main periodic lifecycle required')
     while update<case['stop_update']:
         if time.time()>plan['absolute_deadline_unix']:raise TimeoutError('Original absolute scale deadline')
         if shutil.disk_usage(folder).free<35*1024**3:raise RuntimeError('Protected artifact storage reserve')
@@ -110,8 +113,17 @@ def main():
         optimizer.step();torch.neuron.synchronize();elapsed=time.perf_counter()-tick-export_elapsed
         if update>origin:warm_seconds+=elapsed
         update+=1
-        if update in case['save_updates']:
+        permanent=update in case['save_updates']
+        scheduled=bool(interval and update%interval==0 and not permanent)
+        if permanent or scheduled:
             before=time.perf_counter();save_training_shard(model,optimizer,folder,signature,update,packed,per_update)
+            if scheduled:periodic.append(update)
+            # Two rotating backups; all permanent endpoints/replay prefixes stay.
+            retired=periodic[:] if permanent else periodic[:-2]
+            if rank==0:
+                from compute_trainium.scale_training_state import retire_verified_periodic
+                for old in retired:retire_verified_periodic(folder,old,update,signature,case['save_updates'])
+            dist.barrier();periodic=[u for u in periodic if u not in retired]
             checkpoint_seconds+=time.perf_counter()-before
         if rank==0:
             row=dict(update=update,cursor=update*512,real_targets=exposure,domain_targets=list(map(int,packed.counts(0,update*512))),

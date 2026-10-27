@@ -1,10 +1,42 @@
-"""Prospective full-state allowance on existing private RAM/NVMe only."""
+"""Prospective complete main-state allowance on existing NVMe, no remounts."""
+import fnmatch
 import json
-import os
 from pathlib import Path
 import shutil
-import subprocess
 import time
+
+
+def original_capture_sizes(folder):
+    """Exact original lengths, whether still raw or losslessly retained."""
+    sizes={f.name:f.stat().st_size for f in folder.glob('*.pt') if not f.is_symlink()}
+    for file in folder.glob('*.pt.exact.json'):
+        record=json.loads(file.read_text());name=record['original_file']
+        if name in sizes and sizes[name]!=record['original_bytes']:raise AssertionError('Conflicting preserved size inventory')
+        sizes[name]=record['original_bytes']
+    return sizes
+
+
+def main_state_allowance(root):
+    from compute_trainium.training import file_sha256
+    sizes={};proofs={}
+    for role,label in [('fixed_two','fixed-two'),('ordinary8','ordinary')]:
+        identity='scale-65536-'+label+'-numerical-v1';proof=root/identity/'completion-verification.json'
+        if json.loads(proof.read_text())['status']!='PASS_SCALE_65536_COMPLETE_NUMERICAL_QUALIFICATION':raise ValueError('Both complete corrected numerical proofs required')
+        proofs[role]=file_sha256(proof)
+        rows=original_capture_sizes(root.parent/'recurrence'/identity/'warm')
+        def group(pattern,count):
+            selected=[v for k,v in rows.items() if fnmatch.fnmatchcase(k,pattern)]
+            if len(selected)!=count:raise ValueError('Complete exact original capture-size inventory required: '+pattern)
+            return sum(selected)
+        sizes[role]=dict(state=group('rank*-u100.pt',64),gradient=group('gradient-u100.pt',1),
+            noise=group('noise-u100-rank*.pt',64) if role=='fixed_two' else 0)
+    r,o=sizes['fixed_two'],sizes['ordinary8']
+    # R: two final prefixes plus actual replay; at most three periodic copies.
+    # O: retained trunk,two equal-data states,two work states,actual replay.
+    # Three-copy rotating-write peaks fit this same six-copy aggregate bound.
+    raw=3*r['state']+r['gradient']+r['noise']+6*o['state']+2*o['gradient']
+    return dict(complete_additional_state_bytes=raw,margin_bytes=4*1024**3,
+        complete_additional_bytes=raw+4*1024**3,original_sizes=sizes,numerical_proofs=proofs)
 
 
 def prepare(root):
@@ -12,52 +44,30 @@ def prepare(root):
     from compute_trainium.training import file_sha256
     from scripts.run_scale_sharding_fixture import SCALE_END
     if managed_running():raise RuntimeError('Storage admission follows Native closure')
-    tune=json.loads((root/'scale-medium-tune-v1/report.json').read_text())
-    if tune['status']!='COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION':raise ValueError('Complete TUNE required before main storage admission')
-    rec=root.parent/'recurrence';out=root/'scale-main-state-allowance-v1'
+    tune_file=root/'scale-medium-tune-65536-v1/report.json';tune=json.loads(tune_file.read_text())
+    if tune['status']!='COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION':raise ValueError('Complete corrected TUNE required before main admission')
+    out=root/'scale-main-state-allowance-v2'
     if out.exists():raise FileExistsError('Preserve every resource admission')
-    current=sum(f.stat().st_size for d in ['scale-tune-original-initializers-v1','scale-medium-tune-retained-v1'] for f in (rec/d).glob('*.pt'))
-    maximum=26*1024**3;remaining=maximum-current
     available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
-    if remaining<0 or available-remaining-192*1024**3<512*1024**3:
-        raise RuntimeError('Full remaining26GiB task evidence plus192GiB Native and512GiB reserve must fit')
-    if time.time()>SCALE_END:raise TimeoutError('Original scale cap')
-    mount=json.loads(subprocess.check_output(['findmnt','-J','-T',str(rec)],text=True))['filesystems'][0]
-    if mount['fstype']!='tmpfs' or mount['target']!=str(rec):raise ValueError('Exact existing private tmpfs required')
-    def size(native,pattern):return sum(f.stat().st_size for f in (root/native/'artifacts/warm').glob(pattern))
-    r='scale-376m-fixed-two-numerical-v1';o='scale-375m-ordinary-numerical-v1'
-    rs,os_=size(r,'rank*-u100.pt'),size(o,'rank*-u100.pt');rg=size(r,'gradient-u100.pt');og=size(o,'gradient-u100.pt');noise=size(r,'noise-u100-rank*.pt')
-    root_allowance=3*rs+rg+noise+4*os_+og+4*1024**3
-    equal_allowance=2*os_+og+64*1024**2
-    initial=root/'scale-main-original-initializers-v1';initial_report=json.loads((initial/'report.json').read_text())
-    if initial_report['phase']!='main' or initial_report['seed']!=49177 or initial_report['optimizer_updates']!=0:raise ValueError('Original unupdated main C0 required')
-    entry=next(r for r in initial_report['records'] if r['role']=='fixed_two');source=initial/entry['file']
-    if source.is_symlink() or file_sha256(source)!=entry['sha256']:raise AssertionError('Original R C0 changed')
-    if current+entry['bytes']+equal_allowance>maximum:raise RuntimeError('Complete Rec data/state inventory exceeds26GiB new-task allowance')
-    if shutil.disk_usage(root).free+entry['bytes']<35*1024**3+root_allowance:
-        raise RuntimeError('All unique main checkpoints/probes/replays plus4GiB margin must fit NVMe prospectively')
-    out.mkdir();plan=dict(started_unix=time.time(),purpose='main_full_state_storage_only',
-        preceding16gib_allowance_sha256=file_sha256(root/'scale-evidence-memory-allowance-v1/plan.json'),
-        maximum_new_task_ram_evidence_bytes=maximum,existing_new_task_bytes=current,remaining_new_task_allowance=remaining,
-        host_available_before=available,projected_full_native_and_evidence_minimum_available=available-remaining-192*1024**3,
-        native_worker_allowance_bytes=192*1024**3,protected_host_bytes=512*1024**3,
-        root_complete_additional_bytes=root_allowance,rec_equal_data_additional_bytes=equal_allowance,
-        old_original_tmpfs_gib=160,new_tmpfs_gib=186,original_scale_deadline_unix=SCALE_END,
-        scientific_main_fit_admitted=False,raw_sources_and_existing_states_unchanged=True,
-        policy='Main preserves all raw states including replay, even if trajectories differ. Equal-data ordinary endpoint uses existing RAM; primary paths use existing NVMe. All source/compute/scientific clocks unchanged.')
-    (out/'plan.json').write_text(json.dumps(plan,indent=2)+'\n')
-    subprocess.run(['sudo','-n','mount','-o','remount,size=186G',str(rec)],check=True)
-    destination=rec/'scale-main-original-initializers-v1';destination.mkdir(exist_ok=False)
-    copy=destination/entry['file'];shutil.copyfile(source,copy)
-    if copy.stat().st_size!=entry['bytes'] or file_sha256(copy)!=entry['sha256']:raise AssertionError('Preserved original main C0 copy differs')
-    relative=os.path.relpath(copy,source.parent);source.unlink();source.symlink_to(relative)
-    if file_sha256(source)!=entry['sha256']:raise AssertionError('Original logical C0 path differs')
-    (rec/'scale-main-equal-data-v1').mkdir(exist_ok=False)
-    result=dict(status='ADMITTED_COMPLETE_SCALE_MAIN_STATE_STORAGE',**plan,
-        fixed_two_original_logical_path_and_sha256_preserved=True,relative_link_valid_under_existing_container_mounts=True,
-        main_initializer_sha256=entry['sha256'],root_free_after=shutil.disk_usage(root).free,rec_free_after=shutil.disk_usage(rec).free,
-        finished_unix=time.time())
-    (out/'report.json').write_text(json.dumps(result,indent=2)+'\n');return result
+    if available<(512+192)*1024**3:raise RuntimeError('Complete192GiB worker plus protected512GiB required')
+    if time.time()+14*3600>SCALE_END:raise TimeoutError('Complete14-hour main allowance must fit original cap')
+    allowance=main_state_allowance(root)
+    if shutil.disk_usage(root).free<35*1024**3+allowance['complete_additional_bytes']:
+        raise RuntimeError('All main state/probe/replay/rotating peaks plus4GiB margin and35GiB reserve must fit')
+    if min(shutil.disk_usage('/').free,shutil.disk_usage(root.parent).free)<36*1024**3:raise RuntimeError('Protected auxiliary output reserves')
+    initial=root/'scale-main-original-initializers-v1';original=json.loads((initial/'report.json').read_text())
+    if original['phase']!='main' or original['seed']!=49177 or original['optimizer_updates']!=0 or original['model_forwards']!=0:
+        raise ValueError('Fresh original main C0 required')
+    for record in original['records']:
+        if file_sha256(initial/record['file'])!=record['sha256']:raise AssertionError('Original main C0 changed')
+    out.mkdir();result=dict(status='ADMITTED_COMPLETE_SCALE_MAIN_STATE_STORAGE',started_unix=time.time(),
+        purpose='main_complete_existing_nvme_state_allowance',**allowance,corrected_tune_report_sha256=file_sha256(tune_file),
+        host_available_before=available,native_worker_allowance_bytes=192*1024**3,protected_host_bytes=512*1024**3,
+        root_free_before=shutil.disk_usage(root).free,protected_filesystem_bytes=35*1024**3,
+        original_scale_deadline_unix=SCALE_END,new_ram_allowance_bytes=0,remount_performed=False,
+        source_or_initializer_migration_performed=False,scientific_main_fit_admitted=False,
+        policy='All main endpoints,trunk,distinct replay states and probes retained on existing NVMe. Only prospectively rotating periodic backups can retire after a complete verified successor; their manifests and exact inventories remain. No failure or source release.')
+    (out/'plan.json').write_text(json.dumps(result,indent=2)+'\n');(out/'report.json').write_text(json.dumps(result,indent=2)+'\n');return result
 
 
 if __name__=='__main__':

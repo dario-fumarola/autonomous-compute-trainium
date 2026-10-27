@@ -144,3 +144,41 @@ def verify_live_training_state(model,optimizer,folder,signature,update,per_updat
         'optimizer':optimizer.state_dict(),'cpu_rng':torch.get_rng_state()}
     if digest(live)!=note['state_digest']:raise AssertionError('Zero-update diagnostic mutated live model/optimizer/RNG')
     dist.barrier()
+
+
+def retire_verified_periodic(folder,old_update,successor_update,signature,permanent_updates):
+    """Release a declared rotating backup only after a fully verified successor.
+
+    Runs on the coordinator after save_training_shard's collective readback.
+    The permanent endpoints, original manifests and exact retired inventories
+    remain; a failed save never reaches this operation.
+    """
+    folder=Path(folder)
+    if signature['phase']!='main' or old_update in permanent_updates or successor_update<=old_update:
+        raise ValueError('Only superseded prospective main periodic backups may rotate')
+    manifests={}
+    for update in [old_update,successor_update]:
+        manifest_file=folder/f'manifest-u{update}.json';value=json.loads(manifest_file.read_text())
+        if (value.get('purpose')!=PURPOSE or value.get('signature')!=signature
+                or value.get('update')!=update or not value.get('all_replicated_states_equal')):
+            raise ValueError('Complete same-lineage verified successor and predecessor required')
+        if len(value['shards'])!=value['world']:raise ValueError('Complete original shard inventory required')
+        for rank,note in enumerate(value['shards']):
+            file=folder/note['file']
+            if (note['rank']!=rank or note['file']!=f'rank{rank}-u{update}.pt'
+                    or file.is_symlink() or file_sha256(file)!=note['sha256']):
+                raise AssertionError('Checkpoint changed; preserve every existing backup')
+        manifests[update]=(manifest_file,value)
+    receipt=folder/f'periodic-retirement-u{old_update}.json'
+    if receipt.exists():raise FileExistsError('Preserve every periodic retirement receipt')
+    original,value=manifests[old_update];successor,_=manifests[successor_update]
+    report=dict(status='INVENTORIED_SUPERSEDED_PERIODIC',original_update=old_update,
+        verified_successor_update=successor_update,signature=signature,
+        original_manifest_sha256=file_sha256(original),successor_manifest_sha256=file_sha256(successor),
+        original_shards=value['shards'],declared_before_training=True,permanent_states_released=False)
+    receipt.write_text(json.dumps(report,indent=2)+'\n')
+    for note in value['shards']:
+        (folder/note['file']).unlink()
+        # Keep every small rank note and the original full manifest as evidence.
+    report['status']='RETIRED_SUPERSEDED_PERIODIC_AFTER_VERIFIED_SUCCESSOR'
+    receipt.write_text(json.dumps(report,indent=2)+'\n')

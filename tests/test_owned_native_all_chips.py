@@ -21,6 +21,9 @@ def test_exclusive_owner_has_no_half_and_uses_same_atomic_lock(tmp_path,monkeypa
     (env/'parent-private.json').write_text(json.dumps(dict(HostConfig=dict(Devices=[]),Mounts=[])))
     (env/'setup-private.json').write_text(json.dumps(dict(image='software-test')))
     monkeypatch.setattr(target,'managed_running',lambda:[])
+    original_read=target.Path.read_text
+    monkeypatch.setattr(target.Path,'read_text',lambda path,*args,**kwargs:
+        'MemAvailable: 1073741824 kB\n' if str(path)=='/proc/meminfo' else original_read(path,*args,**kwargs))
     calls=[]
     def run(args,**kwargs):
         calls.append(args)

@@ -137,3 +137,22 @@ The current existing private RAM resource allowance is40GiB new retained task
 evidence on a200GiB mount, conditional on512GiB host/35GiB filesystem floors;
 closed evidence is losslessly archived with exact original-byte restoration.
 Earlier26GiB main storage text is historical preparation, not current admission.
+
+## Prepared corrected main storage and recovery
+
+Only a complete healthy corrected-scaler TUNE can admit the main plan. The
+prepared main retains65536 loss scaling in both roles and all previously
+declared5.000B/6.772B endpoints, source order, seed and cooldowns. Its measured
+14-hour allowance is subordinate to the same original absolute deadline.
+The prospective storage version2 keeps every main endpoint, stable trunk,
+actual replay and probe on existing NVMe, with complete original capture sizes
+plus4GiB margin above35GiB. It performs no new RAM remount or source migration.
+
+For long fits, save a complete state every1000 updates with collective replica
+checks and exact disk readback. Keep the two newest periodic backups; only
+retire an older periodic after all successor shards and its complete manifest
+verify. A verified permanent endpoint supersedes periodic backups. Preserve
+all small manifests, exact retired inventories and all permanent scientific
+and failure states. A failed save cannot release an earlier backup. Include
+three-copy rotating-write peaks in the full storage budget. No automatic
+restart, discarded divergence or changed source/endpoint follows a failure.

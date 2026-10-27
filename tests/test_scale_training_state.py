@@ -29,3 +29,28 @@ def test_shared_stable_trunks_and_independent_cooldowns_end_at_zero():
     end=rates(500,**common,cooldown_targets=450,end_targets=500)
     assert end['lr']==0 and end['weight_decay']==0
     assert rates(25,**common,cooldown_targets=450,end_targets=500)['momentum']==pytest.approx(.875)
+
+
+def test_rotating_backup_retires_only_after_verified_successor(tmp_path):
+    import json
+    from compute_trainium.training import file_sha256
+    from compute_trainium.scale_training_state import retire_verified_periodic
+    signature=dict(study_sha256='frozen',case='r',phase='main',initializer_sha256='fresh',
+        packing_fingerprint='accepted',model_role='fixed_two',state_seed=12)
+    def checkpoint(update):
+        file=tmp_path/f'rank0-u{update}.pt';file.write_bytes(bytes([update//1000])*64)
+        note=dict(rank=0,file=file.name,sha256=file_sha256(file))
+        manifest=dict(purpose=PURPOSE,signature=signature,update=update,world=1,
+            all_replicated_states_equal=True,shards=[note])
+        (tmp_path/f'manifest-u{update}.json').write_text(json.dumps(manifest));return file
+    old=checkpoint(1000);current=checkpoint(2000)
+    current.write_bytes(b'corrupt')
+    with pytest.raises(AssertionError):retire_verified_periodic(tmp_path,1000,2000,signature,[])
+    assert old.exists()
+    current=checkpoint(2000)
+    with pytest.raises(ValueError):retire_verified_periodic(tmp_path,1000,2000,signature,[1000])
+    assert old.exists()
+    retire_verified_periodic(tmp_path,1000,2000,signature,[])
+    assert not old.exists() and current.exists() and (tmp_path/'manifest-u1000.json').exists()
+    report=json.loads((tmp_path/'periodic-retirement-u1000.json').read_text())
+    assert not report['permanent_states_released'] and len(report['original_shards'])==1

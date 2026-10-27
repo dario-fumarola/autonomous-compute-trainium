@@ -1,3 +1,11 @@
+## October27,2026,08:26 UTC — corrected TUNE training active; main recovery preparation tested
+
+The corrected first recurrent trial is beyond230 updates with finite gradients, roughly2.3s per update on all16 chips. This is training progress only; its mature audit and held-out readout remain ahead. Both corrected actual-shape numerical proofs remain complete. Original failed-history exclusions and the11:58:26UTC corrected-TUNE deadline are unchanged; main remains unadmitted.
+
+Prepared main code now retains the qualified65536 scaler, requires the corrected independent TUNE and preserves the original5.000B recurrent /6.772B conventional endpoints. Existing-NVMe storage version2 counts every main endpoint,trunk,actual replay,gradient/noise probe and rotating-write peak, plus4GiB margin. Complete verified periodic backups protect the long fits; only explicitly superseded periodic copies can retire, retaining their exact inventories and manifests.424 CPU tests pass, two skipped. These are prepared changes, not an activated scientific comparison.
+
+Complete corrected qualifications and four older closed qualifications are losslessly archived with every original binary SHA verified and exact restoration instructions. A separate20-minute archival attempt stops at its original timeout after516 files; all uncompleted raw originals and partial artifacts remain. No source corpus or scientific outcome changes. Further bounded closed-evidence compression is active to satisfy complete main storage; no admission based on hoped-for free space. [Aggregate preservation receipts](results/scale_evidence_preservation_20261027/completed-and-stopped-archives.json).
+
 ## October27,2026,08:14 UTC — both corrected numerical gates pass; fresh TUNE registered
 
 Both375.94M recurrent and374.89M conventional roles pass fresh65536-scaler first updates/moments, full512 independent gradients and exact live replay. Conventional discrepancy is0.035978% overall /0.049598% largest family; Native minus CPU NLL is-0.000001539. All qualification weights remain excluded. The original failed157M trial remains ineligible and charged. [Complete numerical proofs](results/scale_65536_numerical_20261027/ordinary8/completion-verification.json).
