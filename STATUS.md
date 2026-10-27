@@ -1,3 +1,9 @@
+## October27,2026,15:57 UTC — ordinary0.004 mature audit passes; guarded main handoff prepared
+
+Ordinary0.004 completes its300-update cooldown and actual replay,then passes the full512 mature numerical audit:0.233366% overall gradient error. Its consumed-TUNE readout remains pending. Both0.002 opportunities still follow through the original gates;no final six-rate selection,main fit or confirmation is admitted.
+
+A guarded handoff is now prepared for the existing8B/10.835B point. It binds the actual tuning handle,complete receipt,archival closure,source and scope,then requires fresh full storage/numerical/data/C0 admission. Any prerequisite failure stops it. If actual space is still short after the active archive closes,it may perform only one inactive,single-stream,at-most50GiB exact archive of closed historical bytes before rechecking the complete allowance. It cannot shrink the scientific point,discard failed histories or bypass a failed check. [Operational scope](docs/SCALE_BODY_EXPOSURE_HANDOFF_20261027.md). Nine targeted tests and all445 full-suite tests pass,two skipped,including blocked handoff,stale prerequisites and archive-before-admission ordering. The watcher is not yet registered or activated.
+
 ## October27,2026,15:37 UTC — recurrent0.004 qualified but worse; ordinary0.004 live
 
 Recurrent0.004 completes every300-update cooldown,replay,full512 mature audit and192-document consumed-TUNE readout gate. Its NLL is3.580602,worse than the qualified0.008 point3.409389. Overall gradient discrepancy is0.178112%,Native minus CPU NLL0.00000247514;no threshold is relaxed. This is an accepted screening history,not an improvement or a matched-work comparison. [Exact score,numerical proof and costs](results/scale_boundary_lower_rates_20261027/completed-recurrent-lr0/score.json).
