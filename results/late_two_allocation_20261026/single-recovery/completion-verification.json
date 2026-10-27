@@ -1,0 +1,77 @@
+{
+  "status": "RECONCILED_AUDITED_SINGLE_SEED_COMPLETION",
+  "observed_unix": 1793064933.0938544,
+  "report_sha256": "669befa70efbbd8d93e1ae3ea3727e55c2dbfa1deed983a0930479887d1044a6",
+  "plan_sha256": "2c88d5639a00ebe99569406f1fcafc99df0d708d001bb3122c4fa40fcaadbcd6",
+  "checkpoint_sha256": "a1a705edc6cf6e9b594012ea13f8c40b667bd061b22f909db7ddea76f1d45b48",
+  "weighted_nll": 2.4818467674694236,
+  "document_totals": {
+    "web": {
+      "nll_sum": 748254.9815022622,
+      "real_targets": 252337,
+      "nll": 2.9653002988157193,
+      "documents": 291
+    },
+    "math": {
+      "nll_sum": 545349.9065404786,
+      "real_targets": 251378,
+      "nll": 2.1694416637115363,
+      "documents": 159
+    },
+    "code": {
+      "nll_sum": 337363.7467689961,
+      "real_targets": 251035,
+      "nll": 1.3438912771884244,
+      "documents": 153
+    }
+  },
+  "comparison_intervals_recomputed": {
+    "ordinary8": {
+      "gain_nats": 0.0004403625388036403,
+      "interval_95": [
+        -0.0015357809480570483,
+        0.002489394368271769
+      ],
+      "source_groups": 518,
+      "accepted_draws": 10000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    },
+    "fixed_two": {
+      "gain_nats": 0.00280113952327099,
+      "interval_95": [
+        0.0007257617908382854,
+        0.004895669185883399
+      ],
+      "source_groups": 518,
+      "accepted_draws": 10000,
+      "warning": "Within-seed uncertainty only; report paired training seeds separately."
+    }
+  },
+  "ordinary8_domain_gains": {
+    "web": 0.0018314396033773939,
+    "math": -0.0011158112056293135,
+    "code": -0.0021766949104842226
+  },
+  "every_registered_gate_passes": true,
+  "all538_sources_unchanged": true,
+  "original_paired_comparison_complete": false,
+  "paired_development_gate_evaluable": false,
+  "meaningful_single_seed_point": false,
+  "original_assigned_chip_hours_including_failed": 17.503490722444322,
+  "recovery_assigned_chip_hours_including_audits": 3.9439661847220524,
+  "total_main_assigned_chip_hours_including_failed": 21.447456907166377,
+  "retained_single_seed_training_chip_hours": 11.989721465640596,
+  "total_main_reservation_opportunity_chip_hours": 38.72257319238451,
+  "reservation_and_assigned_overlap": true,
+  "tune_and_earlier_preparation_costs_reported_separately": true,
+  "actual_updates_summed_over_seed_trajectories": 7700,
+  "failed_discarded_updates": 3179,
+  "further_scientific_admission": false,
+  "fresh_confirmation_admitted": false,
+  "test_accessed": false,
+  "terminal_alpha_spent": 0,
+  "scope": "One reused development seed only. Source-group interval is conditional on this trained pair,not training-seed uncertainty. The tiny ordinary8 difference fails the0.01 useful-effect point criterion;no paired or independent confirmation is claimed. Failed work is retained and separately charged.",
+  "ordinary8_same_seed_training_chip_hours": 11.637052707672119,
+  "descriptive_cross_run_training_time_ratio": 1.0303056767746672,
+  "training_time_comparison_scope": "Cross-run retained training assignments only,not hardware-time-matched or serving latency."
+}

@@ -74,14 +74,15 @@ allocation remain required. Five seeds are a minimum,not a power guarantee.
 No new TEST,reserve or terminal alpha has been used;the overall goal is
 unachieved. [Live status](STATUS.md).
 
-The final-quarter schedule's three-rate TUNE completes, but paired MAIN
-stops at update3300 before any deep training: one seed's full replica-state
-digests disagree, so no checkpoint or paired quality result is accepted.
-The intact seed's original endpoint has a separately registered descriptive
-completion within the unchanged deadline, with all switch/final audits still
-required. It cannot pass the paired gate or admit scaling. Ordinary8 remains
-primary. [Stopped comparison](results/late_two_allocation_20261026/main/REPORT.md) ·
-[Bounded single-seed completion](results/late_two_allocation_20261026/single-recovery/REPORT.md).
+The final-quarter schedule is now closed. Its paired MAIN stops before the
+switch because one seed's replica states disagree. The intact seed completes
+a separately registered recovery with all audits passing:2.481847 NLL versus
+its same-seed ordinary8's2.482287,only0.000440 nats better. The conditional
+source-group95% interval[-0.001536,0.002489]crosses zero and falls far below the
+0.01 useful-effect threshold. One seed cannot resolve training-seed variation;
+the original pair remains numerically incomplete. No scaling or confirmation
+is admitted. [Complete single-seed readout](results/late_two_allocation_20261026/single-recovery/REPORT.md) ·
+[Preserved paired failure](results/late_two_allocation_20261026/main/REPORT.md).
 
 
 The earlier sampled-depth small-core study found useful additional computation
