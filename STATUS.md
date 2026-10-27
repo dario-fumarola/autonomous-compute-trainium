@@ -1,3 +1,9 @@
+## October27,2026,14:29 UTC — conventional four-rate sweep complete; remaining recurrent trial live
+
+Ordinary0.064 passes the full512 mature gradient/NLL and actual replay checks,then the192-document consumed-TUNE readout: NLL3.173142,gradient discrepancy0.135474% overall,Native minus CPU NLL0.00000304736. Its warm/replay Native phases have no supervisor failure or OOM. All four original ordinary rates are now fully qualified:0.0083.097228,0.0163.136751,0.0323.148688,0.0643.173142. The lower0.008 boundary remains best;final combined selection is not yet complete. [Score,numerical proof and costs](results/scale_boundary_last_original_rates_20261027/completed-ordinary-lr3/score.json).
+
+The original recurrent0.064 opportunity is active on all16 chips,reaching130updates at14:28UTC without a reported failure. Its endpoint,audit and readout remain pending. Recurrent0.032 stays explicitly numerically ineligible,with no quality score. Only a complete original-grid certificate can activate the already registered equal-opportunity lower-rate check. No main or confirmation is admitted. Exact archival continues within the current stage's fixed storage allowance,with5.932501GiB recovered so far;all failed histories and raw ZIP dependencies remain preserved.
+
 ## October27,2026,14:15 UTC — ordinary0.064 cooldown/replay complete; mature audit active
 
 The untouched conventional0.064 opportunity completes300 updates and its own cooldown,then actual replay,on all16 chips. Native warm wall648.195seconds,replay167.596seconds;no supervisor failure or OOM. Its independent full512 mature audit reaches272windows at14:14UTC. Quality readout and acceptance remain pending;no new rate,main fit or confirmation is selected. The original recurrent0.064 opportunity follows only after all preceding checks pass.
