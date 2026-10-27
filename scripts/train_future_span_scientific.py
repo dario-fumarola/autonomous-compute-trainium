@@ -29,6 +29,7 @@ from compute_trainium.parcae_training_candidate import finish_gradients,map_afte
 from compute_trainium.parcae_work_accounting import muon_update_matmuls
 from compute_trainium.training import PackedCorpus,atomic_checkpoint,file_sha256
 from scripts.qualify_native import digest
+from compute_trainium.rejected_replica_evidence import enforce_replica_agreement
 
 
 def complete_state(model,optimizer):
@@ -122,9 +123,11 @@ def main():
         state_digest=digest(complete_state(model,optimizer))
         (args.output/f'replica-u{update}-rank{rank}.json').write_text(json.dumps({'full_state_digest':state_digest,
             'fallback_ops':list(torch_neuronx.get_fallback_ops())})+'\n');dist.barrier()
+        replicas=[json.loads((args.output/f'replica-u{update}-rank{i}.json').read_text()) for i in range(32)]
+        enforce_replica_agreement(args.output,update=update,rank=rank,
+            digests=[r['full_state_digest'] for r in replicas],state_factory=lambda:complete_state(model,optimizer),
+            digest_fn=digest,barrier=dist.barrier,failure_message='Full scientific replicas differ')
         if rank==0:
-            replicas=[json.loads((args.output/f'replica-u{update}-rank{i}.json').read_text()) for i in range(32)]
-            if len({r['full_state_digest'] for r in replicas})!=1:raise AssertionError('Full scientific replicas differ')
             if any(set(r['fallback_ops'])-{'aten::_to_copy'} for r in replicas):raise AssertionError('Unexpected scientific fallback')
             path=args.output/f'checkpoint-u{update}.pt'
             atomic_checkpoint(path,{**complete_state(model,optimizer),'purpose':plan['purpose'],

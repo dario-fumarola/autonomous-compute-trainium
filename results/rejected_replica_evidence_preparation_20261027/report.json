@@ -1,0 +1,58 @@
+{
+  "status": "COMPLETE_CPU_TESTED_ISOLATED_REJECTED_STATE_EVIDENCE_PREPARATION",
+  "observed_unix": 1793063725.8709803,
+  "isolated_branch": "codex/rejected-replica-evidence-20261027",
+  "merged_into_active_checkout": false,
+  "source_sha256": {
+    "compute_trainium/rejected_replica_evidence.py": "a28a42128b871939ca8486269ff09581869bf21d21e7eab9afaa981f935c9ade",
+    "scripts/train_future_span_scientific.py": "c403a824350db4d8a718b4330a325ebea09888cb9ab57f1e76aa3cc3c5f68295",
+    "scripts/train_low_depth_scientific.py": "23d8d94f84ecf4fe1f53f7b54fe3787bb87bdd7fda26d23f46d6042b6c6fcc77",
+    "scripts/train_parcae_precise_qualification.py": "21f8543d011b480d51de0c4326cdaaa47f02caaa2fdf21ee8560a69e45dac6e3",
+    "tests/test_rejected_replica_evidence.py": "7a3b874b1ff991628038e1c349791bb8b891b43a9b49ef95e1799afdbfce239c",
+    "docs/REJECTED_REPLICA_EVIDENCE_20261027.md": "96632fe9df4e1040529d81517a74c659cb8f70877f08f21e1e21abbec254d35d"
+  },
+  "cpu_tests": [
+    {
+      "log_sha256": "c37e52dd5c26150cc75b59f3d6f342e132699ed7412042587f1af3c4bfd73190",
+      "summary": "378 passed, 2 skipped in 32.92s"
+    },
+    {
+      "log_sha256": "67de6fb9f936a410cb3d0e2ebc89fee5b9844663c856481f2c68b52dcf63b3fd",
+      "summary": "379 passed, 2 skipped in 33.16s"
+    },
+    {
+      "log_sha256": "2ac74ae91983ecfcacc2c181eceee85102eb2d60bd42c62cabb7a1700f07854a",
+      "summary": "380 passed, 2 skipped in 32.95s"
+    }
+  ],
+  "accepted_mature_state_size_metadata_preflight": {
+    "status": "PASS_READ_ONLY_MATURE_STATE_SIZE_METADATA_PREFLIGHT",
+    "checkpoint_sha256": "055799b6225051139f83d270f91e5bdef61170914dc757ce6f083fc1e75cdd5e",
+    "model_optimizer_tensor_bytes": 1928565208,
+    "per_state_bound_bytes": 3221225472,
+    "metadata_accepted": true,
+    "research_model_forwards": 0,
+    "research_optimizer_updates": 0,
+    "assigned_chips": 0,
+    "scope": "Read-only shape/metadata feasibility on the accepted state,not a Native rejection/capture test."
+  },
+  "active_recovery_sources_checked": 538,
+  "active_recovery_sources_unchanged": true,
+  "bounds": {
+    "selected_ranks_per_group": 2,
+    "max_concurrent_groups": 2,
+    "max_tensor_bytes_per_state": 3221225472,
+    "complete_extra_disk_allowance_bytes": 13153337344,
+    "protected_disk_reserve_bytes": 37580963840,
+    "complete_extra_host_memory_allowance_bytes": 13958643712,
+    "protected_host_memory_bytes": 549755813888,
+    "per_container_headroom_bytes": 7516192768
+  },
+  "native_failure_fixture_executed": false,
+  "native_qualification_complete": false,
+  "research_model_forwards": 0,
+  "research_optimizer_updates": 0,
+  "native_assigned_chip_hours": 0,
+  "new_scientific_training_admitted": false,
+  "scope": "CPU software fixtures and a read-only mature-state metadata check;no new research examples,model training,Native phases or held-out scoring. Work overlaps the ongoing recovery reservation;do not add a second opportunity interval. Rejected payloads stay private and ineligible for resume. No diagnosis or repair of the unsaved failed state is claimed."
+}
