@@ -22,7 +22,7 @@ def prepare(root,*,boundary_corrected=False):
     from compute_trainium.scale_pilot_size import profiled_inventory
     from compute_trainium.scale_work_ledger import fixed_update_work,work_matched_updates
     if managed_running():raise RuntimeError('Complete prior Native closure required')
-    tune_identity='scale-boundary-rate-completion-v1' if boundary_corrected else 'scale-medium-tune-65536-v1'
+    tune_identity='scale-boundary-rate-completion-v2' if boundary_corrected else 'scale-medium-tune-65536-v1'
     tune_file=root/tune_identity/'report.json' if boundary_corrected else root/'scale-tune-readout-recovery-v1/report.json'
     tune=json.loads(tune_file.read_text())
     expected='COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION' if boundary_corrected else 'COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION'

@@ -8,8 +8,8 @@ from compute_trainium.native_comm_ports import reserve_ports
 from compute_trainium.execution_isolation import managed_running
 from scripts.run_scale_sharding_fixture import AllChipExecution
 
-IDENTITY='scale-boundary-rate-completion-v1'
-PUBLIC=Path('results/scale_boundary_rate_completion_20261027')
+IDENTITY='scale-boundary-rate-completion-v2'
+PUBLIC=Path('results/scale_boundary_rate_completion_20261027/registration-v2')
 REUSE={
  'ordinary8-lr0':('scale-medium-tune-65536-v1/plan.json','scale-tune-readout-recovery-v1/progress.json','records'),
  'ordinary8-lr1':('scale-ordinary-lr1-continuation-v1/plan.json','scale-ordinary-lr1-continuation-v1/report.json','record'),
@@ -73,13 +73,17 @@ def prepare(root):
     plan={**parent,'identity':IDENTITY,'registered_unix':start,'source_sha256':sources,'worker_source_sha256':worker,'host_only_source_sha256':host,
         'precision_policy':'fp32_recurrent_boundaries','manual_loss_scale':65536,'invalid_gradient_capture':True,
         'seconds_limit':scope['rate_completion_deadline_unix']-start,'absolute_deadline_unix':scope['rate_completion_deadline_unix'],
-        'original_incomplete_tune_clock_unchanged':True,'scope_freeze_sha256':file_sha256(scope_path),'numerical_gates':{str(proof.relative_to(root)):file_sha256(proof),str(ordinary_proof.relative_to(root)):file_sha256(ordinary_proof)},
+        'original_incomplete_tune_clock_unchanged':True,'scope_freeze_sha256':file_sha256(scope_path),'numerical_gates':{str(proof.parent.relative_to(root)):file_sha256(proof),str(ordinary_proof.parent.relative_to(root)):file_sha256(ordinary_proof)},
         'cases':cases,'case_order':scope['fresh_remaining_cases'],'selection_case_order':parent['case_order'],'reused_cases':reused,
         'phases':phases,'native_phase_seconds_limits':limits,'root_comm_ports':reserve_ports(root,names),
         'case_native_phases':{k:[IDENTITY+'-'+k+'-'+s for s in ['warm','replay']] for k in scope['fresh_remaining_cases']},
         'allowed_tune_artifact_roots':[IDENTITY+'/artifacts'],'actual_new_tune_update_allowance':5*301,
         'scope':scope['scope'],'scientific_main_fit_admitted':False}
-    folder.mkdir();PUBLIC.mkdir();write_state(folder/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
+    for native,sha in plan['numerical_gates'].items():
+        if file_sha256(root/native/'completion-verification.json')!=sha:raise AssertionError('Exact worker proof paths must pass host preflight')
+    plan['preceding_zero_update_launch_failure_sha256']=file_sha256(root/'scale-boundary-rate-completion-v1/report.json')
+    plan['original_rate_completion_clock_unchanged']=True
+    folder.mkdir();PUBLIC.mkdir(parents=True);write_state(folder/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
 
 
 def run(root):

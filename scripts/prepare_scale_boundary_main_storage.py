@@ -9,7 +9,7 @@ from scripts.run_scale_sharding_fixture import SCALE_END
 
 def prepare(root):
     if managed_running():raise RuntimeError('Storage admission follows Native closure')
-    tune_path=root/'scale-boundary-rate-completion-v1/report.json';tune=json.loads(tune_path.read_text())
+    tune_path=root/'scale-boundary-rate-completion-v2/report.json';tune=json.loads(tune_path.read_text())
     if tune['status']!='COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION':raise ValueError('Complete boundary rate selection required')
     scope_path=root/'scale-boundary-scope-freeze-v1/scope.json';scope=json.loads(scope_path.read_text())
     tune_plan=json.loads((tune_path.parent/'plan.json').read_text())
