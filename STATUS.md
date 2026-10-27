@@ -1,3 +1,11 @@
+## October27,2026,11:18 UTC — boundary qualification passes; fresh learning trial active on all16 chips
+
+The fresh375.94M recurrent qualification passes every original first-update/moment,full512 upstream FP32 gradient/NLL and exact replay gate. Gradient discrepancy0.0586202% overall /0.0586514% largest family; Native minus CPU NLL-0.0000006881183.100 warm intervals take235.400seconds. All102 numerical updates remain excluded from scientific initialization. [Complete proof and costs](results/scale_boundary_numerical_20261027/REPORT.md).
+
+The conditional queue immediately admits the one fresh corrected0.016 cell from untouched seed38213 C0 on all16 chips. Its complete35-minute cap ends before the unchanged11:58:26UTC TUNE cutoff. The old failed history remains ineligible. Its own300-update cooldown,mature512 audit,replay and consumed-TUNE score remain pending; no rate selection,main or confirmation is admitted. [Active cell](results/scale_boundary_learning_cell_20261027/REPORT.md).
+
+The larger program remains unachieved: no new matched-work quality result or fresh-seed confirmation. Preserve all original source/state/failure evidence and the unchanged October28,02:09:45UTC initial scale cap.427 full-suite tests pass,two skipped; the separate exact-archive roundtrip test also passes.
+
 ## October27,2026,11:16 UTC — independent boundary audit finishing; single corrected cell queued
 
 The fresh numerical audit passes the first optimizer/moment checks and reaches480/512 windows; full completion/replay comparison remains required. The queued corrected0.016 learning trial will start only on a complete passing receipt and valid35-minute/time/resource admission. All427 source tests pass,two skipped,after the future canonical-serialization and conditional-queue changes. [Conditional scope](results/scale_boundary_learning_cell_20261027/REPORT.md).

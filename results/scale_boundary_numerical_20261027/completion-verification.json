@@ -1,0 +1,113 @@
+{
+  "status": "PASS_BOUNDARY_COMPLETE_NUMERICAL_QUALIFICATION",
+  "scientific_fit_admitted": false,
+  "manual_loss_scale": 65536,
+  "precision_policy": "fp32_recurrent_boundaries",
+  "actual_qualification_updates": 102,
+  "first_update_moments_pass": true,
+  "full512": {
+    "gradient": {
+      "overall": {
+        "relative_l2": 0.0005862020531693052,
+        "maximum_absolute_error": 2.5497865863144398e-06,
+        "reference_l2": 1.0002743894172252
+      },
+      "families": {
+        "recurrent_injection_readout": {
+          "relative_l2": 0.00043930994215313874,
+          "maximum_absolute_error": 5.072251951787621e-08,
+          "reference_l2": 0.025456619721445552
+        },
+        "tied_input_output": {
+          "relative_l2": 0.00046969605459892046,
+          "maximum_absolute_error": 1.2377131497487426e-06,
+          "reference_l2": 0.046606963527055616
+        },
+        "transformer_body": {
+          "relative_l2": 0.0005865138703264801,
+          "maximum_absolute_error": 2.5497865863144398e-06,
+          "reference_l2": 0.9988636556288195
+        },
+        "value_embeddings": {
+          "relative_l2": 0.0005534225819053217,
+          "maximum_absolute_error": 3.0699993658345193e-09,
+          "reference_l2": 5.523566719652488e-05
+        }
+      },
+      "passes_two_percent_gate": true
+    },
+    "cpu_nll": 5.905637657326507,
+    "native_minus_cpu_nll": -6.881182565976474e-07,
+    "cpu_norm_before_clip": 4.280827522277832,
+    "native_norm_before_clip": 4.282077789306641,
+    "windows": 512,
+    "real_targets": 523322,
+    "source_cursor": 51200
+  },
+  "replay": {
+    "update": {
+      "relative_l2": 0.0,
+      "maximum_absolute_error": 0.0,
+      "reference_l2": 0.08819868483424241,
+      "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+    },
+    "moments": {
+      "relative_l2": 0.0,
+      "maximum_absolute_error": 0.0,
+      "reference_l2": 0.5665379866274178
+    },
+    "families": {
+      "adamw": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.08806573292840583,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.02548534251432956
+        }
+      },
+      "muon": {
+        "update": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.004840938986676059,
+          "scope": "Actual update minus prescribed independent update, normalized by the independent update size."
+        },
+        "moments": {
+          "relative_l2": 0.0,
+          "maximum_absolute_error": 0.0,
+          "reference_l2": 0.5659644755713699
+        }
+      }
+    },
+    "passes": true
+  },
+  "independent_cpu_report_sha256": "c49702ce792988e73eacda995cefebda5584ec0fc7cf36270f2c72bf2df4dde3",
+  "warm": {
+    "status": "CAPTURED_SCALE_ACTUAL_SHAPE_NUMERICAL",
+    "plan_sha256": "c474296d971ea38b60efda9c9df317c21250c0275c3e16bcd850e7fc8ee60108",
+    "mode": "warm",
+    "qualification_only": true,
+    "eligible_for_science": false,
+    "parameters": 375940224,
+    "world": 64,
+    "model_role": "fixed_two",
+    "actual_optimizer_updates": 101,
+    "warm_updates": 100,
+    "warm_seconds": 235.40002572711091,
+    "checkpoint_seconds": 5.719975812942721,
+    "gradient_capture_seconds": 5.3847503119613975,
+    "wall_seconds": 349.3340790271759,
+    "real_targets": 52860720,
+    "neural_ops": 98197046858612736,
+    "optimizer_ops": 658821172821120,
+    "scientific_fit_admitted": false,
+    "scope": "Actual-shape numerical/throughput capture only; independent CPU and replay comparison remain required."
+  },
+  "plan_sha256": "c474296d971ea38b60efda9c9df317c21250c0275c3e16bcd850e7fc8ee60108",
+  "finished_unix": 1793099819.317714
+}
