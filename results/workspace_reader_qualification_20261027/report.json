@@ -1,0 +1,1741 @@
+{
+  "status": "COMPLETE_PRETRAINED_READER_QUALIFICATION",
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "separate_embedding_gradient_diagnostic": {
+    "forward_calls": 1,
+    "backward_calls": 1,
+    "batch": 1,
+    "input_positions": 120,
+    "projected_positions": 120,
+    "warning": "Additional uncached forward/backward;not included in inference-only forward ledger."
+  },
+  "parameters": 1484916736,
+  "model_parameter_versions_unchanged": true,
+  "measurements": [
+    {
+      "domain": "web",
+      "raw_nll": 1.379351019859314,
+      "framed_empty_nll": 2.9581642150878906,
+      "own_nll": 3.662560224533081,
+      "sampled_gain_mean": -2.2832090854644775,
+      "sampled_gain_std": 0.6525951027870178,
+      "donor_nll": 3.4179694652557373,
+      "pause_nll": 2.6872949600219727,
+      "privileged_future_copy_gain": 0.2092663049697876,
+      "workspace_embedding_gradient_l2": 1.7205692529678345
+    },
+    {
+      "domain": "web",
+      "raw_nll": 2.1999566555023193,
+      "framed_empty_nll": 5.416200637817383,
+      "own_nll": 6.37472677230835,
+      "sampled_gain_mean": -4.174770355224609,
+      "sampled_gain_std": 0.16178041696548462,
+      "donor_nll": 6.379751205444336,
+      "pause_nll": 6.0863752365112305,
+      "privileged_future_copy_gain": 1.4420677423477173
+    },
+    {
+      "domain": "web",
+      "raw_nll": 1.4968315362930298,
+      "framed_empty_nll": 5.706627368927002,
+      "own_nll": 7.9981184005737305,
+      "sampled_gain_mean": -6.501287460327148,
+      "sampled_gain_std": 0.6254720091819763,
+      "donor_nll": 6.9906487464904785,
+      "pause_nll": 6.431632995605469,
+      "privileged_future_copy_gain": 0.8606510162353516
+    },
+    {
+      "domain": "web",
+      "raw_nll": 5.168381214141846,
+      "framed_empty_nll": 6.690978050231934,
+      "own_nll": 6.5772199630737305,
+      "sampled_gain_mean": -1.4088386297225952,
+      "sampled_gain_std": 0.21274375915527344,
+      "donor_nll": 7.10517692565918,
+      "pause_nll": 6.543713092803955,
+      "privileged_future_copy_gain": 3.5864245891571045
+    },
+    {
+      "domain": "web",
+      "raw_nll": 3.3164570331573486,
+      "framed_empty_nll": 4.670848369598389,
+      "own_nll": 4.750872611999512,
+      "sampled_gain_mean": -1.4344160556793213,
+      "sampled_gain_std": 0.22390353679656982,
+      "donor_nll": 4.813025951385498,
+      "pause_nll": 4.464189529418945,
+      "privileged_future_copy_gain": 2.3232991695404053
+    },
+    {
+      "domain": "web",
+      "raw_nll": 3.98758602142334,
+      "framed_empty_nll": 6.568032741546631,
+      "own_nll": 7.89422082901001,
+      "sampled_gain_mean": -3.90663480758667,
+      "sampled_gain_std": 0.3731398582458496,
+      "donor_nll": 8.539036750793457,
+      "pause_nll": 7.436465740203857,
+      "privileged_future_copy_gain": 1.462125301361084
+    },
+    {
+      "domain": "math",
+      "raw_nll": 4.39573335647583,
+      "framed_empty_nll": 5.502074241638184,
+      "own_nll": 6.126145362854004,
+      "sampled_gain_mean": -1.7304116487503052,
+      "sampled_gain_std": 0.6524150967597961,
+      "donor_nll": 5.844602584838867,
+      "pause_nll": 5.635388374328613,
+      "privileged_future_copy_gain": 3.676194429397583
+    },
+    {
+      "domain": "math",
+      "raw_nll": 4.415261268615723,
+      "framed_empty_nll": 7.165905475616455,
+      "own_nll": 7.525940418243408,
+      "sampled_gain_mean": -3.1106793880462646,
+      "sampled_gain_std": 0.30205491185188293,
+      "donor_nll": 7.427181243896484,
+      "pause_nll": 7.381076812744141,
+      "privileged_future_copy_gain": 3.9066975116729736
+    },
+    {
+      "domain": "code",
+      "raw_nll": 0.0007883618236519396,
+      "framed_empty_nll": 5.93985652923584,
+      "own_nll": 6.612804412841797,
+      "sampled_gain_mean": -6.612016201019287,
+      "sampled_gain_std": 0.5893516540527344,
+      "donor_nll": 6.642566680908203,
+      "pause_nll": 6.012380123138428,
+      "privileged_future_copy_gain": -0.6174783110618591
+    },
+    {
+      "domain": "code",
+      "raw_nll": 1.0827717781066895,
+      "framed_empty_nll": 6.956936359405518,
+      "own_nll": 6.725537300109863,
+      "sampled_gain_mean": -5.642765045166016,
+      "sampled_gain_std": 0.18776586651802063,
+      "donor_nll": 6.763138294219971,
+      "pause_nll": 7.0075297355651855,
+      "privileged_future_copy_gain": -0.03441810607910156
+    }
+  ],
+  "content_sensitive_embedding_gradient": 1.7205692529678345,
+  "warning": "Sensitivity and target-copy control are not learned reasoning or held-out generalization. No actor/scorer optimization or Native qualification yet.",
+  "wall_seconds": 98.10942769050598,
+  "forward_ledger": {
+    "forward_calls": 200,
+    "processed_positions": 54800,
+    "projected_positions": 54800,
+    "forward_wall_seconds": 86.44432855281048,
+    "events": [
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 103,
+        "output_positions": 103,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5896608770126477
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 104,
+        "output_positions": 104,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6858411240391433
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 105,
+        "output_positions": 105,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7678491020342335
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 106,
+        "output_positions": 106,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6728704289998859
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 107,
+        "output_positions": 107,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6993162690196186
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 108,
+        "output_positions": 108,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6959838719340041
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 109,
+        "output_positions": 109,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6915861470624804
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 110,
+        "output_positions": 110,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6913397120079026
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 121,
+        "output_positions": 121,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7997960189823061
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 122,
+        "output_positions": 122,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7287595600355417
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7269606820773333
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 124,
+        "output_positions": 124,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7170929179992527
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 125,
+        "output_positions": 125,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7546066580107436
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 126,
+        "output_positions": 126,
+        "vocabulary": 100352,
+        "wall_seconds": 0.8012186749838293
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 127,
+        "output_positions": 127,
+        "vocabulary": 100352,
+        "wall_seconds": 0.776807811926119
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 128,
+        "output_positions": 128,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6989244759315625
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 90,
+        "output_positions": 90,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5584503919817507
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 91,
+        "output_positions": 91,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5886185070266947
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 92,
+        "output_positions": 92,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5592821440659463
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 93,
+        "output_positions": 93,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5519812509883195
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 94,
+        "output_positions": 94,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5432202559895813
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 95,
+        "output_positions": 95,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5489603750174865
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 96,
+        "output_positions": 96,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5414181210799143
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 97,
+        "output_positions": 97,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5571127720177174
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 99,
+        "output_positions": 99,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5656415999401361
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 100,
+        "output_positions": 100,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5603438590187579
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 101,
+        "output_positions": 101,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5694190179929137
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 102,
+        "output_positions": 102,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5703105620341375
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 103,
+        "output_positions": 103,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5789013600442559
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 104,
+        "output_positions": 104,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5739659010432661
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 105,
+        "output_positions": 105,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5853567549493164
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 106,
+        "output_positions": 106,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5836576269939542
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6321078180335462
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 121,
+        "output_positions": 121,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6416729839984328
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 122,
+        "output_positions": 122,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6426877280464396
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6498362789861858
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 124,
+        "output_positions": 124,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6471105549717322
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 125,
+        "output_positions": 125,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6877943199360743
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 126,
+        "output_positions": 126,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6696442799875513
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 127,
+        "output_positions": 127,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6761666940292343
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 124,
+        "output_positions": 124,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6608658079057932
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 125,
+        "output_positions": 125,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6750837260624394
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 126,
+        "output_positions": 126,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6795594489667565
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 127,
+        "output_positions": 127,
+        "vocabulary": 100352,
+        "wall_seconds": 0.676671938970685
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 128,
+        "output_positions": 128,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6710122360382229
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 129,
+        "output_positions": 129,
+        "vocabulary": 100352,
+        "wall_seconds": 0.684130197041668
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6837337020551786
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 131,
+        "output_positions": 131,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6965162459528074
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 131,
+        "output_positions": 131,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6885979030048475
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 132,
+        "output_positions": 132,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6910631959326565
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 133,
+        "output_positions": 133,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6988912730012089
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 134,
+        "output_positions": 134,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7027436479693279
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 135,
+        "output_positions": 135,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7090965119423345
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 136,
+        "output_positions": 136,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7032226579030976
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 137,
+        "output_positions": 137,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7137384280795231
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 138,
+        "output_positions": 138,
+        "vocabulary": 100352,
+        "wall_seconds": 0.730595997069031
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 113,
+        "output_positions": 113,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6203398130601272
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 114,
+        "output_positions": 114,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6171617689542472
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 115,
+        "output_positions": 115,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6295979529386386
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 116,
+        "output_positions": 116,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6289300359785557
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 117,
+        "output_positions": 117,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6355567839927971
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 118,
+        "output_positions": 118,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6343123819679022
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 119,
+        "output_positions": 119,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6441417749738321
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6409613309660926
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 103,
+        "output_positions": 103,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5851335669867694
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 104,
+        "output_positions": 104,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5791145300026983
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 105,
+        "output_positions": 105,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5923871590057388
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 106,
+        "output_positions": 106,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5902706320630386
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 107,
+        "output_positions": 107,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6010041469708085
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 108,
+        "output_positions": 108,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5972781759919599
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 109,
+        "output_positions": 109,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6039454699493945
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 110,
+        "output_positions": 110,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6070103720994666
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 106,
+        "output_positions": 106,
+        "vocabulary": 100352,
+        "wall_seconds": 0.5891072370577604
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 107,
+        "output_positions": 107,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6097207010025159
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 108,
+        "output_positions": 108,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6089797969907522
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 109,
+        "output_positions": 109,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6141547471052036
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 110,
+        "output_positions": 110,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6080803479999304
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 111,
+        "output_positions": 111,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6164661819348112
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6049321299651638
+      },
+      {
+        "phase": "workspace_sampling",
+        "batch": 4,
+        "input_positions": 113,
+        "output_positions": 113,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6169840130023658
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 102,
+        "output_positions": 102,
+        "vocabulary": 100352,
+        "wall_seconds": 0.22981391102075577
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24102542304899544
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.63978946802672
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 102,
+        "output_positions": 102,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2136707940371707
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24277867504861206
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.25229670898988843
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 102,
+        "output_positions": 102,
+        "vocabulary": 100352,
+        "wall_seconds": 0.21178423205856234
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.23969394795130938
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2523851919686422
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 102,
+        "output_positions": 102,
+        "vocabulary": 100352,
+        "wall_seconds": 0.21157033694908023
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24145368300378323
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.25257280108053237
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.25601030606776476
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2657205850118771
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 138,
+        "output_positions": 138,
+        "vocabulary": 100352,
+        "wall_seconds": 0.9061060509411618
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2523888209834695
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.26557002204936
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 138,
+        "output_positions": 138,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2766206070082262
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.25246524799149483
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2664438870269805
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 138,
+        "output_positions": 138,
+        "vocabulary": 100352,
+        "wall_seconds": 0.27529138105455786
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.25136083096731454
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.26463794405572116
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 138,
+        "output_positions": 138,
+        "vocabulary": 100352,
+        "wall_seconds": 0.27553329803049564
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 89,
+        "output_positions": 89,
+        "vocabulary": 100352,
+        "wall_seconds": 0.19837397697847337
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 99,
+        "output_positions": 99,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2095046309987083
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 107,
+        "output_positions": 107,
+        "vocabulary": 100352,
+        "wall_seconds": 0.597086944966577
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 89,
+        "output_positions": 89,
+        "vocabulary": 100352,
+        "wall_seconds": 0.1994197580497712
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 99,
+        "output_positions": 99,
+        "vocabulary": 100352,
+        "wall_seconds": 0.20926795399282128
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 107,
+        "output_positions": 107,
+        "vocabulary": 100352,
+        "wall_seconds": 0.23617479903623462
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 89,
+        "output_positions": 89,
+        "vocabulary": 100352,
+        "wall_seconds": 0.19779378804378211
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 99,
+        "output_positions": 99,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2100608740001917
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 107,
+        "output_positions": 107,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2198057359782979
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 89,
+        "output_positions": 89,
+        "vocabulary": 100352,
+        "wall_seconds": 0.19789291499182582
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 99,
+        "output_positions": 99,
+        "vocabulary": 100352,
+        "wall_seconds": 0.20857930707279593
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 107,
+        "output_positions": 107,
+        "vocabulary": 100352,
+        "wall_seconds": 0.21865684492513537
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 98,
+        "output_positions": 98,
+        "vocabulary": 100352,
+        "wall_seconds": 0.20871377200819552
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 108,
+        "output_positions": 108,
+        "vocabulary": 100352,
+        "wall_seconds": 0.23553343093954027
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 116,
+        "output_positions": 116,
+        "vocabulary": 100352,
+        "wall_seconds": 0.6259232159936801
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 98,
+        "output_positions": 98,
+        "vocabulary": 100352,
+        "wall_seconds": 0.207996082957834
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 108,
+        "output_positions": 108,
+        "vocabulary": 100352,
+        "wall_seconds": 0.21679322107229382
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 116,
+        "output_positions": 116,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24625576799735427
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 98,
+        "output_positions": 98,
+        "vocabulary": 100352,
+        "wall_seconds": 0.20659132697619498
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 108,
+        "output_positions": 108,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2171409549191594
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 116,
+        "output_positions": 116,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2460308240260929
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 98,
+        "output_positions": 98,
+        "vocabulary": 100352,
+        "wall_seconds": 0.20633103605359793
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 108,
+        "output_positions": 108,
+        "vocabulary": 100352,
+        "wall_seconds": 0.21686769905500114
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 116,
+        "output_positions": 116,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24580654804594815
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 119,
+        "output_positions": 119,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2531343071023002
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 129,
+        "output_positions": 129,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2637913819635287
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 137,
+        "output_positions": 137,
+        "vocabulary": 100352,
+        "wall_seconds": 0.895702115027234
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 119,
+        "output_positions": 119,
+        "vocabulary": 100352,
+        "wall_seconds": 0.252590560936369
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 129,
+        "output_positions": 129,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2636030169669539
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 137,
+        "output_positions": 137,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2741154219256714
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 119,
+        "output_positions": 119,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2761530870338902
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 129,
+        "output_positions": 129,
+        "vocabulary": 100352,
+        "wall_seconds": 0.26456954900640994
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 137,
+        "output_positions": 137,
+        "vocabulary": 100352,
+        "wall_seconds": 0.27447426703292876
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 119,
+        "output_positions": 119,
+        "vocabulary": 100352,
+        "wall_seconds": 0.251639990019612
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 129,
+        "output_positions": 129,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2682431599823758
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 137,
+        "output_positions": 137,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2740318680880591
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2595979470061138
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 133,
+        "output_positions": 133,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2681118040345609
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 141,
+        "output_positions": 141,
+        "vocabulary": 100352,
+        "wall_seconds": 0.9171344160567969
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2579653619322926
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 133,
+        "output_positions": 133,
+        "vocabulary": 100352,
+        "wall_seconds": 0.26828198099974543
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 141,
+        "output_positions": 141,
+        "vocabulary": 100352,
+        "wall_seconds": 0.27875917206984013
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2578205750323832
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 133,
+        "output_positions": 133,
+        "vocabulary": 100352,
+        "wall_seconds": 0.26797944703139365
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 141,
+        "output_positions": 141,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2783764679916203
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.25635006092488766
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 133,
+        "output_positions": 133,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2692483590217307
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 141,
+        "output_positions": 141,
+        "vocabulary": 100352,
+        "wall_seconds": 0.27945075498428196
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.26478461804799736
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 140,
+        "output_positions": 140,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2756387769477442
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 148,
+        "output_positions": 148,
+        "vocabulary": 100352,
+        "wall_seconds": 0.9439545919885859
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2654068599222228
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 140,
+        "output_positions": 140,
+        "vocabulary": 100352,
+        "wall_seconds": 0.27513631398323923
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 148,
+        "output_positions": 148,
+        "vocabulary": 100352,
+        "wall_seconds": 0.28510486893355846
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2638613459421322
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 140,
+        "output_positions": 140,
+        "vocabulary": 100352,
+        "wall_seconds": 0.27504956105258316
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 148,
+        "output_positions": 148,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2854576379759237
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2635438620345667
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 140,
+        "output_positions": 140,
+        "vocabulary": 100352,
+        "wall_seconds": 0.27687295991927385
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 148,
+        "output_positions": 148,
+        "vocabulary": 100352,
+        "wall_seconds": 0.285182696999982
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2399856080301106
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 122,
+        "output_positions": 122,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2545791150769219
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.8593122040620074
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24183796311262995
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 122,
+        "output_positions": 122,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2541113269980997
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2639332029502839
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24063537793699652
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 122,
+        "output_positions": 122,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2553052620496601
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.26454087998718023
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2406143459957093
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 122,
+        "output_positions": 122,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2559368700021878
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 130,
+        "output_positions": 130,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2647230098955333
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 102,
+        "output_positions": 102,
+        "vocabulary": 100352,
+        "wall_seconds": 0.21336486109066755
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.23974484903737903
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7089430670021102
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 102,
+        "output_positions": 102,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2128105100709945
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.23962351900991052
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2505156829720363
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 102,
+        "output_positions": 102,
+        "vocabulary": 100352,
+        "wall_seconds": 0.21703280392102897
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24011398700531572
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.25055280001834035
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 102,
+        "output_positions": 102,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2117202760418877
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 112,
+        "output_positions": 112,
+        "vocabulary": 100352,
+        "wall_seconds": 0.23997620702721179
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 120,
+        "output_positions": 120,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2500492100371048
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 105,
+        "output_positions": 105,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2166190210264176
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 115,
+        "output_positions": 115,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24613572808448225
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 4,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.7258005529874936
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 105,
+        "output_positions": 105,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2200193500611931
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 115,
+        "output_positions": 115,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24598412704654038
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.260360182961449
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 105,
+        "output_positions": 105,
+        "vocabulary": 100352,
+        "wall_seconds": 0.21571315394248813
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 115,
+        "output_positions": 115,
+        "vocabulary": 100352,
+        "wall_seconds": 0.24599014106206596
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.26094115793239325
+      },
+      {
+        "phase": "scorer_raw_no_workspace",
+        "batch": 1,
+        "input_positions": 105,
+        "output_positions": 105,
+        "vocabulary": 100352,
+        "wall_seconds": 0.22004515898879617
+      },
+      {
+        "phase": "scorer_empty_frame",
+        "batch": 1,
+        "input_positions": 115,
+        "output_positions": 115,
+        "vocabulary": 100352,
+        "wall_seconds": 0.2453145639738068
+      },
+      {
+        "phase": "scorer_workspace",
+        "batch": 1,
+        "input_positions": 123,
+        "output_positions": 123,
+        "vocabulary": 100352,
+        "wall_seconds": 0.25736828695517033
+      }
+    ],
+    "warning": "Full recomputation reference. Positions are not FLOPs. Backward,optimizer,EMA and sampling costs need separate measurement."
+  },
+  "plan_sha256": "c0e680ef314a40718077897300f25c9b5c57ddeaff7f22de0e8a8485b4ba52e7"
+}

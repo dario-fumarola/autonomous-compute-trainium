@@ -9,13 +9,20 @@ teacher models,added reasoning traces or reinforcement learning. Real-token
 negative log likelihood (NLL) remains the broad-text primary outcome. Equal-data and training-work comparisons answer different
 questions and are reported separately.
 
-The October27 scale follow-up is still in numerical/rate screening:375.94M
-recurrent versus374.89M conventional parameters. A mature higher-rate trial
-is rejected at6.07% overall gradient error despite close loss agreement;
-separately passing lower-rate trials remain valid. The untouched remaining
-rate controls are running. No larger main quality comparison or confirmation
-is complete. [Current status](STATUS.md) ·
-[Reproduced numerical rejection](results/scale_r032_audit_observation_20261027/REPORT.md).
+On October27 the owner stopped the recurrence follow-up and adopted a new
+workspace-learning direction: generate temporary intermediate tokens,score
+their predictive value with a frozen lagged reader,and learn content before
+allocation. A provenance-pinned pretrained discovery experiment precedes the
+separate eventual from-scratch claim. Online self-generated workspaces and
+policy gradients are authorized for this new phase. Earlier results retain
+their original criteria;no larger recurrence main or confirmation completed.
+[New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
+
+The first implementation passes458 CPU tests,two skipped,including an exact
+policy-gradient check. A zero-update1.485B stage-one reader check on ten natural
+TRAIN anchors finds content sensitivity but severe framing interference.
+This is numerical/interface qualification,not a learned-thinking result.
+[Reader diagnostic](results/workspace_reader_qualification_20261027/report.json).
 
 The conventional eight-layer challenger now slightly outperforms fixed
 recurrence at matched nominal training work in both development seeds. The

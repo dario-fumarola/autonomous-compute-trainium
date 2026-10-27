@@ -1,3 +1,15 @@
+## October27,2026,17:20 UTC — workspace reference tested; pretrained reader exposes framing problem
+
+The new owner-authorized charter separates pretrained discovery from eventual early-active/delayed from-scratch pretraining. Policy gradients and online temporary workspaces are permitted only in this new phase;all older results stay unchanged. The old paused goal has not been achieved or relabeled complete. [Charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md).
+
+The uncached reference implements prefix-only generation,frozen-reader counterfactuals,detached leave-one-out advantages,reader NTP and explicit EMA. Seven new tests include agreement with the exact expected-reward gradient,causal target alignment,temperature-consistent action probabilities,RNG replay,no scorer gradients,and full recomputation after edits. All458 source tests pass,two skipped.
+
+The pinned OLMo2 stage-one base,commit9d3e43659f00c17e6da23cf32333afd1fc39fa1a,is acquired with both original weight SHA256s verified. Actual inventory1,484,916,736 parameters. No instruction/mid-training stage-two checkpoint is substituted. Acquisition takes36.850seconds,zero chips/updates. [Asset provenance](results/workspace_base_preparation_20261027/report.json).
+
+A98.109-second CPU-only reader check uses ten accepted TRAIN groups,60/20/20 web/math/code anchors,G4,workspace8,horizon4,and zero optimizer updates. Mean raw NLL2.744312,empty-framed5.757562,sampled-workspace6.424815. All groups have nonzero sampled reward variation;the first workspace embedding-gradient norm is1.720569. Thus the reader depends on workspace content,but this interface sharply damages prediction before learning. There are200 full-recomputation forwards plus one separately counted embedding-gradient forward/backward. Parameter versions stay unchanged. Privileged future-copy probes are labeled positive controls,never generated thoughts or performance claims. [Exact diagnostic](results/workspace_reader_qualification_20261027/report.json).
+
+Next qualify a bounded reader-only NTP bootstrap and measure held-out-from-calibration interface behavior before expensive policy learning. No useful-thought,efficiency,transfer,allocation or from-scratch claim is established. No Native fit,TEST or fresh confirmation source is admitted.
+
 ## October27,2026,17:00 UTC — owner stops recurrence direction; no live accelerator workers
 
 The background final ordinary recovery completes300 warm updates but stops before replay when the complete worker-plus-host reserve cannot be admitted. Its endpoint remains unqualified and has no predictive score;the state,source and costs remain. After the owner stop instruction,no Native workers are live and no old main or confirmation is admitted. The separately tested archival-stage extension was never activated and is withdrawn from working source. [Preserved stop](results/scale_final_lower_rate_recovery_20261027/stopped-summary.json).

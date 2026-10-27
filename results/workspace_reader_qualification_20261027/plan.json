@@ -1,0 +1,65 @@
+{
+  "registered_unix": 1793121324.339103,
+  "base_revision": "9d3e43659f00c17e6da23cf32333afd1fc39fa1a",
+  "base_report_sha256": "02ca686ace432b59a6433fed7cafba9866262cbda84fd50d61891914383f75ee",
+  "source_corpus_sha256": "81fe046e2487b71b7a5f823ac5a0f5a2c0a013de06d76b30fa2b9776b4f51e31",
+  "raw_sources": [
+    {
+      "domain": "web",
+      "repository": "HuggingFaceFW/fineweb-edu",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "file": "data/CC-MAIN-2013-20/train-00000-of-00014.parquet",
+      "sha256": "fb989c566f6fba00ab61decc5f7aa1538a07d9b142e58a52ff790154528ffd03"
+    },
+    {
+      "domain": "math",
+      "repository": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "file": "finemath-4plus/train-00000-of-00064.parquet",
+      "sha256": "5d0b26114b4cf309c82a4ba8f6f45857480b27812e23a46b61b45e8bbed61fe5"
+    },
+    {
+      "domain": "code",
+      "repository": "codeparrot/codeparrot-clean",
+      "revision": "35a59fb025bc0a102f7d96eac09d145b896d487b",
+      "file": "file-000000000001.json.gz",
+      "sha256": "3726a0239b5cb7d0ef3ea36886c533d0becc7404217763015559edb546d53c94"
+    }
+  ],
+  "views_sha256": "b402265205192d0faf35f736cc4354e7bc9cbba3f114063209a70a630df10ad0",
+  "source_sha256": {
+    "scripts/qualify_workspace_reader.py": "b979511d856d1d30e4a5de7bea237a6d1f843a841653ac5bba571c3dd7417632",
+    "compute_trainium/workspace_learning.py": "ed160b4cc82b17b3c392d55b742b3a6b973d6fafa37ca49a322a131e090b8c13"
+  },
+  "anchors": 10,
+  "domain_anchors": {
+    "web": 6,
+    "math": 2,
+    "code": 2
+  },
+  "group_size": 4,
+  "workspace_length": 8,
+  "reward_horizon": 4,
+  "seed": 204137,
+  "temperature": 1.0,
+  "cpu_threads": 16,
+  "opening_ids": [
+    271,
+    11830,
+    28614,
+    512
+  ],
+  "closing_ids": [
+    271,
+    24433,
+    279,
+    4113,
+    1495,
+    512
+  ],
+  "maximum_seconds": 1800,
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "test_accessed": false,
+  "scope": "TRAIN-only software/reader qualification,not a learned-workspace or held-out performance result. True-future copy is a labeled privileged positive control only."
+}
