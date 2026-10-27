@@ -14,7 +14,7 @@ IDENTITY='closed-956m-replay-exact-archive-v1'
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True)
-    parser.add_argument('--profile',choices=['large','medium_recurrent','medium_ordinary'],default='large')
+    parser.add_argument('--profile',choices=['large','medium_recurrent','medium_ordinary','failed_tune_replay'],default='large')
     parser.add_argument('--apply',action='store_true');args=parser.parse_args();root=args.root
     if root.resolve()!=Path('/run/user/1000/autonomous-compute/instance-nvme'):
         raise ValueError('Exact existing research root required')
@@ -22,10 +22,16 @@ def main():
         'large':('scale-956m-numerical-v1','PASS_SCALE_956M_COMPLETE_NUMERICAL_QUALIFICATION',129),
         'medium_recurrent':('scale-376m-fixed-two-numerical-v1','PASS_SCALE_MEDIUM_FIXED_TWO_COMPLETE_NUMERICAL_QUALIFICATION',129),
         'medium_ordinary':('scale-375m-ordinary-numerical-v1','PASS_SCALE_MEDIUM_ORDINARY_COMPLETE_NUMERICAL_QUALIFICATION',65),
+        'failed_tune_replay':('scale-medium-tune-v1','STOPPED_SCALE_TUNE',64),
     }[args.profile]
-    proof_file=root/native/'completion-verification.json';proof=json.loads(proof_file.read_text())
+    proof_file=root/native/('report.json' if args.profile=='failed_tune_replay' else 'completion-verification.json');proof=json.loads(proof_file.read_text())
     if proof['status']!=status:raise ValueError('Complete independent closure required')
     base=root.parent/'recurrence'/native if args.profile=='large' else root/native/'artifacts'
+    if args.profile=='failed_tune_replay':
+        base=root/native/'tune-artifacts/fixed-two-lr0'
+        for mode in ['warm','replay']:
+            closure=root/'snapshots'/('scale-medium-tune-v1-fixed-two-lr0-'+mode)/'closure.json'
+            if json.loads(closure.read_text())['exit_code']!=0:raise ValueError('Both owned Native captures must be closed')
     identity=IDENTITY if args.profile=='large' else 'closed-'+args.profile.replace('_','-')+'-replay-exact-archive-v1'
     out=root/identity
     if out.exists():raise FileExistsError('Preserve every archival attempt')
@@ -33,7 +39,8 @@ def main():
     children=sorted((base/'replay').glob('*.pt'))
     if len(children)!=count:raise ValueError('Exact registered closed replay file scope required')
     for child in children:
-        if (not re.fullmatch(r'(?:rank(?:[0-9]|[1-5][0-9]|6[0-3])-u101|noise-u100-rank(?:[0-9]|[1-5][0-9]|6[0-3])|gradient-u100)\.pt',child.name)
+        pattern=r'rank(?:[0-9]|[1-5][0-9]|6[0-3])-u300\.pt' if args.profile=='failed_tune_replay' else r'(?:rank(?:[0-9]|[1-5][0-9]|6[0-3])-u101|noise-u100-rank(?:[0-9]|[1-5][0-9]|6[0-3])|gradient-u100)\.pt'
+        if (not re.fullmatch(pattern,child.name)
                 or child.is_symlink() or not (base/'warm'/child.name).is_file()):
             raise ValueError('Closed exact replay filename required')
     (out/'plan.json').write_text(json.dumps(dict(identity=identity,profile=args.profile,started_unix=started,deadline_unix=deadline,
@@ -46,12 +53,12 @@ def main():
         if shutil.disk_usage(base).free<35*1024**3:raise RuntimeError('Protected archive filesystem reserve')
         recipe=child.with_suffix(child.suffix+'.archive.json')
         row=create_archive(base/'warm'/child.name,child,recipe)
-        if row['shared_payload_bytes']<.99*row['original_bytes']:
+        if row['shared_payload_bytes']<(.25 if args.profile=='failed_tune_replay' else .99)*row['original_bytes']:
             raise AssertionError('Expected exact duplicate payload was not established')
         return dict(file=child.name,recipe=recipe.name,**row)
     with futures.ThreadPoolExecutor(4) as pool:rows=list(pool.map(one,children))
     # One real serialized state also undergoes a materialized exact round trip.
-    sample=next(r for r in rows if r['file']=='rank63-u101.pt');temporary=base/'replay/materialized-roundtrip-check.pt'
+    sample=next(r for r in rows if r['file']==('rank63-u300.pt' if args.profile=='failed_tune_replay' else 'rank63-u101.pt'));temporary=base/'replay/materialized-roundtrip-check.pt'
     restore_archive(base/'replay'/sample['recipe'],temporary)
     if digest_file(temporary)!=sample['original_sha256']:raise AssertionError('Actual state round trip failed')
     temporary.unlink()

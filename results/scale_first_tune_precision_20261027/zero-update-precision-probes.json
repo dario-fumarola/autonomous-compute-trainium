@@ -1,0 +1,161 @@
+{
+  "status": "COMPLETE_UNCHANGED_SCALE_PRECISION_DIAGNOSIS",
+  "records": {
+    "scaled16": {
+      "native": {
+        "status": "CAPTURED_UNCHANGED_SCALE_PRECISION_GRADIENT",
+        "variant": "scaled16",
+        "world": 64,
+        "plan_sha256": "c85633469b1422456a41d259f96b35ea35b71f97cc2b8b1c166f5035406e5f09",
+        "optimizer_updates": 0,
+        "parameters_unchanged": true,
+        "parameters": 375940224,
+        "manual_loss_scale": 65536,
+        "nll": 3.224104355418671,
+        "raw_gradient_norm": 0.22638119757175446,
+        "gradient_sha256": "45b22b0d30bbf663a761d267c50db9a94ff4bd729c0a09492733c9ff857f569b",
+        "wall_seconds": 141.36252117156982,
+        "scientific_fit_admitted": false
+      },
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.0023527843333060686,
+          "maximum_absolute_error": 3.3345495467074215e-06,
+          "reference_l2": 0.22637875939836344
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.001938005576480057,
+            "maximum_absolute_error": 2.0567131286952645e-07,
+            "reference_l2": 0.009107481684083341
+          },
+          "tied_input_output": {
+            "relative_l2": 0.001342772048979239,
+            "maximum_absolute_error": 2.5415210984647274e-06,
+            "reference_l2": 0.026198368376403377
+          },
+          "transformer_body": {
+            "relative_l2": 0.00236416361852711,
+            "maximum_absolute_error": 3.3345495467074215e-06,
+            "reference_l2": 0.22467264904227624
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0024033581767520648,
+            "maximum_absolute_error": 9.735026651469525e-08,
+            "reference_l2": 0.00049269753057576
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "native_minus_cpu_nll": 2.869758079171447e-06,
+      "passes_unchanged_point_gate": true,
+      "actual_optimizer_updates": 0,
+      "eligible_for_science": false
+    },
+    "boundary32": {
+      "native": {
+        "status": "CAPTURED_UNCHANGED_SCALE_PRECISION_GRADIENT",
+        "variant": "boundary32",
+        "world": 64,
+        "plan_sha256": "c85633469b1422456a41d259f96b35ea35b71f97cc2b8b1c166f5035406e5f09",
+        "optimizer_updates": 0,
+        "parameters_unchanged": true,
+        "parameters": 375940224,
+        "manual_loss_scale": 8192,
+        "nll": 3.224103638941218,
+        "raw_gradient_norm": 0.22637499868869781,
+        "gradient_sha256": "a704ca6e4a99b0cd9044de55bb2323f56f314aa9fac91b9957bd46820c958c89",
+        "wall_seconds": 143.00133538246155,
+        "scientific_fit_admitted": false
+      },
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.001985695599604739,
+          "maximum_absolute_error": 2.5419285520911217e-06,
+          "reference_l2": 0.22637875939836344
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.0010746307765481173,
+            "maximum_absolute_error": 1.454227458452806e-07,
+            "reference_l2": 0.009107481684083341
+          },
+          "tied_input_output": {
+            "relative_l2": 0.001179371127968749,
+            "maximum_absolute_error": 2.5419285520911217e-06,
+            "reference_l2": 0.026198368376403377
+          },
+          "transformer_body": {
+            "relative_l2": 0.0019955653716027233,
+            "maximum_absolute_error": 2.402986865490675e-06,
+            "reference_l2": 0.22467264904227624
+          },
+          "value_embeddings": {
+            "relative_l2": 0.0012309055879227016,
+            "maximum_absolute_error": 4.1150542529067025e-08,
+            "reference_l2": 0.00049269753057576
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "native_minus_cpu_nll": 2.153280626249199e-06,
+      "passes_unchanged_point_gate": true,
+      "actual_optimizer_updates": 0,
+      "eligible_for_science": false
+    },
+    "full32": {
+      "native": {
+        "status": "CAPTURED_UNCHANGED_SCALE_PRECISION_GRADIENT",
+        "variant": "full32",
+        "world": 64,
+        "plan_sha256": "c85633469b1422456a41d259f96b35ea35b71f97cc2b8b1c166f5035406e5f09",
+        "optimizer_updates": 0,
+        "parameters_unchanged": true,
+        "parameters": 375940224,
+        "manual_loss_scale": 8192,
+        "nll": 3.224103638941218,
+        "raw_gradient_norm": 0.22638358175754547,
+        "gradient_sha256": "9459b06b675696d2c1f4ec23bc64c806d4c559763059238d1501137c0ef720e0",
+        "wall_seconds": 140.24273347854614,
+        "scientific_fit_admitted": false
+      },
+      "gradient": {
+        "overall": {
+          "relative_l2": 0.00025235656942302796,
+          "maximum_absolute_error": 1.3123935787007213e-06,
+          "reference_l2": 0.22637875939836344
+        },
+        "families": {
+          "recurrent_injection_readout": {
+            "relative_l2": 0.00015328500799903394,
+            "maximum_absolute_error": 3.0750015866942704e-08,
+            "reference_l2": 0.009107481684083341
+          },
+          "tied_input_output": {
+            "relative_l2": 0.00011040456339622881,
+            "maximum_absolute_error": 3.7263089325279e-07,
+            "reference_l2": 0.026198368376403377
+          },
+          "transformer_body": {
+            "relative_l2": 0.00025387055867006573,
+            "maximum_absolute_error": 1.3123935787007213e-06,
+            "reference_l2": 0.22467264904227624
+          },
+          "value_embeddings": {
+            "relative_l2": 0.00014559721659638885,
+            "maximum_absolute_error": 4.356195404398022e-09,
+            "reference_l2": 0.00049269753057576
+          }
+        },
+        "passes_two_percent_gate": true
+      },
+      "native_minus_cpu_nll": 2.153280626249199e-06,
+      "passes_unchanged_point_gate": true,
+      "actual_optimizer_updates": 0,
+      "eligible_for_science": false
+    }
+  },
+  "scientific_fit_admitted": false,
+  "scope": "Same-point numerical localization only. Passing a zero-update intervention does not repair the original training history or qualify a new scientific recipe.",
+  "plan_sha256": "c85633469b1422456a41d259f96b35ea35b71f97cc2b8b1c166f5035406e5f09"
+}

@@ -114,3 +114,26 @@ workers above512GiB MemAvailable and preserve35GiB filesystem space. Primary
 paths use existing NVMe, with measured actual-shape state sizes and4GiB
 additional margin. No cloud, driver, original scientific-clock change or
 raw-source/unique-state deletion. No main fit is admitted by these details.
+
+## Prospective corrected-scaler TUNE
+
+The original first TUNE history failed a mature named-family gradient gate
+before any held-out score. Preserve it as ineligible, with all failure costs.
+Unchanged-point zero-update diagnosis selects manual loss scaling65536 for
+both arms, leaving forward operators, objective, optimizer formula and model
+inventory unchanged. Fresh actual-shape first-step/moment/full512/replay
+qualifications precede a new separately frozen TUNE identity. Only original
+zero-update seed38213 weights are reused, never failed or qualification weights.
+
+Retain the same four independently selected rates and300-update opportunities,
+with mature299/300 states, complete512 gradient and exact final-step replay
+for every case. Both first-step algorithms are qualified separately. Warm
+diagnostics use existing NVMe; temporary replay uses existing private RAM.
+The successful-only diagnostic lifecycle and every failure are preserved.
+A3.75-hour corrected TUNE allowance plus14-hour prospective main allowance
+must fit the unchanged October28,02:09:45UTC end; no automatic main admission.
+The causal window-ordinal/full1024-draw readout policy is frozen before scoring.
+The current existing private RAM resource allowance is40GiB new retained task
+evidence on a200GiB mount, conditional on512GiB host/35GiB filesystem floors;
+closed evidence is losslessly archived with exact original-byte restoration.
+Earlier26GiB main storage text is historical preparation, not current admission.

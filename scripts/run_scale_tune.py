@@ -19,7 +19,7 @@ IDENTITY='scale-medium-tune-v1'
 PUBLIC=Path('results/scale_medium_tune_20261027')
 
 
-def prepare(root):
+def prepare(root,*,tune_seconds_limit=16200,main_required_seconds=14.1*3600,nvme_allowance_gib=32):
     import numpy as np
     from compute_trainium.scale_pilot_size import profiled_inventory
     from compute_trainium.scale_work_ledger import fixed_update_work
@@ -63,14 +63,13 @@ def prepare(root):
                 'capture_before_updates':[], 'audit_first_update':False}
             phases[warm]=dict(case=key);phases[replay]=dict(case=replay_key)
             names.extend([warm,replay]);order.append(key);phase_limits[warm]=1500;phase_limits[replay]=600
-    start=time.time();deadline=min(start+16200,SCALE_END)
+    start=time.time();deadline=min(start+tune_seconds_limit,SCALE_END)
     # Main endpoints are fixed now, but admission follows actual TUNE costs and
     # healthy independent rates. No changing them after seeing a main score.
-    main_projection=14.1*3600
-    if start+16200+main_projection>SCALE_END:raise TimeoutError('Complete tuning plus conservative main allowance does not fit original24h cap')
+    if start+tune_seconds_limit+main_required_seconds>SCALE_END:raise TimeoutError('Complete tuning plus measured main allowance does not fit original24h cap')
     mem=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
     if mem<(512+192)*1024**3:raise RuntimeError('Full192GiB Native allowance and protected512GiB required')
-    if shutil.disk_usage(root).free<(35+32)*1024**3:raise RuntimeError('Complete32GiB transient TUNE allowance plus35GiB protected reserve required')
+    if shutil.disk_usage(root).free<(35+nvme_allowance_gib)*1024**3:raise RuntimeError('Complete transient TUNE allowance plus35GiB protected reserve required')
     remaining_model_bytes=sum(cases[k]['parameters']*4+256*1024**2 for k in order)
     if shutil.disk_usage(initial.parent).free<35*1024**3+remaining_model_bytes:
         raise RuntimeError('All eight retained TUNE prediction models must fit prospectively')
@@ -81,7 +80,7 @@ def prepare(root):
     worker,host=split_snapshot_sources(sources)
     plan=dict(identity=IDENTITY,purpose='scale_registered_development_v1',registered_unix=start,
         source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,
-        world=64,worker_memory_gib=192,seconds_limit=16200,phase_seconds_limit=1500,
+        world=64,worker_memory_gib=192,seconds_limit=tune_seconds_limit,phase_seconds_limit=1500,
         native_phase_seconds_limits=phase_limits,cpu_phase_seconds_limit=1800,readout_seconds_limit=900,
         absolute_deadline_unix=deadline,scale_budget_started_unix=SCALE_START,scale_budget_deadline_unix=SCALE_END,
         trainer_gate_receipt='scale-training-state-gate-v1/report.json',trainer_gate_sha256=file_sha256(gate),

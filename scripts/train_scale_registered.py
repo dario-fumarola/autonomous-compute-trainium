@@ -36,6 +36,8 @@ def main():
     from compute_trainium.training import PackedCorpus,file_sha256,atomic_checkpoint
     if file_sha256(a.plan)!=a.plan_sha:raise AssertionError('Frozen scale study changed')
     plan=json.loads(a.plan.read_text());source=Path(__file__).resolve().parents[1];case=plan['cases'][a.case]
+    manual_scale=plan.get('manual_loss_scale',8192)
+    if manual_scale not in (8192,65536):raise ValueError('Explicit qualified loss scaler required')
     if (plan['purpose']!='scale_registered_development_v1' or plan['phases'][a.output.name]['case']!=a.case
             or plan['root_comm_ports'][a.output.name]!=a.comm_port):raise ValueError('Exact registered phase required')
     if any(file_sha256(source/f)!=sha for f,sha in plan['worker_source_sha256'].items()):raise AssertionError('Frozen worker source changed')
@@ -96,8 +98,8 @@ def main():
             if capture and recurrent:noise.append(state.clone())
             inputs,targets,mask=[t.contiguous().to('neuron') for t in [batch.inputs,batch.targets,batch.target_mask]]
             logits=model(inputs,state.contiguous().to('neuron') if recurrent else None,total_steps=depth,backward_cap=depth)
-            scalar=loss(logits,targets,mask);(scalar*(8192/target_count)).backward();nll.add_(scalar.detach())
-        norm=optimizer.finish_gradients(scale=8192);dist.all_reduce(nll);torch.neuron.synchronize();export_elapsed=0.
+            scalar=loss(logits,targets,mask);(scalar*(manual_scale/target_count)).backward();nll.add_(scalar.detach())
+        norm=optimizer.finish_gradients(scale=manual_scale);dist.all_reduce(nll);torch.neuron.synchronize();export_elapsed=0.
         if capture:
             export=time.perf_counter();gradients=gather_named(model,gradients=True)
             if recurrent:torch.save(dict(states=torch.cat(noise),windows=[cursor+i*64+rank for i in range(8)]),folder/f'noise-u{update}-rank{rank}.pt')
@@ -132,8 +134,8 @@ def main():
             if recurrent:noise.append(state.clone())
             inputs,targets,mask=[t.contiguous().to('neuron') for t in [batch.inputs,batch.targets,batch.target_mask]]
             logits=model(inputs,state.contiguous().to('neuron') if recurrent else None,total_steps=depth,backward_cap=depth)
-            scalar=loss(logits,targets,mask);(scalar*(8192/target_count)).backward();nll.add_(scalar.detach())
-        norm=optimizer.finish_gradients(scale=8192);dist.all_reduce(nll);gradients=gather_named(model,gradients=True)
+            scalar=loss(logits,targets,mask);(scalar*(manual_scale/target_count)).backward();nll.add_(scalar.detach())
+        norm=optimizer.finish_gradients(scale=manual_scale);dist.all_reduce(nll);gradients=gather_named(model,gradients=True)
         if recurrent:torch.save(dict(states=torch.cat(noise),windows=[cursor+i*64+rank for i in range(8)]),folder/f'noise-u{update}-rank{rank}.pt')
         if rank==0:atomic_checkpoint(folder/f'gradient-u{update}.pt',dict(gradients=gradients,clipped=True,
             loss=float(nll.cpu())/target_count,raw_gradient_norm=norm,source_cursor=cursor,real_targets=target_count,

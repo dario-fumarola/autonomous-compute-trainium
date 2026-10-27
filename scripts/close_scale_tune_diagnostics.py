@@ -32,7 +32,8 @@ def main():
     rows=[]
     for directory in [case['artifact_directory'],case['replay_directory']]:
         folder=a.root/directory
-        if folder.is_symlink() or not folder.resolve().is_relative_to((a.root/plan['identity']/'tune-artifacts').resolve()):
+        allowed=plan.get('allowed_tune_artifact_roots',[plan['identity']+'/tune-artifacts'])
+        if folder.is_symlink() or not any(folder.resolve().is_relative_to((a.root/f).resolve()) for f in allowed):
             raise ValueError('Exact private TUNE diagnostic root required')
         for file in sorted(folder.glob('*.pt')):
             if file.is_symlink():raise ValueError('No symlink diagnostic release')
