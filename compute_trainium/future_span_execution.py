@@ -1,6 +1,7 @@
 """Owned bounded execution shared by future scientific/driver queues."""
 import fcntl
 import json
+import math
 import os
 import queue
 import signal
@@ -22,7 +23,7 @@ class Execution:
         self.out.mkdir(parents=True,exist_ok=True)
         self.lock_file=(self.out/'controller.lock').open('a')
         fcntl.flock(self.lock_file,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        self.failed=threading.Event();self.lock=threading.Lock();self.native_active={};self.cpu_active={};self.cpu_attempts=[]
+        self.failed=threading.Event();self.lock=threading.Lock();self.native_active={};self.cpu_active={};self.cpu_attempts=[];self.cleanup_errors=[]
         self.halves=queue.Queue()
         for half in [0,1]:self.halves.put(half)
         record=self.out/'execution-start.json'
@@ -42,8 +43,15 @@ class Execution:
         if file_sha256(self.plan_file)!=self.sha or any(file_sha256(p)!=sha for p,sha in self.plan['source_sha256'].items()):
             raise AssertionError('Frozen exact source list/plan changed')
 
+    def native_seconds_limit(self,identity):
+        ceiling=self.plan['phase_seconds_limit']
+        value=self.plan.get('native_phase_seconds_limits',{}).get(identity,ceiling)
+        if isinstance(value,bool) or not isinstance(value,(int,float)) or not math.isfinite(value) or not 0<value<=ceiling:
+            raise ValueError('A registered per-phase cap may only tighten the common cap')
+        return value
+
     def native(self,identity,module,options,status):
-        half=container=process=None
+        half=container=process=None;primary=None
         try:
             self.check();directory=self.root/'runs'/identity
             if (directory/'report.json').exists():
@@ -58,7 +66,7 @@ class Execution:
                     except queue.Empty:pass
                 reclaim_host();container=create_compact_worker(self.root,identity,half)
                 with self.lock:self.native_active[identity]=container
-                limit=min(self.deadline,time.time()+self.plan['phase_seconds_limit'])
+                limit=min(self.deadline,time.time()+self.native_seconds_limit(identity))
                 env=dict(os.environ,RESEARCH_ROOT=str(self.root),RESEARCH_CONTAINER_ROOT='/work/instance-nvme',
                     RESEARCH_RUN=identity,RESEARCH_OWNER=identity,RESEARCH_CONTAINER=container,RESEARCH_ENTRY_MODULE=module,
                     RESEARCH_DDP_RANKS='32',NEURON_RT_VISIBLE_CORES=','.join(map(str,range(half*32,half*32+32))),
@@ -74,15 +82,28 @@ class Execution:
                 result=json.loads((directory/'report.json').read_text())
             if result['status']!=status:raise ValueError('Native result has unexpected status: '+identity)
             return result
-        except BaseException:self.failed.set();raise
+        except BaseException as error:primary=error;self.failed.set();raise
         finally:
+            cleanup_error=None
             if container:
-                cancel_worker_container(container,identity,'finite_future_phase_complete')
-                with self.lock:self.native_active.pop(identity,None)
+                try:
+                    cancel_worker_container(container,identity,'finite_future_phase_complete')
+                    with self.lock:self.native_active.pop(identity,None)
+                except BaseException as error:
+                    cleanup_error=error;self.failed.set()
+                    with self.lock:
+                        self.cleanup_errors.append(dict(identity=identity,error=str(error),kind=type(error).__name__,
+                            primary_error=str(primary) if primary is not None else None))
+                        try:write_state(self.out/'cleanup-errors.json',self.cleanup_errors)
+                        except OSError:pass
             if process and process.poll() is None:
-                try:process.wait(timeout=10)
-                except subprocess.TimeoutExpired:process.terminate()
+                try:
+                    try:process.wait(timeout=10)
+                    except subprocess.TimeoutExpired:process.terminate()
+                except BaseException as error:
+                    cleanup_error=cleanup_error or error;self.failed.set()
             if half is not None:self.halves.put(half)
+            if cleanup_error is not None and primary is None:raise cleanup_error
 
     def cpu(self,identity,module,options,report_file,status):
         process=None;started=time.time();report_file=Path(report_file);reused=report_file.exists()
@@ -135,7 +156,7 @@ class Execution:
                 row=json.loads(launch.read_text());wall=max(0,time.time()-row['started_unix'])
                 attempts.append({'identity':identity,'closure_missing':True,'wall_seconds_through_collection':wall,
                     'assigned_chip_hours_through_collection':wall*len(row['physical_chips'])/3600})
-        write_state(cost_file,{'native_attempts':attempts,'current_controller_cpu_attempts':self.cpu_attempts,
+        write_state(cost_file,{'native_attempts':attempts,'current_controller_cpu_attempts':self.cpu_attempts,'cleanup_errors':self.cleanup_errors,
             'execution':self.execution,'wall_seconds_since_admission':time.time()-self.execution['started_unix'],
             'whole_instance_opportunity_chip_hours':(time.time()-self.execution['started_unix'])*16/3600,
             'scope':'Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases.'})

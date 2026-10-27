@@ -33,6 +33,9 @@ def validate_report(report,plan):
             or report['terminal_success'] or report['test_accessed'] or report['terminal_alpha_spent']!=0
             or plan['gradient_rule']!='full_fixed_two' or plan['parameters']!=141963840):
         raise ValueError('Both complete numerical trials with zero scientific admission required')
+    if plan.get('rejected_state_evidence_required'):
+        from .head_free_fixed_two_v2_gate import fixture_gate
+        fixture_gate(report['rejected_state_fixture'],report['plan_sha256'])
     profile=plan['profiles']['fixed2']
     physical=[]
     for record in report['records'].values():
