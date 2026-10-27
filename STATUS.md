@@ -1,3 +1,9 @@
+## October27,2026,13:37 UTC — exact replay sharing recovers22.65GiB; mature audit continues
+
+A read-only metadata screen finds historical replay copies with matching payload candidates. The bounded follow-up verifies payload SHA256 and whole-original binary reconstruction,then retains13 distinct original children using exact ZIP recipes/literal bytes with every raw parent protected. First materialized restoration also passes. It recovers22.647326GiB in186.423seconds,zero chips/updates;all concurrent gzip inputs are excluded and both maintenance peaks retain the active training-stage reserve. No corpus,model/optimizer value or scientific history changes. [Complete preservation and restore policy](results/closed_legacy_zip_preservation_20261027/REPORT.md). All433 source tests pass,two skipped.
+
+The corrected recurrent0.032 cell has completed300 updates/cooldown and actual replay;its full512 independent mature audit is active,352windows complete at13:36UTC. Readout and both0.064 cases remain. The separate conditional lower-rate queue is waiting for successful original-stage closure;no extra rate,main or confirmation has started. Main still requires complete rate selection,all exact numerical/source/C0 bindings and a fresh actual full-state storage check.
+
 ## October27,2026,13:26 UTC — conventional0.032 qualified; bounded lower-edge check registered
 
 The conventional0.032 cell completes its full300-update cooldown,replay,mature512 audit and192-document consumed-TUNE readout: weighted NLL3.148688,gradient discrepancy0.148656% overall /0.149113% largest family. Its0.008 point remains best so far. The corrected recurrent0.032 cell is finishing training on all16 chips;its final audit and score remain pending. The original0.064 opportunities still follow. No rate,main or confirmation is admitted. [Completed conventional score](results/scale_boundary_rate_completion_20261027/registration-v2/ordinary-lr2-score.json).
