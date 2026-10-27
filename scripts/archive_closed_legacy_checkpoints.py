@@ -7,10 +7,17 @@ IDENTITY='closed-legacy-checkpoint-exact-archive-v1'
 GIB=1024**3
 
 
-def main(root):
-    out=root/IDENTITY
+def main(root,*,identity=IDENTITY,stage_name='scale-boundary-rate-completion-v2'):
+    if not identity.startswith('closed-legacy-checkpoint-exact-archive-v'):
+        raise ValueError('Explicit legacy exact-archive identity required')
+    if stage_name not in ['scale-boundary-rate-completion-v2','scale-boundary-last-original-rates-v1','scale-boundary-lower-rates-v1']:
+        raise ValueError('Explicit qualified rate-stage allocation required')
+    out=root/identity
     if out.exists():raise FileExistsError('Preserve every archival attempt')
-    stage=root/'scale-boundary-rate-completion-v2';pid=int((stage/'controller.pid').read_text());candidates=[]
+    stage=root/stage_name;pid=int((stage/'controller.pid').read_text());candidates=[]
+    protected=set()
+    for file in root.glob('closed-legacy-zip-*/plan.json'):
+        protected.update(json.loads(file.read_text()).get('raw_dependency_parents_must_remain',[]))
     for folder in (root/'runs').iterdir():
         if not folder.is_dir() or folder.name.startswith(('scale-','low-depth-main-r2-')):continue
         closure=root/'snapshots'/folder.name/'closure.json'
@@ -19,6 +26,7 @@ def main(root):
         for file in folder.glob('checkpoint*.pt'):
             if file.is_symlink() or not file.is_file() or file.stat().st_size<500*1024**2:continue
             if file.with_suffix(file.suffix+'.exact.json').exists():continue
+            if str(file.relative_to(root)) in protected:continue
             candidates.append(dict(file=str(file.relative_to(root)),bytes=file.stat().st_size,closure=str(closure.relative_to(root)),closure_sha256=sha256_file(closure)))
     candidates.sort(key=lambda r:(-r['bytes'],r['file']));selected=[];total=0
     for row in candidates:
@@ -29,11 +37,12 @@ def main(root):
     selected.sort(key=lambda r:(r['bytes'],r['file']))
     sample_parent=Path('/home/ubuntu/dario/local/nvme/.autonomous-compute-scale-private-20261027')
     if not sample_parent.is_dir() or sample_parent.stat().st_mode&0o077:raise ValueError('Existing private700 task directory required')
-    sample=sample_parent/'closed-legacy-checkpoint-materialized-restore-v1.pt'
+    sample=sample_parent/(identity+'-materialized-restore.pt')
     if sample.exists():raise FileExistsError('Never overwrite any existing task evidence')
-    out.mkdir();plan=dict(identity=IDENTITY,registered_unix=time.time(),source_sha256=sha256_file(Path(__file__)),
+    out.mkdir();plan=dict(identity=identity,registered_unix=time.time(),source_sha256=sha256_file(Path(__file__)),
         maximum_original_bytes=120*GIB,selected_original_bytes=total,original_inventory=selected,
-        current_stage='scale-boundary-rate-completion-v2',current_stage_plan_sha256=sha256_file(stage/'plan.json'),
+        current_stage=stage_name,current_stage_plan_sha256=sha256_file(stage/'plan.json'),
+        protected_raw_zip_dependency_parents=sorted(protected),
         native_artifact_allowance_bytes=18*GIB,protected_filesystem_bytes=35*GIB,protected_host_bytes=512*GIB,
         maximum_parallel_streams=1,assigned_chips=0,optimizer_updates=0,
         scope='Only terminal pre-October27,02:09:45 native checkpoint binaries with successful exact owned closures. Original gzip stream/hash and a materialized first sample verified before releasing raw duplicate. No source files,parameters,optimizer values,scientific results or failures change. Active-stage artifact credit is only for reserving its remaining18GiB peak,never for main admission. Stop if this stage is terminal;no overlapping unknown successor allowed.')
@@ -73,4 +82,6 @@ def main(root):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);main(p.parse_args().root)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True)
+    p.add_argument('--identity',default=IDENTITY);p.add_argument('--stage',default='scale-boundary-rate-completion-v2')
+    a=p.parse_args();main(a.root,identity=a.identity,stage_name=a.stage)

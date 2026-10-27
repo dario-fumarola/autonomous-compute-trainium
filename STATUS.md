@@ -1,3 +1,9 @@
+## October27,2026,14:15 UTC — ordinary0.064 cooldown/replay complete; mature audit active
+
+The untouched conventional0.064 opportunity completes300 updates and its own cooldown,then actual replay,on all16 chips. Native warm wall648.195seconds,replay167.596seconds;no supervisor failure or OOM. Its independent full512 mature audit reaches272windows at14:14UTC. Quality readout and acceptance remain pending;no new rate,main fit or confirmation is selected. The original recurrent0.064 opportunity follows only after all preceding checks pass.
+
+A separate bounded120GiB exact archive of closed pre-scale historical checkpoints is active alongside this stage. It excludes every protected raw parent from existing exact ZIP recipes,retains the new stage's full18GiB artifact/failure peak,and closes before an unknown successor. No corpus,model/optimizer values or scientific history changes. [Storage-preservation scope](results/closed_legacy_checkpoint_archive_20261027/registration-v2/plan.json). Both exact-archive roundtrip tests and all435 source tests pass,two skipped. All preserved failed states still count against actual free space;main storage admission remains prospective,not based on promised compression.
+
 ## October27,2026,13:56 UTC —6.07% gradient mismatch reproduced; untouched ordinary0.064 active
 
 The separately repeated unchanged full512 calculation reproduces recurrent0.032's numerical rejection:6.066574% overall,7.737491% injection/readout,6.086506% transformer-body gradient error. Native minus CPU NLL is only0.00000224972. All lineage,cursor,target,clipping and unchanged-model checks pass. This is an actual numerical gate failure;no held-out quality score or retroactive certification follows. It does not invalidate the separately passing lower rates or establish a vendor defect. [Full observation](results/scale_r032_audit_observation_20261027/REPORT.md).
