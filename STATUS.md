@@ -1,3 +1,9 @@
+## October 27, 2026, 03:03 UTC — all-chip sharding fixture and replay pass
+
+Both 64-rank numerical phases pass on all 16 chips: three software-fixture updates and one fresh-process replay. Largest named CPU differences are 0.000131% for gradients, 0.028875% for updates and 0.001474% for moments, all within 2%. Separate-process replay weights and moments are exactly equal. Both supervisors close without OOM or fatal compiler failure. These are small software arrays, zero research examples and zero scientific updates. [Complete result](results/scale_sharding_fixture_20261027/REPORT.md).
+
+Next is actual-shape 956M construction and bounded real-data numerical/100-warm-update feasibility, with direct shard loading and a fully projected private artifact budget. This fixture does not qualify large-model training or set its scientific exposure. The 24-instance-hour scale cap and strong ordinary comparator requirement remain unchanged; the overall research goal is unachieved.
+
 ## October 27, 2026, 02:59 UTC — larger-model sharding fixture registered
 
 Exact meta inventories are 955.96M recurrent and 953.20M conventional parameters. Their existing master/gradient/moment inventories exceed 12GiB per full replica before activations, so the first scale work tests sharded state rather than naive 64-way full-state replication. The optimizer still applies FP32 Muon to complete matrices on group owners, and elementwise AdamW to local shards. Tied aliases and twice-used weights are checked explicitly. [Bounded scope](docs/SCALE_FEASIBILITY_20261027.md).
