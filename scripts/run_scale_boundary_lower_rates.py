@@ -23,6 +23,32 @@ PUBLIC = Path('results/scale_boundary_lower_rates_20261027')
 GRID = [.002, .004, .008, .016, .032, .064]
 COMPLETION = 'scale-boundary-last-original-rates-v1'
 ORIGINAL_CERTIFICATE = 'scale-original-rate-closure-v1'
+FINAL_RECOVERY = 'scale-final-lower-rate-recovery-v1'
+
+
+def lower_selection_files(root):
+    """Accept only the explicitly bound final opportunity after an inode stop."""
+    original_plan=root/IDENTITY/'plan.json';original_report=root/IDENTITY/'report.json'
+    stopped=json.loads(original_report.read_text())
+    if stopped['status']=='COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION':
+        return original_plan,original_report
+    plan_file=root/FINAL_RECOVERY/'plan.json';report_file=root/FINAL_RECOVERY/'report.json'
+    if (stopped['status']!='STOPPED_BOUNDARY_LOWER_RATES'
+            or stopped.get('error')!='Filesystem inode reserve failed: '+str(root)
+            or stopped['plan_sha256']!=file_sha256(original_plan)
+            or stopped['records'].get('ordinary8-lower-lr1')!={}):
+        raise ValueError('Exact stopped final opportunity required;no result substitution')
+    plan=json.loads(plan_file.read_text());report=json.loads(report_file.read_text())
+    if (plan['recovery_parent_plan_sha256']!=file_sha256(original_plan)
+            or plan['selection_parent_report_sha256']!=file_sha256(original_report)
+            or plan['case_order']!=['ordinary8-lower-lr1']
+            or report['plan_sha256']!=file_sha256(plan_file)
+            or report['status']!='COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION'):
+        raise ValueError('Complete exact single-opportunity recovery required')
+    for key,record in stopped['records'].items():
+        if key!='ordinary8-lower-lr1' and report['records'].get(key)!=record:
+            raise ValueError('Recovery changed an already completed opportunity')
+    return plan_file,report_file
 
 
 def original_selection_source(root):
@@ -69,8 +95,7 @@ def selection_source(root):
         if scope['parent_plan_sha256'] != file_sha256(root/PARENT/'plan.json'):
             raise AssertionError('Prospective lower-rate parent changed')
         if needs_lower_check(report['selected']):
-            plan_file = root / IDENTITY / 'plan.json'
-            lower_file = root / IDENTITY / 'report.json'
+            plan_file,lower_file=lower_selection_files(root)
             lower = json.loads(lower_file.read_text())
             plan = json.loads(plan_file.read_text())
             if (lower['status'] != 'COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION'
@@ -214,7 +239,7 @@ def run(root):
     folder = root / IDENTITY
     execution = AllChipExecution(root, folder / 'plan.json', folder / 'execution')
     parent_file = root / execution.plan.get('selection_parent_report',PARENT+'/report.json')
-    if file_sha256(parent_file) != execution.plan['parent_report_sha256']:
+    if file_sha256(parent_file) != execution.plan.get('selection_parent_report_sha256',execution.plan['parent_report_sha256']):
         raise AssertionError('Original complete selection changed')
     records = dict(json.loads(parent_file.read_text())['records'])
     records.update(execution.plan.get('declared_ineligible_records',{}))

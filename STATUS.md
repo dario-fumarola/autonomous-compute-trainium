@@ -1,3 +1,13 @@
+## October27,2026,16:41 UTC — final trial stops at inode reserve; explicit recovery prepared
+
+The last ordinary0.002 Native launch stops at the original10000-inode reserve before any recorded update or training report. Its source snapshot and137 exit remain,including0.552045 assigned chip-hours. The lower-rate controller and guarded main handoff both stay STOPPED;no main was admitted. The three completed lower opportunities and all earlier qualified/rejected results are unchanged. [Actual stop and cost](results/scale_inode_maintenance_20261027/stopped-stage-summary.json).
+
+Verified regeneration-only reclamation removes3215 CPython caches while preserving2742 matching sources and all89 closed launch/closure receipts,restoring free inodes from10319 to13712. No source/model/optimizer/corpus file changes. A separate read-only inventory checks byte-identical CLOSED source paths for the existing exact sharing algorithm;no live source tree is included. [Cache receipt](results/scale_inode_maintenance_20261027/report.json).
+
+A distinct final-opportunity recovery is prepared but unadmitted. It runs only the original ordinary0.002 from untouched C0,with unchanged300-update data/schedule and every replay,mature audit,readout and retention gate. Selection accepts only the exact stopped-parent chain and keeps every prior result identical. Recovery reserves projected inode needs for its two plus all six main phases;main rechecks its own full lifecycle. All23 targeted and451 full-suite tests pass,two skipped. [Bounded recovery](docs/SCALE_FINAL_LOWER_RATE_RECOVERY_20261027.md). Model math,primary,rate grid,8B/10.835B endpoints and sealed confirmation reserve remain unchanged.
+
+The active-stage exact archive closes at the declared boundary after79 files,recovering15.115833GiB;every completed original remains hash-verifiable/restorable. No further archive or main is automatically admitted by this stop.
+
 ## October27,2026,16:31 UTC — recurrent rate search closes; last ordinary opportunity next
 
 Recurrent0.002 completes300 updates,its own cooldown,actual replay,full512 mature audit and192-document consumed-TUNE readout. NLL3.722263 is worse than0.008's3.409389;overall gradient discrepancy0.194183%,with replay passing. Together with the qualified0.004 result3.580602,this brackets the recurrent0.008 choice among all six declared opportunities. The two higher-rate numerical rejections remain ineligible without quality scores. [Qualified endpoint and costs](results/scale_boundary_lower_rates_20261027/completed-recurrent-lr1/score.json).

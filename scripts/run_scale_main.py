@@ -1,6 +1,7 @@
 """One frozen joint-scale development pair and a completed equal-data branch."""
 import argparse
 import json
+import os
 from pathlib import Path
 import signal
 import shutil
@@ -10,6 +11,7 @@ from compute_trainium.queue import write_state
 from compute_trainium.training import file_sha256
 from compute_trainium.native_snapshot_manifest import split_snapshot_sources
 from compute_trainium.native_comm_ports import reserve_ports
+from compute_trainium.native_inode_projection import project_snapshot_inodes
 from compute_trainium.execution_isolation import managed_running
 from scripts.run_scale_sharding_fixture import AllChipExecution,SCALE_START,SCALE_END
 
@@ -54,6 +56,9 @@ def prepare(root,*,boundary_corrected=False,body_exposure=False):
     from compute_trainium.scale_pilot_size import profiled_inventory
     from compute_trainium.scale_work_ledger import fixed_update_work,work_matched_updates
     if managed_running():raise RuntimeError('Complete prior Native closure required')
+    inode_projection=project_snapshot_inodes(Path('.'),6)
+    if os.statvfs(root).f_favail<inode_projection['required_free_inodes']:
+        raise RuntimeError('All six main snapshots and artifacts must fit the protected inode reserve')
     tune_identity='scale-boundary-rate-completion-v2' if boundary_corrected else 'scale-medium-tune-65536-v1'
     tune_file=root/tune_identity/'report.json' if boundary_corrected else root/'scale-tune-readout-recovery-v1/report.json'
     if boundary_corrected:
@@ -61,7 +66,7 @@ def prepare(root,*,boundary_corrected=False,body_exposure=False):
         tune_plan_file,tune_file=selection_source(root)
         tune_identity=tune_plan_file.parent.name
     tune=json.loads(tune_file.read_text())
-    expected=('COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION' if tune_identity=='scale-boundary-lower-rates-v1'
+    expected=('COMPLETE_BOUNDARY_LOWER_INDEPENDENT_RATE_SELECTION' if tune_identity in ['scale-boundary-lower-rates-v1','scale-final-lower-rate-recovery-v1']
               else 'COMPLETE_BOUNDARY_FIXED_GRID_WITH_NUMERICAL_REJECTION' if tune_identity=='scale-boundary-last-original-rates-v1'
               else 'COMPLETE_BOUNDARY_INDEPENDENT_RATE_SELECTION') if boundary_corrected else 'COMPLETE_INDEPENDENT_SCALE_RATE_SELECTION'
     if tune['status']!=expected:raise ValueError('Complete independently audited corrected TUNE required')
@@ -168,7 +173,7 @@ def prepare(root,*,boundary_corrected=False,body_exposure=False):
     folder.mkdir();PUBLIC.mkdir()
     plan=dict(identity=IDENTITY,purpose='scale_registered_development_v1',registered_unix=start,
         source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,
-        world=64,worker_memory_gib=192,seconds_limit=main_seconds,phase_seconds_limit=8*3600,
+        world=64,worker_memory_gib=192,inode_projection=inode_projection,seconds_limit=main_seconds,phase_seconds_limit=8*3600,
         native_phase_seconds_limits=limits,cpu_phase_seconds_limit=1800,readout_seconds_limit=1800,
         absolute_deadline_unix=deadline,scale_budget_started_unix=SCALE_START,scale_budget_deadline_unix=SCALE_END,
         trainer_gate_receipt=tune_plan['trainer_gate_receipt'],trainer_gate_sha256=tune_plan['trainer_gate_sha256'],
