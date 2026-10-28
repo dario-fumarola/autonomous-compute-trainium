@@ -42,7 +42,7 @@ def run(a):
             actor=Reader(lambda x:model(x,use_cache=False).logits,loss_dtype=torch.float64)
             loss=-target_log_probs(actor,c[:,:1],torch.cat([c[:,1:],y],1),phase='ordinary').mean()
         else:
-            plan=json.loads(a.plan.read_text());native=a.root/'runs'/(plan['identity']+'-'+a.arm);count=plan['updates'][a.arm]
+            plan=json.loads(a.plan.read_text());native=a.root/'runs'/plan.get('arm_runs',{}).get(a.arm,plan['identity']+'-'+a.arm);count=plan['updates'][a.arm]
             report=json.loads((native/'report.json').read_text())
             if report['status']!='COMPLETE_WORKSPACE_DISCOVERY_ARM_PENDING_MATURE_AUDIT':raise AssertionError('Complete frozen endpoint required')
             shards=[native/f'rank{k}-u{count}.zip' for k in range(64)];load_streamed_model(shards,model,label='model')

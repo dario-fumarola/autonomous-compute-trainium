@@ -40,7 +40,7 @@ def run(a):
     with torch.no_grad():
         for arm in ['c0','workspace','ordinary','pause','draft']:
             if arm!='c0':
-                path=a.root/'runs'/(plan['identity']+'-'+arm)/f'rank{rank}-u{plan["updates"][arm]}.zip'
+                path=a.root/'runs'/plan.get('arm_runs',{}).get(arm,plan['identity']+'-'+arm)/f'rank{rank}-u{plan["updates"][arm]}.zip'
                 restore_model_shards(path,model,label='model');drain_runtime(actor.device)
             rows=[];actor.events=[]
             for batch in range(plan['evaluation_anchors']//world):

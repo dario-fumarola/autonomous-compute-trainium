@@ -3,20 +3,21 @@
   "registered_unix": 1793141290.3266943,
   "source_sha256": {
     "compute_trainium/stable_target_loss.py": "ee435d79f11caa02caef8a0543528f8f79616eaa162f961cc622ee165ac99fdf",
-    "compute_trainium/workspace_discovery.py": "afd2f54ae5a1e4a59b02bf5878f9dca7f5035f334bc85e057ce0c2395a6c9953",
+    "compute_trainium/workspace_discovery.py": "df2576944f98f337463ed19c103e6ba2154234a6434985f8b897101b24e6df15",
     "compute_trainium/workspace_discovery_analysis.py": "8312049af11e0a859a0a9faa1f2de43c9ecfa53eedaaca207d5890e6368cc562",
     "compute_trainium/workspace_learning.py": "ae429726c8bb0b5d00f01cfe5c1616f2a4caaff9bc1773214d234e81107a9907",
     "compute_trainium/workspace_native_objective.py": "ee4672d004470a318b638ea5c81ec091602c324f513174b59f5674fa841eb090",
-    "compute_trainium/workspace_native_state.py": "67b088b6a345c1b733ecd5d3a04168c397edaeb545574eab9788598c7ec084d7",
+    "compute_trainium/workspace_native_state.py": "00f024c738dc73526606f7d0d8096eb29a053e00252a063fb6e5b705e9b3ca91",
     "compute_trainium/workspace_streaming_checkpoint.py": "9916b296c146f81334ae9de3e672d38eb30725354c3365fcb5d65dcd355c9793",
-    "scripts/audit_workspace_discovery.py": "644770ba42fe5ab45778659061ee59e513707d49c3c02c284ee7ebef19c5b1dc",
-    "scripts/evaluate_workspace_discovery.py": "6a1d3b61c08c540934173347af4fdb9ec34392c9703af59b1c086c5eeb036bf9",
-    "scripts/run_workspace_discovery.py": "4af0ec5be341057fb6e714caea033115bee5815abf36bed8628cb03d40c64159",
-    "scripts/train_workspace_discovery.py": "f5bb70020e1855a7c24367cf785a1cb10603d8da4eeb17f2c6f73212596e9b52",
+    "scripts/audit_workspace_discovery.py": "a334ac88abe2385484e59ab2062ff8225d401298cb4301a27ed51de1cb0fae03",
+    "scripts/evaluate_workspace_discovery.py": "f9d3cf0d492a0cf2380fb97b2dfd8e2f4ed88141ccf44a85ac88169bf60df15b",
+    "scripts/qualify_workspace_sharded_fixture.py": "a43322c761b8d09780082deaa2d0fbbd036c81f8ec2676a6989c1e97f2f01300",
+    "scripts/run_workspace_discovery.py": "436956600bc374b524ee9371d71ee519b2f6b68d4b37949bc5d4a7b2cc0d2f39",
+    "scripts/train_workspace_discovery.py": "0041bdbe6871c0cf9252ce7eb7de4b0132af1c3b3c2e80b0a3b02c093a9f2161",
     "tests/test_workspace_discovery.py": "d6042873c2bd296324f0c26579936b87146c75898dc5c25d2af86927e583e7ac",
     "tests/test_workspace_discovery_analysis.py": "4dca5500fd63ec3310b682006db63ba9eeca77257600bfb4d1064dcf7c48c08a",
-    "tests/test_workspace_discovery_controller.py": "301177efc881a0573efb46ba9911343abe6293953ac3df2c280258f0e4911ce0",
-    "tests/test_workspace_streaming_checkpoint.py": "4dae7f5bb9796a9cd455eb7f2c9f1a03e8e9ed1c45f44c907a7b9bc8b644a36b"
+    "tests/test_workspace_discovery_controller.py": "17139084482baf0ad3b0679e3f6948fa21cc1db4a72d8bdfcd05856f4172f4dc",
+    "tests/test_workspace_streaming_checkpoint.py": "b65808ca9a689fcf4d9b4e5bf563bb377d9d7e264c6dad4d8c0f53399ea541a8"
   },
   "full_suite": {
     "passed": 491,
@@ -24,11 +25,11 @@
     "wall_seconds": 123.43
   },
   "targeted": {
-    "passed": 14,
-    "wall_seconds": 19.72
+    "passed": 16,
+    "wall_seconds": null
   },
   "worker_programs_parse": 4,
   "assigned_chips": 0,
   "scientific_optimizer_updates": 0,
-  "scope": "Independent control losses/gradients,group sampling/score alignment,head-inclusive work accounting,complete optional-scorer state/RNG recovery,exact compressed checkpoint roundtrip and stop propagation pass on CPU.Software fixture updates only;Native worker integration and endpoint audits remain gates.No trained quality or new research result. Evaluation donor exchange uses the already qualified sum collective with disjoint integer rows;no new collective backend is required. Frozen source-only donors match domain and exclude source group;paired group bootstrap is invariant to row duplication.First-target metrics accompany teacher-forced four-token NLL."
+  "scope": "Independent control losses/gradients,group sampling/score alignment,head-inclusive work accounting,complete optional-scorer state/RNG recovery,exact compressed checkpoint roundtrip and stop propagation pass on CPU.Software fixture updates only;Native worker integration and endpoint audits remain gates.No trained quality or new research result. Evaluation donor exchange uses the already qualified sum collective with disjoint integer rows;no new collective backend is required. Frozen source-only donors match domain and exclude source group;paired group bootstrap is invariant to row duplication.First-target metrics accompany teacher-forced four-token NLL. Recovery keeps completed ordinary weights/audit and stops before controls on a failed replay;compiled-call release preserves live gradients and weights;bounded writer waves have actual1.485B qualification."
 }
