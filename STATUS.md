@@ -1,3 +1,9 @@
+## October28,2026,05:21 UTC — direct-gradient latent900 saved and independently audited;constant control active
+
+The latent arm completes900 updates,57600 source views and all64 full model/AdamW/RNG archives.No fallback;warm mean1.0728seconds,whole Native phase1356.43seconds.Independent HF dense2D mature audit passes all179 gradients(max named0.001744%).This is a qualified trained endpoint,not a quality result.[Endpoint](results/sparse_workspace_discovery_20261028/latent-native.json) · [Audit](results/sparse_workspace_discovery_20261028/sparse-workspace-discovery-audit-latent-v1/report.json).
+
+The frozen trained constant-query900 control is active on all16chips;ordinary923 follows. All targets/emphasis,C0,freshAdamW,source order and budgets remain unchanged.No TUNE scoring until all three audits pass. Only derivative scratch is retired after exact hash checks and independent agreement;full scientific state remains.
+
 ## October28,2026,04:56 UTC — complete sparse qualification passes;three-arm learning pilot admitted
 
 All101 actual-size sparse updates,all64 full-state saves,and fresh-process full-global tensor/RNG restore pass. Replayed gradient max error is exactly0. Independent HF dense2D mature audit passes179/179 gradients(max named0.001146%). Warm mean1.0883seconds;whole warm/checkpoint phase804.12seconds. No fallback or held-out quality claim.[Warm/replay](results/sparse_workspace_warm_20261028/report.json) · [Mature oracle](results/sparse_workspace_mature_20261028/report.json).
