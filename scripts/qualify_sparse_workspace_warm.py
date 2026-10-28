@@ -51,6 +51,16 @@ def run(a):
   values=[float(v.detach().cpu()) for v in [loss,raw,anchor]]
   (loss/world*256).backward();acc=ShardedGradientAccumulator(model);acc.add_and_clear();acc.install();del acc,loss,raw,anchor
   return values
+ if spliced and a.mode=='warm' and p.get('initial_reference_relative'):
+  progress('cold_full_gradient_gate_after_cache_repair');cold_gate_tick=time.perf_counter();backward(0,numerical=True);optimizer.finish_gradients(scale=256,clip=1e30)
+  expected=torch.load(a.root/p['initial_reference_relative'],weights_only=True,mmap=True);numbers=[]
+  for name,value in model.named_parameters():
+   have=local_parameter(value.grad).detach().cpu().double();wanted=expected[name].chunk(world,0)[rank].double()
+   numbers.append([float((have-wanted).square().sum()),float(wanted.square().sum())])
+  comparison=torch.tensor(numbers,dtype=torch.float32,device='neuron');dist.all_reduce(comparison);comparison=comparison.cpu().double();errors=(comparison[:,0]/comparison[:,1].clamp_min(1e-30)).sqrt();maximum=float(errors.max())
+  if maximum>.02:raise AssertionError('Cold full-gradient gate after cache repair exceeds unchanged2% limit')
+  if rank==0:(out/'cold-gradient-gate.json').write_text(json.dumps(dict(status='PASS_SPLICED_COLD_GRADIENT_GATE',parameters=179,largest_named_relative_l2=maximum,optimizer_updates=0,wall_seconds_including_cold_compile_and_comparison=time.perf_counter()-cold_gate_tick)))
+  optimizer.zero_grad();del expected,numbers,comparison,errors;drain_runtime('neuron')
  if a.mode=='warm':
   records=[]
   for update in range(1,102):

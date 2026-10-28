@@ -1,0 +1,16 @@
+{
+  "status": "LOCALIZED_MISSING_NKI_BINARY_DEPENDENCY",
+  "observed_complete_updates": 0,
+  "unrecorded_interrupted_update_not_excluded": true,
+  "supervisor_failure": "compiler_error_in_log_fail_closed",
+  "container_oom_kill_delta": 0,
+  "elapsed_seconds": 44.21933557605371,
+  "affected_operations": [
+    "index_select [1,160,2048] at127 indices",
+    "rotary index_select [1,1,160,128] at32 indices"
+  ],
+  "diagnosis": "Persistent HLO references stride2_gather NKI colz files below a prior container-local /var/tmp/nki-intermediate-cache;files are absent in the new container.No scientific quality result from this attempt.",
+  "repair": "Bypass eager and torch.compile persistent HLO reads;put new NKI cache on persistent storage.Cold independent179-gradient check before all fitting.Original101 allowance and absolute deadline unchanged.",
+  "cpu_helper_tests_passed": 10,
+  "cpu_helper_wall_seconds": 4.84
+}

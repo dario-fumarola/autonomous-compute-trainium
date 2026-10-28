@@ -1,3 +1,9 @@
+## October28,2026,12:29 UTC — warm gate stopped;cache-safe recovery admitted
+
+The first attempt stops at its first forward on a missing NKI stride2_gather binary referenced by persisted HLO.Supervisor fails closed,44.22seconds,no OOM,zero recorded completed updates;an interrupted unrecorded update remains conservatively flagged.No quality result.[Failure](results/spliced_workspace_warm_20261028/report.json) · [Diagnosis](results/spliced_workspace_cache_repair_20261028/diagnosis.json).
+
+Recovery starts fresh fromC0,bypasses stale persistent HLO,uses persistent NKI storage,and must pass a cold independent179-gradient check before fitting.The same101 updates,source order,RNG,loss,192GiB cap,512GiB/35GiB reserves,2% rule and original absolute deadline remain.All failed costs are retained.
+
 ## October28,2026,12:11 UTC — uniform-NTP splicing qualifies;101-update gate admitted
 
 The revised objective supervises every authentic target exactly once. Random32-position independent workspaces replace ordinary predictions rather than adding target weight. Eighteen CPU gates pass,including exact disabled-path outputs,all gradients and AdamW states. Actual1.485B Native all179-gradient/update/moment/two-shard recovery gates pass with no fallback(max gradient0.001705%,max update0.2998%).[Candidate](docs/SPLICED_WORKSPACE_CANDIDATE_20261028.md) · [Native gate](results/spliced_workspace_native_20261028/report.json).

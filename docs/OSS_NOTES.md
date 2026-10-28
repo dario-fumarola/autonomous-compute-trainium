@@ -338,3 +338,7 @@ See `scripts/qualify_workspace_checkpoint_waves.py`,
 New code also restores the already qualified CPU-tensor-to-device pattern for
 runtime scalar inputs. The memory contribution of direct-device scalar
 construction has not been isolated;do not call it the established OOM cause.
+
+## October28: persisted HLO references transient NKI binaries
+
+After cache maintenance and a fresh worker,qualification stops at its first forward.Eager index_select HLO references stride2_gather .colz files below the prior container-local /var/tmp/nki-intermediate-cache;compiler exits70 with NCC_EVRF059.The supervisor fails closed,zero recorded completed updates,no OOM.Installed hlo_cache.py exposes separate TORCH_NEURONX_HLO_CACHE and TORCH_NEURONX_HLO_COMPILE_CACHE switches;NKI compiler/_disk_cache.py exposes NKI_COMPILE_CACHE_URL.The bounded recovery bypasses both persistent HLO modes and uses a persistent NKI directory,then rechecks all179 gradients before fitting.This is a local cache-dependency failure,not a scientific numerical result.No upstream submission.Private logs and SDK sources remain local.

@@ -46,7 +46,8 @@ files={str(f.relative_to(p)):hashlib.sha256(f.read_bytes()).hexdigest() for f in
 limit=int(subprocess.check_output(['docker','inspect','--format','{{.HostConfig.Memory}}',os.environ['RESEARCH_CONTAINER']]))
 (p/'launch.json').write_text(json.dumps({'started_unix':time.time(),'visible_cores':cores,'container_memory_limit_bytes':limit,'arguments':sys.argv[1:],
     'entry_module':os.environ.get('RESEARCH_ENTRY_MODULE'),
-    'physical_chips':chips,'source_sha256':files},indent=2)+'\n')
+    'physical_chips':chips,'source_sha256':files,
+    'native_cache_configuration':dict(hlo_eager=os.environ.get('RESEARCH_HLO_EAGER_CACHE','1'),hlo_compile=os.environ.get('RESEARCH_HLO_COMPILE_CACHE','1'),nki_compile_url=os.environ.get('RESEARCH_NKI_CACHE_URL',''))},indent=2)+'\n')
 PY
 close_run() {
   RESEARCH_EXIT="$?" python3 - <<'PY'
@@ -93,7 +94,9 @@ docker exec \
   -e LD_LIBRARY_PATH=/work/sdk/opt/aws/neuron/lib:/opt/aws/neuron/lib \
   -e TORCH_NEURONX_NEFF_LOCAL_CACHE_DIR=/work/cache \
   -e TORCH_NEURONX_HLO_CACHE_DIR=/work/hlo-cache \
-  -e TORCH_NEURONX_HLO_COMPILE_CACHE=1 \
+  -e "TORCH_NEURONX_HLO_CACHE=${RESEARCH_HLO_EAGER_CACHE:-1}" \
+  -e "TORCH_NEURONX_HLO_COMPILE_CACHE=${RESEARCH_HLO_COMPILE_CACHE:-1}" \
+  -e "NKI_COMPILE_CACHE_URL=${RESEARCH_NKI_CACHE_URL:-}" \
   -e TMPDIR=/work/tmp \
   "$RESEARCH_CONTAINER" \
   timeout --signal=TERM --kill-after=10s "${RESEARCH_TIMEOUT_SECONDS:-1200}" \
