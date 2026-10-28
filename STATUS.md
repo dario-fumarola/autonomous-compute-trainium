@@ -1,3 +1,9 @@
+## October28,2026,04:51 UTC — 101 sparse qualification updates finish;full-state save/replay in progress
+
+All101 actual-size updates complete with finite gradients;the final warm update takes1.09seconds versus the old discrete pilot's12.49seconds. All64 checkpoint shards are being saved before fresh-process exact gradient replay and independent mature HF audit. No held-out scores exist for this mechanism.
+
+Owner-authorized cleanup keeps every scientific model/optimizer checkpoint. Old generated hidden-state scratch and superseded successful qualification tensors are explicitly retired with hashes;their original values require recomputation. Closed compiler IR is losslessly archived;125 identical surviving failed-history gradient files are exact-byte hardlinked,with differing/missing shards left untouched.[Capacity receipts](results/workspace_capacity_20261028). The three-arm learning design is prepared but remains conditional on completed warm/replay/mature gates.[Design](docs/SPARSE_WORKSPACE_DISCOVERY_20261028.md).
+
 ## October28,2026,04:31 UTC — all16-chip sparse numerical/update/recovery gate passes
 
 All179 gradients pass(max named0.001397%),as do the first AdamW delta(max0.07515%),moments(max0.004573%)and complete716-tensor/RNG perturb/restore on two shards.No fallback. Runtime141.91seconds;zero scientific updates.[Native proof](results/sparse_workspace_native_20261028/report.json).
