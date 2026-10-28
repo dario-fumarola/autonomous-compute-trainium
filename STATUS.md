@@ -1,3 +1,13 @@
+## October28,2026,04:06 UTC — readout check negative;direct-gradient sparse CPU candidate passes5 gates
+
+The fixed2x2 readout completes with zero updates and EXACT raw/original-sample reproduction.Greedy does not help;tail replay hurts all models.Sample/prepend remains the least harmful workspace readout and still loses to ordinary.No discrete scaling is admitted.[All variants](results/workspace_readouts_20261028/recovery-v2/REPORT.md).
+
+Recorded TRAIN batch-mean absolute utility averages−0.012141nats,with4/48 positive batch means.Individual-note positive fraction and component gradient alignments were not logged;they cannot be inferred from scalar objectives.[Recorded telemetry](results/workspace_training_signal_20261028/report.json).
+
+A sparse continuous-state candidate now passes5 CPU gates:exact ordinary path/inventory,no future-token leakage,direct gradient credit,checkpointed all-gradient parity and an independent dense2D-mask forward/gradient oracle.It reuses differentiable prefix KV,shares all existing transformer parameters,and fixes one latent step before learning halting.Actual-size HF/Native/update/recovery/100warm qualification precedes any fit.[Scope](docs/SPARSE_WORKSPACE_CANDIDATE_20261028.md) · [CPU proof](results/sparse_workspace_cpu_20261028/report.json).
+
+The final discrete diagnostic crosses PRESERVED C0/workspace writers with C0/workspace readers under the original prepend layout.No resampling,refitting,new prompt or answer-aware selection.The new zero-update follow-up has a finite20-minute cap;prior deadlines/costs remain unchanged.
+
 ## October28,2026,02:53 UTC — fixed2x2 inference-only readout diagnostic prepared
 
 After publishing the unchanged negative pilot,a bounded development diagnostic compares sampled/greedy8-token notes and prepended/prefix-tail-replay layouts.Every common-C0/ordinary/workspace/pause/draft model receives every choice,plus tail-only,donor,constant and privileged-copy diagnostics.The320 anchors and seeds are unchanged;raw and original sampled/prepend outputs must reproduce within1e-5 per row.No fitting,answer-based note choice,new data or confirmation claim.Seven relevant CPU tests pass,including unchanged stochastic/full-gradient reference and greedy/full-forward/RNG equivalence.[Frozen scope](docs/WORKSPACE_READOUT_DIAGNOSTIC_20261028.md) · [CPU proof](results/workspace_readout_cpu_20261028/report.json).

@@ -1,0 +1,755 @@
+{
+  "status": "COMPLETE_WORKSPACE_READOUT_DIAGNOSTIC",
+  "scientific_optimizer_updates": 0,
+  "confirmation": false,
+  "evaluation": {
+    "status": "COMPLETE_WORKSPACE_READOUT_DIAGNOSTIC",
+    "world": 64,
+    "models": {
+      "c0": {
+        "scores": {
+          "raw_nll": 2.2781171004506175,
+          "raw_first4_nll": 2.4063777510884394,
+          "raw_first_token_nll": 2.400690174394856,
+          "tail_only_nll": 2.9031500300276094,
+          "tail_only_first_token_nll": 3.8245101156760937,
+          "sample_prepend.own_nll": 2.4216451718794816,
+          "sample_prepend.own_first_token_nll": 2.4075729726482504,
+          "sample_prepend.donor_nll": 2.428499045585522,
+          "sample_prepend.donor_first_token_nll": 2.4378497199786806,
+          "sample_prepend.constant_nll": 2.530038553920167,
+          "sample_prepend.constant_first_token_nll": 2.516879290691395,
+          "sample_tail.own_nll": 3.119287886377424,
+          "sample_tail.own_first_token_nll": 4.297257706646633,
+          "sample_tail.donor_nll": 3.0690723406267355,
+          "sample_tail.donor_first_token_nll": 4.091848944142112,
+          "sample_tail.constant_nll": 3.4308666076976806,
+          "sample_tail.constant_first_token_nll": 3.3658083461992643,
+          "greedy_prepend.own_nll": 2.430895140303437,
+          "greedy_prepend.own_first_token_nll": 2.443705458965928,
+          "greedy_prepend.donor_nll": 2.420161109647597,
+          "greedy_prepend.donor_first_token_nll": 2.4258239384268276,
+          "greedy_prepend.constant_nll": 2.530038553920167,
+          "greedy_prepend.constant_first_token_nll": 2.516879290691395,
+          "greedy_tail.own_nll": 3.0759006193140523,
+          "greedy_tail.own_first_token_nll": 4.045202541086473,
+          "greedy_tail.donor_nll": 2.978707180940546,
+          "greedy_tail.donor_first_token_nll": 3.8528454717423304,
+          "greedy_tail.constant_nll": 3.4308666076976806,
+          "greedy_tail.constant_first_token_nll": 3.3658083461992643,
+          "copy_prepend_nll": 1.5350012986681578,
+          "copy_prepend_first_token_nll": 2.1860953804544576,
+          "copy_tail_nll": 0.41806120433539035,
+          "copy_tail_first_token_nll": 0.4832909830257051
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 160,
+          "processed_positions": 30720,
+          "projected_positions": 540,
+          "phases": {
+            "copy_prepend_diagnostic_only": 5,
+            "copy_tail_diagnostic_only": 5,
+            "greedy_prepend_constant": 5,
+            "greedy_prepend_donor": 5,
+            "greedy_prepend_own": 5,
+            "greedy_tail_constant": 5,
+            "greedy_tail_donor": 5,
+            "greedy_tail_own": 5,
+            "raw32": 5,
+            "sample_prepend_constant": 5,
+            "sample_prepend_donor": 5,
+            "sample_prepend_own": 5,
+            "sample_tail_constant": 5,
+            "sample_tail_donor": 5,
+            "sample_tail_own": 5,
+            "tail_only": 5,
+            "workspace_sampling": 80
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      },
+      "workspace": {
+        "scores": {
+          "raw_nll": 2.2714576109145126,
+          "raw_first4_nll": 2.413154232016859,
+          "raw_first_token_nll": 2.4153729932887757,
+          "tail_only_nll": 2.9608260881504975,
+          "tail_only_first_token_nll": 4.035730468190741,
+          "sample_prepend.own_nll": 2.4220950069442555,
+          "sample_prepend.own_first_token_nll": 2.422818225068187,
+          "sample_prepend.donor_nll": 2.4254217740740387,
+          "sample_prepend.donor_first_token_nll": 2.4309070265880677,
+          "sample_prepend.constant_nll": 2.5303051023845913,
+          "sample_prepend.constant_first_token_nll": 2.5231051590280686,
+          "sample_tail.own_nll": 3.1397700550733134,
+          "sample_tail.own_first_token_nll": 4.427835528817377,
+          "sample_tail.donor_nll": 3.0831127974321135,
+          "sample_tail.donor_first_token_nll": 4.1930522955954075,
+          "sample_tail.constant_nll": 3.3791046562604605,
+          "sample_tail.constant_first_token_nll": 3.326286321983207,
+          "greedy_prepend.own_nll": 2.42822314683026,
+          "greedy_prepend.own_first_token_nll": 2.438497197497372,
+          "greedy_prepend.donor_nll": 2.4235906659127067,
+          "greedy_prepend.donor_first_token_nll": 2.424967802041175,
+          "greedy_prepend.constant_nll": 2.5303051023845913,
+          "greedy_prepend.constant_first_token_nll": 2.5231051590280686,
+          "greedy_tail.own_nll": 3.027175286761485,
+          "greedy_tail.own_first_token_nll": 4.062154119316256,
+          "greedy_tail.donor_nll": 2.986134481918998,
+          "greedy_tail.donor_first_token_nll": 3.9076404812163674,
+          "greedy_tail.constant_nll": 3.3791046562604605,
+          "greedy_tail.constant_first_token_nll": 3.326286321983207,
+          "copy_prepend_nll": 1.6687715086524806,
+          "copy_prepend_first_token_nll": 2.2295048217281193,
+          "copy_tail_nll": 0.39129697445405326,
+          "copy_tail_first_token_nll": 0.4641402100306209
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 160,
+          "processed_positions": 30720,
+          "projected_positions": 540,
+          "phases": {
+            "copy_prepend_diagnostic_only": 5,
+            "copy_tail_diagnostic_only": 5,
+            "greedy_prepend_constant": 5,
+            "greedy_prepend_donor": 5,
+            "greedy_prepend_own": 5,
+            "greedy_tail_constant": 5,
+            "greedy_tail_donor": 5,
+            "greedy_tail_own": 5,
+            "raw32": 5,
+            "sample_prepend_constant": 5,
+            "sample_prepend_donor": 5,
+            "sample_prepend_own": 5,
+            "sample_tail_constant": 5,
+            "sample_tail_donor": 5,
+            "sample_tail_own": 5,
+            "tail_only": 5,
+            "workspace_sampling": 80
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      },
+      "ordinary": {
+        "scores": {
+          "raw_nll": 2.256016588103375,
+          "raw_first4_nll": 2.387626122160691,
+          "raw_first_token_nll": 2.3830420405363952,
+          "tail_only_nll": 2.9097849654441235,
+          "tail_only_first_token_nll": 3.8784035002754536,
+          "sample_prepend.own_nll": 2.3958451716150195,
+          "sample_prepend.own_first_token_nll": 2.398127760805312,
+          "sample_prepend.donor_nll": 2.3952235718580592,
+          "sample_prepend.donor_first_token_nll": 2.385164338819038,
+          "sample_prepend.constant_nll": 2.493364506524813,
+          "sample_prepend.constant_first_token_nll": 2.4836385184103618,
+          "sample_tail.own_nll": 3.0727409100392835,
+          "sample_tail.own_first_token_nll": 4.238817643362563,
+          "sample_tail.donor_nll": 3.0507940450916067,
+          "sample_tail.donor_first_token_nll": 4.1392683523532465,
+          "sample_tail.constant_nll": 3.3261691404040903,
+          "sample_tail.constant_first_token_nll": 3.268106342771352,
+          "greedy_prepend.own_nll": 2.4045174266251705,
+          "greedy_prepend.own_first_token_nll": 2.4030022049833746,
+          "greedy_prepend.donor_nll": 2.3930809548028265,
+          "greedy_prepend.donor_first_token_nll": 2.3801401021447988,
+          "greedy_prepend.constant_nll": 2.493364506524813,
+          "greedy_prepend.constant_first_token_nll": 2.4836385184103618,
+          "greedy_tail.own_nll": 2.9855184225481937,
+          "greedy_tail.own_first_token_nll": 3.949298779572564,
+          "greedy_tail.donor_nll": 3.0067248637787998,
+          "greedy_tail.donor_first_token_nll": 3.951476663634094,
+          "greedy_tail.constant_nll": 3.3261691404040903,
+          "greedy_tail.constant_first_token_nll": 3.268106342771352,
+          "copy_prepend_nll": 1.5089176549720833,
+          "copy_prepend_first_token_nll": 2.1223506197214306,
+          "copy_tail_nll": 0.44114232192223424,
+          "copy_tail_first_token_nll": 0.4863291566830753
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 160,
+          "processed_positions": 30720,
+          "projected_positions": 540,
+          "phases": {
+            "copy_prepend_diagnostic_only": 5,
+            "copy_tail_diagnostic_only": 5,
+            "greedy_prepend_constant": 5,
+            "greedy_prepend_donor": 5,
+            "greedy_prepend_own": 5,
+            "greedy_tail_constant": 5,
+            "greedy_tail_donor": 5,
+            "greedy_tail_own": 5,
+            "raw32": 5,
+            "sample_prepend_constant": 5,
+            "sample_prepend_donor": 5,
+            "sample_prepend_own": 5,
+            "sample_tail_constant": 5,
+            "sample_tail_donor": 5,
+            "sample_tail_own": 5,
+            "tail_only": 5,
+            "workspace_sampling": 80
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      },
+      "pause": {
+        "scores": {
+          "raw_nll": 2.2802800916062553,
+          "raw_first4_nll": 2.420795461401394,
+          "raw_first_token_nll": 2.421275899901963,
+          "tail_only_nll": 2.989322727185208,
+          "tail_only_first_token_nll": 4.055522445712995,
+          "sample_prepend.own_nll": 2.4377487088370797,
+          "sample_prepend.own_first_token_nll": 2.4276580363082245,
+          "sample_prepend.donor_nll": 2.440248358127792,
+          "sample_prepend.donor_first_token_nll": 2.4389205013447905,
+          "sample_prepend.constant_nll": 2.571960998027862,
+          "sample_prepend.constant_first_token_nll": 2.6138237178978896,
+          "sample_tail.own_nll": 3.178422668762505,
+          "sample_tail.own_first_token_nll": 4.404309417091281,
+          "sample_tail.donor_nll": 3.1541510109440423,
+          "sample_tail.donor_first_token_nll": 4.298761422044481,
+          "sample_tail.constant_nll": 2.8118596257001625,
+          "sample_tail.constant_first_token_nll": 3.3885198830229912,
+          "greedy_prepend.own_nll": 2.4406455207450564,
+          "greedy_prepend.own_first_token_nll": 2.4579295384855353,
+          "greedy_prepend.donor_nll": 2.435906656750285,
+          "greedy_prepend.donor_first_token_nll": 2.4207704251717357,
+          "greedy_prepend.constant_nll": 2.571960998027862,
+          "greedy_prepend.constant_first_token_nll": 2.6138237178978896,
+          "greedy_tail.own_nll": 3.0656573405256493,
+          "greedy_tail.own_first_token_nll": 4.118261785946015,
+          "greedy_tail.donor_nll": 3.090756174083799,
+          "greedy_tail.donor_first_token_nll": 4.154816132652195,
+          "greedy_tail.constant_nll": 2.8118596257001625,
+          "greedy_tail.constant_first_token_nll": 3.3885198830229912,
+          "copy_prepend_nll": 1.5338588851531312,
+          "copy_prepend_first_token_nll": 2.1755868821664195,
+          "copy_tail_nll": 0.42066074727044905,
+          "copy_tail_first_token_nll": 0.4771441037420402
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 160,
+          "processed_positions": 30720,
+          "projected_positions": 540,
+          "phases": {
+            "copy_prepend_diagnostic_only": 5,
+            "copy_tail_diagnostic_only": 5,
+            "greedy_prepend_constant": 5,
+            "greedy_prepend_donor": 5,
+            "greedy_prepend_own": 5,
+            "greedy_tail_constant": 5,
+            "greedy_tail_donor": 5,
+            "greedy_tail_own": 5,
+            "raw32": 5,
+            "sample_prepend_constant": 5,
+            "sample_prepend_donor": 5,
+            "sample_prepend_own": 5,
+            "sample_tail_constant": 5,
+            "sample_tail_donor": 5,
+            "sample_tail_own": 5,
+            "tail_only": 5,
+            "workspace_sampling": 80
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      },
+      "draft": {
+        "scores": {
+          "raw_nll": 2.274657073289927,
+          "raw_first4_nll": 2.4210526791646316,
+          "raw_first_token_nll": 2.407635169579595,
+          "tail_only_nll": 2.984359984588809,
+          "tail_only_first_token_nll": 4.076304433180485,
+          "sample_prepend.own_nll": 2.42940973746945,
+          "sample_prepend.own_first_token_nll": 2.4107866774627382,
+          "sample_prepend.donor_nll": 2.430818047059984,
+          "sample_prepend.donor_first_token_nll": 2.4160481616946243,
+          "sample_prepend.constant_nll": 2.5472353280922104,
+          "sample_prepend.constant_first_token_nll": 2.520697083236041,
+          "sample_tail.own_nll": 3.5319510256354985,
+          "sample_tail.own_first_token_nll": 4.822055681502258,
+          "sample_tail.donor_nll": 3.2020525754545814,
+          "sample_tail.donor_first_token_nll": 4.508816930557077,
+          "sample_tail.constant_nll": 3.3877291304059325,
+          "sample_tail.constant_first_token_nll": 3.3329588023698307,
+          "greedy_prepend.own_nll": 2.4480260671239193,
+          "greedy_prepend.own_first_token_nll": 2.434414307474492,
+          "greedy_prepend.donor_nll": 2.430080381073185,
+          "greedy_prepend.donor_first_token_nll": 2.411459508961161,
+          "greedy_prepend.constant_nll": 2.5472353280922104,
+          "greedy_prepend.constant_first_token_nll": 2.520697083236041,
+          "greedy_tail.own_nll": 3.4965437583428867,
+          "greedy_tail.own_first_token_nll": 4.597769823804622,
+          "greedy_tail.donor_nll": 3.211351000331342,
+          "greedy_tail.donor_first_token_nll": 4.546132317642332,
+          "greedy_tail.constant_nll": 3.3877291304059325,
+          "greedy_tail.constant_first_token_nll": 3.3329588023698307,
+          "copy_prepend_nll": 1.829427976547504,
+          "copy_prepend_first_token_nll": 2.2590757211934487,
+          "copy_tail_nll": 0.38633067546143135,
+          "copy_tail_first_token_nll": 0.45480259511982124
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 160,
+          "processed_positions": 30720,
+          "projected_positions": 540,
+          "phases": {
+            "copy_prepend_diagnostic_only": 5,
+            "copy_tail_diagnostic_only": 5,
+            "greedy_prepend_constant": 5,
+            "greedy_prepend_donor": 5,
+            "greedy_prepend_own": 5,
+            "greedy_tail_constant": 5,
+            "greedy_tail_donor": 5,
+            "greedy_tail_own": 5,
+            "raw32": 5,
+            "sample_prepend_constant": 5,
+            "sample_prepend_donor": 5,
+            "sample_prepend_own": 5,
+            "sample_tail_constant": 5,
+            "sample_tail_donor": 5,
+            "sample_tail_own": 5,
+            "tail_only": 5,
+            "workspace_sampling": 80
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      }
+    },
+    "optimizer_updates": 0,
+    "original_raw_and_sample_parity_max_abs_error": 0.0,
+    "wall_seconds": 512.7862391471863,
+    "fallback_ops": [],
+    "warning": "Outcome-informed2x2 readout development diagnostic on same320 TUNE anchors.All models receive identical inference choices.No training,selection by answer,fresh confirmation,allocation or transferable reasoning claim.Replayed tail is from prefix only;copy control is privileged diagnostic only."
+  },
+  "analysis": {
+    "status": "COMPLETE_READOUT_DIAGNOSTIC_ANALYSIS",
+    "contrasts": {
+      "sample_prepend/ordinary_raw_minus_workspace": {
+        "mean": -0.034468884783564135,
+        "conditional_source_group_95_interval": [
+          -0.05751617563427401,
+          -0.005503602994959892
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_prepend/ordinary_same_readout_minus_workspace": {
+        "mean": -0.026249835329235794,
+        "conditional_source_group_95_interval": [
+          -0.049831154255750215,
+          -0.0012902714635977537
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_prepend/c0_same_readout_minus_workspace": {
+        "mean": -0.00044983506477365144,
+        "conditional_source_group_95_interval": [
+          -0.019561605206951688,
+          0.02137672986905191
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_prepend/workspace_raw_minus_own": {
+        "mean": -0.008940774927395978,
+        "conditional_source_group_95_interval": [
+          -0.018593065889191466,
+          0.0009224582336428749
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_prepend/workspace_donor_minus_own": {
+        "mean": 0.003326767129783548,
+        "conditional_source_group_95_interval": [
+          -0.009057049200756435,
+          0.015954139353497626
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_prepend/workspace_constant_minus_own": {
+        "mean": 0.10821009544033586,
+        "conditional_source_group_95_interval": [
+          0.07733085636461937,
+          0.14110045074668046
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_prepend/workspace_tail_only_minus_own": {
+        "mean": 0.5387310812062424,
+        "conditional_source_group_95_interval": [
+          0.4557180711232513,
+          0.6218221702759948
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_prepend/ordinary_raw_minus_workspace_first_token": {
+        "mean": -0.03977618453179161,
+        "conditional_source_group_95_interval": [
+          -0.08552464939832864,
+          0.015176935118894399
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_tail/ordinary_raw_minus_workspace": {
+        "mean": -0.7521439329126224,
+        "conditional_source_group_95_interval": [
+          -0.8475213077150453,
+          -0.6470634902751038
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_tail/ordinary_same_readout_minus_workspace": {
+        "mean": -0.06702914503403008,
+        "conditional_source_group_95_interval": [
+          -0.12757564037170457,
+          0.005149963418393669
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_tail/c0_same_readout_minus_workspace": {
+        "mean": -0.020482168695889418,
+        "conditional_source_group_95_interval": [
+          -0.07598141983222878,
+          0.04078204152006788
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_tail/workspace_raw_minus_own": {
+        "mean": -0.7266158230564542,
+        "conditional_source_group_95_interval": [
+          -0.8134480678360573,
+          -0.6352797304091824
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_tail/workspace_donor_minus_own": {
+        "mean": -0.05665725764119997,
+        "conditional_source_group_95_interval": [
+          -0.11775412783204546,
+          0.009871171976057613
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_tail/workspace_constant_minus_own": {
+        "mean": 0.23933460118714722,
+        "conditional_source_group_95_interval": [
+          0.09395398237236606,
+          0.39843488960340356
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_tail/workspace_tail_only_minus_own": {
+        "mean": -0.17894396692281586,
+        "conditional_source_group_95_interval": [
+          -0.2369884503411481,
+          -0.11754264047755596
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "sample_tail/ordinary_raw_minus_workspace_first_token": {
+        "mean": -2.0447934882809817,
+        "conditional_source_group_95_interval": [
+          -2.3106850259501197,
+          -1.7682637534027115
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_prepend/ordinary_raw_minus_workspace": {
+        "mean": -0.040597024669568785,
+        "conditional_source_group_95_interval": [
+          -0.0642319884088978,
+          -0.010725373500188911
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_prepend/ordinary_same_readout_minus_workspace": {
+        "mean": -0.023705720205089167,
+        "conditional_source_group_95_interval": [
+          -0.048474304696915854,
+          0.00924629438895793
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_prepend/c0_same_readout_minus_workspace": {
+        "mean": 0.00267199347317728,
+        "conditional_source_group_95_interval": [
+          -0.017472431137977144,
+          0.02676311879101273
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_prepend/workspace_raw_minus_own": {
+        "mean": -0.015068914813400626,
+        "conditional_source_group_95_interval": [
+          -0.02549943987346432,
+          -0.0038980793704041857
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_prepend/workspace_donor_minus_own": {
+        "mean": -0.004632480917553039,
+        "conditional_source_group_95_interval": [
+          -0.016357703730149938,
+          0.008463985787433879
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_prepend/workspace_constant_minus_own": {
+        "mean": 0.10208195555433122,
+        "conditional_source_group_95_interval": [
+          0.07199204419077412,
+          0.13379745616929795
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_prepend/workspace_tail_only_minus_own": {
+        "mean": 0.5326029413202378,
+        "conditional_source_group_95_interval": [
+          0.4520010813154544,
+          0.6165028950125684
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_prepend/ordinary_raw_minus_workspace_first_token": {
+        "mean": -0.055455156960977095,
+        "conditional_source_group_95_interval": [
+          -0.10053009408012129,
+          -0.003612843035713354
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_tail/ordinary_raw_minus_workspace": {
+        "mean": -0.639549164600794,
+        "conditional_source_group_95_interval": [
+          -0.7312309474912089,
+          -0.5335494763707341
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_tail/ordinary_same_readout_minus_workspace": {
+        "mean": -0.04165686421329155,
+        "conditional_source_group_95_interval": [
+          -0.0974095223081401,
+          0.027148121183937314
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_tail/c0_same_readout_minus_workspace": {
+        "mean": 0.04872533255256713,
+        "conditional_source_group_95_interval": [
+          -0.004015509603663581,
+          0.11384263712434031
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_tail/workspace_raw_minus_own": {
+        "mean": -0.6140210547446259,
+        "conditional_source_group_95_interval": [
+          -0.7003810079145762,
+          -0.5162387039085499
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_tail/workspace_donor_minus_own": {
+        "mean": -0.04104080484248698,
+        "conditional_source_group_95_interval": [
+          -0.09348819164605002,
+          0.01973748103748427
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_tail/workspace_constant_minus_own": {
+        "mean": 0.3519293694989756,
+        "conditional_source_group_95_interval": [
+          0.20579955131762628,
+          0.5091740394627128
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_tail/workspace_tail_only_minus_own": {
+        "mean": -0.06634919861098752,
+        "conditional_source_group_95_interval": [
+          -0.1367587806629488,
+          0.011233896958205985
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "greedy_tail/ordinary_raw_minus_workspace_first_token": {
+        "mean": -1.6791120787798606,
+        "conditional_source_group_95_interval": [
+          -1.9161951878750094,
+          -1.3955593318919703
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      }
+    },
+    "warning": "Outcome-informed fixed2x2 development follow-up on reused TUNE groups.Multiple descriptive contrasts,no multiplicity-adjusted confirmation or new training.No variant is selected using the observed next token.",
+    "terminal_alpha_spent": 0
+  },
+  "plan_sha256": "ada0c8ac63464ba2b610e3bc1cf79f35fd87d7398070090194e257bd33c226b0"
+}
