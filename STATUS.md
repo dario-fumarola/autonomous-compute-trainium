@@ -1,3 +1,9 @@
+## October28,2026,20:09 UTC — independent-memory training control registered
+
+Ten focused CPU tests pass. A new one-step branch starts from the original random initialization and receives the same8192 target views/2048 updates as the authentic-memory branch,but earlier memory is a same-domain,different-source-group permutation. Each donor is used exactly once;the original query/current slot is preserved. Full-size FP32 efficient-path versus FP64 independent-reference gradients pass on all three domains(max relative8.534e-6). No scientific update has run yet.[Frozen protocol](docs/RESIDUAL_INDEPENDENT_MEMORY_TRAINING_20261028.md).
+
+One bounded16-thread CPU fit follows,then mature numerical/full-state/next-update replay checks before the complete training-memory by evaluation-memory table. Cached features are reused;no Native pass or larger backbone. All448 original TUNE views are retained,and320 reserved groups remain unscored and excluded. No router,confirmation,automatic scaling or change to prior gates. The previous attention benefit remains unexplained;this test asks whether source-matched memory during learning contributed to it.
+
 ## October28,2026,19:49 UTC — most branch gain survives unrelated memory;mechanism gates fail
 
 The frozen448-view/339-case diagnostic completes. Authentic NLL2.275685 versus donor2.276416/2.276083 means about89%/94% of the gain survives unrelated same-domain memory. Current-only scores2.279499. Neither code-binding nor arithmetic-conclusion whole-answer/content gate passes in both cohorts. Positive arithmetic first-token gains remain recorded,but donor controls and local correction do not establish reasoning.[Full report](results/residual_memory_attribution_20261028/REPORT.md).

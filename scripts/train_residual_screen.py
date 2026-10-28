@@ -10,6 +10,7 @@ def run(a):
  from compute_trainium.training import file_sha256
  from compute_trainium.residual_matrix_work import MatrixWork
  from compute_trainium.residual_data_volume import source_indices,restore_branch
+ from compute_trainium.residual_independent_memory import independent_read
  from contextlib import nullcontext
  p=json.loads(a.plan.read_text());out=a.root/p['identity'];start=time.time();torch.set_num_threads(16);torch.manual_seed(p['seed']);report=dict(status='STOPPED_RESIDUAL_SCREEN_ARM',arm=a.arm,backbone_updates=0,assigned_chips=0);completed=0;telemetry=[]
  import signal
@@ -19,7 +20,7 @@ def run(a):
  if a.arm not in p['arm_modes']:raise AssertionError('Unregistered arm')
  def guard(stage,index):
   available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
-  if available<512*1024**3 or shutil.disk_usage(a.root).free<35*1024**3 or os.statvfs(a.root).f_favail<10000 or time.time()>p['absolute_deadline_unix'] or time.time()-start>p['cpu_phase_seconds_limit']:raise RuntimeError('Frozen CPU fitting resource/time guard')
+  if available<512*1024**3 or min(shutil.disk_usage(a.root).free,shutil.disk_usage('/').free)<35*1024**3 or os.statvfs(a.root).f_favail<10000 or resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024>48*1024**3 or time.time()>p['absolute_deadline_unix'] or time.time()-start>p['cpu_phase_seconds_limit']:raise RuntimeError('Frozen CPU fitting resource/time guard')
   (out/f'{a.arm}-progress.json').write_text(json.dumps(dict(stage=stage,index=index,wall_seconds=time.time()-start)))
  def load(split,count):
   h=torch.empty(count,159,p['model_config']['hidden_size']);y=torch.empty(count,159,dtype=torch.long);d=torch.empty(count,dtype=torch.long);seen=[]
@@ -33,7 +34,15 @@ def run(a):
   return h,y,d
  try:
   unique_views=p.get('arm_unique_views',{}).get(a.arm,p['train_views']);mode=p.get('branch_modes',{}).get(a.arm,a.arm)
-  guard('load_frozen_features',0);train,labels,domains=load('train',unique_views);test,truth,td=load('tune',p['evaluation_anchors']);state=torch.load(a.root/p['checkpoint_relative'],weights_only=True,mmap=True)['model'];head=state['lm_head.weight'].detach();del state;head_version=head._version
+  guard('load_frozen_features',0);train,labels,domains=load('train',unique_views);test=None
+  if not p.get('evaluation_in_controller'):test,truth,td=load('tune',p['evaluation_anchors'])
+  donors=None
+  if p.get('training_memory_donors'):
+   ref=p['training_memory_donors'];path=a.root/ref['relative']
+   if file_sha256(path)!=ref['sha256']:raise AssertionError('Frozen training donor mapping changed')
+   donors=torch.load(path,weights_only=True)['training']
+   if donors.shape!=(unique_views,) or not torch.equal(donors.sort().values,torch.arange(unique_views)):raise AssertionError('Exact donor permutation required')
+  state=torch.load(a.root/p['checkpoint_relative'],weights_only=True,mmap=True)['model'];head=state['lm_head.weight'].detach();del state;head_version=head._version
   model=make_branch(p['width'],mode);optimizer=torch.optim.AdamW(model.parameters(),lr=p['lr'],weight_decay=p['weight_decay']);rng=torch.Generator().manual_seed(p['seed']+1);telemetry=[];q=p['queries'];batch=p['batch_views'];warm=[];initial_update=0
   if p.get('resume_states'):
    resume=p['resume_states'][a.arm];path=a.root/resume['relative']
@@ -45,22 +54,23 @@ def run(a):
   for update in range(initial_update,p['updates']):
    guard('train',update);tick=time.time();indices=source_indices(update,batch,unique_views);anchors=torch.randperm(159,generator=rng)[:q].sort().values;h=train[indices];target=labels[indices][:,anchors];optimizer.zero_grad(set_to_none=True);counter=MatrixWork() if update<initial_update+2 else None
    with counter if counter is not None else nullcontext():
-    adjusted=model(h,anchors);logits=adjusted@head.T;loss=-stable_target_log_probs(logits,target).mean()
+    adjusted=model(h,anchors) if donors is None else independent_read(model,h,anchors,train[donors[indices]]);logits=adjusted@head.T;loss=-stable_target_log_probs(logits,target).mean()
     if update==0 and not torch.equal(adjusted,h[:,anchors]):raise AssertionError('Initial prediction must be exactly ordinary')
     loss.backward()
    if counter is not None:report.setdefault('matrix_operations_measured_updates',[]).append(counter.operations)
    norm=torch.nn.utils.clip_grad_norm_(model.parameters(),1.,error_if_nonfinite=True);optimizer.step();completed=update+1;seconds=time.time()-tick;telemetry.append(dict(update=update+1,loss=float(loss.detach()),gradient_norm=float(norm),seconds=seconds));warm.append(seconds)
    if update%16==0:(out/f'{a.arm}-telemetry.json').write_text(json.dumps(telemetry))
    # Measure actual path before retaining more than16 fitted updates.
-   if update==initial_update+15 and time.time()+sum(warm[1:])/15*(p['updates']-initial_update-16+40)>min(p['absolute_deadline_unix'],start+1800):raise RuntimeError('Measured fit plus evaluation does not fit frozen cap')
+   if update==initial_update+15 and time.time()+sum(warm[1:])/15*(p['updates']-initial_update-16+40)>min(p['absolute_deadline_unix'],start+p['cpu_phase_seconds_limit']):raise RuntimeError('Measured fit plus evaluation does not fit frozen cap')
   torch.save(dict(model=model.state_dict(),optimizer=optimizer.state_dict(),rng=rng.get_state(),updates=p['updates']),out/f'PRIVATE-{a.arm}-state.pt');(out/f'{a.arm}-telemetry.json').write_text(json.dumps(telemetry))
   model.eval();rows=[];anchors=torch.arange(127,159)
   with torch.no_grad():
-   for i in range(len(test)):
+   for i in range(0 if test is None else len(test)):
     guard('evaluate',i);h=test[i:i+1];targets=truth[i:i+1,127:159];raw=-stable_target_log_probs(h[:,127:159]@head.T,targets);work=-stable_target_log_probs(model(h,anchors)@head.T,targets)
     rows.append(dict(index=i,domain=int(td[i]),group=p['evaluation_groups'][i],raw_nll=float(raw.mean()),workspace_nll=float(work.mean()),first_raw_nll=float(raw[0,0]),first_workspace_nll=float(work[0,0])))
-  if head._version!=head_version or train.requires_grad or test.requires_grad:raise AssertionError('Frozen predictor was changed')
-  (out/f'PRIVATE-{a.arm}-scores.json').write_text(json.dumps(rows));report.update(status='COMPLETE_RESIDUAL_SCREEN_ARM',updates=p['updates'],new_updates=p['updates']-initial_update,branch_parameters=sum(x.numel() for x in model.parameters()),unique_train_views=unique_views,train_source_view_exposures=p['updates']*batch,label_exposures=p['updates']*batch*q,mean_warm_update_seconds=sum(warm[1:])/len(warm[1:]),parameters_frozen=True)
+  if head._version!=head_version or train.requires_grad or (test is not None and test.requires_grad):raise AssertionError('Frozen predictor was changed')
+  if test is not None:(out/f'PRIVATE-{a.arm}-scores.json').write_text(json.dumps(rows))
+  report.update(status='COMPLETE_RESIDUAL_SCREEN_ARM',updates=p['updates'],new_updates=p['updates']-initial_update,branch_parameters=sum(x.numel() for x in model.parameters()),unique_train_views=unique_views,train_source_view_exposures=p['updates']*batch,additional_donor_view_accesses=0 if donors is None else p['updates']*batch,label_exposures=p['updates']*batch*q,mean_warm_update_seconds=sum(warm[1:])/len(warm[1:]),parameters_frozen=True,evaluation_deferred=test is None)
  except BaseException as error:report.update(error_type=type(error).__name__,error=str(error));raise
  finally:
   report.update(completed_updates=completed,wall_seconds=time.time()-start,peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024);(out/f'{a.arm}-report.json').write_text(json.dumps(report,indent=2)+'\n');(out/f'{a.arm}-telemetry.json').write_text(json.dumps(telemetry))
