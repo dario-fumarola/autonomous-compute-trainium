@@ -38,7 +38,7 @@ def prepare(root):
         root_comm_ports=reserve_ports(root,[phase]),phases={phase:dict(mode='evaluation')},inode_projection=projection,
         original_evaluation_run=plan['identity']+'-evaluation',original_report_sha256=file_sha256(parent/'report.json'),
         diagnostic_scope=Path('docs/WORKSPACE_READOUT_DIAGNOSTIC_20261028.md').read_text(),scientific_optimizer_updates=0,terminal_alpha_spent=0)
-    out.mkdir();PUBLIC.mkdir();write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
+    out.mkdir();PUBLIC.mkdir(parents=True);write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
 
 
 def run(root):
@@ -59,5 +59,6 @@ def run(root):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--run',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--run',action='store_true');p.add_argument('--recovery',action='store_true');a=p.parse_args()
+    if a.recovery:IDENTITY='workspace-readout-diagnostic-v2';PUBLIC=Path('results/workspace_readouts_20261028/recovery-v2')
     run(a.root) if a.run else prepare(a.root)
