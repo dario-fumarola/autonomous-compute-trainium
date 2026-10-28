@@ -1,4 +1,10 @@
-## October28,2026,21:08 UTC — short-prefix associative-memory screen complete
+## October28,2026,21:10 UTC — frozen dependency memory-budget readout registered
+
+The completed cache readers will be tested without updates on all340 original source-verified dependency cases and their original cohorts. Full memory,rotated values and recent128-pair memory retain the same full-context C0 predictor. This distinguishes access to older memory from simply giving the baseline more context. Eight causal-memory tests pass;every raw C0 score must reproduce its historical independent CPU value before accepting a readout.[Protocol](docs/ASSOCIATIVE_DEPENDENCY_READOUT_20261028.md).
+
+No new source selection,fit,Native retry or reserved-source scoring. This is a reused-panel memory-length extrapolation,not supported-depth scaling or confirmation. The short-prefix cache negative remains unchanged. No new result yet.
+
+## October28,2026,21:06 UTC — short-prefix associative-memory screen complete
 
 All three1536-update fits pass mature numerical and recovery checks. Raw NLL2.282112;trained bag2.281886,cosine2.280980,learned addressing2.281840. Calibration selects zero fixed-cache weight. Learned addressing's0.000272 gain does not clear the0.01 gate or beat the cosine control;value rotation hurts0.000558 but remains below the content bar.[Complete result](results/causal_associative_workspace_20261028/REPORT.md).
 
