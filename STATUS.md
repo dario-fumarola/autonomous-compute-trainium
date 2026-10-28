@@ -1,3 +1,9 @@
+## October28,2026,12:11 UTC — uniform-NTP splicing qualifies;101-update gate admitted
+
+The revised objective supervises every authentic target exactly once. Random32-position independent workspaces replace ordinary predictions rather than adding target weight. Eighteen CPU gates pass,including exact disabled-path outputs,all gradients and AdamW states. Actual1.485B Native all179-gradient/update/moment/two-shard recovery gates pass with no fallback(max gradient0.001705%,max update0.2998%).[Candidate](docs/SPLICED_WORKSPACE_CANDIDATE_20261028.md) · [Native gate](results/spliced_workspace_native_20261028/report.json).
+
+The new bounded101-update/full-global-replay qualification starts fresh fromC0. Its candidate prefix is prospectively retained with every update/source/cost counted in any later discovery;no larger continuation admitted yet. Only obsolete successful qualification tensors and regenerable compiler-cache contents are retired;all scientific checkpoints,failed histories,source and current references remain.[Capacity](results/spliced_workspace_capacity_20261028/report.json).
+
 ## October28,2026,06:12 UTC — sparse three-arm comparison complete and negative
 
 All latent900/constant900/ordinary923 checkpoints and independent179-gradient audits pass. On448 TUNE views,full32 policy NLL is2.305394/2.321481/2.297200. Latent loses0.008194nats to ordinary and its own workspace utility remains−0.009046. No scaling/router/confirmation or from-scratch claim.[Full result](results/sparse_workspace_discovery_20261028/REPORT.md).

@@ -2,7 +2,7 @@ import copy
 import pytest
 import torch
 import torch.nn.functional as F
-from compute_trainium.workspace_olmo_candidate import OlmoWorkspaceConfig,rotary_tensors
+from compute_trainium.workspace_olmo_candidate import WorkspaceOlmoCandidate,OlmoWorkspaceConfig,rotary_tensors
 from compute_trainium.sparse_workspace_candidate import IndependentSparseWorkspaceCandidate
 from compute_trainium.spliced_workspace_training import partition_positions,sample_positions,spliced_objective,spliced_matrix_work
 from compute_trainium.sparse_workspace_training import pack_view
@@ -10,6 +10,21 @@ from test_workspace_matrix_count import MatrixCounter
 
 
 def config():return OlmoWorkspaceConfig(hidden_size=16,intermediate_size=32,num_hidden_layers=2,num_attention_heads=2,num_key_value_heads=2,vocab_size=64,pad_token_id=63)
+
+
+def test_disabled_workspace_is_exact_in_outputs_gradients_and_adamw_step():
+    torch.manual_seed(5500);base=WorkspaceOlmoCandidate(config(),activation_checkpointing=True)
+    candidate=IndependentSparseWorkspaceCandidate(config(),activation_checkpointing=True);candidate.load_state_dict(base.state_dict())
+    tokens=torch.arange(8).reshape(1,-1);targets=(tokens+1)%62;cos,sin=rotary_tensors(config(),8)
+    left=base(tokens,cos,sin);right=candidate.sparse_forward(tokens,cos,sin,torch.tensor([2,5,7]),mix=0)['raw_logits']
+    assert torch.equal(left,right)
+    F.cross_entropy(left.reshape(-1,64),targets.reshape(-1)).backward();F.cross_entropy(right.reshape(-1,64),targets.reshape(-1)).backward()
+    for p,q in zip(base.parameters(),candidate.parameters(),strict=True):assert torch.equal(p.grad,q.grad)
+    optimizers=[torch.optim.AdamW(m.parameters(),lr=1e-5,betas=(.9,.95),eps=1e-8,weight_decay=.1,foreach=False) for m in [base,candidate]]
+    for optimizer in optimizers:optimizer.step()
+    for p,q in zip(base.parameters(),candidate.parameters(),strict=True):
+        assert torch.equal(p,q)
+        for field in ['exp_avg','exp_avg_sq','step']:assert torch.equal(optimizers[0].state[p][field],optimizers[1].state[q][field])
 
 
 def test_sampled_partition_covers_every_natural_target_once_and_rng_replays():
