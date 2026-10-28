@@ -1,3 +1,9 @@
+## October28,2026,01:44 UTC — first saved workspace endpoint passes independent mature audit
+
+The protected48-update workspace history completes,all64 final full-state archives verify,and the temporaryu1 backup is retired only afterward.The100%-parameter independent HF-body/FP64-loss audit passes all179 gradients:largest named error0.0007340%,overall0.0002110%;frozen rewards differ by at most0.00000217nats.No numerical threshold changes,no fallback.[Independent audit](results/workspace_discovery_20261027/workspace-discovery-audit-workspace-v1/report.json).
+
+Warm updates average12.4878seconds;whole Native runtime2371.93seconds includes the819.10-second early backup and sequential final-state serialization.These safety costs are actual costs,not neural throughput.The frozen source-only pause421 and own-draft63 fits follow;every mature audit must pass before any of the320 TUNE anchors is scored.No efficiency,reasoning or useful-writing claim yet.[Saved endpoint](results/workspace_discovery_20261027/recovery-v3/workspace-native.json).
+
 ## October28,2026,01:20 UTC — all64 early state shards verified;learning resumes
 
 The complete895-tensor-per-rank workspaceu1 backup verifies across all64 ranks;checkpoint I/O takes819.10seconds.Training resumes at update2 and warm updates remain about12.5seconds.No extra optimizer update/source exposure is added.The retained prefix remains until all finalu48 shards verify.The whole assigned chip-time includes this safety checkpoint,not just neural update time.
