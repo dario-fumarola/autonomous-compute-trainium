@@ -1,0 +1,190 @@
+{
+  "status": "COMPLETE_SPLICED_GLOBAL_TRAIN_READOUT",
+  "optimizer_updates": 0,
+  "evaluation": {
+    "status": "COMPLETE_SPLICED_GLOBAL_TRAIN_READOUT",
+    "world": 64,
+    "optimizer_updates": 0,
+    "calibration_views": 640,
+    "evaluation_anchors": 448,
+    "choices": {
+      "c0": {
+        "alpha_index": 1,
+        "temperature_index": 0,
+        "raw_temperature_index": 0,
+        "alpha": 0.05,
+        "temperature": 1.0,
+        "raw_temperature": 1.0,
+        "train_policy32": 2.2573923125804867,
+        "train_calibrated_raw32": 2.2574178313137963,
+        "selection_split": "train",
+        "views": 640,
+        "scope": "One global choice per model.Fixed before held-out scoring;no target-aware per-position choice."
+      },
+      "ordinary": {
+        "alpha_index": 0,
+        "temperature_index": 1,
+        "raw_temperature_index": 1,
+        "alpha": 0,
+        "temperature": 0.9,
+        "raw_temperature": 0.9,
+        "train_policy32": 1.8129366877596114,
+        "train_calibrated_raw32": 1.8129366877596114,
+        "selection_split": "train",
+        "views": 640,
+        "scope": "One global choice per model.Fixed before held-out scoring;no target-aware per-position choice."
+      },
+      "latent": {
+        "alpha_index": 3,
+        "temperature_index": 1,
+        "raw_temperature_index": 1,
+        "alpha": 0.2,
+        "temperature": 0.9,
+        "raw_temperature": 0.9,
+        "train_policy32": 1.8218680309501907,
+        "train_calibrated_raw32": 1.8222729450562838,
+        "selection_split": "train",
+        "views": 640,
+        "scope": "One global choice per model.Fixed before held-out scoring;no target-aware per-position choice."
+      },
+      "constant": {
+        "alpha_index": 0,
+        "temperature_index": 1,
+        "raw_temperature_index": 1,
+        "alpha": 0,
+        "temperature": 0.9,
+        "raw_temperature": 0.9,
+        "train_policy32": 1.8605285569720764,
+        "train_calibrated_raw32": 1.8605285569720764,
+        "selection_split": "train",
+        "views": 640,
+        "scope": "One global choice per model.Fixed before held-out scoring;no target-aware per-position choice."
+      }
+    },
+    "scores": {
+      "c0": {
+        "policy32_nll": 2.2819882656361314,
+        "workspace_anchor_nll": 2.2595531517171765,
+        "same_temperature_raw_anchor_nll": 2.2605405761909387,
+        "calibrated_raw32_nll": 2.282111699264177,
+        "calibrated_raw_anchor_nll": 2.2605405761909387,
+        "fixed_raw32_nll": 2.282111699264177,
+        "fixed_raw_anchor_nll": 2.2605405761909387,
+        "fixed_workspace_anchor_nll": 2.3180111522809597
+      },
+      "ordinary": {
+        "policy32_nll": 2.2909305076097852,
+        "workspace_anchor_nll": 2.2684191322681753,
+        "same_temperature_raw_anchor_nll": 2.2684191322681753,
+        "calibrated_raw32_nll": 2.2909305076097852,
+        "calibrated_raw_anchor_nll": 2.2684191322681753,
+        "fixed_raw32_nll": 2.2628566333718294,
+        "fixed_raw_anchor_nll": 2.2378681936565736,
+        "fixed_workspace_anchor_nll": 2.2987016863890775
+      },
+      "latent": {
+        "policy32_nll": 2.2944672114070297,
+        "workspace_anchor_nll": 2.264960506636372,
+        "same_temperature_raw_anchor_nll": 2.2738180325532253,
+        "calibrated_raw32_nll": 2.295574401712335,
+        "calibrated_raw_anchor_nll": 2.2738180325532253,
+        "fixed_raw32_nll": 2.2651018717876874,
+        "fixed_raw_anchor_nll": 2.24029908667,
+        "fixed_workspace_anchor_nll": 2.2560068218071496
+      },
+      "constant": {
+        "policy32_nll": 2.2949561245424133,
+        "workspace_anchor_nll": 2.2722775349629805,
+        "same_temperature_raw_anchor_nll": 2.2722775349629805,
+        "calibrated_raw32_nll": 2.2949561245424133,
+        "calibrated_raw_anchor_nll": 2.2722775349629805,
+        "fixed_raw32_nll": 2.2651326342131086,
+        "fixed_raw_anchor_nll": 2.2397778176969894,
+        "fixed_workspace_anchor_nll": 2.2962317696084207
+      }
+    },
+    "original_readout_parity": {
+      "c0": {
+        "raw32_nll": 4.3846690189752735e-07,
+        "raw_anchor_nll": 4.129711146383386e-07,
+        "workspace_anchor_nll": 4.5597555065057804e-07
+      },
+      "ordinary": {
+        "raw32_nll": 4.519996643637114e-07,
+        "raw_anchor_nll": 4.072991592884989e-07,
+        "workspace_anchor_nll": 4.587120225885144e-07
+      },
+      "latent": {
+        "raw32_nll": 4.4505392970961566e-07,
+        "raw_anchor_nll": 4.2932146726570863e-07,
+        "workspace_anchor_nll": 4.3897052348640386e-07
+      },
+      "constant": {
+        "raw32_nll": 4.009866567677989e-07,
+        "raw_anchor_nll": 4.116960523603552e-07,
+        "workspace_anchor_nll": 5.112468515200419e-07
+      }
+    },
+    "parameters_unchanged": true,
+    "fallback_ops": [],
+    "wall_seconds": 63.369935035705566,
+    "scope": "Fixed global mixer/temperature learned on TRAIN only,then frozen for reused TUNE.No per-token outcome-aware selection,backbone updates,allocation or independent confirmation."
+  },
+  "contrasts": {
+    "ordinary_minus_latent_calibrated_policy32": {
+      "mean": -0.00353670379724428,
+      "conditional_source_group_95_interval": [
+        -0.00857439095076976,
+        0.0010019343544968096
+      ],
+      "anchors": 448,
+      "source_groups": 116,
+      "bootstrap_draws": 5000,
+      "bootstrap_seed": 11261,
+      "rejected_empty_domain_draws": 1,
+      "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+    },
+    "latent_absolute_anchor_utility_same_temperature": {
+      "mean": 0.00885752591685357,
+      "conditional_source_group_95_interval": [
+        0.002713751569658824,
+        0.01476559275520644
+      ],
+      "anchors": 448,
+      "source_groups": 116,
+      "bootstrap_draws": 5000,
+      "bootstrap_seed": 11261,
+      "rejected_empty_domain_draws": 1,
+      "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+    },
+    "latent_calibrated_raw_minus_calibrated_policy32": {
+      "mean": 0.001107190305305932,
+      "conditional_source_group_95_interval": [
+        0.00033922671829029186,
+        0.0018456972675320728
+      ],
+      "anchors": 448,
+      "source_groups": 116,
+      "bootstrap_draws": 5000,
+      "bootstrap_seed": 11261,
+      "rejected_empty_domain_draws": 1,
+      "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+    },
+    "constant_minus_latent_calibrated_policy32": {
+      "mean": 0.0004889131353838892,
+      "conditional_source_group_95_interval": [
+        -0.0018021005939384922,
+        0.0025014412504790733
+      ],
+      "anchors": 448,
+      "source_groups": 116,
+      "bootstrap_draws": 5000,
+      "bootstrap_seed": 11261,
+      "rejected_empty_domain_draws": 1,
+      "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+    }
+  },
+  "confirmation": false,
+  "terminal_alpha_spent": 0,
+  "plan_sha256": "c548b6e8b49e6b7d1efbe96f94ab7bd2e88e2ddeef56ca502afec8b875bac1c9"
+}

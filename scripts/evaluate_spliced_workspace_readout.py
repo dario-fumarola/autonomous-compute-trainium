@@ -34,7 +34,7 @@ def run(a):
    for split,count in [('train',p['calibration_views']),('tune',p['evaluation_anchors'])]:
     data=WorkspaceViewBatches(a.root/p['data_relative'],split);rows=[]
     for batch in range(count//world):
-     index=batch*world+rank;view=data.at(index);tokens,targets=pack_view(view,cfg.pad_token_id);tokens=tokens.to('neuron');targets=targets.to('neuron')
+     index=batch*world+rank;source_index=p.get('calibration_indices',list(range(p['calibration_views'])))[index] if split=='train' else index;view=data.at(source_index);tokens,targets=pack_view(view,cfg.pad_token_id);tokens=tokens.to('neuron');targets=targets.to('neuron')
      if rank==0:(out/'progress.json').write_text(json.dumps(dict(arm=arm,split=split,batch=batch,wall_seconds=time.time()-started)))
      r=model.sparse_forward(tokens,cos,sin,anchors,raw_positions=where,mode='constant' if arm=='constant' else 'latent',pause_id=p['pause_token_id'],mix=.5)
      grid=readout_grid(r['raw_logits'],r['mixed_logits'],targets[:,127:159],selected,alphas=p['alphas'],temperatures=p['temperatures']);g={k:v.detach().cpu().tolist() for k,v in grid.items()}

@@ -24,3 +24,12 @@ def test_global_selection_uses_train_only_and_respects_ordinary_compute():
     # Exactly equal choices prefer zero extra computation and unit temperature.
     tied=[dict(domain=d,raw32=[2.,2.],policy32=[[2.,2.],[2.,2.]]) for d in range(3)]
     assert choose_readout(tied,**kw,split='train')['alpha']==0
+
+
+def test_calibration_reserve_excludes_every_trained_and_audit_source_group():
+    from compute_trainium.spliced_workspace_readout import source_reserve_indices
+    groups=['a','b','a','a','c','audit','d','c','e','b','f']
+    have=source_reserve_indices(groups,trained_views=3,count=4,excluded_groups=['audit'])
+    assert have==[4,6,7,8]
+    assert not ({groups[i] for i in have}&{'a','b','audit'})
+    with pytest.raises(ValueError):source_reserve_indices(groups,trained_views=3,count=7,excluded_groups=['audit'])

@@ -25,3 +25,12 @@ def choose_readout(rows,*,alphas,temperatures,ordinary=False,split):
     choices=[(weighted('policy32',a,t),alphas[a],abs(temperatures[t]-1),a,t) for a in range(len(alphas)) if not ordinary or alphas[a]==0 for t in range(len(temperatures))]
     best=min(choices);raw=min((weighted('raw32',t=t),abs(temperatures[t]-1),t) for t in range(len(temperatures)))
     return dict(alpha_index=best[-2],temperature_index=best[-1],raw_temperature_index=raw[-1],alpha=alphas[best[-2]],temperature=temperatures[best[-1]],raw_temperature=temperatures[raw[-1]],train_policy32=best[0],train_calibrated_raw32=raw[0],selection_split='train',views=len(rows),scope='One global choice per model.Fixed before held-out scoring;no target-aware per-position choice.')
+
+
+def source_reserve_indices(groups,*,trained_views,count,excluded_groups=()):
+    if not 0<trained_views<len(groups) or count<1:raise ValueError('Positive held-back natural source allowance required')
+    forbidden=set(groups[:trained_views])|set(excluded_groups)
+    selected=[i for i in range(trained_views,len(groups)) if groups[i] not in forbidden][:count]
+    if len(selected)!=count:raise ValueError('Insufficient source-separated calibration reserve;never reuse training groups')
+    assert not ({groups[i] for i in selected}&forbidden)
+    return selected
