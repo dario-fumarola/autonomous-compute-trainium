@@ -1,3 +1,9 @@
+## October28,2026,01:16 UTC — protected replay active;two closed qualification histories exact-archived
+
+The200GiB live-step-qualified replay is active on all16chips and saving its early all64-rank backup before update2.No held-out score exists.The already audited ordinary931 baseline is reused;scientific C0/source order/budgets and2% named-gradient gates are unchanged.
+
+Exact archival preservation of128 CLOSED qualification checkpoint shards recovers6.37GiB.Whole original ZIP hashes match decoded gzip bytes for every file,and a complete materialized restore passes before release.No current qualifiedu101 state,C0,scientific endpoint,gradient,source data or failed history is erased.Raw archived ZIP paths require explicit restore.The first archival attempt stops on directory ownership before releasing any file;only the two closed directories' ownership is corrected before the separately recorded retry.[Preservation](results/workspace_closed_checkpoints_20261028/recovery-v2/report.json).
+
 ## October28,2026,00:58 UTC — LIVE-step checkpoint proof passes;protected replay prepared
 
 The actual1.485B live-state qualifier passes:one real qualification AdamW/EMA update,all179 pre-step gradients exactly equal the previously CPU-qualified vectors,two single-rank archives with895 tensors each,and full tensor/RNG perturb/restore.No fallback,215.54seconds.This closes the missing LIVE-update save test;it is not a quality result.[Proof](results/workspace_checkpoint_waves_20261027/recovery-v3/report.json).
