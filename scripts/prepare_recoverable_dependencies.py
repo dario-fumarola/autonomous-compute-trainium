@@ -51,48 +51,56 @@ def scan_math(task):
  return found,cases,dict(excluded)
 
 
-def run(root):
- started=time.time();out=root/'recoverable-dependency-panel-v1';public=Path('results/recoverable_dependencies_20261028');out.mkdir(mode=0o700);public.mkdir();tok=AutoTokenizer.from_pretrained(root/'workspace-olmo2-stage1-base-v1',local_files_only=True,trust_remote_code=False);oldtok=Tokenizer.from_file('/run/user/1000/autonomous-compute/data-v1/tokenizer.json')
+def run(root,*,recover_sources=False):
+ started=time.time();out=root/('recoverable-dependency-panel-v2' if recover_sources else 'recoverable-dependency-panel-v1');public=Path('results/recoverable_dependencies_20261028')/('source-recovery-v2' if recover_sources else '');out.mkdir(mode=0o700);public.mkdir();deadline=started+1200
+ if recover_sources:
+  original=json.loads((root/'recoverable-dependency-panel-v1/plan.json').read_text());deadline=original['registered_unix']+original['seconds_limit']
+  if deadline-started<120:raise RuntimeError('Source correction must fit original preparation deadline')
+ tok=AutoTokenizer.from_pretrained(root/'workspace-olmo2-stage1-base-v1',local_files_only=True,trust_remote_code=False);oldtok=Tokenizer.from_file('/run/user/1000/autonomous-compute/data-v1/tokenizer.json')
  cp=root/'natural-code-context-v1/panel.json';mp=root/'natural-chain-discovery-dev-v2/panel.json';restore=root/'dependency-source-restore-v1/report.json';rr=json.loads(restore.read_text())
  if rr['status']!='PASS_PINNED_DEPENDENCY_SOURCE_RESTORATION':raise AssertionError('Every original math source must be recovered first')
  code=json.loads(cp.read_text())['records'];math=json.loads(mp.read_text());metadata={x['id']:x for x in json.loads((root/'variable-depth-fresh-v1/dev.json').read_text())};wanted=collections.defaultdict(list)
  for row in code:wanted[row['document_id']].append(row)
  rawmap=json.loads((root/'natural-append-capacity-v4/raw-source-map.json').read_text());code_raw=next(v for v in rawmap if v['domain']=='code');plan=dict(identity=out.name,registered_unix=started,seconds_limit=1200,code_parent_sha256=file_sha256(cp),math_parent_sha256=file_sha256(mp),restoration_report_sha256=file_sha256(restore),code_original_source_sha256=code_raw['receipt']['sha256'],source_sha256={n:file_sha256(n) for n in ['scripts/prepare_recoverable_dependencies.py','compute_trainium/recoverable_dependencies.py','compute_trainium/natural_code_context.py','compute_trainium/natural_chain_views.py','compute_trainium/source_arithmetic.py']},scope=Path('docs/RECOVERABLE_DEPENDENCY_DIAGNOSTIC_20261028.md').read_text(),optimizer_updates=0,assigned_chips=0,model_scores_seen=False)
+ if recover_sources:
+  plan.update(code_restoration_report_sha256=file_sha256(root/'dependency-code-source-restore-v1/report.json'),original_preparation_deadline_unix=deadline,parent_failed_source_plan_sha256=file_sha256(root/'recoverable-dependency-panel-v1/plan.json'))
  for d in [out,public]:(d/'plan.json').write_text(json.dumps(plan,indent=2)+'\n')
  result=dict(status='STOPPED_DEPENDENCY_SOURCE_PANEL',optimizer_updates=0,assigned_chips=0);cases=[];found=set();counts=collections.Counter()
  try:
-  if file_sha256(code_raw['path'])!=code_raw['receipt']['sha256']:raise AssertionError('Original code source changed')
+  code_sources=json.loads((root/'dependency-code-source-restore-v1/report.json').read_text())['records'] if recover_sources else [dict(path=code_raw['path'],sha256=code_raw['receipt']['sha256'])]
   repos={metadata[k]['source'].strip().lower().removesuffix('.git') for k in wanted}
-  for source_index,row in enumerate(rows(Path(code_raw['path']))):
-   if source_index%256==0:resource_guard(root,started+1200)
-   repo=row.get('repo_name','').strip().lower().removesuffix('.git')
-   if repo not in repos:continue
-   text=row.get('text',row.get('content',''));key=content_hash(text)
-   if key not in wanted or key in found:continue
-   old=metadata[key]
-   if hashlib.sha256(source_group('code',repo).encode()).hexdigest()!=old['group']:continue
-   encoded=oldtok.encode(text,add_special_tokens=False)
-   if encoded.ids[:len(old['tokens'])]!=old['tokens']:raise AssertionError('Original code source token prefix changed')
-   found.add(key)
-   try:
-    with warnings.catch_warnings():warnings.simplefilter('ignore',SyntaxWarning);uses=unambiguous_local_uses(text)
-   except (SyntaxError,ValueError):raise AssertionError('Previously parsed original code source no longer parses')
-   for target in wanted[key]:
-    matching=[]
-    for use in uses:
-     span=token_span(text,encoded.offsets,use['target_start'],use['target_end']);definition=token_span(text,encoded.offsets,use['definition_start'],use['definition_end'])
-     if span== (target['target_start_token'],target['target_end_token']) and definition and definition[0]==target['definition_start_token']:matching.append(use)
-    if len(matching)!=1:raise AssertionError('Original AST-selected lexical dependency changed')
-    use=matching[0]
+  for code_source in code_sources:
+   if file_sha256(code_source['path'])!=code_source['sha256']:raise AssertionError('Original code source changed')
+   for source_index,row in enumerate(rows(Path(code_source['path']))):
+    if source_index%256==0:resource_guard(root,deadline)
+    repo=row.get('repo_name','').strip().lower().removesuffix('.git')
+    if repo not in repos:continue
+    text=row.get('text',row.get('content',''));key=content_hash(text)
+    if key not in wanted or key in found:continue
+    old=metadata[key]
+    if hashlib.sha256(source_group('code',repo).encode()).hexdigest()!=old['group']:continue
+    encoded=oldtok.encode(text,add_special_tokens=False)
+    if encoded.ids[:len(old['tokens'])]!=old['tokens']:raise AssertionError('Original code source token prefix changed')
+    found.add(key)
     try:
-     c=source_target(text,use['target_start'],use['target_end'],tok,kind='code_binding',identity=target['id'],group=old['group'],prefix_cap=1008,short_tokens=128,antecedent_start=use['definition_start']);cases.append(c)
-    except ValueError as error:counts['code:'+str(error)]+=1
+     with warnings.catch_warnings():warnings.simplefilter('ignore',SyntaxWarning);uses=unambiguous_local_uses(text)
+    except (SyntaxError,ValueError):raise AssertionError('Previously parsed original code source no longer parses')
+    for target in wanted[key]:
+     matching=[]
+     for use in uses:
+      span=token_span(text,encoded.offsets,use['target_start'],use['target_end']);definition=token_span(text,encoded.offsets,use['definition_start'],use['definition_end'])
+      if span== (target['target_start_token'],target['target_end_token']) and definition and definition[0]==target['definition_start_token']:matching.append(use)
+     if len(matching)!=1:raise AssertionError('Original AST-selected lexical dependency changed')
+     use=matching[0]
+     try:
+      c=source_target(text,use['target_start'],use['target_end'],tok,kind='code_binding',identity=target['id'],group=old['group'],prefix_cap=1008,short_tokens=128,antecedent_start=use['definition_start']);cases.append(c)
+     except ValueError as error:counts['code:'+str(error)]+=1
   if found!=set(wanted):raise AssertionError('Original code-source reconstruction incomplete')
   import multiprocessing as mm
   tasks=[]
   for raw in rr['records']:
    selected=[x for x in math if x['shard']==raw['index']]
-   if selected:tasks.append((str(root),raw,selected,started+1200))
+   if selected:tasks.append((str(root),raw,selected,deadline))
   math_found=[]
   with concurrent.futures.ProcessPoolExecutor(4,mp_context=mm.get_context('spawn')) as pool:
    for f in concurrent.futures.as_completed([pool.submit(scan_math,t) for t in tasks]):
@@ -113,4 +121,4 @@ def run(root):
 
 
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);run(p.parse_args().root)
+ p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--recover-sources',action='store_true');a=p.parse_args();run(a.root,recover_sources=a.recover_sources)
