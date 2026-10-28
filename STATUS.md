@@ -1,3 +1,11 @@
+## October28,2026,00:58 UTC — LIVE-step checkpoint proof passes;protected replay prepared
+
+The actual1.485B live-state qualifier passes:one real qualification AdamW/EMA update,all179 pre-step gradients exactly equal the previously CPU-qualified vectors,two single-rank archives with895 tensors each,and full tensor/RNG perturb/restore.No fallback,215.54seconds.This closes the missing LIVE-update save test;it is not a quality result.[Proof](results/workspace_checkpoint_waves_20261027/recovery-v3/report.json).
+
+Third execution uses200GiB only when all512GiB host reserve remains available,one writer at a time,and an early all64-rank u1 backup retained until every final u48 shard verifies.Both lost48-update histories and costs remain;the complete audited ordinary931 baseline is reused.The frozen C0,learning/data budgets,source order,optimizer,scoring and numerical gates are unchanged.Twenty focused CPU tests pass in20.22seconds.No TUNE scored.Replay must finish its endpoint and mature audit before pause/draft and target-blind comparisons.
+
+Two further closed clean source checkouts are exact-archived before release,restoring5,879 inodes.No model,optimizer,source snapshot or corpus is removed.[Preservation](results/workspace_closed_boundary_20261028/report.json).
+
 ## October28,2026,00:47 UTC — second workspace history finishes48 but live save still OOMs
 
 Recovery v2 also completes all48 updates and its mature gradient dump,but OOMs before a complete checkpoint. Its restored-state writer proof was insufficient:it never exercised serialization immediately after a LIVE fused optimizer step. This is an execution failure,not an admissible quality result;TUNE remains unread and the audited ordinary endpoint survives. Both lost48-update attempts and all costs are preserved.

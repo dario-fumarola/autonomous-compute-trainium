@@ -101,6 +101,14 @@ def run(a):
         records.append(row)
         if rank==0:(out/'updates.json').write_text(json.dumps(records,indent=2)+'\n')
         if not all(math.isfinite(v) for v in [norm,*losses.values()]):raise FloatingPointError('Nonfinite discovery update')
+        if arm=='workspace' and update==1 and plan.get('early_durability_checkpoint'):
+            progress('early_complete_durability_checkpoint',arm=arm);checkpoint_tick=time.perf_counter()
+            optimizer.zero_grad();release_compiled_calls(model,scorer)
+            early=save_state_waves(out/f'rank{rank}-u1.zip',model,scorer,optimizer,generator,
+                extra=dict(plan_sha256=a.plan_sha,data_cursor=world,arm=arm,early_durability_backup=True,source_batches_sha256=plan['data_report_sha256']),wave_size=1)
+            if rank==0:(out/'early-durability.json').write_text(json.dumps(dict(status='COMPLETE_ALL_RANK_EARLY_BACKUP',optimizer_counter=1,world=world,
+                wall_seconds=time.perf_counter()-checkpoint_tick,bytes_rank0=early['bytes'],retention='Keep until every final endpoint shard verifies;then retire this temporary prefix only.')))
+            model.compile_stages('neuron');scorer.compile_stages('neuron')
     optimizer.zero_grad();progress('mature_zero_update_independent_audit_inputs',arm=arm)
     view=data.at(plan['mature_audit_index']);c,y=view['prefix'],view['continuation']
     z,rewards,scores=objective(c,y,shared=True)
@@ -113,7 +121,14 @@ def run(a):
     optimizer.zero_grad();drain_runtime(actor.device);progress('saving_complete_endpoint',arm=arm)
     release_compiled_calls(model,scorer)
     saved=save_state_waves(out/f'rank{rank}-u{total}.zip',model,scorer,optimizer,generator,
-        extra=dict(plan_sha256=a.plan_sha,data_cursor=total*world,arm=arm,scientific_pilot=True,source_batches_sha256=plan['data_report_sha256']),wave_size=8)
+        extra=dict(plan_sha256=a.plan_sha,data_cursor=total*world,arm=arm,scientific_pilot=True,source_batches_sha256=plan['data_report_sha256']),wave_size=plan.get('checkpoint_writer_wave_size',8))
+    if arm=='workspace' and plan.get('early_durability_checkpoint'):
+        # This newly-created rolling backup is not a scientific endpoint.
+        # All final shards have completed checksum validation before retirement.
+        early_path=out/f'rank{rank}-u1.zip'
+        if not early_path.exists():raise AssertionError('Promised early durability backup is missing')
+        early_path.unlink()
+        if rank==0:(out/'early-backup-retired.json').write_text(json.dumps(dict(status='SUPERSEDED_AFTER_COMPLETE_VERIFIED_ENDPOINT',retired_optimizer_counter=1,retained_optimizer_counter=total,old_research_states_untouched=True)))
     dist.barrier();fallback=torch_neuronx.get_fallback_ops()
     if fallback:raise AssertionError('Discovery used CPU fallback:'+str(fallback))
     if rank==0:

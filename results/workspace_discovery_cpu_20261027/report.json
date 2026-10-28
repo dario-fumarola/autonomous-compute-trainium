@@ -12,12 +12,16 @@
     "scripts/audit_workspace_discovery.py": "a334ac88abe2385484e59ab2062ff8225d401298cb4301a27ed51de1cb0fae03",
     "scripts/evaluate_workspace_discovery.py": "f9d3cf0d492a0cf2380fb97b2dfd8e2f4ed88141ccf44a85ac88169bf60df15b",
     "scripts/qualify_workspace_sharded_fixture.py": "a43322c761b8d09780082deaa2d0fbbd036c81f8ec2676a6989c1e97f2f01300",
-    "scripts/run_workspace_discovery.py": "436956600bc374b524ee9371d71ee519b2f6b68d4b37949bc5d4a7b2cc0d2f39",
-    "scripts/train_workspace_discovery.py": "0041bdbe6871c0cf9252ce7eb7de4b0132af1c3b3c2e80b0a3b02c093a9f2161",
+    "scripts/run_workspace_discovery.py": "410f81951c6ea28d7e704a06940610fce2ac2c9ce0297783e14e496851e68514",
+    "scripts/train_workspace_discovery.py": "35bc42a7ea179e079c8f7bb5241dcda07600e4bd1e31441baa696690f51c2fb3",
     "tests/test_workspace_discovery.py": "d6042873c2bd296324f0c26579936b87146c75898dc5c25d2af86927e583e7ac",
     "tests/test_workspace_discovery_analysis.py": "4dca5500fd63ec3310b682006db63ba9eeca77257600bfb4d1064dcf7c48c08a",
     "tests/test_workspace_discovery_controller.py": "8be4d7c7a6ab63bed4e976aafbcf115f903cbe2bc3a022e82799dc61f8aa4d94",
-    "tests/test_workspace_streaming_checkpoint.py": "b65808ca9a689fcf4d9b4e5bf563bb377d9d7e264c6dad4d8c0f53399ea541a8"
+    "tests/test_workspace_streaming_checkpoint.py": "b65808ca9a689fcf4d9b4e5bf563bb377d9d7e264c6dad4d8c0f53399ea541a8",
+    "compute_trainium/owned_native_all_chips.py": "948999dfc68cf6cad440d416d4266867bff2e738e61c4dae88fbb9ade5212df3",
+    "tests/test_owned_native_all_chips.py": "2a5946fab0e800d9398712022130514b917811f42d396b7ce532e630270c01d0",
+    "tests/test_workspace_native_objective.py": "944a88e3706f376050b5a3be2fe88ebdfcc9752fafa92a4eb851dfe505b3e5e4",
+    "tests/test_workspace_sharded_fixture.py": "540dc46160af52302072adde7f297d07a8c170b1f982f264fea334b54981545c"
   },
   "full_suite": {
     "passed": 491,
@@ -25,13 +29,14 @@
     "wall_seconds": 123.43
   },
   "targeted": {
-    "passed": 16,
+    "passed": 20,
     "failed": 0,
-    "wall_seconds": 19.77
+    "wall_seconds": 20.22,
+    "log": "workspace-final-replay-tests.log"
   },
   "worker_programs_parse": 4,
   "assigned_chips": 0,
   "scientific_optimizer_updates": 0,
-  "scope": "Independent control losses/gradients,group sampling/score alignment,head-inclusive work accounting,complete optional-scorer state/RNG recovery,exact compressed checkpoint roundtrip and stop propagation pass on CPU.Software fixture updates only;Native worker integration and endpoint audits remain gates.No trained quality or new research result. Evaluation donor exchange uses the already qualified sum collective with disjoint integer rows;no new collective backend is required. Frozen source-only donors match domain and exclude source group;paired group bootstrap is invariant to row duplication.First-target metrics accompany teacher-forced four-token NLL. Recovery keeps completed ordinary weights/audit and stops before controls on a failed replay;compiled-call release preserves live gradients and weights;bounded writer waves have actual1.485B qualification.",
+  "scope": "Independent control losses/gradients,group sampling/score alignment,head-inclusive work accounting,complete optional-scorer state/RNG recovery,exact compressed checkpoint roundtrip and stop propagation pass on CPU.Software fixture updates only;Native worker integration and endpoint audits remain gates.No trained quality or new research result. Evaluation donor exchange uses the already qualified sum collective with disjoint integer rows;no new collective backend is required. Frozen source-only donors match domain and exclude source group;paired group bootstrap is invariant to row duplication.First-target metrics accompany teacher-forced four-token NLL. Recovery keeps completed ordinary weights/audit and stops before controls on a failed replay;compiled-call release preserves live gradients and weights;bounded writer waves have actual1.485B qualification. Live-step checkpoint qualifier passes200GiB single-writer serialization after a real AdamW/EMA step.Exact whole-state/RNG replay precedes third activation;an early rolling workspaceu1 backup remains until final endpoint verification.200GiB admission retains512GiB host reserve.",
   "receipt_correction": "Supersedes the premature218fc7a16-pass entry.The first added fake-controller fixture had a class-scope NameError (15passed/1failed),fixed before any recovery launch.Subsequent complete focused runs pass16/16 at20.48s and19.77s.The latest includes durable wave flush/cache release."
 }

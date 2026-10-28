@@ -33,7 +33,7 @@ def prepare(root,*,recovery=False):
     if reference['status']!='PASS_DISCOVERY_INITIAL_ORDINARY_CPU_REFERENCE':raise AssertionError('New ordinary160-position reference required')
     if file_sha256(root/reference['gradient_relative'])!=reference['gradient_sha256']:raise AssertionError('Independent ordinary reference changed')
     if recovery:
-        writer=root/'workspace-checkpoint-waves-v2/report.json'
+        writer=root/'workspace-checkpoint-waves-v3/report.json'
         if json.loads(writer.read_text())['status']!='PASS_ACTUAL_WORKSPACE_CHECKPOINT_WAVES':raise AssertionError('Actual-size writer wave proof required')
     if shutil.disk_usage(root).free<(95 if recovery else 115)*1024**3 or shutil.disk_usage('/').free<37*1024**3:raise RuntimeError('Complete next endpoint storage allowance required')
     projection=project_snapshot_inodes(Path('.'),4 if recovery else 5)
@@ -54,7 +54,7 @@ def prepare(root,*,recovery=False):
     sources={str(f):file_sha256(f) for d in ['compute_trainium','scripts','configs'] for f in Path(d).rglob('*.py') if f.is_file()}
     for n in ['scripts/run_native_isolated.sh','docs/WORKSPACE_DISCOVERY_PILOT_20261027.md','tests/test_workspace_discovery.py','tests/test_workspace_streaming_checkpoint.py']:sources[n]=file_sha256(n)
     worker,host=split_snapshot_sources(sources);start=time.time();phases=[IDENTITY+'-'+arm for arm in (['workspace','pause','draft'] if recovery else ['ordinary','workspace','pause','draft'])]+[IDENTITY+'-evaluation']
-    plan=dict(identity=IDENTITY,purpose='workspace_four_arm_discovery_pilot',world=64,worker_memory_gib=192,
+    plan=dict(identity=IDENTITY,purpose='workspace_four_arm_discovery_pilot',world=64,worker_memory_gib=200 if recovery else 192,
         registered_unix=start,seconds_limit=18000,absolute_deadline_unix=start+18000,phase_seconds_limit=3600,cpu_phase_seconds_limit=1200,
         clock_admission_waiver=True,source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,
         root_comm_ports=reserve_ports(root,phases),phases={n:dict(mode=n.rsplit('-',1)[-1]) for n in phases},inode_projection=projection,
@@ -78,8 +78,10 @@ def prepare(root,*,recovery=False):
         plan.update(arm_runs={arm:('workspace-four-arm-discovery-v1-ordinary' if arm=='ordinary' else IDENTITY+'-'+arm) for arm in updates},
             reused_ordinary=dict(native_report_relative=str(report.relative_to(root)),native_report_sha256=file_sha256(report),audit_relative=str(audit.relative_to(root)),audit_sha256=file_sha256(audit)),
             prior_plan_sha256=file_sha256(original/'plan.json'),prior_failure_sha256=file_sha256(original/'report.json'),prior_execution_costs=json.loads((original/'execution-costs.json').read_text()),
-            checkpoint_wave_proof_sha256=file_sha256(writer),checkpoint_writer_wave_size=8,
-            absolute_deadline_unix=prior['absolute_deadline_unix'],scope=plan['scope']+'\nExecution recovery only:retain audited ordinary931;fresh C0 replay of LOST workspace48,then unchanged pause421/draft63 and target-blind panel.Compiler wrappers released after backward;writers in8-rank waves;runtime scalars use CPU-to-device tensors.Failed48updates and both writer qualifications retain separate costs.No numerical/user resource floor relaxed.')
+            checkpoint_wave_proof_sha256=file_sha256(writer),checkpoint_writer_wave_size=1,early_durability_checkpoint=True,
+            prior_recovery_costs=json.loads((root/'workspace-four-arm-discovery-v2/execution-costs.json').read_text()),
+            prior_recovery_failure_sha256=file_sha256(root/'workspace-four-arm-discovery-v2/report.json'),
+            absolute_deadline_unix=prior['absolute_deadline_unix'],scope=plan['scope']+'\nExecution recovery only:retain audited ordinary931;fresh C0 replay of LOST workspace48,then unchanged pause421/draft63 and target-blind panel.LIVE post-optimizer proof precedes activation.Writers run one rank at a time at200GiB,only with full512GiB host reserve.Runtime scalars use CPU-to-device tensors.Both lost48-update histories and every qualification retain costs.No numerical/user resource floor relaxed.')
     out.mkdir();PUBLIC.mkdir(parents=True);write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
 
 
@@ -97,6 +99,7 @@ def run(root):
                 if file_sha256(root/reused[path])!=reused[key]:raise AssertionError('Retained ordinary proof changed')
             result['conditions']['ordinary']=dict(native=json.loads((root/reused['native_report_relative']).read_text()),audit=json.loads((root/reused['audit_relative']).read_text()),audit_pending=False,reused_completed_endpoint=True)
             result['prior_execution_costs']=plan['prior_execution_costs'];arms=arms[1:]
+            if plan.get('prior_recovery_costs'):result['prior_recovery_costs']=plan['prior_recovery_costs']
         for arm in arms:
             # Reserve the WHOLE uncompressed next checkpoint + gradient even
             # though the actual archives use exact lossless compression.
@@ -133,5 +136,5 @@ def run(root):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--run',action='store_true');p.add_argument('--recovery',action='store_true');a=p.parse_args()
-    if a.recovery:IDENTITY='workspace-four-arm-discovery-v2';PUBLIC=Path('results/workspace_discovery_20261027/recovery-v2')
+    if a.recovery:IDENTITY='workspace-four-arm-discovery-v3';PUBLIC=Path('results/workspace_discovery_20261027/recovery-v3')
     run(a.root) if a.run else prepare(a.root,recovery=a.recovery)
