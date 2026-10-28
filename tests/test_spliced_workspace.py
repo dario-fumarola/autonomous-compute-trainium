@@ -61,3 +61,21 @@ def test_uniform_spliced_loss_and_actual_matrix_dispatch(mode):
             all_logits=torch.empty(1,159,c.vocab_size);all_logits[:,raw]=result['raw_logits'];all_logits[:,anchors]=result['mixed_logits']
         expected=F.cross_entropy(all_logits.double().reshape(-1,c.vocab_size),targets.reshape(-1))
     torch.testing.assert_close(loss.detach().double(),expected,rtol=2e-6,atol=2e-6)
+
+
+def test_reused_plain_ntp_prefix_matches_legacy_packing_loss_and_all_gradients():
+    """Compatibility required for extending the original ordinary931 state."""
+    from compute_trainium.workspace_native_objective import SelectiveWorkspacePredictor
+    from compute_trainium.workspace_joint_terms import padded_prediction_inputs
+    torch.manual_seed(5571);c=config();legacy=WorkspaceOlmoCandidate(c,activation_checkpointing=True)
+    current=IndependentSparseWorkspaceCandidate(c,activation_checkpointing=True);current.load_state_dict(legacy.state_dict())
+    full=(torch.arange(160)%62).reshape(1,-1);context,labels=full[:,:1],full[:,1:]
+    old_tokens,where=padded_prediction_inputs(context,labels,160,c.pad_token_id)
+    tokens,targets=pack_view(dict(prefix=full[:,:128],continuation=full[:,128:]),c.pad_token_id)
+    assert torch.equal(tokens,old_tokens) and torch.equal(targets,labels) and torch.equal(where,torch.arange(159))
+    old_loss=-SelectiveWorkspacePredictor(legacy,positions=160).log_probs(context,labels,'ordinary_ntp').mean()
+    selected,raw=sample_positions(torch.Generator().manual_seed(1));cos,sin=rotary_tensors(c,160)
+    new_loss,_,_=spliced_objective(current,tokens,targets,cos,sin,selected,raw,mode='ordinary')
+    assert torch.equal(old_loss,new_loss)
+    old_loss.backward();new_loss.backward()
+    for p,q in zip(legacy.parameters(),current.parameters(),strict=True):assert torch.equal(p.grad,q.grad)

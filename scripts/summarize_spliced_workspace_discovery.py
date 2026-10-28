@@ -1,0 +1,49 @@
+"""Publish aggregate results and complete prefix costs,never private source rows."""
+import argparse,csv,json,shutil
+from pathlib import Path
+
+
+def run(root,output):
+ from compute_trainium.training import file_sha256
+ native=root/'spliced-workspace-discovery-v1';report=json.loads((native/'report.json').read_text());plan=json.loads((native/'plan.json').read_text())
+ if report['status']!='COMPLETE_SPLICED_WORKSPACE_DISCOVERY':raise AssertionError('All arms,audits,evaluation and analysis must finish')
+ output.mkdir(exist_ok=True,parents=True)
+ # Only predeclared public aggregate receipts;no source,weights or per-view rows.
+ for name in ['report.json','analysis.json','execution-costs.json','plan.json','latent-retirement.json','constant-retirement.json','ordinary-retirement.json']:
+  source=native/name;destination=output/name
+  if source.resolve()!=destination.resolve():shutil.copyfile(source,destination)
+ analysis=report['analysis'];scores=analysis['independent_scores'];contrasts=analysis['contrasts'];costs=json.loads((native/'execution-costs.json').read_text());by_id={v['identity']:v for v in costs['native_attempts']}
+ prefix_costs={}
+ for arm,phase in [('latent','spliced-workspace-warm-v2-warm'),('ordinary','workspace-four-arm-discovery-v1-ordinary')]:
+  closure=root/'snapshots'/phase/'closure.json';v=json.loads(closure.read_text())
+  if v['exit_code']!=0:raise AssertionError('Only complete prefix paths reuse')
+  prefix_costs[arm]=dict(v,source_sha256=file_sha256(closure))
+ total_costs={}
+ for arm in ['latent','constant','ordinary']:
+  new=by_id[plan['arm_runs'][arm]];prefix=prefix_costs.get(arm,{});total_costs[arm]=dict(total_optimizer_updates=plan['updates'][arm],retained_prefix_updates=plan['prefixes'][arm]['updates'],new_optimizer_updates=plan['updates'][arm]-plan['prefixes'][arm]['updates'],source_views=plan['updates'][arm]*64,natural_label_exposures=plan['updates'][arm]*64*159,nominal_matrix_operations=plan['updates'][arm]*64*plan['nominal_operations_per_view'][arm],prefix_assigned_chip_hours=prefix.get('assigned_chip_hours',0),new_assigned_chip_hours=new['assigned_chip_hours'],retained_paths_assigned_chip_hours=prefix.get('assigned_chip_hours',0)+new['assigned_chip_hours'],prefix_whole_native_seconds=prefix.get('wall_seconds',0),new_whole_native_seconds=new['wall_seconds'])
+ cost_report=dict(retained_paths=total_costs,prefix_receipts=prefix_costs,new_campaign=costs,scope='Retained prefix and new path counted once per arm.Whole Native paths include compile/checkpoint/audit-gradient overhead.Qualification-only replay,cold CPU references,earlier failed attempts and CPU preparation are separate research costs;do not add overlapping reservation opportunity twice.Nominal matrix matching does not imply hardware-time matching.')
+ (output/'complete-costs.json').write_text(json.dumps(cost_report,indent=2)+'\n')
+ domain_rows={}
+ for arm in ['c0','ordinary','latent','constant']:
+  rows=[v for rank in range(64) for v in json.loads((root/'runs'/(plan['identity']+'-evaluation')/f'rank{rank}-{arm}-losses.json').read_text())]
+  domain_rows[arm]={label:{'views':sum(v['domain']==d for v in rows),**{key:sum(v[key] for v in rows if v['domain']==d)/sum(v['domain']==d for v in rows) for key in rows[0] if key.endswith('_nll')}} for d,label in enumerate(['web','math','code'])}
+ (output/'domain-scores.json').write_text(json.dumps(domain_rows,indent=2)+'\n')
+ utility=contrasts['latent_absolute_anchor_utility']['mean'];gain=contrasts['ordinary_minus_latent_policy32']['mean'];constant=contrasts['constant_minus_latent_anchor4']['mean']
+ decision=dict(status='DEVELOPMENT_MECHANISM_SCREEN_POSITIVE' if utility>0 and constant>0 and gain>0 else 'DEVELOPMENT_MECHANISM_SCREEN_NOT_PASSED',absolute_anchor_utility_positive=utility>0,beats_trained_constant_anchor=constant>0,beats_uniform_ordinary_full32=gain>0,broad_point_gain_ge_001=gain>=.01,confirmation=False,terminal_alpha_spent=0,scope='Point-estimate screen only.One reused TUNE panel and one training seed;conditional intervals are not seed replication.No allocation,causal reasoning,random-init or tuned-convergence claim.')
+ (output/'decision.json').write_text(json.dumps(decision,indent=2)+'\n')
+ lines=['# Uniform-NTP continuous workspace discovery','',f"Status: **{decision['status']}**. Lower NLL is better. One stage-one1.485B pretrained base, one trained seed,448 reused TUNE views /116 source groups, fixed60/20/20 weighting. No confirmation data read.",'','| Predictor | Total updates | Full32 deployed NLL | Selected4 NLL | Own raw32 NLL |','| --- | ---: | ---: | ---: | ---: |']
+ for arm,name in [('c0','Starting checkpoint (no workspace)'),('ordinary','Uniform ordinary NTP'),('latent','Generated continuous workspace'),('constant','Trained constant-input workspace')]:
+  s=scores[arm];full=s['raw32_nll'] if arm=='c0' else s['policy32_nll'];anchor=s['raw_anchor_nll'] if arm in ['c0','ordinary'] else s['workspace_anchor_nll'];lines.append(f"| {name} | {0 if arm=='c0' else plan['updates'][arm]} | {full:.9f} | {anchor:.9f} | {s['raw32_nll']:.9f} |")
+ lines += ['','Positive contrasts favor the generated workspace. Intervals resample source groups conditional on these particular trained models; they omit training-seed uncertainty.','','| Contrast | Gain, nats | Conditional95% interval |','| --- | ---: | --- |']
+ for key,name in [('ordinary_minus_latent_policy32','Ordinary minus workspace, full32'),('latent_absolute_anchor_utility','Own raw minus workspace, selected4'),('constant_minus_latent_anchor4','Trained constant minus workspace, selected4'),('c0_minus_latent_policy32','C0 raw minus workspace, full32'),('ordinary_minus_latent_first_target','Ordinary minus workspace, first target')]:
+  v=contrasts[key];lo,hi=v['conditional_source_group_95_interval'];lines.append(f"| {name} | {v['mean']:+.9f} | [{lo:+.9f}, {hi:+.9f}] |")
+ lines += ['','Every159 authentic next-token label appears once with equal weight. At32 randomly sampled eligible positions, a one-step workspace prediction replaces the ordinary prediction. Each query reads causal prefix KV and its own latent key only. Fixed four inference opportunities are supported by that independent mask. No extra parameters,teacher,policy gradient,EMA,synthetic source data or arbitrary selected-target bonus. The constant arm uses the same graph and TRAIN schedule with a trainable existing constant embedding as query input.','', 'The previous emphasized pilot remains negative. This new experiment changes weighting, query density and attention dependencies together; differences do not identify their separate causal effects. C0 with-workspace and ordinary with-workspace readouts are unsupported diagnostics, not their deployed scores. Raw32 and selected4 remain distinct endpoints.','', '| Arm | Source views | Label exposures | Nominal matrix operations | Retained-path assigned chip-hours |','| --- | ---: | ---: | ---: | ---: |']
+ for arm in ['latent','constant','ordinary']:
+  c=total_costs[arm];lines.append(f"| {arm} | {c['source_views']:,} | {c['natural_label_exposures']:,} | {c['nominal_matrix_operations']:,} | {c['retained_paths_assigned_chip_hours']:.6f} |")
+ lines += ['',f"Workspace/ordinary nominal per-view ratio is{plan['work_ratio']:.9f}. Ordinary rounding is{100*plan['nominal_ordinary_rounding_fraction']:+.5f}%. Nominal matching is not hardware-time matching. All101 retained latent prefix updates and931 ordinary prefix updates count,including their complete original execution paths. Only699/800/9 new updates run. There is no checkpoint cooldown or optimizer reset. Full restore validates every716 model/AdamW tensor and RNG; latent-prefix gradient replay is exactly zero error.",'','All three final models pass independent full-size HF dense2D mature all179-gradient audits before the first quality score. Maximum named relative errors: '+', '.join(f"{arm} {100*report['audits'][arm]['largest_named_relative_l2']:.6f}%" for arm in ['latent','constant','ordinary'])+'. No fallback; unchanged2% limit. Disabled-workspace CPU outputs,all gradients and AdamW steps match ordinary exactly. A separate legacy-packing test also matches the reused ordinary path exactly.','', 'Full final model/AdamW/RNG states and authentic audit inputs remain private. Exact audited derivative gradients, superseded temporary latent101 backup and cold derivative references are retired under the frozen policy, with hashes and source receipts retained. This is retirement, not lossless archival. The original ordinary931 scientific endpoint remains.','', 'This is a short constant-rate development experiment, not independently tuned convergence. Upstream stage-one exposure of evaluation sources cannot be excluded. No evidence of learned stopping, token allocation, transferable reasoning or learning from random initialization follows. A positive result would first require fresh validation and mechanism controls; a negative result does not close every latent-workspace design.','', '[Frozen design](../../docs/SPLICED_WORKSPACE_DISCOVERY_20261028.md) · [Analysis](analysis.json) · [Domain scores](domain-scores.json) · [Complete costs](complete-costs.json) · [Decision](decision.json)']
+ (output/'REPORT.md').write_text('\n'.join(lines)+'\n')
+ print(json.dumps(dict(decision=decision,scores=scores,contrasts={k:contrasts[k] for k in ['ordinary_minus_latent_policy32','latent_absolute_anchor_utility']}),indent=2))
+
+
+if __name__=='__main__':
+ p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--output',type=Path,default=Path('results/spliced_workspace_discovery_20261028'));a=p.parse_args();run(a.root,a.output)
