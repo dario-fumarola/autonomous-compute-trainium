@@ -1,3 +1,9 @@
+## October28,2026,21:40 UTC — prediction-error calibration complete; no further fit
+
+The recovered literal-gradient diagnostic passes all numerical/source gates and completes797 calibration views. Error correction gains0.000245nats,uniform error0.000451,and prediction-only0.000352;token reinforcement selects zero. Error correction misses the0.005 gate and does not beat the simpler control,so no TUNE or protected-source score follows.[Complete result](results/prefix_error_headroom_20261028/recovery-v2/REPORT.md).
+
+Thirteen focused tests pass;maximum full-shape gradient discrepancy8.604e-15 and target-logp error1.599e-13. Recovery481.46seconds CPU;first failed24.01seconds and all foundation/feature costs remain. Zero persistent updates/new assigned chips. No active managed job remains. All scientific states and the320-source reserve are preserved. These controls narrow the evidence to modest prediction correction;useful intermediate computation,learning its allocation,and the from-scratch goal remain unestablished. No larger run is admitted by these results.
+
 ## October28,2026,21:28 UTC — prediction-error numerical recovery registered
 
 The first zero-update attempt stops before calibration:maximum FP32 corrected target-logp discrepancy0.000655 exceeds0.0002. The failed24.01seconds and original source bundle remain. Recovery-v2 usesFP64 correction probabilities,accumulation and scoring,while retaining the same base,grid,sources and criteria. Thirteen focused tests pass,including the100352-class reference test. Actual-shape qualification must pass before any calibration score.[Failure and recovery](results/prefix_error_headroom_20261028/REPORT.md).

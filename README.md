@@ -56,6 +56,12 @@ than rotated ones, which is insufficient for a useful-computation claim.
 [Associative screen](results/causal_associative_workspace_20261028/REPORT.md) ·
 [Dependency readout](results/associative_dependency_readout_20261028/REPORT.md).
 
+A separate past-prediction-error operation also fails its TRAIN calibration
+gate:0.000245nats gain versus0.000352 for a prediction-only control. It stops
+before another TUNE read or learned fit. This does not close all fast-weight
+methods;it leaves useful intermediate computation unestablished here.
+[Error-correction diagnostic](results/prefix_error_headroom_20261028/recovery-v2/REPORT.md).
+
 The uniform-NTP correction is complete. All new models now improve over C0,
 but the workspace still harms its own selected predictions. On448 reused TUNE
 views, full32 NLL is **2.262856 ordinary**, **2.267065 latent workspace**,

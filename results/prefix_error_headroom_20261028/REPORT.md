@@ -5,3 +5,5 @@ The first prefix-error attempt stopped at actual-shape qualification. Error-memo
 Recovery-v2 promotes only correction arithmetic toFP64,with the same scientific grid,sources and criteria. It must pass the original checks before calibration.
 
 [Failure receipt](report.json) · [Diagnosis](qualification-diagnosis.json) · [Recovery registration](recovery-v2/plan.json)
+
+Recovery completes and fails its calibration gate;no TUNE read or fit follows. Error gain0.000245 is below the prediction-only control0.000352.[Final result](recovery-v2/REPORT.md) · [Complete costs](complete-costs.json).
