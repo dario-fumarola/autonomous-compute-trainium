@@ -1,0 +1,353 @@
+{
+  "status": "COMPLETE_SPARSE_WORKSPACE_DISCOVERY",
+  "records": {
+    "latent": {
+      "status": "COMPLETE_SPARSE_DISCOVERY_ARM_PENDING_MATURE_HF_AUDIT",
+      "world": 64,
+      "arm": "latent",
+      "actual_optimizer_updates": 900,
+      "source_views": 57600,
+      "raw_label_exposures": 9158400,
+      "anchor_label_exposures": 230400,
+      "nominal_matrix_operations": 93514430309990400,
+      "first_update_seconds": 38.60511608608067,
+      "warm_mean_seconds": 1.0728012868161785,
+      "wall_seconds": 1356.4342827796936,
+      "checkpoint_bytes_per_rank": 256236755,
+      "mature_loss": 1.9619181156158447,
+      "mature_gradient_norm": 27.297758102416992,
+      "fallback_ops": [],
+      "heldout_read": false,
+      "scope": "Single-seed constant-rate discovery from commonC0 with freshAdamW.Same natural targets,source order and .5 raw159+.5 anchor4 emphasis in every arm.Nominal matrix work matched,not hardware time or converged tuned efficiency.No allocation,reasoning or from-scratch claim."
+    },
+    "constant": {
+      "status": "COMPLETE_SPARSE_DISCOVERY_ARM_PENDING_MATURE_HF_AUDIT",
+      "world": 64,
+      "arm": "constant",
+      "actual_optimizer_updates": 900,
+      "source_views": 57600,
+      "raw_label_exposures": 9158400,
+      "anchor_label_exposures": 230400,
+      "nominal_matrix_operations": 93514430309990400,
+      "first_update_seconds": 41.57263104792219,
+      "warm_mean_seconds": 1.0880407900227032,
+      "wall_seconds": 1368.5644500255585,
+      "checkpoint_bytes_per_rank": 256271727,
+      "mature_loss": 1.9970264434814453,
+      "mature_gradient_norm": 25.594417572021484,
+      "fallback_ops": [],
+      "heldout_read": false,
+      "scope": "Single-seed constant-rate discovery from commonC0 with freshAdamW.Same natural targets,source order and .5 raw159+.5 anchor4 emphasis in every arm.Nominal matrix work matched,not hardware time or converged tuned efficiency.No allocation,reasoning or from-scratch claim."
+    },
+    "ordinary": {
+      "status": "COMPLETE_SPARSE_DISCOVERY_ARM_PENDING_MATURE_HF_AUDIT",
+      "world": 64,
+      "arm": "ordinary",
+      "actual_optimizer_updates": 923,
+      "source_views": 59072,
+      "raw_label_exposures": 9392448,
+      "anchor_label_exposures": 236288,
+      "nominal_matrix_operations": 93562855529381888,
+      "first_update_seconds": 25.424034641007893,
+      "warm_mean_seconds": 0.789088028711378,
+      "wall_seconds": 1100.6879487037659,
+      "checkpoint_bytes_per_rank": 256229480,
+      "mature_loss": 1.931856632232666,
+      "mature_gradient_norm": 26.75945281982422,
+      "fallback_ops": [],
+      "heldout_read": false,
+      "scope": "Single-seed constant-rate discovery from commonC0 with freshAdamW.Same natural targets,source order and .5 raw159+.5 anchor4 emphasis in every arm.Nominal matrix work matched,not hardware time or converged tuned efficiency.No allocation,reasoning or from-scratch claim."
+    }
+  },
+  "audits": {
+    "latent": {
+      "status": "PASS_SPARSE_INDEPENDENT_MATURE_CPU_AUDIT",
+      "optimizer_updates": 0,
+      "assigned_chips": 0,
+      "parameters_checked": 179,
+      "largest_named_relative_l2": 1.7437250658822992e-05,
+      "gradient_relative_l2": 2.228030025201659e-06,
+      "worst_named_parameter": "model.layers.14.post_feedforward_layernorm.weight",
+      "joint_loss": 1.9619187272918777,
+      "raw159_nll": 2.6117864630145897,
+      "sparse_anchor_nll": 1.3120509915691654,
+      "native_loss": 1.9619181156158447,
+      "arm": "latent",
+      "endpoint_optimizer_counter": 900,
+      "scope": "Actual saved endpoint,independent HF dense2D masking and FP64 loss,all179 gradients checked against64 Native shards.No updates,no held-out quality/efficiency claim.Qualification source views are not a new scientific fit.",
+      "wall_seconds": 74.26162719726562,
+      "peak_rss_bytes": 21380730880,
+      "plan_sha256": "f12afefd4d1b18df15fb985e05d375871c5778f1f000c2b92270895cbd716e0c"
+    },
+    "constant": {
+      "status": "PASS_SPARSE_INDEPENDENT_MATURE_CPU_AUDIT",
+      "optimizer_updates": 0,
+      "assigned_chips": 0,
+      "parameters_checked": 179,
+      "largest_named_relative_l2": 2.0586821178714023e-05,
+      "gradient_relative_l2": 2.2032469426689525e-06,
+      "worst_named_parameter": "model.layers.14.post_feedforward_layernorm.weight",
+      "joint_loss": 1.9970268808324922,
+      "raw159_nll": 2.5978794198602317,
+      "sparse_anchor_nll": 1.396174341804753,
+      "native_loss": 1.9970264434814453,
+      "arm": "constant",
+      "endpoint_optimizer_counter": 900,
+      "scope": "Actual saved endpoint,independent HF dense2D masking and FP64 loss,all179 gradients checked against64 Native shards.No updates,no held-out quality/efficiency claim.Qualification source views are not a new scientific fit.",
+      "wall_seconds": 74.6535713672638,
+      "peak_rss_bytes": 21366042624,
+      "plan_sha256": "a9e5a21a7d34fc684906af1bee96e7974f66ff8b7b428274ccc343020429ce08"
+    },
+    "ordinary": {
+      "status": "PASS_SPARSE_INDEPENDENT_MATURE_CPU_AUDIT",
+      "optimizer_updates": 0,
+      "assigned_chips": 0,
+      "parameters_checked": 179,
+      "largest_named_relative_l2": 1.569338791766853e-05,
+      "gradient_relative_l2": 2.33841428223321e-06,
+      "worst_named_parameter": "model.layers.14.post_feedforward_layernorm.weight",
+      "joint_loss": 1.9318571230296913,
+      "raw159_nll": 2.6084473909827017,
+      "sparse_anchor_nll": 1.2552668550766808,
+      "native_loss": 1.931856632232666,
+      "arm": "ordinary",
+      "endpoint_optimizer_counter": 923,
+      "scope": "Actual saved endpoint,independent HF dense2D masking and FP64 loss,all179 gradients checked against64 Native shards.No updates,no held-out quality/efficiency claim.Qualification source views are not a new scientific fit.",
+      "wall_seconds": 72.97804617881775,
+      "peak_rss_bytes": 19483877376,
+      "plan_sha256": "17ddff81cf5400eafaece44eaf4bc803d31b69d5aa2970a7fc2a9e27843dcf94"
+    }
+  },
+  "evaluation": {
+    "status": "COMPLETE_SPARSE_WORKSPACE_DISCOVERY_EVALUATION",
+    "world": 64,
+    "scores": {
+      "c0": {
+        "raw32_nll": 2.282111260797275,
+        "raw_anchor_nll": 2.260540163219824,
+        "raw_first_token_nll": 2.411249650977559,
+        "workspace_anchor_nll": 2.3192704710945544,
+        "workspace_first_token_nll": 2.446241876620175,
+        "policy32_nll": 2.2894525550973355,
+        "constant_input_anchor_nll": 4.149120328028238
+      },
+      "ordinary": {
+        "raw32_nll": 2.2971997798419297,
+        "raw_anchor_nll": 2.2648396752232944,
+        "raw_first_token_nll": 2.4362028389849204,
+        "workspace_anchor_nll": 2.3249841904404396,
+        "workspace_first_token_nll": 2.4722918112449332,
+        "policy32_nll": 2.2971997798419297
+      },
+      "latent": {
+        "raw32_nll": 2.3042633623895785,
+        "raw_anchor_nll": 2.271449387916823,
+        "raw_first_token_nll": 2.447203252490172,
+        "workspace_anchor_nll": 2.2804956888018704,
+        "workspace_first_token_nll": 2.448838640604354,
+        "policy32_nll": 2.305394154069628,
+        "constant_input_anchor_nll": 4.021324794303869
+      },
+      "constant": {
+        "raw32_nll": 2.3151243476054026,
+        "raw_anchor_nll": 2.286759009332818,
+        "raw_first_token_nll": 2.4724524212170973,
+        "workspace_anchor_nll": 2.3376086028115726,
+        "workspace_first_token_nll": 2.509419512226426,
+        "policy32_nll": 2.3214805429098346
+      }
+    },
+    "evaluation_anchors": 448,
+    "optimizer_updates": 0,
+    "fallback_ops": [],
+    "wall_seconds": 60.394423723220825,
+    "scope": "Same320 reused TUNE anchors,one seed. Four fixed sparse opportunities;full32-token deployed policy loss and raw/anchor/first-target metrics all reported.No target-aware selection or allocation. Constant-input ablation can be distribution shifting;trained constant-query arm is the stronger control.No reasoning or from-scratch claim."
+  },
+  "analysis": {
+    "status": "COMPLETE_SPARSE_CONDITIONAL_ANALYSIS",
+    "contrasts": {
+      "ordinary_minus_latent_policy32": {
+        "mean": -0.008194374227698004,
+        "conditional_source_group_95_interval": [
+          -0.012043295513422684,
+          -0.00462817678464948
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "constant_minus_latent_policy32": {
+        "mean": 0.016086388840206713,
+        "conditional_source_group_95_interval": [
+          0.010533397097383266,
+          0.02093129865006597
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "ordinary_minus_latent_anchor4": {
+        "mean": -0.01565601357857582,
+        "conditional_source_group_95_interval": [
+          -0.02830580076918791,
+          -0.004125552810238581
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "constant_minus_latent_anchor4": {
+        "mean": 0.05711291400970214,
+        "conditional_source_group_95_interval": [
+          0.0375465752797971,
+          0.08055929016980236
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "latent_absolute_anchor_utility": {
+        "mean": -0.00904630088504713,
+        "conditional_source_group_95_interval": [
+          -0.02481286786135594,
+          0.006681621498164099
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "initial_c0_absolute_anchor_utility": {
+        "mean": -0.05873030787473024,
+        "conditional_source_group_95_interval": [
+          -0.08081544829329414,
+          -0.03713643386404865
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "ordinary_minus_latent_raw32": {
+        "mean": -0.007063582547648738,
+        "conditional_source_group_95_interval": [
+          -0.010476473876806296,
+          -0.0038842105670747807
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "c0_minus_latent_policy32": {
+        "mean": -0.023282893272352563,
+        "conditional_source_group_95_interval": [
+          -0.0374430881020067,
+          -0.011555736662397318
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "latent_constant_input_minus_generated_state": {
+        "mean": 1.7408291055019989,
+        "conditional_source_group_95_interval": [
+          1.6686426540079997,
+          1.817489623151999
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "ordinary_minus_latent_first_target": {
+        "mean": -0.012635801619433394,
+        "conditional_source_group_95_interval": [
+          -0.03844113321839948,
+          0.011000106930630875
+        ],
+        "anchors": 448,
+        "source_groups": 116,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 1,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      }
+    },
+    "independent_scores": {
+      "c0": {
+        "raw32_nll": 2.282111260797275,
+        "raw_anchor_nll": 2.260540163219824,
+        "raw_first_token_nll": 2.411249650977559,
+        "workspace_anchor_nll": 2.3192704710945544,
+        "workspace_first_token_nll": 2.446241876620175,
+        "policy32_nll": 2.2894525550973355,
+        "constant_input_anchor_nll": 4.149120328028238
+      },
+      "ordinary": {
+        "raw32_nll": 2.2971997798419297,
+        "raw_anchor_nll": 2.2648396752232944,
+        "raw_first_token_nll": 2.4362028389849204,
+        "workspace_anchor_nll": 2.3249841904404396,
+        "workspace_first_token_nll": 2.4722918112449332,
+        "policy32_nll": 2.2971997798419297
+      },
+      "latent": {
+        "raw32_nll": 2.3042633623895785,
+        "raw_anchor_nll": 2.271449387916823,
+        "raw_first_token_nll": 2.447203252490172,
+        "workspace_anchor_nll": 2.2804956888018704,
+        "workspace_first_token_nll": 2.448838640604354,
+        "policy32_nll": 2.305394154069628,
+        "constant_input_anchor_nll": 4.021324794303869
+      },
+      "constant": {
+        "raw32_nll": 2.3151243476054026,
+        "raw_anchor_nll": 2.286759009332818,
+        "raw_first_token_nll": 2.4724524212170973,
+        "workspace_anchor_nll": 2.3376086028115726,
+        "workspace_first_token_nll": 2.509419512226426,
+        "policy32_nll": 2.3214805429098346
+      }
+    },
+    "aggregate_max_abs_error": 0.0,
+    "domains": {
+      "0": 269,
+      "1": 90,
+      "2": 89
+    },
+    "terminal_alpha_spent": 0,
+    "confirmation": false,
+    "warning": "One trained seed and reused TUNE groups;conditional source-group intervals omit training-seed variation.No allocation,reasoning or random-init conclusion."
+  },
+  "observed_completed_optimizer_updates": {
+    "latent": 900,
+    "constant": 900,
+    "ordinary": 923
+  },
+  "interrupted_update_may_be_unrecorded": false,
+  "plan_sha256": "fa16a8ccf8935cf21bcbe6b9b05122151158f3fb7664c91e8e320c12446a1823"
+}

@@ -1,3 +1,9 @@
+## October28,2026,06:12 UTC — sparse three-arm comparison complete and negative
+
+All latent900/constant900/ordinary923 checkpoints and independent179-gradient audits pass. On448 TUNE views,full32 policy NLL is2.305394/2.321481/2.297200. Latent loses0.008194nats to ordinary and its own workspace utility remains−0.009046. No scaling/router/confirmation or from-scratch claim.[Full result](results/sparse_workspace_discovery_20261028/REPORT.md).
+
+All new arms worsen fromC0. On the identical original320-view panel,the earlier plain-NTP931 score2.256017 beats the emphasized ordinary923 score2.291367;C0 readouts agree within9.54e-7. The eight-update difference prevents an exact objective-only causal claim. Current work therefore diagnoses uniform NTP vs arbitrary target emphasis before another fit;the failed emphasized recipe is closed.All three complete scientific states remain;no managed accelerator job is active at this moment.
+
 ## October28,2026,05:45 UTC — both sparse workspace endpoints pass mature audits;ordinary923 next
 
 The constant-query control completes900 updates and all64 complete scientific state archives,warm mean1.0880seconds,no fallback.Independent HF dense2D mature audit passes all179 gradients(max named0.002059%).Both workspace conditions are now saved and qualified.[Constant endpoint](results/sparse_workspace_discovery_20261028/constant-native.json) · [Audit](results/sparse_workspace_discovery_20261028/sparse-workspace-discovery-audit-constant-v1/report.json).

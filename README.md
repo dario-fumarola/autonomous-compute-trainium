@@ -18,18 +18,19 @@ policy gradients are authorized for this new phase. Earlier results retain
 their original criteria;no larger recurrence main or confirmation completed.
 [New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
 
-The active discovery uses continuous internal states trained directly by
-natural-token prediction. It reuses differentiable prefix KV and adds one
-shared pass at four fixed positions. Its10 focused CPU gates,full1.485B Native
-gradient/update/moment checks,101-update throughput gate,independent mature HF
-audit,and exact all64-rank state/RNG/gradient replay pass. Warm updates average
-1.0883seconds;nominal matrix work is1.025025times ordinary continuation.
-The frozen learning comparison is now running:latent900,trained constant-query
-900,and same-target-emphasis ordinary923 updates from common C0 and fresh AdamW.
-No held-out quality result exists for this mechanism yet.
+The first differentiable sparse-workspace discovery is complete and negative.
+On448 fixed TUNE views,the full32-token deployed-policy NLL is2.297200 for
+same-emphasis ordinary continuation,2.305394 for generated latent states,and
+2.321481 for the trained constant-query workspace. All three mature179-gradient
+audits pass;there is no fallback. The latent workspace reduces its initial
+harm but still worsens its own selected predictions by0.009046nats. Nominal
+matrix work is matched;latent whole Native time is about23.2% higher.
+All new arms also worsen fromC0,while the earlier plain-NTP control performs
+better on their shared original panel. The next question concerns the
+reweighted objective,not a larger run of this recipe.
+[Complete result](results/sparse_workspace_discovery_20261028/REPORT.md) ·
 [Design](docs/SPARSE_WORKSPACE_DISCOVERY_20261028.md) ·
-[Full qualification](results/sparse_workspace_warm_20261028/report.json) ·
-[Independent mature audit](results/sparse_workspace_mature_20261028/report.json).
+[Full qualification](results/sparse_workspace_warm_20261028/report.json).
 
 The earlier qualified discrete snapshot passed491 CPU tests,two skipped. The framing-free
 reader has exact empty-workspace identity. Its initial ten-TRAIN-anchor

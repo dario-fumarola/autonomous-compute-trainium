@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE_REUSED_PANEL_OBJECTIVE_DIAGNOSTIC",
+  "anchors": 320,
+  "c0_row_parity_max_abs_error": 9.5367431640625e-07,
+  "plain_ntp_931_raw32": 2.256016588103375,
+  "emphasized_ntp_923_raw32": 2.2913671756483383,
+  "emphasized_minus_plain": {
+    "mean": 0.035350587544962765,
+    "conditional_source_group_95_interval": [
+      0.027051015263352823,
+      0.04517459433280946
+    ],
+    "anchors": 320,
+    "source_groups": 101,
+    "bootstrap_draws": 5000,
+    "bootstrap_seed": 11261,
+    "rejected_empty_domain_draws": 0,
+    "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+  },
+  "scope": "Descriptive comparison of existing checkpoints on identical original320 TUNE views.C0 parity verifies data/readout continuity.The older plain-NTP condition has931 rather than923 updates and slightly more nominal work,so this is not an exact objective-only causal ablation.The emphasized control also worsens fromC0;do not extend it or quietly promote a selected loss slice."
+}
