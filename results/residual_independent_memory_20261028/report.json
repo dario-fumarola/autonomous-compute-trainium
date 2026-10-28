@@ -1,0 +1,533 @@
+{
+  "status": "COMPLETE_AUDITED_INDEPENDENT_MEMORY_TRAINING",
+  "assigned_chips": 0,
+  "backbone_updates": 0,
+  "arm": {
+    "status": "COMPLETE_RESIDUAL_SCREEN_ARM",
+    "arm": "independent",
+    "backbone_updates": 0,
+    "assigned_chips": 0,
+    "matrix_operations_measured_updates": [
+      106486104064,
+      106486104064
+    ],
+    "updates": 2048,
+    "new_updates": 2048,
+    "branch_parameters": 655360,
+    "unique_train_views": 8192,
+    "train_source_view_exposures": 8192,
+    "additional_donor_view_accesses": 8192,
+    "label_exposures": 262144,
+    "mean_warm_update_seconds": 0.1583355266289648,
+    "parameters_frozen": true,
+    "evaluation_deferred": true,
+    "completed_updates": 2048,
+    "wall_seconds": 329.61822986602783,
+    "peak_rss_bytes": 12466626560
+  },
+  "mature_audit": {
+    "status": "PASS_INDEPENDENT_MEMORY_NUMERICAL_AUDIT",
+    "domains": {
+      "0": {
+        "named_gradient_relative_l2": {
+          "input.weight": 1.692571425785747e-06,
+          "cell.q.weight": 1.1266806645655172e-06,
+          "cell.k.weight": 1.0480071419127442e-06,
+          "cell.v.weight": 2.5041735369578615e-06,
+          "cell.o.weight": 3.1367213576116627e-06,
+          "cell.up.weight": 2.7605345515172e-06,
+          "cell.down.weight": 3.081605178150042e-06,
+          "output.weight": 2.0527194847093827e-06
+        },
+        "loss_absolute_error": 3.897871410085685e-07
+      },
+      "1": {
+        "named_gradient_relative_l2": {
+          "input.weight": 1.789598124499964e-06,
+          "cell.q.weight": 2.392600852304835e-06,
+          "cell.k.weight": 2.2890252606855073e-06,
+          "cell.v.weight": 3.3832900945971283e-06,
+          "cell.o.weight": 2.757868787894626e-06,
+          "cell.up.weight": 2.8443974441173736e-06,
+          "cell.down.weight": 2.8692740226236274e-06,
+          "output.weight": 1.7885765230407529e-06
+        },
+        "loss_absolute_error": 2.4401188714051614e-07
+      },
+      "2": {
+        "named_gradient_relative_l2": {
+          "input.weight": 1.4733436020427268e-06,
+          "cell.q.weight": 2.040381917372005e-06,
+          "cell.k.weight": 1.921982745403713e-06,
+          "cell.v.weight": 2.2844416344737825e-06,
+          "cell.o.weight": 2.098412996879971e-06,
+          "cell.up.weight": 2.065319164264099e-06,
+          "cell.down.weight": 1.8291363335987294e-06,
+          "output.weight": 1.4974498647644778e-06
+        },
+        "loss_absolute_error": 1.2525043668887292e-07
+      }
+    },
+    "exact_full_state_and_next_update_replay": true,
+    "disposable_optimizer_updates": 2,
+    "checkpoint_unchanged": true,
+    "wall_seconds": 3.144813299179077
+  },
+  "scores": {
+    "raw": {
+      "mean": 2.2821122052683624,
+      "conditional_source_group_95_interval": [
+        2.1402357647670196,
+        2.4304392269064143
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "local": {
+      "mean": 2.2776906079531,
+      "conditional_source_group_95_interval": [
+        2.1360640500406167,
+        2.42719910794406
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "own_authentic": {
+      "mean": 2.2756851554395934,
+      "conditional_source_group_95_interval": [
+        2.1342431725780093,
+        2.4247926831747626
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "own_donor1": {
+      "mean": 2.276710901389984,
+      "conditional_source_group_95_interval": [
+        2.135312545246744,
+        2.425946486315534
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "own_donor2": {
+      "mean": 2.2762936917941277,
+      "conditional_source_group_95_interval": [
+        2.1350333756776694,
+        2.4256429907218537
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "independent_authentic": {
+      "mean": 2.2766616787668035,
+      "conditional_source_group_95_interval": [
+        2.1351147297591915,
+        2.425913065419043
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "independent_donor1": {
+      "mean": 2.276586666822331,
+      "conditional_source_group_95_interval": [
+        2.135072999561727,
+        2.4258961895649542
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "independent_donor2": {
+      "mean": 2.2766706446589797,
+      "conditional_source_group_95_interval": [
+        2.1353394954782106,
+        2.4259178598753603
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    }
+  },
+  "contrasts": {
+    "own_training_advantage": {
+      "mean": 0.0009765233272099269,
+      "conditional_source_group_95_interval": [
+        0.00033814794224724677,
+        0.0015528555099715118
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "own_donor1_matching_utility": {
+      "mean": 0.0010257459503905553,
+      "conditional_source_group_95_interval": [
+        0.00028513591000387407,
+        0.001874792591505386
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "independent_donor1_matching_utility": {
+      "mean": -7.50119444723769e-05,
+      "conditional_source_group_95_interval": [
+        -0.00032389980834599317,
+        0.00022148210860817538
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "donor1_interaction": {
+      "mean": 0.0011007578948629324,
+      "conditional_source_group_95_interval": [
+        0.00031103994216119855,
+        0.0019481782833364835
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "own_donor2_matching_utility": {
+      "mean": 0.0006085363545340251,
+      "conditional_source_group_95_interval": [
+        -4.076847906866486e-05,
+        0.0012945309201169571
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "independent_donor2_matching_utility": {
+      "mean": 8.96589217610704e-06,
+      "conditional_source_group_95_interval": [
+        -0.0002524319239575045,
+        0.00035673137006254967
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "donor2_interaction": {
+      "mean": 0.0005995704623579181,
+      "conditional_source_group_95_interval": [
+        -0.00011561680539896257,
+        0.0012901585609958086
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    }
+  },
+  "domains": {
+    "web": {
+      "raw": {
+        "mean": 2.5201512495796696,
+        "conditional_source_group_95_interval": [
+          2.414177606314919,
+          2.6195745105976496
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "local": {
+        "mean": 2.5142472864346765,
+        "conditional_source_group_95_interval": [
+          2.408220804421903,
+          2.613574040361076
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "own_authentic": {
+        "mean": 2.5124402703322666,
+        "conditional_source_group_95_interval": [
+          2.4071697029809513,
+          2.6112514675974285
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "own_donor1": {
+        "mean": 2.514117524609468,
+        "conditional_source_group_95_interval": [
+          2.407979389637762,
+          2.6136912771736736
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "own_donor2": {
+        "mean": 2.513610059069989,
+        "conditional_source_group_95_interval": [
+          2.407730295661383,
+          2.612884400222766
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "independent_authentic": {
+        "mean": 2.5135013419913204,
+        "conditional_source_group_95_interval": [
+          2.4077763940475685,
+          2.6128612320876314
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "independent_donor1": {
+        "mean": 2.513439048552491,
+        "conditional_source_group_95_interval": [
+          2.4077152529437007,
+          2.612785325983339
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "independent_donor2": {
+        "mean": 2.5134737539870255,
+        "conditional_source_group_95_interval": [
+          2.407597872829972,
+          2.613014442164543
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      }
+    },
+    "math": {
+      "raw": {
+        "mean": 1.8105265462745188,
+        "conditional_source_group_95_interval": [
+          1.5838325361586079,
+          2.1555667449185187
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "local": {
+        "mean": 1.818566800798807,
+        "conditional_source_group_95_interval": [
+          1.5871986373880893,
+          2.1727412779783624
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "own_authentic": {
+        "mean": 1.8158708086677102,
+        "conditional_source_group_95_interval": [
+          1.584702574118031,
+          2.1709029525918946
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "own_donor1": {
+        "mean": 1.8156515825746788,
+        "conditional_source_group_95_interval": [
+          1.584561273910161,
+          2.170771865249099
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "own_donor2": {
+        "mean": 1.8157310605592405,
+        "conditional_source_group_95_interval": [
+          1.5842135058628513,
+          2.1710724728363884
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "independent_authentic": {
+        "mean": 1.8156777576646872,
+        "conditional_source_group_95_interval": [
+          1.5853649145322777,
+          2.168885874523513
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "independent_donor1": {
+        "mean": 1.8155327356213498,
+        "conditional_source_group_95_interval": [
+          1.5852240852120585,
+          2.1693714841715916
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "independent_donor2": {
+        "mean": 1.8157629294579642,
+        "conditional_source_group_95_interval": [
+          1.5849901934245498,
+          2.1697647529452047
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      }
+    },
+    "code": {
+      "raw": {
+        "mean": 2.0395807313282837,
+        "conditional_source_group_95_interval": [
+          1.4843400056411822,
+          2.5968995198011315
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "local": {
+        "mean": 2.027144379662664,
+        "conditional_source_group_95_interval": [
+          1.4715271252908169,
+          2.5843353997140963
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "own_authentic": {
+        "mean": 2.025234157533458,
+        "conditional_source_group_95_interval": [
+          1.470155523309201,
+          2.5821362164688875
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "own_donor1": {
+        "mean": 2.025550350546837,
+        "conditional_source_group_95_interval": [
+          1.471569607389582,
+          2.5818117420944557
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "own_donor2": {
+        "mean": 2.0249072212014307,
+        "conditional_source_group_95_interval": [
+          1.4708125383241852,
+          2.581502873466474
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "independent_authentic": {
+        "mean": 2.027126610195369,
+        "conditional_source_group_95_interval": [
+          1.470788559111064,
+          2.5836508943155487
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "independent_donor1": {
+        "mean": 2.0270834528328328,
+        "conditional_source_group_95_interval": [
+          1.4706339826683203,
+          2.5843054448475837
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "independent_donor2": {
+        "mean": 2.027169031875857,
+        "conditional_source_group_95_interval": [
+          1.471741560227755,
+          2.5836999873005477
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      }
+    }
+  },
+  "max_prior_score_error": 0.0,
+  "content_learning_screen_passed": false,
+  "reserved_groups_scored": false,
+  "scope": "One reused seed/TUNE panel;conditional recipient-group intervals with fixed donor maps.No equivalence,iteration,reasoning,efficiency or confirmation claim.",
+  "scientific_checkpoint_sha256": "05bc5774806588d10fb855448b8729d8011cdf82c3ca197b06fddba0e3dbacfe",
+  "wall_seconds": 410.35858726501465,
+  "plan_sha256": "d6364a303030fb496f18aec4b021a5be08f4e1bf03cbb45303b78c908dd9db7d"
+}

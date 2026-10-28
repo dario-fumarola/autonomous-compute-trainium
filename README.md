@@ -35,6 +35,11 @@ independent same-domain memory retains about89–94% of the gain,and neither
 primary natural-dependency family passes its content-sensitive gate. TRAIN
 attention is sharp,but that alone does not establish useful reasoning.
 [Memory attribution and unscored source reserve](results/residual_memory_attribution_20261028/REPORT.md).
+A freshly trained independent-memory control retains84.8% of that gain.
+Matched-source memory during training contributes only0.000977nats on the
+reused panel;the registered useful-content gate fails. This strengthens the
+predictor-correction interpretation without establishing its exact mechanism.
+[Training association control](results/residual_independent_memory_20261028/REPORT.md).
 
 The uniform-NTP correction is complete. All new models now improve over C0,
 but the workspace still harms its own selected predictions. On448 reused TUNE

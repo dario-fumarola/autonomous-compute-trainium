@@ -1,3 +1,9 @@
+## October28,2026,20:18 UTC — independent-memory training retains most of the gain
+
+The fresh2048-update control completes and passes all mature checks. Authentic-memory NLL is2.276662 versus2.275685 for matched-memory training and2.282112 raw C0. The control retains84.8% of the gain;matched training helps only0.000977nats,conditional95%[0.000338,0.001553]. One donor-map interaction is positive;the second includes zero. The registered0.005 content-learning gate fails.[Full two-by-three comparison](results/residual_independent_memory_20261028/REPORT.md).
+
+All10 focused tests pass;full-size three-domain gradients pass(max relative3.383e-6),full AdamW/RNG restore and disposable next-update replay are exact,and prior scores reproduce.329.62seconds CPU fitting,410.36seconds controller,zero new assigned chips;all shared feature and opportunity costs remain recorded. No active job remains. The320 reserved groups stay unscored. Most static-memory branch utility does not depend on matched additional context;this branch is not promoted. A separate bounded test of self-updated latent memory and supported exits is the next mechanism question,not yet launched. The broader goal remains unachieved.
+
 ## October28,2026,20:09 UTC — independent-memory training control registered
 
 Ten focused CPU tests pass. A new one-step branch starts from the original random initialization and receives the same8192 target views/2048 updates as the authentic-memory branch,but earlier memory is a same-domain,different-source-group permutation. Each donor is used exactly once;the original query/current slot is preserved. Full-size FP32 efficient-path versus FP64 independent-reference gradients pass on all three domains(max relative8.534e-6). No scientific update has run yet.[Frozen protocol](docs/RESIDUAL_INDEPENDENT_MEMORY_TRAINING_20261028.md).
