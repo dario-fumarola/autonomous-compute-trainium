@@ -66,3 +66,16 @@ files or model states are required; store small private score summaries only.
 Count all head/correction matrix operations and measured wall time, including
 calibration and audits. Prior foundation,feature,failed-history and comparator
 costs stay charged. This is an unoptimized headroom test,not a serving benchmark.
+
+## Numerical recovery before any calibration score
+
+The first attempt stops during its actual-shape check: FP32 error-memory
+arithmetic differs from the literal FP64 reference by up to0.000655 target
+log-probability at eta16, above the0.0002 limit. No calibration or TUNE scores
+were produced. Preserve that attempt and its24.01seconds separately. Recovery
+v2 uses FP64 probability normalization,error-vector accumulation and corrected
+logit scoring;the frozen base logits/features remain unchanged. Eta0 returns
+the original raw score exactly. All arms use the same precision,grid,sources,
+gates and scope. A large-vocabulary numerical test covers this path. The
+independent gradient and unchanged-source gates must pass again. This is a
+numerical repair,not selection of a new scientific recipe from quality results.

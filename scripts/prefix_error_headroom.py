@@ -9,8 +9,8 @@ from compute_trainium.training import file_sha256
 from scripts.residual_memory_attribution import guard
 from scripts.residual_independent_memory_training import load
 
-ID = 'prefix-error-headroom-v1'
-PUBLIC = Path('results/prefix_error_headroom_20261028')
+ID = 'prefix-error-headroom-v2'
+PUBLIC = Path('results/prefix_error_headroom_20261028/recovery-v2')
 POLICY = Path('docs/PREFIX_ERROR_HEADROOM_20261028.md')
 METHODS = ['error', 'uniform', 'label', 'prediction']
 RATES = [0., .25, 1., 4., 16.]
@@ -64,7 +64,9 @@ def prepare(root):
                 retained_feature_sha256=old['retained_feature_sha256'],
                 evaluation_groups=old['evaluation_groups'],
                 source_sha256={str(p): file_sha256(p) for p in source},
-                scope=POLICY.read_text(), assigned_chips=0, optimizer_updates=0)
+                scope=POLICY.read_text(), assigned_chips=0, optimizer_updates=0,
+                retained_failure=dict(relative='prefix-error-headroom-v1/report.json',
+                     sha256=file_sha256(root/'prefix-error-headroom-v1/report.json')))
     verify(root, plan)
     write(out, 'plan.json', plan)
     write(out, 'admission.json', dict(status='PASS_PREFIX_ERROR_REGISTRATION',
@@ -107,11 +109,13 @@ def score_view(h, y, head, rates_by_method, *, rotation_rate=None):
     for method, rates in rates_by_method.items():
         delta = read_correction(logits, y, uniform if method == 'uniform' else weights,
                                 mode='error' if method == 'uniform' else method)
-        rows[method] = [float(-stable_target_log_probs(logits[:, q] + rate*delta, target).mean())
+        rows[method] = [float(-raw.mean()) if rate == 0 else
+                       float(-stable_target_log_probs(logits[:, q].double() + rate*delta, target).mean())
                         for rate in rates]
     if rotation_rate is not None:
         delta = rotated_error(logits, y, weights, q)
-        rows['rotated'] = [float(-stable_target_log_probs(logits[:, q] + rotation_rate*delta, target).mean())]
+        rows['rotated'] = [float(-raw.mean()) if rotation_rate == 0 else
+                          float(-stable_target_log_probs(logits[:, q].double() + rotation_rate*delta, target).mean())]
     return rows, float(-raw.mean())
 
 

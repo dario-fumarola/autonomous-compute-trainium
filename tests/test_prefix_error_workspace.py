@@ -53,6 +53,16 @@ def test_saturated_correct_class_retains_error_and_uniform_rotation():
     logits = torch.tensor([[[30., 0., -1.]]]); y = torch.tensor([[0]])
     r = observed_errors(logits, y)
     assert r[0, 0, 0] > 0
-    torch.testing.assert_close(r.sum(-1), torch.zeros(1, 1), atol=1e-19, rtol=0)
+    torch.testing.assert_close(r.sum(-1), torch.zeros(1, 1, dtype=torch.double), atol=1e-19, rtol=0)
     h, logits, y = fixture(); q = torch.tensor([0, 4, 8]); w = read_weights(h, q, temperature=0)
     torch.testing.assert_close(rotated_error(logits, y, w, q), read_correction(logits, y, w), atol=1e-14, rtol=1e-12)
+
+
+def test_large_vocabulary_fp32_inputs_against_double_literal_gradient():
+    torch.manual_seed(133)
+    logits = 3*torch.randn(1, 7, 100352)
+    y = torch.randint(100352, (1, 7)); q = torch.tensor([3, 6])
+    weights = read_weights(torch.randn(1, 7, 16), q)
+    actual = read_correction(logits, y, weights)
+    expected = sequential_bias_reference(logits.double(), y, weights.double(), q)
+    torch.testing.assert_close(actual, expected, atol=1e-12, rtol=1e-10)

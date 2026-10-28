@@ -18,18 +18,22 @@ def read_weights(features, anchors, *, temperature=16.):
 
 def observed_errors(logits, outcomes):
     """Negative CE bias gradient, avoiding 1-p_y cancellation near p_y=1."""
-    probability = logits.softmax(-1)
+    # Small vocabulary-bias changes require double-precision normalization and
+    # accumulation. At the real 100352-class shape, FP32 exceeded the registered
+    # .0002 target-logp tolerance at the largest frozen step size.
+    probability = logits.double().softmax(-1)
     others = probability.scatter(-1, outcomes[..., None], 0.)
     return (-others).scatter(-1, outcomes[..., None], others.sum(-1, keepdim=True))
 
 
 def read_correction(logits, outcomes, weights, *, mode='error'):
+    weights = weights.double()
     if mode == 'error':
         return weights @ observed_errors(logits, outcomes)
     if mode == 'prediction':
-        return -(weights @ logits.softmax(-1))
+        return -(weights @ logits.double().softmax(-1))
     if mode == 'label':
-        output = logits.new_zeros(*weights.shape[:-1], logits.shape[-1])
+        output = weights.new_zeros(*weights.shape[:-1], logits.shape[-1])
         indices = outcomes[:, None, :].expand(-1, weights.shape[1], -1)
         return output.scatter_add(-1, indices, weights)
     raise ValueError('Unknown correction control')
@@ -38,7 +42,8 @@ def read_correction(logits, outcomes, weights, *, mode='error'):
 def rotated_error(logits, outcomes, weights, anchors):
     """Rotate complete observed error vectors within each available prefix."""
     errors = observed_errors(logits, outcomes)
-    output = logits.new_zeros(logits.shape[0], len(anchors), logits.shape[-1])
+    weights = weights.double()
+    output = weights.new_zeros(logits.shape[0], len(anchors), logits.shape[-1])
     for qi, end in enumerate(anchors.tolist()):
         if end:
             output[:, qi] = (weights[:, qi:qi+1, :end] @

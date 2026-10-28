@@ -1,3 +1,9 @@
+## October28,2026,21:28 UTC — prediction-error numerical recovery registered
+
+The first zero-update attempt stops before calibration:maximum FP32 corrected target-logp discrepancy0.000655 exceeds0.0002. The failed24.01seconds and original source bundle remain. Recovery-v2 usesFP64 correction probabilities,accumulation and scoring,while retaining the same base,grid,sources and criteria. Thirteen focused tests pass,including the100352-class reference test. Actual-shape qualification must pass before any calibration score.[Failure and recovery](results/prefix_error_headroom_20261028/REPORT.md).
+
+No model update or calibration/TUNE/protected-source quality result has occurred. The associative-memory negative remains closed.
+
 ## October28,2026,21:25 UTC — causal prediction-error headroom test registered
 
 Twelve focused CPU tests pass. A zero-update diagnostic compares a temporary bias correction from observed past prediction errors with independently calibrated token-reinforcement,prediction-only and uniform-weight controls. All choices use the existing797 TRAIN calibration views. Calibration must clear the frozen gate before another448-view TUNE read;the320 protected groups remain untouched. Actual-shape literal-gradient checks precede calibration.[Protocol](docs/PREFIX_ERROR_HEADROOM_20261028.md).
