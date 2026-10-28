@@ -25,6 +25,11 @@ four times worsens both models. Two steps do not beat one or meet the original
 0.01-nat gate;this is a development transfer result,not an iteration or
 training-efficiency win. All six endpoints pass mature audits.
 [Source-volume comparison](results/residual_data_volume_20261028/REPORT.md).
+A subsequently registered equal-parameter local nonlinear control scores2.277691.
+The one-step attention branch improves on it by0.002005nats,but a second
+step does not help. This motivates studying the additional context read;
+its causal content use,iterative reasoning and compute efficiency remain unproved.
+[Matched local control](results/residual_local_control_20261028/REPORT.md).
 
 The uniform-NTP correction is complete. All new models now improve over C0,
 but the workspace still harms its own selected predictions. On448 reused TUNE

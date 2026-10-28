@@ -1,0 +1,77 @@
+{
+  "status": "COMPLETE_AUDITED_LOCAL_CONTROL",
+  "assigned_chips": 0,
+  "backbone_updates": 0,
+  "arms": {
+    "local": {
+      "status": "COMPLETE_RESIDUAL_SCREEN_ARM",
+      "arm": "local",
+      "backbone_updates": 0,
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        105662906368,
+        105662906368
+      ],
+      "updates": 2048,
+      "new_updates": 2048,
+      "branch_parameters": 655360,
+      "unique_train_views": 8192,
+      "train_source_view_exposures": 8192,
+      "label_exposures": 262144,
+      "mean_warm_update_seconds": 0.1577414397093862,
+      "parameters_frozen": true,
+      "completed_updates": 2048,
+      "wall_seconds": 348.2534556388855,
+      "peak_rss_bytes": 13034205184
+    }
+  },
+  "scores": {
+    "raw_nll": 2.2821122052683624,
+    "workspace_nll": 2.2776906079531
+  },
+  "contrasts": {
+    "local_utility": {
+      "mean": 0.004421597315262345,
+      "conditional_source_group_95_interval": [
+        -0.00010605256223642068,
+        0.008391273662160536
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "local_minus_linear": {
+      "mean": -0.005536511639386257,
+      "conditional_source_group_95_interval": [
+        -0.007526579347739071,
+        -0.003398640043707973
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "local_minus_one": {
+      "mean": 0.0020054525135065485,
+      "conditional_source_group_95_interval": [
+        0.0010151477808971181,
+        0.0030982614004318753
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "local_minus_two": {
+      "mean": 0.001635440124193465,
+      "conditional_source_group_95_interval": [
+        0.0004201053687580514,
+        0.002954326094966846
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    }
+  },
+  "scope": "Fixed after volume outcome;new control from initialization.One reused branch seed/TUNE panel.No iteration,reasoning,equivalence or efficiency claim.",
+  "wall_seconds": 403.311678647995,
+  "plan_sha256": "97ad2f171f9d7ecf056928f4586a2ab422577db6f7e615f4b1cf61c4d882fd1b"
+}

@@ -1,3 +1,11 @@
+## October28,2026,18:59 UTC — attention branch leads the matched local control
+
+The local nonlinear655360-parameter control completes2048 fresh-data updates and all mature checks. NLL2.277691 versus one-step2.275685:attention advantage0.002005,conditional95%[0.001015,0.003098]. Local itself improves frozen C0 by0.004422 as a point estimate;its interval includes zero. Two steps still do not beat one or pass the original mechanism gate.[Attribution report](results/residual_local_control_20261028/REPORT.md).
+
+Eight focused tests pass;all local FP32/FP64 gradients pass(max relative2.487e-6),full AdamW/RNG restore exactly,and saved states remain unchanged. The additional control uses CPU only,403.31seconds including audit/analysis. All Native feature and earlier comparator/prefix costs remain counted. About38.4GiB free;all seven new scientific endpoints preserved. No active managed job remains.
+
+This supplies a small development lead for investigating learned context reads with diverse sources;it does not isolate the causal use of memory content or establish iterative reasoning,autonomous allocation or a matched-compute ordinary-model win. Future mechanism work must distinguish recoverable dependencies from cheap predictor correction;no large campaign or confirmation is admitted by this result. The broader workspace-learning goal remains unachieved.
+
 ## October28,2026,18:48 UTC — fresh source diversity helps;two steps still do not beat one
 
 All six2048-update endpoints and mature audits complete. Fresh one/two NLL2.275685/2.276055 improve frozen C0 by0.006427/0.006057;repeated one/two worsen to2.289734/2.286747. Two-step fresh-vs-repeat gain0.010691 passes the source gate,but the original iterative gate fails:one step is slightly better. Repetition increases training-subset utility while hurting held-out transfer.[Complete report](results/residual_data_volume_20261028/REPORT.md).
