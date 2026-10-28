@@ -1,3 +1,9 @@
+## October28,2026,01:20 UTC — all64 early state shards verified;learning resumes
+
+The complete895-tensor-per-rank workspaceu1 backup verifies across all64 ranks;checkpoint I/O takes819.10seconds.Training resumes at update2 and warm updates remain about12.5seconds.No extra optimizer update/source exposure is added.The retained prefix remains until all finalu48 shards verify.The whole assigned chip-time includes this safety checkpoint,not just neural update time.
+
+Following the owner's explicit permission to delete unnecessary old artifacts,only the obsolete pip HTTP download cache is cleared:2,484 cached files,10,102,546,331bytes.Installed hostXLA/native environments,drivers and container image remain unchanged,as do all research states,source data and exact archives.About95GiB is free even with the early backup retained.[Cleanup](results/workspace_pip_cache_cleanup_20261028/report.json).
+
 ## October28,2026,01:16 UTC — protected replay active;two closed qualification histories exact-archived
 
 The200GiB live-step-qualified replay is active on all16chips and saving its early all64-rank backup before update2.No held-out score exists.The already audited ordinary931 baseline is reused;scientific C0/source order/budgets and2% named-gradient gates are unchanged.
