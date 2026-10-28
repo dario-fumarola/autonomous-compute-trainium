@@ -1,0 +1,278 @@
+{
+  "status": "STOPPED_WORKSPACE_DISCOVERY_PILOT",
+  "conditions": {
+    "ordinary": {
+      "native": {
+        "status": "COMPLETE_WORKSPACE_DISCOVERY_ARM_PENDING_MATURE_AUDIT",
+        "arm": "ordinary",
+        "world": 64,
+        "actual_optimizer_updates": 931,
+        "source_views": 59584,
+        "admitted_source_view_positions": 9533440,
+        "consumed_source_positions": 9533440,
+        "natural_training_label_exposures": 9473856,
+        "nominal_matrix_operations": 94373801189441536,
+        "first_update_seconds": 1.837186757940799,
+        "warm_updates": 930,
+        "warm_mean_seconds": 1.0432114608284155,
+        "wall_seconds": 1045.2897336483002,
+        "actor_ledger": {
+          "forward_calls": 933,
+          "processed_positions": 149280,
+          "projected_positions": 148347,
+          "phases": {
+            "ordinary_ntp": 933
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        },
+        "scorer_ledger": null,
+        "checkpoint_bytes_per_rank": 255947679,
+        "fallback_ops": [],
+        "independent_mature_audit_pending": true,
+        "heldout_scores_read": false,
+        "scope": "Frozen single-seed short discovery condition. Own prefix-only samples,no target-based evaluation selection,no teacher.No confirmation or from-scratch claim.Qualification and audit costs stay separate from retained-path nominal matrix work."
+      },
+      "audit": {
+        "status": "PASS_WORKSPACE_DISCOVERY_MATURE_CPU_AUDIT",
+        "arm": "ordinary",
+        "optimizer_updates": 0,
+        "assigned_chips": 0,
+        "parameters_checked": 179,
+        "gradient_relative_l2": 4.88854136250322e-06,
+        "largest_named_relative_l2": 2.140890899305424e-05,
+        "worst_named_parameter": "model.layers.15.post_attention_layernorm.weight",
+        "joint_loss": 1.9330514289309229,
+        "wall_seconds": 50.510438680648804,
+        "plan_sha256": "57bdaa06746cdb9748fe37485ce0968404dad452dddae32428cd0abcd4e956bb"
+      },
+      "audit_pending": false,
+      "reused_completed_endpoint": true
+    },
+    "workspace": {
+      "native": {
+        "status": "COMPLETE_WORKSPACE_DISCOVERY_ARM_PENDING_MATURE_AUDIT",
+        "arm": "workspace",
+        "world": 64,
+        "actual_optimizer_updates": 48,
+        "source_views": 3072,
+        "admitted_source_view_positions": 491520,
+        "consumed_source_positions": 405504,
+        "natural_training_label_exposures": 451584,
+        "nominal_matrix_operations": 94291840865402880,
+        "first_update_seconds": 91.56335462606512,
+        "warm_updates": 47,
+        "warm_mean_seconds": 12.48779871292224,
+        "wall_seconds": 2371.9271953105927,
+        "actor_ledger": {
+          "forward_calls": 833,
+          "processed_positions": 385728,
+          "projected_positions": 10339,
+          "phases": {
+            "ordinary_ntp": 49,
+            "workspace_policy": 196,
+            "workspace_reader": 196,
+            "workspace_sampling": 392
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        },
+        "scorer_ledger": {
+          "forward_calls": 245,
+          "processed_positions": 47040,
+          "projected_positions": 980,
+          "phases": {
+            "scorer_raw": 49,
+            "scorer_workspace": 196
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        },
+        "checkpoint_bytes_per_rank": 341434924,
+        "fallback_ops": [],
+        "independent_mature_audit_pending": true,
+        "heldout_scores_read": false,
+        "scope": "Frozen single-seed short discovery condition. Own prefix-only samples,no target-based evaluation selection,no teacher.No confirmation or from-scratch claim.Qualification and audit costs stay separate from retained-path nominal matrix work."
+      },
+      "audit_pending": false,
+      "audit": {
+        "status": "PASS_WORKSPACE_DISCOVERY_MATURE_CPU_AUDIT",
+        "arm": "workspace",
+        "optimizer_updates": 0,
+        "assigned_chips": 0,
+        "frozen_reward_max_abs_error": 2.1666469325262727e-06,
+        "parameters_checked": 179,
+        "gradient_relative_l2": 2.109915794895514e-06,
+        "largest_named_relative_l2": 7.3399565968587505e-06,
+        "worst_named_parameter": "model.layers.5.self_attn.q_norm.weight",
+        "joint_loss": 2.16715658669612,
+        "wall_seconds": 117.99398899078369,
+        "plan_sha256": "7446641898150f883224897fd07f4f5bccb47060c41cd62288355c7a2aad04f3"
+      }
+    },
+    "pause": {
+      "native": {
+        "status": "COMPLETE_WORKSPACE_DISCOVERY_ARM_PENDING_MATURE_AUDIT",
+        "arm": "pause",
+        "world": 64,
+        "actual_optimizer_updates": 421,
+        "source_views": 26944,
+        "admitted_source_view_positions": 4311040,
+        "consumed_source_positions": 3556608,
+        "natural_training_label_exposures": 3637440,
+        "nominal_matrix_operations": 94402655853477888,
+        "first_update_seconds": 36.515891393995844,
+        "warm_updates": 420,
+        "warm_mean_seconds": 1.630962739176383,
+        "wall_seconds": 1383.3742170333862,
+        "actor_ledger": {
+          "forward_calls": 844,
+          "processed_positions": 162048,
+          "projected_positions": 56970,
+          "phases": {
+            "ordinary_ntp": 422,
+            "pause_reader": 422
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        },
+        "scorer_ledger": null,
+        "checkpoint_bytes_per_rank": 255906400,
+        "fallback_ops": [],
+        "independent_mature_audit_pending": true,
+        "heldout_scores_read": false,
+        "scope": "Frozen single-seed short discovery condition. Own prefix-only samples,no target-based evaluation selection,no teacher.No confirmation or from-scratch claim.Qualification and audit costs stay separate from retained-path nominal matrix work."
+      },
+      "audit_pending": false,
+      "audit": {
+        "status": "PASS_WORKSPACE_DISCOVERY_MATURE_CPU_AUDIT",
+        "arm": "pause",
+        "optimizer_updates": 0,
+        "assigned_chips": 0,
+        "parameters_checked": 179,
+        "gradient_relative_l2": 3.217386236321413e-06,
+        "largest_named_relative_l2": 1.0978506924410172e-05,
+        "worst_named_parameter": "model.layers.14.post_feedforward_layernorm.weight",
+        "joint_loss": 2.0546537312896502,
+        "wall_seconds": 56.58265256881714,
+        "plan_sha256": "7c42c167e472b271cff706cb73df6c3879e608d5c7d79a9ac6a08c8402606fc3"
+      }
+    },
+    "draft": {
+      "native": {
+        "status": "COMPLETE_WORKSPACE_DISCOVERY_ARM_PENDING_MATURE_AUDIT",
+        "arm": "draft",
+        "world": 64,
+        "actual_optimizer_updates": 63,
+        "source_views": 4032,
+        "admitted_source_view_positions": 645120,
+        "consumed_source_positions": 548352,
+        "natural_training_label_exposures": 624960,
+        "nominal_matrix_operations": 95012527250866176,
+        "first_update_seconds": 80.82527318096254,
+        "warm_updates": 62,
+        "warm_mean_seconds": 8.169014479944318,
+        "wall_seconds": 1245.658305644989,
+        "actor_ledger": {
+          "forward_calls": 896,
+          "processed_positions": 466944,
+          "projected_positions": 11968,
+          "phases": {
+            "draft_reader": 256,
+            "draft_writer": 64,
+            "ordinary_ntp": 64,
+            "workspace_sampling": 512
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        },
+        "scorer_ledger": null,
+        "checkpoint_bytes_per_rank": 254980320,
+        "fallback_ops": [],
+        "independent_mature_audit_pending": true,
+        "heldout_scores_read": false,
+        "scope": "Frozen single-seed short discovery condition. Own prefix-only samples,no target-based evaluation selection,no teacher.No confirmation or from-scratch claim.Qualification and audit costs stay separate from retained-path nominal matrix work."
+      },
+      "audit_pending": false,
+      "audit": {
+        "status": "PASS_WORKSPACE_DISCOVERY_MATURE_CPU_AUDIT",
+        "arm": "draft",
+        "optimizer_updates": 0,
+        "assigned_chips": 0,
+        "parameters_checked": 179,
+        "gradient_relative_l2": 2.04990426022472e-06,
+        "largest_named_relative_l2": 1.050965304506039e-05,
+        "worst_named_parameter": "model.layers.14.post_feedforward_layernorm.weight",
+        "joint_loss": 2.2023354754685505,
+        "wall_seconds": 62.340540170669556,
+        "plan_sha256": "48caf81a0465882d79d2c3bb19a6147a821063cef93f668ad7b52c474cd005e4"
+      }
+    }
+  },
+  "full_from_scratch_admitted": false,
+  "prior_execution_costs": {
+    "native_attempts": [
+      {
+        "identity": "workspace-four-arm-discovery-v1-ordinary",
+        "exit_code": 0,
+        "wall_seconds": 1054.9459459781647,
+        "assigned_chip_hours": 4.688648648791843,
+        "whole_instance_opportunity_chip_hours": 4.688648648791843,
+        "report_exists": true
+      },
+      {
+        "identity": "workspace-four-arm-discovery-v1-workspace",
+        "exit_code": 1,
+        "wall_seconds": 735.1041238307953,
+        "assigned_chip_hours": 3.267129439247979,
+        "whole_instance_opportunity_chip_hours": 3.267129439247979,
+        "report_exists": false
+      }
+    ],
+    "current_controller_cpu_attempts": [
+      {
+        "identity": "workspace-discovery-audit-ordinary-v1",
+        "assigned_chips": 0,
+        "wall_seconds": 60.14717769622803,
+        "reused": false,
+        "exit_code": 0
+      }
+    ],
+    "cleanup_errors": [],
+    "execution": {
+      "started_unix": 1793142769.9566257,
+      "deadline_unix": 1793160769.9566257,
+      "plan_sha256": "90f028e9795cd65392f3180ae5d5025a067e555185477dba445abb7ef71b4fbf"
+    },
+    "wall_seconds_since_admission": 1860.8407847881317,
+    "whole_instance_opportunity_chip_hours": 8.270403493245443,
+    "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+  },
+  "prior_recovery_costs": {
+    "native_attempts": [
+      {
+        "identity": "workspace-four-arm-discovery-v2-workspace",
+        "exit_code": 1,
+        "wall_seconds": 741.2314326763153,
+        "assigned_chip_hours": 3.294361923005846,
+        "whole_instance_opportunity_chip_hours": 3.294361923005846,
+        "report_exists": false
+      }
+    ],
+    "current_controller_cpu_attempts": [],
+    "cleanup_errors": [],
+    "execution": {
+      "started_unix": 1793147051.269174,
+      "deadline_unix": 1793165051.269174,
+      "plan_sha256": "1fd4ec99fe793262ffaeb964ea48ccb56786c9582451e527ce50652e87fad073"
+    },
+    "wall_seconds_since_admission": 745.535397529602,
+    "whole_instance_opportunity_chip_hours": 3.313490663104587,
+    "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+  },
+  "error_type": "RuntimeError",
+  "error": "Protected host reserve plus complete worker allowance required",
+  "observed_completed_optimizer_updates": {
+    "ordinary": 931,
+    "workspace": 48,
+    "pause": 421,
+    "draft": 63
+  },
+  "interrupted_update_may_be_unrecorded": true,
+  "plan_sha256": "3fc1d78a9e80abe1eac0d37408b2e802a59f8d624849163a1d77de3ec9f975fb"
+}

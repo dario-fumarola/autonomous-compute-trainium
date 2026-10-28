@@ -1,3 +1,11 @@
+## October28,2026,02:35 UTC — all four mature audits pass;prelaunch evaluation admission recovery
+
+Draft completes63 updates and its full64-rank state.Its independent179-parameter audit passes:largest named discrepancy0.001051%,overall0.000205%.Every scientific endpoint is now saved and numerically audited;no held-out score exists.[Draft audit](results/workspace_discovery_20261027/workspace-discovery-audit-draft-v1/report.json).
+
+The original controller stops BEFORE creating the evaluation worker because available host memory momentarily cannot cover512GiB+200GiB.No evaluation or additional update runs.All fit histories,costs and proofs remain.Evaluation-only recovery is registered with192GiB for its no-gradient single model(no optimizer or EMA),retaining the full512GiB reserve,original deadline,checkpoints,data,320-anchor panel,seeds,donors and metrics.Two fail-stop recovery tests pass in2.18seconds.[Original stop](results/workspace_discovery_20261027/recovery-v3/report.json) · [Recovery helper checks](results/workspace_discovery_20261027/evaluation-recovery-cpu-v1/report.json).
+
+An independent matrix-dispatch software fixture also verifies the ledger's4x postnorm body recomputation and3x selected head.Two regression cases pass;Native lowering/nonmatrix costs remain separate.[Accounting check](results/workspace_matrix_accounting_20261028/report.json).
+
 ## October28,2026,02:09 UTC — trained-pause endpoint and mature audit pass;own-draft fit launched
 
 The pause control completes421 updates and all64 complete model/AdamW/RNG archives.Its independent HF-body/FP64-loss audit passes179/179 gradients:largest named discrepancy0.001098%,overall0.000322%.No fallback;warm updates average1.63096seconds,whole Native runtime1383.37seconds including its sequential final save.[Audit](results/workspace_discovery_20261027/workspace-discovery-audit-pause-v1/report.json).

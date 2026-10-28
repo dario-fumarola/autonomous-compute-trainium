@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE_WORKSPACE_DISCOVERY_ARM_PENDING_MATURE_AUDIT",
+  "arm": "draft",
+  "world": 64,
+  "actual_optimizer_updates": 63,
+  "source_views": 4032,
+  "admitted_source_view_positions": 645120,
+  "consumed_source_positions": 548352,
+  "natural_training_label_exposures": 624960,
+  "nominal_matrix_operations": 95012527250866176,
+  "first_update_seconds": 80.82527318096254,
+  "warm_updates": 62,
+  "warm_mean_seconds": 8.169014479944318,
+  "wall_seconds": 1245.658305644989,
+  "actor_ledger": {
+    "forward_calls": 896,
+    "processed_positions": 466944,
+    "projected_positions": 11968,
+    "phases": {
+      "draft_reader": 256,
+      "draft_writer": 64,
+      "ordinary_ntp": 64,
+      "workspace_sampling": 512
+    },
+    "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+  },
+  "scorer_ledger": null,
+  "checkpoint_bytes_per_rank": 254980320,
+  "fallback_ops": [],
+  "independent_mature_audit_pending": true,
+  "heldout_scores_read": false,
+  "scope": "Frozen single-seed short discovery condition. Own prefix-only samples,no target-based evaluation selection,no teacher.No confirmation or from-scratch claim.Qualification and audit costs stay separate from retained-path nominal matrix work."
+}
