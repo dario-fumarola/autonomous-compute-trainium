@@ -1,3 +1,9 @@
+## October28,2026,04:31 UTC — all16-chip sparse numerical/update/recovery gate passes
+
+All179 gradients pass(max named0.001397%),as do the first AdamW delta(max0.07515%),moments(max0.004573%)and complete716-tensor/RNG perturb/restore on two shards.No fallback. Runtime141.91seconds;zero scientific updates.[Native proof](results/sparse_workspace_native_20261028/report.json).
+
+Nine CPU tests also verify packing,ordinary/latent/constant objectives,and exact actual matrix-dispatch counts including checkpoint recomputation.The next finite1cold+100warm/full-global-replay qualification requires independent mature HF agreement before any scientific fit.No quality result for the new mechanism yet.
+
 ## October28,2026,04:29 UTC — full-size differentiable workspace CPU oracle passes;all-chip gate active
 
 The sparse candidate passes all179 actual1.485B parameter gradients against an independent HF dense2D-mask implementation:largest named discrepancy0.000319%,raw logits exact. Six CPU gates pass,including compiled/checkpointed gradient parity. This is numerical qualification,not held-out learning.[Full-size reference](results/sparse_workspace_reference_20261028/report.json).

@@ -31,3 +31,5 @@ DENSE2D-mask recomputation of both forward values and every gradient. Next:
 actual-size independent HF oracle,all-rank Native numerical/update/recovery
 fixture,100warm updates and mature full-model audit. No scientific fit,quality
 claim,from-scratch campaign or learned allocation is admitted by CPU tests.
+
+The actual1.485B CPU HF oracle and all16-chip gradient/AdamW/moment/two-shard full-state gates pass. The next finite qualification starts afresh fromC0,performs1cold+100warm updates on6464 TRAIN views,saves all64 actor/AdamW/RNG states,checks an unclipped mature gradient on a disjoint TRAIN group,and restores/replays it in a new process. No TUNE/DEV data is read. All qualification exposure and failed attempts are charged separately;the qualification endpoint is excluded from scientific initialization. The independent mature oracle uses HF dense2D masking,not the cached candidate implementation.
