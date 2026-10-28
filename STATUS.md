@@ -1,3 +1,9 @@
+## October28,2026,04:56 UTC — complete sparse qualification passes;three-arm learning pilot admitted
+
+All101 actual-size sparse updates,all64 full-state saves,and fresh-process full-global tensor/RNG restore pass. Replayed gradient max error is exactly0. Independent HF dense2D mature audit passes179/179 gradients(max named0.001146%). Warm mean1.0883seconds;whole warm/checkpoint phase804.12seconds. No fallback or held-out quality claim.[Warm/replay](results/sparse_workspace_warm_20261028/report.json) · [Mature oracle](results/sparse_workspace_mature_20261028/report.json).
+
+The next bounded discovery starts from C0 with fresh AdamW:latent900,trained constant-query900,ordinary923 updates with identical raw/anchor target emphasis. Four fixed opportunities;nominal matrix overhead1.025025. All three mature audits precede the frozen448-anchor TUNE panel. Full32 deployed-policy NLL and selected-position utility are separate. No qualification weights,PG,teacher,learned router or random-init claim.[Frozen design](docs/SPARSE_WORKSPACE_DISCOVERY_20261028.md). Ten CPU gates pass,including independent constant-query gradients.
+
 ## October28,2026,04:51 UTC — 101 sparse qualification updates finish;full-state save/replay in progress
 
 All101 actual-size updates complete with finite gradients;the final warm update takes1.09seconds versus the old discrete pilot's12.49seconds. All64 checkpoint shards are being saved before fresh-process exact gradient replay and independent mature HF audit. No held-out scores exist for this mechanism.
