@@ -1,3 +1,9 @@
+## October28,2026,18:48 UTC — fresh source diversity helps;two steps still do not beat one
+
+All six2048-update endpoints and mature audits complete. Fresh one/two NLL2.275685/2.276055 improve frozen C0 by0.006427/0.006057;repeated one/two worsen to2.289734/2.286747. Two-step fresh-vs-repeat gain0.010691 passes the source gate,but the original iterative gate fails:one step is slightly better. Repetition increases training-subset utility while hurting held-out transfer.[Complete report](results/residual_data_volume_20261028/REPORT.md).
+
+All named CPU gradients pass(max relative6.988e-6),full model/AdamW/RNG restore exactly,and frozen raw scores agree. New all16-chip extraction costs0.216224assigned chip-hours;CPU fits/audits and all retained prefixes are separately counted. No full-model scaling or confirmation. A new parameter-matched local nonlinear control is prepared to separate extra context reading from ordinary predictor correction;not launched yet.
+
 ## October28,2026,18:34 UTC — source-diversity follow-up registered
 
 The owner authorizes the fixed-mechanism follow-up. Each completed512-update linear/one/two branch forks into fresh8192-view and repeated2048-view schedules,ending at2048 total updates with identical target-sampling RNG and no optimizer reset. Six focused CPU tests pass,including exact next-gradient/update replay. The original screen remains negative;the0.01/0.005 mechanism gates stay unchanged.[Protocol](docs/RESIDUAL_DATA_VOLUME_20261028.md).

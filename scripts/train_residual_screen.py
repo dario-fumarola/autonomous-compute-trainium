@@ -5,7 +5,7 @@ from pathlib import Path
 
 def run(a):
  import torch
- from compute_trainium.residual_workspace import ResidualWorkspace
+ from compute_trainium.residual_local_control import make_branch
  from compute_trainium.stable_target_loss import stable_target_log_probs
  from compute_trainium.training import file_sha256
  from compute_trainium.residual_matrix_work import MatrixWork
@@ -34,7 +34,7 @@ def run(a):
  try:
   unique_views=p.get('arm_unique_views',{}).get(a.arm,p['train_views']);mode=p.get('branch_modes',{}).get(a.arm,a.arm)
   guard('load_frozen_features',0);train,labels,domains=load('train',unique_views);test,truth,td=load('tune',p['evaluation_anchors']);state=torch.load(a.root/p['checkpoint_relative'],weights_only=True,mmap=True)['model'];head=state['lm_head.weight'].detach();del state;head_version=head._version
-  model=ResidualWorkspace(width=p['width'],mode=mode);optimizer=torch.optim.AdamW(model.parameters(),lr=p['lr'],weight_decay=p['weight_decay']);rng=torch.Generator().manual_seed(p['seed']+1);telemetry=[];q=p['queries'];batch=p['batch_views'];warm=[];initial_update=0
+  model=make_branch(p['width'],mode);optimizer=torch.optim.AdamW(model.parameters(),lr=p['lr'],weight_decay=p['weight_decay']);rng=torch.Generator().manual_seed(p['seed']+1);telemetry=[];q=p['queries'];batch=p['batch_views'];warm=[];initial_update=0
   if p.get('resume_states'):
    resume=p['resume_states'][a.arm];path=a.root/resume['relative']
    if file_sha256(path)!=resume['sha256']:raise AssertionError('Frozen branch prefix changed')

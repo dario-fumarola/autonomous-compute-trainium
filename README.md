@@ -18,6 +18,14 @@ policy gradients are authorized for this new phase. Earlier results retain
 their original criteria;no larger recurrence main or confirmation completed.
 [New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
 
+A frozen-base residual screen now isolates a source-diversity effect. At equal
+branch updates,fresh8192-view training gives NLL **2.275685 one step** and
+**2.276055 two steps**,against unchanged C0 **2.282112**. Repeating2048 views
+four times worsens both models. Two steps do not beat one or meet the original
+0.01-nat gate;this is a development transfer result,not an iteration or
+training-efficiency win. All six endpoints pass mature audits.
+[Source-volume comparison](results/residual_data_volume_20261028/REPORT.md).
+
 The uniform-NTP correction is complete. All new models now improve over C0,
 but the workspace still harms its own selected predictions. On448 reused TUNE
 views, full32 NLL is **2.262856 ordinary**, **2.267065 latent workspace**,

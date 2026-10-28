@@ -3,12 +3,12 @@ import argparse,json,time,os
 from pathlib import Path
 
 
-def run(root,volume=False):
+def run(root,volume=False,*,identity=None,public=None):
  import torch
- from compute_trainium.residual_workspace import ResidualWorkspace
+ from compute_trainium.residual_local_control import make_branch
  from compute_trainium.stable_target_loss import stable_target_log_probs
  from compute_trainium.training import file_sha256
- identity='residual-data-volume-v1' if volume else 'residual-workspace-screen-v1';out=root/identity;p=json.loads((out/'plan.json').read_text());public=Path('results/residual_data_volume_20261028' if volume else 'results/residual_workspace_screen_20261028');start=time.time();torch.set_num_threads(16)
+ identity=identity or ('residual-data-volume-v1' if volume else 'residual-workspace-screen-v1');out=root/identity;p=json.loads((out/'plan.json').read_text());public=Path(public or ('results/residual_data_volume_20261028' if volume else 'results/residual_workspace_screen_20261028'));start=time.time();torch.set_num_threads(16)
  if json.loads((out/'report.json').read_text())['status']!='COMPLETE_FROZEN_RESIDUAL_SCREEN':raise AssertionError('Completed fixed endpoint required')
  registration=dict(registered_unix=start,deadline_unix=min(start+600,p['absolute_deadline_unix']),train_views=512,optimizer_updates_to_saved_models=0,development_rescoring=False,source_sha256=file_sha256(Path(__file__)),scope='Post-fit explanatory diagnosis,not a new scientific endpoint or promotion rule.First512 TRAIN views by frozen order;compare trained labels and final32 readout independently.Numerical checks use disposable copies;scientific checkpoints unchanged.')
  (public/'diagnostic-plan.json').write_text(json.dumps(registration,indent=2)+'\n')
@@ -20,16 +20,16 @@ def run(root,volume=False):
   available=next(int(s.split()[1])*1024 for s in Path('/proc/meminfo').read_text().splitlines() if s.startswith('MemAvailable:'))
   if available<512*1024**3 or time.time()>registration['deadline_unix']:raise RuntimeError('Original reserve/finite diagnostic cap')
  for arm in p['arm_modes']:
-  check();path=out/f'PRIVATE-{arm}-state.pt';before=file_sha256(path);saved=torch.load(path,weights_only=True);mode=p.get('branch_modes',{}).get(arm,arm);m=ResidualWorkspace(width=p['width'],mode=mode);m.load_state_dict(saved['model']);opt=torch.optim.AdamW(m.parameters(),lr=p['lr'],weight_decay=p['weight_decay']);opt.load_state_dict(saved['optimizer']);g=torch.Generator();g.set_state(saved['rng'])
+  check();path=out/f'PRIVATE-{arm}-state.pt';before=file_sha256(path);saved=torch.load(path,weights_only=True);mode=p.get('branch_modes',{}).get(arm,arm);m=make_branch(p['width'],mode);m.load_state_dict(saved['model']);opt=torch.optim.AdamW(m.parameters(),lr=p['lr'],weight_decay=p['weight_decay']);opt.load_state_dict(saved['optimizer']);g=torch.Generator();g.set_state(saved['rng'])
   if not torch.equal(g.get_state(),saved['rng']) or any(not torch.equal(v,m.state_dict()[k]) for k,v in saved['model'].items()):raise AssertionError('Exact branch/RNG restore failed')
   for key,v in saved['optimizer']['state'].items():
    for field,value in v.items():
     if isinstance(value,torch.Tensor) and not torch.equal(value,opt.state_dict()['state'][key][field]):raise AssertionError('Exact optimizer moment restore failed')
-  double=ResidualWorkspace(width=p['width'],mode=mode).double();double.load_state_dict(saved['model']);anchors=torch.arange(127,159)
+  double=make_branch(p['width'],mode).double();double.load_state_dict(saved['model']);anchors=torch.arange(127,159)
   for model,features,projection in [(m,h[:1],head),(double,h[:1].double(),head.double())]:
    loss=-stable_target_log_probs(model(features,anchors)@projection.T,y[:1,127:159]).mean();loss.backward()
   errors={name:float((v.grad.double()-dict(double.named_parameters())[name].grad).norm()/dict(double.named_parameters())[name].grad.norm().clamp_min(1e-30)) for name,v in m.named_parameters()}
-  if max(errors.values())>.02:raise AssertionError('Actual-shape branch gradient exceeds2% against FP64')
+  if any(not __import__('math').isfinite(e) or e>.02 for e in errors.values()):raise AssertionError('Actual-shape branch gradient exceeds2% against FP64 or is nonfinite')
   del double;opt.zero_grad(set_to_none=True);m.eval();rng=torch.Generator().manual_seed(p['seed']+1);sums={name:[0.,0.,0.] for name in ['seen_raw','seen_work','tail_raw','tail_work']};counts=[0,0,0]
   with torch.no_grad():
    for step in range(128):
