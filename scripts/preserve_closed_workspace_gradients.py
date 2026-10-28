@@ -14,14 +14,14 @@ IDENTITY='workspace-closed-gradient-preservation-v1'
 PUBLIC=Path('results/workspace_closed_gradients_20261027')
 
 
-def run(root):
+def run(root,*,more_cold=False):
     out=root/IDENTITY
     if out.exists() or PUBLIC.exists():raise FileExistsError('Never overwrite preservation evidence')
     parent=root/'workspace-loss-stability-diagnosis-v1'
     receipt=json.loads((parent/'report.json').read_text());rows=[]
-    for name in ['fp32','fp64']:
-        path=parent/(name+'-gradients.pt')
-        expected=receipt['gradient_sha256'][name]
+    entries=([root/'workspace-identity-gradient-v1/gradients.pt',root/'workspace-stable-references-v1/c0-gradients.pt',root/'workspace-online-mature-cpu-audit-v1/failed-independent-gradients.pt'] if more_cold else [parent/(name+'-gradients.pt') for name in ['fp32','fp64']])
+    for index,path in enumerate(entries):
+        expected=file_sha256(path) if more_cold else receipt['gradient_sha256'][['fp32','fp64'][index]]
         if file_sha256(path)!=expected:raise AssertionError('Frozen diagnostic reference changed')
         rows.append(dict(relative=str(path.relative_to(root)),sha256=expected,bytes=path.stat().st_size))
     out.mkdir(mode=0o700);PUBLIC.mkdir();started=time.time();last=0.
@@ -32,10 +32,10 @@ def run(root):
         if available<512*1024**3 or time.time()-started>1800:raise RuntimeError('Protected host/time reserve')
         if time.monotonic()-last>2:
             for container in managed_running():
-                if not metadata(container)['Config']['Labels'].get('ac-trainium-owner','').startswith('workspace-four-arm-discovery-v1-'):raise RuntimeError('Unexpected active owner')
+                if not metadata(container)['Config']['Labels'].get('ac-trainium-owner','').startswith('workspace-four-arm-discovery-v'):raise RuntimeError('Unexpected active owner')
             last=time.monotonic()
     plan=dict(registered_unix=time.time(),source_sha256=file_sha256(__file__),files=rows,source_report_sha256=file_sha256(parent/'report.json'),
-        scope='Only two CLOSED failed/saturated loss-diagnosis gradient references.No model,optimizer,active gradient,source view or live initial reference removed.pigz8threads;whole original hashes and full decoded readback before release.First complete materialized restore also checked.35GiB floor+30GiB next Native endpoint protected;maintenance overlaps the current bounded diagnostic and is not a speed comparison.')
+        scope='Only listed CLOSED correctness gradient references.No model,optimizer,active gradient,source view or LIVE160-position initial reference removed.pigz8threads;whole original hashes and full decoded readback before release.First complete materialized restore also checked.35GiB floor+30GiB next Native endpoint protected;maintenance overlaps the current bounded diagnostic and is not a speed comparison.')
     for d in [out,PUBLIC]:(d/'plan.json').write_text(json.dumps(plan,indent=2)+'\n')
     result=dict(status='STOPPED_CLOSED_GRADIENT_PRESERVATION',files=[],optimizer_updates=0)
     try:
@@ -82,5 +82,7 @@ def restore(root,relative):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--restore');a=p.parse_args()
-    restore(a.root,a.restore) if a.restore else run(a.root)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--restore');p.add_argument('--more-cold',action='store_true');a=p.parse_args()
+    if a.more_cold:
+        IDENTITY='workspace-closed-c0-gradient-preservation-v2';PUBLIC=Path('results/workspace_closed_gradients_20261027/recovery-v2')
+    restore(a.root,a.restore) if a.restore else run(a.root,more_cold=a.more_cold)

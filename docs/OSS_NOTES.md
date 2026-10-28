@@ -299,3 +299,42 @@ local review draft now isolate the saved-output correction:replacing only
 that Python-backward input with recomputed unrounded output changes saturated
 query error67.09%→0.0743%. This counterfactual is not a native patch. See
 [review draft](OSS_SDPA_MATH2_REVIEW_DRAFT_20261025.md). No upstream submission.
+# October27–28: stable target loss and bounded checkpoint staging
+
+The workspace port exposes two independently reproduced conditioning/resource
+issues. Neither establishes a vendor defect or explains earlier model rankings.
+
+At extreme prediction confidence,standard FP32 target-gradient subtraction can
+lose substantial relative precision on CPU as well as Native. The mathematically
+equivalent target-relative form in `compute_trainium/stable_target_loss.py`
+uses softplus(logsumexp of non-target logits minus the target logit). Independent
+FP64 probability-gradient fixtures include100,352-way outputs. The all64-rank
+Native fixture's maximum relative gradient error is2.32458e-6;the actual1.485B
+fresh-source mature audit's largest named error is6.68379e-6 against an eager
+HF-body/FP64-loss reference. The failed older saturated history is retained;
+fixed-weight success does not repair that trajectory.
+
+Reproducers and receipts:
+`tests/test_stable_target_loss.py`,
+`scripts/qualify_stable_target_loss.py`,
+`results/workspace_loss_stability_20261027`,
+`results/workspace_stable_loss_20261027`,and
+`results/workspace_online_mature_audit_20261027/recovery-v2`.
+
+With a192GiB worker,64 simultaneous full-state staging operations can exceed
+the allowance even after neural updates finish. A separate zero-update check
+also OOMs while retaining whole-matrix FP64 gradient-comparison temporaries.
+The revised path streams comparison slices,releases compiled call wrappers
+after the final backward,and writes bounded rank waves. At actual model size,
+eight concurrent writers preserve all895 actor/scorer/AdamW tensors and RNG
+exactly;the revised runtime-input gradient matches the prior qualified Native
+gradient exactly. Completed files are flushed and their file cache advised
+away before later waves. CPU four-process replay covers the complete state.
+The all64-rank scientific replay remains a separate execution outcome.
+
+See `scripts/qualify_workspace_checkpoint_waves.py`,
+`compute_trainium/workspace_native_state.py`,and
+`results/workspace_checkpoint_waves_20261027/recovery-v2`.
+New code also restores the already qualified CPU-tensor-to-device pattern for
+runtime scalar inputs. The memory contribution of direct-device scalar
+construction has not been isolated;do not call it the established OOM cause.

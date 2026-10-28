@@ -16,7 +16,8 @@ def test_exclusive_claim_rejects_either_existing_half(tmp_path,monkeypatch):
         target.create_all_chip_worker(tmp_path,'software-test')
 
 
-def test_exclusive_owner_has_no_half_and_uses_same_atomic_lock(tmp_path,monkeypatch):
+@pytest.mark.parametrize('memory',[128,200])
+def test_exclusive_owner_has_no_half_and_uses_same_atomic_lock(tmp_path,monkeypatch,memory):
     env=tmp_path/'isolated-native-env-v1';env.mkdir()
     (env/'parent-private.json').write_text(json.dumps(dict(HostConfig=dict(Devices=[]),Mounts=[])))
     (env/'setup-private.json').write_text(json.dumps(dict(image='software-test')))
@@ -30,9 +31,19 @@ def test_exclusive_owner_has_no_half_and_uses_same_atomic_lock(tmp_path,monkeypa
         return subprocess.CompletedProcess(args,1 if args[1]=='inspect' else 0)
     monkeypatch.setattr(target.subprocess,'run',run)
     monkeypatch.setattr(target,'metadata',lambda name:dict(Config=dict(Labels={'ac-trainium-managed':'1','ac-trainium-owner':'software-test'})))
-    assert target.create_all_chip_worker(tmp_path,'software-test')=='ac-worker-software-test'
+    assert target.create_all_chip_worker(tmp_path,'software-test',memory_gib=memory)=='ac-worker-software-test'
     assert (tmp_path/'native-half-reservations.lock').exists()
     args=calls[-1]
     assert 'ac-trainium-chips=all16' in args
     assert not any('ac-trainium-half' in v for v in args)
-    assert args[args.index('--memory')+1]=='128g'
+    assert args[args.index('--memory')+1]==str(memory)+'g'
+
+
+def test_200_gib_still_requires_complete_512_gib_host_reserve(tmp_path,monkeypatch):
+    env=tmp_path/'isolated-native-env-v1';env.mkdir()
+    (env/'parent-private.json').write_text(json.dumps(dict(HostConfig=dict(Devices=[]),Mounts=[])))
+    (env/'setup-private.json').write_text(json.dumps(dict(image='software-test')))
+    monkeypatch.setattr(target,'managed_running',lambda:[]);original=target.Path.read_text
+    monkeypatch.setattr(target.Path,'read_text',lambda p,*a,**k:'MemAvailable: '+str(710*1024**2)+' kB\n' if str(p)=='/proc/meminfo' else original(p,*a,**k))
+    monkeypatch.setattr(target.subprocess,'run',lambda *a,**k:pytest.fail('No Docker allocation below full host reserve'))
+    with pytest.raises(RuntimeError,match='complete worker allowance'):target.create_all_chip_worker(tmp_path,'software-test',memory_gib=200)

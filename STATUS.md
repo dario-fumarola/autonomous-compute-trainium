@@ -1,3 +1,9 @@
+## October28,2026,00:47 UTC — second workspace history finishes48 but live save still OOMs
+
+Recovery v2 also completes all48 updates and its mature gradient dump,but OOMs before a complete checkpoint. Its restored-state writer proof was insufficient:it never exercised serialization immediately after a LIVE fused optimizer step. This is an execution failure,not an admissible quality result;TUNE remains unread and the audited ordinary endpoint survives. Both lost48-update attempts and all costs are preserved.
+
+Next proof includes an ACTUAL qualification AdamW/EMA update before single-rank checkpoint writes,then complete895-tensor/RNG perturb/restore on two ranks. The proposed200GiB worker is admitted only with the entire512GiB host reserve available;the observed host allowance is716GiB. Memory/floor CPU tests reject insufficient headroom. Twenty focused tests pass in20.23seconds. No numerical threshold or scientific recipe is changed;no third learning replay before the LIVE-state proof passes.
+
 ## October28,2026,00:22 UTC — corrected recovery CPU gate passes before activation
 
 The16-test recovery/state/controller group now passes in19.77seconds,including exact live-gradient preservation on compiled-call release,wave state/RNG replay and audited-ordinary reuse. A prematurely recorded16-pass entry in218fc7a preceded inspection of the test log;the new fake-controller fixture actually had a class-scope NameError before controller execution (15passed,1failed). That receipt is corrected,fixture fixed,and two full focused reruns pass16/16. No scientific recovery launched from the premature receipt. The independent actual-size zero-update checkpoint/gradient proof remains valid. Completed waves now fsync and release their file cache before subsequent writers;the tensor bytes and resource/numerical floors are unchanged.

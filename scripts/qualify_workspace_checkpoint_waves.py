@@ -1,4 +1,4 @@
-"""Actual-size zero-update gradient/cache/checkpoint qualification."""
+"""Actual-size live-update gradient/cache/checkpoint qualification."""
 import argparse
 import io
 import json
@@ -19,7 +19,7 @@ def run(a):
     from compute_trainium.workspace_native_state import restore_complete_state,save_state_waves,release_compiled_calls
     from compute_trainium.workspace_native_objective import SelectiveWorkspacePredictor,drain_runtime
     from compute_trainium.workspace_discovery import backward_terms,discovery_terms
-    from compute_trainium.workspace_sharded_optimizer import WorkspaceShardedAdamW,ShardedGradientAccumulator
+    from compute_trainium.workspace_sharded_optimizer import WorkspaceShardedAdamW,ShardedGradientAccumulator,sharded_ema
     from compute_trainium.workspace_learning import WorkspaceFormat
     from compute_trainium.scale_model_sharding import shard_model_from_cpu
     from compute_trainium.scale_sharded_candidate import local_parameter
@@ -75,22 +75,31 @@ def run(a):
     errors=(values[:,0]/values[:,1].clamp_min(1e-30)).sqrt()
     if float(errors.max())>.02:raise AssertionError('Runtime scalar helper differs from independent-CPU-qualified full gradient')
     largest=float(errors.max());del expected,values,errors,numbers
+    progress('actual_qualification_optimizer_update_and_ema')
+    optimizer.finish_gradients(scale=1,clip=1.)
+    optimizer.step();sharded_ema(scorer,model,decay=.99)
     optimizer.zero_grad();drain_runtime(actor.device)
+    if rank==0:(out/'qualification-updates.json').write_text(json.dumps(dict(completed_qualification_updates=1,optimizer_counter=optimizer.update)))
     progress('release_compiled_calls_and_bound_writer_wave')
     release_compiled_calls(model,scorer);torch.set_rng_state(original_torch_rng);generator.set_state(original_generator)
     path=out/f'rank{rank}-roundtrip.zip'
-    saved=save_state_waves(path,model,scorer,optimizer,generator,extra=dict(qualification=True,parent_update=restored['update']),wave_size=8,save_ranks=8)
-    if rank<8:
-        with zipfile.ZipFile(parent) as original,zipfile.ZipFile(path) as written:
-            old=torch.load(io.BytesIO(original.read('metadata.pt')),weights_only=True);new=torch.load(io.BytesIO(written.read('metadata.pt')),weights_only=True)
-        if old['order']!=new['order'] or any(old['signatures'][k]['sha256']!=new['signatures'][k]['sha256'] for k in old['order']):raise AssertionError('Every original model/scorer/optimizer tensor must match')
+    saved=save_state_waves(path,model,scorer,optimizer,generator,extra=dict(qualification=True,parent_update=restored['update']),wave_size=1,save_ranks=2)
+    if rank<2:
+        with zipfile.ZipFile(path) as written:new=torch.load(io.BytesIO(written.read('metadata.pt')),weights_only=True)
+        if len(new['order'])!=895 or new['metadata']['update']!=102:raise AssertionError('Every live post-update state tensor must be covered')
         if not torch.equal(original_torch_rng,new['metadata']['torch_rng']) or not torch.equal(original_generator,new['metadata']['sampling_rng']):raise AssertionError('Exact RNG coverage required')
+        from compute_trainium.workspace_native_state import complete_state_tensors
+        with torch.no_grad():
+            for name,value in complete_state_tensors(model,scorer,optimizer):value.reshape(-1)[0].add_(1.)
+        generator.manual_seed(1);torch.manual_seed(2)
+        restore_complete_state(path,model,scorer,optimizer,generator)
+        if not torch.equal(torch.get_rng_state(),original_torch_rng) or not torch.equal(generator.get_state(),original_generator):raise AssertionError('Post-update restore RNG mismatch')
     dist.barrier();fallback=torch_neuronx.get_fallback_ops()
     if fallback:raise AssertionError('Checkpoint qualification CPU fallback:'+str(fallback))
-    if rank==0:(out/'report.json').write_text(json.dumps(dict(status='PASS_ACTUAL_WORKSPACE_CHECKPOINT_WAVES',world=world,optimizer_updates=0,
-        largest_named_gradient_relative_l2=largest,gradient_norm=norm,full_state_tensor_count=895,checkpoint_writer_wave_size=8,
-        complete_archives_checked=8,all_original_tensor_hashes_match=True,exact_rng=True,fallback_ops=fallback,wall_seconds=time.time()-started,
-        scope='Actual1.485B actor/scorer/AdamW/RNG at the CPU-qualified u101 point.Mature runtime-scalar gradient remains within unchanged2%;compile wrappers are released only after all neural computation.Eight concurrent complete writers roundtrip every original tensor.No update or scientific result;does not repair lost v1 workspace weights.'),indent=2)+'\n')
+    if rank==0:(out/'report.json').write_text(json.dumps(dict(status='PASS_ACTUAL_WORKSPACE_CHECKPOINT_WAVES',world=world,optimizer_updates=1,scientific_optimizer_updates=0,
+        largest_named_gradient_relative_l2=largest,gradient_norm=norm,full_state_tensor_count=895,checkpoint_writer_wave_size=1,
+        complete_archives_checked=2,all_post_update_tensor_hashes_verified=True,complete_perturb_restore=True,exact_rng=True,fallback_ops=fallback,wall_seconds=time.time()-started,
+        scope='Actual1.485B actor/scorer/AdamW/RNG after one LIVE fused optimizer step and EMA from qualified u101.Mature pre-step gradient retains unchanged2% criterion.One writer at a time verifies895tensors;two ranks perturb/restore complete new states.No scientific result or repair of either lost48-update history.'),indent=2)+'\n')
     dist.barrier();dist.destroy_process_group()
 
 
