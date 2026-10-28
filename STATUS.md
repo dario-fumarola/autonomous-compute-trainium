@@ -1,3 +1,11 @@
+## October28,2026,12:54 UTC — uniform-NTP gates complete;bounded three-arm correction prepared
+
+All101 updates,all64 complete-state/RNG restore and exact gradient replay pass. Independent mature HF audit passes179/179 gradients(max named0.002279%). Constant-input independent full-size oracle also passes. No quality result yet.[Mature gate](results/spliced_workspace_mature_20261028/spliced-workspace-warm-v2/report.json).
+
+Next finite comparison:latent800 total including101 retained prefix,constant800 freshC0,ordinary940 total including931 audited plain-NTP prefix. Every authentic target has equal weight once;all final mature audits precede448 reused TUNE views. All original prefix/source/costs count. No architecture scaling,router or confirmation.[Frozen design](docs/SPLICED_WORKSPACE_DISCOVERY_20261028.md).
+
+The project ledger also records a5.50-hour interval without managed accelerator work between qualification closure and warm-gate admission. The52-second cleanup does not explain it;cause unknown. Reserved opportunity is reported separately,not hidden as training.[Gap](results/uniform_ntp_operational_gap_20261028/report.json). Eight closed source checkouts are exact-byte archived before removal;all scientific endpoints remain.
+
 ## October28,2026,12:29 UTC — warm gate stopped;cache-safe recovery admitted
 
 The first attempt stops at its first forward on a missing NKI stride2_gather binary referenced by persisted HLO.Supervisor fails closed,44.22seconds,no OOM,zero recorded completed updates;an interrupted unrecorded update remains conservatively flagged.No quality result.[Failure](results/spliced_workspace_warm_20261028/report.json) · [Diagnosis](results/spliced_workspace_cache_repair_20261028/diagnosis.json).
