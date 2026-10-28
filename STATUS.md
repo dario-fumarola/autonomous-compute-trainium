@@ -1,3 +1,11 @@
+## October28,2026,14:14 UTC — source-separated readout selects no latent workspace
+
+The final zero-update diagnostic selectsalpha0,temperature1 for the latent model on192 unused TRAIN-reserve views/178 groups. Its held-out full32 prediction therefore falls back to raw2.265102,still0.002245nats behind equally calibrated ordinary2.262857. Constant-query alpha.1 gives only0.000109nats of own raw improvement;no baseline win. The fixed latent-reader recipe is closed,not promoted.[Final readout](results/spliced_workspace_readout_20261028/source-reserve-v2/REPORT.md).
+
+The first calibration used already-trained examples,selectedtemperature.9 and worsened every continued model;its apparent utility against that degraded reader is not a win. It remains published. Source-reserve admission found203 eligible views,so the requested640 stopped before Native;first192 were frozen from metadata,with only8 math views,an explicit limitation. Both readouts stay under the original deadline,zero model updates,unchanged parameter versions,no fallback,and fixed readout parity within5.12e-7. Total assigned readout cost0.599889chip-hours;reservation opportunity is separate.[Both costs](results/spliced_workspace_readout_20261028/series-costs.json).
+
+Uniform NTP restored ordinary learning but not useful workspace computation. All scientific checkpoints and private RNG/audit inputs remain;about57GiB free. No managed Native job is active. No larger model fit,router,confirmation or from-scratch campaign is admitted by these negatives. The broader goal remains unachieved;this conclusion concerns the tested recipe only.
+
 ## October28,2026,13:53 UTC — uniform-NTP comparison complete;workspace still harmful
 
 All three audits pass and frozen evaluation completes. Full32 NLL:ordinary940 **2.262856**,latent800 **2.267065**,constant800 **2.272189**,C0 **2.282111**. Uniform NTP restores improvement over C0,but latent loses0.004209nats to ordinary and worsens its own selected predictions by0.015708nats(conditional95%[−0.029963,−0.002042]). Both registered practical targets fail. Unchanged C0 raw32 reproduces EXACTLY.[Complete result](results/spliced_workspace_discovery_20261028/REPORT.md).

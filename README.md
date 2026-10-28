@@ -27,6 +27,11 @@ workspace utility is−0.015708nats, conditional95% interval[−0.029963,−0.00
 All three independent179-gradient mature audits pass. This is one development
 seed, not confirmation, useful reasoning, allocation or from-scratch learning.
 [Full uniform-NTP result](results/spliced_workspace_discovery_20261028/REPORT.md).
+A subsequent global readout fitted on unused,source-separated TRAIN groups
+selects zero contribution from the latent state. It does not rescue the recipe.
+The earlier in-sample calibration over-sharpened all trained models;that
+negative is preserved. No larger fit is admitted.
+[Source-separated readout](results/spliced_workspace_readout_20261028/source-reserve-v2/REPORT.md).
 
 The first differentiable sparse-workspace discovery is complete and negative.
 On448 fixed TUNE views,the full32-token deployed-policy NLL is2.297200 for
