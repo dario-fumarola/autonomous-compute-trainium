@@ -1,3 +1,9 @@
+## October28,2026,20:54 UTC — causal observed-outcome memory registered
+
+A distinct associative-memory screen gives the workspace a specific operation:retrieve which token actually followed a related earlier prefix. At query t,only outcomes from j<t are visible;the current target is scoring-only. This is a learned neural-cache experiment,not a novelty or reasoning claim. Three fresh conditions compare a trained frequency-cache gate,a trained frozen-cosine gate,and learned query/key addressing,alongside a separately calibrated standard cache.[Protocol](docs/CAUSAL_ASSOCIATIVE_WORKSPACE_20261028.md).
+
+Eight focused tests pass,including full-distribution target agreement,future-target/feature invariance,empty-memory identity and independent sequential-reference gradients. Actual-shape three-domain CPU FP32/FP64 checks pass before fitting.6144 fitting views and797 calibration views are source-group disjoint;all448 original TUNE views remain held until fitting/audits. The320 reserved groups remain excluded. No scientific fit or quality outcome yet. Cached features and base target probabilities allow a bounded CPU screen without another Native pass;all inherited costs remain counted. No reopening of the closed two-step mechanism.
+
 ## October28,2026,20:34 UTC — supported steps and internally written memory fail the advancement gate
 
 Both fresh2048-update branches complete with explicitly supported one/two-step exits. Static NLL is2.276423/2.275580;written-memory NLL is2.276430/2.275799. The independently trained shallow model remains2.275685. Written-two gains0.000631 over its own shallow exit,but does not recover that exit's0.000745 deficit to the independent control. Suppressing earlier writes improves0.000395nats. The original useful-iteration bars fail.[Complete result](results/residual_written_memory_20261028/REPORT.md).
