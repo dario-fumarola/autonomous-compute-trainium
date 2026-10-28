@@ -1,3 +1,9 @@
+## October28,2026,21:08 UTC — short-prefix associative-memory screen complete
+
+All three1536-update fits pass mature numerical and recovery checks. Raw NLL2.282112;trained bag2.281886,cosine2.280980,learned addressing2.281840. Calibration selects zero fixed-cache weight. Learned addressing's0.000272 gain does not clear the0.01 gate or beat the cosine control;value rotation hurts0.000558 but remains below the content bar.[Complete result](results/causal_associative_workspace_20261028/REPORT.md).
+
+The cosine gate's strongest signal is code(+0.005135). Repeated tokens are already much easier than new tokens;memory gains on repeats are partly offset by new-token harm. Eight focused tests and all three-domain mature audits pass(max gradient relative1.806e-6),including exact projected optimizer/RNG replay. Three fits take7.22–13.18seconds after132.27seconds of frozen-head caching;controller188.23seconds. No new assigned chips. All states and320 reserved groups remain intact/unscored. No active job. A separate zero-update existing-dependency readout is being considered to test longer context;no training extension is admitted by this result.
+
 ## October28,2026,20:54 UTC — causal observed-outcome memory registered
 
 A distinct associative-memory screen gives the workspace a specific operation:retrieve which token actually followed a related earlier prefix. At query t,only outcomes from j<t are visible;the current target is scoring-only. This is a learned neural-cache experiment,not a novelty or reasoning claim. Three fresh conditions compare a trained frequency-cache gate,a trained frozen-cosine gate,and learned query/key addressing,alongside a separately calibrated standard cache.[Protocol](docs/CAUSAL_ASSOCIATIVE_WORKSPACE_20261028.md).

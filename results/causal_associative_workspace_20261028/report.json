@@ -1,0 +1,841 @@
+{
+  "status": "COMPLETE_AUDITED_CAUSAL_ASSOCIATIVE_SCREEN",
+  "assigned_chips": 0,
+  "backbone_updates": 0,
+  "raw_cache": {
+    "wall_seconds": 132.27497220039368,
+    "matrix_operations": 91297314504704,
+    "source_views": 6941,
+    "sha256": "3aaefdbd7bc92ea30b787155b2af6c38e6c7f61209b9c6165b6b09e77748abd7"
+  },
+  "arms": {
+    "bag": {
+      "status": "COMPLETE_ASSOCIATIVE_ARM",
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        524288,
+        524288
+      ],
+      "branch_parameters": 2050,
+      "warm_update_seconds": 0.0015980169128517374,
+      "label_exposures": 196608,
+      "temperature": null,
+      "strength": 0.006562347058206797,
+      "updates": 1536,
+      "wall_seconds": 7.219101190567017
+    },
+    "cosine": {
+      "status": "COMPLETE_ASSOCIATIVE_ARM",
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        83886080,
+        83886080
+      ],
+      "branch_parameters": 2051,
+      "warm_update_seconds": 0.0035630984104417433,
+      "label_exposures": 196608,
+      "temperature": 13.4258451461792,
+      "strength": 0.013890553265810013,
+      "updates": 1536,
+      "wall_seconds": 10.221282005310059
+    },
+    "learned": {
+      "status": "COMPLETE_ASSOCIATIVE_ARM",
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        817266688,
+        817266688
+      ],
+      "branch_parameters": 526339,
+      "warm_update_seconds": 0.005479717565281771,
+      "label_exposures": 196608,
+      "temperature": 13.544065475463867,
+      "strength": 0.007561820093542337,
+      "updates": 1536,
+      "wall_seconds": 13.18334174156189
+    }
+  },
+  "audits": {
+    "bag": {
+      "status": "PASS_ASSOCIATIVE_NUMERICAL_AUDIT",
+      "domains": {
+        "0": {
+          "named_gradient_relative_l2": {
+            "strength": 3.805877537560548e-08,
+            "gate.weight": 8.627525966818294e-08,
+            "gate.bias": 1.5642564866277447e-09
+          },
+          "loss_error": 3.061750852850764e-11
+        },
+        "1": {
+          "named_gradient_relative_l2": {
+            "strength": 7.479408725731553e-08,
+            "gate.weight": 7.829866303499444e-08,
+            "gate.bias": 6.027038140412221e-08
+          },
+          "loss_error": 1.2333245535955939e-11
+        },
+        "2": {
+          "named_gradient_relative_l2": {
+            "strength": 6.553036945398167e-08,
+            "gate.weight": 8.121391849328587e-08,
+            "gate.bias": 3.3409828049655076e-09
+          },
+          "loss_error": 8.466560785791444e-13
+        }
+      },
+      "wall_seconds": 0.0954289436340332,
+      "exact_restore_and_projected_update_replay": true,
+      "disposable_updates": 2,
+      "checkpoint_unchanged": true
+    },
+    "cosine": {
+      "status": "PASS_ASSOCIATIVE_NUMERICAL_AUDIT",
+      "domains": {
+        "0": {
+          "named_gradient_relative_l2": {
+            "strength": 3.771064372998517e-10,
+            "log_temperature": 2.2166342284904244e-07,
+            "gate.weight": 1.1664716759321086e-07,
+            "gate.bias": 9.123111067470708e-08
+          },
+          "loss_error": 3.765654454923606e-12
+        },
+        "1": {
+          "named_gradient_relative_l2": {
+            "strength": 1.7445431493806497e-06,
+            "log_temperature": 1.3916232726862912e-07,
+            "gate.weight": 1.449460659219084e-06,
+            "gate.bias": 1.8061859373035149e-06
+          },
+          "loss_error": 1.1695346913143112e-09
+        },
+        "2": {
+          "named_gradient_relative_l2": {
+            "strength": 2.2993570294019925e-07,
+            "log_temperature": 2.7347224443138045e-07,
+            "gate.weight": 9.523932718775208e-07,
+            "gate.bias": 4.5806330659224617e-07
+          },
+          "loss_error": 3.0730706868098423e-10
+        }
+      },
+      "wall_seconds": 0.12032127380371094,
+      "exact_restore_and_projected_update_replay": true,
+      "disposable_updates": 2,
+      "checkpoint_unchanged": true
+    },
+    "learned": {
+      "status": "PASS_ASSOCIATIVE_NUMERICAL_AUDIT",
+      "domains": {
+        "0": {
+          "named_gradient_relative_l2": {
+            "strength": 5.942116476230672e-08,
+            "log_temperature": 1.083996187589657e-06,
+            "gate.weight": 1.2346868263691554e-07,
+            "gate.bias": 5.17560095374206e-08,
+            "query.weight": 8.671768819615437e-07,
+            "key.weight": 9.007809552021714e-07
+          },
+          "loss_error": 1.5584422641268247e-11
+        },
+        "1": {
+          "named_gradient_relative_l2": {
+            "strength": 3.4335601631402287e-08,
+            "log_temperature": 2.3620448094546973e-07,
+            "gate.weight": 9.982483674199714e-08,
+            "gate.bias": 4.945477530177734e-09,
+            "query.weight": 1.5879077627461546e-06,
+            "key.weight": 1.329924135157181e-06
+          },
+          "loss_error": 2.206812510507916e-11
+        },
+        "2": {
+          "named_gradient_relative_l2": {
+            "strength": 9.39264855818756e-08,
+            "log_temperature": 3.64338211643655e-07,
+            "gate.weight": 1.3692767225999623e-07,
+            "gate.bias": 8.117008059913177e-08,
+            "query.weight": 5.81453027577979e-07,
+            "key.weight": 6.269973193555215e-07
+          },
+          "loss_error": 4.6914916396190165e-11
+        }
+      },
+      "wall_seconds": 0.32219409942626953,
+      "exact_restore_and_projected_update_replay": true,
+      "disposable_updates": 2,
+      "checkpoint_unchanged": true
+    }
+  },
+  "calibration": {
+    "temperature": 0,
+    "weight": 0,
+    "nll": 2.326380376062745,
+    "raw_nll": 2.326380376062745,
+    "grid_nll": [
+      [
+        2.326380376062745,
+        2.3291153949903047,
+        2.3326446808088157,
+        2.348410882698404,
+        2.4111314250622997,
+        2.631679854551644,
+        2.9302023943230195
+      ],
+      [
+        2.326380376062745,
+        2.3282859845584927,
+        2.331183460102806,
+        2.3447629297805626,
+        2.4009200149623853,
+        2.6028486169571408,
+        2.8770916003579856
+      ],
+      [
+        2.326380376062745,
+        2.3271097793573348,
+        2.328767124322194,
+        2.337771868772751,
+        2.379472276904165,
+        2.540310084965369,
+        2.766134718112939
+      ],
+      [
+        2.326380376062745,
+        2.3278425395171953,
+        2.329979634903137,
+        2.3403154277852485,
+        2.3850596107897895,
+        2.5543446222637556,
+        2.79418612145871
+      ],
+      [
+        2.326380376062745,
+        2.3279514160694146,
+        2.3302494159290315,
+        2.3412311361061544,
+        2.3881120325304828,
+        2.564054932199074,
+        2.813315415478605
+      ]
+    ],
+    "domain_counts": [
+      499.0,
+      124.0,
+      174.0
+    ],
+    "selection_sources": "TRAIN calibration groups only",
+    "boundary_temperature": true,
+    "boundary_weight": true
+  },
+  "scores": {
+    "raw": {
+      "mean": 2.2821122029800347,
+      "conditional_source_group_95_interval": [
+        2.140235765550706,
+        2.4304392114414597
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "fixed": {
+      "mean": 2.2821122029800347,
+      "conditional_source_group_95_interval": [
+        2.140235765550706,
+        2.4304392114414597
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "bag": {
+      "mean": 2.2818862746664923,
+      "conditional_source_group_95_interval": [
+        2.1402476980662435,
+        2.4299521840962575
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "cosine": {
+      "mean": 2.280979929880724,
+      "conditional_source_group_95_interval": [
+        2.139817561158202,
+        2.428865822966764
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "learned": {
+      "mean": 2.281840003016425,
+      "conditional_source_group_95_interval": [
+        2.139744581837947,
+        2.430144803062511
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "rotated": {
+      "mean": 2.2823984873864105,
+      "conditional_source_group_95_interval": [
+        2.1405653001545852,
+        2.4306893290521723
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "old_one": {
+      "mean": 2.2756851554395934,
+      "conditional_source_group_95_interval": [
+        2.1342431725780093,
+        2.4247926831747626
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    }
+  },
+  "contrasts": {
+    "raw_minus_learned": {
+      "mean": 0.00027219996360912174,
+      "conditional_source_group_95_interval": [
+        -9.662602964777027e-05,
+        0.0006332458718811786
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "fixed_minus_learned": {
+      "mean": 0.00027219996360912174,
+      "conditional_source_group_95_interval": [
+        -9.662602964777027e-05,
+        0.0006332458718811786
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "bag_minus_learned": {
+      "mean": 4.6271650066322445e-05,
+      "conditional_source_group_95_interval": [
+        -0.0005525533185181799,
+        0.0004933664679560752
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "cosine_minus_learned": {
+      "mean": -0.0008600731357012991,
+      "conditional_source_group_95_interval": [
+        -0.0022999745261048183,
+        0.00022878944452340853
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "rotated_minus_learned": {
+      "mean": 0.0005584843699851121,
+      "conditional_source_group_95_interval": [
+        0.00024619716561854067,
+        0.0009032112165888751
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    },
+    "old_one_minus_learned": {
+      "mean": -0.006154847576831932,
+      "conditional_source_group_95_interval": [
+        -0.009983381850100784,
+        -0.0020083933360418374
+      ],
+      "groups": 116,
+      "valid_draws": 5000,
+      "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+    }
+  },
+  "domains": {
+    "web": {
+      "raw": {
+        "mean": 2.520151249236949,
+        "conditional_source_group_95_interval": [
+          2.4141776138283424,
+          2.6195744944524177
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "fixed": {
+        "mean": 2.520151249236949,
+        "conditional_source_group_95_interval": [
+          2.4141776138283424,
+          2.6195744944524177
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "bag": {
+        "mean": 2.520201184181688,
+        "conditional_source_group_95_interval": [
+          2.414118822376457,
+          2.6195664402771386
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "cosine": {
+        "mean": 2.5202141251371666,
+        "conditional_source_group_95_interval": [
+          2.4141806517521207,
+          2.619632082035376
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "learned": {
+        "mean": 2.520122204851129,
+        "conditional_source_group_95_interval": [
+          2.413882520674343,
+          2.619593456379951
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "rotated": {
+        "mean": 2.520339513063684,
+        "conditional_source_group_95_interval": [
+          2.4143715503566985,
+          2.6197636559218305
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "old_one": {
+        "mean": 2.5124402703322666,
+        "conditional_source_group_95_interval": [
+          2.4071697029809513,
+          2.6112514675974285
+        ],
+        "source_groups": 92,
+        "cases": 269,
+        "real_targets": 8608,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      }
+    },
+    "math": {
+      "raw": {
+        "mean": 1.8105265432174975,
+        "conditional_source_group_95_interval": [
+          1.5838325364113792,
+          2.1555667574742103
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "fixed": {
+        "mean": 1.8105265432174975,
+        "conditional_source_group_95_interval": [
+          1.5838325364113792,
+          2.1555667574742103
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "bag": {
+        "mean": 1.8103764342998838,
+        "conditional_source_group_95_interval": [
+          1.5840197693349192,
+          2.155171886517534
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "cosine": {
+        "mean": 1.8098117983423228,
+        "conditional_source_group_95_interval": [
+          1.5837153154995829,
+          2.1536483154596278
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "learned": {
+        "mean": 1.8106194428872764,
+        "conditional_source_group_95_interval": [
+          1.5842100432734296,
+          2.155180753290802
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "rotated": {
+        "mean": 1.8110272152044475,
+        "conditional_source_group_95_interval": [
+          1.5843266920890244,
+          2.1560609899111545
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "old_one": {
+        "mean": 1.8158708086677102,
+        "conditional_source_group_95_interval": [
+          1.584702574118031,
+          2.1709029525918946
+        ],
+        "source_groups": 11,
+        "cases": 90,
+        "real_targets": 2880,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      }
+    },
+    "code": {
+      "raw": {
+        "mean": 2.039580723971828,
+        "conditional_source_group_95_interval": [
+          1.4843400100305344,
+          2.596899466480714
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "fixed": {
+        "mean": 2.039580723971828,
+        "conditional_source_group_95_interval": [
+          1.4843400100305344,
+          2.596899466480714
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "bag": {
+        "mean": 2.0384513864875142,
+        "conditional_source_group_95_interval": [
+          1.4844552331550567,
+          2.592454918714651
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "cosine": {
+        "mean": 2.034445475649798,
+        "conditional_source_group_95_interval": [
+          1.4833557301662144,
+          2.5857087528166356
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "learned": {
+        "mean": 2.0382139576414637,
+        "conditional_source_group_95_interval": [
+          1.4833922554951253,
+          2.595684216481943
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "rotated": {
+        "mean": 2.039946682536553,
+        "conditional_source_group_95_interval": [
+          1.484742937244167,
+          2.59712736872283
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "old_one": {
+        "mean": 2.025234157533458,
+        "conditional_source_group_95_interval": [
+          1.470155523309201,
+          2.5821362164688875
+        ],
+        "source_groups": 14,
+        "cases": 89,
+        "real_targets": 2848,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      }
+    }
+  },
+  "repeat_strata": {
+    "False": {
+      "raw": {
+        "mean": 3.531146603194808,
+        "conditional_source_group_95_interval": [
+          3.3741027003207367,
+          3.6984307199898625
+        ],
+        "source_groups": 116,
+        "cases": 444,
+        "real_targets": 6807,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "fixed": {
+        "mean": 3.531146603194808,
+        "conditional_source_group_95_interval": [
+          3.3741027003207367,
+          3.6984307199898625
+        ],
+        "source_groups": 116,
+        "cases": 444,
+        "real_targets": 6807,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "bag": {
+        "mean": 3.531493749631788,
+        "conditional_source_group_95_interval": [
+          3.3744177011992327,
+          3.6987845396673906
+        ],
+        "source_groups": 116,
+        "cases": 444,
+        "real_targets": 6807,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "cosine": {
+        "mean": 3.5328759832677386,
+        "conditional_source_group_95_interval": [
+          3.375803312956328,
+          3.7004400756488978
+        ],
+        "source_groups": 116,
+        "cases": 444,
+        "real_targets": 6807,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "learned": {
+        "mean": 3.531744203303344,
+        "conditional_source_group_95_interval": [
+          3.374668151451243,
+          3.699112672797707
+        ],
+        "source_groups": 116,
+        "cases": 444,
+        "real_targets": 6807,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "rotated": {
+        "mean": 3.531744203303344,
+        "conditional_source_group_95_interval": [
+          3.374668151451243,
+          3.699112672797707
+        ],
+        "source_groups": 116,
+        "cases": 444,
+        "real_targets": 6807,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      }
+    },
+    "True": {
+      "raw": {
+        "mean": 1.1528741362495367,
+        "conditional_source_group_95_interval": [
+          1.0374188965925255,
+          1.2912013985414708
+        ],
+        "source_groups": 116,
+        "cases": 448,
+        "real_targets": 7529,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "fixed": {
+        "mean": 1.1528741362495367,
+        "conditional_source_group_95_interval": [
+          1.0374188965925255,
+          1.2912013985414708
+        ],
+        "source_groups": 116,
+        "cases": 448,
+        "real_targets": 7529,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "bag": {
+        "mean": 1.1521327559028405,
+        "conditional_source_group_95_interval": [
+          1.036968430384308,
+          1.290089159273118
+        ],
+        "source_groups": 116,
+        "cases": 448,
+        "real_targets": 7529,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "cosine": {
+        "mean": 1.1491665646106726,
+        "conditional_source_group_95_interval": [
+          1.0341058734776485,
+          1.286233548490242
+        ],
+        "source_groups": 116,
+        "cases": 448,
+        "real_targets": 7529,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "learned": {
+        "mean": 1.1518191651415728,
+        "conditional_source_group_95_interval": [
+          1.036020501679301,
+          1.2898907089898486
+        ],
+        "source_groups": 116,
+        "cases": 448,
+        "real_targets": 7529,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      },
+      "rotated": {
+        "mean": 1.152879036820194,
+        "conditional_source_group_95_interval": [
+          1.037414918667712,
+          1.2911397099488913
+        ],
+        "source_groups": 116,
+        "cases": 448,
+        "real_targets": 7529,
+        "draws": 5000,
+        "warning": "Conditional on fixed trained models and reused development sources;not training-seed or calibration uncertainty.No confirmation alpha spent."
+      }
+    }
+  },
+  "learned_association_gate": false,
+  "thresholds": {
+    "raw_minus_learned": 0.01,
+    "fixed_minus_learned": 0.005,
+    "bag_minus_learned": 0.005,
+    "cosine_minus_learned": 0.005,
+    "rotated_minus_learned": 0.005
+  },
+  "max_raw_error": 4.828907549381256e-07,
+  "reserve_scored": false,
+  "scope": "Reused development panel/one seed.Observed-prefix memory,not general reasoning,allocation,from-scratch or matched-compute efficiency.",
+  "checkpoint_sha256": {
+    "bag": "6e4d199944f2dae23598f11f094cc1ba6436cd2608381901e5b1b5e192914311",
+    "cosine": "dbc7681b0117a71686063aec951e46507e19a3911dbb194c7b605e218f164f60",
+    "learned": "00b1cb1868b819a62cf0be26cf4e080227fb602a0494c20e9b3355bfcc453293"
+  },
+  "all_arm_receipts": {
+    "bag": {
+      "status": "COMPLETE_ASSOCIATIVE_ARM",
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        524288,
+        524288
+      ],
+      "branch_parameters": 2050,
+      "warm_update_seconds": 0.0015980169128517374,
+      "label_exposures": 196608,
+      "temperature": null,
+      "strength": 0.006562347058206797,
+      "updates": 1536,
+      "wall_seconds": 7.219101190567017
+    },
+    "cosine": {
+      "status": "COMPLETE_ASSOCIATIVE_ARM",
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        83886080,
+        83886080
+      ],
+      "branch_parameters": 2051,
+      "warm_update_seconds": 0.0035630984104417433,
+      "label_exposures": 196608,
+      "temperature": 13.4258451461792,
+      "strength": 0.013890553265810013,
+      "updates": 1536,
+      "wall_seconds": 10.221282005310059
+    },
+    "learned": {
+      "status": "COMPLETE_ASSOCIATIVE_ARM",
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        817266688,
+        817266688
+      ],
+      "branch_parameters": 526339,
+      "warm_update_seconds": 0.005479717565281771,
+      "label_exposures": 196608,
+      "temperature": 13.544065475463867,
+      "strength": 0.007561820093542337,
+      "updates": 1536,
+      "wall_seconds": 13.18334174156189
+    }
+  },
+  "wall_seconds": 188.22826266288757,
+  "plan_sha256": "24a361749af4ebeccb14deb2ac8c5f4ebff96687bb2406a5064387b7cd985e73"
+}
