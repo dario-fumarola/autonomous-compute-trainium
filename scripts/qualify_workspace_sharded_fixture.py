@@ -90,10 +90,10 @@ def worker(rank,world,backend,output,mode,parent=None,port=None):
                  ema=ema_error,ema_delta=ema_delta,gradient_norm=norm)
         if max(v['largest_named_relative_l2'] for v in [comparison,delta,moments,ema_delta])>.02:raise AssertionError('Complete independent CPU gradient/update/moment/EMA fixture mismatch')
         if update==2:
-            from compute_trainium.workspace_native_state import save_complete_state,restore_complete_state,restore_model_shards
+            from compute_trainium.workspace_native_state import save_state_waves,restore_complete_state,restore_model_shards
             generator=torch.Generator().manual_seed(7289+rank)
             saved_group=[{k:v for k,v in group.items() if k!='params'} for group in optimizer.adam.param_groups]
-            save_complete_state(output/f'rank{rank}-complete.zip',model,scorer,optimizer,generator,extra={'fixture':True})
+            save_state_waves(output/f'rank{rank}-complete.zip',model,scorer,optimizer,generator,extra={'fixture':True},wave_size=2)
             state_before={n:local_parameter(p).detach().clone() for n,p in model.named_parameters()}
             for alias in optimizer.local:optimizer.adam.state[alias].clear()
             restore_complete_state(output/f'rank{rank}-complete.zip',model,scorer,optimizer,generator)

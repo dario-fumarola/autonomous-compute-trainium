@@ -17,7 +17,7 @@ def run(a):
     from compute_trainium.training import file_sha256
     from compute_trainium.workspace_olmo_candidate import WorkspaceOlmoCandidate,OlmoWorkspaceConfig
     from compute_trainium.workspace_sharded_optimizer import WorkspaceShardedAdamW,ShardedGradientAccumulator,sharded_ema
-    from compute_trainium.workspace_native_state import save_complete_state
+    from compute_trainium.workspace_native_state import save_state_waves,release_compiled_calls
     from compute_trainium.workspace_native_objective import SelectiveWorkspacePredictor,drain_runtime
     from compute_trainium.workspace_learning import WorkspaceFormat
     from compute_trainium.workspace_discovery import discovery_terms,backward_terms,step_matrix_work
@@ -96,7 +96,7 @@ def run(a):
             gradient_seconds=gradient_time,optimizer_seconds=optimizer_time,total_update_seconds=generation_scoring+gradient_time+optimizer_time,
             gradient_norm=norm,weighted_losses=losses)
         if scores is not None:
-            v=torch.tensor([float(scores['absolute_gain'].mean()),float(scores['absolute_gain'].std())],device='neuron');dist.all_reduce(v)
+            v=torch.tensor([float(scores['absolute_gain'].mean()),float(scores['absolute_gain'].std())],dtype=torch.float32).to('neuron');dist.all_reduce(v)
             v=(v/world).cpu().tolist();row.update(global_mean_absolute_gain=v[0],mean_within_anchor_gain_sd=v[1])
         records.append(row)
         if rank==0:(out/'updates.json').write_text(json.dumps(records,indent=2)+'\n')
@@ -110,8 +110,9 @@ def run(a):
     torch.save({n:local_parameter(p.grad).detach().cpu() for n,p in model.named_parameters()},out/f'rank{rank}-mature-gradients.pt')
     if rank==0:torch.save(dict(prefix=c,continuation=y,workspace=z,rewards=rewards),out/'private-mature-inputs.pt')
     optimizer.zero_grad();drain_runtime(actor.device);progress('saving_complete_endpoint',arm=arm)
-    saved=save_complete_state(out/f'rank{rank}-u{total}.zip',model,scorer,optimizer,generator,
-        extra=dict(plan_sha256=a.plan_sha,data_cursor=total*world,arm=arm,scientific_pilot=True,source_batches_sha256=plan['data_report_sha256']),compress=True)
+    release_compiled_calls(model,scorer)
+    saved=save_state_waves(out/f'rank{rank}-u{total}.zip',model,scorer,optimizer,generator,
+        extra=dict(plan_sha256=a.plan_sha,data_cursor=total*world,arm=arm,scientific_pilot=True,source_batches_sha256=plan['data_report_sha256']),wave_size=8)
     dist.barrier();fallback=torch_neuronx.get_fallback_ops()
     if fallback:raise AssertionError('Discovery used CPU fallback:'+str(fallback))
     if rank==0:

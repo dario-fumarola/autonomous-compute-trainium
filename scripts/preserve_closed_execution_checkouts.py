@@ -15,10 +15,10 @@ NAMES=['workspace-native-fixture-worktree-v1','workspace-native-full-model-workt
        'workspace-native-full-update-worktree-v1','workspace-native-online-throughput-worktree-v1']
 
 
-def run(root,*,scale_closed=False,recovery=False):
+def run(root,*,scale_closed=False,recovery=False,workspace_closed=False):
     if managed_running():raise RuntimeError('Closed execution checkout maintenance only')
-    out=root/('workspace-scale-closed-checkout-preservation-v2' if recovery else 'workspace-scale-closed-checkout-preservation-v1' if scale_closed else 'workspace-closed-checkout-preservation-v1');out.mkdir(mode=0o700)
-    public=Path('results/workspace_scale_closed_checkouts_20261027/recovery-v2' if recovery else 'results/workspace_scale_closed_checkouts_20261027' if scale_closed else 'results/workspace_closed_checkouts_20261027');public.mkdir()
+    out=root/('workspace-closed-execution-preservation-v2' if workspace_closed else 'workspace-scale-closed-checkout-preservation-v2' if recovery else 'workspace-scale-closed-checkout-preservation-v1' if scale_closed else 'workspace-closed-checkout-preservation-v1');out.mkdir(mode=0o700)
+    public=Path('results/workspace_closed_execution_20261027' if workspace_closed else 'results/workspace_scale_closed_checkouts_20261027/recovery-v2' if recovery else 'results/workspace_scale_closed_checkouts_20261027' if scale_closed else 'results/workspace_closed_checkouts_20261027');public.mkdir()
     started=time.time();before=os.statvfs(root).f_favail;rows=[]
     for name in NAMES:
         tree=root/name
@@ -53,11 +53,12 @@ def run(root,*,scale_closed=False,recovery=False):
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--scale-closed',action='store_true');p.add_argument('--recovery',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--scale-closed',action='store_true');p.add_argument('--recovery',action='store_true');p.add_argument('--workspace-closed',action='store_true');a=p.parse_args()
     if a.scale_closed:
         NAMES=['scale-feasibility-worktree-v1','scale-model-worktree-v1','scale-runtime-worktree-v1',
             'scale-audit-worktree-v1','scale-body-main-handoff-worktree-v1','scale-final-lower-rate-recovery-worktree-v1']
     if a.recovery:
         NAMES=['scale-audit-worktree-v1','scale-body-main-handoff-worktree-v1','scale-final-lower-rate-recovery-worktree-v1',
             'workspace-stable-loss-fixture-worktree-v1','workspace-stable-model-worktree-v1']
-    run(a.root,scale_closed=a.scale_closed,recovery=a.recovery)
+    if a.workspace_closed:NAMES=['workspace-stable-online-worktree-v2','workspace-discovery-pilot-worktree-v1']
+    run(a.root,scale_closed=a.scale_closed,recovery=a.recovery,workspace_closed=a.workspace_closed)

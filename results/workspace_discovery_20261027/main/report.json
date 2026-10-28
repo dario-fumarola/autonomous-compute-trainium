@@ -1,0 +1,60 @@
+{
+  "status": "STOPPED_WORKSPACE_DISCOVERY_PILOT",
+  "conditions": {
+    "ordinary": {
+      "native": {
+        "status": "COMPLETE_WORKSPACE_DISCOVERY_ARM_PENDING_MATURE_AUDIT",
+        "arm": "ordinary",
+        "world": 64,
+        "actual_optimizer_updates": 931,
+        "source_views": 59584,
+        "admitted_source_view_positions": 9533440,
+        "consumed_source_positions": 9533440,
+        "natural_training_label_exposures": 9473856,
+        "nominal_matrix_operations": 94373801189441536,
+        "first_update_seconds": 1.837186757940799,
+        "warm_updates": 930,
+        "warm_mean_seconds": 1.0432114608284155,
+        "wall_seconds": 1045.2897336483002,
+        "actor_ledger": {
+          "forward_calls": 933,
+          "processed_positions": 149280,
+          "projected_positions": 148347,
+          "phases": {
+            "ordinary_ntp": 933
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        },
+        "scorer_ledger": null,
+        "checkpoint_bytes_per_rank": 255947679,
+        "fallback_ops": [],
+        "independent_mature_audit_pending": true,
+        "heldout_scores_read": false,
+        "scope": "Frozen single-seed short discovery condition. Own prefix-only samples,no target-based evaluation selection,no teacher.No confirmation or from-scratch claim.Qualification and audit costs stay separate from retained-path nominal matrix work."
+      },
+      "audit_pending": false,
+      "audit": {
+        "status": "PASS_WORKSPACE_DISCOVERY_MATURE_CPU_AUDIT",
+        "arm": "ordinary",
+        "optimizer_updates": 0,
+        "assigned_chips": 0,
+        "parameters_checked": 179,
+        "gradient_relative_l2": 4.88854136250322e-06,
+        "largest_named_relative_l2": 2.140890899305424e-05,
+        "worst_named_parameter": "model.layers.15.post_attention_layernorm.weight",
+        "joint_loss": 1.9330514289309229,
+        "wall_seconds": 50.510438680648804,
+        "plan_sha256": "57bdaa06746cdb9748fe37485ce0968404dad452dddae32428cd0abcd4e956bb"
+      }
+    }
+  },
+  "full_from_scratch_admitted": false,
+  "error_type": "RuntimeError",
+  "error": "All-chip fixture worker failed: workspace-four-arm-discovery-v1-workspace",
+  "observed_completed_optimizer_updates": {
+    "ordinary": 931,
+    "workspace": 48
+  },
+  "interrupted_update_may_be_unrecorded": true,
+  "plan_sha256": "90f028e9795cd65392f3180ae5d5025a067e555185477dba445abb7ef71b4fbf"
+}

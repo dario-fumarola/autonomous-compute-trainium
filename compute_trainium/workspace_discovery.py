@@ -52,7 +52,9 @@ def backward_terms(predictor,terms,*,accumulator,world,scale=256):
     values={}
     for phase,context,targets,weight,reduction in terms:
         nll=-predictor.log_probs(context,targets,phase)
-        coefficient=torch.tensor(weight,dtype=torch.float32,device=predictor.device)
+        # Match the qualified online path: scalar values enter Native as
+        # runtime tensor inputs, not device-factory Python constants.
+        coefficient=torch.tensor(weight,dtype=torch.float32).to(predictor.device)
         loss=coefficient*(nll.mean() if reduction=='mean' else nll.sum())
         values[phase]=values.get(phase,0.)+float(loss.detach().cpu())
         (loss/world*scale).backward();accumulator.add_and_clear()

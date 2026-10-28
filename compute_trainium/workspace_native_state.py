@@ -44,6 +44,32 @@ def save_complete_state(path,model,scorer,optimizer,generator,*,extra,compress=F
     return save_streaming(path,complete_state_tensors(model,scorer,optimizer),metadata,compress=compress)
 
 
+def release_compiled_calls(*models):
+    """Checkpoint needs tensor shards,not compiled forward/backward wrappers."""
+    for model in models:
+        if model is None:continue
+        for module in model.modules():module._compiled_call_impl=None
+    from .workspace_native_objective import drain_runtime
+    first=next(model for model in models if model is not None)
+    drain_runtime(next(first.parameters()).device)
+
+
+def save_state_waves(path,model,scorer,optimizer,generator,*,extra,wave_size=8,save_ranks=None):
+    """Bound transient CPU transfer/compression across ranks;no new updates."""
+    import torch.distributed as dist
+    rank,world=dist.get_rank(),dist.get_world_size()
+    count=world if save_ranks is None else save_ranks
+    if type(wave_size) is not int or wave_size<1 or not 0<count<=world:raise ValueError('Bounded nonempty checkpoint waves required')
+    result=None
+    for start in range(0,count,wave_size):
+        if start<=rank<min(start+wave_size,count):
+            result=save_complete_state(path,model,scorer,optimizer,generator,extra=extra,compress=True)
+        dist.barrier()
+        from .workspace_native_objective import drain_runtime
+        drain_runtime(next(model.parameters()).device)
+    return result
+
+
 @torch.no_grad()
 def restore_model_shards(path,model,*,label):
     from .workspace_streaming_checkpoint import tensor_hash
