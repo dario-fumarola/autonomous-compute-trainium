@@ -48,6 +48,14 @@ registered useful-iteration gate fails, closing this frozen-feature two-step
 mechanism without a larger run.
 [Supported exits and internal writes](results/residual_written_memory_20261028/REPORT.md).
 
+A separate causal cache learns which observed past outcomes to retrieve. Its
+learned-addressing gain is only0.000272nats; the simpler cosine reader performs
+better. Both natural code-dependency cohorts fail the useful-memory gate, and
+longer memory does not help consistently. Correct associations are less harmful
+than rotated ones, which is insufficient for a useful-computation claim.
+[Associative screen](results/causal_associative_workspace_20261028/REPORT.md) ·
+[Dependency readout](results/associative_dependency_readout_20261028/REPORT.md).
+
 The uniform-NTP correction is complete. All new models now improve over C0,
 but the workspace still harms its own selected predictions. On448 reused TUNE
 views, full32 NLL is **2.262856 ordinary**, **2.267065 latent workspace**,

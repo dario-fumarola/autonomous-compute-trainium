@@ -1,3 +1,15 @@
+## October28,2026,21:25 UTC — causal prediction-error headroom test registered
+
+Twelve focused CPU tests pass. A zero-update diagnostic compares a temporary bias correction from observed past prediction errors with independently calibrated token-reinforcement,prediction-only and uniform-weight controls. All choices use the existing797 TRAIN calibration views. Calibration must clear the frozen gate before another448-view TUNE read;the320 protected groups remain untouched. Actual-shape literal-gradient checks precede calibration.[Protocol](docs/PREFIX_ERROR_HEADROOM_20261028.md).
+
+This is a known dynamic-evaluation operation,not a new thought writer or a learned/from-scratch result. No model update,Native work or learned-version campaign is admitted. The completed associative-memory negative remains closed.
+
+## October28,2026,21:24 UTC — associative dependency readout complete; no promotion
+
+All340 original cases complete with unchanged C0 and readers. Cosine gains on the two code cohorts are−0.001106/+0.004781; learned addressing gains−0.000390/+0.000157. Neither reaches the registered useful-memory gate. Older memory does not help consistently; all math outcomes are retained. Raw historical parity passes(max1.049e-5),244.14seconds CPU,zero updates/chips. Protected sources remain untouched.[Complete report](results/associative_dependency_readout_20261028/REPORT.md).
+
+TRAIN-only parameter inspection finds query/key changes of about6.12/6.15 L2 against initial6.53; this is not absent learning. Both short-prefix and natural-dependency cache screens are negative. No active job or cache training extension. A distinct zero-update prediction-error correction diagnostic is being prepared; it must first show calibration headroom before any held-out read or learned version.
+
 ## October28,2026,21:10 UTC — frozen dependency memory-budget readout registered
 
 The completed cache readers will be tested without updates on all340 original source-verified dependency cases and their original cohorts. Full memory,rotated values and recent128-pair memory retain the same full-context C0 predictor. This distinguishes access to older memory from simply giving the baseline more context. Eight causal-memory tests pass;every raw C0 score must reproduce its historical independent CPU value before accepting a readout.[Protocol](docs/ASSOCIATIVE_DEPENDENCY_READOUT_20261028.md).
