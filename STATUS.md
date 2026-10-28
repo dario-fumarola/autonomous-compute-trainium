@@ -1,3 +1,11 @@
+## October28,2026,04:29 UTC — full-size differentiable workspace CPU oracle passes;all-chip gate active
+
+The sparse candidate passes all179 actual1.485B parameter gradients against an independent HF dense2D-mask implementation:largest named discrepancy0.000319%,raw logits exact. Six CPU gates pass,including compiled/checkpointed gradient parity. This is numerical qualification,not held-out learning.[Full-size reference](results/sparse_workspace_reference_20261028/report.json).
+
+The saved writer/reader crossover completes. Trained notes improve the fixed C0 reader by0.005438nats yet remain0.009829nats worse than no note;the discrete recipe remains closed.[Matrix](results/workspace_crossover_20261028/REPORT.md).
+
+Only obsolete regenerable legacy XLA NEFF files are removed,freeing16.99GB;installed environments,drivers,scientific states and exact archives remain.[Cleanup](results/obsolete_legacy_neff_cleanup_20261028/report.json). One all16-chip sparse gradient/AdamW/moment/state-recovery qualification is active,with a finite30-minute cap. Next:100warm and mature independent checks before a scientific fit.
+
 ## October28,2026,04:06 UTC — readout check negative;direct-gradient sparse CPU candidate passes5 gates
 
 The fixed2x2 readout completes with zero updates and EXACT raw/original-sample reproduction.Greedy does not help;tail replay hurts all models.Sample/prepend remains the least harmful workspace readout and still loses to ordinary.No discrete scaling is admitted.[All variants](results/workspace_readouts_20261028/recovery-v2/REPORT.md).
