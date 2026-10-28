@@ -1,3 +1,9 @@
+## October28,2026,20:25 UTC — supported iteration with earlier latent writes registered
+
+Sixteen focused CPU tests pass,including causality,exact zero-output identity,all parameter gradients,and equal-weight agreement between suppressed writes and static memory. Full-size FP32 versus independent FP64 passes on both exits/all three domains at disposable mature weights. Two fresh655360-parameter branches will receive identical8192 target views/2048 updates and a balanced pre-frozen depth1/2 schedule. Only earlier-memory updates differ;both arms preserve the updated current slot.[Protocol](docs/RESIDUAL_WRITTEN_MEMORY_20261028.md).
+
+This tests whether intermediate states computed at earlier positions make a second supported step useful. It is a tied-depth representation model on frozen C0 features,not automatically reasoning or autonomous thought. All448 reused TUNE views and the original one-step/local controls remain;320 reserved groups stay unscored. CPU cache reuse avoids a new Native pass. Both endpoints require mature audits before scoring. No larger backbone,router,confirmation or changed original useful-effect bars. No new quality result yet.
+
 ## October28,2026,20:18 UTC — independent-memory training retains most of the gain
 
 The fresh2048-update control completes and passes all mature checks. Authentic-memory NLL is2.276662 versus2.275685 for matched-memory training and2.282112 raw C0. The control retains84.8% of the gain;matched training helps only0.000977nats,conditional95%[0.000338,0.001553]. One donor-map interaction is positive;the second includes zero. The registered0.005 content-learning gate fails.[Full two-by-three comparison](results/residual_independent_memory_20261028/REPORT.md).

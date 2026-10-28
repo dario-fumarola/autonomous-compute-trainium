@@ -52,12 +52,20 @@ def run(a):
    report.update(retained_prefix_updates=initial_update,exact_prefix_restore=True)
   model.train()
   for update in range(initial_update,p['updates']):
-   guard('train',update);tick=time.time();indices=source_indices(update,batch,unique_views);anchors=torch.randperm(159,generator=rng)[:q].sort().values;h=train[indices];target=labels[indices][:,anchors];optimizer.zero_grad(set_to_none=True);counter=MatrixWork() if update<initial_update+2 else None
+   guard('train',update);tick=time.time();indices=source_indices(update,batch,unique_views);anchors=torch.randperm(159,generator=rng)[:q].sort().values;h=train[indices];target=labels[indices][:,anchors];optimizer.zero_grad(set_to_none=True)
+   measure=(str(p['depth_schedule'][update]) not in report.get('matrix_work_by_supported_depth',{})) if p.get('depth_schedule') else update<initial_update+2
+   counter=MatrixWork() if measure else None
    with counter if counter is not None else nullcontext():
-    adjusted=model(h,anchors) if donors is None else independent_read(model,h,anchors,train[donors[indices]]);logits=adjusted@head.T;loss=-stable_target_log_probs(logits,target).mean()
+    if p.get('depth_schedule'):
+     if donors is not None:raise AssertionError('Separate registered mechanisms required')
+     adjusted=model(h,anchors,depth=p['depth_schedule'][update])
+    else:adjusted=model(h,anchors) if donors is None else independent_read(model,h,anchors,train[donors[indices]])
+    logits=adjusted@head.T;loss=-stable_target_log_probs(logits,target).mean()
     if update==0 and not torch.equal(adjusted,h[:,anchors]):raise AssertionError('Initial prediction must be exactly ordinary')
     loss.backward()
-   if counter is not None:report.setdefault('matrix_operations_measured_updates',[]).append(counter.operations)
+   if counter is not None:
+    report.setdefault('matrix_operations_measured_updates',[]).append(counter.operations)
+    if p.get('depth_schedule'):report.setdefault('matrix_work_by_supported_depth',{})[str(p['depth_schedule'][update])]=counter.operations
    norm=torch.nn.utils.clip_grad_norm_(model.parameters(),1.,error_if_nonfinite=True);optimizer.step();completed=update+1;seconds=time.time()-tick;telemetry.append(dict(update=update+1,loss=float(loss.detach()),gradient_norm=float(norm),seconds=seconds));warm.append(seconds)
    if update%16==0:(out/f'{a.arm}-telemetry.json').write_text(json.dumps(telemetry))
    # Measure actual path before retaining more than16 fitted updates.

@@ -15,4 +15,7 @@ class LocalResidualCorrection(nn.Module):
 
 
 def make_branch(width,mode):
+    if mode in ['memory_static','memory_written']:
+        from .residual_written_memory import WrittenMemoryWorkspace
+        return WrittenMemoryWorkspace(width=width,writes=mode=='memory_written')
     return LocalResidualCorrection(width=width) if mode=='local' else ResidualWorkspace(width=width,mode=mode)
