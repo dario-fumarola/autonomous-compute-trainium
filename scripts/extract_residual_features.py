@@ -30,16 +30,19 @@ def run(a):
    if file_sha256(a.root/ref['relative'])!=ref['sha256']:raise AssertionError('Independent HF reference changed')
    expected=torch.load(a.root/ref['relative'],weights_only=True);tokens,targets=pack_view(data.at(ref['index']),cfg.pad_token_id);actual=features(tokens.to('neuron'));logits=model.lm_head(actual[:,127:159]);e=torch.tensor([float((actual.cpu()-expected['features']).abs().max()),float((logits.cpu()-expected['logits']).abs().max())]).to('neuron');dist.all_reduce(e,op=dist.ReduceOp.MAX);values=e.cpu().tolist();errors.append(values)
    if values[0]>.001 or values[1]>.001:raise AssertionError('Frozen feature CPU/Native gate failed')
-  for split,count in [('train',p['train_views']),('tune',p['evaluation_anchors'])]:
+  extraction=p.get('feature_extraction',[dict(split='train',start=0,count=p['train_views']),dict(split='tune',start=0,count=p['evaluation_anchors'])])
+  for segment in extraction:
+   split,count=segment['split'],segment['count'];offset=segment['start']
+   if count<=0 or count%world or offset<0:raise AssertionError('Complete registered global feature batches required')
    data=WorkspaceViewBatches(a.root/p['data_relative'],split);hs=[];ys=[];domains=[];indices=[]
    for batch in range(count//world):
-    index=batch*world+rank;view=data.at(index);tokens,targets=pack_view(view,cfg.pad_token_id);hs.append(features(tokens.to('neuron'))[:,:159].cpu());ys.append(targets);domains.append(view['domain']);indices.append(index)
+    index=offset+batch*world+rank;view=data.at(index);tokens,targets=pack_view(view,cfg.pad_token_id);hs.append(features(tokens.to('neuron'))[:,:159].cpu());ys.append(targets);domains.append(view['domain']);indices.append(index)
     if rank==0:(out/'progress.json').write_text(json.dumps(dict(split=split,batch=batch,wall_seconds=time.time()-start)))
    torch.save(dict(features=torch.cat(hs),targets=torch.cat(ys),domains=torch.tensor(domains),indices=torch.tensor(indices)),out/f'PRIVATE-rank{rank}-{split}.pt');dist.barrier()
   if versions!=tuple(v._version for v in model.parameters()):raise AssertionError('Feature extraction changed C0')
  fallback=torch_neuronx.get_fallback_ops()
  if fallback:raise AssertionError('Feature extraction fallback:'+str(fallback))
- if rank==0:(out/'report.json').write_text(json.dumps(dict(status='COMPLETE_FROZEN_RESIDUAL_FEATURES',world=world,optimizer_updates=0,feature_dtype='float32',train_views=p['train_views'],evaluation_views=p['evaluation_anchors'],cpu_errors=errors,parameters_unchanged=True,fallback_ops=fallback,wall_seconds=time.time()-start),indent=2)+'\n')
+ if rank==0:(out/'report.json').write_text(json.dumps(dict(status='COMPLETE_FROZEN_RESIDUAL_FEATURES',world=world,optimizer_updates=0,feature_dtype='float32',extraction_segments=extraction,train_views=p['train_views'],evaluation_views=p['evaluation_anchors'],cpu_errors=errors,parameters_unchanged=True,fallback_ops=fallback,wall_seconds=time.time()-start),indent=2)+'\n')
  dist.barrier();dist.destroy_process_group()
 
 

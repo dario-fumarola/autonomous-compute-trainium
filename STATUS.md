@@ -1,3 +1,9 @@
+## October28,2026,18:34 UTC — source-diversity follow-up registered
+
+The owner authorizes the fixed-mechanism follow-up. Each completed512-update linear/one/two branch forks into fresh8192-view and repeated2048-view schedules,ending at2048 total updates with identical target-sampling RNG and no optimizer reset. Six focused CPU tests pass,including exact next-gradient/update replay. The original screen remains negative;the0.01/0.005 mechanism gates stay unchanged.[Protocol](docs/RESIDUAL_DATA_VOLUME_20261028.md).
+
+All16-chip extraction will add only6144 new source views;existing TRAIN/TUNE feature caches and complete branch states are hash-bound. Six bounded CPU fits follow. No architecture/LR change,score-based extension,full-model scaling or confirmation. The comparison isolates source diversity at equal branch updates;extra feature cost is explicitly charged. Resource floors and original45-minute deadline remain. No new quality result yet.
+
 ## October28,2026,18:16 UTC — frozen-base branch learns TRAIN corrections;iteration does not win
 
 The registered linear/one/two residual screen completes all512 updates per arm. C0 stays frozen at2.282112 NLL;linear scores2.280833,one step2.281998,two steps2.281367. Two-step gain0.000745 has conditional interval[−0.002580,+0.003540],and fails both cheaper-control gates. The original0.01/0.005 thresholds remain unchanged.[Report](results/residual_workspace_screen_20261028/REPORT.md).
