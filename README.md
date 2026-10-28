@@ -36,19 +36,28 @@ These are qualification updates,not a held-out learning result.
 [Mature audit](results/workspace_online_mature_audit_20261027/recovery-v2/report.json) ·
 [Fixed-weight loss diagnosis](results/workspace_loss_stability_20261027/report.json).
 
-The first bounded four-condition diagnostic is running:ordinary continuation,
-learned workspaces,trained pauses and supervised drafts whose reader uses its
-OWN samples. The uncached workspace update costs about19.38ordinary updates
-in nominal matrix work,including generation,scoring,backward,recomputation and
-the vocabulary head;whole time is reported separately. All conditions start
-from the same common C0 weights. Fresh qualification weights are excluded.
-The ordinary931-update endpoint and its independent mature audit are complete.
-The workspace replay has a complete all64-rank early backup after two final-save
-OOMs;both lost histories remain charged.The200GiB live-step writer proof and
-full512GiB host reserve precede replay.No held-out workspace-versus-baseline
-result or from-scratch finding exists yet.
-[Diagnostic protocol](docs/WORKSPACE_DISCOVERY_PILOT_20261027.md) ·
-[CPU helper proof](results/workspace_discovery_cpu_20261027/report.json).
+The first bounded four-condition learning diagnostic is complete and negative.
+All four full-model mature gradient audits pass. On320 fixed TUNE anchors:
+
+| Predictor | Next-four NLL ↓ |
+| --- | ---: |
+| Ordinary continuation | **2.387626** |
+| Learned workspace,one own sample | 2.422095 |
+| Trained fixed pauses | 2.548699 |
+| Own-sampled supervised draft | 2.429410 |
+
+Workspace loses to ordinary by0.034469nats.Its own sample also worsens its
+no-workspace prediction by0.008941nats;the same-domain donor contrast is
+inconclusive.A privileged actual-future copy still helps the reader by0.744383.
+That diagnostic uses the answer deliberately and is not a deployed thought.
+
+This is one short constant-rate continuation from common C0,not converged
+independent tuning,confirmation,transfer,learned allocation or random-init
+pretraining.Nominal matrix work is matched;whole measured time is separate.
+All failed/recovery and checkpoint costs remain.The uncached workspace step
+costs about19.38ordinary steps in nominal matrix work.Do not scale this recipe.
+[Complete comparison](results/workspace_discovery_20261027/evaluation-recovery-v1/REPORT.md) ·
+[Protocol](docs/WORKSPACE_DISCOVERY_PILOT_20261027.md).
 
 The earlier replicated-body estimate was wrong:the existing loader already
 shards all179 parameters. Full-state recovery and exact archival preservation

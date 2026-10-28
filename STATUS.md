@@ -1,3 +1,11 @@
+## October28,2026,02:45 UTC — first complete workspace pilot negative;all endpoints qualified
+
+The320-anchor target-blind panel completes:ordinary2.387626,workspace2.422095,trained pauses2.548699,own-draft2.429410 next-four NLL.Workspace loses to ordinary by0.034469nats;its own notes hurt its raw readout by0.008941.The same-domain donor contrast is inconclusive.Privileged true-future copy still improves the reader by0.744383nats(next-four)/0.185868(first target),so useful writing is the missing result,not a claim that the reader is insensitive.All four179-parameter mature audits pass.No numerical,compute-efficiency,reasoning,allocation or from-scratch positive is claimed.[Complete report](results/workspace_discovery_20261027/evaluation-recovery-v1/REPORT.md).
+
+The evaluation-only192GiB recovery succeeds after the original200GiB prelaunch admission stop,with zero further fit updates.All original checkpoints,source views,seeds,donors and metrics remain.Each published score independently recomputes from320 private rows with exact192/64/64 domain counts.The source-group intervals condition on101 reused TUNE groups and one training seed.No confirmation data consumed.
+
+Next:one separately registered readout diagnostic,not scaling or another fit.It will distinguish stochastic sampling from greedy decoding and notes prepended to the prefix from notes followed by a replayed prefix tail.All variants must remain visible;the original negative is unchanged.
+
 ## October28,2026,02:35 UTC — all four mature audits pass;prelaunch evaluation admission recovery
 
 Draft completes63 updates and its full64-rank state.Its independent179-parameter audit passes:largest named discrepancy0.001051%,overall0.000205%.Every scientific endpoint is now saved and numerically audited;no held-out score exists.[Draft audit](results/workspace_discovery_20261027/workspace-discovery-audit-draft-v1/report.json).

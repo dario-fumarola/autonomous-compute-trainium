@@ -1,0 +1,463 @@
+{
+  "status": "COMPLETE_WORKSPACE_DISCOVERY_PILOT",
+  "scientific_optimizer_updates": 0,
+  "retained_training_costs": {
+    "native_attempts": [
+      {
+        "identity": "workspace-four-arm-discovery-v3-workspace",
+        "exit_code": 0,
+        "wall_seconds": 2381.6830127239227,
+        "assigned_chip_hours": 10.585257834328546,
+        "whole_instance_opportunity_chip_hours": 10.585257834328546,
+        "report_exists": true
+      },
+      {
+        "identity": "workspace-four-arm-discovery-v3-pause",
+        "exit_code": 0,
+        "wall_seconds": 1392.358939409256,
+        "assigned_chip_hours": 6.188261952930026,
+        "whole_instance_opportunity_chip_hours": 6.188261952930026,
+        "report_exists": true
+      },
+      {
+        "identity": "workspace-four-arm-discovery-v3-draft",
+        "exit_code": 0,
+        "wall_seconds": 1255.7528252601624,
+        "assigned_chip_hours": 5.5811236678229434,
+        "whole_instance_opportunity_chip_hours": 5.5811236678229434,
+        "report_exists": true
+      }
+    ],
+    "current_controller_cpu_attempts": [
+      {
+        "identity": "workspace-discovery-audit-workspace-v1",
+        "assigned_chips": 0,
+        "wall_seconds": 130.31825351715088,
+        "reused": false,
+        "exit_code": 0
+      },
+      {
+        "identity": "workspace-discovery-audit-pause-v1",
+        "assigned_chips": 0,
+        "wall_seconds": 65.1603856086731,
+        "reused": false,
+        "exit_code": 0
+      },
+      {
+        "identity": "workspace-discovery-audit-draft-v1",
+        "assigned_chips": 0,
+        "wall_seconds": 75.1942629814148,
+        "reused": false,
+        "exit_code": 0
+      }
+    ],
+    "cleanup_errors": [],
+    "execution": {
+      "started_unix": 1793149350.9596505,
+      "deadline_unix": 1793167350.9596505,
+      "plan_sha256": "3fc1d78a9e80abe1eac0d37408b2e802a59f8d624849163a1d77de3ec9f975fb"
+    },
+    "wall_seconds_since_admission": 5321.9706773757935,
+    "whole_instance_opportunity_chip_hours": 23.653203013737997,
+    "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+  },
+  "retained_prior_costs": {
+    "prior_execution_costs": {
+      "native_attempts": [
+        {
+          "identity": "workspace-four-arm-discovery-v1-ordinary",
+          "exit_code": 0,
+          "wall_seconds": 1054.9459459781647,
+          "assigned_chip_hours": 4.688648648791843,
+          "whole_instance_opportunity_chip_hours": 4.688648648791843,
+          "report_exists": true
+        },
+        {
+          "identity": "workspace-four-arm-discovery-v1-workspace",
+          "exit_code": 1,
+          "wall_seconds": 735.1041238307953,
+          "assigned_chip_hours": 3.267129439247979,
+          "whole_instance_opportunity_chip_hours": 3.267129439247979,
+          "report_exists": false
+        }
+      ],
+      "current_controller_cpu_attempts": [
+        {
+          "identity": "workspace-discovery-audit-ordinary-v1",
+          "assigned_chips": 0,
+          "wall_seconds": 60.14717769622803,
+          "reused": false,
+          "exit_code": 0
+        }
+      ],
+      "cleanup_errors": [],
+      "execution": {
+        "started_unix": 1793142769.9566257,
+        "deadline_unix": 1793160769.9566257,
+        "plan_sha256": "90f028e9795cd65392f3180ae5d5025a067e555185477dba445abb7ef71b4fbf"
+      },
+      "wall_seconds_since_admission": 1860.8407847881317,
+      "whole_instance_opportunity_chip_hours": 8.270403493245443,
+      "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+    },
+    "prior_recovery_costs": {
+      "native_attempts": [
+        {
+          "identity": "workspace-four-arm-discovery-v2-workspace",
+          "exit_code": 1,
+          "wall_seconds": 741.2314326763153,
+          "assigned_chip_hours": 3.294361923005846,
+          "whole_instance_opportunity_chip_hours": 3.294361923005846,
+          "report_exists": false
+        }
+      ],
+      "current_controller_cpu_attempts": [],
+      "cleanup_errors": [],
+      "execution": {
+        "started_unix": 1793147051.269174,
+        "deadline_unix": 1793165051.269174,
+        "plan_sha256": "1fd4ec99fe793262ffaeb964ea48ccb56786c9582451e527ce50652e87fad073"
+      },
+      "wall_seconds_since_admission": 745.535397529602,
+      "whole_instance_opportunity_chip_hours": 3.313490663104587,
+      "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+    }
+  },
+  "confirmation": false,
+  "evaluation": {
+    "status": "COMPLETE_WORKSPACE_DISCOVERY_TARGET_BLIND_EVALUATION",
+    "world": 64,
+    "models": {
+      "c0": {
+        "scores": {
+          "raw_nll": 2.2781171004506175,
+          "raw_first4_nll": 2.4063777510884394,
+          "raw_first_token_nll": 2.400690174394856,
+          "primary_first_token_nll": 2.400690174394856,
+          "own_nll": 2.4216451718794816,
+          "own_first_token_nll": 2.4075729726482504,
+          "donor_nll": 2.428499045585522,
+          "donor_first_token_nll": 2.4378497199786806,
+          "constant_nll": 2.530038553920167,
+          "constant_first_token_nll": 2.516879290691395,
+          "privileged_copy_diagnostic_only_nll": 1.5350012986681578,
+          "privileged_copy_diagnostic_only_first_token_nll": 2.1860953804544576,
+          "primary_nll": 2.4063777510884394
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 65,
+          "processed_positions": 12480,
+          "projected_positions": 280,
+          "phases": {
+            "evaluation_constant": 5,
+            "evaluation_donor": 5,
+            "evaluation_own": 5,
+            "evaluation_privileged_copy_diagnostic_only": 5,
+            "evaluation_raw_32": 5,
+            "workspace_sampling": 40
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      },
+      "workspace": {
+        "scores": {
+          "raw_nll": 2.2714576109145126,
+          "raw_first4_nll": 2.413154232016859,
+          "raw_first_token_nll": 2.4153729932887757,
+          "primary_first_token_nll": 2.422818225068187,
+          "own_nll": 2.4220950069442555,
+          "own_first_token_nll": 2.422818225068187,
+          "donor_nll": 2.4254217740740387,
+          "donor_first_token_nll": 2.4309070265880677,
+          "constant_nll": 2.5303051023845913,
+          "constant_first_token_nll": 2.5231051590280686,
+          "privileged_copy_diagnostic_only_nll": 1.6687715086524806,
+          "privileged_copy_diagnostic_only_first_token_nll": 2.2295048217281193,
+          "primary_nll": 2.4220950069442555
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 65,
+          "processed_positions": 12480,
+          "projected_positions": 280,
+          "phases": {
+            "evaluation_constant": 5,
+            "evaluation_donor": 5,
+            "evaluation_own": 5,
+            "evaluation_privileged_copy_diagnostic_only": 5,
+            "evaluation_raw_32": 5,
+            "workspace_sampling": 40
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      },
+      "ordinary": {
+        "scores": {
+          "raw_nll": 2.256016588103375,
+          "raw_first4_nll": 2.387626122160691,
+          "raw_first_token_nll": 2.3830420405363952,
+          "primary_first_token_nll": 2.3830420405363952,
+          "primary_nll": 2.387626122160691
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 5,
+          "processed_positions": 960,
+          "projected_positions": 160,
+          "phases": {
+            "evaluation_raw_32": 5
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      },
+      "pause": {
+        "scores": {
+          "raw_nll": 2.2802800916062553,
+          "raw_first4_nll": 2.420795461401394,
+          "raw_first_token_nll": 2.421275899901963,
+          "primary_first_token_nll": 2.632520443184876,
+          "primary_nll": 2.54869916360949
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 10,
+          "processed_positions": 1920,
+          "projected_positions": 180,
+          "phases": {
+            "evaluation_raw_32": 5,
+            "evaluation_trained_pause": 5
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      },
+      "draft": {
+        "scores": {
+          "raw_nll": 2.274657073289927,
+          "raw_first4_nll": 2.4210526791646316,
+          "raw_first_token_nll": 2.407635169579595,
+          "primary_first_token_nll": 2.4107866774627382,
+          "own_nll": 2.42940973746945,
+          "own_first_token_nll": 2.4107866774627382,
+          "donor_nll": 2.430818047059984,
+          "donor_first_token_nll": 2.4160481616946243,
+          "constant_nll": 2.5472353280922104,
+          "constant_first_token_nll": 2.520697083236041,
+          "privileged_copy_diagnostic_only_nll": 1.829427976547504,
+          "privileged_copy_diagnostic_only_first_token_nll": 2.2590757211934487,
+          "primary_nll": 2.42940973746945
+        },
+        "anchors": 320,
+        "ledger": {
+          "forward_calls": 65,
+          "processed_positions": 12480,
+          "projected_positions": 280,
+          "phases": {
+            "evaluation_constant": 5,
+            "evaluation_donor": 5,
+            "evaluation_own": 5,
+            "evaluation_privileged_copy_diagnostic_only": 5,
+            "evaluation_raw_32": 5,
+            "workspace_sampling": 40
+          },
+          "note": "Actual padded work and selective heads. Dispatch timing is asynchronous;stage drains/wall times separately measure completed execution. Positions are not FLOPs."
+        }
+      }
+    },
+    "wall_seconds": 187.02210783958435,
+    "fallback_ops": [],
+    "optimizer_updates": 0,
+    "warning": "320 TUNE anchors from reused source groups;single seed,constant short pilot,not confirmation or reasoning evidence.Base pretraining contamination cannot be excluded.All content interventions recompute full states;privileged future copy is a diagnostic only.Not deployed thought selection."
+  },
+  "conditional_analysis": {
+    "status": "COMPLETE_WORKSPACE_DISCOVERY_CONDITIONAL_ANALYSIS",
+    "contrasts": {
+      "ordinary_minus_workspace": {
+        "mean": -0.034468884783564135,
+        "conditional_source_group_95_interval": [
+          -0.05751617563427401,
+          -0.005503602994959892
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "pause_minus_workspace": {
+        "mean": 0.12660415666523475,
+        "conditional_source_group_95_interval": [
+          0.07826600523442517,
+          0.17474925499651342
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "draft_minus_workspace": {
+        "mean": 0.007314730525195046,
+        "conditional_source_group_95_interval": [
+          -0.006320314302047807,
+          0.021257700504162914
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "ordinary_minus_workspace_first_token": {
+        "mean": -0.03977618453179161,
+        "conditional_source_group_95_interval": [
+          -0.08552464939832864,
+          0.015176935118894399
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "pause_minus_workspace_first_token": {
+        "mean": 0.20970221811668918,
+        "conditional_source_group_95_interval": [
+          0.11541361593243238,
+          0.3224913053959419
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "draft_minus_workspace_first_token": {
+        "mean": -0.012031547605448622,
+        "conditional_source_group_95_interval": [
+          -0.03840409485551739,
+          0.016322048960726452
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "workspace_raw_minus_own": {
+        "mean": -0.008940774927395978,
+        "conditional_source_group_95_interval": [
+          -0.018593065889191466,
+          0.0009224582336428749
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "workspace_donor_minus_own": {
+        "mean": 0.003326767129783548,
+        "conditional_source_group_95_interval": [
+          -0.009057049200756435,
+          0.015954139353497626
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "workspace_constant_minus_own": {
+        "mean": 0.10821009544033586,
+        "conditional_source_group_95_interval": [
+          0.07733085636461937,
+          0.14110045074668046
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "c0_raw_minus_workspace": {
+        "mean": -0.015717255855815893,
+        "conditional_source_group_95_interval": [
+          -0.03570168949322068,
+          0.007541045456768379
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "ordinary_raw32_minus_workspace_raw32": {
+        "mean": -0.015441022811137373,
+        "conditional_source_group_95_interval": [
+          -0.02815001405921811,
+          -0.006107118243362536
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "c0_raw32_minus_workspace_raw32": {
+        "mean": 0.006659489536104957,
+        "conditional_source_group_95_interval": [
+          0.0012070674027518647,
+          0.011836669278849016
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "c0_raw_minus_privileged_copy_diagnostic": {
+        "mean": 0.8713764524202816,
+        "conditional_source_group_95_interval": [
+          0.7424213016125681,
+          1.001703117912031
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      },
+      "workspace_raw_minus_privileged_copy_diagnostic": {
+        "mean": 0.7443827233643788,
+        "conditional_source_group_95_interval": [
+          0.6255342780184645,
+          0.8608848277035394
+        ],
+        "anchors": 320,
+        "source_groups": 101,
+        "bootstrap_draws": 5000,
+        "bootstrap_seed": 11261,
+        "rejected_empty_domain_draws": 0,
+        "warning": "Conditional on one trained checkpoint pair and reused TUNE sources.Not independent training-seed variation,confirmation or proof of reasoning."
+      }
+    },
+    "favorable_sign": "Positive means the second named predictor has lower NLL;privileged-copy contrasts are diagnostics only.",
+    "terminal_alpha_spent": 0,
+    "confirmation": false
+  },
+  "plan_sha256": "c12b6f01b117fced08d29d9f25a11778ef3099d084b263ce870787097f6f2642"
+}
