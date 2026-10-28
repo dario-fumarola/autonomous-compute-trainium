@@ -1,3 +1,9 @@
+## October28,2026,13:41 UTC — both uniform workspace endpoints audited;ordinary continuation active
+
+Latent800 and constant800 are fully saved. Independent mature HF audits pass all179 gradients in both;max named errors0.002737% and0.002221%. Constant warm mean1.0972seconds,no fallback.[Constant endpoint](results/spliced_workspace_discovery_20261028/constant-native.json) · [Audit](results/spliced_workspace_discovery_20261028/spliced-workspace-discovery-audit-constant-v1/report.json).
+
+Ordinary restores its complete original931-step plain-NTP state and runs exactly9 new updates to940. Every authentic target is uniformly weighted once. No held-out scores inspected yet;its mature audit precedes the frozen448-view TUNE evaluation. Full scientific states remain;only exact audited derivative references and the superseded temporary latent101 state are retired under the frozen policy. About72GiB remain free.[Design](docs/SPLICED_WORKSPACE_DISCOVERY_20261028.md).
+
 ## October28,2026,13:17 UTC — latent800 saved and audited;constant control active
 
 Uniform-NTP latent800 completes with all64 full model/AdamW/RNG states. Independent HF dense2D audit passes179/179 gradients(max named0.002737%);warm continuation mean1.0934seconds,no fallback. All101 retained prefix updates are included in the800 total.[Endpoint](results/spliced_workspace_discovery_20261028/latent-native.json) · [Mature audit](results/spliced_workspace_discovery_20261028/spliced-workspace-discovery-audit-latent-v1/report.json).

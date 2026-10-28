@@ -12,7 +12,13 @@ def run(root,output):
  for name in ['report.json','analysis.json','execution-costs.json','plan.json','latent-retirement.json','constant-retirement.json','ordinary-retirement.json']:
   source=native/name;destination=output/name
   if source.resolve()!=destination.resolve():shutil.copyfile(source,destination)
- analysis=report['analysis'];scores=analysis['independent_scores'];contrasts=analysis['contrasts'];costs=json.loads((native/'execution-costs.json').read_text());by_id={v['identity']:v for v in costs['native_attempts']}
+ analysis=report['analysis'];scores=analysis['independent_scores'];contrasts=analysis['contrasts']
+ prior=json.loads((root/'sparse-workspace-discovery-v1/plan.json').read_text());old=json.loads((root/'sparse-workspace-discovery-v1/analysis.json').read_text())
+ if plan['evaluation_groups']!=prior['evaluation_groups'] or plan['evaluation_anchors']!=prior['evaluation_anchors']:raise AssertionError('Exact reused development panel required for C0 parity')
+ parity=abs(scores['c0']['raw32_nll']-old['independent_scores']['c0']['raw32_nll'])
+ if parity>1e-5:raise AssertionError('Unchanged C0 raw32 readout must reproduce before interpreting any gain')
+ (output/'c0-readout-parity.json').write_text(json.dumps(dict(status='PASS_UNCHANGED_C0_RAW32_READOUT',maximum_allowed_absolute_error=1e-5,weighted_raw32_absolute_error=parity,scope='Same C0 weights and exact448 reused source groups.No new score selection or quality criterion.'),indent=2)+'\n')
+ costs=json.loads((native/'execution-costs.json').read_text());by_id={v['identity']:v for v in costs['native_attempts']}
  prefix_costs={}
  for arm,phase in [('latent','spliced-workspace-warm-v2-warm'),('ordinary','workspace-four-arm-discovery-v1-ordinary')]:
   closure=root/'snapshots'/phase/'closure.json';v=json.loads(closure.read_text())
