@@ -55,3 +55,13 @@ def test_rms_control_matches_source_embedding_scale_without_new_parameters():
     torch.manual_seed(5712);c=OlmoWorkspaceConfig(hidden_size=16,intermediate_size=32,num_hidden_layers=2,num_attention_heads=2,num_key_value_heads=2,vocab_size=64,pad_token_id=63);m=DependencyCandidate(c);v=pack_dependency(case(),'full',63,positions=64);cos,sin=rotary_tensors(c,64)
     r=m.dependency_forward(v['tokens'],cos,sin,v['anchors'],raw_positions=v['anchors'],variant='strict_rms');a=r['workspace_input'].square().mean(-1).sqrt();b=m.model.embed_tokens(v['tokens']).index_select(1,v['anchors']).square().mean(-1).sqrt();torch.testing.assert_close(a,b)
     assert list(m.state_dict())==list(IndependentSparseWorkspaceCandidate(c).state_dict())
+
+
+def test_trimming_fully_masked_future_cache_preserves_outputs_and_all_gradients():
+    from compute_trainium.dependency_candidate import DependencyCandidate
+    torch.manual_seed(5713);c=OlmoWorkspaceConfig(hidden_size=16,intermediate_size=32,num_hidden_layers=2,num_attention_heads=2,num_key_value_heads=2,vocab_size=64,pad_token_id=63);m=DependencyCandidate(c);v=pack_dependency(case(),'full',63,positions=64);cos,sin=rotary_tensors(c,64)
+    for variant in ['original','strict','strict_rms','embedding_replay']:
+        a=copy.deepcopy(m);b=copy.deepcopy(m);left=a.dependency_forward(v['tokens'],cos,sin,v['anchors'],raw_positions=v['anchors'],variant=variant);right=b.dependency_forward(v['tokens'],cos,sin,v['anchors'],raw_positions=v['anchors'],variant=variant,cache_prefix_length=56)
+        for k in ['raw_logits','mixed_logits']:torch.testing.assert_close(left[k],right[k],rtol=2e-5,atol=2e-6)
+        left['mixed_logits'].square().mean().backward();right['mixed_logits'].square().mean().backward()
+        for p,q in zip(a.parameters(),b.parameters(),strict=True):torch.testing.assert_close(p.grad,q.grad,rtol=2e-4,atol=2e-6)

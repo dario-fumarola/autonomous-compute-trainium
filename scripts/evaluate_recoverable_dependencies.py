@@ -29,7 +29,8 @@ def run(a):
  cases=json.loads((a.root/p['panel_relative']).read_text());references=[]
  def forward(index,condition,mode='latent',variant='original'):
   case=cases[index];v=pack_dependency(case,condition,cfg.pad_token_id);positions=v['positions'].to('neuron');cos=cos_table.index_select(-2,positions);sin=sin_table.index_select(-2,positions);anchors=v['anchors'].to('neuron')
-  r=model.dependency_forward(v['tokens'].to('neuron'),cos,sin,anchors,raw_positions=anchors,mode=mode,pause_id=p['pause_token_id'],variant=variant)
+  cache_length=next(k for k in p.get('cache_buckets',[1024]) if k>int(v['anchors'].max())) if p.get('trim_future_cache') else None
+  r=model.dependency_forward(v['tokens'].to('neuron'),cos,sin,anchors,raw_positions=anchors,mode=mode,pause_id=p['pause_token_id'],variant=variant,cache_prefix_length=cache_length)
   return v,r
  with torch.no_grad():
   # Every rank checks the same four authentic examples before any panel score.

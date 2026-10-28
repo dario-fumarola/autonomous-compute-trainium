@@ -11,7 +11,7 @@ from scripts.run_scale_sharding_fixture import AllChipExecution
 ID='recoverable-dependency-inference-v1';PUBLIC=Path('results/recoverable_dependencies_20261028/inference-v1')
 
 
-def prepare(root):
+def prepare(root,*,recover_cache=False):
  if managed_running():raise RuntimeError('Closed prior owners required')
  panel=root/'recoverable-dependency-panel-v2';pr=json.loads((panel/'report.json').read_text());parent=json.loads((root/'spliced-workspace-discovery-v1/plan.json').read_text())
  if pr['status']!='FROZEN_RECOVERABLE_DEPENDENCY_PANEL':raise AssertionError('Adequate frozen source cohorts required')
@@ -28,6 +28,11 @@ def prepare(root):
   if actual!=audit['checkpoint_sha256']:raise AssertionError('Scientific endpoint changed since independent mature audit')
  start=time.time();phase=ID+'-evaluation';identity_refs=[dict(r,variant='embedding_replay') for r in refs if r.get('variant','original')=='original']
  p=dict(identity=ID,purpose='recoverable_dependency_inference',registered_unix=start,world=64,worker_memory_gib=192,seconds_limit=1800,phase_seconds_limit=1200,cpu_phase_seconds_limit=120,absolute_deadline_unix=start+1800,clock_admission_waiver=True,source_sha256=sources,worker_source_sha256=worker,host_only_source_sha256=host,root_comm_ports=reserve_ports(root,[phase]),phases={phase:dict(mode='frozen-source-inference')},inode_projection=projection,model_config=parent['model_config'],checkpoint_relative=parent['checkpoint_relative'],checkpoint_sha256=parent['checkpoint_sha256'],arm_runs=parent['arm_runs'],updates=parent['updates'],pause_token_id=parent['pause_token_id'],native_cache_environment=parent['native_cache_environment'],panel_relative=str((panel/'PRIVATE-cases.json').relative_to(root)),panel_sha256=pr['case_file_sha256'],source_panel_report_sha256=file_sha256(panel/'report.json'),coverage=pr['coverage'],cpu_references=refs,identity_references=identity_refs,cpu_report_sha256=reports,case_count=sum(v['cases'] for k in pr['coverage'].values() for v in k.values()),source_policy_sha256=file_sha256('docs/RECOVERABLE_DEPENDENCY_DIAGNOSTIC_20261028.md'),optimizer_updates=0,scope=Path('docs/RECOVERABLE_DEPENDENCY_DIAGNOSTIC_20261028.md').read_text())
+ if recover_cache:
+  failed=root/'recoverable-dependency-inference-v1';original=json.loads((failed/'plan.json').read_text());end=original['absolute_deadline_unix']
+  if end-start<180:raise RuntimeError('Complete cache recovery must fit original assay deadline')
+  p.update(trim_future_cache=True,cache_buckets=[32,160,1024],parent_failed_plan_sha256=file_sha256(failed/'plan.json'),diagnosis_report_sha256=file_sha256(root/'dependency-forward-diagnosis-v1/report.json'),absolute_deadline_unix=end,seconds_limit=int(end-start),phase_seconds_limit=min(1200,int(end-start)))
+  p['scope']+=' Implementation-only recovery trims prefix KV strictly beyond every query position.CPU all-output/all-gradient equivalence required,all original Native tolerances and absolute deadline unchanged.No new data,mode,readout or model updates.'
  out=root/ID;out.mkdir();PUBLIC.mkdir()
  for d in [out,PUBLIC]:write_state(d/'plan.json',p)
 
@@ -46,4 +51,6 @@ def run(root):
 
 
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--run',action='store_true');a=p.parse_args();run(a.root) if a.run else prepare(a.root)
+ p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--run',action='store_true');p.add_argument('--recover-cache',action='store_true');a=p.parse_args()
+ if a.recover_cache:ID='recoverable-dependency-inference-v2';PUBLIC=Path('results/recoverable_dependencies_20261028/inference-v2')
+ run(a.root) if a.run else prepare(a.root,recover_cache=a.recover_cache)
