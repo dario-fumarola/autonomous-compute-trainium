@@ -15,10 +15,10 @@ NAMES=['workspace-native-fixture-worktree-v1','workspace-native-full-model-workt
        'workspace-native-full-update-worktree-v1','workspace-native-online-throughput-worktree-v1']
 
 
-def run(root,*,scale_closed=False,recovery=False,workspace_closed=False,checkpoint_closed=False,boundary_closed=False):
+def run(root,*,scale_closed=False,recovery=False,workspace_closed=False,checkpoint_closed=False,boundary_closed=False,replay_closed=False):
     if managed_running():raise RuntimeError('Closed execution checkout maintenance only')
-    out=root/('workspace-closed-boundary-preservation-v1' if boundary_closed else 'workspace-checkpoint-closed-preservation-v1' if checkpoint_closed else 'workspace-closed-execution-preservation-v2' if workspace_closed else 'workspace-scale-closed-checkout-preservation-v2' if recovery else 'workspace-scale-closed-checkout-preservation-v1' if scale_closed else 'workspace-closed-checkout-preservation-v1');out.mkdir(mode=0o700)
-    public=Path('results/workspace_closed_boundary_20261028' if boundary_closed else 'results/workspace_checkpoint_closed_20261028' if checkpoint_closed else 'results/workspace_closed_execution_20261027' if workspace_closed else 'results/workspace_scale_closed_checkouts_20261027/recovery-v2' if recovery else 'results/workspace_scale_closed_checkouts_20261027' if scale_closed else 'results/workspace_closed_checkouts_20261027');public.mkdir()
+    out=root/('workspace-closed-replay-preservation-v1' if replay_closed else 'workspace-closed-boundary-preservation-v1' if boundary_closed else 'workspace-checkpoint-closed-preservation-v1' if checkpoint_closed else 'workspace-closed-execution-preservation-v2' if workspace_closed else 'workspace-scale-closed-checkout-preservation-v2' if recovery else 'workspace-scale-closed-checkout-preservation-v1' if scale_closed else 'workspace-closed-checkout-preservation-v1');out.mkdir(mode=0o700)
+    public=Path('results/workspace_closed_replay_20261028' if replay_closed else 'results/workspace_closed_boundary_20261028' if boundary_closed else 'results/workspace_checkpoint_closed_20261028' if checkpoint_closed else 'results/workspace_closed_execution_20261027' if workspace_closed else 'results/workspace_scale_closed_checkouts_20261027/recovery-v2' if recovery else 'results/workspace_scale_closed_checkouts_20261027' if scale_closed else 'results/workspace_closed_checkouts_20261027');public.mkdir()
     started=time.time();before=os.statvfs(root).f_favail;rows=[]
     for name in NAMES:
         tree=root/name
