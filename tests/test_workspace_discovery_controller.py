@@ -26,8 +26,9 @@ def test_recovery_reuses_audited_ordinary_and_stops_on_workspace_failure(tmp_pat
     root=tmp_path/'root';out=root/module.IDENTITY;out.mkdir(parents=True);public=tmp_path/'public';public.mkdir()
     native=root/'ordinary.json';audit=root/'audit.json';native.write_text('{"actual_optimizer_updates":931}');audit.write_text('{"status":"PASS"}')
     phase=module.IDENTITY+'-workspace';calls=[]
+    reused_plan={'root_comm_ports':{phase:23456},'reused_ordinary':{'native_report_relative':'ordinary.json','native_report_sha256':file_sha256(native),'audit_relative':'audit.json','audit_sha256':file_sha256(audit)},'prior_execution_costs':{'retained':True}}
     class Execution:
-        sha='fixed';plan={'root_comm_ports':{phase:23456},'reused_ordinary':{'native_report_relative':'ordinary.json','native_report_sha256':file_sha256(native),'audit_relative':'audit.json','audit_sha256':file_sha256(audit)},'prior_execution_costs':{'retained':True}}
+        sha='fixed';plan=reused_plan
         def __init__(self,*args):pass
         def native(self,identity,*args):calls.append(identity);raise RuntimeError('owned workspace stop')
         def close(self,path):path.write_text('{}')

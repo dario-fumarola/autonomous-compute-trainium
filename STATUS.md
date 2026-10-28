@@ -1,3 +1,7 @@
+## October28,2026,00:22 UTC — corrected recovery CPU gate passes before activation
+
+The16-test recovery/state/controller group now passes in19.77seconds,including exact live-gradient preservation on compiled-call release,wave state/RNG replay and audited-ordinary reuse. A prematurely recorded16-pass entry in218fc7a preceded inspection of the test log;the new fake-controller fixture actually had a class-scope NameError before controller execution (15passed,1failed). That receipt is corrected,fixture fixed,and two full focused reruns pass16/16. No scientific recovery launched from the premature receipt. The independent actual-size zero-update checkpoint/gradient proof remains valid. Completed waves now fsync and release their file cache before subsequent writers;the tensor bytes and resource/numerical floors are unchanged.
+
 ## October28,2026,00:16 UTC — actual-size checkpoint-wave proof passes; controlled replay next
 
 The isolated192GiB check passes with zero updates:all179 mature gradients EXACTLY match the existing CPU-qualified Native vectors,and eight concurrent compressed writers preserve every one of895 model/scorer/AdamW tensors and both RNG states. No CPU fallback;201.96seconds intrinsic runtime. Compiled calls are released after neural computation,before staging reference or checkpoint copies. The earlier isolated attempt OOMs during whole-matrix FP64 audit staging before any writer test;its failure remains. [Actual-size proof](results/workspace_checkpoint_waves_20261027/recovery-v2/report.json).

@@ -64,6 +64,14 @@ def save_state_waves(path,model,scorer,optimizer,generator,*,extra,wave_size=8,s
     for start in range(0,count,wave_size):
         if start<=rank<min(start+wave_size,count):
             result=save_complete_state(path,model,scorer,optimizer,generator,extra=extra,compress=True)
+            # Completed waves must not accumulate dirty checkpoint pages in
+            # the bounded worker while later ranks serialize their shards.
+            import os
+            fd=os.open(path,os.O_RDWR)
+            try:
+                os.fsync(fd)
+                os.posix_fadvise(fd,0,0,os.POSIX_FADV_DONTNEED)
+            finally:os.close(fd)
         dist.barrier()
         from .workspace_native_objective import drain_runtime
         drain_runtime(next(model.parameters()).device)
