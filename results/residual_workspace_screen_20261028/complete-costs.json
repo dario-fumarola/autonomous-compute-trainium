@@ -1,0 +1,93 @@
+{
+  "native": {
+    "native_attempts": [
+      {
+        "identity": "residual-workspace-screen-v1-features",
+        "exit_code": 0,
+        "wall_seconds": 50.03626823425293,
+        "assigned_chip_hours": 0.22238341437445747,
+        "whole_instance_opportunity_chip_hours": 0.22238341437445747,
+        "report_exists": true
+      }
+    ],
+    "current_controller_cpu_attempts": [],
+    "cleanup_errors": [],
+    "execution": {
+      "started_unix": 1793210826.1206326,
+      "deadline_unix": 1793213526.1206326,
+      "plan_sha256": "6175ad5a986e54e0473808ab2bc673fec3058dd826e371a649ffb70e9e5de73a"
+    },
+    "wall_seconds_since_admission": 182.55772161483765,
+    "whole_instance_opportunity_chip_hours": 0.8113676548004151,
+    "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+  },
+  "cpu_reference": {
+    "status": "PASS_FROZEN_RESIDUAL_CPU_REFERENCE",
+    "wall_seconds": 16.255368947982788,
+    "optimizer_updates": 0,
+    "assigned_chips": 0,
+    "reference_count": 3
+  },
+  "cpu_arms": {
+    "linear": {
+      "status": "COMPLETE_RESIDUAL_SCREEN_ARM",
+      "arm": "linear",
+      "backbone_updates": 0,
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        106094919680,
+        106094919680
+      ],
+      "updates": 512,
+      "branch_parameters": 524288,
+      "train_source_views": 2048,
+      "label_exposures": 65536,
+      "mean_warm_update_seconds": 0.17815218419711418,
+      "parameters_frozen": true,
+      "completed_updates": 512,
+      "wall_seconds": 117.38181114196777,
+      "peak_rss_bytes": 5012385792
+    },
+    "one": {
+      "status": "COMPLETE_RESIDUAL_SCREEN_ARM",
+      "arm": "one",
+      "backbone_updates": 0,
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        106326720512,
+        106326720512
+      ],
+      "updates": 512,
+      "branch_parameters": 655360,
+      "train_source_views": 2048,
+      "label_exposures": 65536,
+      "mean_warm_update_seconds": 0.18267989811831958,
+      "parameters_frozen": true,
+      "completed_updates": 512,
+      "wall_seconds": 119.89047622680664,
+      "peak_rss_bytes": 5015707648
+    },
+    "two": {
+      "status": "COMPLETE_RESIDUAL_SCREEN_ARM",
+      "arm": "two",
+      "backbone_updates": 0,
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        106558521344,
+        106558521344
+      ],
+      "updates": 512,
+      "branch_parameters": 655360,
+      "train_source_views": 2048,
+      "label_exposures": 65536,
+      "mean_warm_update_seconds": 0.1798226856672134,
+      "parameters_frozen": true,
+      "completed_updates": 512,
+      "wall_seconds": 118.52379703521729,
+      "peak_rss_bytes": 5015904256
+    }
+  },
+  "cpu_diagnostic_wall_seconds": 127.43302583694458,
+  "cpu_assigned_chips": 0,
+  "source_scope": "All frozen feature extraction and projection costs must count in a future efficiency comparison.No inference benchmark or matched-work win claimed."
+}

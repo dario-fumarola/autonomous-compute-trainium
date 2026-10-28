@@ -1,3 +1,11 @@
+## October28,2026,18:16 UTC — frozen-base branch learns TRAIN corrections;iteration does not win
+
+The registered linear/one/two residual screen completes all512 updates per arm. C0 stays frozen at2.282112 NLL;linear scores2.280833,one step2.281998,two steps2.281367. Two-step gain0.000745 has conditional interval[−0.002580,+0.003540],and fails both cheaper-control gates. The original0.01/0.005 thresholds remain unchanged.[Report](results/residual_workspace_screen_20261028/REPORT.md).
+
+The post-fit TRAIN diagnostic finds two-step gain0.041834 on trained labels and0.010769 at TRAIN-tail positions,versus0.000745 held out;linear and one-step controls show the same pattern. This supports a generalization gap for this small screen,not missing gradients or a new iterative success. All small states/optimizer/RNG restore exactly;all named FP32 gradients agree with FP64(max relative4.734e-6). No saved checkpoint is updated by the diagnostic.
+
+All16-chip frozen-feature extraction passes independent HF checks and costs0.222383 assigned chip-hours;the three CPU fits each take about118seconds concurrently. Full head/backward work is counted. No operator fallback,full-model update,larger fit or confirmation occurs. All scientific checkpoints and private feature/input states remain;about46GiB free. No active job remains. Further work needs a new bounded data/generalization hypothesis with the cheap controls retained;the broader goal remains unachieved.
+
 ## October28,2026,18:07 UTC — frozen-predictor residual learning screen registered
 
 The owner asks for a concrete next route. A new small branch learns in final-representation space while C0 and its vocabulary head stay frozen. Its zero output gives exact ordinary predictions initially;future masking,query independence and repeated-cell gradients pass CPU checks. Thirteen focused tests pass. This isolates useful branch learning from changes to the base predictor. The prior whole-backbone feedback architecture remains closed.

@@ -1,0 +1,160 @@
+{
+  "status": "COMPLETE_FROZEN_RESIDUAL_SCREEN",
+  "backbone_updates": 0,
+  "features": {
+    "status": "COMPLETE_FROZEN_RESIDUAL_FEATURES",
+    "world": 64,
+    "optimizer_updates": 0,
+    "feature_dtype": "float32",
+    "train_views": 2048,
+    "evaluation_views": 448,
+    "cpu_errors": [
+      [
+        0.000102996826171875,
+        2.86102294921875e-05
+      ],
+      [
+        4.673004150390625e-05,
+        3.24249267578125e-05
+      ],
+      [
+        5.53131103515625e-05,
+        4.76837158203125e-05
+      ]
+    ],
+    "parameters_unchanged": true,
+    "fallback_ops": [],
+    "wall_seconds": 40.21226477622986
+  },
+  "analysis": {
+    "scores": {
+      "linear": {
+        "raw_nll": 2.2821122052683624,
+        "workspace_nll": 2.280833080655382
+      },
+      "one": {
+        "raw_nll": 2.2821122052683624,
+        "workspace_nll": 2.281997769921564
+      },
+      "two": {
+        "raw_nll": 2.2821122052683624,
+        "workspace_nll": 2.281367359115853
+      }
+    },
+    "contrasts": {
+      "linear_utility": {
+        "mean": 0.001279124612980282,
+        "conditional_source_group_95_interval": [
+          -0.0017742901895815718,
+          0.003945696374852089
+        ],
+        "groups": 116,
+        "valid_draws": 5000,
+        "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+      },
+      "one_utility": {
+        "mean": 0.00011443534679895844,
+        "conditional_source_group_95_interval": [
+          -0.003474401322074783,
+          0.0030166048251291265
+        ],
+        "groups": 116,
+        "valid_draws": 5000,
+        "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+      },
+      "two_utility": {
+        "mean": 0.0007448461525096089,
+        "conditional_source_group_95_interval": [
+          -0.002580009015996991,
+          0.0035401638860062938
+        ],
+        "groups": 116,
+        "valid_draws": 5000,
+        "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+      },
+      "linear_minus_two": {
+        "mean": -0.0005342784604706732,
+        "conditional_source_group_95_interval": [
+          -0.0022193992683969565,
+          0.0011038023176489276
+        ],
+        "groups": 116,
+        "valid_draws": 5000,
+        "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+      },
+      "one_minus_two": {
+        "mean": 0.0006304108057106505,
+        "conditional_source_group_95_interval": [
+          -0.00017125270832564832,
+          0.0014058629377931057
+        ],
+        "groups": 116,
+        "valid_draws": 5000,
+        "scope": "Reused development sources,one branch seed,frozen backbone;not fresh confirmation or seed uncertainty."
+      }
+    },
+    "promising_iterative_mechanism": false,
+    "efficiency_claim": false,
+    "from_scratch": false,
+    "scope": "Equal source/anchor exposure,not matched total training compute.Only branch parameters trained;all foundation/feature/head costs remain real.No tuning,early stopping,adaptive allocation or unsupported depth readout."
+  },
+  "arms": {
+    "linear": {
+      "status": "COMPLETE_RESIDUAL_SCREEN_ARM",
+      "arm": "linear",
+      "backbone_updates": 0,
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        106094919680,
+        106094919680
+      ],
+      "updates": 512,
+      "branch_parameters": 524288,
+      "train_source_views": 2048,
+      "label_exposures": 65536,
+      "mean_warm_update_seconds": 0.17815218419711418,
+      "parameters_frozen": true,
+      "completed_updates": 512,
+      "wall_seconds": 117.38181114196777,
+      "peak_rss_bytes": 5012385792
+    },
+    "one": {
+      "status": "COMPLETE_RESIDUAL_SCREEN_ARM",
+      "arm": "one",
+      "backbone_updates": 0,
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        106326720512,
+        106326720512
+      ],
+      "updates": 512,
+      "branch_parameters": 655360,
+      "train_source_views": 2048,
+      "label_exposures": 65536,
+      "mean_warm_update_seconds": 0.18267989811831958,
+      "parameters_frozen": true,
+      "completed_updates": 512,
+      "wall_seconds": 119.89047622680664,
+      "peak_rss_bytes": 5015707648
+    },
+    "two": {
+      "status": "COMPLETE_RESIDUAL_SCREEN_ARM",
+      "arm": "two",
+      "backbone_updates": 0,
+      "assigned_chips": 0,
+      "matrix_operations_measured_updates": [
+        106558521344,
+        106558521344
+      ],
+      "updates": 512,
+      "branch_parameters": 655360,
+      "train_source_views": 2048,
+      "label_exposures": 65536,
+      "mean_warm_update_seconds": 0.1798226856672134,
+      "parameters_frozen": true,
+      "completed_updates": 512,
+      "wall_seconds": 118.52379703521729,
+      "peak_rss_bytes": 5015904256
+    }
+  }
+}
