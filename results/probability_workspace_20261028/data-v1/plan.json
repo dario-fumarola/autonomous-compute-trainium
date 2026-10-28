@@ -1,0 +1,22 @@
+{
+  "purpose": "Source preparation, no model scoring or training",
+  "registered_unix": 1793225754.995805,
+  "train_position_cap": 640000000,
+  "context": 512,
+  "tune_windows_per_domain": 128,
+  "admitted_source": "natural-append-3250m/extension",
+  "accepted_database_sha256": "6f11de3a7c16df42897b1de0d2bde26de0b40477e2cd677b62cf98a8c621c5e4",
+  "original_source_metadata_sha256": "b878d521011a83ae51927e1e0725f4699d7819bae4d82a9350b8c1be32a3d4ce",
+  "reserved_groups_sha256": "bcaedd7f9f2af7d34424fef10f835570806902fb3c54e50a60c06849dec12768",
+  "tokenizer_revision": "27d67f1b5f57dc0953326b2601d68371d40ea8da",
+  "train_rule": "Accepted TRAIN, source-group first8hex modulo10 nonzero, exclude320 reserved groups; id-sorted per domain, interleave at60/20/20 target ratio.",
+  "tune_rule": "Accepted TRAIN source-group first8hex modulo10 zero; distinct groups, first eligible512-token window per group,128 per domain. Reused source population, not confirmation.",
+  "maximum_document_tokens": 16384,
+  "original_targets_only": true,
+  "seconds_limit": 900,
+  "raw_token_sha256": {
+    "web": "4002343f136b1ee94adc6ed08a651d6a5aed5af4df22ca2b2e4ed358162749ed",
+    "math": "56dd951d8e6dad8cea6c842e2b477a48485f91473ad8b53a9f86be842f4b39f2",
+    "code": "59f21b36b21d28d8569ae6001fc45970bb82fb041a36dc4a564cb5d340e61d10"
+  }
+}

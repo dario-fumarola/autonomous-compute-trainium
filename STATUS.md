@@ -1,3 +1,17 @@
+## October28,2026,22:26 UTC — actual-shape probability replay qualification launched
+
+All16 chips/64 ranks are assigned to the disposable62.8M/512-context warm qualification. It checks CPU agreement at zero/one/two extra passes before updates,then100 warm updates,mature whole-global gradients and separate-process full-state replay. Qualification weights are excluded from scientific initialization. No held-out quality result yet. [Frozen plan](results/probability_workspace_20261028/warm-v1/plan.json).
+
+The full repository suite passes578 tests with2 skips. Eight obsolete numerical fixtures are compressed with byte-exact restoration; a5.00GiB closed regenerable compiler-IR archive is retired with its hash/manifests retained. Identical closed source files share storage without changing any original source bytes or receipts,restoring38138 free inodes. No scientific model/optimizer checkpoint or failed history was deleted. Two inode-preparation stops,the missing-plan invocation,and the bounded whole-history inventory stop are retained as operational events. Only the last32 closed snapshots needed source coalescing. No old scientific negative is reopened.
+
+## October28,2026,22:21 UTC — probability-embedding reference passes all-chip numerical replay
+
+A distinct published-operation reference feeds the model's soft token prediction back into its input embeddings and recomputes the causal body. Seven focused CPU tests and all16-chip/64-rank small-array qualification pass;maximum gradient relative error2.911e-6 and full model/AdamW/RNG replay is exact. Zero scientific updates. [Reference and numerical result](results/probability_workspace_20261028/REPORT.md).
+
+The TRAIN-only coverage audit reproduces the old target RNG and finds one selected arithmetic conclusion token,two intermediate tokens,and no selected strict code-binding token. These are parser lower bounds,not proof other positions lack computational structure. [Audit](results/workspace_target_coverage_20261028/REPORT.md).
+
+A62.8M/512-context actual-shape qualification is being prepared. Its admission stopped before launch on projected inode capacity;closed-source bytecode maintenance is running. No quality score or scientific fit yet. Newly prepared authentic-source ordering excludes all320 protected groups and separates384 TUNE groups. Old discrete,sparse-feedback,frozen-feature and associative-memory negatives remain closed;the broad goal remains unachieved.
+
 ## October28,2026,21:40 UTC — prediction-error calibration complete; no further fit
 
 The recovered literal-gradient diagnostic passes all numerical/source gates and completes797 calibration views. Error correction gains0.000245nats,uniform error0.000451,and prediction-only0.000352;token reinforcement selects zero. Error correction misses the0.005 gate and does not beat the simpler control,so no TUNE or protected-source score follows.[Complete result](results/prefix_error_headroom_20261028/recovery-v2/REPORT.md).

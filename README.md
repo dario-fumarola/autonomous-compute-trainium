@@ -18,6 +18,18 @@ policy gradients are authorized for this new phase. Earlier results retain
 their original criteria;no larger recurrence main or confirmation completed.
 [New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
 
+A new probability-embedding reference follows the published PonderLM operation:
+form a soft token proposal,add it to the input embeddings,and rerun the causal
+model with full NTP gradients. Small-array all16-chip numerical and exact
+restart checks pass. Actual62.8M-shape throughput qualification is now running;
+there is **no new prediction-quality result or scientific fit yet**. This is a
+different mechanism from the closed branches below,not a reinterpretation of
+their outcomes. A TRAIN-only audit also finds very little explicit verified
+arithmetic/code supervision among the old screen's selected labels,under narrow
+parsers whose failures are reported rather than treated as negative examples.
+[Reference and qualification](results/probability_workspace_20261028/REPORT.md) ·
+[TRAIN coverage audit](results/workspace_target_coverage_20261028/REPORT.md).
+
 A frozen-base residual screen now isolates a source-diversity effect. At equal
 branch updates,fresh8192-view training gives NLL **2.275685 one step** and
 **2.276055 two steps**,against unchanged C0 **2.282112**. Repeating2048 views
