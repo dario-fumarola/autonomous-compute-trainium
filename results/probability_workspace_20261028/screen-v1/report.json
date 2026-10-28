@@ -1,0 +1,36 @@
+{
+  "status": "STOPPED_PROBABILITY_LEARNING_SCREEN",
+  "records": {
+    "workspace": {
+      "status": "COMPLETE_PROBABILITY_SCREEN_FIT_PENDING_AUDITS",
+      "world": 64,
+      "arm": "workspace",
+      "updates": 1530,
+      "real_targets": 200190896,
+      "nominal_training_matrix_flops": 190988262121144320,
+      "checkpoints": [
+        {
+          "update": 492,
+          "real_targets": 64375018,
+          "matrix_flops": 61415833309544448,
+          "full_state_digest": "4483e03787433a79bb29e130b6b106a7f8846e4785e927df1a9081c43893d574"
+        },
+        {
+          "update": 1530,
+          "real_targets": 200190896,
+          "matrix_flops": 190988262121144320,
+          "full_state_digest": "398929b139c81c4fbb1d9de30e355fa909594348fe353e43bf4859200bb2bd0a"
+        }
+      ],
+      "initial_model_digest": "9bdbf111ce63b826a8133be760aec874218c2b9d9224fc67e72628423e4fcd56",
+      "wall_seconds": 1081.5590727329254,
+      "mean_warm_update_seconds": 0.5404999827589174,
+      "all_replica_full_states_equal": true,
+      "heldout_reads": 0,
+      "final_lr": 0.0001,
+      "scope": "Initial-learning screen from random initialization with complete independent endpoint cooldown. No teacher,auxiliary objective,loss weighting,learned allocation or convergence/strong-frontier claim."
+    }
+  },
+  "error_type": "RuntimeError",
+  "error": "CPU phase failed: probability-workspace-screen-v1-audit-workspace"
+}

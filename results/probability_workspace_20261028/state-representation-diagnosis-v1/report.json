@@ -1,0 +1,22 @@
+{
+  "status": "PASS_EXACT_CANONICAL_STATE_RESTORE",
+  "rows": [
+    {
+      "update": 492,
+      "checkpoint_sha256": "937ba17fcc3a206db3c3061a2ba0154635c94ae68a45a9d238965677a132bbbe",
+      "full_state_digest": "4483e03787433a79bb29e130b6b106a7f8846e4785e927df1a9081c43893d574",
+      "exact": true
+    },
+    {
+      "update": 1530,
+      "checkpoint_sha256": "d899b2f757c61488795797e3ac778101bb3bc65836a0196dbec7a08e1af4c78f",
+      "full_state_digest": "398929b139c81c4fbb1d9de30e355fa909594348fe353e43bf4859200bb2bd0a",
+      "exact": true
+    }
+  ],
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "wall_seconds": 5.937475204467773,
+  "cause": "Native cpu_tree serializes model OrderedDict as dict;CPU audit hashed an uncanonicalized OrderedDict. Applying the identical existing serialization restores the exact saved digest at both checkpoints. No tensor,optimizer value,RNG,key order or equality tolerance changed."
+}

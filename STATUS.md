@@ -1,3 +1,21 @@
+## October28,2026,23:30 UTC — workspace fit complete; exact state representation fix registered
+
+The workspace arm completes1530updates/200,190,896 real targets and its final
+cooldown. All64 full replicas agree;the64.4M and200.2M checkpoints are preserved.
+No held-out score has been read. The controller stops at the first CPU restore
+hash:Native cpu_tree serialized an OrderedDict as dict,but the CPU audit hashed
+an uncanonicalized OrderedDict. Applying the identical existing cpu_tree
+serialization reproduces both original complete model/AdamW/RNG hashes exactly.
+No tensor,scalar,key order or tolerance changes.[Diagnosis](results/probability_workspace_20261028/state-representation-diagnosis-v1/report.json).
+
+Twelve focused checks pass,including a regression test that still detects a
+changed tensor. Recovery reruns only the failed zero-update audit,then the
+three unstarted controls and joint evaluation. The completed workspace is never
+retrained. All scientific settings and the original four-hour overall deadline
+remain fixed;the failed CPU attempt and original fit costs remain. CPU audit is
+active;all16 chips will be assigned to each remaining admitted Native phase.
+[Recovery plan](results/probability_workspace_20261028/screen-recovery-v1/plan.json).
+
 ## October28,2026,23:07 UTC — all-chip probability-replay learning screen launched
 
 All16 chips/64ranks are assigned to the new62.8M random-initialization screen.

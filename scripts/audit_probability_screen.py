@@ -9,6 +9,7 @@ def main(a):
     from compute_trainium.probability_workspace import ProbabilityWorkspace
     from compute_trainium.probability_workspace_data import ProbabilitySources
     from compute_trainium.pretraining_optimizer import parameter_groups
+    from compute_trainium.scale_sharded_fixture import cpu_tree
     from compute_trainium.training import file_sha256
     from scripts.qualify_native import digest
     from scripts.qualify_trained_gradient import compare_gradients
@@ -21,7 +22,10 @@ def main(a):
         model=ProbabilityWorkspace(ModelConfig(**p['model_config']));model.load_state_dict(saved['model'])
         opt=torch.optim.AdamW(parameter_groups(model,model.embedding.weight,decay=p['weight_decay']),lr=p['lr'],betas=(.9,.95),eps=1e-8,foreach=False,fused=True)
         opt.load_state_dict(saved['optimizer']);torch.set_rng_state(saved['rng'])
-        restored=digest(dict(model=model.state_dict(),optimizer=opt.state_dict(),rng=torch.get_rng_state()))
+        # Native checkpoint serialization recursively converts OrderedDict to
+        # dict. Apply exactly that same representation before hashing restore;
+        # tensor bytes,scalar values and key order remain strict.
+        restored=digest(cpu_tree(dict(model=model.state_dict(),optimizer=opt.state_dict(),rng=torch.get_rng_state())))
         if restored!=saved['digest']:raise AssertionError('Exact model/optimizer/RNG state restoration failed')
         for depth in arm['audit_depths']:
             model.zero_grad(set_to_none=True);loss_sum=0.
