@@ -30,6 +30,11 @@ The one-step attention branch improves on it by0.002005nats,but a second
 step does not help. This motivates studying the additional context read;
 its causal content use,iterative reasoning and compute efficiency remain unproved.
 [Matched local control](results/residual_local_control_20261028/REPORT.md).
+A subsequent frozen memory intervention weakens the rereading interpretation:
+independent same-domain memory retains about89–94% of the gain,and neither
+primary natural-dependency family passes its content-sensitive gate. TRAIN
+attention is sharp,but that alone does not establish useful reasoning.
+[Memory attribution and unscored source reserve](results/residual_memory_attribution_20261028/REPORT.md).
 
 The uniform-NTP correction is complete. All new models now improve over C0,
 but the workspace still harms its own selected predictions. On448 reused TUNE

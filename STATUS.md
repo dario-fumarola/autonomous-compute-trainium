@@ -1,3 +1,11 @@
+## October28,2026,19:49 UTC — most branch gain survives unrelated memory;mechanism gates fail
+
+The frozen448-view/339-case diagnostic completes. Authentic NLL2.275685 versus donor2.276416/2.276083 means about89%/94% of the gain survives unrelated same-domain memory. Current-only scores2.279499. Neither code-binding nor arithmetic-conclusion whole-answer/content gate passes in both cohorts. Positive arithmetic first-token gains remain recorded,but donor controls and local correction do not establish reasoning.[Full report](results/residual_memory_attribution_20261028/REPORT.md).
+
+All11 CPU tests/parity/hash gates pass. The diagnostic uses330.04seconds on CPU,zero model updates and zero assigned chips. Separate TRAIN-only checks show sharply learned attention rather than uniform averaging,and no predominant first-position pattern;neither observation proves relevant content use. All states remain intact,about38.4GiB free,and no managed job remains active.
+
+An unscored320-source-group reserve is frozen for future panel construction;no TEST/old sealed confirmation data was opened. The current branch remains a useful development predictor correction with unproven content-sensitive computation. No two-step scaling,router,larger fit or automatic replication is admitted. A trained independent-memory control is the next unresolved attribution comparison;it has not been launched. The broader thinking-during-pretraining goal remains unachieved.
+
 ## October28,2026,19:29 UTC — frozen memory-content diagnostic registered
 
 The owner asks to strengthen the one-step lead. Eleven focused CPU tests pass. A zero-update test preserves each original query/current slot while replacing earlier memory with two independent same-domain donors or using only the current slot. All448 original TUNE views are retained. The existing source-verified dependency panel contributes339 cases;one longest code case lacks two distinct length-compatible donor groups and is excluded before scoring.[Frozen design](docs/RESIDUAL_MEMORY_ATTRIBUTION_20261028.md).

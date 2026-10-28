@@ -131,3 +131,16 @@ thinking. None establishes a universal1–2B lower capability limit.
 [Quiet-STaR](https://arxiv.org/html/2403.09629v2) ·
 [RLP](https://arxiv.org/html/2510.01265v2) ·
 [PonderLM](https://arxiv.org/html/2505.20674v3).
+
+## Protected unscored workspace source reserve,October28
+
+The memory-attribution diagnostic reserves320 source groups for prospective
+replication,documented in
+[the unscored reserve receipt](../results/residual_memory_attribution_20261028/source-reserve.json).
+The private identifiers are in residual-memory-attribution-v1/PRIVATE-reserved-sources.json
+under the instance data root. Exclude these groups from subsequent workspace
+training and hyperparameter selection. Do not score them before a new frozen
+replication design. They still require source reconstruction,tokenization and
+deduplication before a panel is ready. This reservation does not open TEST or
+the old sealed confirmation pool,and does not guarantee absence from upstream
+base-model training or earlier small-model corpora.
