@@ -1,0 +1,42 @@
+{
+  "new_cpu_fits": {
+    "static": {
+      "training_matrix_operations": 218071797071872,
+      "fit_wall_seconds": 353.4762568473816,
+      "depth_counts": {
+        "1": 1024,
+        "2": 1024
+      },
+      "updates": 2048,
+      "views": 8192,
+      "label_exposures": 262144
+    },
+    "written": {
+      "training_matrix_operations": 218607936077824,
+      "fit_wall_seconds": 367.45879888534546,
+      "depth_counts": {
+        "1": 1024,
+        "2": 1024
+      },
+      "updates": 2048,
+      "views": 8192,
+      "label_exposures": 262144
+    }
+  },
+  "new_controller_wall_seconds": 449.92497730255127,
+  "new_preparation_wall_seconds": 24.1926851272583,
+  "new_mature_audit_wall_seconds": {
+    "static": 3.631859540939331,
+    "written": 1.2467360496520996
+  },
+  "new_assigned_chip_hours": 0,
+  "shared_prior_costs": [
+    "../residual_data_volume_20261028/complete-costs.json",
+    "../residual_local_control_20261028/complete-costs.json",
+    "../residual_independent_memory_20261028/complete-costs.json"
+  ],
+  "reserved_opportunity_interval_start_unix": 1793218683.5516348,
+  "reserved_opportunity_interval_cutoff_unix": 1793219680.093972,
+  "reserved_instance_opportunity_chip_hours": 4.429077054129706,
+  "scope": "CPU fits overlap;do not sum fit/audit wall durations with controller time.Opportunity interval starts at the preceding ledger cutoff and includes source preparation,qualification,inspection and publication up to this receipt;not completed accelerator work.Original feature/C0 costs remain charged."
+}

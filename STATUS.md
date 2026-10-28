@@ -1,3 +1,11 @@
+## October28,2026,20:34 UTC — supported steps and internally written memory fail the advancement gate
+
+Both fresh2048-update branches complete with explicitly supported one/two-step exits. Static NLL is2.276423/2.275580;written-memory NLL is2.276430/2.275799. The independently trained shallow model remains2.275685. Written-two gains0.000631 over its own shallow exit,but does not recover that exit's0.000745 deficit to the independent control. Suppressing earlier writes improves0.000395nats. The original useful-iteration bars fail.[Complete result](results/residual_written_memory_20261028/REPORT.md).
+
+All16 focused tests pass. Both exits/all domains pass mature FP32/FP64 gradients(max relative3.899e-6),full-state restoration and disposable replay;prior scores reproduce exactly. Concurrent CPU fits take353.48/367.46seconds,the controller449.92seconds,with0.246% matrix-work difference. Zero new assigned chips;all shared and opportunity costs retained. No active job remains;all scientific states remain intact and about38.4GiB is free. The320 reserved groups stay unscored.
+
+The frozen-feature two-step mechanism is closed under its registered rule;no more steps or coefficients on this panel. The independent-memory control and supported-exit test together narrow the current lead to a small predictor correction. Useful matched-memory dependence and internally written-state value have not cleared their gates. No learned allocation,reasoning,from-scratch or compute-efficiency success is claimed. Further work needs a distinct,registered learning hypothesis;the broader goal remains unachieved.
+
 ## October28,2026,20:25 UTC — supported iteration with earlier latent writes registered
 
 Sixteen focused CPU tests pass,including causality,exact zero-output identity,all parameter gradients,and equal-weight agreement between suppressed writes and static memory. Full-size FP32 versus independent FP64 passes on both exits/all three domains at disposable mature weights. Two fresh655360-parameter branches will receive identical8192 target views/2048 updates and a balanced pre-frozen depth1/2 schedule. Only earlier-memory updates differ;both arms preserve the updated current slot.[Protocol](docs/RESIDUAL_WRITTEN_MEMORY_20261028.md).

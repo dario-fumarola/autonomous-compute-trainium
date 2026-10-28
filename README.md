@@ -40,6 +40,13 @@ Matched-source memory during training contributes only0.000977nats on the
 reused panel;the registered useful-content gate fails. This strengthens the
 predictor-correction interpretation without establishing its exact mechanism.
 [Training association control](results/residual_independent_memory_20261028/REPORT.md).
+A subsequent test trains both one- and two-step exits and lets earlier
+positions write updated states. Two steps gain0.000631 over that checkpoint's
+shallow exit, but do not beat the independently trained one-step model.
+Suppressing the newly written earlier states improves0.000395nats. The
+registered useful-iteration gate fails, closing this frozen-feature two-step
+mechanism without a larger run.
+[Supported exits and internal writes](results/residual_written_memory_20261028/REPORT.md).
 
 The uniform-NTP correction is complete. All new models now improve over C0,
 but the workspace still harms its own selected predictions. On448 reused TUNE
