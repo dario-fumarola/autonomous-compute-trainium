@@ -19,6 +19,25 @@
       "fallback_ops": [],
       "heldout_read": false,
       "scope": "Single-seed constant-rate discovery from commonC0 with freshAdamW.Same natural targets,source order and .5 raw159+.5 anchor4 emphasis in every arm.Nominal matrix work matched,not hardware time or converged tuned efficiency.No allocation,reasoning or from-scratch claim."
+    },
+    "constant": {
+      "status": "COMPLETE_SPARSE_DISCOVERY_ARM_PENDING_MATURE_HF_AUDIT",
+      "world": 64,
+      "arm": "constant",
+      "actual_optimizer_updates": 900,
+      "source_views": 57600,
+      "raw_label_exposures": 9158400,
+      "anchor_label_exposures": 230400,
+      "nominal_matrix_operations": 93514430309990400,
+      "first_update_seconds": 41.57263104792219,
+      "warm_mean_seconds": 1.0880407900227032,
+      "wall_seconds": 1368.5644500255585,
+      "checkpoint_bytes_per_rank": 256271727,
+      "mature_loss": 1.9970264434814453,
+      "mature_gradient_norm": 25.594417572021484,
+      "fallback_ops": [],
+      "heldout_read": false,
+      "scope": "Single-seed constant-rate discovery from commonC0 with freshAdamW.Same natural targets,source order and .5 raw159+.5 anchor4 emphasis in every arm.Nominal matrix work matched,not hardware time or converged tuned efficiency.No allocation,reasoning or from-scratch claim."
     }
   },
   "audits": {
@@ -40,6 +59,25 @@
       "wall_seconds": 74.26162719726562,
       "peak_rss_bytes": 21380730880,
       "plan_sha256": "f12afefd4d1b18df15fb985e05d375871c5778f1f000c2b92270895cbd716e0c"
+    },
+    "constant": {
+      "status": "PASS_SPARSE_INDEPENDENT_MATURE_CPU_AUDIT",
+      "optimizer_updates": 0,
+      "assigned_chips": 0,
+      "parameters_checked": 179,
+      "largest_named_relative_l2": 2.0586821178714023e-05,
+      "gradient_relative_l2": 2.2032469426689525e-06,
+      "worst_named_parameter": "model.layers.14.post_feedforward_layernorm.weight",
+      "joint_loss": 1.9970268808324922,
+      "raw159_nll": 2.5978794198602317,
+      "sparse_anchor_nll": 1.396174341804753,
+      "native_loss": 1.9970264434814453,
+      "arm": "constant",
+      "endpoint_optimizer_counter": 900,
+      "scope": "Actual saved endpoint,independent HF dense2D masking and FP64 loss,all179 gradients checked against64 Native shards.No updates,no held-out quality/efficiency claim.Qualification source views are not a new scientific fit.",
+      "wall_seconds": 74.6535713672638,
+      "peak_rss_bytes": 21366042624,
+      "plan_sha256": "a9e5a21a7d34fc684906af1bee96e7974f66ff8b7b428274ccc343020429ce08"
     }
   }
 }

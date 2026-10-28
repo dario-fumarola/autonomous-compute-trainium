@@ -1,3 +1,9 @@
+## October28,2026,05:45 UTC — both sparse workspace endpoints pass mature audits;ordinary923 next
+
+The constant-query control completes900 updates and all64 complete scientific state archives,warm mean1.0880seconds,no fallback.Independent HF dense2D mature audit passes all179 gradients(max named0.002059%).Both workspace conditions are now saved and qualified.[Constant endpoint](results/sparse_workspace_discovery_20261028/constant-native.json) · [Audit](results/sparse_workspace_discovery_20261028/sparse-workspace-discovery-audit-constant-v1/report.json).
+
+The controller proceeds to the unchanged923-update same-target-emphasis ordinary baseline before any of448 TUNE positions is scored.Both completed arms keep their entire model/AdamW/RNG states;only independently audited derivative scratch is retired,with checksums and authentic audit inputs retained.No held-out quality conclusion yet.
+
 ## October28,2026,05:21 UTC — direct-gradient latent900 saved and independently audited;constant control active
 
 The latent arm completes900 updates,57600 source views and all64 full model/AdamW/RNG archives.No fallback;warm mean1.0728seconds,whole Native phase1356.43seconds.Independent HF dense2D mature audit passes all179 gradients(max named0.001744%).This is a qualified trained endpoint,not a quality result.[Endpoint](results/sparse_workspace_discovery_20261028/latent-native.json) · [Audit](results/sparse_workspace_discovery_20261028/sparse-workspace-discovery-audit-latent-v1/report.json).
