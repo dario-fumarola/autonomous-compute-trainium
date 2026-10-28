@@ -1,3 +1,11 @@
+## October28,2026,13:53 UTC — uniform-NTP comparison complete;workspace still harmful
+
+All three audits pass and frozen evaluation completes. Full32 NLL:ordinary940 **2.262856**,latent800 **2.267065**,constant800 **2.272189**,C0 **2.282111**. Uniform NTP restores improvement over C0,but latent loses0.004209nats to ordinary and worsens its own selected predictions by0.015708nats(conditional95%[−0.029963,−0.002042]). Both registered practical targets fail. Unchanged C0 raw32 reproduces EXACTLY.[Complete result](results/spliced_workspace_discovery_20261028/REPORT.md).
+
+All101 latent and931 ordinary retained prefix updates/costs count;all64 final scientific states remain. Assigned retained paths7.5613/5.7412/6.5960 chip-hours for latent/constant/ordinary include compile/checkpoint overhead,not a hardware-matched causal efficiency comparison. Seventeen focused CPU tests pass;largest mature named gradient error0.002737%. No fallback or confirmation data use. About57GiB remain free.
+
+No larger fit or from-scratch campaign admitted. Next bounded diagnostic will fit only a global residual mixer/temperature on TRAIN and test it unchanged on the same development panel,with equally calibrated ordinary and constant controls. This asks whether the saved state is recoverably useful or the best readout disables it;no per-target answer-aware choice or new model training.
+
 ## October28,2026,13:41 UTC — both uniform workspace endpoints audited;ordinary continuation active
 
 Latent800 and constant800 are fully saved. Independent mature HF audits pass all179 gradients in both;max named errors0.002737% and0.002221%. Constant warm mean1.0972seconds,no fallback.[Constant endpoint](results/spliced_workspace_discovery_20261028/constant-native.json) · [Audit](results/spliced_workspace_discovery_20261028/spliced-workspace-discovery-audit-constant-v1/report.json).

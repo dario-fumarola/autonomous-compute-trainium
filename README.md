@@ -18,12 +18,15 @@ policy gradients are authorized for this new phase. Earlier results retain
 their original criteria;no larger recurrence main or confirmation completed.
 [New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
 
-The new uniform-NTP correction is running under a frozen three-arm budget.
-Every natural target is weighted once;randomly sampled continuous workspaces
-replace predictions rather than adding an auxiliary bonus. All101 retained
-latent prefix updates and931 ordinary prefix updates count in full. Numerical
-qualification and exact full-state replay pass;no quality result exists yet.
-[Current experiment](docs/SPLICED_WORKSPACE_DISCOVERY_20261028.md).
+The uniform-NTP correction is complete. All new models now improve over C0,
+but the workspace still harms its own selected predictions. On448 reused TUNE
+views, full32 NLL is **2.262856 ordinary**, **2.267065 latent workspace**,
+**2.272189 constant-input workspace**, versus **2.282111 C0**. Latent loses
+0.004209nats to the nominal-work-matched ordinary control. Its own selected
+workspace utility is−0.015708nats, conditional95% interval[−0.029963,−0.002042].
+All three independent179-gradient mature audits pass. This is one development
+seed, not confirmation, useful reasoning, allocation or from-scratch learning.
+[Full uniform-NTP result](results/spliced_workspace_discovery_20261028/REPORT.md).
 
 The first differentiable sparse-workspace discovery is complete and negative.
 On448 fixed TUNE views,the full32-token deployed-policy NLL is2.297200 for
