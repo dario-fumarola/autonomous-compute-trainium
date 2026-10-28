@@ -36,7 +36,7 @@ def run(a):
     index=batch*world+rank;view=data.at(index);tokens,targets=pack_view(view,cfg.pad_token_id);tokens=tokens.to('neuron');targets=targets.to('neuron')
     if rank==0:(out/'progress.json').write_text(json.dumps(dict(arm=arm,batch=batch,wall_seconds=time.time()-started)))
     result=model.sparse_forward(tokens,cos,sin,anchors,raw_positions=where,mode='constant' if arm=='constant' else 'latent',mix=.5,pause_id=p['pause_token_id'])
-    raw=-stable_target_log_probs(result['raw_logits'],targets[:,127:159]);work=-stable_target_log_probs(result['mixed_logits'],targets.index_select(1,anchors));selected=torch.tensor([0,8,16,24],device='neuron');policy=raw.clone()
+    raw=-stable_target_log_probs(result['raw_logits'],targets[:,127:159]).detach().cpu();work=-stable_target_log_probs(result['mixed_logits'],targets.index_select(1,anchors)).detach().cpu();selected=torch.tensor([0,8,16,24]);policy=raw.clone()
     if arm!='ordinary':policy[:,selected]=work
     row=dict(index=index,domain=view['domain'],raw32_nll=float(raw.mean().cpu()),raw_anchor_nll=float(raw[:,selected].mean().cpu()),raw_first_token_nll=float(raw[:,0].mean().cpu()),workspace_anchor_nll=float(work.mean().cpu()),workspace_first_token_nll=float(work[:,0].mean().cpu()),policy32_nll=float(policy.mean().cpu()))
     # Input-content ablation retains the same query count and prefix KV.
