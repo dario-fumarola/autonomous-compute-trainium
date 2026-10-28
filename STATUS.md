@@ -1,3 +1,9 @@
+## October28,2026,13:17 UTC — latent800 saved and audited;constant control active
+
+Uniform-NTP latent800 completes with all64 full model/AdamW/RNG states. Independent HF dense2D audit passes179/179 gradients(max named0.002737%);warm continuation mean1.0934seconds,no fallback. All101 retained prefix updates are included in the800 total.[Endpoint](results/spliced_workspace_discovery_20261028/latent-native.json) · [Mature audit](results/spliced_workspace_discovery_20261028/spliced-workspace-discovery-audit-latent-v1/report.json).
+
+The registered constant-input800 control is active on all16chips;ordinary940 follows from the exact original plain-NTP931 state. No quality scores yet.All final audits precede448 reused TUNE views. Only audited derivative scratch and the superseded temporary101 state are retired;exact private RNG/signature metadata and the full800 scientific endpoint remain.[Frozen design](docs/SPLICED_WORKSPACE_DISCOVERY_20261028.md).
+
 ## October28,2026,12:54 UTC — uniform-NTP gates complete;bounded three-arm correction prepared
 
 All101 updates,all64 complete-state/RNG restore and exact gradient replay pass. Independent mature HF audit passes179/179 gradients(max named0.002279%). Constant-input independent full-size oracle also passes. No quality result yet.[Mature gate](results/spliced_workspace_mature_20261028/spliced-workspace-warm-v2/report.json).

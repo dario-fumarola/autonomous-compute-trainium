@@ -1,0 +1,46 @@
+{
+  "status": "STOPPED_SPLICED_WORKSPACE_DISCOVERY",
+  "records": {
+    "latent": {
+      "status": "COMPLETE_SPARSE_DISCOVERY_ARM_PENDING_MATURE_HF_AUDIT",
+      "world": 64,
+      "arm": "latent",
+      "actual_optimizer_updates": 800,
+      "retained_prefix_updates": 101,
+      "new_optimizer_updates": 699,
+      "source_views": 51200,
+      "natural_label_exposures": 8140800,
+      "nominal_matrix_operations": 95333241585664000,
+      "first_new_update_seconds": 8.921182506950572,
+      "warm_mean_seconds": 1.0934019753469932,
+      "wall_seconds": 1166.7368569374084,
+      "checkpoint_bytes_per_rank": 255942650,
+      "mature_loss": 1.919333577156067,
+      "mature_gradient_norm": 16.535799026489258,
+      "fallback_ops": [],
+      "heldout_read": false,
+      "scope": "All authentic labels uniformly weighted once.No auxiliary loss,PG,teacher or new parameters.Retained prefix counts included in total;costs reported separately.Short constant-rate single-seed discovery,not tuned convergence,learned allocation,reasoning or random initialization."
+    }
+  },
+  "audits": {
+    "latent": {
+      "status": "PASS_SPLICED_INDEPENDENT_MATURE_CPU_AUDIT",
+      "optimizer_updates": 0,
+      "assigned_chips": 0,
+      "parameters_checked": 179,
+      "largest_named_relative_l2": 2.737099257743215e-05,
+      "gradient_relative_l2": 4.407263461435643e-06,
+      "worst_named_parameter": "model.layers.14.post_feedforward_layernorm.weight",
+      "joint_loss": 1.9193339660000381,
+      "raw_subset_nll": 2.01232351940722,
+      "sparse_anchor_nll": 1.5502816759152847,
+      "native_loss": 1.919333577156067,
+      "arm": "latent",
+      "endpoint_optimizer_counter": 800,
+      "scope": "Zero-update independent HF numerical audit at the saved uniform-NTP endpoint;all179 gradients checked against64 Native shards.Each natural label appears once,with independent per-position workspaces.No held-out quality,efficiency,allocation or random-init claim.",
+      "wall_seconds": 75.06736493110657,
+      "peak_rss_bytes": 21053734912,
+      "plan_sha256": "c49b647a176f9cff69af871fd244ffdb97f554fe85c2d0a83718367f6253a8b0"
+    }
+  }
+}
