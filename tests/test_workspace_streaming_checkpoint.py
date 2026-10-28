@@ -36,3 +36,15 @@ def test_complete_state_without_unused_scorer_restores_optimizer_rng_and_coverag
     assert optimizer.update==1 and torch.equal(rng.get_state(),rng_state) and torch.equal(torch.get_rng_state(),torch_state)
     for n,t in state.complete_state_tensors(model,None,optimizer):assert torch.equal(t,before[n])
     with pytest.raises(ValueError):state.restore_complete_state(path,model,model,optimizer,rng)
+
+
+def test_compiled_call_release_preserves_live_gradients_and_parameters():
+    from compute_trainium.workspace_native_state import release_compiled_calls
+    model=torch.nn.Sequential(torch.nn.Linear(4,8),torch.nn.SiLU(),torch.nn.Linear(8,2))
+    for module in [model[0],model[2]]:module.compile(backend='aot_eager',fullgraph=True)
+    model(torch.randn(3,4)).square().mean().backward()
+    weights={n:p.detach().clone() for n,p in model.named_parameters()};grads={n:p.grad.clone() for n,p in model.named_parameters()}
+    assert model[0]._compiled_call_impl is not None
+    release_compiled_calls(model,None)
+    assert all(m._compiled_call_impl is None for m in model.modules())
+    for n,p in model.named_parameters():assert torch.equal(p,weights[n]) and torch.equal(p.grad,grads[n])

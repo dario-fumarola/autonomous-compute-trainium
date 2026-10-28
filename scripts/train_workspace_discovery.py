@@ -107,6 +107,7 @@ def run(a):
     accumulator=ShardedGradientAccumulator(model)
     losses=backward_terms(actor,discovery_terms(arm,c,y,z,rewards,fmt,pause_id=plan['pause_token_id']),accumulator=accumulator,world=world)
     del accumulator;norm=optimizer.finish_gradients(scale=256,clip=1e30)
+    release_compiled_calls(model,scorer)
     torch.save({n:local_parameter(p.grad).detach().cpu() for n,p in model.named_parameters()},out/f'rank{rank}-mature-gradients.pt')
     if rank==0:torch.save(dict(prefix=c,continuation=y,workspace=z,rewards=rewards),out/'private-mature-inputs.pt')
     optimizer.zero_grad();drain_runtime(actor.device);progress('saving_complete_endpoint',arm=arm)

@@ -12,7 +12,7 @@ from compute_trainium.native_comm_ports import reserve_ports
 from compute_trainium.training import file_sha256
 from compute_trainium.queue import write_state
 from scripts.run_scale_sharding_fixture import AllChipExecution
-IDENTITY='workspace-checkpoint-waves-v1';PUBLIC=Path('results/workspace_checkpoint_waves_20261027')
+IDENTITY='workspace-checkpoint-waves-v2';PUBLIC=Path('results/workspace_checkpoint_waves_20261027/recovery-v2')
 
 
 def prepare(root):
@@ -35,7 +35,7 @@ def prepare(root):
         checkpoint_relative=old['checkpoint_relative'],model_config=old['model_config'],opening_ids=old['opening_ids'],closing_ids=old['closing_ids'],
         mature_audit_sha256=file_sha256(gate),optimizer_updates=0,scientific_fit_admitted=False,
         scope='Preserved v1 stopped after48workspace updates during checkpoint OOM.New zero-update actual-size qualified-state proof:runtime scalar inputs,released compiled wrappers,eight concurrent full-state writers,unchanged named2% gradient threshold.')
-    out.mkdir();PUBLIC.mkdir();write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
+    out.mkdir();PUBLIC.mkdir(parents=True);write_state(out/'plan.json',plan);write_state(PUBLIC/'plan.json',plan)
 
 
 def run(root):

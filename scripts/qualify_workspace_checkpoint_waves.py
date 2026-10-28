@@ -42,6 +42,7 @@ def run(a):
     optimizer=WorkspaceShardedAdamW(model,fused=True);generator=torch.Generator()
     parent=a.root/'runs/workspace-native-online-throughput-v2-online'/f'rank{rank}-u101.zip'
     restored=restore_complete_state(parent,model,scorer,optimizer,generator)
+    drain_runtime('neuron')
     original_torch_rng=torch.get_rng_state();original_generator=generator.get_state()
     model.compile_stages('neuron');scorer.compile_stages('neuron')
     actor=SelectiveWorkspacePredictor(model);reader=SelectiveWorkspacePredictor(scorer)
@@ -58,15 +59,22 @@ def run(a):
     from compute_trainium.workspace_joint_terms import workspace_joint_terms
     backward_terms(actor,workspace_joint_terms(c,y,z,rewards,fmt),accumulator=accumulator,world=world)
     del accumulator;norm=optimizer.finish_gradients(scale=256,clip=1e30)
+    release_compiled_calls(model,scorer)
     expected=torch.load(a.root/'runs/workspace-native-online-throughput-v2-online'/f'rank{rank}-mature-gradients.pt',weights_only=True,mmap=True)
     numbers=[]
     for name,p in model.named_parameters():
-        ref=expected[name].double();actual=local_parameter(p.grad).detach().cpu().double()
-        numbers.append([float((actual-ref).square().sum()),float(ref.square().sum())])
+        ref=expected[name].reshape(-1);actual=local_parameter(p.grad).detach().cpu().reshape(-1)
+        difference=reference=0.
+        for offset in range(0,ref.numel(),65536):
+            wanted=ref[offset:offset+65536].double();got=actual[offset:offset+65536].double()
+            difference+=float((got-wanted).square().sum());reference+=float(wanted.square().sum())
+        numbers.append([difference,reference]);del wanted,got
+        del ref,actual
+        drain_runtime('neuron')
     values=torch.tensor(numbers,dtype=torch.float32).to('neuron');dist.all_reduce(values);values=values.cpu().double()
     errors=(values[:,0]/values[:,1].clamp_min(1e-30)).sqrt()
     if float(errors.max())>.02:raise AssertionError('Runtime scalar helper differs from independent-CPU-qualified full gradient')
-    largest=float(errors.max());del expected,values,errors,numbers,ref,actual
+    largest=float(errors.max());del expected,values,errors,numbers
     optimizer.zero_grad();drain_runtime(actor.device)
     progress('release_compiled_calls_and_bound_writer_wave')
     release_compiled_calls(model,scorer);torch.set_rng_state(original_torch_rng);generator.set_state(original_generator)
