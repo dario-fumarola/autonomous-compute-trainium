@@ -53,7 +53,7 @@ def run(root,*,scale_closed=False,recovery=False,workspace_closed=False,checkpoi
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--scale-closed',action='store_true');p.add_argument('--recovery',action='store_true');p.add_argument('--workspace-closed',action='store_true');p.add_argument('--checkpoint-closed',action='store_true');p.add_argument('--boundary-closed',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--scale-closed',action='store_true');p.add_argument('--recovery',action='store_true');p.add_argument('--workspace-closed',action='store_true');p.add_argument('--checkpoint-closed',action='store_true');p.add_argument('--boundary-closed',action='store_true');p.add_argument('--replay-closed',action='store_true');a=p.parse_args()
     if a.scale_closed:
         NAMES=['scale-feasibility-worktree-v1','scale-model-worktree-v1','scale-runtime-worktree-v1',
             'scale-audit-worktree-v1','scale-body-main-handoff-worktree-v1','scale-final-lower-rate-recovery-worktree-v1']
@@ -63,4 +63,5 @@ if __name__=='__main__':
     if a.workspace_closed:NAMES=['workspace-stable-online-worktree-v2','workspace-discovery-pilot-worktree-v1']
     if a.checkpoint_closed:NAMES=['workspace-checkpoint-waves-worktree-v1','workspace-checkpoint-waves-worktree-v2']
     if a.boundary_closed:NAMES=['scale-boundary-followup-worktree-v1','scale-boundary-probe-worktree-v1']
-    run(a.root,scale_closed=a.scale_closed,recovery=a.recovery,workspace_closed=a.workspace_closed,checkpoint_closed=a.checkpoint_closed,boundary_closed=a.boundary_closed)
+    if a.replay_closed:NAMES=['workspace-discovery-recovery-worktree-v2','workspace-checkpoint-waves-worktree-v3']
+    run(a.root,scale_closed=a.scale_closed,recovery=a.recovery,workspace_closed=a.workspace_closed,checkpoint_closed=a.checkpoint_closed,boundary_closed=a.boundary_closed,replay_closed=a.replay_closed)

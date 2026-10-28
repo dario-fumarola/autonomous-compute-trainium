@@ -20,6 +20,7 @@ def run(root):
     if out.exists() or PUBLIC.exists():raise FileExistsError('Retain every archival attempt')
     entries=[root/'runs'/parent/f'rank{rank}-u{update}.zip' for parent,update in [
         ('workspace-native-online-throughput-v1-online',102),('workspace-native-full-update-v1-gradient',1)] for rank in range(64)]
+    if any(not os.access(p.parent,os.W_OK) for p in entries):raise PermissionError('Closed source directories must permit verified release before archival admission')
     rows=[dict(relative=str(p.relative_to(root)),bytes=p.stat().st_size,sha256=file_sha256(p)) for p in entries]
     out.mkdir(mode=0o700);PUBLIC.mkdir();started=time.time();last=0.
     def guard():
@@ -58,6 +59,9 @@ def run(root):
                 if file_sha256(trial)!=row['sha256']:raise AssertionError('Materialized original differs')
                 trial.unlink()
             if file_sha256(path)!=row['sha256']:raise AssertionError('Closed checkpoint changed')
+            fd=os.open(archive,os.O_RDONLY)
+            try:os.fsync(fd)
+            finally:os.close(fd)
             entry=dict(row,archive_relative=str(archive.relative_to(root)),archive_bytes=archive.stat().st_size,archive_sha256=file_sha256(archive),whole_original_roundtrip_verified=True,materialized_restore_verified=index==0)
             (out/(str(index)+'-verified.json')).write_text(json.dumps(entry,indent=2)+'\n')
             path.unlink();result['files'].append(entry)
@@ -81,5 +85,6 @@ def restore(root,relative):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--restore');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--restore');p.add_argument('--recovery',action='store_true');a=p.parse_args()
+    if a.recovery:IDENTITY='workspace-closed-checkpoint-preservation-v2';PUBLIC=Path('results/workspace_closed_checkpoints_20261028/recovery-v2')
     restore(a.root,a.restore) if a.restore else run(a.root)

@@ -1,0 +1,11 @@
+{
+  "status": "PASS_CLOSED_STATE_RESTORE_HELPERS",
+  "passed": 2,
+  "wall_seconds": 2.17,
+  "checks": ["Exact materialized restoration of original archive bytes", "Reject an existing target without overwriting", "Reject corrupt archives before writing a restored state"],
+  "actual_full_shard_roundtrip": "All128 original ZIP byte hashes and one complete materialized restore passed in recovery-v2",
+  "recovery_command": "scripts.preserve_closed_workspace_checkpoints --root ROOT --recovery --restore RELATIVE_PATH",
+  "scientific_optimizer_updates": 0,
+  "assigned_chips": 0,
+  "scope": "CLI restoration and admission guards only;active scientific source snapshot unchanged."
+}
