@@ -1,3 +1,9 @@
+## October28,2026,19:29 UTC — frozen memory-content diagnostic registered
+
+The owner asks to strengthen the one-step lead. Eleven focused CPU tests pass. A zero-update test preserves each original query/current slot while replacing earlier memory with two independent same-domain donors or using only the current slot. All448 original TUNE views are retained. The existing source-verified dependency panel contributes339 cases;one longest code case lacks two distinct length-compatible donor groups and is excluded before scoring.[Frozen design](docs/RESIDUAL_MEMORY_ATTRIBUTION_20261028.md).
+
+No new fit,router,two-step scaling or Native1024 retry. The evaluator must reproduce saved raw/local/authentic predictions and the historical independently qualified CPU C0 scores. Thirty-minute registration,twenty-minute CPU scoring cap,all resource floors retained. An unscored reserve of320 unused workspace source groups is separately frozen from accepted TRAIN metadata;it is not yet a reconstructed/tokenized panel. No TEST or old sealed confirmation reserve is opened. No new quality result yet.
+
 ## October28,2026,18:59 UTC — attention branch leads the matched local control
 
 The local nonlinear655360-parameter control completes2048 fresh-data updates and all mature checks. NLL2.277691 versus one-step2.275685:attention advantage0.002005,conditional95%[0.001015,0.003098]. Local itself improves frozen C0 by0.004422 as a point estimate;its interval includes zero. Two steps still do not beat one or pass the original mechanism gate.[Attribution report](results/residual_local_control_20261028/REPORT.md).
