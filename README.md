@@ -36,13 +36,17 @@ These are qualification updates,not a held-out learning result.
 [Mature audit](results/workspace_online_mature_audit_20261027/recovery-v2/report.json) ·
 [Fixed-weight loss diagnosis](results/workspace_loss_stability_20261027/report.json).
 
-The first bounded four-condition diagnostic is prepared:ordinary continuation,
+The first bounded four-condition diagnostic is running:ordinary continuation,
 learned workspaces,trained pauses and supervised drafts whose reader uses its
 OWN samples. The uncached workspace update costs about19.38ordinary updates
 in nominal matrix work,including generation,scoring,backward,recomputation and
 the vocabulary head;whole time is reported separately. All conditions start
 from the same common C0 weights. Fresh qualification weights are excluded.
-No held-out workspace-versus-baseline result or from-scratch finding exists yet.
+The ordinary931-update endpoint and its independent mature audit are complete.
+The workspace replay has a complete all64-rank early backup after two final-save
+OOMs;both lost histories remain charged.The200GiB live-step writer proof and
+full512GiB host reserve precede replay.No held-out workspace-versus-baseline
+result or from-scratch finding exists yet.
 [Diagnostic protocol](docs/WORKSPACE_DISCOVERY_PILOT_20261027.md) ·
 [CPU helper proof](results/workspace_discovery_cpu_20261027/report.json).
 
