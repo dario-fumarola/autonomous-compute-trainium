@@ -1,0 +1,32 @@
+{
+  "status": "PASS_POSTNORM_RECOMPUTATION_MATRIX_ACCOUNTING",
+  "fixtures": [
+    {
+      "checkpointing": false,
+      "observed_matrix_operations": 1419264,
+      "expected_matrix_operations": 1419264,
+      "calls": {
+        "aten.mm.default": 45,
+        "aten.bmm.default": 12
+      }
+    },
+    {
+      "checkpointing": true,
+      "observed_matrix_operations": 1878016,
+      "expected_matrix_operations": 1878016,
+      "calls": {
+        "aten.mm.default": 59,
+        "aten.bmm.default": 16
+      }
+    }
+  ],
+  "wall_seconds": 2.402946710586548,
+  "assigned_chips": 0,
+  "scientific_optimizer_updates": 0,
+  "scope": "Software tensors only:dispatch-counted eager forward/backward verifies full body recomputation4x and head3x for the actual postnorm candidate.Norm AFTER final MLP projection requires that projection in recomputation.Native lowering and nonmatrix costs remain separate;active source/plan unchanged.",
+  "pytest": {
+    "passed": 2,
+    "wall_seconds": 4.83
+  },
+  "test_source_sha256": "43c52b8f449e6a5a11a0f9388f78aede9657f4748f80df197cbd03bb64408eef"
+}
