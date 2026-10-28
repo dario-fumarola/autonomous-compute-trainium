@@ -1,0 +1,38 @@
+{
+  "registered_unix": 1793160768.748078,
+  "model_config": {
+    "hidden_size": 2048,
+    "intermediate_size": 8192,
+    "num_hidden_layers": 16,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 16,
+    "vocab_size": 100352,
+    "rms_norm_eps": 1e-06,
+    "rope_theta": 500000,
+    "pad_token_id": 100277
+  },
+  "checkpoint_relative": "workspace-reader-bootstrap-v1/checkpoint.pt",
+  "checkpoint_sha256": "883b05baa6f104f9ecabd2a2d1e5b986dc99ee80f22e350312591b46e9828db2",
+  "data_relative": "workspace-view-batches-v1",
+  "source_index": 0,
+  "positions": 160,
+  "anchors": [
+    127,
+    135,
+    143,
+    151
+  ],
+  "mix": 0.5,
+  "mode": "latent",
+  "loss": "0.5 mean raw159 CE +0.5 mean mixed4 CE",
+  "source_sha256": {
+    "scripts/prepare_sparse_workspace_reference.py": "d820755cc8d04c30140be0736c0954db29e0158bf85a18e9ee6f08c9432b232a",
+    "compute_trainium/sparse_workspace_candidate.py": "9f257788b426f325c32aa6acc8b0f9b06fa8d1b67e384aba80022810937758c2",
+    "compute_trainium/stable_target_loss.py": "ee435d79f11caa02caef8a0543528f8f79616eaa162f961cc622ee165ac99fdf"
+  },
+  "worker_memory_gib": 0,
+  "cpu_allowance_gib": 64,
+  "seconds_limit": 900,
+  "optimizer_updates": 0,
+  "named_gradient_limit": 0.02
+}

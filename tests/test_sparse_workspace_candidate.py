@@ -82,3 +82,13 @@ def test_cached_graph_matches_independent_dense_two_dimensional_mask_and_gradien
     (expected.square().mean()+raw_logits.square().mean()).backward()
     for (name,p),(other,q) in zip(cached.named_parameters(),dense.named_parameters(),strict=True):
         assert name==other;torch.testing.assert_close(p.grad,q.grad,rtol=2e-4,atol=3e-6)
+
+
+def test_static_aot_stages_preserve_cached_outputs_and_all_gradients():
+    torch.manual_seed(8851);reference=SparseWorkspaceCandidate(config(),activation_checkpointing=True);compiled=copy.deepcopy(reference)
+    compiled.compile_stages('aot_eager')
+    tokens=torch.arange(8).reshape(1,-1);cos,sin=rotary_tensors(config(),8);a=torch.tensor([2,5,7]);outputs=[]
+    for model in [reference,compiled]:
+        r=model.sparse_forward(tokens,cos,sin,a);(r['raw_logits'].square().mean()+r['mixed_logits'].square().mean()).backward();outputs.append(r)
+    torch.testing.assert_close(outputs[0]['mixed_logits'],outputs[1]['mixed_logits'],rtol=1e-5,atol=1e-6)
+    for p,q in zip(reference.parameters(),compiled.parameters(),strict=True):torch.testing.assert_close(p.grad,q.grad,rtol=2e-5,atol=2e-6)
