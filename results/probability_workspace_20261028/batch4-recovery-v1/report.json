@@ -1,0 +1,189 @@
+{
+  "status": "PASS_PROBABILITY_BATCH4_RECOVERY_AND_MATURE_AUDIT",
+  "records": {
+    "replay": {
+      "status": "PASS_PROBABILITY_WARM_EXACT_REPLAY",
+      "world": 64,
+      "mode": "replay",
+      "actual_qualification_updates": 1,
+      "scientific_optimizer_updates": 0,
+      "retained_for_science": false,
+      "parameters": 62800384,
+      "warm_updates": 0,
+      "mean_warm_seconds": null,
+      "warm_by_depth": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0
+      },
+      "wall_seconds": 93.65419745445251,
+      "all_replica_full_states_equal": true,
+      "cold_local_checks": {}
+    },
+    "audit": {
+      "status": "PASS_PROBABILITY_MATURE_GLOBAL_CPU",
+      "comparisons": {
+        "overall": {
+          "relative_l2": 2.1886465211323487e-06,
+          "cosine": 0.9999999999976908,
+          "reference_norm": 1.0984011444837114,
+          "candidate_norm": 1.0984016002618298,
+          "maximum_absolute_error": 7.101334631443024e-08,
+          "largest_error_contributors": [
+            {
+              "parameter": "blocks.0.o.weight",
+              "squared_error": 4.4220093191451495e-12,
+              "reference_squared_norm": 0.42020554961296597
+            },
+            {
+              "parameter": "embedding.weight",
+              "squared_error": 5.887944872698687e-13,
+              "reference_squared_norm": 0.21171661612256243
+            },
+            {
+              "parameter": "blocks.0.v.weight",
+              "squared_error": 3.667037317592294e-13,
+              "reference_squared_norm": 0.25626030897028185
+            },
+            {
+              "parameter": "blocks.0.gate.weight",
+              "squared_error": 1.3327130435183723e-13,
+              "reference_squared_norm": 0.019558932410690958
+            },
+            {
+              "parameter": "blocks.0.up.weight",
+              "squared_error": 1.1263591594356635e-13,
+              "reference_squared_norm": 0.01999591344200132
+            },
+            {
+              "parameter": "blocks.0.down.weight",
+              "squared_error": 7.872490765143328e-14,
+              "reference_squared_norm": 0.04476786972752349
+            },
+            {
+              "parameter": "blocks.1.o.weight",
+              "squared_error": 2.960709460720635e-14,
+              "reference_squared_norm": 0.09276451319994862
+            },
+            {
+              "parameter": "blocks.1.v.weight",
+              "squared_error": 1.4969466912063024e-14,
+              "reference_squared_norm": 0.04330182566375344
+            },
+            {
+              "parameter": "blocks.0.q.weight",
+              "squared_error": 8.71425048423232e-15,
+              "reference_squared_norm": 0.0008419214516593522
+            },
+            {
+              "parameter": "blocks.1.down.weight",
+              "squared_error": 5.573433235608584e-15,
+              "reference_squared_norm": 0.031476084461050324
+            },
+            {
+              "parameter": "blocks.0.k.weight",
+              "squared_error": 4.603903445783037e-15,
+              "reference_squared_norm": 0.0015918352444697804
+            },
+            {
+              "parameter": "blocks.2.down.weight",
+              "squared_error": 9.67363351792782e-16,
+              "reference_squared_norm": 0.0054548485136841265
+            }
+          ]
+        },
+        "embedding": {
+          "relative_l2": 1.6676480330765574e-06,
+          "cosine": 0.9999999999986401,
+          "reference_norm": 0.46012673919536823,
+          "candidate_norm": 0.460126852758701,
+          "maximum_absolute_error": 7.101334631443024e-08,
+          "largest_error_contributors": [
+            {
+              "parameter": "embedding.weight",
+              "squared_error": 5.887944872698687e-13,
+              "reference_squared_norm": 0.21171661612256243
+            }
+          ]
+        },
+        "body": {
+          "relative_l2": 2.284245054363218e-06,
+          "cosine": 0.9999999999974925,
+          "reference_norm": 0.9973807989331681,
+          "candidate_norm": 0.9973812484843096,
+          "maximum_absolute_error": 2.9634975362569094e-08,
+          "largest_error_contributors": [
+            {
+              "parameter": "blocks.0.o.weight",
+              "squared_error": 4.4220093191451495e-12,
+              "reference_squared_norm": 0.42020554961296597
+            },
+            {
+              "parameter": "blocks.0.v.weight",
+              "squared_error": 3.667037317592294e-13,
+              "reference_squared_norm": 0.25626030897028185
+            },
+            {
+              "parameter": "blocks.0.gate.weight",
+              "squared_error": 1.3327130435183723e-13,
+              "reference_squared_norm": 0.019558932410690958
+            },
+            {
+              "parameter": "blocks.0.up.weight",
+              "squared_error": 1.1263591594356635e-13,
+              "reference_squared_norm": 0.01999591344200132
+            },
+            {
+              "parameter": "blocks.0.down.weight",
+              "squared_error": 7.872490765143328e-14,
+              "reference_squared_norm": 0.04476786972752349
+            },
+            {
+              "parameter": "blocks.1.o.weight",
+              "squared_error": 2.960709460720635e-14,
+              "reference_squared_norm": 0.09276451319994862
+            },
+            {
+              "parameter": "blocks.1.v.weight",
+              "squared_error": 1.4969466912063024e-14,
+              "reference_squared_norm": 0.04330182566375344
+            },
+            {
+              "parameter": "blocks.0.q.weight",
+              "squared_error": 8.71425048423232e-15,
+              "reference_squared_norm": 0.0008419214516593522
+            },
+            {
+              "parameter": "blocks.1.down.weight",
+              "squared_error": 5.573433235608584e-15,
+              "reference_squared_norm": 0.031476084461050324
+            },
+            {
+              "parameter": "blocks.0.k.weight",
+              "squared_error": 4.603903445783037e-15,
+              "reference_squared_norm": 0.0015918352444697804
+            },
+            {
+              "parameter": "blocks.2.down.weight",
+              "squared_error": 9.67363351792782e-16,
+              "reference_squared_norm": 0.0054548485136841265
+            },
+            {
+              "parameter": "blocks.1.gate.weight",
+              "squared_error": 9.437032285538613e-16,
+              "reference_squared_norm": 0.006009408507038768
+            }
+          ]
+        }
+      },
+      "native_loss": 6.210011005401611,
+      "cpu_loss": 6.210011757910252,
+      "loss_error": 7.525086402893066e-07,
+      "real_targets": 130830,
+      "global_windows": 256,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "wall_seconds": 132.29299879074097
+    }
+  }
+}

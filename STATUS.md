@@ -1,3 +1,31 @@
+## October28,2026,23:07 UTC — all-chip probability-replay learning screen launched
+
+All16 chips/64ranks are assigned to the new62.8M random-initialization screen.
+Workspace and equal-data/constant-proposal controls receive200,190,896 real
+source targets;the ordinary-work control receives3413updates against1530 for
+workspace,matching its2.2302× average matrix-work multiplier. Every final
+endpoint completes an independent cooldown. Zero/one/two replay exits are
+explicitly supported;the64M intermediate checkpoint is descriptive and uncooled.
+This is one common-LR mechanism screen,not a tuned-frontier or full from-scratch
+campaign claim.[Frozen protocol](docs/PROBABILITY_LEARNING_SCREEN_20261028.md).
+
+Batch4 qualification and exact fresh-process replay pass;the full-global mature
+CPU loss/gradients pass. The first controller's host-memory admission stop before
+replay remains recorded,with unchanged warm weights used in recovery. Measured
+warm mean0.54045s/update,about3.3× batch1 target throughput.580CPU tests pass with
+2skips;four focused intervention/schedule/statistics checks also pass. No new
+scientific quality score yet.[Qualification](results/probability_workspace_20261028/batch4-recovery-v1/report.json).
+
+Frozen384-group broad development windows and253 retokenized original dependency
+cases have no training/protected-group overlap.87long cases are excluded before
+scoring;only9code-name cases fit,so this is not a code-reasoning benchmark. The320
+confirmation groups remain sealed. All scientific checkpoints and failed
+histories remain.6.16GiB of superseded disposable qualification/optimizer fixture
+arrays were retired with hashes and receipts;those intermediate binaries are no
+longer locally byte-restorable. Canonical batch4 and optimizer fixtures remain.
+The old exact-archive availability claim is superseded only for those four
+retired compressed intermediate fixtures. No old negative is revised.
+
 ## October28,2026,22:26 UTC — actual-shape probability replay qualification launched
 
 All16 chips/64 ranks are assigned to the disposable62.8M/512-context warm qualification. It checks CPU agreement at zero/one/two extra passes before updates,then100 warm updates,mature whole-global gradients and separate-process full-state replay. Qualification weights are excluded from scientific initialization. No held-out quality result yet. [Frozen plan](results/probability_workspace_20261028/warm-v1/plan.json).

@@ -1,5 +1,13 @@
 # Autonomous computation during pretraining
 
+Current work: an audited62.8M probability-embedding replay screen is running from
+random initialization on200M real targets,with equal-data,full-work ordinary and
+content-free controls. All supported exits and final cooldowns are registered.
+There is **no new scientific quality result yet**. This is a bounded mechanism
+screen,not a claim that thinking or compute efficiency has been established.
+[Protocol](docs/PROBABILITY_LEARNING_SCREEN_20261028.md) · [Live status](STATUS.md).
+
+
 Can a randomly initialized language model learn to use additional internal
 computation to predict unseen natural text better?
 

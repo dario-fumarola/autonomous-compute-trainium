@@ -14,7 +14,7 @@ from scripts.run_scale_sharding_fixture import AllChipExecution
 ID='probability-workspace-warm-v1';PUBLIC=Path('results/probability_workspace_20261028/warm-v1')
 
 
-def prepare(root):
+def prepare(root, batch=1):
     if managed_running():raise RuntimeError('Exclusive admission requires a closed owner')
     prerequisite=Path('results/probability_workspace_20261028/numerical-v1/report.json')
     if json.loads(prerequisite.read_text())['status']!='PASS_PROBABILITY_WORKSPACE_NUMERICAL_AND_REPLAY':raise AssertionError('Small complete fixture prerequisite')
@@ -35,7 +35,7 @@ def prepare(root):
         root_comm_ports=reserve_ports(root,names),phases={n:dict(mode=m) for n,m in zip(names,('warm','replay'))},inode_projection=projection,
         prerequisite_sha256=file_sha256(prerequisite),data_relative='probability-workspace-data-v1',data_report_sha256=file_sha256(source/'report.json'),
         model_config=asdict(ModelConfig(dim=512,layers=16,heads=8,kv_heads=4,ffn_dim=1376,vocab_size=32000,max_seq=512)),
-        seed=9419,lr=3e-4,batch=1,early_warm_mean_seconds_limit=10,warm_phase=names[0],
+        seed=9419,lr=3e-4,batch=batch,early_warm_mean_seconds_limit=10,warm_phase=names[0],
         cold_local_supported_steps=[0,1,2],warm_updates=100,initial_training_updates=3,replay_update=104,
         training_schedule='extra_steps=(update-1)%3 through103;104 uses2 for exact replay/mature audit',
         qualification_only=True,retained_for_science=False,scientific_fit_admitted=False,protected_evaluation_groups_scored=0,
@@ -65,4 +65,8 @@ def run(root):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--action',choices=['prepare','run'],required=True)
-    a=p.parse_args();prepare(a.root) if a.action=='prepare' else run(a.root)
+    p.add_argument('--batch',type=int,choices=[1,4],default=1)
+    a=p.parse_args()
+    if a.batch==4:
+        ID='probability-workspace-batch4-v1';PUBLIC=Path('results/probability_workspace_20261028/batch4-v1')
+    prepare(a.root,a.batch) if a.action=='prepare' else run(a.root)
