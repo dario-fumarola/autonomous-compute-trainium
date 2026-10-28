@@ -1,0 +1,49 @@
+{
+  "native_attempts": [
+    {
+      "identity": "recoverable-dependency-inference-v1-evaluation",
+      "exit_code": 1,
+      "wall_seconds": 50.29453945159912,
+      "assigned_chip_hours": 0.22353128645155165,
+      "whole_instance_opportunity_chip_hours": 0.22353128645155165,
+      "report_exists": false
+    },
+    {
+      "identity": "dependency-forward-diagnosis-v1-evaluation",
+      "exit_code": 0,
+      "wall_seconds": 61.66861939430237,
+      "assigned_chip_hours": 0.2740827528635661,
+      "whole_instance_opportunity_chip_hours": 0.2740827528635661,
+      "report_exists": true
+    },
+    {
+      "identity": "recoverable-dependency-inference-v2-evaluation",
+      "exit_code": 1,
+      "wall_seconds": 64.6339979171753,
+      "assigned_chip_hours": 0.28726221296522353,
+      "whole_instance_opportunity_chip_hours": 0.28726221296522353,
+      "report_exists": false
+    }
+  ],
+  "total_assigned_chip_hours": 0.7848762522803413,
+  "cpu_panel_wall_seconds": 645.838951587677,
+  "cpu_panel_assigned_chip_hours": 0,
+  "cpu_panel_reservation_opportunity_chip_hours": 2.870396179623074,
+  "cpu_software_references": [
+    {
+      "identity": "dependency-cpu-reference-v1",
+      "wall_seconds": 22.473385095596313
+    },
+    {
+      "identity": "dependency-cpu-reference-v2",
+      "wall_seconds": 22.3722140789032
+    }
+  ],
+  "cached_cpu_diagnosis_wall_seconds": 34.185450077056885,
+  "first_inspection_unix": 1793201360.0,
+  "scientific_closure_unix": 1793206972.87212,
+  "scope": "Every Native attempt including both failures and the separate diagnosis is counted once.No panel scoring occurred on Native.CPU-only panel assigns no chips;reserved opportunity overlaps assigned phases and is not additive to assigned work.Overall inspection-to-closure opportunity includes source preparation,agent design/coding,numerical debugging,CPU scoring and idle reserved chips,not merely training.First inspection is the agent-observed15:29:20 UTC start;this is an operational interval,not a utilization estimate.",
+  "inspection_to_closure_reservation_opportunity_chip_hours": 24.94609831068251,
+  "publication_window_end_unix": 1793207288.6893857,
+  "inspection_to_publication_reservation_opportunity_chip_hours": 26.349730602900188
+}

@@ -1,10 +1,20 @@
-## October28,2026,16:56 UTC — dependency assay blocked on Native numerics;CPU fallback prepared
+## October28,2026,17:03 UTC — recoverable context is usable;the extra pass still does not help
+
+The complete frozen CPU assay scores340 authentic cases across four saved models,with no updates. Ordinary context gain replicates strongly:code +1.691/+1.128nats and arithmetic conclusions +3.858/+3.845nats in the two source cohorts. The latent model’s original extra-pass utility is −0.0770/−0.0328 on code and −0.0209/−0.0018 on conclusions. Neither primary mechanism gate passes.[Full report](results/recoverable_dependencies_20261028/REPORT.md).
+
+Strict self-key exclusion barely changes the result. Matching feedback input RMS to token-embedding RMS worsens both families by roughly0.6–1.0nats versus the raw model,so these are not simple inference repairs. A favorable arithmetic comparison with ordinary comes from the latent-trained raw predictor;adding its workspace makes that predictor worse. Exploratory intermediate-step gain does not replicate. This localizes failure to the tested feedback transformation despite usable context,not absence of all learnable information or proof against latent thinking.
+
+All12 independent full-size HF CPU reference checks pass at unchanged tolerance,as does a full-size real-only NLL consistency check;all four parameter versions stay unchanged. CPU panel645.84seconds,zero assigned chips. Two preceding Native numerical stops and separate diagnosis cost0.784876assigned chip-hours in total;no Native panel scores were accepted. Full inspection-to-closure reserved opportunity is separately reported,including agent/source/CPU/debug intervals.[Costs](results/recoverable_dependencies_20261028/complete-costs.json).
+
+No Native/CPU job remains active. All scientific model/AdamW/RNG states remain;about50GiB free. No longer fit,router,confirmation or from-scratch campaign is admitted. The tested one-step workspace architecture is closed. A subsequent mechanism needs a new bounded learning test and useful within-model computation before an efficiency/scaling claim. The broader research goal remains unachieved.
+
+## October28,2026,16:53 UTC — dependency assay blocked on Native numerics;CPU fallback active
 
 The source-only panel freezes96 code bindings,134 source-authored arithmetic conclusions and110 exploratory intermediate targets,in two source-group cohorts,before model scoring. Authentic targets are unchanged;context ablation removes the relevant prior work. Full-size independent HF references and28 prior/focused CPU gates pass. No scientific quality result yet.[Frozen question](docs/RECOVERABLE_DEPENDENCY_DIAGNOSTIC_20261028.md).
 
 Both zero-update Native attempts stop at the unchanged forward gate before any panel score. Initial math mismatch and recovery strict-control mismatch are preserved;recovery never changes the original deadline or tolerance. A separate numerical diagnosis is not a qualification pass. CPU cached semantics agree with HF;Native differences vary by rank/query and are not attributed to a proven SDK cause.[Failures and controls](results/recoverable_dependencies_20261028).
 
-The feedback input is20–51times ordinary embedding RMS on two fixed C0 examples;cache also includes original and new self KV at the same position. These are hypotheses,not proven causes. Primary original reader and pre-frozen strict-self/RMS controls remain separate. A25-minute CPU-only fallback now tests all340 cases/four models with the same scientific criteria and an independent full-size gate first. Zero training,zero assigned chips,no gate waiver or large fit.
+The feedback input is20–51times ordinary embedding RMS on two fixed C0 examples;cache also includes original and new self KV at the same position. These are hypotheses,not proven causes. Primary original reader and pre-frozen strict-self/RMS controls remain separate. The CPU path passes all12 independent full-size reference checks at unchanged tolerance. Its25-minute CPU-only fallback is actively testing all340 cases/four models with the same scientific criteria. Zero training,zero assigned chips,no gate waiver or large fit.
 
 ## October28,2026,14:14 UTC — source-separated readout selects no latent workspace
 
