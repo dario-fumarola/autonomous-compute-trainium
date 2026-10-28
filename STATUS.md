@@ -1,3 +1,11 @@
+## October28,2026,18:07 UTC — frozen-predictor residual learning screen registered
+
+The owner asks for a concrete next route. A new small branch learns in final-representation space while C0 and its vocabulary head stay frozen. Its zero output gives exact ordinary predictions initially;future masking,query independence and repeated-cell gradients pass CPU checks. Thirteen focused tests pass. This isolates useful branch learning from changes to the base predictor. The prior whole-backbone feedback architecture remains closed.
+
+Three fixed conditions:linear low-rank correction,one cross-attention/FFN cell application,and two applications sharing the same cell. The iterative models share parameter inventory and initialization. First2048 authentic TRAIN views,512updates/four views each,32 uniformly sampled natural targets per view;448 reused TUNE views with source separation. Fixed LR3e-4;no score-based extension. Independent full-size HF feature references pass. All16-chip frozen feature extraction is next,then bounded CPU branch fitting. The frozen raw32 score must reproduce and two steps must beat both cheaper controls before a mechanism is promoted.[Protocol](docs/FROZEN_RESIDUAL_SCREEN_20261028.md).
+
+This is an equal-data learnability screen,not a training-efficiency or from-scratch result. Whole feature/head/CPU/Native costs count.45-minute overall cap,10-minute Native extraction and30-minute CPU-arm caps;all existing memory/storage gates retained. No large fit or confirmation admitted.
+
 ## October28,2026,17:03 UTC — recoverable context is usable;the extra pass still does not help
 
 The complete frozen CPU assay scores340 authentic cases across four saved models,with no updates. Ordinary context gain replicates strongly:code +1.691/+1.128nats and arithmetic conclusions +3.858/+3.845nats in the two source cohorts. The latent model’s original extra-pass utility is −0.0770/−0.0328 on code and −0.0209/−0.0018 on conclusions. Neither primary mechanism gate passes.[Full report](results/recoverable_dependencies_20261028/REPORT.md).
