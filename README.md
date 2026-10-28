@@ -4,7 +4,7 @@ Can a randomly initialized language model learn to use additional internal
 computation to predict unseen natural text better?
 
 Training uses authentic web text, mathematical web text and repository code.
-The completed main comparisons use no generated research examples,external
+The completed recurrence comparisons use no generated research examples,external
 teacher models,added reasoning traces or reinforcement learning. Real-token
 negative log likelihood (NLL) remains the broad-text primary outcome. Equal-data and training-work comparisons answer different
 questions and are reported separately.
@@ -31,7 +31,7 @@ No held-out quality result exists for this mechanism yet.
 [Full qualification](results/sparse_workspace_warm_20261028/report.json) ·
 [Independent mature audit](results/sparse_workspace_mature_20261028/report.json).
 
-The earlier discrete implementation passes491 CPU tests,two skipped. The framing-free
+The earlier qualified discrete snapshot passed491 CPU tests,two skipped. The framing-free
 reader has exact empty-workspace identity. Its initial ten-TRAIN-anchor
 privileged-copy diagnostic improves NLL by0.972423nats,while sampled workspaces
 still hurt by0.038068nats. This qualifies an interface,not useful writing.
