@@ -29,7 +29,7 @@ class SelectiveWorkspacePredictor:
         logits=self.logits(context,targets,phase)
         return stable_target_log_probs(logits,targets.to(self.device))
     @torch.no_grad()
-    def sample(self,prefix,*,format,length,group_size,generator):
+    def sample(self,prefix,*,format,length,group_size,generator,greedy=False):
         # The writer takes no continuation/target argument.
         if prefix.shape[0]!=1 or not 0<length<=32 or not 1<=group_size<=8:raise ValueError('Bounded single-anchor workspace sampling')
         opening=prefix.new_tensor(format.opening).reshape(1,-1)
@@ -37,7 +37,7 @@ class SelectiveWorkspacePredictor:
         for _ in range(length):
             logits=self.logits(context,prefix.new_zeros((group_size,1)),'workspace_sampling')
             probabilities=torch.softmax(logits[:,-1,:].detach().cpu(),-1)
-            token=torch.multinomial(probabilities,1,generator=generator)
+            token=probabilities.argmax(-1,keepdim=True) if greedy else torch.multinomial(probabilities,1,generator=generator)
             draws.append(token);context=torch.cat([context,token],1)
             del logits,probabilities;drain_runtime(self.device)
         return torch.cat(draws,1)
