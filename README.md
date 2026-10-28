@@ -18,6 +18,13 @@ policy gradients are authorized for this new phase. Earlier results retain
 their original criteria;no larger recurrence main or confirmation completed.
 [New charter](docs/WORKSPACE_RESEARCH_CHARTER_20261027.md) · [Status](STATUS.md).
 
+The new uniform-NTP correction is running under a frozen three-arm budget.
+Every natural target is weighted once;randomly sampled continuous workspaces
+replace predictions rather than adding an auxiliary bonus. All101 retained
+latent prefix updates and931 ordinary prefix updates count in full. Numerical
+qualification and exact full-state replay pass;no quality result exists yet.
+[Current experiment](docs/SPLICED_WORKSPACE_DISCOVERY_20261028.md).
+
 The first differentiable sparse-workspace discovery is complete and negative.
 On448 fixed TUNE views,the full32-token deployed-policy NLL is2.297200 for
 same-emphasis ordinary continuation,2.305394 for generated latent states,and
