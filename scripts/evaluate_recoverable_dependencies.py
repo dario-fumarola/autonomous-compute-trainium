@@ -18,6 +18,7 @@ def run(a):
  p=json.loads(a.plan.read_text());source=Path(__file__).resolve().parents[1]
  if file_sha256(a.plan)!=a.plan_sha or p['purpose']!='recoverable_dependency_inference':raise AssertionError('Frozen dependency assay required')
  if any(file_sha256(source/n)!=h for n,h in p['worker_source_sha256'].items()):raise AssertionError('Frozen source changed')
+ if bool(a.diagnose_only)!=bool(p.get('diagnostic_only',False)):raise AssertionError('Diagnosis mode must be separately registered')
  rank,world=int(os.environ['RANK']),int(os.environ['WORLD_SIZE']);start=time.time();torch.set_num_threads(2);os.environ['NEURON_RT_ROOT_COMM_ID']='127.0.0.1:'+str(a.comm_port)
  import torch_neuronx
  torch.neuron.set_device(0);dist.init_process_group('neuron',rank=rank,world_size=world);mesh=init_device_mesh('neuron',(world,));out=a.output;out.mkdir(parents=True,exist_ok=True)
@@ -40,8 +41,17 @@ def run(a):
    raw=r['raw_logits'].detach().cpu();worked=r['mixed_logits'].detach().cpu();rn=-stable_target_log_probs(raw,v['targets']);wn=-stable_target_log_probs(worked,v['targets']);mask=v['mask']
    errors=[float((raw-expected['raw_logits']).abs().max()),float((worked-expected['mixed_logits']).abs().max()),float((rn.double()[mask]-expected['raw_nll'][mask]).abs().max()),float((wn.double()[mask]-expected['workspace_nll'][mask]).abs().max())]
    collective=torch.tensor(errors,dtype=torch.float32).to('neuron');dist.all_reduce(collective,op=dist.ReduceOp.MAX);errors=collective.cpu().tolist()
-   if max(errors[:2])>.001 or max(errors[2:])>.0002:raise AssertionError('New1024-position Native forward fails independent CPU tolerance')
+   real=v['mask'][0];real_errors=[float((raw-expected['raw_logits']).abs().amax(-1)[0,real].max()),float((worked-expected['mixed_logits']).abs().amax(-1)[0,real].max())]
+   record=dict(panel_index=reference['panel_index'],condition=reference['condition'],variant=reference.get('variant','original'),errors=errors,real_query_logits_max_abs=real_errors,per_query_raw_logits_max_abs=(raw-expected['raw_logits']).abs().amax(-1).tolist(),per_query_workspace_logits_max_abs=(worked-expected['mixed_logits']).abs().amax(-1).tolist(),real_query_mask=v['mask'].tolist())
+   if rank==0:
+    (out/f'forward-comparison-{len(references)}.json').write_text(json.dumps(record,indent=2)+'\n')
+    if a.diagnose_only:torch.save(dict(raw_logits=raw,mixed_logits=worked),out/f'PRIVATE-native-reference-{len(references)}.pt')
+   if not a.diagnose_only and (max(errors[:2])>.001 or max(errors[2:])>.0002):raise AssertionError('New1024-position Native forward fails independent CPU tolerance')
    references.append(dict(panel_index=reference['panel_index'],condition=reference['condition'],variant=reference.get('variant','original'),raw_logits_max_abs=errors[0],workspace_logits_max_abs=errors[1],raw_target_nll_max_abs=errors[2],workspace_target_nll_max_abs=errors[3]))
+  if a.diagnose_only:
+   dist.barrier();fallback=torch_neuronx.get_fallback_ops()
+   if rank==0:(out/'report.json').write_text(json.dumps(dict(status='COMPLETE_DEPENDENCY_FORWARD_DIAGNOSIS',world=world,optimizer_updates=0,records=references,fallback_ops=fallback,wall_seconds=time.time()-start,scope='Numerical failure diagnosis only.No panel scoring,no gate waiver and no scientific quality claim.'),indent=2)+'\n')
+   dist.barrier();dist.destroy_process_group();return
   if rank==0:(out/'cpu-forward-gate.json').write_text(json.dumps(dict(status='PASS_FULL_SIZE_DEPENDENCY_FORWARD_GATE',optimizer_updates=0,records=references),indent=2)+'\n')
   summary={};calls=0
   for arm in ['c0','ordinary','latent','constant']:
@@ -66,4 +76,4 @@ def run(a):
 
 
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--corpus');p.add_argument('--plan',type=Path,required=True);p.add_argument('--plan-sha',required=True);p.add_argument('--comm-port',type=int,required=True);run(p.parse_args())
+ p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--corpus');p.add_argument('--plan',type=Path,required=True);p.add_argument('--plan-sha',required=True);p.add_argument('--comm-port',type=int,required=True);p.add_argument('--diagnose-only',action='store_true');run(p.parse_args())
