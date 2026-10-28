@@ -2,7 +2,7 @@ import copy
 import pytest
 import torch
 from compute_trainium.workspace_olmo_candidate import WorkspaceOlmoCandidate,OlmoWorkspaceConfig,rotary_tensors
-from compute_trainium.sparse_workspace_candidate import SparseWorkspaceCandidate,sparse_step_mask
+from compute_trainium.sparse_workspace_candidate import SparseWorkspaceCandidate,IndependentSparseWorkspaceCandidate,sparse_step_mask
 
 
 def config():return OlmoWorkspaceConfig(hidden_size=16,intermediate_size=32,num_hidden_layers=2,num_attention_heads=2,num_key_value_heads=2,vocab_size=64,pad_token_id=63)
@@ -53,9 +53,10 @@ def test_checkpointed_cache_preserves_all_forward_and_gradient_values():
 
 
 @pytest.mark.parametrize('mode',['latent','constant'])
-def test_cached_graph_matches_independent_dense_two_dimensional_mask_and_gradients(mode):
+@pytest.mark.parametrize('cached_type',[SparseWorkspaceCandidate,IndependentSparseWorkspaceCandidate])
+def test_cached_graph_matches_independent_dense_two_dimensional_mask_and_gradients(mode,cached_type):
     import torch.nn.functional as F
-    torch.manual_seed(8849);cached=SparseWorkspaceCandidate(config());dense=WorkspaceOlmoCandidate(config());dense.load_state_dict(cached.state_dict())
+    torch.manual_seed(8849);cached=cached_type(config());dense=WorkspaceOlmoCandidate(config());dense.load_state_dict(cached.state_dict())
     tokens=torch.arange(8).reshape(1,-1);anchors=torch.tensor([2,5,7]);cos,sin=rotary_tensors(config(),8)
     result=cached.sparse_forward(tokens,cos,sin,anchors,mode=mode,pause_id=62)
     x=dense.model.embed_tokens(tokens)
@@ -63,6 +64,8 @@ def test_cached_graph_matches_independent_dense_two_dimensional_mask_and_gradien
     raw=dense.model.norm(x);z=raw[:,anchors]
     positions=torch.cat([torch.arange(8),anchors]);steps=torch.cat([torch.zeros(8),torch.ones(3)])
     keep=(positions[None,:]<=positions[:,None])&(steps[None,:]<=steps[:,None])
+    if cached_type is IndependentSparseWorkspaceCandidate:
+        keep&=(steps[None,:]==0)|(positions[None,:]==positions[:,None])
     c=cos.index_select(-2,positions);s=sin.index_select(-2,positions)
     initial=dense.model.norm(dense.model.embed_tokens(torch.full_like(tokens[:,:3],62))) if mode=='constant' else z
     x=torch.cat([dense.model.embed_tokens(tokens),initial],1)

@@ -66,6 +66,8 @@ class SparseWorkspaceCandidate(WorkspaceOlmoCandidate):
         self.model=nn.Module();self.model.embed_tokens=nn.Embedding(c.vocab_size,c.hidden_size,padding_idx=c.pad_token_id)
         self.model.layers=nn.ModuleList([CachedDecoder(c,fp16_projections) for _ in range(c.num_hidden_layers)])
         self.model.norm=Norm(c.hidden_size,c.rms_norm_eps);self.lm_head=Projection(c.hidden_size,c.vocab_size,fp16_projections)
+    def workspace_mask(self,sequence_length,anchors):
+        return sparse_step_mask(sequence_length,anchors)
     def sparse_forward(self,tokens,cos,sin,anchors,*,raw_positions=None,mode='latent',mix=.5,pause_id=None):
         if mode not in ['latent','detached','constant'] or not 0<=mix<=1:raise ValueError('Declared workspace mode and convex mixing required')
         x=self.model.embed_tokens(tokens);caches=[]
@@ -83,9 +85,20 @@ class SparseWorkspaceCandidate(WorkspaceOlmoCandidate):
         else:x=initial.detach() if mode=='detached' else initial.clone()
         workspace_input=x
         query_cos=cos.index_select(-2,anchors);query_sin=sin.index_select(-2,anchors)
-        mask=sparse_step_mask(tokens.shape[1],anchors)
+        mask=self.workspace_mask(tokens.shape[1],anchors)
         for layer,(k,v) in zip(self.model.layers,caches,strict=True):
             args=(x,query_cos,query_sin,mask,k,v,False)
             x=checkpoint(layer,*args,use_reentrant=False,preserve_rng_state=False) if self.activation_checkpointing and torch.is_grad_enabled() else layer(*args)
         state=self.model.norm(x);mixed=(1-mix)*initial+mix*state
         return dict(raw_logits=raw_logits,mixed_logits=self.lm_head(mixed),initial_workspace=initial,workspace_input=workspace_input,workspace_state=state)
+
+
+class IndependentSparseWorkspaceCandidate(SparseWorkspaceCandidate):
+    """A query sees the ordinary prefix and its own latent key only.
+
+    Removing another token's workspace therefore leaves its prediction
+    unchanged.This deliberate restriction differs from the published2D mask.
+    """
+    def workspace_mask(self,sequence_length,anchors):
+        positions=torch.arange(sequence_length,device=anchors.device)
+        return torch.cat([positions[None,:]<=anchors[:,None],anchors[None,:]==anchors[:,None]],1)

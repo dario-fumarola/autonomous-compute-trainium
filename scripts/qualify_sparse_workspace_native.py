@@ -10,7 +10,7 @@ def run(a):
  from torch.distributed.device_mesh import init_device_mesh
  from compute_trainium.training import file_sha256
  from compute_trainium.workspace_olmo_candidate import OlmoWorkspaceConfig,rotary_tensors
- from compute_trainium.sparse_workspace_candidate import SparseWorkspaceCandidate
+ from compute_trainium.sparse_workspace_candidate import SparseWorkspaceCandidate,IndependentSparseWorkspaceCandidate
  from compute_trainium.scale_model_sharding import shard_model_from_cpu
  from compute_trainium.scale_sharded_candidate import local_parameter
  from compute_trainium.workspace_sharded_optimizer import WorkspaceShardedAdamW,ShardedGradientAccumulator
@@ -18,7 +18,8 @@ def run(a):
  from compute_trainium.workspace_native_objective import drain_runtime
  from compute_trainium.stable_target_loss import stable_target_log_probs
  p=json.loads(a.plan.read_text());source=Path(__file__).resolve().parents[1]
- if file_sha256(a.plan)!=a.plan_sha or p['purpose']!='sparse_workspace_native_qualification':raise AssertionError('Frozen qualification required')
+ spliced=p['purpose']=='spliced_workspace_native_qualification'
+ if file_sha256(a.plan)!=a.plan_sha or p['purpose'] not in ['sparse_workspace_native_qualification','spliced_workspace_native_qualification']:raise AssertionError('Frozen qualification required')
  if any(file_sha256(source/n)!=h for n,h in p['worker_source_sha256'].items()):raise AssertionError('Source changed')
  rank,world=int(os.environ['RANK']),int(os.environ['WORLD_SIZE']);started=time.time();torch.set_num_threads(2)
  os.environ['NEURON_RT_ROOT_COMM_ID']='127.0.0.1:'+str(a.comm_port)
@@ -29,7 +30,8 @@ def run(a):
   if rank==0:(out/'progress.json').write_text(json.dumps(dict(stage=stage,wall_seconds=time.time()-started)))
  progress('loading_sharded_model')
  c0=torch.load(a.root/p['checkpoint_relative'],weights_only=True,mmap=True)['model'];cfg=OlmoWorkspaceConfig(**p['model_config'])
- with torch.device('meta'):model=SparseWorkspaceCandidate(cfg,activation_checkpointing=True).eval()
+ candidate=IndependentSparseWorkspaceCandidate if spliced else SparseWorkspaceCandidate
+ with torch.device('meta'):model=candidate(cfg,activation_checkpointing=True).eval()
  model=shard_model_from_cpu(model,mesh,c0,'neuron');del c0
  optimizer=WorkspaceShardedAdamW(model,fused=True);generator=torch.Generator().manual_seed(9499+rank)
  model.compile_stages('neuron');inputs=torch.load(a.root/p['inputs_relative'],weights_only=True)
@@ -37,7 +39,11 @@ def run(a):
  cos,sin=rotary_tensors(cfg,160,'neuron');progress('complete_cached_coupled_gradient')
  optimizer.zero_grad();r=model.sparse_forward(tokens,cos,sin,anchors,raw_positions=where)
  sparse_targets=targets.index_select(1,anchors)
- raw=-stable_target_log_probs(r['raw_logits'],targets).mean();work=-stable_target_log_probs(r['mixed_logits'],sparse_targets).mean();loss=.5*raw+.5*work
+ if spliced:
+  raw_losses=-stable_target_log_probs(r['raw_logits'],targets.index_select(1,where));work_losses=-stable_target_log_probs(r['mixed_logits'],sparse_targets)
+  raw=raw_losses.mean();work=work_losses.mean();loss=(raw_losses.sum()+work_losses.sum())/targets.numel();del raw_losses,work_losses
+ else:
+  raw=-stable_target_log_probs(r['raw_logits'],targets).mean();work=-stable_target_log_probs(r['mixed_logits'],sparse_targets).mean();loss=.5*raw+.5*work
  scalar_loss=float(loss.detach().cpu());raw_value=float(raw.detach().cpu());work_value=float(work.detach().cpu())
  (loss/world*256).backward();acc=ShardedGradientAccumulator(model);acc.add_and_clear();acc.install();del acc,r,loss,raw,work
  norm=optimizer.finish_gradients(scale=256,clip=1e30);release_compiled_calls(model)
@@ -77,7 +83,7 @@ def run(a):
   if restored['update']!=1 or not torch.equal(old_rng,generator.get_state()) or not torch.equal(old_torch_rng,torch.get_rng_state()):raise AssertionError('Complete state or RNG did not restore')
  dist.barrier();fallback=torch_neuronx.get_fallback_ops()
  if fallback:raise AssertionError('Native sparse qualification fallback:'+str(fallback))
- if rank==0:(out/'report.json').write_text(json.dumps(dict(status='PASS_SPARSE_NATIVE_GRADIENT_UPDATE_RECOVERY',world=world,actual_qualification_optimizer_updates=1,scientific_optimizer_updates=0,parameters_checked=len(list(model.parameters())),largest_named_gradient_relative_l2=largest_gradient,largest_named_update_relative_l2=largest_update,largest_named_moment_relative_l2=largest_moment,complete_state_tensors_per_saved_rank=716,roundtrip_ranks=2,exact_rng=True,fallback_ops=fallback,raw159_nll=raw_value,sparse_anchor_nll=work_value,loss=scalar_loss,gradient_norm=norm,wall_seconds=time.time()-started,scope='One authentic TRAIN view repeated over64 ranks for numerical qualification.No scientific learning/quality claim.Two saved shards test all716 actor/AdamW states after a live step;full-global restart and100warm/mature gates remain.')))
+ if rank==0:(out/'report.json').write_text(json.dumps(dict(status='PASS_SPARSE_NATIVE_GRADIENT_UPDATE_RECOVERY',world=world,actual_qualification_optimizer_updates=1,scientific_optimizer_updates=0,parameters_checked=len(list(model.parameters())),largest_named_gradient_relative_l2=largest_gradient,largest_named_update_relative_l2=largest_update,largest_named_moment_relative_l2=largest_moment,complete_state_tensors_per_saved_rank=716,roundtrip_ranks=2,exact_rng=True,fallback_ops=fallback,raw_subset_nll=raw_value,sparse_anchor_nll=work_value,loss=scalar_loss,spliced_uniform_ntp=spliced,query_count=int(anchors.numel()),gradient_norm=norm,wall_seconds=time.time()-started,scope='One authentic TRAIN view repeated over64 ranks for numerical qualification.No scientific learning/quality claim.Two saved shards test all716 actor/AdamW states after a live step;full-global restart and100warm/mature gates remain.')))
  dist.barrier();dist.destroy_process_group()
 
 
