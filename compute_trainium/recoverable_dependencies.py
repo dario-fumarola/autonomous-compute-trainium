@@ -31,6 +31,12 @@ def pack_dependency(case,condition,pad_id,*,positions=1024,slots=16):
     return dict(tokens=torch.tensor(inputs).reshape(1,-1),anchors=anchors,targets=torch.tensor(labels).reshape(1,-1),mask=mask.reshape(1,-1),positions=torch.arange(positions)+offset)
 
 
+def real_dependency_view(view):
+    """CPU execution removes only future padding and independently masked queries."""
+    count=int(view['mask'].sum());end=int(view['anchors'][count-1])+1
+    return dict(tokens=view['tokens'][:,:end],positions=view['positions'][:end],anchors=view['anchors'][:count],targets=view['targets'][:,:count],mask=view['mask'][:,:count])
+
+
 def dependency_metrics(raw,worked,targets,mask,initial,state):
     if raw.shape!=worked.shape or raw.shape[:-1]!=targets.shape or mask.shape!=targets.shape or not bool(mask.any()):raise ValueError('Exact real-source mask and logit geometry required')
     w=mask.to(raw.dtype);count=w.sum();rn=-stable_target_log_probs(raw,targets);zn=-stable_target_log_probs(worked,targets)

@@ -65,3 +65,15 @@ def test_trimming_fully_masked_future_cache_preserves_outputs_and_all_gradients(
         for k in ['raw_logits','mixed_logits']:torch.testing.assert_close(left[k],right[k],rtol=2e-5,atol=2e-6)
         left['mixed_logits'].square().mean().backward();right['mixed_logits'].square().mean().backward()
         for p,q in zip(a.parameters(),b.parameters(),strict=True):torch.testing.assert_close(p.grad,q.grad,rtol=2e-4,atol=2e-6)
+
+
+def test_cpu_shared_prefix_and_real_only_execution_preserve_every_real_prediction():
+    from compute_trainium.dependency_candidate import DependencyCandidate
+    from compute_trainium.dependency_cpu_views import dependency_views
+    from compute_trainium.recoverable_dependencies import real_dependency_view
+    torch.manual_seed(5714);c=OlmoWorkspaceConfig(hidden_size=16,intermediate_size=32,num_hidden_layers=2,num_attention_heads=2,num_key_value_heads=2,vocab_size=64,pad_token_id=63);m=DependencyCandidate(c);v=pack_dependency(case(),'full',63,positions=64);real=real_dependency_view(v);cos,sin=rotary_tensors(c,64)
+    for mode in ['latent','constant']:
+        for variant in ['original','strict','strict_rms','embedding_replay']:
+            expected=m.dependency_forward(v['tokens'],cos,sin,v['anchors'],raw_positions=v['anchors'],mode=mode,pause_id=1,variant=variant)
+            actual=dependency_views(m,real,cos,sin,mode=mode,pause_id=1,variants=[variant])[variant]
+            for key in ['raw_logits','mixed_logits','workspace_state']:torch.testing.assert_close(actual[key],expected[key][:,:3],rtol=2e-5,atol=2e-6)

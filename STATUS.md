@@ -1,3 +1,11 @@
+## October28,2026,16:56 UTC — dependency assay blocked on Native numerics;CPU fallback prepared
+
+The source-only panel freezes96 code bindings,134 source-authored arithmetic conclusions and110 exploratory intermediate targets,in two source-group cohorts,before model scoring. Authentic targets are unchanged;context ablation removes the relevant prior work. Full-size independent HF references and28 prior/focused CPU gates pass. No scientific quality result yet.[Frozen question](docs/RECOVERABLE_DEPENDENCY_DIAGNOSTIC_20261028.md).
+
+Both zero-update Native attempts stop at the unchanged forward gate before any panel score. Initial math mismatch and recovery strict-control mismatch are preserved;recovery never changes the original deadline or tolerance. A separate numerical diagnosis is not a qualification pass. CPU cached semantics agree with HF;Native differences vary by rank/query and are not attributed to a proven SDK cause.[Failures and controls](results/recoverable_dependencies_20261028).
+
+The feedback input is20–51times ordinary embedding RMS on two fixed C0 examples;cache also includes original and new self KV at the same position. These are hypotheses,not proven causes. Primary original reader and pre-frozen strict-self/RMS controls remain separate. A25-minute CPU-only fallback now tests all340 cases/four models with the same scientific criteria and an independent full-size gate first. Zero training,zero assigned chips,no gate waiver or large fit.
+
 ## October28,2026,14:14 UTC — source-separated readout selects no latent workspace
 
 The final zero-update diagnostic selectsalpha0,temperature1 for the latent model on192 unused TRAIN-reserve views/178 groups. Its held-out full32 prediction therefore falls back to raw2.265102,still0.002245nats behind equally calibrated ordinary2.262857. Constant-query alpha.1 gives only0.000109nats of own raw improvement;no baseline win. The fixed latent-reader recipe is closed,not promoted.[Final readout](results/spliced_workspace_readout_20261028/source-reserve-v2/REPORT.md).

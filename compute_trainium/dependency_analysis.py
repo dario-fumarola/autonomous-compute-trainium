@@ -16,7 +16,8 @@ def analyze(root,plan):
     from pathlib import Path
     folder=Path(root)/'runs'/(plan['identity']+'-evaluation');cases=json.loads((Path(root)/plan['panel_relative']).read_text());data={};orders=[('original','full'),('original','short'),('strict','full'),('strict_rms','full')]
     for arm in ['c0','ordinary','latent','constant']:
-        rows=[r for k in range(64) for r in json.loads((folder/f'rank{k}-{arm}-metrics.json').read_text())];data[arm]={}
+        paths=[Path(root)/plan['cpu_metrics_relative']/f'{arm}-metrics.json'] if plan.get('cpu_metrics_relative') else [folder/f'rank{k}-{arm}-metrics.json' for k in range(64)]
+        rows=[r for path in paths for r in json.loads(path.read_text())];data[arm]={}
         for variant,condition in orders:
             values=sorted([x for x in rows if x['variant']==variant and x['condition']==condition],key=lambda r:r['index'])
             if [r['index'] for r in values]!=list(range(len(cases))):raise AssertionError('Exact panel and intervention coverage required')
