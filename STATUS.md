@@ -1,3 +1,9 @@
+## October28,2026,02:09 UTC — trained-pause endpoint and mature audit pass;own-draft fit launched
+
+The pause control completes421 updates and all64 complete model/AdamW/RNG archives.Its independent HF-body/FP64-loss audit passes179/179 gradients:largest named discrepancy0.001098%,overall0.000322%.No fallback;warm updates average1.63096seconds,whole Native runtime1383.37seconds including its sequential final save.[Audit](results/workspace_discovery_20261027/workspace-discovery-audit-pause-v1/report.json).
+
+The unchanged63-update draft control is now active on all16chips.It trains its writer on authentic future-token labels,but its reader receives only its OWN prefix-generated samples.Ordinary,workspace and pause are saved and audited;after draft's mature audit,the precommitted320-anchor target-blind panel can be evaluated.No TUNE outcome yet.[Pause endpoint](results/workspace_discovery_20261027/recovery-v3/pause-native.json).
+
 ## October28,2026,01:44 UTC — first saved workspace endpoint passes independent mature audit
 
 The protected48-update workspace history completes,all64 final full-state archives verify,and the temporaryu1 backup is retired only afterward.The100%-parameter independent HF-body/FP64-loss audit passes all179 gradients:largest named error0.0007340%,overall0.0002110%;frozen rewards differ by at most0.00000217nats.No numerical threshold changes,no fallback.[Independent audit](results/workspace_discovery_20261027/workspace-discovery-audit-workspace-v1/report.json).
