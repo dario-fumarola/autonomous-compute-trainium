@@ -1,0 +1,13 @@
+# Global TRAIN readout diagnostic
+
+The uniform-NTP endpoint improves from C0 but still loses to ordinary and its own no-workspace path. Do not extend its backbone training. First ask whether its fixed .5 residual readout conceals a useful state.
+
+Keep all four saved models frozen. Fit one global residual coefficient alpha from {0,.05,.1,.2,.35,.5} and temperature from {1,.9,1.1} on the first640 authentic TRAIN views. Choose by the same60/20/20 full32-token deployed-policy NLL,with four workspace positions. Ordinary uses alpha0 and gets the same temperature opportunities. Also fit each model's raw temperature separately,for an equally calibrated no-workspace comparison. Exact ties prefer zero extra computation and temperature closest to1.
+
+The existing workspace prediction has logits W(.5h+.5z). Interpolating raw logits Wh with that output yields W((1-alpha)h+alpha z). This changes only a global reader,not the latent state or backbone. Alpha0 and.5 reproduce the original endpoints. Intermediate readouts are a diagnostic interpolation,not evidence of extra trained latent depths.
+
+Freeze each choice before reading448 reused TUNE views. Never select a coefficient per token using the true next token,and never choose the grid winner on TUNE. The Native implementation may evaluate the small grid in parallel for efficiency,but it exports only the frozen held-out choice and the original fixed endpoint parity checks. Primary diagnostics: own selected-workspace utility at the same temperature;full32 NLL vs equally calibrated ordinary;raw calibrated vs workspace calibrated under the same frozen backbone. Both raw and workspace fixed original scores must reproduce within1e-5. Model parameter versions must remain unchanged.
+
+Report640 TRAIN fitting views separately from448 evaluation views,one reused panel/seed,all calibration execution cost,and zero backbone optimizer updates. No new source corpus,teacher,policy gradient or architecture. This is a controlled diagnostic of the failed reader,not a retrospective replacement of the original negative endpoint. One all16-chip phase,192GiB cap,30-minute complete cap,20-minute phase cap,512GiB/35GiB reserves and fail-closed compilation. CPU fixtures verify every grid cell against independent cross entropy and enforce TRAIN-only selection.
+
+If the selected coefficient is zero or held-out absolute workspace utility remains nonpositive,close this fixed-reader recipe. A nonzero coefficient with positive held-out utility would justify a separately registered reader-learning experiment,not automatic scaling,allocation or a reasoning claim. Global calibration is not a learned prefix-dependent compute policy.
