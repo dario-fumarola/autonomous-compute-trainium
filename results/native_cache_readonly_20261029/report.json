@@ -1,0 +1,47 @@
+{
+  "status": "COMPLETE_READONLY_CACHE_CONFIGURATION_AUDIT",
+  "checked_unix": 1793310298.0446815,
+  "sdk_source_sha256": {
+    "neuron_dynamo_backend/backend.py": "0d7d1dc850195f8db1afac640030ba3a43126d897d3deb9cc7e86649f44e2fc2",
+    "neuron_dynamo_backend/compile.py": "542ed8c3f04e9ecd44eda7f24fa55285602bdcc83b73cdd69f76760d87139393",
+    "kernels/cache_utils.py": "20e39e47de1717057d4a135f752c783f112d3766f482ccf2282fa54891dd752b"
+  },
+  "lowering_calls": {
+    "_lower_fx_to_neff": [
+      "_lower_fx_to_stablehlo_cached"
+    ],
+    "neuron_backend_fx_compiler": [
+      "_lower_fx_to_stablehlo"
+    ]
+  },
+  "launch_sets_hlo_cache_and_local_neff_scratch": true,
+  "launch_sets_neff_storage_env": false,
+  "default_neff_directory_is_symlink_to_persistent_mount": true,
+  "default_neff_directory_is_ephemeral": false,
+  "completed_phase_observations": [
+    {
+      "phase": "chunked-persistent-screen-v1-ordinary-lr0",
+      "first_update_seconds": 189.53875064849854,
+      "whole_phase_seconds": 869.7675862312317,
+      "cache_files_with_mtime_in_phase": 2,
+      "cache_bytes_with_mtime_in_phase": 8327571,
+      "launch_sha256": "cf1b6561dfedeec43d7561a76e888a4de2a782fac0190ede0f1b81c1b41b5221",
+      "closure_sha256": "aab93760bc2cbc75c09b05fa0c40f6307f75b7d903ef5d8addb3251ab9199ff0"
+    },
+    {
+      "phase": "chunked-persistent-screen-v1-ordinary-lr1",
+      "first_update_seconds": 189.6714904308319,
+      "whole_phase_seconds": 870.8992822170258,
+      "cache_files_with_mtime_in_phase": 2,
+      "cache_bytes_with_mtime_in_phase": 8328467,
+      "launch_sha256": "36450c333f9c116c7638b27b42f9548a1a92b56ed9bbc305affdca7ab058d850",
+      "closure_sha256": "2a8dbe83d085eb44d5960b32530bf41ea0ac3d06072cfbd2e7e7f21f6cce9677"
+    }
+  ],
+  "changes_applied": 0,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "conclusion": "The current torch.compile backend calls uncached StableHLO lowering. The separate fx_to_neff API calls the cached wrapper. NEFF storage is already persistent via an image symlink, so missing storage configuration is not the cause. Each observed complete ordinary fit has two NEFF files last modified during its phase; the reason for the differing cache entries remains unisolated. First-update time includes all initialization/execution, not just compiler time.",
+  "official_reference": "https://github.com/aws-neuron/torch-neuronx/blob/main/docs/environment_variables.md"
+}
