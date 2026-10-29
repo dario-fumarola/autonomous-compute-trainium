@@ -1,0 +1,14 @@
+{
+  "status": "MATCHES_PINNED_ACCUMULATIVE_REFERENCE_OPERATION",
+  "reference_url": "https://github.com/LUMIA-Group/PonderingLM/blob/3deec205194d754f3e9641182e0f4c3ea3c3f6d4/src/llamafactory/model/modeling/modeling_llama.py",
+  "reference_sha256": "caf99b826dd44559346293814b2cdd27b33bf24cedd2dbc3223ab20ff7963bbf",
+  "operation": "Each full causal pass produces vocabulary probabilities; their embedding expectation is added to the current embedding stream. A final full causal pass predicts the targets.",
+  "differences": [
+    "Independent implementation and backbone",
+    "Tied input/output table in our model",
+    "Our model,data,optimizer,scale and sampled-depth training differ",
+    "No claim to reproduce published results"
+  ],
+  "optimizer_updates": 0,
+  "heldout_reads": 0
+}

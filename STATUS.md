@@ -1,3 +1,20 @@
+## October29,2026,00:26 UTC — longer ordinary control audited; constant control active
+
+The matched-work ordinary arm completes3413updates/446,570,790 real targets,
+its independent cooldown and mature audit. Full-state restoration and replica
+checks pass;worst gradient-family relative error9.55e-5. All16chips now fit the
+last registered constant-proposal control;all held-out quality remains unread.
+The pinned reference recheck confirms the accumulative expected-embedding update.
+[Operation receipt](results/probability_workspace_20261028/reference-recheck.json).
+
+A fixed-one-replay follow-up is prepared but not registered or launched. It would
+hold source exposure and total matrix work exactly equal to the current sampled
+zero/one/two recipe,using existing audited ordinary controls. Its only supported
+exit would be one replay. Two tests check exact work equality and unchanged
+control-example/target requirements. Admission still requires completing and
+interpreting the active four-arm comparison;no automatic scaling follows.
+[Prepared diagnostic](docs/PROBABILITY_FIXED_ONE_20261029.md).
+
 ## October29,2026,00:04 UTC — workspace and equal-data control fully audited; work control active
 
 The complete workspace passes all six mature CPU gradient checks;worst family
