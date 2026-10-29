@@ -1,0 +1,221 @@
+{
+  "status": "COMPLETE_SEQUENTIAL_DEV_READOUT",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "protected_groups_scored": 0,
+  "domains": {
+    "web": 3.7625002758453063,
+    "math": 2.9286602524545433,
+    "code": 2.0975086152861753
+  },
+  "broad_nll": 3.2627339390553276,
+  "comparisons": {
+    "ordinary-lr1-main": {
+      "broad": {
+        "gain": 0.11437741182071857,
+        "conditional_95_interval": [
+          0.10893949638955562,
+          0.11978756036744494
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": 0.10659926124685715,
+          "conditional_95_interval": [
+            0.0994799321018062,
+            0.11401717567617002
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": 0.12045863197521012,
+          "conditional_95_interval": [
+            0.10800862685500018,
+            0.13266874935486178
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": 0.13163064338781139,
+          "conditional_95_interval": [
+            0.12083623450153394,
+            0.14339802101584262
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      }
+    },
+    "pause-lr1-main": {
+      "broad": {
+        "gain": 0.12839416398161943,
+        "conditional_95_interval": [
+          0.12313964787241141,
+          0.13358400292127412
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": 0.13264852253443093,
+          "conditional_95_interval": [
+            0.12568728197362777,
+            0.13965515536953363
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": 0.1247019592412899,
+          "conditional_95_interval": [
+            0.11383681867670878,
+            0.13549962041480185
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": 0.11932329306351441,
+          "conditional_95_interval": [
+            0.10911713275274729,
+            0.13013006551035528
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      }
+    },
+    "mixed-lr1-main": {
+      "broad": {
+        "gain": 0.0008121713318669954,
+        "conditional_95_interval": [
+          0.00012192806486542416,
+          0.0015226261915251649
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": 0.0010924507501570702,
+          "conditional_95_interval": [
+            0.0001687241918234328,
+            0.00202739848818233
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": 0.0005646152624700917,
+          "conditional_95_interval": [
+            -0.0008990551328840191,
+            0.001848806213554065
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": 0.00021888914639367485,
+          "conditional_95_interval": [
+            -0.0010323740168500905,
+            0.0015917295600616829
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      }
+    },
+    "mixed-lr1-supported3": {
+      "broad": {
+        "gain": -0.00061520149808576,
+        "conditional_95_interval": [
+          -0.0009430025883677761,
+          -0.00030567912152249573
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": -0.0005215337000352704,
+          "conditional_95_interval": [
+            -0.0009223461459965887,
+            -0.00014397172211513278
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.0007846301646941001,
+          "conditional_95_interval": [
+            -0.0017252245325323878,
+            -1.9417444437974847e-05
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.000726776225628889,
+          "conditional_95_interval": [
+            -0.001261665332145323,
+            -0.00019853861775897015
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      }
+    }
+  },
+  "workers": [
+    {
+      "status": "COMPLETE_SEQUENTIAL_DEV_PARTITION",
+      "views": 192,
+      "checks": [
+        {
+          "index": 0,
+          "maximum_target_loss_error": 3.552713678800501e-15
+        },
+        {
+          "index": 128,
+          "maximum_target_loss_error": 4.218847493575595e-15
+        },
+        {
+          "index": 256,
+          "maximum_target_loss_error": 4.440892098500626e-15
+        }
+      ],
+      "wall_seconds": 741.5848891735077,
+      "peak_rss_bytes": 1837838336
+    },
+    {
+      "status": "COMPLETE_SEQUENTIAL_DEV_PARTITION",
+      "views": 192,
+      "checks": [
+        {
+          "index": 1,
+          "maximum_target_loss_error": 1.7763568394002505e-15
+        },
+        {
+          "index": 129,
+          "maximum_target_loss_error": 3.552713678800501e-15
+        },
+        {
+          "index": 257,
+          "maximum_target_loss_error": 3.9968028886505635e-15
+        }
+      ],
+      "wall_seconds": 690.1874556541443,
+      "peak_rss_bytes": 1864499200
+    }
+  ],
+  "checkpoint_sha256": "7b019bbc281330e499ce718e418a2053326ceab82acb9d151311793915c48982",
+  "scope": "Exact sequential deployment readout of the previously K2-selected mixed endpoint. Reused single-seed DEV, no new selection, inference speed, general reasoning, allocation or efficiency claim.",
+  "automatic_promotion": false,
+  "trained_seeds": 1,
+  "wall_seconds": 746.8717086315155
+}

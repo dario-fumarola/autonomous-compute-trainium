@@ -1,13 +1,19 @@
 # Autonomous computation during pretraining
 
-A mixed-round persistent latent model now scores **3.263546 NLL**, improving
-**0.113565 over ordinary training** and **0.127582 over trained pauses** at equal
-natural-source exposure. It selects an interior learning rate, passes mature
-numerical audits, and repairs the original TRAIN sequential-consistency failure
-at every tested LR. Full sequential broad readout is active. This one-seed,
-reused-DEV result costs **5.592856times ordinary training matrix work**; it does
-not establish efficiency or general reasoning. Stronger conventional controls
-are next. [Completed mixed screen](results/interleaved_workspace_20261029/mixed-round-tuning-v1/REPORT.md).
+A persistent latent model trained from random initialization now scores
+**3.262734 NLL under exact sequential generation**, improving **0.114377nats
+over ordinary training** and **0.128394 over trained constant pauses** at equal
+natural-source exposure. Web, math and code all improve. Mixed numerical-round
+training repairs the original train/deployment approximation mismatch.
+
+This is a useful predictive-computation development result at51.75M parameters
+and128M authentic targets. It remains one selected seed on reused DEV and costs
+**5.592856times ordinary training matrix work**. General reasoning, learned
+allocation and training efficiency remain unestablished. Both fresh reserves
+are unscored. A stronger tied-table, eleven-layer ordinary challenger is now
+independently tuning on all16 chips.
+[Exact sequential result](results/interleaved_workspace_20261029/mixed-sequential-dev-v1/REPORT.md) ·
+[Complete mixed screen](results/interleaved_workspace_20261029/mixed-round-tuning-v1/REPORT.md).
 
 The preceding fixed-round model has an **equal-data development lead**:
 **3.281309 NLL**, versus **3.377111 ordinary** and **3.391128 trained constant

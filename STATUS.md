@@ -1,3 +1,27 @@
+## October 29, 2026, 12:17 UTC — exact sequential gain retained; stronger baseline fitting
+
+The complete selected mixed sequential readout scores3.262734NLL. Gains are
++0.114377 over ordinary [0.108939,0.119788] and+0.128394 over trained pauses
+[0.123140,0.133584], conditional source-group intervals. Every domain improves.
+Sequential and finiteK2 means differ by only0.000812nats; the original0.058892
+sequential penalty is repaired. All six cached/full-prefix FP64 checks pass.
+This is one-seed reused-DEV equal-data evidence at5.592856times ordinary nominal
+training work; not general reasoning, allocation, confirmation or efficiency.
+[Sequential result](results/interleaved_workspace_20261029/mixed-sequential-dev-v1/REPORT.md).
+
+The tied-table ordinary challenger passes complete actual-shape numerical and
+restart qualification. Its three-LR128M-target screen was registered but had
+not launched during the interruption. Resumed inspection launches it under the
+unchanged original deadline; the42.46-minute registration-to-launch interval
+is recorded as11.32 opportunity chip-hours, not training work. All16 chips now
+fit the first LR. Fresh reserves remain closed.
+[Gap receipt](results/interleaved_workspace_20261029/operational-gap-v1/report.json).
+
+Two old completed qualification shards move losslessly from tmpfs to NVMe,
+freeing4.81GiB host headroom; original hashes, owner access and paths are
+preserved. Prior model-relocation owner permissions are also corrected without
+changing bytes. [Relocation receipt](results/interleaved_workspace_20261029/maintenance-v7/relocation.json).
+
 ## October 29, 2026, 11:24 UTC — stronger conventional qualification active
 
 The tied-table eleven-layer ordinary challenger is now qualifying on all16

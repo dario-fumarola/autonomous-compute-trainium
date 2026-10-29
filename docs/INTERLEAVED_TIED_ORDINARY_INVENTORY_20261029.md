@@ -27,9 +27,12 @@ uses the same documented initializer, but different layer count changes output
 residual scaling; it is a competing model, not a parameterwise paired ablation.
 Count shared parameters once and ensure embedding/output contributions both
 reach the same optimizer state. No unused independent head remains. The common
-optimizer rule exempts the embedding table from decay, so the tied output shares
-that exemption; the candidate's independent output table receives decay. This
-is a competing allocation/recipe, not an isolated weight-tying causal ablation.
+optimizer rule exempts the embedding table AND the independent output table
+(the latter via additional_no_decay_parameters). The tied table retains that
+exemption. This is a competing allocation/recipe, not an isolated weight-tying
+causal ablation. A prior wording in the qualification-time document incorrectly
+said the independent output table received decay; code and executed optimizer
+groups were unchanged and both tables were exempt throughout.
 
 Before training, require CPU forward/full-gradient/optimizer parity with an
 independent tied ordinary path, followed by actual-shape64-rank qualification,
