@@ -1,3 +1,17 @@
+## October 29, 2026, 20:40 UTC — sparse qualification remains incomplete
+
+All four initial cold gradient checks and all 100 warm updates pass their
+registered limits. The first Native phase reaches its 20-minute cap during
+checkpoint handling, after saving the rank-zero state and 60/64 replica
+receipts. This is a systems stop, not a learning result or qualification pass.
+Its 5.340969 assigned chip-hours remain charged.
+
+A separately registered recovery runs under the unchanged original 20:46:23
+UTC deadline. Substantial graphs compile again across launches; successful
+compile-cache reuse is not established. The full source suite passes 972 with
+two skips. No scientific fit is admitted. [Stopped attempt](results/chunked_persistent_workspace_20261029/numerical-v1/REPORT.md) ·
+[Recovery registration](results/chunked_persistent_workspace_20261029/numerical-recovery-v1/plan.json).
+
 ## October 29, 2026, 20:02 UTC — fixed-depth diagnosis complete; sparse qualification active
 
 Fixed-one training improves 0.073799 nats over mixed training's supported

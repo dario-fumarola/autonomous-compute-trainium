@@ -65,14 +65,14 @@ def admission_cost(arms,warm):
 
 def prepare(root):
     from compute_trainium.indexed_natural_sources import IndexedNaturalSources
-    qpath=Path('results/chunked_persistent_workspace_20261029/numerical-v1/report.json')
+    qpath=Path('results/chunked_persistent_workspace_20261029/numerical-recovery-v1/report.json')
     q=json.loads(qpath.read_text())
     if q['status']!='PASS_CHUNKED_PERSISTENT_ACTUAL_SHAPE':
         raise AssertionError('Actual shape, full gradients, exact replay and runtime must qualify first')
     if managed_running():raise RuntimeError('Previous Native owner must close')
     if shutil.disk_usage('/').free<35*1024**3 or shutil.disk_usage(root).free<44*1024**3:
         raise RuntimeError('Nine GiB artifact allowance above protected output reserves')
-    qp=root/'chunked-persistent-qualification-v1/plan.json';qualified=json.loads(qp.read_text())
+    qp=root/'chunked-persistent-qualification-recovery-v1/plan.json';qualified=json.loads(qp.read_text())
     for f in ('compute_trainium/chunked_persistent_workspace.py','compute_trainium/chunked_persistent_factory.py',
               'compute_trainium/depth_causal_workspace.py','compute_trainium/tied_interleaved_ordinary.py',
               'compute_trainium/model.py','scripts/train_interleaved_screen.py',
