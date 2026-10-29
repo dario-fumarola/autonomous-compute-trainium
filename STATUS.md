@@ -1,4 +1,4 @@
-## October 29, 2026, 16:36 UTC — supported-budget learning registered
+## October 29, 2026, 16:38 UTC — supported-budget learning active
 
 The new finite experiment trains zero/one/two generated states in one model,
 with all five numerically qualified graphs. It retains the original1957updates,
@@ -19,6 +19,10 @@ phase and ends by19:36UTC, including audits and exact CPU readout. It is an
 equal-data study using about4.45times tied ordinary's nominal training work;
 it cannot establish training-compute efficiency. Both fresh reserves remain
 unscored.
+
+The first LR fit is active on all16chips, initially compiling the five registered
+graphs. No quality result is available. The controller stops on any numerical,
+consistency, resource or endpoint failure and retains its initiating exception.
 
 [Protocol](docs/SUPPORTED_LATENT_BUDGET_LEARNING_20261029.md) ·
 [Plan](results/budgeted_interleaved_20261029/learning-v1/plan.json) ·
