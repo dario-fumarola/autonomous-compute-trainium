@@ -17,10 +17,17 @@ The fresh-panel outcome remains unavailable because both reserves stay closed.
 | Does it beat ordinary training at equal training work? | Unestablished for this mechanism. It uses3.782219times the tied challenger's training matrix work. Equal-data gains are not a matched-work win. |
 | Is it a new latent-thought algorithm? | No such claim. This is a controlled implementation and investigation of the PonderLM-2 family, with explicit numerical/sequential checks and conventional controls. |
 
-The conventional gates have passed. The completed fixed-recipe replication
+The original selected-seed conventional gates passed. The completed fixed-recipe replication
 finds new-seed gains0.002267/0.028967 over ordinary and0.131651/0.138708 over pauses. Its gate fails; the prepared ephemeral scientific comparison is not admitted.
 Neither the inconclusive structural diagnostic nor a favorable source-group
 interval authorizes a terminal reasoning or efficiency claim.
+
+A separate zero/one/two-token learning experiment is now active. It trains all
+three modes explicitly and requires exact sequential readout, an improvement
+over the independently trained one-token model, the strongest ordinary
+comparison, and preservation of the ordinary prediction path. Its outcome is
+pending. It does not relax the failed fixed-one replication gate.
+[New registered question](../../docs/SUPPORTED_LATENT_BUDGET_LEARNING_20261029.md).
 
 [Strongest completed comparison](tied-comparison-v1/REPORT.md) ·
 [Deeper comparison](frontier-deeper-comparison-v1/REPORT.md) ·
