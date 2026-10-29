@@ -133,8 +133,8 @@ def run(root):
     except BaseException as error:
         result.update(status='STOPPED_INTERLEAVED_SEED_REPLICATION',error_type=type(error).__name__,error=str(error));raise
     finally:
-        costs={key:json.loads((root[t['identity']]/'execution-costs.json').read_text()) for key,t in p['trials'].items()
-               if (root[t['identity']]/'execution-costs.json').exists()}
+        costs={key:json.loads((root/t['identity']/'execution-costs.json').read_text()) for key,t in p['trials'].items()
+               if (root/t['identity']/'execution-costs.json').exists()}
         write_state(PUBLIC/'execution-costs.json',dict(trials=costs,scope='All admitted child fit/audit phases, including stopped work; exact CPU readout wall times are in the main report, with zero chips.'))
         result['wall_seconds']=time.time()-start;write_state(out/'report.json',result);write_state(PUBLIC/'report.json',result)
 

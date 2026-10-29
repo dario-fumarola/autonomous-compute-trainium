@@ -1,3 +1,34 @@
+## October 29, 2026, 15:57 UTC — distinct thought-budget numerical qualification active
+
+All16chips now run one bounded disposable qualification of explicit zero/one/
+two latent-token budgets. Five graphs distinguish latent count from numerical
+refinement depth. This addresses feasibility for a new same-checkpoint question;
+it does not relax the failed fixed-one replication gate or admit a learning fit.
+Cold gradients, mature full-global gradients, exact replay, per-graph throughput
+and resource gates must pass. No held-out data is used.
+[Scope](docs/BUDGETED_INTERLEAVED_QUALIFICATION_20261029.md) ·
+[Immutable plan](results/budgeted_interleaved_20261029/numerical-v1/plan.json).
+
+## October 29, 2026, 15:53 UTC — replication complete; advancement gate fails
+
+The two new exact-sequential latent NLLs are3.280123 and3.264425. Gains over
+strongest ordinary are0.002267 and0.028967; over trained pauses0.131651 and
+0.138708. The ordinary-control mean is0.015617 with pairedSD0.018880, so
+initialization variation is substantial. The frozen both-seeds advancement
+gate fails. The prepared ephemeral scientific fit is not admitted.
+[Complete replication](results/interleaved_workspace_20261029/seed-replication-v1/REPORT.md).
+
+All six fits/audits and both readouts completed. A final cost-aggregation path
+error stopped report assembly; zero-update recovery reconstructed the unchanged
+summary from saved receipts and preserved the original failure. The path bug
+is corrected only after the frozen execution closed. No retraining or scoring
+rerun, threshold change, fresh-source read or terminal alpha was involved.
+
+A separate zero/one/two-latent CPU reference passes29 focused checks. It separates
+thought-token budget from numerical solver depth and admits no scientific fit.
+The full CPU suite passes831tests/two skips; after the path repair,31focused
+checks and real six-receipt aggregation pass.
+
 ## October 29, 2026, 15:33 UTC — ephemeral numerical qualification complete
 
 The disposable source-KV reuse graph passes cold and full128-window mature

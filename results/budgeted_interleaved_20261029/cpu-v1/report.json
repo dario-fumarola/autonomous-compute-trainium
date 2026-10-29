@@ -1,0 +1,84 @@
+{
+  "status": "PASS_BUDGETED_INTERLEAVED_CPU_REFERENCE",
+  "created_unix": 1793289277.9192517,
+  "source_sha256": {
+    "compute_trainium/budgeted_interleaved_reference.py": "eaab8912f75a3dc3ea297c97ce8045d8e7153759b934b4861ca3e27602efd55f",
+    "compute_trainium/budgeted_interleaved_factory.py": "219230721de9348eb4407d1cba4c7bc5b57f043c30be0e2b229c47e0b4dc7ce2",
+    "scripts/budgeted_interleaved_entry.py": "472f41ff336755bd601016fab79c42e9c6291d1fab3bc51e256fa1bdb21aa290",
+    "scripts/run_budgeted_interleaved_qualification.py": "b49dfa6e84c16044eeb11875a2a5510d6268a8877966efd0547692de440e0e05",
+    "tests/test_budgeted_interleaved_reference.py": "b38fe431cb5bb11cdb9db56d678089cdf773e5a36e7e534b16f356cd91cc4e00",
+    "tests/test_budgeted_interleaved_factory.py": "d04718f2ad1dbf88fe76cc649261cad4a8cc00c03723f421cc6fdbd2937ae3a3",
+    "docs/BUDGETED_INTERLEAVED_QUALIFICATION_20261029.md": "114a3009fb869b3d5c91bcc7a6986852f61a57c4e40aa58b9ff824d12a62b23e"
+  },
+  "focused_checks": 29,
+  "full_suite_passed": 831,
+  "full_suite_skipped": 2,
+  "after_report_path_fix_focused_checks": 31,
+  "parameters": 51747328,
+  "graph_specs": {
+    "0": {
+      "thought_budget": 0,
+      "numerical_refinements": 0,
+      "work_per_local_batch": {
+        "forward_matmul_flops": 78852915200,
+        "training_matmul_flops": 236558745600,
+        "thought_budget": 0,
+        "numerical_refinements": 0,
+        "stored_positions": 512,
+        "scope": "Full dense reference matmuls and backward; no sparse, cached or hardware-speed claim."
+      }
+    },
+    "12": {
+      "thought_budget": 1,
+      "numerical_refinements": 2,
+      "work_per_local_batch": {
+        "forward_matmul_flops": 389298520064,
+        "training_matmul_flops": 1167895560192,
+        "thought_budget": 1,
+        "numerical_refinements": 2,
+        "stored_positions": 1024,
+        "scope": "Full dense reference matmuls and backward; no sparse, cached or hardware-speed claim."
+      }
+    },
+    "13": {
+      "thought_budget": 1,
+      "numerical_refinements": 3,
+      "work_per_local_batch": {
+        "forward_matmul_flops": 492780388352,
+        "training_matmul_flops": 1478341165056,
+        "thought_budget": 1,
+        "numerical_refinements": 3,
+        "stored_positions": 1024,
+        "scope": "Full dense reference matmuls and backward; no sparse, cached or hardware-speed claim."
+      }
+    },
+    "24": {
+      "thought_budget": 2,
+      "numerical_refinements": 4,
+      "work_per_local_batch": {
+        "forward_matmul_flops": 951603691520,
+        "training_matmul_flops": 2854811074560,
+        "thought_budget": 2,
+        "numerical_refinements": 4,
+        "stored_positions": 1536,
+        "scope": "Full dense reference matmuls and backward; no sparse, cached or hardware-speed claim."
+      }
+    },
+    "25": {
+      "thought_budget": 2,
+      "numerical_refinements": 5,
+      "work_per_local_batch": {
+        "forward_matmul_flops": 1126153846784,
+        "training_matmul_flops": 3378461540352,
+        "thought_budget": 2,
+        "numerical_refinements": 5,
+        "stored_positions": 1536,
+        "scope": "Full dense reference matmuls and backward; no sparse, cached or hardware-speed claim."
+      }
+    }
+  },
+  "assigned_chips": 0,
+  "scientific_optimizer_updates": 0,
+  "heldout_reads": 0,
+  "scope": "CPU software fixtures, parameter inventory and exact dense work accounting only. No learned weights, actual-shape hardware qualification or scientific budget-scaling outcome."
+}

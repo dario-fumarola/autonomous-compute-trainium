@@ -1,7 +1,16 @@
 # Autonomous computation during pretraining
 
-The persistent latent model has passed all declared conventional controls at
-**equal natural-source exposure**, starting from random initialization.
+The persistent latent model learns useful generated states from random
+initialization, but its useful margin over the strongest ordinary model
+**does not repeat reliably across the two new development seeds**.
+
+The new-seed gains over tied ordinary are**0.002267 and0.028967nats**; the
+predeclared replication gate fails. Gains over trained constant pauses are
+**0.131651 and0.138708nats**. The prepared ephemeral scientific follow-up is
+not admitted, and both fresh evaluation reserves remain unscored.
+[Complete replication](results/interleaved_workspace_20261029/seed-replication-v1/REPORT.md).
+
+The original selected-seed comparison below is retained unchanged:
 
 | Predictor | Parameters | Development NLL ↓ |
 |---|---:|---:|
@@ -18,8 +27,8 @@ favors latent computation in web, math and code; its conditional source-group
 interval is[0.020119,0.029968]. All numerical/state audits pass.
 
 This remains one selected seed on reused DEV. The latent model uses
-**3.782219times the strongest control's training matrix work**. A fixed-recipe
-replication with two new initialization seeds is now running on all16 chips.
+**3.782219times the strongest control's training matrix work**. The completed fixed-recipe
+replication above shows substantial initialization variation.
 Both fresh evaluation reserves remain unscored. Training efficiency, autonomous
 allocation and general reasoning remain unestablished.
 [Strongest control](results/interleaved_workspace_20261029/tied-comparison-v1/REPORT.md) ·
