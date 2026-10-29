@@ -1,3 +1,17 @@
+## October29,2026,03:46 UTC — untied actual-shape cold checks/timing pass; recovery pending
+
+All0/1/2 actual79.18M gradient/loss checks pass,including the independent output
+table.100warm updates average0.542980s;both bounded-capture states are retained.
+Separate-process exact replay is active,followed by the full256-window CPU audit.
+Small-array qualification already passes. Full suite610passed/2skipped.
+
+The three-arm fixed-one/equal-data-ordinary/equal-work-ordinary comparison is
+prepared with identical new parameters and initialization,unchanged source order
+and complete cooldowns. It is not admitted yet. The analysis separately reports
+absolute baseline gains and change in the historical tied-versus-replay gap;
+an interaction alone cannot pass the primary. No protected sources are opened.
+[Prepared comparison](docs/UNTIED_PROBABILITY_SCREEN_20261029.md).
+
 ## October29,2026,03:31 UTC — untied interface CPU checks pass; bounded Native qualification active
 
 The independent output table starts as an exact copy of the input/value table.

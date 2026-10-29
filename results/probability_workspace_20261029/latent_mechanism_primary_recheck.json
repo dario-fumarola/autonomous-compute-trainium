@@ -1,0 +1,30 @@
+{
+  "status": "PRIMARY_SOURCE_TRIAGE_NOT_NEW_CAMPAIGN",
+  "checked_utc": "2026-10-29",
+  "sources": [
+    {
+      "url": "https://arxiv.org/html/2604.06374v2",
+      "sections": [
+        "5.2",
+        "6",
+        "E.5"
+      ],
+      "finding": "Task-specific from-scratch latent models can use intermediate states;reported capacity effects depend strongly on width. Fine-tuned models may instead solve the task in their prefix representations. These are symbolic ProsQA experiments,including step-indexed node targets,not natural-text NTP efficiency evidence.",
+      "local_implication": "Do not infer a universal billion-parameter floor or equate nonzero gradients with useful iterative work. Our observed nearly constant proposals differ from this paper's token-commitment collapse. The paper does not justify importing synthetic task data under the current charter."
+    },
+    {
+      "url": "https://arxiv.org/html/2609.35643v1",
+      "sections": [
+        "2",
+        "3",
+        "A.1"
+      ],
+      "finding": "Random-initialization GPTNeoX models on generated graph-reachability tasks learn latent mechanisms that generalize to longer paths;comparators with similar training-range accuracy need not generalize similarly.",
+      "local_implication": "Useful latent computation is possible in small models in this task setting. It is not a result on natural source text or our compute-matched baseline. Content interventions and compositional transfer remain necessary;this reading admits no synthetic-data fit."
+    }
+  ],
+  "new_model_fits": 0,
+  "changed_active_plan": false,
+  "source_quotes": 0,
+  "scope": "Literature constraints on interpretation only. Continue the already prepared untied-interface qualification;no additional architecture,router or larger budget admitted."
+}
