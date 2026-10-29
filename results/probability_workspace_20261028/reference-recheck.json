@@ -10,5 +10,16 @@
     "No claim to reproduce published results"
   ],
   "optimizer_updates": 0,
-  "heldout_reads": 0
+  "heldout_reads": 0,
+  "reference_demo_url": "https://github.com/LUMIA-Group/PonderingLM/blob/3deec205194d754f3e9641182e0f4c3ea3c3f6d4/README.md",
+  "reference_demo_differences": {
+    "backbone": "Pythia-70M",
+    "fixed_extra_steps": 3,
+    "context": 2048,
+    "scale_embeds": true,
+    "weight_decay": 0.01,
+    "learning_rate": 0.001,
+    "training_from_scratch": true
+  },
+  "scope": "Core accumulation matches the pinned implementation with optional embedding scaling and initial step multiplication disabled. The released demo uses a different backbone and optimization recipe;our screen is not a reproduction of its quality claim."
 }

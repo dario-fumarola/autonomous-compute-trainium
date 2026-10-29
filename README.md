@@ -28,9 +28,9 @@ their original criteria;no larger recurrence main or confirmation completed.
 
 A new probability-embedding reference follows the published PonderLM operation:
 form a soft token proposal,add it to the input embeddings,and rerun the causal
-model with full NTP gradients. Small-array all16-chip numerical and exact
-restart checks pass. Actual62.8M-shape throughput qualification is now running;
-there is **no new prediction-quality result or scientific fit yet**. This is a
+model with full NTP gradients. Small-array and actual62.8M all16-chip numerical,mature-gradient and exact
+restart qualification pass. The registered four-arm scientific screen is active;
+there is **no new prediction-quality result yet**. This is a
 different mechanism from the closed branches below,not a reinterpretation of
 their outcomes. A TRAIN-only audit also finds very little explicit verified
 arithmetic/code supervision among the old screen's selected labels,under narrow

@@ -64,7 +64,7 @@ def prepare(root):
     write_state(PUBLIC/'status.json',dict(status='REGISTERED_NOT_STARTED',new_fits=1,reused_controls=list(reused),new_heldout_reads=0))
 
 def run(root):
-    out=root/ID;e=ScreenExecution(root,out/'plan.json',out/'execution');result=dict(status='STOPPED_FIXED_ONE_SCREEN',records={},reused_costs='Original screen and recovery ledgers retained;reuse is not a free new replication')
+    out=root/ID;e=ScreenExecution(root,out/'plan.json',out/'execution');result=dict(status='RUNNING_FIXED_ONE_SCREEN',records={},reused_costs='Original screen and recovery ledgers retained;reuse is not a free new replication')
     try:
         for arm,r in e.plan['reused_arms'].items():
             path=out/('audit-'+arm)/'report.json'
@@ -83,7 +83,7 @@ def run(root):
         destination=out/'analysis'
         result['records']['analysis']=e.cpu(ID+'-analysis','scripts.analyze_probability_fixed_one',['--root',str(root),'--plan',str(out/'plan.json'),'--output',str(destination)],destination/'report.json','COMPLETE_FIXED_ONE_ANALYSIS')
         write_state(PUBLIC/'analysis.json',result['records']['analysis']);result['status']='COMPLETE_FIXED_ONE_SCREEN'
-    except BaseException as error:result.update(error_type=type(error).__name__,error=str(error));raise
+    except BaseException as error:result.update(status='STOPPED_FIXED_ONE_SCREEN',error_type=type(error).__name__,error=str(error));raise
     finally:write_state(PUBLIC/'report.json',result);e.close(PUBLIC/'execution-costs.json')
 
 if __name__=='__main__':
