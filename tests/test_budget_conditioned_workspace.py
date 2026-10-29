@@ -52,3 +52,14 @@ def test_factory_old_plan_and_independent_explicit_attention():
         a.zero_grad();b.zero_grad()
         for m in (a,b):F.cross_entropy(m(x,k).flatten(0,1),y.flatten()).backward()
         for u,v in zip(a.parameters(),b.parameters()):torch.testing.assert_close(u.grad,v.grad,rtol=1e-9,atol=1e-11)
+
+
+def test_cue_has_own_gradient_family_and_initial_shared_digest():
+    from compute_trainium.probability_model_factory import gradient_families
+    from scripts.qualify_native import digest
+    old,new=pair();state=new.state_dict()
+    shared=type(state)((n,v) for n,v in state.items() if n!='remaining_budget_cues')
+    assert digest(shared)==digest(old.state_dict())
+    families=gradient_families({'remaining_budget_conditioning':True})
+    assert dict(families)['budget_cues']('remaining_budget_cues')
+    for name,_ in new.named_parameters():assert sum(match(name) for _,match in families)==1

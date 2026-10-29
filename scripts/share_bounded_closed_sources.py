@@ -6,14 +6,16 @@ from compute_trainium.closed_source_storage import source_record,source_actions,
 from compute_trainium.execution_isolation import managed_running
 from compute_trainium.training import file_sha256
 
-def main(root,identity,count):
+def main(root,identity,count,offset=0):
+    if type(offset) is not int or not 0<=offset<=512:raise ValueError('Bounded historical snapshot offset required')
     if not identity.startswith('probability-closed-source-') or '/' in identity or not 2<=count<=32:raise ValueError('Bounded closed-source identity/count required')
     if managed_running():raise RuntimeError('No maintenance over active Native owners')
     start=time.time();out=root/identity;out.mkdir(exist_ok=False);snapshots=[]
     for path in (root/'snapshots').iterdir():
         if path.is_symlink() or not (path/'launch.json').is_file() or not (path/'closure.json').is_file():continue
         launch=json.loads((path/'launch.json').read_text());snapshots.append((launch['started_unix'],path,launch))
-    chosen=sorted(snapshots,key=lambda x:x[0])[-count:];jobs=[];proofs={}
+    ordered=sorted(snapshots,key=lambda x:x[0],reverse=True)
+    chosen=ordered[offset:offset+count];jobs=[];proofs={}
     for _,path,launch in chosen:
         proofs[path.name]={n:file_sha256(path/(n+'.json')) for n in ('launch','closure')}
         jobs.extend((path,f,h) for f,h in launch['source_sha256'].items())
@@ -34,4 +36,4 @@ def main(root,identity,count):
     (out/'report.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result),flush=True)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--identity',required=True);p.add_argument('--count',type=int,default=16);a=p.parse_args();main(a.root,a.identity,a.count)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--identity',required=True);p.add_argument('--count',type=int,default=16);p.add_argument('--offset',type=int,default=0);a=p.parse_args();main(a.root,a.identity,a.count,a.offset)

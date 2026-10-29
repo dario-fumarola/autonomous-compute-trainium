@@ -1,3 +1,30 @@
+## October29,2026,02:16 UTC — exact recovery passes; mature CPU audit active
+
+The actual-shape100-warm-update average is0.540793seconds;depth0/1/2 averages
+0.457415/0.545522/0.621970seconds. Exact separate-process model/AdamW/RNG replay
+passes. The full256-window mature CPU gradient audit is active;no scientific
+fit has launched. The complete CPU suite now has597passing/2skipped tests.
+
+Nine byte-identical1.5GiB probe-state arrays from successful closed numerical
+qualifications now share storage. Every original path,byte and execution receipt
+remains;observed recovery13.5GiB. Scientific checkpoints and datasets are untouched.
+This resolves the next fit's disk allowance without retiring scientific evidence.
+[Byte-preservation receipt](results/probability_workspace_20261029/budget-cue-numerical-v1/probe-array-sharing.json).
+
+## October29,2026,02:11 UTC — actual-shape checks pass; timing and recovery underway
+
+At62,801,408 parameters,batch4/context512,all0/1/2 cold Native-versus-CPU
+gradient/loss checks pass,including the cue's separate family. The all16-chip
+100-warm-update and exact separate-process recovery stages are active. The
+full-global mature CPU audit remains required before any learning registration.
+The one-fit comparison and its unchanged ordinary/iteration gates are prepared,
+not admitted. [Prepared design](docs/BUDGET_CONDITIONED_SCREEN_20261029.md).
+
+The storage stop is resolved by exact archival of4000 old compiler .colz files
+and12000 directories:all bytes verified recoverable,15,999 inodes recovered.
+No scientific state,source corpus,NEFF executable or HLO cache was removed.
+[Maintenance receipt](results/probability_workspace_20261029/budget-cue-numerical-v1/compiler-temporary-preservation.json).
+
 ## October29,2026,01:59 UTC — cue numerics pass; storage admission protected
 
 All64-rank small-array checks and separate-process exact model/AdamW/RNG replay
