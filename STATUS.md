@@ -1,3 +1,20 @@
+## October 29, 2026, 10:23 UTC — mixed replay recovered after host-memory admission stop
+
+The mixed warm phase passes100 updates at0.28344s/update (K2:0.26688,
+K3:0.30000). Its controller then stops before replay admission because the
+parallel CPU readout leaves less than512+192GiB available. No reserve changes.
+A lossless move of one completed old qualification array from tmpfs to NVMe,
+with verified SHA256 and preserved original-path symlink, frees3.20GiB RAM.
+No scientific/optimizer/source bytes are discarded; exact restoration remains.
+[Relocation receipt](results/interleaved_workspace_20261029/maintenance-v5/relocation.json).
+
+An explicit recovery reuses the completed warm phase and starts only the
+unstarted replay/audit under the original deadline. The initial stop and cost
+ledger are retained. The384-window sequential DEV readout continues; all six
+FP64 cached-versus-full-prefix checks pass, maximum3.56e-15nats per target.
+The source suite passes718 tests with two skips. No new predictive result or
+scientific mixed-round fit has yet been admitted.
+
 ## October 29, 2026, 10:15 UTC — equal-data lead; sequential readout and mixed qualification active
 
 All nine128M-target fits, complete cooldowns, mature audits and the common
