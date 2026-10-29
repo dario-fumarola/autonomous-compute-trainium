@@ -1,3 +1,19 @@
+## October 29, 2026, 09:10 UTC — first learned-state check identifies fixed-round dependence
+
+The first128M-target latent fit passes its mature numerical audit. Its separate
+frozen TRAIN-only check fails the sequential-consistency guard in all domains:
+exact sequential NLL is0.03771/0.07324/0.11129 worse than the trained K2 readout
+on web/math/code. K16 and K32 converge closely, so eventual convergence does
+not make K2 a good approximation. Initialization passed the same guard.
+
+This is a numerical-depth mechanism finding on six fixed TRAIN windows, not
+held-out prediction evidence or a universal negative. The remaining registered
+fits continue unchanged on all16 chips. No fixed-K2 scaling or cheap sequential
+inference claim is admitted. A separate mixed K2/K3 numerical qualification is
+prepared, not launched; it directly tests a published remedy for fixed-round
+dependence. Its own scientific comparison would need a new finite registration.
+[Diagnostic evidence](results/interleaved_workspace_20261029/convergence-v1/REPORT.md).
+
 ## October 29, 2026, 08:58 UTC — ordinary fits audited; learned-state diagnostic registered
 
 The three ordinary128M-target learning-rate fits complete their cooldowns and
