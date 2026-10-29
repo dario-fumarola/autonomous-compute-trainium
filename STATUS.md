@@ -1,3 +1,26 @@
+## October 29, 2026, 12:53 UTC — conventional fits complete; typed structural readout registered
+
+All three tied ordinary fits complete their1957updates and full cooldowns.
+The last mature audit and common broad DEV readout remain in the frozen queue.
+No quality comparison is available yet. The previously registered paired
+analysis uses the mixed model's exact sequential scores and all384 same cases.
+
+A separate CPU diagnostic is frozen before tied quality scores: all282 existing
+code targets, full and last32 contexts, raw NLL plus probability-normalized
+bracket-type NLL/accuracy, with equal weight per closer type. It compares the
+selected mixed model with the retained pause control and the eventual broad-
+selected tied challenger. Original target membership is verified for every
+case; no cases are dropped. This is exploratory reused-DEV evidence and cannot
+replace a failed broad comparison. Fresh reserves remain unscored.
+[Typed diagnostic](docs/INTERLEAVED_BRACKET_TYPE_20261029.md).
+
+A final-only vocabulary readout avoids unused earlier projections while keeping
+all source/latent states and KVs unchanged. Its full logits and gradients match
+the existing cached reference; five new typed/last-readout tests pass. The
+preceding full suite passed733 tests/two skips; an updated full suite is running.
+The remaining two inventoried ordinary-shape screens are prepared but require
+the candidate to pass the tied comparison before any new qualification/fit.
+
 ## October 29, 2026, 12:17 UTC — exact sequential gain retained; stronger baseline fitting
 
 The complete selected mixed sequential readout scores3.262734NLL. Gains are
