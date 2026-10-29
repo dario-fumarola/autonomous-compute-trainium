@@ -1,3 +1,22 @@
+## October 29, 2026, 18:40 UTC — depth-causal qualification passes; learning plan registered
+
+Cold budgets0/1/2, all replicas and exact fresh-process full-state replay pass.
+The mature128-window CPU gradient audit has maximum family error0.000001287
+and loss error0.000001505nats. Qualification costs2.032899assigned chip-hours.
+[Complete evidence](results/depth_causal_workspace_20261029/numerical-v1/REPORT.md).
+
+Exact archival of4000closed compiler temporary files preserves every byte and
+restores15999inodes; scientific states and source data are unchanged. This
+provides the projected capacity for the four upcoming Native phases.
+
+The separate bounded three-LR learning plan is frozen before fitting. It keeps
+all1957source/budget assignments and four advancement gates from the failed
+mixed-budget study, changing the causal memory graph and eliminating solver
+passes.882CPU tests pass/two skip;41targeted checks pass. No readout or quality
+outcome exists for the new model. The final cutoff is21:40UTC; all16chips are
+assigned per Native phase. Both fresh reserves remain unscored.
+[Learning plan](results/depth_causal_workspace_20261029/learning-v1/plan.json).
+
 ## October 29, 2026, 18:35 UTC — exact depth-causal hardware qualification active
 
 All16chips complete the104disposable updates. All three cold budget gradients
