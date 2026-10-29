@@ -1,3 +1,15 @@
+## October 29, 2026, 09:34 UTC — highest LR passes sequential consistency
+
+All three latent fits pass mature numerical audits. At LR0.003, the unchanged
+six-TRAIN-window consistency guard passes in every domain: maximum mean loss
+shift0.001404 and maximum forward KL0.001066. The lower two LRs fail. Eventual
+state convergence occurs in all three, but low-round agreement is sensitive
+to learning dynamics. This is not a quality result; a consistent mechanism can
+still be unhelpful. The full CPU diagnostic is complete, with no weight updates
+or held-out reads. The frozen tuning comparison proceeds to its pause controls
+on all16 chips before any predictive readout or LR selection.
+[Complete consistency evidence](results/interleaved_workspace_20261029/convergence-v1/REPORT.md).
+
 ## October 29, 2026, 09:22 UTC — fixed-round dependence persists at second LR
 
 The second latent fit passes its independent mature audit but fails the same
