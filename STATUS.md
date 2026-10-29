@@ -1,3 +1,23 @@
+## October 29, 2026, 23:50 UTC — final high LR stops; seven audited endpoints enter readout
+
+The constant-slot LR 0.003 fit stops on a non-finite gradient norm after its
+last persisted update 432. The exact failed update is unknown. It has no mature
+checkpoint and is excluded without retry under the separately frozen completion
+rule. Its clean supervisor closure reports no resource failure; 2.879517 assigned
+chip-hours are retained. Both lower constant rates passed mature audits.
+
+The shared Native readout is evaluating seven complete audited endpoints:
+three ordinary, two generated and two constant. Both workspace LR grids are
+incomplete. There are no invented scores, renewed endpoints or numerical-gate
+changes. The original screen remains stopped and its advancement gate unmet.
+Exact FP64 selected-model scoring follows the common selection readout.
+
+A separate position-decomposition draft passes eight CPU fixture checks, but
+its prospective preparation guard rejects admission because evaluation has
+already written artifacts. It computes no model scores. The original position
+diagnostic also remains not admitted; any later analysis must be explicitly
+exploratory. Both fresh reserves remain sealed.
+
 ## October 29, 2026, 23:37 UTC — second constant control audited; final fit starts
 
 The second constant-slot LR completes all 1,957 updates and passes its mature
