@@ -1,4 +1,4 @@
-## October 29, 2026, 16:38 UTC — supported-budget learning active
+## October 29, 2026, 17:04 UTC — first supported-budget fit passes all numerical gates
 
 The new finite experiment trains zero/one/two generated states in one model,
 with all five numerically qualified graphs. It retains the original1957updates,
@@ -20,9 +20,14 @@ equal-data study using about4.45times tied ordinary's nominal training work;
 it cannot establish training-compute efficiency. Both fresh reserves remain
 unscored.
 
-The first LR fit is active on all16chips, initially compiling the five registered
-graphs. No quality result is available. The controller stops on any numerical,
+The first LR fit completes all1957updates, full cooldown, five mature global
+gradient audits and exact full-state restoration. Both positive budgets pass
+TRAIN-only consistency against exact sequential execution; the largest absolute
+domain loss shift is0.000634nats. The second LR fit is active on all16chips.
+All LR trials start from identical frozen weights and see the same source order.
+No held-out quality result is available. The controller stops on any numerical,
 consistency, resource or endpoint failure and retains its initiating exception.
+[First-fit receipts](results/budgeted_interleaved_20261029/learning-v1/lr0-checks.json).
 
 [Protocol](docs/SUPPORTED_LATENT_BUDGET_LEARNING_20261029.md) ·
 [Plan](results/budgeted_interleaved_20261029/learning-v1/plan.json) ·
