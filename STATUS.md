@@ -1,3 +1,17 @@
+## October 29, 2026, 19:01 UTC — first exact depth-causal fit fully audited
+
+The first learning-rate endpoint completes all1957updates and its full cooldown.
+All three mature budget gradients, full-state restoration and64replica checks
+pass; maximum gradient-family relative error is0.000020894. The second
+learning-rate trial is active on all16chips. No held-out quality readout has
+started. The frozen source order, endpoints and advancement thresholds remain
+unchanged. [First-fit numerical receipt](results/depth_causal_workspace_20261029/learning-v1/lr0-checks.json).
+
+The separate TRAIN-only local arithmetic coverage audit finds no qualifying
+assertions in its10000code-document prefix. It creates no evaluation panel and
+provides no evidence that natural code lacks recoverable dependencies.
+[Coverage result](results/local_arithmetic_assertions_20261029/train-audit-v1/REPORT.md).
+
 ## October 29, 2026, 18:41 UTC — depth-causal learning active on all16chips
 
 Cold budgets0/1/2, all replicas and exact fresh-process full-state replay pass.

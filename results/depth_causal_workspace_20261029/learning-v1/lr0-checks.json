@@ -1,0 +1,32 @@
+{
+  "status": "PASS_INTERLEAVED_SCREEN_MATURE_AUDITS",
+  "arm": "depth-lr0",
+  "endpoint_updates": 1957,
+  "rows": [
+    {
+      "budget": 0,
+      "max_gradient_family_relative_l2": 1.8281527968083976e-05,
+      "loss_error": -8.67992639541626e-07,
+      "real_targets": 65438,
+      "full_state_restore_exact": true
+    },
+    {
+      "budget": 1,
+      "max_gradient_family_relative_l2": 2.0893124941929356e-05,
+      "loss_error": -1.255422830581665e-06,
+      "real_targets": 65438,
+      "full_state_restore_exact": true
+    },
+    {
+      "budget": 2,
+      "max_gradient_family_relative_l2": 2.0637090063230293e-05,
+      "loss_error": -1.255422830581665e-06,
+      "real_targets": 65438,
+      "full_state_restore_exact": true
+    }
+  ],
+  "scope": "Complete CPU state restoration and independent SDPA/CE full-global gradients. Separate Native next-update replay was qualified on disposable weights; no stronger scientific restart equivalence claimed here.",
+  "heldout_reads": 0,
+  "optimizer_updates": 0,
+  "all_replica_full_states_equal": true
+}
