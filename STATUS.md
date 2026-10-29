@@ -1,3 +1,18 @@
+## October 29, 2026, 23:37 UTC — second constant control audited; final fit starts
+
+The second constant-slot LR completes all 1,957 updates and passes its mature
+full-global gradient, full-state and replica checks. Maximum gradient-family
+error is 0.477391%, below the unchanged 2% limit. Warm updates average
+0.376809 seconds; whole worker fit time is 1,211.241 seconds. Seven available
+endpoints are now audited. The last original constant LR is compiling on all
+16 chips; common quality selection follows only after its attempt closes.
+
+Both the original and completion source manifests remain unchanged. The original
+screen stays stopped and its advancement condition unmet. No quality selection,
+fresh reserve access or new fit opportunity has occurred. A CPU-only export
+fixture separately reproduces source-filename sensitivity in compiler keys;
+no active execution setting or SDK was changed.
+
 ## October 29, 2026, 23:16 UTC — first constant control completes and audits
 
 The first original constant-slot opportunity completes all 1,957 updates and
