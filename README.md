@@ -1,12 +1,23 @@
 # Autonomous computation during pretraining
 
-The joint-exit fit has completed and passed its mature training audits.
-**Quality evaluation is being recovered in FP64 on CPU.** The accelerator
-readout stopped when a deliberately permuted workspace exceeded its numerical
-limit (0.000222 versus 0.000200 nats on one target). No partial quality result
-is admitted. All six endpoints, including ordinary controls, are being rescored
-with unchanged weights, sources and statistical rules. Earlier negatives remain.
-[Recovery protocol](docs/JOINT_EXIT_READOUT_RECOVERY_20261029.md).
+The joint-exit probability screen is complete and negative. After supervising
+both exits, the refined prediction scores **3.272421 NLL**, versus **3.271351**
+for its supported shallow exit, **3.253961** for equal-data ordinary training,
+and **2.980724** for matched-matrix-work ordinary training. All three registered
+gates fail. Every endpoint was recomputed in FP64 after a Native corruption
+readout missed its numerical tolerance; no threshold was relaxed.
+
+Corrupting the proposal worsens loss by 0.315763 nats, despite no benefit from
+the intact extra pass. Content sensitivity by itself is therefore insufficient
+evidence of useful computation. This objective variant is closed without a
+larger fit. Both fresh evaluation reserves remain unscored.
+[Complete result](results/probability_workspace_20261029/joint-exit-readout-recovery-v1/REPORT.md).
+
+A distinct persistent latent-token mechanism has passed CPU and all-chip small
+numerical qualification, including exact restart replay. It carries generated
+states in the causal history. Its actual-shape cost qualification is running;
+no scientific fit or positive quality result is admitted yet.
+[Qualification](docs/INTERLEAVED_ACTUAL_SHAPE_20261029.md).
 
 The untied prediction/value-table comparison is complete and negative. At
 200Mnatural targets,the79.18Mworkspace scores**3.270157NLL**,versus**3.253960**

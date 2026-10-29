@@ -1,3 +1,40 @@
+## October 29, 2026, 06:20 UTC — actual-shape persistent-state qualification active
+
+All 650 CPU tests pass, with two skips. All 16 chips now qualify the prospective
+51,747,328-parameter persistent-state model at global 128 source windows and
+512 source positions: cold gradient checks, 100 warm updates, full-state replay
+and independent mature global gradients. These weights are disposable and no
+held-out scoring or scientific fit is admitted. The ordinary and pause modes
+need their own matching qualification before any controlled learning campaign.
+
+## October 29, 2026, 06:18 UTC — FP64 comparison closes; joint-exit gates fail
+
+All six endpoints are recomputed in FP64 within the original deadline. Joint
+refined NLL is 3.272421, shallow 3.271351, equal-data ordinary 3.253961, and
+matched-work ordinary 2.980724. Refinement gain is -0.001071 with conditional
+interval [-0.002689, +0.000532]. Equal-data gain is -0.018460 and equal-work
+-0.291698. Every registered broad gate fails; all domains favor ordinary.
+The objective does not improve over final-only replay. No further fit follows
+this objective, and fresh reserves remain sealed. CPU recovery used 854.10 s,
+1.88 GiB peak RSS and no accelerator allocation. The original failed Native
+readout remains recorded with its cost; no trained history was changed.
+
+Permutation damage is +0.315763 nats despite no intact-refinement utility.
+This is a concrete reason to retain absolute controls in content-use tests.
+[Complete recovered comparison](results/probability_workspace_20261029/joint-exit-readout-recovery-v1/REPORT.md).
+
+The distinct persistent latent-token software fixture passes all 64 replicas,
+independent CPU gradient/update/moment gates (maximum family error 5.85e-6),
+and exact separate-process replay. Its 15 CPU tests include finite-round
+causality and exact sequential forward/backward agreement at convergence.
+A six-layer, 51.75M actual-shape cost qualification is prepared next, with
+one latent per source position and two Jacobi solution rounds. Those rounds
+are not additional thought tokens. No quality result or fit is admitted.
+Exact archival of old compiler temporaries restores 43,991 free inodes without
+touching scientific states or sources. The prior 647-test suite passes; the
+expanded objective suite is running before actual-shape admission.
+[Actual-shape design](docs/INTERLEAVED_ACTUAL_SHAPE_20261029.md).
+
 ## October 29, 2026, 06:05 UTC — fit audited; FP64 readout recovery active
 
 The joint-exit fit completes 200,190,896 natural targets and its full cooldown.
