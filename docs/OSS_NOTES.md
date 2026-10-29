@@ -349,3 +349,16 @@ After cache maintenance and a fresh worker,qualification stops at its first forw
 A new zero-update dependency evaluator stops before panel scores at its independent full-size HF reference gate. Both Native attempts use the qualified FP32 model/scientific states but a new1024-position causal prefix and16 independent cached queries. Rank-max logit discrepancies sometimes exceed.001 while rank0 real-query comparisons are much smaller;one diagnosis also exceeds.0002 real-target NLL on an embedding-replay identity. A separate diagnosis records rank-max and rank0/per-query errors before assertions;it is not a numerical pass. The first worker did not retain error magnitudes before assertion,an evidence limitation retained rather than filled in.
 
 The same cached CPU implementation agrees with independent HF dense2D references. Removing only fully masked future KV passes CPU output/all-gradient equivalence but does not qualify the Native retry. No SDK defect,rounding-mode cause or replica corruption is established. No precision/environment/gate relaxation or third Native attempt follows. Both stopped costs and the separate diagnosis remain. The scientific panel instead runs on the CPU graph after all12 same-tolerance independent reference checks. These failures concern the new inference geometry and do not invalidate the earlier160-position training audits. Reproduction scripts: `scripts/run_dependency_forward_diagnosis.py`, `scripts/evaluate_recoverable_dependencies.py`;small aggregate measurements are in `results/recoverable_dependencies_20261028`. Model/source fixtures stay private;no upstream submission.
+
+
+## October 29: location-sensitive NEFF serialization key, CPU fixture only
+
+The installed Dynamo compiler's default content key changes when only an MLIR
+source location changes. Identical assembly with debug information omitted
+serializes identically after re-parsing. The unchanged SDK serialization/key
+functions are extracted and executed by
+[`scripts/repro_neff_location_key.py`](../scripts/repro_neff_location_key.py).
+This does not yet attribute actual campaign cache misses to source locations.
+No compiler patch, cache rewrite or upstream submission has been made; Native
+execution equivalence and real cache reuse would need a separate qualification.
+[Bounded CPU evidence](../results/native_cache_readonly_20261029/REPORT.md).

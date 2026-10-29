@@ -21,3 +21,21 @@ speedup is established. Current budgets continue to charge observed startup.
 This audit only reads source, launch receipts, container paths and file metadata.
 It uses zero chips, optimizer updates or held-out targets. Source hashes and
 aggregate evidence are in [the receipt](report.json). No upstream submission.
+
+## Bounded CPU serialization probe
+
+Two otherwise identical empty MLIR modules with different source locations
+produce different serialized bytes and different keys under the installed
+`_serialize_mlir_module` and `_content_key` functions. Re-parsing their assembly
+without debug locations gives equal bytes. This reproduces location sensitivity
+in the default key path. It does not establish that retained locations explain
+the active fits' misses: that still needs equivalent real compiler inputs.
+
+The [reproducer](../../scripts/repro_neff_location_key.py) executes the unchanged
+functions extracted from the installed SDK in a read-only CPU container, with
+no accelerator devices, two CPUs and a two-GiB limit. Two successful probes take
+1.454 seconds total; an earlier host launch fails before interpreter execution
+because the Native Python interpreter is container-only. No SDK, launch setting,
+scientific graph or cache content is changed. This is a local candidate report,
+not an upstream submission or a qualified performance improvement.
+[Receipt](location-key-probe.json).
