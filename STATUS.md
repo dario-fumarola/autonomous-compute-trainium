@@ -1,3 +1,28 @@
+## October 29, 2026, 06:05 UTC — fit audited; FP64 readout recovery active
+
+The joint-exit fit completes 200,190,896 natural targets and its full cooldown.
+All replicas and exact state restoration pass; maximum mature gradient-family
+error is 0.0000584. Native readout stops on the permuted-value broad condition:
+maximum target-loss discrepancy 0.000222091 exceeds the frozen 0.000200 limit.
+Normal exits pass their sampled checks, but no incomplete Native quality table
+is admitted. The failed readout costs 0.727966 assigned chip-hours; the successful
+fit costs 4.573590, with qualification and CPU audit separately recorded.
+
+A registered CPU recovery recomputes all six candidate/control endpoints in
+FP64 on the same panels, using the original deadline and unchanged contrasts.
+No weights change, no tolerance is relaxed, and both fresh reserves stay sealed.
+The source suite passes 632 tests with two skips.
+[Recovery](docs/JOINT_EXIT_READOUT_RECOVERY_20261029.md).
+
+A prospective persistent latent-token implementation passes 15 CPU tests:
+causality, exact sequential forward/backward equivalence at convergence,
+independent attention gradients, target masking, optimizer replay and dispatched
+matrix accounting. It follows a pinned PonderLM-2 reference with explicit
+implementation differences. Only a small all-chip software fixture is being
+prepared; no scientific training is admitted. This work does not supersede the
+pending joint-exit result or establish a useful mechanism.
+[Qualification design](docs/INTERLEAVED_WORKSPACE_QUALIFICATION_20261029.md).
+
 ## October29,2026,05:45 UTC — joint-exit fit passes halfway; new reserve remains unscored
 
 All16 chips continue the frozen1530-update fit. The768-update recovery state
