@@ -60,13 +60,14 @@ def main(a):
                     # and the first dependency batch for the content intervention.
                     check=(panel=='broad' and ((left==0 and rank in (0,32)) or (left==256 and rank==0))) or (panel=='dependency' and left==0 and rank==0 and key[2])
                     if check:
-                        torch.set_num_threads(8);reference=ProbabilityWorkspace(c);reference.load_state_dict(weights)
+                        torch.set_num_threads(8);reference=ProbabilityWorkspace(c).double();reference.load_state_dict(weights)
                         cpu=ProposalReadout(reference,key[0],key[1],permutation if key[2] else None)
                         with torch.no_grad():
                             logits=cpu(x);expected=torch.nn.functional.cross_entropy(logits.flatten(0,1),y.flatten(),reduction='none').view_as(y)
                         error=float((losses[mask]-expected[mask]).abs().max())
-                        checks.append(dict(label=label,panel=panel,first_index=safe[0],maximum_target_loss_error=error))
-                        if error>p['evaluation_maximum_loss_error']:raise AssertionError('Independent CPU readout parity failed')
+                        checks.append(dict(label=label,panel=panel,first_index=safe[0],maximum_target_loss_error=error,reference_precision='FP64'))
+                        (a.output/f'cpu-checks-rank{rank}.json').write_text(json.dumps(checks))
+                        if error>p['evaluation_maximum_loss_error']:raise AssertionError(f'Independent CPU readout parity failed: {label}, panel={panel}, index={safe[0]}, error={error}')
                         del reference,cpu,logits,expected;torch.set_num_threads(1)
                     for j,i in enumerate(indices):
                         if not valid[j]:continue

@@ -30,7 +30,7 @@ def repeat_error(rows,previous):
 def main(a):
     start=time.time();p=json.loads(a.plan.read_text());folder=a.root/'runs'/(p['identity']+'-evaluation')
     if json.loads((folder/'report.json').read_text())['status']!='COMPLETE_PROBABILITY_SCREEN_EVALUATION':raise AssertionError('Audited evaluation required')
-    oldfolder=a.root/'runs'/'probability-workspace-screen-recovery-v1-evaluation'
+    oldfolder=a.root/'runs'/p['parent_evaluation_identity']
     if any(file_sha256(oldfolder/name)!=h for name,h in p['parent_score_sha256'].items()):raise AssertionError('Parent evaluation changed')
     load=lambda f:[x for rank in range(64) for x in json.loads((f/f'PRIVATE-rank{rank}-scores.json').read_text())]
     rows=load(folder);previous=load(oldfolder);error=repeat_error(rows,previous)

@@ -11,11 +11,11 @@ from scripts.run_probability_screen import ScreenExecution
 
 ID='probability-fixed-one-v1'
 PUBLIC=Path('results/probability_workspace_20261029/fixed-one-v1')
-PARENT='probability-workspace-screen-recovery-v1'
+PARENT='probability-workspace-evaluation-recovery-v2'
 
 def prepare(root):
     if managed_running(): raise RuntimeError('Complete the existing comparison first')
-    previous=Path('results/probability_workspace_20261028/screen-recovery-v1')
+    previous=Path('results/probability_workspace_20261028/evaluation-recovery-v2')
     done=json.loads((previous/'report.json').read_text())
     if done['status']!='COMPLETE_PROBABILITY_LEARNING_SCREEN': raise AssertionError('Completed prior evidence required')
     p=copy.deepcopy(json.loads((root/PARENT/'plan.json').read_text()))
@@ -60,7 +60,7 @@ def prepare(root):
     p.update(identity=ID,registered_unix=now,seconds_limit=5400,absolute_deadline_unix=now+5400,phase_seconds_limit=3600,cpu_phase_seconds_limit=1200,
       source_sha256=files,worker_source_sha256=worker,host_only_source_sha256=host,root_comm_ports=reserve_ports(root,names),phases={n:{} for n in names},inode_projection=projection,
       artifact_allowance_bytes=3*1024**3,reused_arms=reused,parent_report_sha256=file_sha256(previous/'report.json'),
-      parent_score_sha256={f'PRIVATE-rank{rank}-scores.json':file_sha256(root/'runs'/(PARENT+'-evaluation')/f'PRIVATE-rank{rank}-scores.json') for rank in range(64)},
+      parent_evaluation_identity=PARENT+'-evaluation',parent_score_sha256={f'PRIVATE-rank{rank}-scores.json':file_sha256(root/'runs'/(PARENT+'-evaluation')/f'PRIVATE-rank{rank}-scores.json') for rank in range(64)},
       scope='One fixed-one-replay fit from the identical original initialization. Same source exposure,optimizer,cooldown and exactly the sampled arm matrix budget. Only its trained one-replay exit is supported. Existing controls are reused and re-evaluated identically,not counted as new replication. No automatic scaling.')
     out=root/ID;out.mkdir();PUBLIC.mkdir(parents=True);write_state(out/'plan.json',p);write_state(PUBLIC/'plan.json',p)
     for arm,r in reused.items():

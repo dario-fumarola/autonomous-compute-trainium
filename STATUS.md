@@ -1,3 +1,22 @@
+## October29,2026,00:49 UTC — higher-precision readout recovery launched
+
+The all64-rank capture reproduces0.000250816 Native-versus-CPU-FP32 discrepancy,
+but Native agrees with each independent FP64 implementation within0.0000428961,
+comfortably inside the unchanged2e-4 criterion. All replicas agree exactly.
+Zero optimizer updates. The CPU32 reference,not a training audit,was insufficiently
+accurate on this permuted-input batch.[Diagnosis](results/probability_workspace_20261029/readout-precision-v1/report.json).
+
+Joint evaluation is rerun on all16chips with FP64 CPU references and per-check
+receipts saved before any exception. Native predictor,weights,panels,readouts,
+thresholds and statistical analysis are unchanged. All four completed fits/audits
+are reused,with no training updates. The original four-hour cap and failed costs
+remain. Eleven focused checks pass. No quality result is yet admitted.
+[Recovery plan](results/probability_workspace_20261028/evaluation-recovery-v2/plan.json).
+
+Closed-source sharing preserves8836 original byte hashes and all receipts while
+restoring3747 free inodes. No scientific model,state or source corpus is deleted.
+The fixed-one optimization follow-up remains prepared,not launched.
+
 ## October29,2026,00:44 UTC — all fits audited; readout precision diagnosis active
 
 All four200M/matched-work fits and mature audits are complete. Joint evaluation
