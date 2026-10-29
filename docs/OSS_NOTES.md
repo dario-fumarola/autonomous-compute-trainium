@@ -362,3 +362,16 @@ This does not yet attribute actual campaign cache misses to source locations.
 No compiler patch, cache rewrite or upstream submission has been made; Native
 execution equivalence and real cache reuse would need a separate qualification.
 [Bounded CPU evidence](../results/native_cache_readonly_20261029/REPORT.md).
+
+### October 29: source filenames survive CPU export into cache-key bytes
+
+The device-free `scripts/repro_fx_location_key.py` fixture uses identical
+two-operation Torch models defined with different source filenames. Torch
+export graphs and location-free StableHLO agree, while serialized modules and
+the installed NEFF content keys differ. Run with
+`TORCH_DEVICE_BACKEND_AUTOLOAD=0` in the isolated Native environment without
+accelerator devices. This is a CPU reproduction of location sensitivity, not
+a full Native Dynamo cache-miss attribution or qualified SDK change.
+All setup failures and CPU cost are retained in the
+[receipt](../results/native_cache_readonly_20261029/fx-location-key-probe.json).
+No upstream submission.

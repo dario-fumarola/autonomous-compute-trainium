@@ -39,3 +39,20 @@ because the Native Python interpreter is container-only. No SDK, launch setting,
 scientific graph or cache content is changed. This is a local candidate report,
 not an upstream submission or a qualified performance improvement.
 [Receipt](location-key-probe.json).
+
+## CPU export follow-up
+
+An actual two-operation Torch export fixture now reproduces the same effect:
+identical model code compiled with two source filenames has identical eager
+outputs, identical exported graphs and identical StableHLO with locations
+omitted. Source filenames survive lowering; serialized bytes and NEFF keys
+differ. Re-parsing without locations produces identical bytes. This strengthens
+the location-sensitivity reproduction beyond the earlier empty-module fixture.
+It still does not run the complete Native Dynamo pipeline or attribute a
+particular campaign miss. No compiler, cache or training setting is changed.
+
+The device-free container has two CPU threads, a 2-GiB limit and no network.
+Two setup failures are retained: wrong image (no interpreter), then device
+backend autoload. Explicitly disabling device autoload permits the CPU fixture.
+All three attempts total approximately 7.60 seconds and zero assigned chip-time.
+[Aggregate fixture receipt](fx-location-key-probe.json).

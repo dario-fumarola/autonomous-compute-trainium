@@ -108,12 +108,13 @@ def render(root, *, completion=False):
         key = 'generated_over_' + family
         c = analysis['comparisons'][key]['comparison']
         lo, hi = c['conditional_95_interval']
-        lines.append(f"| {LABELS[family]} | {c['gain']:+.9f} | [{lo:+.9f}, {hi:+.9f}] | {'PASS' if analysis['decisions'][key] else 'FAIL'} |")
+        gate = 'UNMET: original screen incomplete' if completion else ('PASS' if analysis['decisions'][key] else 'FAIL')
+        lines.append(f"| {LABELS[family]} | {c['gain']:+.9f} | [{lo:+.9f}, {hi:+.9f}] | {gate} |")
     lines += ['', 'Each gate requires a gain of at least 0.01 nats, a positive conditional lower bound, '
               'and interior learning-rate optima for all three families. These intervals condition on '
               'selected models and reused development sources. They do not measure training-seed uncertainty '
               'or constitute confirmation.', '',
-              '**Both registered gates: ' + ('PASS' if analysis['both_development_gates_pass'] else 'FAIL') + '.** '
+              '**Both original registered gates: ' + ('UNMET' if completion else ('PASS' if analysis['both_development_gates_pass'] else 'FAIL')) + '.** '
               'No automatic scaling or confirmation follows. Neither outcome establishes learned allocation, '
               'transferable reasoning or useful additional inference steps.', '',
               '## All learning-rate opportunities', '',

@@ -1,0 +1,45 @@
+{
+  "same_eager_output": true,
+  "same_export_graph": true,
+  "source_locations_survive": [
+    true,
+    true
+  ],
+  "same_stablehlo_without_locations": true,
+  "same_serialized_bytes": false,
+  "same_content_key": false,
+  "same_after_reparse_without_locations": true,
+  "sdk_source_sha256": "542ed8c3f04e9ecd44eda7f24fa55285602bdcc83b73cdd69f76760d87139393",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "research_examples": 0,
+  "wall_seconds": 1.1681032180786133,
+  "scope": "CPU export/StableHLO fixture. Not the complete Native Dynamo pipeline, an actual-run miss attribution, or a qualified cache modification.",
+  "execution": {
+    "exit_code": 0,
+    "wall_seconds": 3.871129274368286,
+    "assigned_chips": 0,
+    "optimizer_updates": 0,
+    "cpu_limit": 2,
+    "memory_GiB": 2
+  },
+  "prior_attempts": [
+    {
+      "exit_code": 127,
+      "wall_seconds": 0.32404661178588867,
+      "reason": "Wrong container image did not contain the Native interpreter; no fixture executed."
+    },
+    {
+      "exit_code": 1,
+      "wall_seconds": 3.4082021713256836,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "cpu_limit": 2,
+      "memory_GiB": 2,
+      "reason": "Torch device-backend autoload requested a Neuron device. The device-free CPU rerun explicitly disables backend autoload."
+    }
+  ],
+  "sdk_modified": false,
+  "accelerator_devices_exposed": false,
+  "cpu_only_environment": "TORCH_DEVICE_BACKEND_AUTOLOAD=0"
+}
