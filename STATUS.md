@@ -1,3 +1,17 @@
+## October 29, 2026, 22:30 UTC — first generated endpoint audited
+
+The first generated-workspace fit completes all 1,957 updates and its mature
+full-global gradient, full-state and replica audits. Maximum gradient-family
+error is 0.495867%, below the unchanged 2% limit. Its warm updates average
+0.376700 seconds; whole worker fit time is 1,194.157 seconds. The second
+generated LR is training on all 16 chips. Four of nine fits are complete and
+audited, with no held-out quality selection yet.
+
+A report renderer is prepared to publish all nine tuning outcomes, exact selected
+scores, training curves and closed accelerator costs. It refuses incomplete
+screens. It adds no scoring or selection opportunity and changes none of the
+frozen scientific sources. The original 03:07:53 UTC deadline remains binding.
+
 ## October 29, 2026, 22:03 UTC — all ordinary fits audited; generated fitting active
 
 All three ordinary LR endpoints finish their complete schedules and pass mature
