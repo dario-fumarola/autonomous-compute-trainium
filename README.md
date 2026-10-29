@@ -29,6 +29,15 @@ the conventional competitiveness gate fails. This is a diagnosis of a training
 tradeoff, not a thinking or efficiency win.
 [Completed fixed-depth comparison](results/depth_causal_workspace_20261029/fixed-one-v1/REPORT.md).
 
+A new **matched-work sparse-workspace screen is running**. It uses the strongest
+tied ordinary body with one persistent generated slot per 128 source tokens,
+an equally chunked ordinary control, and a trained constant-slot control.
+All three receive independent LR tuning from the same random initializer.
+Numerical and restart qualification pass; no quality result exists yet.
+Nominal slot overhead is about 0.58%, while measured update time is about 20.2%
+higher than chunked ordinary. The two costs remain separate.
+[Active frozen comparison](docs/CHUNKED_PERSISTENT_LEARNING_20261029.md).
+
 The original selected-seed comparison below is retained unchanged:
 
 | Predictor | Parameters | Development NLL ↓ |

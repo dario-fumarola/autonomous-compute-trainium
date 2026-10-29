@@ -1,6 +1,6 @@
 # What the persistent-state result currently supports
 
-All declared ordinary comparisons are complete on October29,2026. Two-new-seed
+The original persistent-model ordinary comparisons are complete on October 29, 2026. Two-new-seed
 replication is complete and fails its useful ordinary-control margin gate.
 The fresh-panel outcome remains unavailable because both reserves stay closed.
 
@@ -52,8 +52,8 @@ The separate exact graph also fails all four frozen gates. Zero/one/two-step
 NLL is 3.473785/3.402455/3.408117; the second step hurts by 0.005662 and strongest
 ordinary wins by 0.120335. Exact execution removes solver error and lowers
 nominal work to 1.138181 times ordinary at equal data, but supplies no useful
-supported-budget scaling. A fixed-one fit in this exact graph has not yet been
-performed, so its graph-versus-budget-training effects remain unseparated.
+supported-budget scaling. The subsequent fixed-one comparison below separates its budget-training
+effect; that fit also loses to the strong ordinary model.
 [Complete result](../depth_causal_workspace_20261029/learning-v1/REPORT.md).
 
 
@@ -67,3 +67,12 @@ a schedule penalty in this development recipe; it does not establish why that
 penalty arises or a successful iterative mechanism. Only its trained one-step
 exit is supported. No earlier failed gate is reversed.
 [Full result](../depth_causal_workspace_20261029/fixed-one-v1/REPORT.md).
+
+## Sparse persistent screen in progress
+
+A new, separately registered comparison inserts one persistent state per 128
+source tokens and matches nominal training work against equally chunked
+ordinary and trained constant-slot controls. Numerical, full-state replay and
+mature-gradient checks pass. Quality is not yet known. No preceding failed
+gate is reversed, and neither fresh evaluation reserve is opened.
+[Registered comparison](../../docs/CHUNKED_PERSISTENT_LEARNING_20261029.md).
