@@ -10,6 +10,11 @@ predeclared replication gate fails. Gains over trained constant pauses are
 not admitted, and both fresh evaluation reserves remain unscored.
 [Complete replication](results/interleaved_workspace_20261029/seed-replication-v1/REPORT.md).
 
+The separate supported-budget experiment also closes negative: exact NLL is
+**3.487978 / 3.379654 / 3.381733** at zero/one/two latent tokens. The second
+step hurts, and the ordinary path deteriorates; all four advancement gates
+fail. [Completed budget comparison](results/budgeted_interleaved_20261029/learning-v1/REPORT.md).
+
 The original selected-seed comparison below is retained unchanged:
 
 | Predictor | Parameters | Development NLL ↓ |

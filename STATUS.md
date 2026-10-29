@@ -1,3 +1,17 @@
+## October 29, 2026, 18:28 UTC — supported-budget experiment complete and negative
+
+Exact zero/one/two-token NLLs are3.487978/3.379654/3.381733. Two-over-one gain
+is−0.002079, conditional95%interval[−0.003520,−0.000656]. Independent fixed-one
+and strongest ordinary beat two tokens by0.118999and0.093952nats; the zero exit
+loses0.110867to same-shape ordinary. All four registered gates fail.
+All numerical checks passed; no fit is extended or promoted. Complete Native
+cost is16.234592assigned chip-hours; both fresh reserves remain sealed.
+[Result and costs](results/budgeted_interleaved_20261029/learning-v1/REPORT.md).
+
+The exact depth-causal CPU alternative passes871full-suite tests/two skips and
+33targeted checks including static compilation. Its separate disposable Native
+qualification is being registered; no scientific fit is admitted by CPU checks.
+
 ## October 29, 2026, 18:24 UTC — exact budget readout finishing; new causal reference passes CPU
 
 All nine Native budget/LR readouts finish and pass independent FP64 checks.

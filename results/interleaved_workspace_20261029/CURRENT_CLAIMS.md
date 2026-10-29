@@ -22,11 +22,11 @@ finds new-seed gains0.002267/0.028967 over ordinary and0.131651/0.138708 over pa
 Neither the inconclusive structural diagnostic nor a favorable source-group
 interval authorizes a terminal reasoning or efficiency claim.
 
-A separate zero/one/two-token learning experiment is now active. It trains all
-three modes explicitly and requires exact sequential readout, an improvement
-over the independently trained one-token model, the strongest ordinary
-comparison, and preservation of the ordinary prediction path. Its outcome is
-pending. It does not relax the failed fixed-one replication gate.
+The separate zero/one/two-token experiment is complete and fails all four
+frozen gates. Exact losses are3.487978/3.379654/3.381733. Two tokens hurt versus
+one; both the independent fixed-one and strongest ordinary controls win, and
+the zero exit deteriorates. No useful supported-budget scaling follows.
+[Complete result](../budgeted_interleaved_20261029/learning-v1/REPORT.md).
 [New registered question](../../docs/SUPPORTED_LATENT_BUDGET_LEARNING_20261029.md).
 
 [Strongest completed comparison](tied-comparison-v1/REPORT.md) ·
