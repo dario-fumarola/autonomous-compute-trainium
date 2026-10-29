@@ -1,3 +1,25 @@
+## October 29, 2026, 22:53 UTC — highest generated LR stops; original controls completed separately
+
+The generated LR 0.003 fit stops on a non-finite gradient norm after update 80,
+its last persisted telemetry point. There is no mature endpoint, OOM or resource
+failure. All five earlier completed fits retain passing mature audits. No
+quality selection has occurred. The original screen remains STOPPED and its
+all-nine-complete advancement condition remains UNMET; all failed work is charged.
+
+A separately frozen completion runs only the three original unstarted constant
+controls, preserving their schedules, work, data and initialization, and the
+original 03:07:53 deadline. There is no failed-fit retry or additional LR. Sixteen
+focused checks pass. The first control is launching on all 16 chips. Later
+selection excludes unavailable fits without fabricating scores, and cannot
+call the incomplete generated grid bracketed or repair the old gate.
+[Failure receipt](results/chunked_persistent_workspace_20261029/learning-v1/REPORT.md) ·
+[Completion protocol](docs/CHUNKED_CONTROL_COMPLETION_20261029.md).
+
+The original position diagnostic is not admitted. Both fresh reserves remain
+unscored. A separate CPU-only fixture confirms location sensitivity in the
+installed compiler cache-key serialization; it does not attribute the real
+misses or change the SDK. No upstream submission is made.
+
 ## October 29, 2026, 22:30 UTC — first generated endpoint audited
 
 The first generated-workspace fit completes all 1,957 updates and its mature

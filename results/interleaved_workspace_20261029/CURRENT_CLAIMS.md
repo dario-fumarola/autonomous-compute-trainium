@@ -68,11 +68,13 @@ penalty arises or a successful iterative mechanism. Only its trained one-step
 exit is supported. No earlier failed gate is reversed.
 [Full result](../depth_causal_workspace_20261029/fixed-one-v1/REPORT.md).
 
-## Sparse persistent screen in progress
+## Sparse persistent screen stopped; descriptive completion active
 
-A new, separately registered comparison inserts one persistent state per 128
-source tokens and matches nominal training work against equally chunked
-ordinary and trained constant-slot controls. Numerical, full-state replay and
-mature-gradient checks pass. Quality is not yet known. No preceding failed
-gate is reversed, and neither fresh evaluation reserve is opened.
-[Registered comparison](../../docs/CHUNKED_PERSISTENT_LEARNING_20261029.md).
+The generated LR 0.003 attempt stops on a non-finite gradient before a mature
+endpoint. Five earlier fits have complete audits, but no quality selection was
+performed. The original all-nine-complete gate is unmet. A separate bounded
+completion runs only the three unstarted constant controls. It adds no LR,
+retry, endpoint or renewed deadline and cannot repair the original gate.
+Both fresh reserves remain sealed. No old failed result is reversed.
+[Failure record](../chunked_persistent_workspace_20261029/learning-v1/REPORT.md) ·
+[Completion protocol](../../docs/CHUNKED_CONTROL_COMPLETION_20261029.md).
