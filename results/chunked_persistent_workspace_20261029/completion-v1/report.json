@@ -1,0 +1,221 @@
+{
+  "status": "PASS_CHUNKED_PERSISTENT_COMPLETION",
+  "records": {
+    "finish": {
+      "status": "COMPLETE_CHUNKED_CHECKPOINT_UPDATE_PENDING_AUDITS",
+      "world": 64,
+      "actual_qualification_updates": 1,
+      "scientific_optimizer_updates": 0,
+      "retained_for_science": false,
+      "parameters": 51179008,
+      "restored_all_replica_states_equal": true,
+      "all_replica_full_states_equal": true,
+      "source_targets": 65408,
+      "loss": 6.208859920501709,
+      "update_including_compilation_seconds": 440.1649980545044,
+      "wall_seconds": 478.2013614177704,
+      "scope": "One generated-slot update104 after exact full restoration of the original disposable update103 into every rank. Missing mature-gradient and independent restart checks remain separate; no scientific state reuse."
+    },
+    "replay": {
+      "status": "PASS_INTERLEAVED_WARM_EXACT_REPLAY",
+      "world": 64,
+      "mode": "replay",
+      "actual_qualification_updates": 1,
+      "scientific_optimizer_updates": 0,
+      "retained_for_science": false,
+      "parameters": 51179008,
+      "warm_updates": 0,
+      "mean_warm_seconds": null,
+      "warm_by_depth": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "wall_seconds": 500.7961678504944,
+      "all_replica_full_states_equal": true,
+      "cold_local_checks": {},
+      "graph_names": {
+        "0": "full_ordinary",
+        "1": "chunked_ordinary",
+        "2": "generated_slot",
+        "3": "constant_slot"
+      },
+      "scope": "Disposable sparse persistent qualification. Legacy extra_steps/warm_by_depth fields identify full ordinary, chunked ordinary, generated and constant graphs, not latent budgets. All workspace graphs insert exactly one slot per128 source tokens. No scientific weight reuse or held-out scoring."
+    },
+    "audit": {
+      "status": "PASS_INTERLEAVED_MATURE_GLOBAL_CPU",
+      "comparisons": {
+        "overall": {
+          "relative_l2": 0.00021725256063065507,
+          "cosine": 0.9999999764203706,
+          "reference_norm": 0.5353988777497551,
+          "candidate_norm": 0.5354022265142023,
+          "maximum_absolute_error": 4.808185622096062e-06,
+          "largest_error_contributors": [
+            {
+              "parameter": "embedding.weight",
+              "squared_error": 5.521429627659509e-09,
+              "reference_squared_norm": 0.1787964124573648
+            },
+            {
+              "parameter": "blocks.9.q.weight",
+              "squared_error": 9.021999550664046e-10,
+              "reference_squared_norm": 5.508286059808349e-05
+            },
+            {
+              "parameter": "blocks.7.q.weight",
+              "squared_error": 7.191317574663573e-10,
+              "reference_squared_norm": 8.026448395550171e-05
+            },
+            {
+              "parameter": "blocks.10.q.weight",
+              "squared_error": 6.525179438415268e-10,
+              "reference_squared_norm": 5.143487582739598e-05
+            },
+            {
+              "parameter": "blocks.1.down.weight",
+              "squared_error": 4.925152900382475e-10,
+              "reference_squared_norm": 0.005818827471581441
+            },
+            {
+              "parameter": "blocks.0.down.weight",
+              "squared_error": 4.613544239356692e-10,
+              "reference_squared_norm": 0.011402535074174427
+            },
+            {
+              "parameter": "blocks.2.down.weight",
+              "squared_error": 3.8462424187746443e-10,
+              "reference_squared_norm": 0.005667755602518143
+            },
+            {
+              "parameter": "blocks.2.q.weight",
+              "squared_error": 3.755043892161474e-10,
+              "reference_squared_norm": 3.064635934784763e-05
+            },
+            {
+              "parameter": "blocks.0.up.weight",
+              "squared_error": 3.142721193276887e-10,
+              "reference_squared_norm": 0.002108941437735957
+            },
+            {
+              "parameter": "blocks.0.gate.weight",
+              "squared_error": 2.7932808535712557e-10,
+              "reference_squared_norm": 0.0018062684752390332
+            },
+            {
+              "parameter": "blocks.0.o.weight",
+              "squared_error": 2.444182779022294e-10,
+              "reference_squared_norm": 0.003747862561761105
+            },
+            {
+              "parameter": "blocks.1.up.weight",
+              "squared_error": 2.4190165439678034e-10,
+              "reference_squared_norm": 0.0015640300692365745
+            }
+          ]
+        },
+        "embedding": {
+          "relative_l2": 0.00017573018669947755,
+          "cosine": 0.9999999845615054,
+          "reference_norm": 0.42284324809244006,
+          "candidate_norm": 0.4228440987246605,
+          "maximum_absolute_error": 4.808185622096062e-06,
+          "largest_error_contributors": [
+            {
+              "parameter": "embedding.weight",
+              "squared_error": 5.521429627659509e-09,
+              "reference_squared_norm": 0.1787964124573648
+            }
+          ]
+        },
+        "body": {
+          "relative_l2": 0.0002724866390094094,
+          "cosine": 0.9999999629642996,
+          "reference_norm": 0.32841368095487833,
+          "candidate_norm": 0.32841804507379746,
+          "maximum_absolute_error": 7.945163815747947e-07,
+          "largest_error_contributors": [
+            {
+              "parameter": "blocks.9.q.weight",
+              "squared_error": 9.021999550664046e-10,
+              "reference_squared_norm": 5.508286059808349e-05
+            },
+            {
+              "parameter": "blocks.7.q.weight",
+              "squared_error": 7.191317574663573e-10,
+              "reference_squared_norm": 8.026448395550171e-05
+            },
+            {
+              "parameter": "blocks.10.q.weight",
+              "squared_error": 6.525179438415268e-10,
+              "reference_squared_norm": 5.143487582739598e-05
+            },
+            {
+              "parameter": "blocks.1.down.weight",
+              "squared_error": 4.925152900382475e-10,
+              "reference_squared_norm": 0.005818827471581441
+            },
+            {
+              "parameter": "blocks.0.down.weight",
+              "squared_error": 4.613544239356692e-10,
+              "reference_squared_norm": 0.011402535074174427
+            },
+            {
+              "parameter": "blocks.2.down.weight",
+              "squared_error": 3.8462424187746443e-10,
+              "reference_squared_norm": 0.005667755602518143
+            },
+            {
+              "parameter": "blocks.2.q.weight",
+              "squared_error": 3.755043892161474e-10,
+              "reference_squared_norm": 3.064635934784763e-05
+            },
+            {
+              "parameter": "blocks.0.up.weight",
+              "squared_error": 3.142721193276887e-10,
+              "reference_squared_norm": 0.002108941437735957
+            },
+            {
+              "parameter": "blocks.0.gate.weight",
+              "squared_error": 2.7932808535712557e-10,
+              "reference_squared_norm": 0.0018062684752390332
+            },
+            {
+              "parameter": "blocks.0.o.weight",
+              "squared_error": 2.444182779022294e-10,
+              "reference_squared_norm": 0.003747862561761105
+            },
+            {
+              "parameter": "blocks.1.up.weight",
+              "squared_error": 2.4190165439678034e-10,
+              "reference_squared_norm": 0.0015640300692365745
+            },
+            {
+              "parameter": "blocks.6.q.weight",
+              "squared_error": 2.1672431202157924e-10,
+              "reference_squared_norm": 7.079752300709227e-05
+            }
+          ]
+        }
+      },
+      "native_loss": 6.208859920501709,
+      "cpu_loss": 6.208862029016018,
+      "loss_error": 2.1085143089294434e-06,
+      "real_targets": 65408,
+      "global_windows": 128,
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "wall_seconds": 60.33698916435242
+    }
+  },
+  "original_warm_times": {
+    "0": 0.2980639934539795,
+    "1": 0.3217757701873779,
+    "2": 0.3868002605438232,
+    "3": 0.39077817916870117
+  },
+  "scientific_fit_admitted": false,
+  "retained_for_science": false,
+  "scope": "Supplemental validation of preserved disposable states after the original qualification budget failed. Reuse only completed cold checks and100 warm timings; perform missing generated-state update if required, fresh-process full-state replay and independent full-global CPU gradient audit. No third full warm-up, threshold relaxation, scientific fit or weight promotion. Original attempts and deadlines remain failed and their costs stay charged."
+}

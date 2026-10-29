@@ -1,3 +1,27 @@
+## October 29, 2026, 21:08 UTC — sparse persistent comparison admitted
+
+Numerical qualification is complete: all four cold checks, 100 warm updates,
+exact all-rank state restoration/replay and the full 128-window mature gradient
+audit pass. Maximum mature family discrepancy is 0.02725% against the 2% limit.
+Both prior timeouts remain failed and charged; complete qualification cost is
+15.304764 assigned chip-hours.
+
+The new frozen screen uses fresh random initialization on the strongest tied
+51.18M ordinary body. Generated slots and trained constant slots appear every
+128 source tokens; equally chunked ordinary receives at least matched nominal
+training work. Each family receives three full LR opportunities and complete
+audits. There is no qualification-weight reuse. Nominal overhead is 0.58%, but
+measured generated-slot warm time is 20.2% above chunked ordinary; hardware
+efficiency is not assumed. The first ordinary fit is launching on all 16 chips.
+
+The full CPU suite passes 978 tests with two skips. Exact closed-compiler archival
+restores 31,999 inodes. Retiring eight named, successful disposable qualification
+arrays recovers 3.085 GiB; scientific and failed states remain. All remaining
+artifacts and snapshots fit the protected reserves. Both fresh evaluation
+reserves remain sealed.
+[Qualification](results/chunked_persistent_workspace_20261029/completion-v1/REPORT.md) ·
+[Immutable learning plan](results/chunked_persistent_workspace_20261029/learning-v1/plan.json).
+
 ## October 29, 2026, 20:48 UTC — missing sparse state checks isolated
 
 The second disposable qualification also times out during checkpoint handling.
