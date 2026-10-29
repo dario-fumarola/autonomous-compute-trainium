@@ -13,11 +13,13 @@ evidence of useful computation. This objective variant is closed without a
 larger fit. Both fresh evaluation reserves remain unscored.
 [Complete result](results/probability_workspace_20261029/joint-exit-readout-recovery-v1/REPORT.md).
 
-A distinct persistent latent-token mechanism has passed CPU and all-chip small
-numerical qualification, including exact restart replay. It carries generated
-states in the causal history. Its actual-shape cost qualification is running;
-no scientific fit or positive quality result is admitted yet.
-[Qualification](docs/INTERLEAVED_ACTUAL_SHAPE_20261029.md).
+A distinct persistent latent-token mechanism now passes complete actual-shape
+qualification. Equivalent grouped storage preserves its causal computation
+while reducing measured warm-update time from4.4902s to0.2463s. Generated,
+ordinary and constant-pause paths pass numerical and full-state replay gates.
+A bounded, equally budgeted nine-fit learning-rate screen is active; **there is
+no new quality result yet**. [Execution evidence](results/interleaved_workspace_20261029/EXECUTION_INVESTIGATION.md) ·
+[Registered learning screen](docs/INTERLEAVED_LR_TUNING_20261029.md).
 
 The untied prediction/value-table comparison is complete and negative. At
 200Mnatural targets,the79.18Mworkspace scores**3.270157NLL**,versus**3.253960**

@@ -1,45 +1,45 @@
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                            aten::clone         0.00%     116.253us        99.33%        4.452s      70.659ms            63  
-                                            aten::copy_        99.33%        4.451s        99.33%        4.451s      66.438ms            67  
-autograd::engine::evaluate_function: CompiledFunctio...         0.00%      70.298us         0.20%       8.925ms       8.925ms             1  
-                               CompiledFunctionBackward         0.19%       8.292ms         0.20%       8.855ms       8.855ms             1  
-                                               aten::to         0.00%      32.576us         0.17%       7.724ms     115.278us            67  
-                                         aten::_to_copy         0.17%       7.598ms         0.17%       7.691ms     854.563us             9  
-                             Torch-Compiled Region: 0/0         0.00%     106.137us         0.15%       6.626ms       6.626ms             1  
-                                       CompiledFunction         0.04%       2.008ms         0.14%       6.484ms       6.484ms             1  
-                                            aten::empty         0.12%       5.477ms         0.12%       5.477ms       8.212us           667  
-                                             aten::item         0.00%       8.256us         0.08%       3.760ms       1.253ms             3  
-                                       aten::is_nonzero         0.00%       2.493us         0.08%       3.754ms       3.754ms             1  
-                              aten::_local_scalar_dense         0.00%      14.230us         0.08%       3.751ms       1.250ms             3  
-                                       c10d::allreduce_         0.04%       1.635ms         0.04%       1.635ms      28.184us            58  
-                              Optimizer.step#AdamW.step         0.01%     608.960us         0.04%       1.626ms       1.626ms             1  
-                                             aten::div_         0.03%       1.148ms         0.03%       1.393ms      24.023us            58  
-                                    aten::_fused_adamw_         0.02%     762.892us         0.02%     762.892us     381.446us             2  
-                                              aten::mul         0.01%     348.535us         0.01%     463.346us     154.449us             3  
-                                    aten::_foreach_norm         0.00%     157.850us         0.01%     443.901us     443.901us             1  
-autograd::engine::evaluate_function: torch::autograd...         0.00%     135.876us         0.01%     329.008us       5.772us            57  
-                                    aten::_foreach_add_         0.01%     254.540us         0.01%     254.540us     127.270us             2  
-                               TorchDynamo Cache Lookup         0.01%     226.765us         0.01%     226.765us     226.765us             1  
-                                    aten::_foreach_mul_         0.00%     220.414us         0.00%     220.414us     220.414us             1  
-                        torch::autograd::AccumulateGrad         0.00%     103.067us         0.00%     193.132us       3.388us            57  
-      autograd::engine::evaluate_function: MulBackward0         0.00%      15.757us         0.00%     148.506us     148.506us             1  
-                                              aten::add         0.00%      85.736us         0.00%     141.166us     141.166us             1  
-                                           aten::detach         0.00%      88.820us         0.00%     138.243us       1.133us           122  
-                                           MulBackward0         0.00%       7.256us         0.00%     132.749us     132.749us             1  
-                                    aten::empty_strided         0.00%      88.355us         0.00%      88.355us       1.339us            66  
-                    Optimizer.zero_grad#AdamW.zero_grad         0.00%      57.847us         0.00%      57.847us      57.847us             1  
-                                            aten::stack         0.00%      50.001us         0.00%      55.254us      55.254us             1  
-                                                 detach         0.00%      49.423us         0.00%      49.423us       0.824us            60  
-                                        aten::ones_like         0.00%      39.892us         0.00%      48.858us      48.858us             1  
-                                       aten::reciprocal         0.00%      26.516us         0.00%      42.891us      42.891us             1  
-                                            aten::clamp         0.00%      25.328us         0.00%      35.652us      35.652us             1  
-                                             aten::view         0.00%      32.473us         0.00%      32.473us       2.952us            11  
-                               aten::linalg_vector_norm         0.00%      22.299us         0.00%      26.145us      26.145us             1  
-                                      Pregraph bytecode         0.00%      19.296us         0.00%      19.296us      19.296us             1  
-                 AOTDispatcher Runtime Wrapper Prologue         0.00%      17.448us         0.00%      17.448us      17.448us             1  
-                                       aten::logical_or         0.00%      13.173us         0.00%      17.296us      17.296us             1  
-                                            aten::isnan         0.00%      11.811us         0.00%      16.161us      16.161us             1  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------
+                                            aten::clone         0.00%     116.253us        99.33%        4.452s      70.659ms            63
+                                            aten::copy_        99.33%        4.451s        99.33%        4.451s      66.438ms            67
+autograd::engine::evaluate_function: CompiledFunctio...         0.00%      70.298us         0.20%       8.925ms       8.925ms             1
+                               CompiledFunctionBackward         0.19%       8.292ms         0.20%       8.855ms       8.855ms             1
+                                               aten::to         0.00%      32.576us         0.17%       7.724ms     115.278us            67
+                                         aten::_to_copy         0.17%       7.598ms         0.17%       7.691ms     854.563us             9
+                             Torch-Compiled Region: 0/0         0.00%     106.137us         0.15%       6.626ms       6.626ms             1
+                                       CompiledFunction         0.04%       2.008ms         0.14%       6.484ms       6.484ms             1
+                                            aten::empty         0.12%       5.477ms         0.12%       5.477ms       8.212us           667
+                                             aten::item         0.00%       8.256us         0.08%       3.760ms       1.253ms             3
+                                       aten::is_nonzero         0.00%       2.493us         0.08%       3.754ms       3.754ms             1
+                              aten::_local_scalar_dense         0.00%      14.230us         0.08%       3.751ms       1.250ms             3
+                                       c10d::allreduce_         0.04%       1.635ms         0.04%       1.635ms      28.184us            58
+                              Optimizer.step#AdamW.step         0.01%     608.960us         0.04%       1.626ms       1.626ms             1
+                                             aten::div_         0.03%       1.148ms         0.03%       1.393ms      24.023us            58
+                                    aten::_fused_adamw_         0.02%     762.892us         0.02%     762.892us     381.446us             2
+                                              aten::mul         0.01%     348.535us         0.01%     463.346us     154.449us             3
+                                    aten::_foreach_norm         0.00%     157.850us         0.01%     443.901us     443.901us             1
+autograd::engine::evaluate_function: torch::autograd...         0.00%     135.876us         0.01%     329.008us       5.772us            57
+                                    aten::_foreach_add_         0.01%     254.540us         0.01%     254.540us     127.270us             2
+                               TorchDynamo Cache Lookup         0.01%     226.765us         0.01%     226.765us     226.765us             1
+                                    aten::_foreach_mul_         0.00%     220.414us         0.00%     220.414us     220.414us             1
+                        torch::autograd::AccumulateGrad         0.00%     103.067us         0.00%     193.132us       3.388us            57
+      autograd::engine::evaluate_function: MulBackward0         0.00%      15.757us         0.00%     148.506us     148.506us             1
+                                              aten::add         0.00%      85.736us         0.00%     141.166us     141.166us             1
+                                           aten::detach         0.00%      88.820us         0.00%     138.243us       1.133us           122
+                                           MulBackward0         0.00%       7.256us         0.00%     132.749us     132.749us             1
+                                    aten::empty_strided         0.00%      88.355us         0.00%      88.355us       1.339us            66
+                    Optimizer.zero_grad#AdamW.zero_grad         0.00%      57.847us         0.00%      57.847us      57.847us             1
+                                            aten::stack         0.00%      50.001us         0.00%      55.254us      55.254us             1
+                                                 detach         0.00%      49.423us         0.00%      49.423us       0.824us            60
+                                        aten::ones_like         0.00%      39.892us         0.00%      48.858us      48.858us             1
+                                       aten::reciprocal         0.00%      26.516us         0.00%      42.891us      42.891us             1
+                                            aten::clamp         0.00%      25.328us         0.00%      35.652us      35.652us             1
+                                             aten::view         0.00%      32.473us         0.00%      32.473us       2.952us            11
+                               aten::linalg_vector_norm         0.00%      22.299us         0.00%      26.145us      26.145us             1
+                                      Pregraph bytecode         0.00%      19.296us         0.00%      19.296us      19.296us             1
+                 AOTDispatcher Runtime Wrapper Prologue         0.00%      17.448us         0.00%      17.448us      17.448us             1
+                                       aten::logical_or         0.00%      13.173us         0.00%      17.296us      17.296us             1
+                                            aten::isnan         0.00%      11.811us         0.00%      16.161us      16.161us             1
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------
 Self CPU time total: 4.481s

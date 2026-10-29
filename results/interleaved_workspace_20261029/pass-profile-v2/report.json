@@ -1,0 +1,217 @@
+{
+  "status": "COMPLETE_INTERLEAVED_PASS_TIMING_DIAGNOSTIC",
+  "unexpected_fallback_ops": [
+    "aten::contiguous[prologue_cpu_roundtrip]"
+  ],
+  "execution_qualified": false,
+  "world": 64,
+  "qualified_state_restore_exact": true,
+  "actual_disposable_updates": 0,
+  "backward_calls": 11,
+  "scientific_optimizer_updates": 0,
+  "retained_for_science": false,
+  "timed_updates": 10,
+  "rank0_mean_seconds": {
+    "data_and_transfer": 0.0013376474380493164,
+    "initial": 0.006883597373962403,
+    "refine1": 1.29221670627594,
+    "refine2": 1.3947778940200806,
+    "readout": 1.3908546209335326,
+    "backward": 0.0819345235824585,
+    "collectives": 0.28996829986572265,
+    "optimizer": 0.004447627067565918
+  },
+  "maximum_rank_mean_seconds": {
+    "data_and_transfer": 0.0015030860668048263,
+    "initial": 0.007305622100830078,
+    "refine1": 1.334425926208496,
+    "refine2": 1.4403716325759888,
+    "readout": 1.4373644590377808,
+    "backward": 0.08293271064758301,
+    "collectives": 0.2946566939353943,
+    "optimizer": 0.004694485571235418
+  },
+  "rank0_records": [
+    {
+      "update": 104,
+      "data_and_transfer": 0.0011878013610839844,
+      "initial": 21.9717276096344,
+      "refine1": 30.226907968521118,
+      "refine2": 1.395911455154419,
+      "readout": 32.27102470397949,
+      "backward": 60.86772918701172,
+      "collectives": 1.8230960369110107,
+      "optimizer": 0.8577873706817627,
+      "loss": 6.122169017791748,
+      "gradient_norm": 0.484674870967865,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 105,
+      "data_and_transfer": 0.0009486675262451172,
+      "initial": 0.00712895393371582,
+      "refine1": 1.2918806076049805,
+      "refine2": 1.394925594329834,
+      "readout": 1.3914570808410645,
+      "backward": 0.08083081245422363,
+      "collectives": 0.28870224952697754,
+      "optimizer": 0.004504203796386719,
+      "loss": 6.2791595458984375,
+      "gradient_norm": 0.49211937189102173,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 106,
+      "data_and_transfer": 0.0012748241424560547,
+      "initial": 0.006339073181152344,
+      "refine1": 1.291578769683838,
+      "refine2": 1.3946402072906494,
+      "readout": 1.3908891677856445,
+      "backward": 0.0813436508178711,
+      "collectives": 0.2921769618988037,
+      "optimizer": 0.004543781280517578,
+      "loss": 6.160208702087402,
+      "gradient_norm": 0.43696290254592896,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 107,
+      "data_and_transfer": 0.0015034675598144531,
+      "initial": 0.00701451301574707,
+      "refine1": 1.2928047180175781,
+      "refine2": 1.3952147960662842,
+      "readout": 1.3905553817749023,
+      "backward": 0.08102035522460938,
+      "collectives": 0.2880852222442627,
+      "optimizer": 0.004040956497192383,
+      "loss": 6.304292678833008,
+      "gradient_norm": 0.4949028789997101,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 108,
+      "data_and_transfer": 0.0012619495391845703,
+      "initial": 0.006451129913330078,
+      "refine1": 1.2905220985412598,
+      "refine2": 1.394974708557129,
+      "readout": 1.3917253017425537,
+      "backward": 0.08169174194335938,
+      "collectives": 0.29316186904907227,
+      "optimizer": 0.0043065547943115234,
+      "loss": 6.102367401123047,
+      "gradient_norm": 0.446605920791626,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 109,
+      "data_and_transfer": 0.0013401508331298828,
+      "initial": 0.0066487789154052734,
+      "refine1": 1.2924630641937256,
+      "refine2": 1.3943583965301514,
+      "readout": 1.3907725811004639,
+      "backward": 0.0822291374206543,
+      "collectives": 0.2898406982421875,
+      "optimizer": 0.004398345947265625,
+      "loss": 6.119645118713379,
+      "gradient_norm": 0.5170581936836243,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 110,
+      "data_and_transfer": 0.0014383792877197266,
+      "initial": 0.007193565368652344,
+      "refine1": 1.292710781097412,
+      "refine2": 1.3946635723114014,
+      "readout": 1.3905856609344482,
+      "backward": 0.0840153694152832,
+      "collectives": 0.2899160385131836,
+      "optimizer": 0.004372835159301758,
+      "loss": 6.089017868041992,
+      "gradient_norm": 0.5915289521217346,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 111,
+      "data_and_transfer": 0.0013191699981689453,
+      "initial": 0.0070629119873046875,
+      "refine1": 1.2926063537597656,
+      "refine2": 1.394975185394287,
+      "readout": 1.3904507160186768,
+      "backward": 0.08153605461120605,
+      "collectives": 0.29266953468322754,
+      "optimizer": 0.004363298416137695,
+      "loss": 6.135566234588623,
+      "gradient_norm": 0.49190208315849304,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 112,
+      "data_and_transfer": 0.0012965202331542969,
+      "initial": 0.007219552993774414,
+      "refine1": 1.2926065921783447,
+      "refine2": 1.395620584487915,
+      "readout": 1.3908350467681885,
+      "backward": 0.0820169448852539,
+      "collectives": 0.28702402114868164,
+      "optimizer": 0.004443645477294922,
+      "loss": 6.1726226806640625,
+      "gradient_norm": 0.45726922154426575,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 113,
+      "data_and_transfer": 0.0015451908111572266,
+      "initial": 0.007132053375244141,
+      "refine1": 1.293372392654419,
+      "refine2": 1.3939363956451416,
+      "readout": 1.3911066055297852,
+      "backward": 0.08124232292175293,
+      "collectives": 0.2891976833343506,
+      "optimizer": 0.0045850276947021484,
+      "loss": 6.11862325668335,
+      "gradient_norm": 0.45035606622695923,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    },
+    {
+      "update": 114,
+      "data_and_transfer": 0.0014481544494628906,
+      "initial": 0.0066454410552978516,
+      "refine1": 1.2916216850280762,
+      "refine2": 1.3944694995880127,
+      "readout": 1.3901686668395996,
+      "backward": 0.0834188461303711,
+      "collectives": 0.2889087200164795,
+      "optimizer": 0.004917621612548828,
+      "loss": 6.013890266418457,
+      "gradient_norm": 0.5222587585449219,
+      "fallback_ops": [
+        "aten::contiguous[prologue_cpu_roundtrip]"
+      ]
+    }
+  ],
+  "fallback_ops": [
+    "aten::contiguous[prologue_cpu_roundtrip]"
+  ],
+  "wall_seconds": 198.68805623054504,
+  "scope": "Original disposable weights stay fixed. Previously CPU-qualified global gradients are checked at update104 inputs. Timings separate the four forward passes; no optimizer updates. No heldout data or scientific weights."
+}

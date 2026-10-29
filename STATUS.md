@@ -1,3 +1,35 @@
+## October 29, 2026, 08:34 UTC — execution cliff resolved; learning-rate screen active
+
+All16 chips are running the bounded persistent-state tuning queue. Each of
+ordinary, generated-latent and constant-pause families receives the same three
+learning rates and128,025,288 real targets from the accepted indexed natural
+corpus. All nine fits start from seed9901, finish their cooldowns and require
+mature audits before scoring. This is development LR selection, not a positive
+quality result. The two fresh reserves remain unscored. [Registration](docs/INTERLEAVED_LR_TUNING_20261029.md).
+
+Equivalent grouped storage resolves the Native interleaving execution cliff.
+The generated model's100-update mean falls from4.4902s to0.24634s. Its cold and
+mature gradients pass (maximum mature family relative error1.09e-6), all replicas
+agree and fresh-process full-state replay is exact. The pause control also
+passes all gates, at0.18245s and maximum mature family error2.43e-6. Original
+chronological CPU/sequential references remain authoritative. Matrix work,
+parameters, targets and causal access are unchanged. This is implementation
+progress, not evidence that the mechanism learns useful thinking.
+
+The operator investigation preserves every failed layout attempt and the
+repeat/where compiler error. Its successful fixture identifies interleaving
+before the body as the expensive combination; grouped causal storage passes
+the subsequent actual-model checks. [Execution evidence](results/interleaved_workspace_20261029/EXECUTION_INVESTIGATION.md).
+
+All709 CPU tests pass with two skips. Fifteen explicitly named successful,
+disposable old qualification arrays are retired with hashes, freeing16.86GiB;
+scientific states and failed histories remain. The first cleanup stopped before
+deleting anything on a permission error; its scoped recovery is recorded.
+Lossless archival of closed compiler temporaries restores inode capacity. The
+first tuning admission stopped before registration for insufficient projected
+inodes; additional exact archival resolves it without weakening the reserve.
+[Maintenance](results/interleaved_workspace_20261029/maintenance-v3/retirement.json).
+
 ## October 29, 2026, 07:47 UTC — pass-level timing recovery; no scientific fit
 
 Attention fixtures pass independent gradients and run quickly. Compiling at

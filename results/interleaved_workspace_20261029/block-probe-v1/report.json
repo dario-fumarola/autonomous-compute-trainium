@@ -1,0 +1,59 @@
+{
+  "status": "COMPLETE_BLOCK_EXECUTION_PROBE",
+  "world": 64,
+  "research_examples": 0,
+  "optimizer_updates": 0,
+  "actual_backward_calls": 1536,
+  "wall_seconds": 13.082420587539673,
+  "cases": {
+    "block512": {
+      "replicas": 8,
+      "forward_median_seconds": 0.001155698299407959,
+      "backward_median_seconds": 0.0017190694808959961,
+      "maximum_gradient_relative_l2": 6.11525526524637e-07
+    },
+    "block1024": {
+      "replicas": 8,
+      "forward_median_seconds": 0.002078735828399658,
+      "backward_median_seconds": 0.0033712387084960938,
+      "maximum_gradient_relative_l2": 5.80381734628101e-07
+    },
+    "rotary512": {
+      "replicas": 8,
+      "forward_median_seconds": 0.000396651029586792,
+      "backward_median_seconds": 0.0005794763565063477,
+      "maximum_gradient_relative_l2": 0.0
+    },
+    "rotary1024": {
+      "replicas": 8,
+      "forward_median_seconds": 0.00037758946418762205,
+      "backward_median_seconds": 0.0005933582782745361,
+      "maximum_gradient_relative_l2": 0.0
+    },
+    "ffn1024": {
+      "replicas": 8,
+      "forward_median_seconds": 0.0006862163543701171,
+      "backward_median_seconds": 0.001301717758178711,
+      "maximum_gradient_relative_l2": 6.131994389999043e-07
+    },
+    "rms1024": {
+      "replicas": 8,
+      "forward_median_seconds": 0.0003928542137145996,
+      "backward_median_seconds": 0.0006126761436462402,
+      "maximum_gradient_relative_l2": 1.6341898515317028e-07
+    },
+    "interleave1024": {
+      "replicas": 8,
+      "forward_median_seconds": 0.0003481566905975342,
+      "backward_median_seconds": 0.0005644202232360841,
+      "maximum_gradient_relative_l2": 0.0
+    },
+    "strided_head512": {
+      "replicas": 8,
+      "forward_median_seconds": 0.001594787836074829,
+      "backward_median_seconds": 0.003050506114959717,
+      "maximum_gradient_relative_l2": 3.1190145191151783e-07
+    }
+  },
+  "scope": "Numerical block,rotary,FFN,RMS,interleave and strided-head fixtures across eight rank groups; concurrent-chip conditions are descriptive. No model training,quality result or automatic implementation adoption."
+}

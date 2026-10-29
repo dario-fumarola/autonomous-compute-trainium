@@ -1,0 +1,59 @@
+{
+  "status": "COMPLETE_BODY_EXECUTION_PROBE",
+  "world": 64,
+  "research_examples": 0,
+  "optimizer_updates": 0,
+  "actual_backward_calls": 1536,
+  "wall_seconds": 173.88473963737488,
+  "cases": {
+    "body6": {
+      "replicas": 8,
+      "forward_median_seconds": 0.011802744865417481,
+      "backward_median_seconds": 0.01831933856010437,
+      "maximum_gradient_relative_l2": 2.4187731382311325e-07
+    },
+    "slice_even": {
+      "replicas": 8,
+      "forward_median_seconds": 0.011088514328002931,
+      "backward_median_seconds": 0.017964404821395875,
+      "maximum_gradient_relative_l2": 2.80869407960747e-07
+    },
+    "gather_even": {
+      "replicas": 8,
+      "forward_median_seconds": 0.011415034532546997,
+      "backward_median_seconds": 0.0190621554851532,
+      "maximum_gradient_relative_l2": 2.573747335650628e-07
+    },
+    "contiguous_even": {
+      "replicas": 8,
+      "forward_median_seconds": 0.010999625921249388,
+      "backward_median_seconds": 0.017948395013809203,
+      "maximum_gradient_relative_l2": 2.80869407960747e-07
+    },
+    "interleaved_slice": {
+      "replicas": 8,
+      "forward_median_seconds": 1.3737667739391326,
+      "backward_median_seconds": 0.01832032799720764,
+      "maximum_gradient_relative_l2": 2.7417884410379947e-07
+    },
+    "interleaved_gather": {
+      "replicas": 8,
+      "forward_median_seconds": 1.377702957391739,
+      "backward_median_seconds": 0.01870169043540955,
+      "maximum_gradient_relative_l2": 2.4697829660206643e-07
+    },
+    "interleaved_contiguous": {
+      "replicas": 8,
+      "forward_median_seconds": 1.3784777164459228,
+      "backward_median_seconds": 0.018306529521942137,
+      "maximum_gradient_relative_l2": 2.7417884410379947e-07
+    },
+    "two_shared_refines": {
+      "replicas": 8,
+      "forward_median_seconds": 2.7400052011013027,
+      "backward_median_seconds": 0.03176578283309936,
+      "maximum_gradient_relative_l2": 3.0148277973371163e-07
+    }
+  },
+  "scope": "Numerical six-block body,slot extraction,interleaving and shared-pass fixtures across eight rank groups; concurrent-chip conditions are descriptive. No model training,quality result or automatic implementation adoption."
+}
