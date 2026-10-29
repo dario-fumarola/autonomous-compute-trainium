@@ -4,10 +4,16 @@ import torch
 
 def parameter_groups(model, embedding_parameter, decay=.1):
     matrix,no_decay=[],[]
-    for parameter in model.parameters():
+    exempt={id(embedding_parameter)}
+    extras=getattr(model,'additional_no_decay_parameters',lambda:())()
+    parameters=list(model.parameters())
+    if any(not isinstance(p,torch.nn.Parameter) or id(p) not in {id(v) for v in parameters} for p in extras):
+        raise ValueError('Explicit decay exemptions must belong to the model')
+    exempt.update(id(p) for p in extras)
+    for parameter in parameters:
         if not parameter.requires_grad:
             raise ValueError('Every model parameter must remain trainable')
-        (no_decay if parameter is embedding_parameter or parameter.ndim<2 else matrix).append(parameter)
+        (no_decay if id(parameter) in exempt or parameter.ndim<2 else matrix).append(parameter)
     ids=[id(p) for group in [matrix,no_decay] for p in group]
     if len(ids)!=len(set(ids)) or set(ids)!={id(p) for p in model.parameters()}:
         raise AssertionError('Optimizer grouping duplicates or omits a parameter')

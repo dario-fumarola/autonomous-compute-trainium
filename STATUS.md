@@ -1,3 +1,20 @@
+## October29,2026,03:31 UTC — untied interface CPU checks pass; bounded Native qualification active
+
+The independent output table starts as an exact copy of the input/value table.
+CPU tests preserve predictions and reconstruct the tied gradient from the two
+independent roles. A copy of the mature fixed-one checkpoint agrees exactly on
+a TRAIN window. Full suite607passed/2skipped. The original scientific states
+remain untouched;no new held-out score or fit exists.
+
+All16chips are now checking disposable small-array gradients,AdamW moments,
+replicas and separate-process replay,with a separate output-table gradient gate.
+The prospective actual shape is79,184,384parameters;ordinary controls would
+receive the same table. Actual-shape memory/timing/recovery and full CPU audit
+remain required. This is a structural test motivated by the published untied
+interface,not a claim that tying explains earlier failures or a reproduction.
+[Qualification scope](docs/UNTIED_PROBABILITY_INTERFACE_20261029.md) ·
+[CPU identity](results/probability_workspace_20261029/untied-cpu-v1/report.json).
+
 ## October29,2026,03:23 UTC — cue experiment complete; iteration flat, proposals nearly constant
 
 The same checkpoint scores3.423109/3.423031/3.423106NLL at supported0/1/2 exits.
