@@ -1,3 +1,17 @@
+## October29,2026,05:17 UTC — joint-exit CPU checks pass; numerical qualification next
+
+All627 CPU tests pass(two skips). Uniform first/final NTP weights sum to one
+at every natural target. Independent CE/attention gradients agree; both exits
+remain causal, proposal gradients remain connected, and dispatched forward plus
+backward matrix work exactly matches final-only replay. Old scientific default
+loss,gradients and optimizer updates remain unchanged.
+
+The next bounded all16chip stages test numerical agreement,100-update cost and
+full-state replay on disposable weights. No scientific fit is admitted yet.
+Closed residual TRAIN feature caches are being retired with hashes and source/
+checkpoint recipes retained; no scientific model or source data is removed.
+[Qualification protocol](docs/JOINT_EXIT_PROBABILITY_20261029.md).
+
 ## October29,2026,05:08 UTC — authentic structural readout closes without a win
 
 Long-target NLL is1.878298workspace,1.873312equal-data ordinary and1.538183

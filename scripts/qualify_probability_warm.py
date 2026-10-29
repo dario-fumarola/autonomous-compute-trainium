@@ -17,6 +17,7 @@ def main(a):
     from compute_trainium.probability_workspace_data import ProbabilitySources
     from compute_trainium.pretraining_optimizer import parameter_groups
     from compute_trainium.stable_target_loss import stable_target_log_probs
+    from compute_trainium.probability_objective import target_loss_sum,reference_loss_sum
     from compute_trainium.scale_sharded_fixture import cpu_tree
     from compute_trainium.training import file_sha256
     from scripts.qualify_native import digest
@@ -34,8 +35,8 @@ def main(a):
     torch.manual_seed(p['seed']+1)
     class Objective(nn.Module):
         def __init__(self,m,k):super().__init__();self.m=m;self.k=k
-        def forward(self,x,y,mask):return -(stable_target_log_probs(self.m(x,self.k),y)*mask).sum()
-    compiled={k:torch.compile(Objective(model,k),backend='neuron',fullgraph=True,dynamic=False) for k in (0,1,2)}
+        def forward(self,x,y,mask):return target_loss_sum(self.m,x,y,mask,self.k,objective=p.get('objective','final_only'))
+    compiled={k:torch.compile(Objective(model,k),backend='neuron',fullgraph=True,dynamic=False) for k in p.get('cold_local_supported_steps',[0,1,2])}
     def inputs(update,worker=rank):
         base=(update-1)*world*p['batch'];indices=list(range(base+worker*p['batch'],base+(worker+1)*p['batch']))
         return data.batch(indices)
@@ -48,18 +49,18 @@ def main(a):
     if a.mode=='warm':
         # Local actual-shape CPU comparison before any actual-shape update.
         x,y,mask=inputs(1);native=(x.to('neuron'),y.to('neuron'),mask.to('neuron'))
-        for k in (0,1,2):
+        for k in p.get('cold_local_supported_steps',[0,1,2]):
             opt.zero_grad(set_to_none=True);value=compiled[k](*native)/mask.sum().item();value.backward()
             if rank==0:
                 gradients={n:v.grad.detach().cpu().clone() for n,v in model.named_parameters()}
                 torch.set_num_threads(8);ref=probability_model(p);ref.load_state_dict(initial)
-                logits=ref(x,k);loss=(torch.nn.functional.cross_entropy(logits.flatten(0,1),y.flatten(),reduction='none').view_as(y)*mask).sum()/mask.sum()
+                loss=reference_loss_sum(ref,x,y,mask,k,objective=p.get('objective','final_only'))/mask.sum()
                 loss.backward();check=numerical(gradients,{n:v.grad for n,v in ref.named_parameters()})
                 check['loss_error']=float(value.detach().cpu())-float(loss.detach());checks[str(k)]=check
                 (a.output/'cold-local-checks.json').write_text(json.dumps(checks,indent=2))
                 if max(check[f]['relative_l2'] for f in ('overall',*[n for n,_ in gradient_families(p)]))>.02 or abs(check['loss_error'])>.003:
                     raise AssertionError('Actual-shape CPU local gate failed')
-                del ref,logits,loss,gradients;torch.set_num_threads(1)
+                del ref,loss,gradients;torch.set_num_threads(1)
             dist.barrier()
         opt.zero_grad(set_to_none=True);torch.manual_seed(p['seed']+1)
         del native,x,y,mask
@@ -71,8 +72,8 @@ def main(a):
         start_update=104;del saved
     del initial
     for update in range(start_update,105):
-        tick=time.time();k=(update-1)%3
-        if update==104:k=2
+        tick=time.time();schedule=p.get('depth_schedule',[0,1,2]);k=schedule[(update-1)%len(schedule)]
+        if update==104:k=p.get('replay_depth',2)
         x,y,mask=inputs(update);count=data.target_count((update-1)*world*p['batch'],world*p['batch'])
         opt.zero_grad(set_to_none=True);value=compiled[k](x.to('neuron'),y.to('neuron'),mask.to('neuron'))*(world/count);value.backward()
         for parameter in model.parameters():
@@ -119,7 +120,7 @@ def main(a):
             world=world,mode=a.mode,actual_qualification_updates=len(telemetry),scientific_optimizer_updates=0,
             retained_for_science=False,parameters=sum(v.numel() for v in model.parameters()),warm_updates=len(warm),
             mean_warm_seconds=None if not warm else sum(r['seconds'] for r in warm)/len(warm),
-            warm_by_depth={str(k):sum(r['seconds'] for r in warm if r['extra_steps']==k)/max(1,sum(r['extra_steps']==k for r in warm)) for k in (0,1,2)},
+            warm_by_depth={str(k):sum(r['seconds'] for r in warm if r['extra_steps']==k)/max(1,sum(r['extra_steps']==k for r in warm)) for k in p.get('cold_local_supported_steps',[0,1,2])},
             wall_seconds=time.time()-started,all_replica_full_states_equal=True,cold_local_checks=checks)
         (a.output/'report.json').write_text(json.dumps(result,indent=2)+'\n')
     dist.barrier();dist.destroy_process_group()

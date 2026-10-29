@@ -27,6 +27,7 @@ def main(a):
     from compute_trainium.probability_workspace_data import ProbabilitySources
     from compute_trainium.pretraining_optimizer import parameter_groups
     from compute_trainium.stable_target_loss import stable_target_log_probs
+    from compute_trainium.probability_objective import target_loss_sum,reference_loss_sum
     from compute_trainium.scale_sharded_fixture import cpu_tree
     from compute_trainium.training import file_sha256
     from scripts.qualify_native import digest
@@ -45,7 +46,7 @@ def main(a):
     torch.manual_seed(p['seed']+1);proposal=arm['proposal'];schedule=arm['depth_schedule'];telemetry=[];started=time.time();exposure=0;work=0
     class Objective(nn.Module):
         def __init__(self,m,k):super().__init__();self.m=m;self.k=k
-        def forward(self,x,y,mask):return -(stable_target_log_probs(self.m(x,self.k,proposal),y)*mask).sum()
+        def forward(self,x,y,mask):return target_loss_sum(self.m,x,y,mask,self.k,proposal,arm.get('objective','final_only'))
     compiled={k:torch.compile(Objective(model,k),backend='neuron',fullgraph=True,dynamic=False) for k in sorted(set(schedule))}
     def batch(update,worker=rank):
         begin=(update-1)*world*p['batch']+worker*p['batch']
@@ -119,7 +120,7 @@ def main(a):
             initial_model_digest=initial_digest,shared_initial_model_digest=shared_initial_digest,parameters=parameter_count,wall_seconds=time.time()-started,
             mean_warm_update_seconds=sum(r['seconds'] for r in telemetry[3:])/len(telemetry[3:]),
             all_replica_full_states_equal=True,heldout_reads=0,
-            final_lr=lr,scope='Initial-learning screen from random initialization with complete independent endpoint cooldown. No teacher,auxiliary objective,loss weighting,learned allocation or convergence/strong-frontier claim.')
+            final_lr=lr,objective=arm.get('objective','final_only'),scope='Initial-learning screen with complete endpoint cooldown. Uniform real-token weights; registered exit weighting only. No teacher,learned allocation or convergence/strong-frontier claim.')
         (a.output/'report.json').write_text(json.dumps(result,indent=2)+'\n')
     dist.barrier();dist.destroy_process_group()
 

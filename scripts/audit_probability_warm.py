@@ -12,6 +12,7 @@ def main(a):
     from scripts.qualify_trained_gradient import compare_gradients
     from compute_trainium.probability_model_factory import gradient_families
     from compute_trainium.training import file_sha256
+    from compute_trainium.probability_objective import reference_loss_sum
     start=time.time();torch.set_num_threads(32);p=json.loads(a.plan.read_text())
     if file_sha256(a.plan)!=a.plan_sha:raise AssertionError('Frozen audit plan differs')
     a.output.mkdir(exist_ok=False);data=ProbabilitySources(a.root/p['data_relative'])
@@ -21,9 +22,9 @@ def main(a):
     count=data.target_count(103*64*p['batch'],64*p['batch']);total=0.
     for rank in range(64):
         indices=list(range((103*64+rank)*p['batch'],(103*64+rank+1)*p['batch']))
-        x,y,mask=data.batch(indices);logits=model(x,2)
-        value=(torch.nn.functional.cross_entropy(logits.flatten(0,1),y.flatten(),reduction='none').view_as(y)*mask).sum()/count
-        value.backward();total+=float(value.detach());del logits,value
+        x,y,mask=data.batch(indices)
+        value=reference_loss_sum(model,x,y,mask,p.get('replay_depth',2),objective=p.get('objective','final_only'))/count
+        value.backward();total+=float(value.detach());del value
         if rank%8==0:(a.output/'progress.json').write_text(json.dumps(dict(rank=rank,seconds=time.time()-start)))
         if time.time()-start>p['cpu_phase_seconds_limit'] or resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024>48*1024**3:
             raise RuntimeError('Global CPU audit bound')

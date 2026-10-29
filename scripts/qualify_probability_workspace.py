@@ -19,6 +19,7 @@ def main(a):
     from compute_trainium.probability_workspace import ProbabilityWorkspace
     from compute_trainium.pretraining_optimizer import parameter_groups
     from compute_trainium.stable_target_loss import stable_target_log_probs
+    from compute_trainium.probability_objective import target_loss_sum,reference_loss_sum
     from compute_trainium.training import file_sha256
     from scripts.qualify_native import digest
     from compute_trainium.scale_sharded_fixture import cpu_tree
@@ -54,7 +55,7 @@ def main(a):
     else:updates=list(range(1,6))
     class Objective(nn.Module):
         def __init__(self,m,steps,proposal):super().__init__();self.model=m;self.steps=steps;self.proposal=proposal
-        def forward(self,x,y):return -stable_target_log_probs(self.model(x,self.steps,self.proposal),y).mean()
+        def forward(self,x,y):return target_loss_sum(self.model,x,y,torch.ones_like(y),self.steps,self.proposal,p.get('objective','final_only'))/y.numel()
     compiled={};records=[]
     for update in updates:
         steps,proposal=p['update_cases'][update-1];key=(steps,proposal)
@@ -82,8 +83,7 @@ def main(a):
             if any(set(r['fallback_ops'])-{'aten::_to_copy'} for r in replicas):raise AssertionError('Unexpected Native fallback')
             ropt.zero_grad(set_to_none=True);r_before={n:v.detach().clone() for n,v in reference.named_parameters()}
             # Independent SDPA and native PyTorch cross entropy.
-            logits=reference(allx,steps,proposal)
-            rloss=torch.nn.functional.cross_entropy(logits.flatten(0,1),ally.flatten());rloss.backward()
+            rloss=reference_loss_sum(reference,allx,ally,torch.ones_like(ally),steps,proposal,p.get('objective','final_only'))/ally.numel();rloss.backward()
             rgrad={n:v.grad.clone() for n,v in reference.named_parameters()}
             comparison=compare_gradients(gradients,rgrad)
             families={family:compare_gradients({n:v for n,v in gradients.items() if match(n)},
