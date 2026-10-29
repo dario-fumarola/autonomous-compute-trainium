@@ -1,3 +1,20 @@
+## October29,2026,05:01 UTC — untied comparison complete; both absolute gates fail
+
+Workspace3.270157NLL loses0.016197to new equal-data ordinary3.253960 and0.289434
+to work-matched ordinary2.980723. All broad domains favor ordinary training.
+Untying worsens both model types versus the tied historical controls;the positive
+0.013928interaction is a narrower deficit,not an absolute improvement. Every
+mature gradient/state/replica and FP64 readout gate passes. Three fits plus
+evaluation use17.038476assigned chip-hours,qualification separate.
+
+This early-learning untying screen is closed. No larger fit is admitted.
+The prospective141-group structural panel and readout pass source reconstruction
+and six draft CPU tests. Full source suite is running before a bounded all-chip,
+zero-update comparison. It uses the same checkpoints and reports every long/near
+and full/last32 contrast;it cannot replace the failed broad primary. Protected
+confirmation groups remain sealed.
+[Completed result](results/probability_workspace_20261029/untied-screen-v1/REPORT.md).
+
 ## October29,2026,04:38 UTC — both equal-data fits audited; work control active
 
 The untied workspace and fresh ordinary equal-data endpoints both complete

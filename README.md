@@ -1,16 +1,20 @@
 # Autonomous computation during pretraining
 
-The remaining-budget cue experiment is complete and negative. Its same trained
-checkpoint scores3.423109/3.423031/3.423106NLL at0/1/2 extra steps:iteration adds
-no measurable benefit. It loses to ordinary equal-data3.211047 and equal-work
-2.949082. TRAIN diagnostics find almost constant proposals and nearly parallel
-exit gradients,consistent with suppressing content variation rather than learning
-useful iterative work. All registered gates fail;the cue variant is closed.
+The untied prediction/value-table comparison is complete and negative. At
+200Mnatural targets,the79.18Mworkspace scores**3.270157NLL**,versus**3.253960**
+for its equally parameterized ordinary control. At matched nominal training
+matrix work,the longer ordinary model scores**2.980723**. Both registered gates
+fail;web,math and code all favor ordinary training. All mature numerical,
+state/replica and independent readout checks pass.
 
-The final checkpoint survives the qualified bounded-copy repair,and all exits
-pass independent mature-gradient/state/readout audits. The lost first fit and
-its costs remain recorded. **No thinking or efficiency win is established.**
-[Completed comparison and diagnostics](results/probability_workspace_20261029/budget-cue-screen-recovery-v1/REPORT.md) ·
+Untying worsens both model types relative to their historical tied versions.
+Its positive interaction only narrows the relative deficit;it is not a quality
+win. **No thinking or training-efficiency win is established.** A separately
+frozen,source-separated structural diagnostic is prepared on141authentic code
+pairs,using these same checkpoints without another fit. It cannot replace the
+broad primary. The earlier flat budget-cue result remains closed.
+[Completed untied comparison](results/probability_workspace_20261029/untied-screen-v1/REPORT.md) ·
+[Budget-cue result](results/probability_workspace_20261029/budget-cue-screen-recovery-v1/REPORT.md) ·
 [Fixed-depth result](results/probability_workspace_20261029/fixed-one-v1/REPORT.md) ·
 [Live status](STATUS.md).
 
