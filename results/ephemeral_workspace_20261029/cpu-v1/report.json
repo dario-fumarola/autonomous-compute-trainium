@@ -1,0 +1,54 @@
+{
+  "status": "PASS_EPHEMERAL_CPU_REFERENCE",
+  "source_sha256": {
+    "compute_trainium/ephemeral_workspace.py": "f7b17d8a855d55b20be2df44575175c1188cfbf691f54a9884077bda25765f23",
+    "compute_trainium/ephemeral_model_factory.py": "ca9d7d602b8af767670ce73ad260c6bb09a4b6a49c0b8b27610cbafe09229f15",
+    "scripts/ephemeral_entry.py": "88223e712f03115b968177006c59f36fd18392a2a4dcc316f15e79690380d3a4",
+    "scripts/run_ephemeral_qualification.py": "20b9f1d93047b3fc9e8bc2b52addb1e5c52397618a3a6ce13cece56ca7369591",
+    "tests/test_ephemeral_workspace.py": "43772a2fda948795fede7991d955ef1bd16f49fbd8bc2813d9c5c56dbb70bbae",
+    "docs/EPHEMERAL_WORKSPACE_QUALIFICATION_20261029.md": "88cb4d5fe6911bf5a8db443bd956ff5a593ac8be0e8ca3e8c7a3c8428370eb41"
+  },
+  "full_suite": {
+    "passed": 765,
+    "skipped": 2,
+    "seconds": 146.1
+  },
+  "focused_tests": 16,
+  "checks": [
+    "Independent sequential-prefix versus parallel-mask predictions and full gradients",
+    "SDPA versus explicit attention predictions, all gradients, optimizer states",
+    "Reused source KV versus recomputation predictions, gradients and optimizer step",
+    "Future-token invariance and no influence from other generated-state inputs",
+    "Current generated-state and authentic-source gradients remain nonzero",
+    "Exact dispatched forward/backward matmul ledger including masked entries",
+    "Explicit factory rejects unsupported mechanism/depth and qualification waits for all six audits"
+  ],
+  "example_model_config": {
+    "dim": 512,
+    "layers": 6,
+    "heads": 8,
+    "kv_heads": 8,
+    "ffn_dim": 1376,
+    "vocab_size": 32000,
+    "max_seq": 512
+  },
+  "recomputing_reference_work": {
+    "forward_matmul_flops": 91167391744,
+    "training_matmul_flops": 273502175232,
+    "source_body_passes": 1,
+    "expanded_body_passes": 1,
+    "assumptions": "Full-square masked attention, FMA=2, full backward; no saving inferred from masked entries."
+  },
+  "reused_source_work": {
+    "forward_matmul_flops": 65296924672,
+    "training_matmul_flops": 195890774016,
+    "source_projection_passes": 1,
+    "latent_projection_passes": 1,
+    "assumptions": "Dense n-by-n and n-by-2n attention; FMA=2, full backward through reused source KV. No cache detach."
+  },
+  "assigned_chips": 0,
+  "research_optimizer_updates": 0,
+  "heldout_reads": 0,
+  "scientific_fit_admitted": false,
+  "scope": "CPU software-fixture reference only. Neither a trained predictive result nor measured Native speed. One bounded actual-shape qualification may register only after all active replication fits audit and resource guards pass."
+}

@@ -1,3 +1,18 @@
+## October 29, 2026, 14:38 UTC — replication progressing; persistence control prepared
+
+The first new-seed latent fit completes its full schedule and passes mature
+gradient/state audits. The first ordinary control has reached its endpoint;
+remaining fits and audits continue under the frozen six-fit queue. No new-seed
+predictive scores have been read.
+
+A separate CPU reference isolates persistent generated memory from a generated
+state used only for its own prediction. Sixteen focused checks pass, including
+full-gradient and optimizer equivalence for source-KV reuse; the full suite
+passes765tests/two skips. A bounded disposable Native qualification is prepared
+but not admitted, and must wait for all six replication audits. No new fit,
+held-out read or fresh reserve is authorized by this preparation.
+[CPU evidence](results/ephemeral_workspace_20261029/cpu-v1/REPORT.md).
+
 ## October 29, 2026, 14:15 UTC — all declared controls pass; new-seed replication active
 
 Wider ordinary selects interiorLR0.001 at3.399334NLL after all fits/audits.
