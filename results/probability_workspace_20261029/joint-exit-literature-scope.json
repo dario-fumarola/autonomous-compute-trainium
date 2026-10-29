@@ -1,0 +1,22 @@
+{
+  "status": "PRIMARY_SOURCES_RECHECKED_NOT_AN_EXPERIMENT_RESULT",
+  "checked_utc": "2026-10-29",
+  "sources": [
+    {
+      "url": "https://arxiv.org/pdf/1808.04444",
+      "finding": "Intermediate next-character supervision helped optimize deep untied character transformers. Intermediate-layer weights decay away during training in that paper.",
+      "our_difference": "Our proposed fixed half-weight shared-head exits are a separate optimization hypothesis. No extra classifier, adjacent-future target or selected-position weighting is added. This is not a reproduction or evidence of useful thought content."
+    },
+    {
+      "url": "https://arxiv.org/html/2505.20674v3",
+      "finding": "PonderLM adds a probability-weighted embedding to the input and repeats the language-model forward pass, with differentiable self-supervision. It reports parameter/data and compute comparisons under its own training schedules.",
+      "our_difference": "Our 200M-target,79.18M-parameter screen tests early learning in a different body/data regime. Its negatives cannot establish that the published method or all small latent models fail. This does not automatically authorize longer training."
+    },
+    {
+      "url": "https://arxiv.org/html/2603.02023v1",
+      "finding": "PonderLM-3 trains adaptive token-wise latent computation with differentiable masks; its principal Pareto comparison is prediction versus inference FLOPs.",
+      "our_difference": "Keep inference,training-work and learning-mechanism claims separate. The current fixed joint-exit test has no learned allocation."
+    }
+  ],
+  "decision": "Finish qualification, then at most a separately registered objective comparison. No scientific claim from literature analogy."
+}

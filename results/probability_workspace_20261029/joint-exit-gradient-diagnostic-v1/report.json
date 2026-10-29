@@ -1,0 +1,109 @@
+{
+  "status": "COMPLETE_TRAIN_GRADIENT_COMPATIBILITY",
+  "rows": [
+    {
+      "model": "initial",
+      "train_losses": [
+        10.463150024414062,
+        10.458072662353516
+      ],
+      "gradient_families": {
+        "overall": {
+          "shallow_l2": 39.02124086390677,
+          "deep_l2": 39.33772635538191,
+          "cosine": 0.9939336195613226,
+          "joint_l2": 39.12002004111702
+        },
+        "embedding": {
+          "shallow_l2": 3.604591275525221,
+          "deep_l2": 3.6674508143157603,
+          "cosine": 0.9952038884233226,
+          "joint_l2": 3.631659063571813
+        },
+        "body": {
+          "shallow_l2": 38.748100442472335,
+          "deep_l2": 39.06109188437924,
+          "cosine": 0.9939051287503272,
+          "joint_l2": 38.84527226627247
+        },
+        "output_table": {
+          "shallow_l2": 2.8720850258149424,
+          "deep_l2": 2.8701254564157583,
+          "cosine": 0.9972335448169152,
+          "joint_l2": 2.8691188582101996
+        }
+      }
+    },
+    {
+      "model": "final_only_u1530",
+      "train_losses": [
+        3.8423843383789062,
+        1.6482468843460083
+      ],
+      "gradient_families": {
+        "overall": {
+          "shallow_l2": 8.88590453228817,
+          "deep_l2": 2.0240830561200527,
+          "cosine": 0.17037615154463887,
+          "joint_l2": 4.721888323204298
+        },
+        "embedding": {
+          "shallow_l2": 3.7787587268543747,
+          "deep_l2": 0.4119560782240859,
+          "cosine": 0.022528502547586315,
+          "joint_l2": 1.905181407580407
+        },
+        "body": {
+          "shallow_l2": 7.1593181776933825,
+          "deep_l2": 1.5818293997639217,
+          "cosine": 0.08882021492620285,
+          "joint_l2": 3.7339579171403328
+        },
+        "output_table": {
+          "shallow_l2": 3.6639384645092523,
+          "deep_l2": 1.1937420817450624,
+          "cosine": 0.4626209145470382,
+          "joint_l2": 2.1734929063716892
+        }
+      }
+    },
+    {
+      "model": "joint_disposable_u103",
+      "train_losses": [
+        5.004515171051025,
+        5.001378059387207
+      ],
+      "gradient_families": {
+        "overall": {
+          "shallow_l2": 3.2154324895273865,
+          "deep_l2": 3.4087131622983673,
+          "cosine": 0.93675602567887,
+          "joint_l2": 3.259330302899142
+        },
+        "embedding": {
+          "shallow_l2": 1.0550148714476346,
+          "deep_l2": 1.1270195378359842,
+          "cosine": 0.8700713301486613,
+          "joint_l2": 1.0550234562140552
+        },
+        "body": {
+          "shallow_l2": 2.242197948693456,
+          "deep_l2": 2.42778020651839,
+          "cosine": 0.9115721109223197,
+          "joint_l2": 2.2828693709100505
+        },
+        "output_table": {
+          "shallow_l2": 2.0490236881518613,
+          "deep_l2": 2.110695537731491,
+          "cosine": 0.9874451373739654,
+          "joint_l2": 2.0733226872813395
+        }
+      }
+    }
+  ],
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_examples": 0,
+  "wall_seconds": 11.983708143234253,
+  "scope": "No updates,no heldout read,no LR/exit-weight selection. Gradients are hypothetical first/final NTP objectives. The old final-only shallow prediction is not a supported quality exit. Disposable100-update weights remain excluded from science initialization."
+}

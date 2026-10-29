@@ -1,3 +1,22 @@
+## October29,2026,05:33 UTC — joint-exit actual-shape gates pass; one learning fit admitted
+
+Mature full-global gradients agree within6.23e-7 per family;loss discrepancy
+1.26e-6. Separate-process model/optimizer/RNG replay is exact.100 warm updates
+average0.547694s. All627 prior tests and16 focused objective/analysis tests pass.
+
+The new bounded fit uses all16chips,79.18M parameters,seed9511 and the unchanged
+200,190,896-target schedule. Only the objective changes:half-weight first-pass
+NTP plus half-weight refined NTP at every real target. Existing final-only and
+ordinary controls are byte-pinned,with original costs retained. Both supported
+exits and all fixed source cohorts will be reported after mature audits.
+No quality result is available. No larger campaign is automatically admitted.
+
+TRAIN-only gradients are aligned initially;the diagnostic does not identify
+gradient cancellation or establish reasoning. It also shows that directly
+supervising the old intermediate code is a substantive objective constraint.
+[Screen protocol](docs/JOINT_EXIT_PROBABILITY_SCREEN_20261029.md) ·
+[Actual-shape qualification](results/probability_workspace_20261029/joint-exit-warm-v1/report.json).
+
 ## October29,2026,05:20 UTC — joint-exit small numerical stage passes
 
 All64 replicas, independent CPU gradients/AdamW moments and separate-process
