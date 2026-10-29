@@ -1,0 +1,13 @@
+{
+  "status": "PINNED_REFERENCE_IMPLEMENTATION_DIFFERENCES_NOT_A_NEW_FIT",
+  "reference_url": "https://raw.githubusercontent.com/LUMIA-Group/PonderingLM/3deec205194d754f3e9641182e0f4c3ea3c3f6d4/src/llamafactory/model/modeling/modeling_gpt_neox.py",
+  "sha256": "51576bf7894673bfad811dad37df5372ce3416398cc48ec513fb8557aacfe02e",
+  "findings": [
+    "The released GPT-NeoX pondering path explicitly calls full-vocabulary interpolation(use_topk=False),although a top100 implementation also exists. Do not infer that our full expectation is a missing top-k bug.",
+    "Optional embedding scaling multiplies both source embeddings and workspace value rows by sqrt(hidden_size). The released README demo enables it;our registered model does not.",
+    "The reference initializer has depth/ponder-budget-dependent output projection scaling. Our initializer uses the already-qualified unique-depth scaling. These are recipe differences,not proven explanations of a failed screen."
+  ],
+  "decision": "Keep the active joint-exit registration unchanged. Any new recipe ablation would require its own ordinary control and measured cost. Do not import several reference options together and attribute their effect to thinking.",
+  "heldout_reads": 0,
+  "new_fits": 0
+}

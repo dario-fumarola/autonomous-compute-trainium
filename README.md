@@ -1,5 +1,12 @@
 # Autonomous computation during pretraining
 
+An all-chip **joint-exit optimization comparison is running**. It gives each
+natural target equal total weight across the first and refined predictions,
+with no added parameters or matrix passes. Numerical qualification and exact
+restart checks pass; no quality result is available yet. The completed negative
+results below remain unchanged.
+[Registered comparison](docs/JOINT_EXIT_PROBABILITY_SCREEN_20261029.md).
+
 The untied prediction/value-table comparison is complete and negative. At
 200Mnatural targets,the79.18Mworkspace scores**3.270157NLL**,versus**3.253960**
 for its equally parameterized ordinary control. At matched nominal training

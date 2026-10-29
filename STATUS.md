@@ -1,3 +1,17 @@
+## October29,2026,05:45 UTC — joint-exit fit passes halfway; new reserve remains unscored
+
+All16 chips continue the frozen1530-update fit. The768-update recovery state
+has been saved; it is not a new quality endpoint. Training is stable past113M
+real targets. The complete source suite passes632 tests with two skips.
+
+A CPU-only preparation freezes384 new broad source groups before this fit's
+quality result. There is no overlap with current TRAIN, listed probability/
+dependency panels, or the320 protected groups. Every window is reconstructed
+from its original source offsets. No model has scored this reserve; a separate
+registration is required. A first source scan was stopped to remove repeated
+set construction, then rerun successfully; both receipts remain.
+[Unscored source reserve](results/probability_workspace_20261029/fresh-broad-reserve-v2/report.json).
+
 ## October29,2026,05:33 UTC — joint-exit actual-shape gates pass; one learning fit admitted
 
 Mature full-global gradients agree within6.23e-7 per family;loss discrepancy
