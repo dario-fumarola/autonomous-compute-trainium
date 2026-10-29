@@ -1,3 +1,22 @@
+## October 29, 2026, 15:26 UTC — six replication audits pass; exact readouts active
+
+All six fixed-recipe fits finish and pass their mature gradient/state audits.
+The original exact-sequential CPU readouts now score both new seeds on DEV;
+no fresh reserve is opened. Complete fit attempts total17.1464assigned chip-hours.
+The latent graph has faster remaining updates but more startup cost than the
+tied ordinary graph, so complete latent fits still take11.8–15.5%longer. This is
+descriptive timing, not hardware-time-matched predictive efficiency.
+[Complete accounting](results/interleaved_workspace_20261029/replication-runtime-v1/REPORT.md).
+
+Ephemeral qualification admission first stops at its inode projection with zero
+chips. Exact compiler-temporary preservation restores15,999inodes; an explicit
+retry retains the original admission cutoff and unchanged qualification gates.
+The actual-shape disposable hardware qualification is now active. A subsequent
+three-LR trained control is prepared but requires both positive replication and
+completed qualification. The complete CPU suite passes802tests/two skips.
+[Trained-control design](docs/EPHEMERAL_TRAINED_CONTROL_20261029.md) ·
+[Preservation receipt](results/interleaved_workspace_20261029/maintenance-v12/REPORT.md).
+
 ## October 29, 2026, 15:04 UTC — arithmetic result inconclusive; replication controls continue
 
 The fixed arithmetic readout completes with all253cases and six exact-sequential
