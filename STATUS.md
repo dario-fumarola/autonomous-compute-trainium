@@ -1,3 +1,22 @@
+## October29,2026,03:56 UTC — complete untied qualification passes; three-arm learning screen active
+
+Mature global gradient errors remain below6.14e-7 across input,output and body;
+loss discrepancy7.53e-7. Exact separate-process full-state replay passes and
+100warm updates average0.542980s. All16chips now fit the registered untied
+fixed-one model,then two fresh equally parameterized ordinary controls.
+
+The workspace/equal-data arms see200,190,896 targets;the matched-matrix-work
+ordinary arm sees446,570,790. All79,184,384parameter models share initialization,
+source order and uniform NTP,with independent complete cooldowns. Midpoints are
+recovery-only. All endpoint audits precede scoring. One common LR and a reused
+DEV panel remain explicit limits. No result is available yet.
+
+A separate bounded CPU inventory reads only frozen TRAIN code to count authentic
+call/assertion syntax and context availability. It executes no programs,generates
+no answers,reads no model scores and changes no active training/evaluation rule.
+[Scientific registration](results/probability_workspace_20261029/untied-screen-v1/plan.json) ·
+[Completed qualification](results/probability_workspace_20261029/untied-warm-v1/report.json).
+
 ## October29,2026,03:46 UTC — untied actual-shape cold checks/timing pass; recovery pending
 
 All0/1/2 actual79.18M gradient/loss checks pass,including the independent output
