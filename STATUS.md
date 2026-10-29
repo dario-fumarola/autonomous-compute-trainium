@@ -1,4 +1,25 @@
-## October 29, 2026, 10:28 UTC — sequential generation retains positive utility; mixed learning active
+## October 29, 2026, 10:41 UTC — first mixed fit complete; fixed code-dependency diagnostic active
+
+The first mixed-round128M-target endpoint finishes its complete cooldown; its
+independent mature audits and unchanged consistency test are next. Remaining
+LRs and common predictive selection stay in the frozen all16-chip queue.
+
+A separate CPU structural readout is registered before scoring: all282 existing
+authored code-delimiter targets from141 training-excluded groups, with matched
+long/short dependencies and full/last32 context conditions. It compares the
+already selected original latent checkpoint under exact sequential execution
+with ordinary and trained pauses. No new data selection, fit, fresh-reserve
+read or general reasoning claim. All contrasts and absolute gates will be
+reported. Seven focused structural/reference tests pass.
+[Structural registration](docs/INTERLEAVED_STRUCTURAL_READOUT_20261029.md).
+
+The two conventional shapes inventoried before tuning now have prepared
+qualification runners. They remain unadmitted: completion, bracketed useful
+prediction gains and the selected mixed endpoint's unchanged consistency guard
+are required. Six inventory/statistical tests pass. No stronger baseline fit,
+long main, router or confirmation has started.
+
+## October 29, 2026, 10:28 UTC — sequential generation retains equal-data gain; mixed learning active
 
 The complete fixed384-window sequential readout scores3.340201NLL, improving
 0.036910 over equally exposed ordinary training and0.050927 over trained
