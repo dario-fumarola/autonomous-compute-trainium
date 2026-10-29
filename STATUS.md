@@ -1,3 +1,14 @@
+## October29,2026,05:20 UTC — joint-exit small numerical stage passes
+
+All64 replicas, independent CPU gradients/AdamW moments and separate-process
+exact state replay pass. Maximum family gradient relative error3.06e-6.
+The actual79.18M shape is registered for100 disposable warm updates plus
+mature global CPU audit and exact replay. No scientific fit is admitted yet.
+Closed derived residual feature caches freed7.34GiB;all scientific states and
+original source arrays remain. One permission-denied maintenance attempt
+stopped before deletion and is retained in the receipt.
+[Small qualification](results/probability_workspace_20261029/joint-exit-numerical-v1/report.json).
+
 ## October29,2026,05:17 UTC — joint-exit CPU checks pass; numerical qualification next
 
 All627 CPU tests pass(two skips). Uniform first/final NTP weights sum to one
