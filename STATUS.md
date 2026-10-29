@@ -1,3 +1,49 @@
+## October 29, 2026, 07:47 UTC — pass-level timing recovery; no scientific fit
+
+Attention fixtures pass independent gradients and run quickly. Compiling at
+initial/refinement/readout boundaries still takes roughly4.44 seconds per
+update, failing the registered0.8-second screen after12 disposable updates.
+No implementation from these rejected screens is adopted.
+
+The first fixed-weight pass profile matches the previously CPU-qualified full
+global gradient (overall relative error4.42e-7), completes eleven backward
+calls, then fails its final unexpected-fallback check before saving timings.
+Its initiating error and costs are retained. A reporting-only recovery keeps
+the original absolute deadline, saves every timing row and names all fallback
+operations. It cannot qualify an unexpected fallback by reporting it. The
+weights remain fixed; no optimizer update or held-out scoring occurs.
+
+All677 CPU tests pass with two skips. Eight additional numerical block/operator
+fixtures cover full blocks, rotary transforms, FFN, normalization, interleaving
+and a strided output head. Their hardware timing remains pending. The aim is
+to resolve the large execution penalty before admitting a controlled natural-
+text learning comparison. Both fresh evaluation reserves remain unscored.
+
+## October 29, 2026, 07:23 UTC — two layout hypotheses rejected; attention fixture active
+
+Slot unbinding and precomputed rotary-position caches each pass their cold
+independent gradients but fail the 0.8-second execution screen, stopping at
+12 disposable updates near 4.49 and 4.47 seconds respectively. Neither is
+adopted. Original failed histories and costs remain. The current suite has
+664 passing tests and two skips; nine focused attention/cache tests also pass.
+
+A runtime-correlated profile exactly replays qualified update104 and confirms
+4.137 seconds in the forward execution versus 0.054 in backward. Its instruction
+capture contains no usable events under the selected core filter, and local
+Explorer analysis cannot match the cached NEFF to all recorded UUIDs. It does
+not identify the expensive operator. No profiling-tool or driver change is made.
+
+All16 chips now run bounded numerical attention fixtures: 512/1024-position
+attention, query tiling, softmax and matrix products. Independent CPU SDPA
+gradients precede timing. No real-source examples, optimizer updates or quality
+scores enter this test. This addresses the execution barrier before a persistent
+workspace learning campaign; no new scientific fit has launched.
+
+Lossless archival of 8,000 old compiler temporary files restores 49,650 free
+inodes. A prior request for12,000 stopped before archiving/deleting because that
+many eligible directories were unavailable. Both receipts remain. All scientific
+states and source arrays are unchanged.
+
 ## October 29, 2026, 06:58 UTC — slowdown localized; equivalent-layout check active
 
 The all-chip timing diagnostic exactly replays the prior qualified update.

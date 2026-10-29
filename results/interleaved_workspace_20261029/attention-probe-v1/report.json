@@ -1,0 +1,59 @@
+{
+  "status": "COMPLETE_ATTENTION_EXECUTION_PROBE",
+  "world": 64,
+  "research_examples": 0,
+  "optimizer_updates": 0,
+  "actual_backward_calls": 1536,
+  "wall_seconds": 13.258193492889404,
+  "cases": {
+    "attention512": {
+      "replicas": 8,
+      "forward_median_seconds": 0.00048726201057434085,
+      "backward_median_seconds": 0.0008206009864807129,
+      "maximum_gradient_relative_l2": 7.763228093711764e-07
+    },
+    "attention1024": {
+      "replicas": 8,
+      "forward_median_seconds": 0.0011510431766510012,
+      "backward_median_seconds": 0.0017031729221343994,
+      "maximum_gradient_relative_l2": 7.59021496659596e-07
+    },
+    "tiled128": {
+      "replicas": 8,
+      "forward_median_seconds": 0.0014933705329895019,
+      "backward_median_seconds": 0.0025076448917388918,
+      "maximum_gradient_relative_l2": 7.049825386893026e-07
+    },
+    "tiled256": {
+      "replicas": 8,
+      "forward_median_seconds": 0.0012134730815887452,
+      "backward_median_seconds": 0.0018075525760650635,
+      "maximum_gradient_relative_l2": 8.110597626944467e-07
+    },
+    "softmax512": {
+      "replicas": 8,
+      "forward_median_seconds": 0.00037451982498168943,
+      "backward_median_seconds": 0.000628584623336792,
+      "maximum_gradient_relative_l2": 6.678048311331141e-07
+    },
+    "softmax1024": {
+      "replicas": 8,
+      "forward_median_seconds": 0.0007280886173248291,
+      "backward_median_seconds": 0.0012182652950286864,
+      "maximum_gradient_relative_l2": 7.218136620044933e-07
+    },
+    "qk1024": {
+      "replicas": 8,
+      "forward_median_seconds": 0.0006929874420166016,
+      "backward_median_seconds": 0.0012245655059814453,
+      "maximum_gradient_relative_l2": 1.9546954330914577e-07
+    },
+    "pv1024": {
+      "replicas": 8,
+      "forward_median_seconds": 0.0006931543350219727,
+      "backward_median_seconds": 0.0009434342384338379,
+      "maximum_gradient_relative_l2": 3.92630198289252e-07
+    }
+  },
+  "scope": "Independent random operator fixtures across eight rank groups; concurrent-chip conditions are descriptive. No model training,quality result or automatic implementation adoption."
+}
