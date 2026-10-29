@@ -45,3 +45,13 @@ comparisons are inconclusive and all-answer accuracy is near the floor. The
 code-name cases favor the controls, with insufficient coverage for a general
 code conclusion. No arithmetic-transfer claim follows from the broad lead.
 [Full result](arithmetic-dev-v1/REPORT.md).
+
+## Exact depth-causal supported-budget result
+
+The separate exact graph also fails all four frozen gates. Zero/one/two-step
+NLL is 3.473785/3.402455/3.408117; the second step hurts by 0.005662 and strongest
+ordinary wins by 0.120335. Exact execution removes solver error and lowers
+nominal work to 1.138181 times ordinary at equal data, but supplies no useful
+supported-budget scaling. A fixed-one fit in this exact graph has not yet been
+performed, so its graph-versus-budget-training effects remain unseparated.
+[Complete result](../depth_causal_workspace_20261029/learning-v1/REPORT.md).

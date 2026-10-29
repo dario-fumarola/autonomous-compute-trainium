@@ -1,0 +1,110 @@
+{
+  "status": "COMPLETE_DEPTH_CAUSAL_LR_SELECTION",
+  "selection": {
+    "arm": "depth-lr1",
+    "lr": 0.001,
+    "domains": {
+      "web": 3.9002343539398145,
+      "math": 3.0787477342094567,
+      "code": 2.2611289134268113
+    },
+    "broad_nll": 3.4081159418911424,
+    "bracketed": true
+  },
+  "all_scores": [
+    {
+      "arm": "depth-lr0",
+      "lr": 0.0003,
+      "budgets": {
+        "b0": {
+          "domains": {
+            "web": 4.346603882929975,
+            "math": 3.5876882073897587,
+            "code": 2.926740996199629
+          },
+          "broad_nll": 3.9108481704758624
+        },
+        "b1": {
+          "domains": {
+            "web": 4.282742322183793,
+            "math": 3.506312131267214,
+            "code": 2.8272227259934235
+          },
+          "broad_nll": 3.836352364762403
+        },
+        "b2": {
+          "domains": {
+            "web": 4.284303554862499,
+            "math": 3.5050135233882678,
+            "code": 2.8250408818348403
+          },
+          "broad_nll": 3.836593013962121
+        }
+      }
+    },
+    {
+      "arm": "depth-lr1",
+      "lr": 0.001,
+      "budgets": {
+        "b0": {
+          "domains": {
+            "web": 3.9666300037343905,
+            "math": 3.14193945928354,
+            "code": 2.3270931655979634
+          },
+          "broad_nll": 3.473784527216935
+        },
+        "b1": {
+          "domains": {
+            "web": 3.8944043503046393,
+            "math": 3.0734347358877088,
+            "code": 2.255622065734011
+          },
+          "broad_nll": 3.4024539705071275
+        },
+        "b2": {
+          "domains": {
+            "web": 3.9002343539398145,
+            "math": 3.0787477342094567,
+            "code": 2.2611289134268113
+          },
+          "broad_nll": 3.4081159418911424
+        }
+      }
+    },
+    {
+      "arm": "depth-lr2",
+      "lr": 0.003,
+      "budgets": {
+        "b0": {
+          "domains": {
+            "web": 4.21146235408602,
+            "math": 3.3493094360020192,
+            "code": 2.543565502925825
+          },
+          "broad_nll": 3.7054524002371805
+        },
+        "b1": {
+          "domains": {
+            "web": 4.173248950137416,
+            "math": 3.318248074312079,
+            "code": 2.5143238833148214
+          },
+          "broad_nll": 3.6704637616078295
+        },
+        "b2": {
+          "domains": {
+            "web": 4.17432866729847,
+            "math": 3.3191909608119703,
+            "code": 2.515507853773901
+          },
+          "broad_nll": 3.6715369632962562
+        }
+      }
+    }
+  ],
+  "selection_readout": "Two generated tokens in the exact depth-causal graph; independent FP64 cached readout follows.",
+  "automatic_promotion": false,
+  "protected_groups_scored": 0,
+  "wall_seconds": 0.08295416831970215
+}

@@ -15,6 +15,13 @@ The separate supported-budget experiment also closes negative: exact NLL is
 step hurts, and the ordinary path deteriorates; all four advancement gates
 fail. [Completed budget comparison](results/budgeted_interleaved_20261029/learning-v1/REPORT.md).
 
+The exact depth-causal alternative also fails all four gates. Its supported
+zero/one/two-step losses are **3.473785 / 3.402455 / 3.408117**. Two steps hurt
+by **0.005662 nats** and trail strongest ordinary by **0.120335**. Its lower
+execution cost does not rescue predictive quality. All numerical checks pass;
+no scaling or confirmation follows.
+[Completed exact-graph comparison](results/depth_causal_workspace_20261029/learning-v1/REPORT.md).
+
 The original selected-seed comparison below is retained unchanged:
 
 | Predictor | Parameters | Development NLL ↓ |

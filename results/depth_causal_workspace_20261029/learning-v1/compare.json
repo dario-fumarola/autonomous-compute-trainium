@@ -1,0 +1,314 @@
+{
+  "status": "COMPLETE_DEPTH_CAUSAL_COMPARISON",
+  "selection": {
+    "arm": "depth-lr1",
+    "lr": 0.001,
+    "domains": {
+      "web": 3.9002343539398145,
+      "math": 3.0787477342094567,
+      "code": 2.2611289134268113
+    },
+    "broad_nll": 3.4081159418911424,
+    "bracketed": true
+  },
+  "exact_scores": {
+    "b0": {
+      "domains": {
+        "web": 3.966630623078305,
+        "math": 3.141940041567028,
+        "code": 2.327093639192351
+      },
+      "broad_nll": 3.4737851099988584
+    },
+    "b1": {
+      "domains": {
+        "web": 3.8944049660226576,
+        "math": 3.073435314446555,
+        "code": 2.255622544160806
+      },
+      "broad_nll": 3.402454551335067
+    },
+    "b2": {
+      "domains": {
+        "web": 3.900234960420123,
+        "math": 3.078748302252978,
+        "code": 2.2611293922255444
+      },
+      "broad_nll": 3.4081165151477784
+    }
+  },
+  "comparisons": {
+    "two_over_one": {
+      "comparison": {
+        "gain": -0.005661963812711512,
+        "conditional_95_interval": [
+          -0.006818424660342983,
+          -0.0045096943063649
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": -0.0058299943974655655,
+          "conditional_95_interval": [
+            -0.00758824925182604,
+            -0.004010512389810028
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.005312987806422864,
+          "conditional_95_interval": [
+            -0.007024559426098054,
+            -0.0034948870005144135
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.005506848064738001,
+          "conditional_95_interval": [
+            -0.007329044468407575,
+            -0.003661808576011816
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      },
+      "scores": {
+        "candidate": {
+          "domains": {
+            "web": 3.900234960420123,
+            "math": 3.078748302252978,
+            "code": 2.2611293922255444
+          },
+          "broad_nll": 3.4081165151477784
+        },
+        "control": {
+          "domains": {
+            "web": 3.8944049660226576,
+            "math": 3.073435314446555,
+            "code": 2.255622544160806
+          },
+          "broad_nll": 3.402454551335067
+        }
+      }
+    },
+    "two_over_fixed_one": {
+      "comparison": {
+        "gain": -0.14538257609245087,
+        "conditional_95_interval": [
+          -0.1513376066521731,
+          -0.13948647403930498
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": -0.13773468457481686,
+          "conditional_95_interval": [
+            -0.14597976448010408,
+            -0.13038284252026694
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.1500880497984345,
+          "conditional_95_interval": [
+            -0.1618013423620918,
+            -0.13794831163253035
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.16362077693936916,
+          "conditional_95_interval": [
+            -0.17586061118907867,
+            -0.15239272652623898
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      },
+      "scores": {
+        "candidate": {
+          "domains": {
+            "web": 3.900234960420123,
+            "math": 3.078748302252978,
+            "code": 2.2611293922255444
+          },
+          "broad_nll": 3.4081165151477784
+        },
+        "control": {
+          "domains": {
+            "web": 3.7625002758453063,
+            "math": 2.9286602524545433,
+            "code": 2.0975086152861753
+          },
+          "broad_nll": 3.2627339390553276
+        }
+      }
+    },
+    "two_over_strong_ordinary": {
+      "comparison": {
+        "gain": -0.12033549155561074,
+        "conditional_95_interval": [
+          -0.12700035559344927,
+          -0.11353381904376257
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": -0.11088622839200779,
+          "conditional_95_interval": [
+            -0.12008743425819532,
+            -0.10158885639750331
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.12163471833043094,
+          "conditional_95_interval": [
+            -0.13576537736016833,
+            -0.10427571608493828
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.1473840542715994,
+          "conditional_95_interval": [
+            -0.15866963913323484,
+            -0.13680741828551796
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      },
+      "scores": {
+        "candidate": {
+          "domains": {
+            "web": 3.900234960420123,
+            "math": 3.078748302252978,
+            "code": 2.2611293922255444
+          },
+          "broad_nll": 3.4081165151477784
+        },
+        "control": {
+          "domains": {
+            "web": 3.789348732028116,
+            "math": 2.9571135839225478,
+            "code": 2.113745337953945
+          },
+          "broad_nll": 3.287781023592168
+        }
+      }
+    },
+    "zero_over_same_shape_ordinary": {
+      "comparison": {
+        "gain": -0.09667375912281288,
+        "conditional_95_interval": [
+          -0.10120238869618516,
+          -0.09201053558232872
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": -0.0975310859861418,
+          "conditional_95_interval": [
+            -0.10422237258985817,
+            -0.09089814849083401
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.09282115713727457,
+          "conditional_95_interval": [
+            -0.10120894215935046,
+            -0.08487350933645194
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.09795438051836447,
+          "conditional_95_interval": [
+            -0.10660073501550087,
+            -0.08910652238681495
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      },
+      "scores": {
+        "candidate": {
+          "domains": {
+            "web": 3.966630623078305,
+            "math": 3.141940041567028,
+            "code": 2.327093639192351
+          },
+          "broad_nll": 3.4737851099988584
+        },
+        "control": {
+          "domains": {
+            "web": 3.869099537092163,
+            "math": 3.0491188844297534,
+            "code": 2.2291392586739867
+          },
+          "broad_nll": 3.3771113508760457
+        }
+      }
+    }
+  },
+  "decisions": {
+    "two_over_one": false,
+    "two_over_fixed_one": false,
+    "two_over_strong_ordinary": false,
+    "zero_exit_point_guard": false
+  },
+  "all_advancement_gates_pass": false,
+  "resources": {
+    "supported": {
+      "parameters": 51747328,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 49866412847529984,
+      "native_fit_wall_seconds": 569.8805723190308,
+      "assigned_fit_chip_hours": 2.5328025436401367
+    },
+    "fixed_one": {
+      "parameters": 51747328,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 165707994422575104,
+      "native_fit_wall_seconds": 790.6416451931,
+      "assigned_fit_chip_hours": 3.5139628675248886
+    },
+    "strong_ordinary": {
+      "parameters": 51179008,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 43812370828492800,
+      "native_fit_wall_seconds": 656.9629302024841,
+      "assigned_fit_chip_hours": 2.919835245344374
+    }
+  },
+  "trained_seeds": 1,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "protected_groups_scored": 0,
+  "terminal_alpha_spent": 0,
+  "automatic_promotion": false,
+  "inference_scope": "Exact depth-causal cache, zero/one/two generated states per source token. Earlier stages do not depend on deeper stages. No router, numerical solver, measured serving or training-work efficiency claim.",
+  "uncertainty_scope": "All intervals are conditional on reused development sources and selected single-seed endpoints. The zero-exit guard is a point-estimate development guard. No fresh confirmation.",
+  "scope": "Exact depth-causal zero/one/two-latent discovery, equal authentic data. The memory dependency graph changes while parameters, source/budget assignment, optimizer and objective remain fixed. Preserve previous failed gates. Reused DEV; no content-specific second-token, allocation, efficiency or confirmation claim.",
+  "wall_seconds": 0.25009894371032715
+}

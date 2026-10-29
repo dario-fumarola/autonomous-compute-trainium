@@ -1,3 +1,21 @@
+## October 29, 2026, 19:25 UTC — exact depth-causal screen complete and negative
+
+All three full fits and mature audits pass. Independent FP64 scores are
+3.473785/3.402455/3.408117 at zero/one/two steps. Two-over-one gain is
+−0.005662, with conditional 95% interval [−0.006818,−0.004510]. Strongest ordinary
+wins by 0.120335; zero-step quality deteriorates by 0.096674. All four frozen
+gates fail. No extension or confirmation is admitted.
+
+Complete Native research cost is 8.679036 assigned chip-hours. Independent
+aggregation reproduces all point estimates to 1e-12. Both fresh reserves stay
+unscored. [Full result](results/depth_causal_workspace_20261029/learning-v1/REPORT.md).
+
+The TRAIN-only gradient analysis finds positive alignment across all supported
+budgets at the three saved endpoints; it is not a causal diagnosis. A new
+fixed-one-versus-mixed-budget comparison in the same exact graph is being
+considered to separate the graph change from budget-training effects. It is
+not launched or admitted by this failed result.
+
 ## October 29, 2026, 19:14 UTC — all three depth-causal fits complete
 
 All three LR trials finish 1,957 updates and their frozen cooldowns. The first

@@ -1,0 +1,37 @@
+{
+  "registered_unix": 1793301448.466789,
+  "seconds_limit": 120,
+  "source_sha256": "83fde816476898cea83456313db383f4a73a6f8a585c6ce35092038221b02ccb",
+  "audit_sha256": {
+    "0": "69e342cec6f57f5f0ab8f211b2d388366984480528ac3884ef1304749ecfc673",
+    "1": "ac5a6454e7a9151124fdfa5e0b6b5449a6683ef8c648d9c2d8c20eb53b3fe791",
+    "2": "44dd329eede26e8ea1fd71845a0d99fe197e1cb59724f5f7d95b46772bdb3978"
+  },
+  "captures": {
+    "lr0-b0": "e04415d26f54e0730859fcf2785bceab641b6f1ed4ab2015e601b64100b5e875",
+    "lr0-b1": "3e67ae1a425b1f874f82a0d49698d675889f484b1cc28fa7d1a55f75d3dfb837",
+    "lr0-b2": "f7b0f6ad121e1806ca86d64faa088f8ce21622ef2b9230da8ef139d0f43b5a11",
+    "lr1-b0": "5914cf0c7858e50ef48ebfd8e064748ab113d480bf8eba9f32f4a9133bfc8d02",
+    "lr1-b1": "2ede0bd575e8702322ac5401aa74b74d12dc1fd7a52661cf1bc8878bf5d0c2ca",
+    "lr1-b2": "b753af6bf71c535a9d5f1c4c851abd64e5684bcecbc5c7ccd370c7a9584533f5",
+    "lr2-b0": "d76a8e6daf7208b488269f74a9921a297774c46de4ffec9e9524f82f67b624ef",
+    "lr2-b1": "6ca97c394c82454330e63e62e1939aa067d53df93f5d298f4ebbc6e4101d0f1e",
+    "lr2-b2": "f175d010788c08b37974a0a031b37633e552eab599231c398d38608ec32454bc"
+  },
+  "pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "accumulator": "FP64 dot products and squared norms",
+  "scope": "Descriptive alignment on the same previously audited TRAIN batch at all three endpoints. No new model forward/backward, data, held-out read, optimizer change, LR selection or advancement decision. Raw gradients are not AdamW updates or a causal explanation."
+}
