@@ -1,3 +1,20 @@
+## October 29, 2026, 10:54 UTC — first mixed endpoint repairs consistency
+
+At LR0.0003, mixedK2/K3 passes the unchanged six-TRAIN-window consistency guard
+in every domain; fixedK2 failed at the same LR. Maximum mean NLL shift is0.00806,
+maximum forward KL0.00908. Both mature gradient depths and full-state audits
+pass first. This is a numerical repair at one setting, not a quality selection.
+The next LR is active on all16 chips; the third and common evaluation remain.
+[Live consistency evidence](results/interleaved_workspace_20261029/mixed-convergence-v1/REPORT.md).
+
+The structural exact-sequential diagnostic continues without partial-score
+selection. The analytic inference ledger counts1.64156times ordinary matrix
+work and twice KV storage at512 source positions; generated and constant-pause
+paths have equal nominal inference work but potentially different latency.
+No accelerator decode-speed claim is made. The full suite passes724 tests with
+two skips. Fresh reserves and prospective conventional fits remain closed.
+[Inference inventory](results/interleaved_workspace_20261029/inference-inventory-v1/REPORT.md).
+
 ## October 29, 2026, 10:41 UTC — first mixed fit complete; fixed code-dependency diagnostic active
 
 The first mixed-round128M-target endpoint finishes its complete cooldown; its

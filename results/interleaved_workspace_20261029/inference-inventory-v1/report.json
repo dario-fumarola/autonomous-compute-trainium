@@ -1,0 +1,54 @@
+{
+  "status": "COMPLETE_ANALYTIC_INFERENCE_INVENTORY",
+  "model_config": {
+    "dim": 512,
+    "layers": 6,
+    "heads": 8,
+    "kv_heads": 8,
+    "ffn_dim": 1376,
+    "vocab_size": 32000,
+    "max_seq": 512
+  },
+  "parameters": 51747328,
+  "fp32_parameter_bytes": 206989312,
+  "real_source_context": 512,
+  "rows": {
+    "ordinary": {
+      "body_positions": 512,
+      "head_predictions": 512,
+      "body_projection_matmul_flops": 19428016128,
+      "causal_cached_attention_matmul_flops": 1613758464,
+      "vocabulary_head_matmul_flops": 16777216000,
+      "total_forward_matmul_flops": 37818990592,
+      "fp32_kv_cache_bytes": 12582912,
+      "fp32_kv_bytes_per_source_token": 24576
+    },
+    "constant_pause": {
+      "body_positions": 1024,
+      "head_predictions": 512,
+      "body_projection_matmul_flops": 38856032256,
+      "causal_cached_attention_matmul_flops": 6448742400,
+      "vocabulary_head_matmul_flops": 16777216000,
+      "total_forward_matmul_flops": 62081990656,
+      "fp32_kv_cache_bytes": 25165824,
+      "fp32_kv_bytes_per_source_token": 49152
+    },
+    "generated_latent": {
+      "body_positions": 1024,
+      "head_predictions": 512,
+      "body_projection_matmul_flops": 38856032256,
+      "causal_cached_attention_matmul_flops": 6448742400,
+      "vocabulary_head_matmul_flops": 16777216000,
+      "total_forward_matmul_flops": 62081990656,
+      "fp32_kv_cache_bytes": 25165824,
+      "fp32_kv_bytes_per_source_token": 49152
+    }
+  },
+  "generated_vs_ordinary_matmul_ratio": 1.6415559930130035,
+  "generated_vs_pause_matmul_ratio": 1.0,
+  "source_sha256": "4a2edc5034ccff94ac1817f5b8529f031f4b6ef63cf1da4bc8e1f2e09cc53eb0",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "model_scores": 0,
+  "assumptions": "FP32 KV;FMA=2;one-query exact cached attention visits every prior stored source/latent entry;body projections at every entry and one vocabulary head per real prediction. Includes no elementwise,RNG,cache-copy,allocation,communication or launch cost. Counts describe a hypothetical qualified cached accelerator implementation,not measured latency. Constant pauses can permit different scheduling; equal arithmetic is not equal runtime. CPU reference cache concatenation is not an optimized deployment implementation."
+}
