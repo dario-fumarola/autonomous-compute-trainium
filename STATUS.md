@@ -1,3 +1,17 @@
+## October 29, 2026, 09:50 UTC — eight tuning endpoints audited; final pause fit next
+
+All ordinary and latent endpoints plus two pause endpoints complete their
+cooldowns and independent mature numerical/state audits. The final pause LR
+remains in the registered all16-chip queue, followed by common broad DEV
+readout. There is no predictive tuning result yet. Both fresh reserves remain
+unscored. The complete source suite passes718 tests with two skips.
+
+The learned-state diagnostic is complete: fixedK2 at LR0.003 passes its
+sequential-consistency guard, while lower LRs fail. This necessary numerical
+condition does not establish helpful generated content or quality. Mixed-round
+qualification and follow-up code remain prepared and separately gated; no new
+scientific comparison has launched. Historical scientific states remain intact.
+
 ## October 29, 2026, 09:34 UTC — highest LR passes sequential consistency
 
 All three latent fits pass mature numerical audits. At LR0.003, the unchanged
