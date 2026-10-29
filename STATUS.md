@@ -1,3 +1,17 @@
+## October 29, 2026, 18:35 UTC — exact depth-causal hardware qualification active
+
+All16chips complete the104disposable updates. All three cold budget gradients
+pass independent CPU checks; full replica states agree. Repeated updates average
+0.156502/0.177368/0.198320seconds at budgets0/1/2. Fresh-process exact replay and
+the mature128-window gradient audit remain pending. These are numerical and
+execution measurements, not trained predictive results.
+
+A finite equal-data learning screen is prepared conditionally, preserving the
+original per-update source/budget assignment, LR grid and four practical gates.
+It cannot be admitted before qualification, tests and a separate immutable plan.
+No router, new labels or reserve access. The previous mixed-budget negative
+remains closed. [Qualification plan](results/depth_causal_workspace_20261029/numerical-v1/plan.json).
+
 ## October 29, 2026, 18:28 UTC — supported-budget experiment complete and negative
 
 Exact zero/one/two-token NLLs are3.487978/3.379654/3.381733. Two-over-one gain
