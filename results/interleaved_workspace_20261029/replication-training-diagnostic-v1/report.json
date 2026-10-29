@@ -1,0 +1,260 @@
+{
+  "status": "COMPLETE_DESCRIPTIVE_TRAINING_TRACE_ANALYSIS",
+  "registered_before_results": false,
+  "created_unix": 1793292238.4474468,
+  "source_sha256": {
+    "runs/interleaved-seed-replication-v1-s730201-latent-fit/updates.json": "95f9a305ea8be8a8200394eeadf748bd28eba41aa81e1fc59f4d6be241906c8d",
+    "runs/interleaved-seed-replication-v1-s730201-ordinary-fit/updates.json": "2c441545074fd6c658ab1bc6c7042d260a267da795e75b0d47434ea31edca0ae",
+    "runs/interleaved-seed-replication-v1-s730201-pause-fit/updates.json": "0013ce94c27e8554a2ca7905ff830c93ab8448b165811690440440be28d6e7cb",
+    "runs/interleaved-seed-replication-v1-s730237-latent-fit/updates.json": "ee1217478a26290398830e23100f3d4c1d3aee29790bacd1d0b7b2b415495154",
+    "runs/interleaved-seed-replication-v1-s730237-ordinary-fit/updates.json": "374686a4a4bca764efaddf96ea5086661604a3528f86c6ce9fe08444d995e349",
+    "runs/interleaved-seed-replication-v1-s730237-pause-fit/updates.json": "75aa343bb59386e4d35c122e4ed2347c46a8eba6b04836abab73c57a6045383b"
+  },
+  "stages": [
+    {
+      "label": "warm",
+      "first_update": 1,
+      "last_update": 64
+    },
+    {
+      "label": "early",
+      "first_update": 65,
+      "last_update": 320
+    },
+    {
+      "label": "stable_end",
+      "first_update": 1500,
+      "last_update": 1761
+    },
+    {
+      "label": "cooldown",
+      "first_update": 1762,
+      "last_update": 1957
+    }
+  ],
+  "rows": {
+    "730201-latent": {
+      "warm": {
+        "updates": 64,
+        "targets": 4186860,
+        "weighted_train_nll": 8.134112834949553,
+        "clipped_fraction": 0.578125,
+        "mean_gradient_norm": 1.176122758537531
+      },
+      "early": {
+        "updates": 256,
+        "targets": 16747246,
+        "weighted_train_nll": 5.351552658983164,
+        "clipped_fraction": 0.00390625,
+        "mean_gradient_norm": 0.4598868085304275
+      },
+      "stable_end": {
+        "updates": 262,
+        "targets": 17139658,
+        "weighted_train_nll": 3.4021179536229385,
+        "clipped_fraction": 0.003816793893129771,
+        "mean_gradient_norm": 0.32259911264627034
+      },
+      "cooldown": {
+        "updates": 196,
+        "targets": 12822024,
+        "weighted_train_nll": 3.293500427132307,
+        "clipped_fraction": 0.0,
+        "mean_gradient_norm": 0.2953799490113648
+      }
+    },
+    "730201-ordinary": {
+      "warm": {
+        "updates": 64,
+        "targets": 4186860,
+        "weighted_train_nll": 8.016908999430969,
+        "clipped_fraction": 0.484375,
+        "mean_gradient_norm": 1.0117043717764318
+      },
+      "early": {
+        "updates": 256,
+        "targets": 16747246,
+        "weighted_train_nll": 5.408054417614669,
+        "clipped_fraction": 0.0,
+        "mean_gradient_norm": 0.42250932182651013
+      },
+      "stable_end": {
+        "updates": 262,
+        "targets": 17139658,
+        "weighted_train_nll": 3.405041591030121,
+        "clipped_fraction": 0.003816793893129771,
+        "mean_gradient_norm": 0.30315039642439545
+      },
+      "cooldown": {
+        "updates": 196,
+        "targets": 12822024,
+        "weighted_train_nll": 3.299070769037619,
+        "clipped_fraction": 0.0,
+        "mean_gradient_norm": 0.2794448902868495
+      }
+    },
+    "730201-pause": {
+      "warm": {
+        "updates": 64,
+        "targets": 4186860,
+        "weighted_train_nll": 7.843342718046207,
+        "clipped_fraction": 0.453125,
+        "mean_gradient_norm": 1.7666733074001968
+      },
+      "early": {
+        "updates": 256,
+        "targets": 16747246,
+        "weighted_train_nll": 5.302746925948832,
+        "clipped_fraction": 0.0078125,
+        "mean_gradient_norm": 0.5105053243460134
+      },
+      "stable_end": {
+        "updates": 262,
+        "targets": 17139658,
+        "weighted_train_nll": 3.5440362460884756,
+        "clipped_fraction": 0.0,
+        "mean_gradient_norm": 0.3600328993478804
+      },
+      "cooldown": {
+        "updates": 196,
+        "targets": 12822024,
+        "weighted_train_nll": 3.426522358488757,
+        "clipped_fraction": 0.0,
+        "mean_gradient_norm": 0.3271184569718886
+      }
+    },
+    "730237-latent": {
+      "warm": {
+        "updates": 64,
+        "targets": 4186860,
+        "weighted_train_nll": 8.111403222506414,
+        "clipped_fraction": 0.515625,
+        "mean_gradient_norm": 1.1924247099086642
+      },
+      "early": {
+        "updates": 256,
+        "targets": 16747246,
+        "weighted_train_nll": 5.4326834999211195,
+        "clipped_fraction": 0.0078125,
+        "mean_gradient_norm": 0.4880367728183046
+      },
+      "stable_end": {
+        "updates": 262,
+        "targets": 17139658,
+        "weighted_train_nll": 3.3862912093261497,
+        "clipped_fraction": 0.003816793893129771,
+        "mean_gradient_norm": 0.3249347113243496
+      },
+      "cooldown": {
+        "updates": 196,
+        "targets": 12822024,
+        "weighted_train_nll": 3.279696859545802,
+        "clipped_fraction": 0.00510204081632653,
+        "mean_gradient_norm": 0.3017062658862192
+      }
+    },
+    "730237-ordinary": {
+      "warm": {
+        "updates": 64,
+        "targets": 4186860,
+        "weighted_train_nll": 8.09253650982883,
+        "clipped_fraction": 0.421875,
+        "mean_gradient_norm": 1.189789935015142
+      },
+      "early": {
+        "updates": 256,
+        "targets": 16747246,
+        "weighted_train_nll": 5.512896692550428,
+        "clipped_fraction": 0.0,
+        "mean_gradient_norm": 0.4328390060691163
+      },
+      "stable_end": {
+        "updates": 262,
+        "targets": 17139658,
+        "weighted_train_nll": 3.4193163318219986,
+        "clipped_fraction": 0.003816793893129771,
+        "mean_gradient_norm": 0.3046609465857498
+      },
+      "cooldown": {
+        "updates": 196,
+        "targets": 12822024,
+        "weighted_train_nll": 3.313389343888218,
+        "clipped_fraction": 0.0,
+        "mean_gradient_norm": 0.27881926305744115
+      }
+    },
+    "730237-pause": {
+      "warm": {
+        "updates": 64,
+        "targets": 4186860,
+        "weighted_train_nll": 7.847428745120162,
+        "clipped_fraction": 0.484375,
+        "mean_gradient_norm": 1.64483374170959
+      },
+      "early": {
+        "updates": 256,
+        "targets": 16747246,
+        "weighted_train_nll": 5.325112777112938,
+        "clipped_fraction": 0.01171875,
+        "mean_gradient_norm": 0.5111416386207566
+      },
+      "stable_end": {
+        "updates": 262,
+        "targets": 17139658,
+        "weighted_train_nll": 3.5277114797159643,
+        "clipped_fraction": 0.003816793893129771,
+        "mean_gradient_norm": 0.34511861625973506
+      },
+      "cooldown": {
+        "updates": 196,
+        "targets": 12822024,
+        "weighted_train_nll": 3.4154961488371347,
+        "clipped_fraction": 0.0,
+        "mean_gradient_norm": 0.3128860769223194
+      }
+    }
+  },
+  "paired_latent_gains": {
+    "730201": {
+      "warm": {
+        "ordinary": -0.11720383551858404,
+        "pause": -0.29077011690334587
+      },
+      "early": {
+        "ordinary": 0.056501758631505083,
+        "pause": -0.048805733034331666
+      },
+      "stable_end": {
+        "ordinary": 0.0029236374071826,
+        "pause": 0.1419182924655371
+      },
+      "cooldown": {
+        "ordinary": 0.005570341905311693,
+        "pause": 0.13302193135645002
+      }
+    },
+    "730237": {
+      "warm": {
+        "ordinary": -0.018866712677583664,
+        "pause": -0.26397447738625246
+      },
+      "early": {
+        "ordinary": 0.0802131926293086,
+        "pause": -0.10757072280818125
+      },
+      "stable_end": {
+        "ordinary": 0.03302512249584888,
+        "pause": 0.14142027038981464
+      },
+      "cooldown": {
+        "ordinary": 0.033692484342415785,
+        "pause": 0.13579928929133267
+      }
+    }
+  },
+  "optimizer_updates": 0,
+  "assigned_chips": 0,
+  "new_heldout_reads": 0,
+  "protected_groups_scored": 0,
+  "scope": "Post hoc summaries of saved complete training telemetry. Training graphs use mixed numerical rounds; these are not extra exact held-out learning-curve checkpoints. No new gate, causal attribution, seed exclusion or duration selection."
+}
