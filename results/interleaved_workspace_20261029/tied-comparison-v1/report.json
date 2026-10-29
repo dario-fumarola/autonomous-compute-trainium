@@ -1,0 +1,179 @@
+{
+  "comparison": {
+    "gain": 0.025047084536840458,
+    "conditional_95_interval": [
+      0.02011935913913828,
+      0.02996772834690077
+    ],
+    "cases": 384,
+    "groups": 384
+  },
+  "domains": {
+    "web": {
+      "gain": 0.02684845618280951,
+      "conditional_95_interval": [
+        0.019863532253795578,
+        0.03388611237721619
+      ],
+      "cases": 128,
+      "groups": 128
+    },
+    "math": {
+      "gain": 0.028453331468003995,
+      "conditional_95_interval": [
+        0.019757689239416863,
+        0.03873445236537227
+      ],
+      "cases": 128,
+      "groups": 128
+    },
+    "code": {
+      "gain": 0.016236722667769765,
+      "conditional_95_interval": [
+        0.007374664559799104,
+        0.024805719660298806
+      ],
+      "cases": 128,
+      "groups": 128
+    }
+  },
+  "scores": {
+    "candidate": {
+      "domains": {
+        "web": 3.7625002758453063,
+        "math": 2.9286602524545433,
+        "code": 2.0975086152861753
+      },
+      "broad_nll": 3.2627339390553276
+    },
+    "control": {
+      "domains": {
+        "web": 3.789348732028116,
+        "math": 2.9571135839225478,
+        "code": 2.113745337953945
+      },
+      "broad_nll": 3.287781023592168
+    }
+  },
+  "status": "COMPLETE_TIED_ORDINARY_PAIRED_COMPARISON",
+  "selected_control": {
+    "arm": "tied-lr1",
+    "lr": 0.001,
+    "domains": {
+      "web": 3.789348732028116,
+      "math": 2.9571135839225478,
+      "code": 2.113745337953945
+    },
+    "broad_nll": 3.287781023592168,
+    "bracketed": true
+  },
+  "candidate_arm": "mixed-lr1",
+  "resources": {
+    "candidate": {
+      "parameters": 51747328,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 165707994422575104,
+      "native_fit_wall_seconds": 790.6416451931,
+      "native_fit_assigned_chip_hours": 3.5139628675248886,
+      "runtime_scope": "Descriptive retained Native fit path, including its startup/compile/audit/checkpoint work. Cross-launch, not a hardware-time-matched experiment.",
+      "inference": {
+        "source_positions": 512,
+        "stored_positions": 1024,
+        "nominal_cached_forward_matmul_flops": 62081990656,
+        "fp32_kv_bytes": 25165824,
+        "note": "Analytic cached causal matrix work only, FMA2; excludes elementwise, transfers, dispatch and measured latency. No serving-performance claim."
+      }
+    },
+    "control": {
+      "parameters": 51179008,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 43812370828492800,
+      "native_fit_wall_seconds": 656.9629302024841,
+      "native_fit_assigned_chip_hours": 2.919835245344374,
+      "runtime_scope": "Descriptive retained Native fit path, including its startup/compile/audit/checkpoint work. Cross-launch, not a hardware-time-matched experiment.",
+      "inference": {
+        "source_positions": 512,
+        "stored_positions": 512,
+        "nominal_cached_forward_matmul_flops": 55353802752,
+        "fp32_kv_bytes": 23068672,
+        "note": "Analytic cached causal matrix work only, FMA2; excludes elementwise, transfers, dispatch and measured latency. No serving-performance claim."
+      }
+    }
+  },
+  "candidate_over_control_training_work": 3.7822192976329205,
+  "useful_equal_data_screen": true,
+  "control_score_sha256": {
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank0-scores.json": "51836bc599bc0d84a17345e692d869463dea70623dd5683590778e030802769c",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank1-scores.json": "92b838aa76c5f90413573e219813f4827e587396221dc2ff890d83180f11eaa7",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank2-scores.json": "a4585e2ce670381fcd3b1c3cc4d5f6a216c90e1db0d55c66ff701230f75c90fa",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank3-scores.json": "dfb2d1d2c6736187c1991901b3dcb280baa5c7b7133aefa5b2c531f62dd12cc2",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank4-scores.json": "887e360a26c5d592e86779f36a340476ed1a9a69c7aba51a63bc46c3c77c198a",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank5-scores.json": "dd9e51347ce825efcd9e6a402eec1716ded80d848a4262e9d11310e1b6847b71",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank6-scores.json": "1241c539d7747bf958a30c07bd61f3af6944ccb52fd333ecf38909601e2b9224",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank7-scores.json": "071b2f1cb18c5641839af0618c7da5c256b6f944deee0402ea7914943e8a2c4e",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank8-scores.json": "5481a26b709c568a43c1234d31e7bbda6fa0aa0e849e2c7902955ccc8b2fbb96",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank9-scores.json": "e9f2c6b3e0f22480a5aa0905bbd7c363f38dbbc5c12c4868592869116f10893e",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank10-scores.json": "bf0d3b9d56befe9db17928eda7438e5f0566545130a42f01bf212d134c5aea03",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank11-scores.json": "d47cc9108f08a55584a034c6714c2e2f274c21bc1b679ba52ce75d3ed57e3e09",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank12-scores.json": "e941ee710ae8fa2d9ecdcf5db665f05ccf59cbc4cd477953042313e1f65e4d50",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank13-scores.json": "6baa499fd8438dad06e12f2029fb5b25b99c844a7d7f9a2cc42835f19b33c2b0",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank14-scores.json": "c531e3eea9b80a423ba64dde2c9283a36d9ba4071b2351611ac4427b11c49f7c",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank15-scores.json": "cdbb6690a9ce0e603e0a2af49c154de8c61102d4e67fe79aa676e46efd3fdb53",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank16-scores.json": "385e08c93ffddd06a54bfe298bdc3f905209848d39ddbb56180e1cd116547fe2",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank17-scores.json": "db0894acfddc39925a0fac39b99a8de53e85a85ad1ef83437a27e2a8afe0f470",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank18-scores.json": "ec2a1d88506bc9148450a9f9d88b1976cc8c2264a0e8992a6bf580e103ee75f9",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank19-scores.json": "46e575a3c024b2688a4b6de0a8765026ecd26d13d8b72ba8d95f896a699e7954",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank20-scores.json": "a360f7f4d76f8de0708e059752f01afc47013e250fe97428b1a8e1c9a83ac062",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank21-scores.json": "83301b6dc1413f59842a1c4c11dc9e285f7c45a2fa517af837d314be1889b5ac",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank22-scores.json": "2568553445d37fabe431b2cb5637ac1e423965328b9e2d4d80e33bceee169cdf",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank23-scores.json": "a77f36cfbf79f47b017ce428c4141960cc676cceb1a8449138345d2916d00419",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank24-scores.json": "b95e580889a8bad8bfe9be8d07ec7b78298a3c758713d92f2f1ad4f6403ab525",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank25-scores.json": "f401791126524900272a19a3b4e429ee8e2e99875102b15b3c7284c117618d91",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank26-scores.json": "40d256005c5af92fc10ceb6390a7c07d8406cd1b1fd6a1a9c52dfc5e783cf81f",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank27-scores.json": "bd1e40e12002173fe6fa8611cc41821c029678a6c33e7479154255370323ab15",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank28-scores.json": "31321cb001b1c990f33848469386a72a223c26ec0f1dfc67b14d149836319f76",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank29-scores.json": "6da3e57407923978d726503847d37f4fceca473c3f2a4bdff377d50b6d457c8f",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank30-scores.json": "0b92d641687ae068351e271f8032a38738fc95737820c0e74dd0280f5e6f74a2",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank31-scores.json": "80f3b30991756404cb0c947fee27925e77b719c582307d0f31012a254f09fe17",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank32-scores.json": "19362099a9c1db851772a08d347699d8f97b3196c37a8f359266209aa6798217",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank33-scores.json": "5493073643e135017f039bc421bd8c3d774cd00f991bc6ca113797e87471ba93",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank34-scores.json": "c723947bb995908944a603317b9ac0c09789e67e23ebe9477931cff71977b300",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank35-scores.json": "f8fee2d5956b4c92415d0210f97b35b7a1d58bfd4d62522a7ef80818e9bc02e2",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank36-scores.json": "70f99fd7a265cc6ad5d92aa3efce943f0dc39e445409a446a5a12f67bdfa42c3",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank37-scores.json": "f4ab563dda4afcbbc594450c1f9d7c0781e824162621996ab093ef07366350b9",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank38-scores.json": "5458d819b59b43d436f3fd98d75b7a94725868f92ef158d981381ff620747d79",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank39-scores.json": "59a0bc66bbbcedeb95df09731ba01b1839ca33fbf71a63d12eb5597fd354551d",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank40-scores.json": "a9fd0c2217c3cfc5a95dd253daaf7bf277099669b71357e06d720c2e7975137f",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank41-scores.json": "bd6e32949da7810efda92b07d362c568b2ee7ceedbe3e8d682b7dff15eb4aad4",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank42-scores.json": "87af4397be4a4cdd4e94c54c943426f5932338bfb5e6d34cb7566842f0b083ae",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank43-scores.json": "f9e752fe0ebbfc7fa2413f094924ed7d687b3e0822c249b0ec7e1f7ad4bcba4e",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank44-scores.json": "6623fc5a055f711098b49c8c01e486c3023705aa92c9a86b0fa0234d65a65afd",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank45-scores.json": "364701fd4cc4d121e17d0393fd1d1ff0e4e64572d9eb6609b47b387eb4d108c2",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank46-scores.json": "17de395ba37acbda7cfa60d1932d446dcaf0b516a830cd7aad5aa2edf1ee46cb",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank47-scores.json": "93552be0454549604aa6f67cb828567189ad20355f86546b29c3cccd2c946ae9",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank48-scores.json": "bdc09c9f7df2d08755caa6ab180dca2428783e8700a3d6edf8014070888e1a2e",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank49-scores.json": "3aeac585b5a11f15bb0c598ddcd07b77f3bbce014e20b3c3dc453b223d1a2ee1",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank50-scores.json": "20fbae096a5a3992747cb145a39ff989314814cb33817c5075beb6ca768d93ce",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank51-scores.json": "1db88ee9a58c89332fb91d2e30f37b4c8ae2e3e05c59da4b3ae1451b09ab1a27",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank52-scores.json": "bb701e3fc38cf2d2a1dd4fef76d8cfb41b7dc66c11804a690ad266f4e7b26ce9",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank53-scores.json": "866f9d4d4dba9a346e8e6d488d5f8870e1ca0158c7d6809daaa2687fc0ad820c",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank54-scores.json": "afabc7ffc32e663eeec628a8d10102689b009fb28827bc36e896f6fb608a1b6a",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank55-scores.json": "9e367ebfacb010e068b9e07ebe7485966de0297a8619571d274620cc8c4d097c",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank56-scores.json": "4050a1ef58c4e1e939f2683f341ebb30d90030002bc2aa4a13776e4e905fc170",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank57-scores.json": "abe965b7c65736eebf34641ddb936cba4138084dff703f15cdc61a6ddd716231",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank58-scores.json": "dcc76f12c28d59e8e3e51307e0ffd109d4b0a5124fb63468f86dd338c0d792d5",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank59-scores.json": "efebda1b298a29c94027bfa1467f0e20636668639164026a4dc60e6739a21d97",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank60-scores.json": "19272b1dcd9b1daf3ad6f44bbb1e726c7f4f4762f74378b538ece891631933f7",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank61-scores.json": "086ef7730874a8c92d1e70e65f6bed92d7339b0b1d341ae22282d4d0d6362b08",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank62-scores.json": "0791c3d8d3ea26b4838f501ddbacfeae11fcf4376faaddf41b7708761fcc6d22",
+    "runs/interleaved-tied-ordinary-tuning-v1-evaluation/PRIVATE-rank63-scores.json": "bf6c418eadec7fc3253dea9d7ee6d49f94df3df150545431d7d2393380512784"
+  },
+  "control_analysis_sha256": "7c273417ef7621b57845e3ae3b41c3e8dc40b91c1088af9ce1a1546f3d0050cc",
+  "trained_seeds": 1,
+  "protected_groups_scored": 0,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "automatic_promotion": false,
+  "wall_seconds": 0.09158682823181152,
+  "scope": "One-seed reused-DEV equal-data comparison. No fresh confirmation, general reasoning, allocation, full conventional frontier or matched-training-work claim."
+}

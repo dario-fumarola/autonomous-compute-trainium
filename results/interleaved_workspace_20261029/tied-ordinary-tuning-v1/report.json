@@ -1,0 +1,734 @@
+{
+  "status": "COMPLETE_TIED_ORDINARY_TUNING",
+  "records": {
+    "tied-lr0": {
+      "status": "COMPLETE_INTERLEAVED_SCREEN_FIT_PENDING_AUDITS",
+      "world": 64,
+      "arm": "tied-lr0",
+      "updates": 1957,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 43812370828492800,
+      "checkpoints": [
+        {
+          "update": 1957,
+          "real_targets": 128025288,
+          "matrix_flops": 43812370828492800,
+          "full_state_digest": "252b3182d55e897da3cf11204b778bae35a3c05ae25e4d1c4a81c36618f012a8"
+        }
+      ],
+      "initial_model_digest": "98c6fbe9c16bad6bb7591bd3715b8617dc3f106b6f1209a43da1a639915e0f48",
+      "shared_initial_model_digest": "98c6fbe9c16bad6bb7591bd3715b8617dc3f106b6f1209a43da1a639915e0f48",
+      "parameters": 51179008,
+      "wall_seconds": 657.3969433307648,
+      "mean_warm_update_seconds": 0.29251940321165804,
+      "all_replica_full_states_equal": true,
+      "heldout_reads": 0,
+      "final_lr": 2.9999999999999997e-05,
+      "objective": "final_only",
+      "scope": "Persistent one-latent-per-source screen with complete endpoint cooldown and uniform original-token NTP. Fixed Jacobi rounds are not thought-budget scaling. No teacher,learned allocation or sequential-inference equivalence claim."
+    },
+    "audit-tied-lr0": {
+      "status": "PASS_INTERLEAVED_SCREEN_MATURE_AUDITS",
+      "arm": "tied-lr0",
+      "rows": [
+        {
+          "update": 1957,
+          "depth": 0,
+          "gradient": {
+            "overall": {
+              "relative_l2": 2.384593428365813e-05,
+              "cosine": 0.9999999997156895,
+              "reference_norm": 0.4070775966433989,
+              "candidate_norm": 0.4070775631257695,
+              "maximum_absolute_error": 4.891771823167801e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 3.435640206545286e-11,
+                  "reference_squared_norm": 0.06490316756941435
+                },
+                {
+                  "parameter": "blocks.10.down.weight",
+                  "squared_error": 7.169756277145513e-12,
+                  "reference_squared_norm": 0.005941052284253859
+                },
+                {
+                  "parameter": "blocks.9.v.weight",
+                  "squared_error": 5.208169097970175e-12,
+                  "reference_squared_norm": 0.002848034270533267
+                },
+                {
+                  "parameter": "blocks.9.down.weight",
+                  "squared_error": 2.7479662727430643e-12,
+                  "reference_squared_norm": 0.004326206049979007
+                },
+                {
+                  "parameter": "blocks.10.up.weight",
+                  "squared_error": 2.3624305158967533e-12,
+                  "reference_squared_norm": 0.001735054305988405
+                },
+                {
+                  "parameter": "blocks.8.down.weight",
+                  "squared_error": 2.2187774544861915e-12,
+                  "reference_squared_norm": 0.0036674053054660477
+                },
+                {
+                  "parameter": "blocks.0.down.weight",
+                  "squared_error": 2.0878037035187154e-12,
+                  "reference_squared_norm": 0.004459284690628828
+                },
+                {
+                  "parameter": "blocks.8.o.weight",
+                  "squared_error": 1.7826844368926442e-12,
+                  "reference_squared_norm": 0.002965006905566828
+                },
+                {
+                  "parameter": "blocks.8.v.weight",
+                  "squared_error": 1.6333026929090983e-12,
+                  "reference_squared_norm": 0.0014615519487259196
+                },
+                {
+                  "parameter": "blocks.10.gate.weight",
+                  "squared_error": 1.6100920346570245e-12,
+                  "reference_squared_norm": 0.0012250804761527265
+                },
+                {
+                  "parameter": "blocks.7.down.weight",
+                  "squared_error": 1.428805744509893e-12,
+                  "reference_squared_norm": 0.0034800818834991192
+                },
+                {
+                  "parameter": "blocks.9.up.weight",
+                  "squared_error": 1.3922214590071662e-12,
+                  "reference_squared_norm": 0.0016012655109672595
+                }
+              ]
+            },
+            "embedding": {
+              "relative_l2": 2.3007577406910644e-05,
+              "cosine": 0.9999999997353269,
+              "reference_norm": 0.25476100088006864,
+              "candidate_norm": 0.2547610130364904,
+              "maximum_absolute_error": 4.891771823167801e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 3.435640206545286e-11,
+                  "reference_squared_norm": 0.06490316756941435
+                }
+              ]
+            },
+            "body": {
+              "relative_l2": 2.437043149323867e-05,
+              "cosine": 0.999999999703055,
+              "reference_norm": 0.317504334016957,
+              "candidate_norm": 0.31750428128930164,
+              "maximum_absolute_error": 7.345806807279587e-08,
+              "largest_error_contributors": [
+                {
+                  "parameter": "blocks.10.down.weight",
+                  "squared_error": 7.169756277145513e-12,
+                  "reference_squared_norm": 0.005941052284253859
+                },
+                {
+                  "parameter": "blocks.9.v.weight",
+                  "squared_error": 5.208169097970175e-12,
+                  "reference_squared_norm": 0.002848034270533267
+                },
+                {
+                  "parameter": "blocks.9.down.weight",
+                  "squared_error": 2.7479662727430643e-12,
+                  "reference_squared_norm": 0.004326206049979007
+                },
+                {
+                  "parameter": "blocks.10.up.weight",
+                  "squared_error": 2.3624305158967533e-12,
+                  "reference_squared_norm": 0.001735054305988405
+                },
+                {
+                  "parameter": "blocks.8.down.weight",
+                  "squared_error": 2.2187774544861915e-12,
+                  "reference_squared_norm": 0.0036674053054660477
+                },
+                {
+                  "parameter": "blocks.0.down.weight",
+                  "squared_error": 2.0878037035187154e-12,
+                  "reference_squared_norm": 0.004459284690628828
+                },
+                {
+                  "parameter": "blocks.8.o.weight",
+                  "squared_error": 1.7826844368926442e-12,
+                  "reference_squared_norm": 0.002965006905566828
+                },
+                {
+                  "parameter": "blocks.8.v.weight",
+                  "squared_error": 1.6333026929090983e-12,
+                  "reference_squared_norm": 0.0014615519487259196
+                },
+                {
+                  "parameter": "blocks.10.gate.weight",
+                  "squared_error": 1.6100920346570245e-12,
+                  "reference_squared_norm": 0.0012250804761527265
+                },
+                {
+                  "parameter": "blocks.7.down.weight",
+                  "squared_error": 1.428805744509893e-12,
+                  "reference_squared_norm": 0.0034800818834991192
+                },
+                {
+                  "parameter": "blocks.9.up.weight",
+                  "squared_error": 1.3922214590071662e-12,
+                  "reference_squared_norm": 0.0016012655109672595
+                },
+                {
+                  "parameter": "blocks.10.v.weight",
+                  "squared_error": 1.3586281317241138e-12,
+                  "reference_squared_norm": 0.0006140700088192227
+                }
+              ]
+            }
+          },
+          "loss_error": -1.4975666999816895e-06,
+          "cpu_loss": 3.6694587990641594,
+          "native_loss": 3.6694602966308594,
+          "real_targets": 65438,
+          "full_state_restore_exact": true,
+          "checkpoint_sha256": "18db2d0ecdd803df883bdabab599eacfca5439fe50f82d08efc2d5adc8a2712f"
+        }
+      ],
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "wall_seconds": 28.563112020492554,
+      "heldout_reads": 0,
+      "scope": "Complete CPU state restoration and independent SDPA/CE full-global gradients. Separate Native next-update replay was qualified on disposable weights; no stronger scientific restart equivalence claimed here."
+    },
+    "tied-lr1": {
+      "status": "COMPLETE_INTERLEAVED_SCREEN_FIT_PENDING_AUDITS",
+      "world": 64,
+      "arm": "tied-lr1",
+      "updates": 1957,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 43812370828492800,
+      "checkpoints": [
+        {
+          "update": 1957,
+          "real_targets": 128025288,
+          "matrix_flops": 43812370828492800,
+          "full_state_digest": "9d21034504fa9d50a7d6b378ddc4883b227b5cc18e1e444e775de34d3501a7df"
+        }
+      ],
+      "initial_model_digest": "98c6fbe9c16bad6bb7591bd3715b8617dc3f106b6f1209a43da1a639915e0f48",
+      "shared_initial_model_digest": "98c6fbe9c16bad6bb7591bd3715b8617dc3f106b6f1209a43da1a639915e0f48",
+      "parameters": 51179008,
+      "wall_seconds": 656.9629302024841,
+      "mean_warm_update_seconds": 0.2917764152694749,
+      "all_replica_full_states_equal": true,
+      "heldout_reads": 0,
+      "final_lr": 0.0001,
+      "objective": "final_only",
+      "scope": "Persistent one-latent-per-source screen with complete endpoint cooldown and uniform original-token NTP. Fixed Jacobi rounds are not thought-budget scaling. No teacher,learned allocation or sequential-inference equivalence claim."
+    },
+    "audit-tied-lr1": {
+      "status": "PASS_INTERLEAVED_SCREEN_MATURE_AUDITS",
+      "arm": "tied-lr1",
+      "rows": [
+        {
+          "update": 1957,
+          "depth": 0,
+          "gradient": {
+            "overall": {
+              "relative_l2": 3.760661102636451e-05,
+              "cosine": 0.9999999992930336,
+              "reference_norm": 0.2597373875971667,
+              "candidate_norm": 0.25973753544287365,
+              "maximum_absolute_error": 9.221257641911507e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 3.3036636090275455e-11,
+                  "reference_squared_norm": 0.03818069125737385
+                },
+                {
+                  "parameter": "blocks.6.v.weight",
+                  "squared_error": 6.31829959096863e-12,
+                  "reference_squared_norm": 0.00106612135255001
+                },
+                {
+                  "parameter": "blocks.6.k.weight",
+                  "squared_error": 3.8464523069518534e-12,
+                  "reference_squared_norm": 0.0010164457478245527
+                },
+                {
+                  "parameter": "blocks.10.gate.weight",
+                  "squared_error": 3.788517025599741e-12,
+                  "reference_squared_norm": 0.0007452079095750035
+                },
+                {
+                  "parameter": "blocks.10.up.weight",
+                  "squared_error": 2.9969551897121187e-12,
+                  "reference_squared_norm": 0.0005168565590157996
+                },
+                {
+                  "parameter": "blocks.6.q.weight",
+                  "squared_error": 2.6338530443576882e-12,
+                  "reference_squared_norm": 0.0007187476428731927
+                },
+                {
+                  "parameter": "blocks.5.v.weight",
+                  "squared_error": 2.603278808527934e-12,
+                  "reference_squared_norm": 0.000533479955322429
+                },
+                {
+                  "parameter": "blocks.7.v.weight",
+                  "squared_error": 2.5049332847364907e-12,
+                  "reference_squared_norm": 0.0003284738791087742
+                },
+                {
+                  "parameter": "blocks.9.v.weight",
+                  "squared_error": 2.4313505620778807e-12,
+                  "reference_squared_norm": 0.0003535023763442209
+                },
+                {
+                  "parameter": "blocks.3.v.weight",
+                  "squared_error": 2.4273353342765545e-12,
+                  "reference_squared_norm": 0.0006476242505504882
+                },
+                {
+                  "parameter": "blocks.4.v.weight",
+                  "squared_error": 2.4066594717718984e-12,
+                  "reference_squared_norm": 0.0006680671175450508
+                },
+                {
+                  "parameter": "blocks.10.down.weight",
+                  "squared_error": 2.2345522191691522e-12,
+                  "reference_squared_norm": 0.0009414292467326019
+                }
+              ]
+            },
+            "embedding": {
+              "relative_l2": 2.941548519287797e-05,
+              "cosine": 0.9999999995686001,
+              "reference_norm": 0.1953988005525465,
+              "candidate_norm": 0.19539910762855242,
+              "maximum_absolute_error": 9.221257641911507e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 3.3036636090275455e-11,
+                  "reference_squared_norm": 0.03818069125737385
+                }
+              ]
+            },
+            "body": {
+              "relative_l2": 4.615255712294561e-05,
+              "cosine": 0.9999999989352417,
+              "reference_norm": 0.1711222348452326,
+              "candidate_norm": 0.17112210861225216,
+              "maximum_absolute_error": 6.542541086673737e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "blocks.6.v.weight",
+                  "squared_error": 6.31829959096863e-12,
+                  "reference_squared_norm": 0.00106612135255001
+                },
+                {
+                  "parameter": "blocks.6.k.weight",
+                  "squared_error": 3.8464523069518534e-12,
+                  "reference_squared_norm": 0.0010164457478245527
+                },
+                {
+                  "parameter": "blocks.10.gate.weight",
+                  "squared_error": 3.788517025599741e-12,
+                  "reference_squared_norm": 0.0007452079095750035
+                },
+                {
+                  "parameter": "blocks.10.up.weight",
+                  "squared_error": 2.9969551897121187e-12,
+                  "reference_squared_norm": 0.0005168565590157996
+                },
+                {
+                  "parameter": "blocks.6.q.weight",
+                  "squared_error": 2.6338530443576882e-12,
+                  "reference_squared_norm": 0.0007187476428731927
+                },
+                {
+                  "parameter": "blocks.5.v.weight",
+                  "squared_error": 2.603278808527934e-12,
+                  "reference_squared_norm": 0.000533479955322429
+                },
+                {
+                  "parameter": "blocks.7.v.weight",
+                  "squared_error": 2.5049332847364907e-12,
+                  "reference_squared_norm": 0.0003284738791087742
+                },
+                {
+                  "parameter": "blocks.9.v.weight",
+                  "squared_error": 2.4313505620778807e-12,
+                  "reference_squared_norm": 0.0003535023763442209
+                },
+                {
+                  "parameter": "blocks.3.v.weight",
+                  "squared_error": 2.4273353342765545e-12,
+                  "reference_squared_norm": 0.0006476242505504882
+                },
+                {
+                  "parameter": "blocks.4.v.weight",
+                  "squared_error": 2.4066594717718984e-12,
+                  "reference_squared_norm": 0.0006680671175450508
+                },
+                {
+                  "parameter": "blocks.10.down.weight",
+                  "squared_error": 2.2345522191691522e-12,
+                  "reference_squared_norm": 0.0009414292467326019
+                },
+                {
+                  "parameter": "blocks.0.down.weight",
+                  "squared_error": 2.23427663794583e-12,
+                  "reference_squared_norm": 0.0014849141993477102
+                }
+              ]
+            }
+          },
+          "loss_error": -2.21841037273407e-06,
+          "cpu_loss": 3.3453349340707064,
+          "native_loss": 3.345337152481079,
+          "real_targets": 65438,
+          "full_state_restore_exact": true,
+          "checkpoint_sha256": "3b5376d75a3f920d452241d99d01ff3b49b4a5c930c6553b72d889eb6916a767"
+        }
+      ],
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "wall_seconds": 28.773751735687256,
+      "heldout_reads": 0,
+      "scope": "Complete CPU state restoration and independent SDPA/CE full-global gradients. Separate Native next-update replay was qualified on disposable weights; no stronger scientific restart equivalence claimed here."
+    },
+    "tied-lr2": {
+      "status": "COMPLETE_INTERLEAVED_SCREEN_FIT_PENDING_AUDITS",
+      "world": 64,
+      "arm": "tied-lr2",
+      "updates": 1957,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 43812370828492800,
+      "checkpoints": [
+        {
+          "update": 1957,
+          "real_targets": 128025288,
+          "matrix_flops": 43812370828492800,
+          "full_state_digest": "6c4cefe20503385c79026aae6318eb7c95bfb37ab20e01d942c85417431eeb8c"
+        }
+      ],
+      "initial_model_digest": "98c6fbe9c16bad6bb7591bd3715b8617dc3f106b6f1209a43da1a639915e0f48",
+      "shared_initial_model_digest": "98c6fbe9c16bad6bb7591bd3715b8617dc3f106b6f1209a43da1a639915e0f48",
+      "parameters": 51179008,
+      "wall_seconds": 653.1839590072632,
+      "mean_warm_update_seconds": 0.2903584402927723,
+      "all_replica_full_states_equal": true,
+      "heldout_reads": 0,
+      "final_lr": 0.00030000000000000003,
+      "objective": "final_only",
+      "scope": "Persistent one-latent-per-source screen with complete endpoint cooldown and uniform original-token NTP. Fixed Jacobi rounds are not thought-budget scaling. No teacher,learned allocation or sequential-inference equivalence claim."
+    },
+    "audit-tied-lr2": {
+      "status": "PASS_INTERLEAVED_SCREEN_MATURE_AUDITS",
+      "arm": "tied-lr2",
+      "rows": [
+        {
+          "update": 1957,
+          "depth": 0,
+          "gradient": {
+            "overall": {
+              "relative_l2": 4.819249709856271e-05,
+              "cosine": 0.9999999988391783,
+              "reference_norm": 0.13497125123691012,
+              "candidate_norm": 0.13497112499558928,
+              "maximum_absolute_error": 1.6433186829090118e-06,
+              "largest_error_contributors": [
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 9.109686730238209e-12,
+                  "reference_squared_norm": 0.010391364671347396
+                },
+                {
+                  "parameter": "norm.weight",
+                  "squared_error": 6.139642106516543e-12,
+                  "reference_squared_norm": 0.00019213782153197384
+                },
+                {
+                  "parameter": "blocks.9.q.weight",
+                  "squared_error": 4.2754253564226675e-12,
+                  "reference_squared_norm": 0.00044237037332961167
+                },
+                {
+                  "parameter": "blocks.9.k.weight",
+                  "squared_error": 2.0105925615578066e-12,
+                  "reference_squared_norm": 0.0004261269168001186
+                },
+                {
+                  "parameter": "blocks.0.down.weight",
+                  "squared_error": 1.8839564218986773e-12,
+                  "reference_squared_norm": 0.0010909308943530226
+                },
+                {
+                  "parameter": "blocks.9.attn_norm.weight",
+                  "squared_error": 1.0989446716512179e-12,
+                  "reference_squared_norm": 4.043534061498687e-05
+                },
+                {
+                  "parameter": "blocks.10.up.weight",
+                  "squared_error": 1.009608008645014e-12,
+                  "reference_squared_norm": 0.00015908852187470655
+                },
+                {
+                  "parameter": "blocks.10.gate.weight",
+                  "squared_error": 9.817611382758767e-13,
+                  "reference_squared_norm": 0.00030906894899038163
+                },
+                {
+                  "parameter": "blocks.10.down.weight",
+                  "squared_error": 9.232661264574146e-13,
+                  "reference_squared_norm": 0.0003647791807044577
+                },
+                {
+                  "parameter": "blocks.8.v.weight",
+                  "squared_error": 8.925140205136976e-13,
+                  "reference_squared_norm": 8.282363635811075e-05
+                },
+                {
+                  "parameter": "blocks.9.v.weight",
+                  "squared_error": 8.85805697139648e-13,
+                  "reference_squared_norm": 9.835133568759683e-05
+                },
+                {
+                  "parameter": "blocks.8.down.weight",
+                  "squared_error": 8.561434015618303e-13,
+                  "reference_squared_norm": 0.0001628756534289231
+                }
+              ]
+            },
+            "embedding": {
+              "relative_l2": 2.9608433328937452e-05,
+              "cosine": 0.9999999995637153,
+              "reference_norm": 0.10193804329761974,
+              "candidate_norm": 0.10193824939767787,
+              "maximum_absolute_error": 8.636852726340294e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 9.109686730238209e-12,
+                  "reference_squared_norm": 0.010391364671347396
+                }
+              ]
+            },
+            "body": {
+              "relative_l2": 6.513338283919237e-05,
+              "cosine": 0.99999999789063,
+              "reference_norm": 0.08846397000536275,
+              "candidate_norm": 0.08846353990380337,
+              "maximum_absolute_error": 1.6433186829090118e-06,
+              "largest_error_contributors": [
+                {
+                  "parameter": "norm.weight",
+                  "squared_error": 6.139642106516543e-12,
+                  "reference_squared_norm": 0.00019213782153197384
+                },
+                {
+                  "parameter": "blocks.9.q.weight",
+                  "squared_error": 4.2754253564226675e-12,
+                  "reference_squared_norm": 0.00044237037332961167
+                },
+                {
+                  "parameter": "blocks.9.k.weight",
+                  "squared_error": 2.0105925615578066e-12,
+                  "reference_squared_norm": 0.0004261269168001186
+                },
+                {
+                  "parameter": "blocks.0.down.weight",
+                  "squared_error": 1.8839564218986773e-12,
+                  "reference_squared_norm": 0.0010909308943530226
+                },
+                {
+                  "parameter": "blocks.9.attn_norm.weight",
+                  "squared_error": 1.0989446716512179e-12,
+                  "reference_squared_norm": 4.043534061498687e-05
+                },
+                {
+                  "parameter": "blocks.10.up.weight",
+                  "squared_error": 1.009608008645014e-12,
+                  "reference_squared_norm": 0.00015908852187470655
+                },
+                {
+                  "parameter": "blocks.10.gate.weight",
+                  "squared_error": 9.817611382758767e-13,
+                  "reference_squared_norm": 0.00030906894899038163
+                },
+                {
+                  "parameter": "blocks.10.down.weight",
+                  "squared_error": 9.232661264574146e-13,
+                  "reference_squared_norm": 0.0003647791807044577
+                },
+                {
+                  "parameter": "blocks.8.v.weight",
+                  "squared_error": 8.925140205136976e-13,
+                  "reference_squared_norm": 8.282363635811075e-05
+                },
+                {
+                  "parameter": "blocks.9.v.weight",
+                  "squared_error": 8.85805697139648e-13,
+                  "reference_squared_norm": 9.835133568759683e-05
+                },
+                {
+                  "parameter": "blocks.8.down.weight",
+                  "squared_error": 8.561434015618303e-13,
+                  "reference_squared_norm": 0.0001628756534289231
+                },
+                {
+                  "parameter": "blocks.0.up.weight",
+                  "squared_error": 8.539272953268918e-13,
+                  "reference_squared_norm": 0.00047805532838820846
+                }
+              ]
+            }
+          },
+          "loss_error": -1.9073486328125e-06,
+          "cpu_loss": 3.4823389053344727,
+          "native_loss": 3.4823408126831055,
+          "real_targets": 65438,
+          "full_state_restore_exact": true,
+          "checkpoint_sha256": "182ad0a2a3d8388e7342ae961f523984a8a5680201c98f42d555e8385315470b"
+        }
+      ],
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "wall_seconds": 41.32145619392395,
+      "heldout_reads": 0,
+      "scope": "Complete CPU state restoration and independent SDPA/CE full-global gradients. Separate Native next-update replay was qualified on disposable weights; no stronger scientific restart equivalence claimed here."
+    },
+    "evaluation": {
+      "status": "COMPLETE_INTERLEAVED_SCREEN_EVALUATION",
+      "world": 64,
+      "wall_seconds": 35.934712171554565,
+      "checkpoint_points": 3,
+      "readout_variants": 3,
+      "broad_windows": 384,
+      "dependency_cases": 0,
+      "independent_cpu_checks": [
+        {
+          "label": "tied-lr0-main",
+          "panel": "broad",
+          "first_index": 0,
+          "maximum_target_loss_error": 3.9761492924839104e-05,
+          "reference_precision": "FP64"
+        },
+        {
+          "label": "tied-lr0-main",
+          "panel": "broad",
+          "first_index": 128,
+          "maximum_target_loss_error": 3.8347911068825624e-05,
+          "reference_precision": "FP64"
+        },
+        {
+          "label": "tied-lr0-main",
+          "panel": "broad",
+          "first_index": 256,
+          "maximum_target_loss_error": 3.1478001195850425e-05,
+          "reference_precision": "FP64"
+        },
+        {
+          "label": "tied-lr1-main",
+          "panel": "broad",
+          "first_index": 0,
+          "maximum_target_loss_error": 3.874841166684462e-05,
+          "reference_precision": "FP64"
+        },
+        {
+          "label": "tied-lr1-main",
+          "panel": "broad",
+          "first_index": 128,
+          "maximum_target_loss_error": 2.7973011947679538e-05,
+          "reference_precision": "FP64"
+        },
+        {
+          "label": "tied-lr1-main",
+          "panel": "broad",
+          "first_index": 256,
+          "maximum_target_loss_error": 2.7940973655660173e-05,
+          "reference_precision": "FP64"
+        },
+        {
+          "label": "tied-lr2-main",
+          "panel": "broad",
+          "first_index": 0,
+          "maximum_target_loss_error": 3.0151320359550482e-05,
+          "reference_precision": "FP64"
+        },
+        {
+          "label": "tied-lr2-main",
+          "panel": "broad",
+          "first_index": 128,
+          "maximum_target_loss_error": 2.910462283978177e-05,
+          "reference_precision": "FP64"
+        },
+        {
+          "label": "tied-lr2-main",
+          "panel": "broad",
+          "first_index": 256,
+          "maximum_target_loss_error": 2.947088730742564e-05,
+          "reference_precision": "FP64"
+        }
+      ],
+      "maximum_cpu_target_loss_error": 3.9761492924839104e-05,
+      "optimizer_updates": 0,
+      "protected_groups_scored": 0
+    },
+    "analysis": {
+      "status": "COMPLETE_TIED_ORDINARY_TUNING_ANALYSIS",
+      "scores": {
+        "tied-lr0": {
+          "lr": 0.0003,
+          "domains": {
+            "web": 4.1223431950896705,
+            "math": 3.2463741269613138,
+            "code": 2.4272875052045446
+          },
+          "broad_nll": 3.608138243486974
+        },
+        "tied-lr1": {
+          "lr": 0.001,
+          "domains": {
+            "web": 3.789348732028116,
+            "math": 2.9571135839225478,
+            "code": 2.113745337953945
+          },
+          "broad_nll": 3.287781023592168
+        },
+        "tied-lr2": {
+          "lr": 0.003,
+          "domains": {
+            "web": 3.9343459076731095,
+            "math": 3.0816795681124587,
+            "code": 2.244307190904532
+          },
+          "broad_nll": 3.4258048964072634
+        }
+      },
+      "selection": {
+        "arm": "tied-lr1",
+        "lr": 0.001,
+        "domains": {
+          "web": 3.789348732028116,
+          "math": 2.9571135839225478,
+          "code": 2.113745337953945
+        },
+        "broad_nll": 3.287781023592168,
+        "bracketed": true
+      },
+      "assigned_chips": 0,
+      "protected_groups_scored": 0,
+      "trained_seeds": 1,
+      "automatic_promotion": false,
+      "wall_seconds": 0.005048036575317383,
+      "scope": "Single-seed conventional-challenger LR selection on reused DEV. No unbiased confirmation or full conventional frontier claim. Primary latent comparison requires its exact sequential readout, not its better finite-round approximation."
+    }
+  }
+}

@@ -1,17 +1,18 @@
 # Autonomous computation during pretraining
 
 A persistent latent model trained from random initialization now scores
-**3.262734 NLL under exact sequential generation**, improving **0.114377nats
-over ordinary training** and **0.128394 over trained constant pauses** at equal
-natural-source exposure. Web, math and code all improve. Mixed numerical-round
-training repairs the original train/deployment approximation mismatch.
+**3.262734 NLL under exact sequential generation**, versus **3.287781** for an
+independently tuned eleven-layer ordinary model with tied embeddings. The
+**0.025047-nat equal-data improvement** favors latent computation in web, math
+and code; its conditional source-group interval is[0.020119,0.029968].
 
 This is a useful predictive-computation development result at51.75M parameters
 and128M authentic targets. It remains one selected seed on reused DEV and costs
-**5.592856times ordinary training matrix work**. General reasoning, learned
-allocation and training efficiency remain unestablished. Both fresh reserves
-are unscored. A stronger tied-table, eleven-layer ordinary challenger is now
-independently tuning on all16 chips.
+**3.782219times this stronger control's training matrix work**. General reasoning,
+learned allocation and training efficiency remain unestablished. Both fresh
+reserves are unscored. The remaining pre-inventoried deeper and wider ordinary
+controls are next; the deeper model is now undergoing numerical qualification.
+[Stronger comparison](results/interleaved_workspace_20261029/tied-comparison-v1/REPORT.md) ·
 [Exact sequential result](results/interleaved_workspace_20261029/mixed-sequential-dev-v1/REPORT.md) ·
 [Complete mixed screen](results/interleaved_workspace_20261029/mixed-round-tuning-v1/REPORT.md).
 
@@ -24,8 +25,8 @@ equal tuning opportunities; all nine mature numerical/state audits pass.
 The lead survives exact sequential generation: **3.340201 NLL**, improving
 **0.036910nats over ordinary** and **0.050927 over pauses**, again in every domain.
 The finite-round training approximation still overstates that benefit by
-0.058892nats. The completed mixed-round comparison above repairs the TRAIN mismatch; its
-full sequential broad readout remains pending.
+0.058892nats. The completed mixed-round comparison above repairs this mismatch; its
+full exact-sequential broad result is reported above.
 
 On a registered natural-code diagnostic, exact sequential latent generation
 also improves distant closing-delimiter prediction by **0.349535nats over

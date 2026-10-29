@@ -1,0 +1,49 @@
+{
+  "status": "COMPLETE_TIED_ORDINARY_TUNING_ANALYSIS",
+  "scores": {
+    "tied-lr0": {
+      "lr": 0.0003,
+      "domains": {
+        "web": 4.1223431950896705,
+        "math": 3.2463741269613138,
+        "code": 2.4272875052045446
+      },
+      "broad_nll": 3.608138243486974
+    },
+    "tied-lr1": {
+      "lr": 0.001,
+      "domains": {
+        "web": 3.789348732028116,
+        "math": 2.9571135839225478,
+        "code": 2.113745337953945
+      },
+      "broad_nll": 3.287781023592168
+    },
+    "tied-lr2": {
+      "lr": 0.003,
+      "domains": {
+        "web": 3.9343459076731095,
+        "math": 3.0816795681124587,
+        "code": 2.244307190904532
+      },
+      "broad_nll": 3.4258048964072634
+    }
+  },
+  "selection": {
+    "arm": "tied-lr1",
+    "lr": 0.001,
+    "domains": {
+      "web": 3.789348732028116,
+      "math": 2.9571135839225478,
+      "code": 2.113745337953945
+    },
+    "broad_nll": 3.287781023592168,
+    "bracketed": true
+  },
+  "assigned_chips": 0,
+  "protected_groups_scored": 0,
+  "trained_seeds": 1,
+  "automatic_promotion": false,
+  "wall_seconds": 0.005048036575317383,
+  "scope": "Single-seed conventional-challenger LR selection on reused DEV. No unbiased confirmation or full conventional frontier claim. Primary latent comparison requires its exact sequential readout, not its better finite-round approximation."
+}

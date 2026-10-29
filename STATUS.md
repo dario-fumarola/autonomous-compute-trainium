@@ -1,3 +1,23 @@
+## October 29, 2026, 13:04 UTC — latent lead survives the tied ordinary challenger
+
+The complete tied ordinary screen selects interiorLR0.001 at3.287781NLL.
+Exact-sequential latent3.262734 improves by0.025047nats, conditional95% source
+interval[0.020119,0.029968]; all domains positive. Every mature numerical/state
+and readout audit passes. This passes the registered equal-data screen but
+costs3.782219times the control's training matrix work, with one reusedDEVseed.
+[Complete comparison](results/interleaved_workspace_20261029/tied-comparison-v1/REPORT.md).
+
+The pre-inventoried deeper ordinary shape begins its bounded actual-shape
+qualification on all16 chips. The wider shape remains pending. Typed structural
+readout continues separately on CPU; no partial quality result is inspected.
+Both fresh reserves remain unscored. The full CPU suite passes738tests/two skips.
+
+Closed-owner maintenance retires only eight successful superseded qualification
+arrays, recovering3.41GiB;4000 exact archived compiler temporaries restore
+15,999 net inodes. Scientific and failed histories remain. Registration and
+launch occur together to avoid another handoff idle interval.
+[Maintenance](results/interleaved_workspace_20261029/maintenance-v8/REPORT.md).
+
 ## October 29, 2026, 12:53 UTC — conventional fits complete; typed structural readout registered
 
 All three tied ordinary fits complete their1957updates and full cooldowns.
