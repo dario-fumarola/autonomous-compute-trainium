@@ -1,3 +1,41 @@
+## October29,2026,02:53 UTC — recovery fit active after exact storage preservation
+
+The repaired same-seed fit is now admitted and active on all16chips. Before
+launch,exact archival preserved12,000 more old compiler files and recovered
+47,999 inodes;free entries exceed66,000. The preceding admission stop and a
+no-plan controller invocation launched no worker or updates. No reserve or
+scientific criterion changed. The original deadline and failed fit costs remain.
+[Recovery plan](results/probability_workspace_20261029/budget-cue-screen-recovery-v1/plan.json) ·
+[Storage receipt](results/probability_workspace_20261029/budget-cue-screen-recovery-v1/compiler-temporary-preservation.json).
+
+## October29,2026,02:50 UTC — exact bounded-capture replay passes; recovery admission paused
+
+All64 replicas and complete model/AdamW/RNG state match the original qualified
+update104 after bounded capture. Full CPU suite599passed/2skipped. The same
+1530-update scientific recipe is prepared to restart from its identical initialization,
+with four-rank capture batches and a recovery-only checkpoint at768. Source
+order,depth schedule,LR,cooldown,mathematical updates,controls,readouts and the
+original04:18 UTC deadline are unchanged. The failed history remains charged.
+Inode projection stopped preparation before registration/launch;additional
+old compiler temporaries are being archived exactly. No recovery fit is active.
+[Exact replay](results/probability_workspace_20261029/budget-cue-capture-replay-v1/report.json).
+
+## October29,2026,02:45 UTC — endpoint capture OOM; bounded-copy repair qualifying
+
+The cue fit completes1530updates/200,190,896targets and its cooldown,but the
+container is OOM-killed during simultaneous64-rank host state capture. No usable
+checkpoint or quality result exists. The failed4.9497 assigned chip-hours,all
+logs,source hashes and original deadline remain recorded.
+[Failure receipt](results/probability_workspace_20261029/budget-cue-screen-v1/failure-summary.json).
+
+The repair releases gradients (not part of checkpoint state) and captures at
+most4 replicas concurrently. CPU identity/next-update tests pass;all16chips now
+qualify exact replay against untouched qualified updates103/104. No memory or
+numerical gate is weakened. A separate same-seed/same-recipe restart is prepared,
+conditional on this replay,with a recovery-only midpoint checkpoint. It retains
+the original two-hour overall deadline and makes no new quality selection.
+[Replay registration](results/probability_workspace_20261029/budget-cue-capture-replay-v1/plan.json).
+
 ## October29,2026,02:18 UTC — budget-cue learning test admitted and launched
 
 Actual-shape cold checks,100-warm-update timing,exact separate-process recovery

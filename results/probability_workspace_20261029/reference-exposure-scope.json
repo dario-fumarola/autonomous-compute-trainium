@@ -1,0 +1,45 @@
+{
+  "status": "REFERENCE_EXPOSURE_SCOPE_CHECK",
+  "source": "https://arxiv.org/html/2505.20674v3",
+  "checked_utc": "2026-10-29",
+  "published": {
+    "main_pythia_corpus_tokens": 300000000000,
+    "matched_flop_70m_section": "3.2.1",
+    "matched_flop_ordinary_epochs": 4,
+    "scaling_appendix_B": [
+      {
+        "parameters": 405000000,
+        "tokens": 7000000000
+      },
+      {
+        "parameters": 834000000,
+        "tokens": 15000000000
+      },
+      {
+        "parameters": 1400000000,
+        "tokens": 26000000000
+      }
+    ],
+    "sampled_extra_steps": [
+      1,
+      10
+    ],
+    "scaling_input_output_embeddings": "untied"
+  },
+  "local": {
+    "parameters": 62801408,
+    "workspace_real_targets": 200190896,
+    "workspace_targets_per_parameter": 3.1876816519782487,
+    "ordinary_work_targets": 446570790,
+    "sampled_extra_steps": [
+      0,
+      1,
+      2
+    ],
+    "input_output_embeddings": "tied"
+  },
+  "interpretation": "These regimes differ in exposure,backbone,tokenizer,data,parameterization and schedule. The local200M test diagnoses early learning;it neither reproduces nor refutes the published long-training claim. Published equal-FLOP comparison against a repeated-data vanilla70M is not evidence against our independently specified ordinary controls. No additional budget or fit admitted by this source check.",
+  "source_quotes": 0,
+  "new_model_fits": 0,
+  "active_registration_changed": false
+}

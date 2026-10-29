@@ -90,7 +90,16 @@ def main(a):
             (a.output/'progress.json').write_text(json.dumps(dict(update=update,seconds=time.time()-started)))
             if update==12 and sum(r['seconds'] for r in telemetry[-9:])/9>p['early_warm_mean_seconds_limit']:
                 raise RuntimeError('Registered early throughput screen failed')
-        if update in (103,104):
+        if update in (103,104) and p.get('checkpoint_rank_batch'):
+            from compute_trainium.bounded_replica_capture import capture_replicas
+            def save_or_compare(state,state_hash):
+                if a.mode=='warm':torch.save(dict(**state,digest=state_hash,update=update),a.output/f'PRIVATE-u{update}.pt')
+                else:
+                    expected=torch.load(a.parent/'PRIVATE-u104.pt',weights_only=False,map_location='cpu',mmap=True)
+                    if state_hash!=expected['digest']:raise AssertionError('Grouped capture/replay differs from original complete state')
+            capture_replicas(model,opt,rank=rank,world=world,rank_batch=p['checkpoint_rank_batch'],output=a.output,
+                update=update,fallback_ops=list(torch_neuronx.get_fallback_ops()),on_primary=save_or_compare)
+        elif update in (103,104):
             state=cpu_tree(dict(model=model.state_dict(),optimizer=opt.state_dict(),rng=torch.get_rng_state()));state_hash=digest(state)
             (a.output/f'replica-{rank}.json').write_text(json.dumps(dict(update=update,digest=state_hash,fallback_ops=list(torch_neuronx.get_fallback_ops()))))
             dist.barrier()

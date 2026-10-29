@@ -71,18 +71,32 @@ def main(a):
                 (a.output/'updates.json').write_text(json.dumps(telemetry));(a.output/'progress.json').write_text(json.dumps(telemetry[-1]))
             if update==16 and sum(r['seconds'] for r in telemetry[-9:])/9>p['early_mean_seconds_limit']:
                 raise RuntimeError('Registered learning throughput ceiling')
+        if update in set(arm['checkpoint_updates'])|set(arm.get('recovery_checkpoint_updates',[])):
+            if p.get('checkpoint_rank_batch'):
+                from compute_trainium.bounded_replica_capture import capture_replicas
+                pending=a.output/f'PRIVATE-u{update}-pending.pt'
+                def save_primary(state,state_hash):
+                    torch.save(dict(**state,digest=state_hash,update=update,real_targets=exposure,matrix_flops=work,
+                        initial_digest=initial_digest,arm=a.arm,plan_sha256=a.plan_sha),pending)
+                h=capture_replicas(model,opt,rank=rank,world=world,rank_batch=p['checkpoint_rank_batch'],output=a.output,
+                    update=update,fallback_ops=list(torch_neuronx.get_fallback_ops()),on_primary=save_primary)
+                if rank==0:
+                    pending.rename(a.output/f'PRIVATE-u{update}.pt')
+                    checkpoints.append(dict(update=update,real_targets=exposure,matrix_flops=work,full_state_digest=h))
+                dist.barrier()
+            else:
+                # Checkpoint is the state before its independent, zero-update audit.
+                state=cpu_tree(dict(model=model.state_dict(),optimizer=opt.state_dict(),rng=torch.get_rng_state()))
+                h=digest(state);(a.output/f'replica-{rank}.json').write_text(json.dumps(dict(update=update,digest=h,fallback_ops=list(torch_neuronx.get_fallback_ops()))))
+                dist.barrier()
+                if rank==0:
+                    rows=[json.loads((a.output/f'replica-{i}.json').read_text()) for i in range(world)]
+                    if len({r['digest'] for r in rows})!=1 or any(set(r['fallback_ops'])-{'aten::_to_copy'} for r in rows):raise AssertionError('Replica/fallback gate')
+                    checkpoint=dict(**state,digest=h,update=update,real_targets=exposure,matrix_flops=work,initial_digest=initial_digest,arm=a.arm,plan_sha256=a.plan_sha)
+                    torch.save(checkpoint,a.output/f'PRIVATE-u{update}.pt')
+                    checkpoints.append(dict(update=update,real_targets=exposure,matrix_flops=work,full_state_digest=h))
+                del state
         if update in arm['checkpoint_updates']:
-            # Checkpoint is the state before its independent, zero-update audit.
-            state=cpu_tree(dict(model=model.state_dict(),optimizer=opt.state_dict(),rng=torch.get_rng_state()))
-            h=digest(state);(a.output/f'replica-{rank}.json').write_text(json.dumps(dict(update=update,digest=h,fallback_ops=list(torch_neuronx.get_fallback_ops()))))
-            dist.barrier()
-            if rank==0:
-                rows=[json.loads((a.output/f'replica-{i}.json').read_text()) for i in range(world)]
-                if len({r['digest'] for r in rows})!=1 or any(set(r['fallback_ops'])-{'aten::_to_copy'} for r in rows):raise AssertionError('Replica/fallback gate')
-                checkpoint=dict(**state,digest=h,update=update,real_targets=exposure,matrix_flops=work,initial_digest=initial_digest,arm=a.arm,plan_sha256=a.plan_sha)
-                torch.save(checkpoint,a.output/f'PRIVATE-u{update}.pt')
-                checkpoints.append(dict(update=update,real_targets=exposure,matrix_flops=work,full_state_digest=h))
-            del state
             # Capture the same fixed source batch for every endpoint and exit.
             # These TRAIN windows are reserved from the fitted prefix and do
             # not select a model or a duration.

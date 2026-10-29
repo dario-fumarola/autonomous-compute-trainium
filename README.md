@@ -7,7 +7,9 @@ and equal-work2.949082. **No thinking or efficiency win is established.**
 A zero-update TRAIN diagnostic finds nearly orthogonal,not opposing embedding
 gradients. After full numerical/recovery qualification,a tiny remaining-budget
 cue is now being tested at the same training budget to isolate depth interference.
-No new quality result is available yet.
+The fit completed its updates but lost its endpoint to a checkpoint-copy OOM.
+The bounded-copy repair passes exact replay;the unchanged recovery fit is active
+with a midpoint recovery checkpoint. No new quality result exists.
 [Fixed-depth results](results/probability_workspace_20261029/fixed-one-v1/REPORT.md) ·
 [Original sampled result](results/probability_workspace_20261028/evaluation-recovery-v2/REPORT.md) ·
 [Live status](STATUS.md).
