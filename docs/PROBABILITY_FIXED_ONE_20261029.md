@@ -50,3 +50,19 @@ One new fit only.90-minute whole-controller limit,60-minute Native phase,
 10000inodes and3GiB artifact allowance. Exact machine registration freezes source
 hashes,control-checkpoint hashes,evaluation-score hashes and work before fitting.
 No automatic extension after a negative or inconclusive result.
+
+## Admission decision,October29
+
+The completed screen finds one replay helps its own supported zero exit by
+0.016107nats,but the second replay hurts by0.040410. The best sampled exit still
+loses0.307025nats to the equal-data ordinary model. All domains favor ordinary.
+The permuted proposal is much worse,which establishes sensitivity to this
+out-of-distribution change,not useful reasoning. All three original screening
+gates fail. No larger or longer run of that schedule is admitted.
+
+This distinct one-fit diagnostic is admitted to isolate fixed versus sampled
+training at exactly equal exposure and work. It is motivated by the large
+optimization deficit and different supported-exit behavior,not by selecting a
+favorable new data slice. It cannot establish that gradient interference caused
+the deficit;all original negative results remain. The completed ordinary and
+sampled controls are reused,not independently replicated.

@@ -1,11 +1,14 @@
 # Autonomous computation during pretraining
 
-Current work: an audited62.8M probability-embedding replay screen is running from
-random initialization on200M real targets,with equal-data,full-work ordinary and
-content-free controls. All supported exits and final cooldowns are registered.
-There is **no new scientific quality result yet**. This is a bounded mechanism
-screen,not a claim that thinking or compute efficiency has been established.
-[Protocol](docs/PROBABILITY_LEARNING_SCREEN_20261028.md) · [Live status](STATUS.md).
+The62.8M probability-replay screen is complete. One supported extra pass helps
+its own checkpoint by0.0161nats,but a second hurts by0.0404. Even the best exit
+loses0.3070nats to ordinary training on the same200M targets;the registered
+deepest exit also loses at matched training work. All numerical audits pass,
+including the recovered FP64 readout reference. **No thinking or efficiency win
+is established.** A new single-fit diagnostic now tests exactly one replay on
+every update,at the identical sampled-arm exposure and matrix budget.
+[Complete results](results/probability_workspace_20261028/evaluation-recovery-v2/REPORT.md) ·
+[Fixed-one diagnostic](docs/PROBABILITY_FIXED_ONE_20261029.md) · [Live status](STATUS.md).
 
 
 Can a randomly initialized language model learn to use additional internal
@@ -29,8 +32,8 @@ their original criteria;no larger recurrence main or confirmation completed.
 A new probability-embedding reference follows the published PonderLM operation:
 form a soft token proposal,add it to the input embeddings,and rerun the causal
 model with full NTP gradients. Small-array and actual62.8M all16-chip numerical,mature-gradient and exact
-restart qualification pass. The registered four-arm scientific screen is active;
-there is **no new prediction-quality result yet**. This is a
+restart qualification pass. The four-arm scientific screen is complete and negative against ordinary
+controls;the results and fixed-budget follow-up are linked above. This is a
 different mechanism from the closed branches below,not a reinterpretation of
 their outcomes. A TRAIN-only audit also finds very little explicit verified
 arithmetic/code supervision among the old screen's selected labels,under narrow

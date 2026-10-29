@@ -1,3 +1,26 @@
+## October29,2026,00:55 UTC — sampled replay negative; fixed-one diagnostic launched
+
+The complete audited broad NLLs are ordinary equal-data3.211047,ordinary
+work-matched2.949082,constant proposal3.207743,and workspace supported0/1/2
+extra passes3.534179/3.518072/3.558482. One replay helps its checkpoint0.016107;
+a second hurts0.040410. Even the best exit loses0.307025 to equal-data ordinary.
+All three original advancement gates fail;all broad domains favor ordinary.
+The arithmetic conclusion diagnostic does not show first-step benefit either.
+[Full result and figure](results/probability_workspace_20261028/evaluation-recovery-v2/REPORT.md).
+
+Every endpoint completed cooldown and mature gradient/full-state/replica audits.
+The recovered readout passes all FP64-reference checks at unchanged2e-4,maximum
+0.000152636. The failed CPU32-reference attempt,zero-update diagnosis and all
+original costs remain. One seed,one common LR,development sources;no reasoning,
+allocation or efficiency claim. All320 protected source groups remain sealed.
+
+All16chips now run one distinct fixed-one-replay diagnostic from the identical
+random initialization:1530updates/200,190,896targets and exactly the sampled
+arm's190,988,262,121,144,320 nominal matrix FLOPs. All ordinary/sampled controls
+are reused unchanged. Only one replay is a supported exit. This isolates fixed
+versus sampled training;it does not assume a cause or admit a larger run.
+[Registered follow-up](results/probability_workspace_20261029/fixed-one-v1/plan.json).
+
 ## October29,2026,00:49 UTC — higher-precision readout recovery launched
 
 The all64-rank capture reproduces0.000250816 Native-versus-CPU-FP32 discrepancy,
