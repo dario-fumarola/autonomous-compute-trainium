@@ -1,5 +1,18 @@
 # Autonomous computation during pretraining
 
+A persistent latent-state model now has an **equal-data development lead**:
+**3.281309 NLL**, versus **3.377111 ordinary** and **3.391128 trained constant
+pauses**. The0.095803-nat ordinary comparison favors generated states in web,
+math and code. All three families select the interior learning rate after
+equal tuning opportunities; all nine mature numerical/state audits pass.
+
+This51.75M-parameter,128M-target result is not yet an efficiency or reasoning
+claim. It uses4.937times ordinary training matrix work, one training seed and
+reused DEV. The selected two-round training approximation also fails a separate
+sequential-consistency check. Exact sequential readout and a bounded mixed-
+round investigation are next; both fresh evaluation reserves remain unscored.
+[Completed learning-rate screen](results/interleaved_workspace_20261029/tuning-v1/REPORT.md).
+
 The joint-exit probability screen is complete and negative. After supervising
 both exits, the refined prediction scores **3.272421 NLL**, versus **3.271351**
 for its supported shallow exit, **3.253961** for equal-data ordinary training,
@@ -17,8 +30,8 @@ A distinct persistent latent-token mechanism now passes complete actual-shape
 qualification. Equivalent grouped storage preserves its causal computation
 while reducing measured warm-update time from4.4902s to0.2463s. Generated,
 ordinary and constant-pause paths pass numerical and full-state replay gates.
-A bounded, equally budgeted nine-fit learning-rate screen is active; **there is
-no new quality result yet**. [Execution evidence](results/interleaved_workspace_20261029/EXECUTION_INVESTIGATION.md) ·
+A bounded, equally budgeted nine-fit learning-rate screen is complete, with the
+qualified equal-data result and limitations above. [Execution evidence](results/interleaved_workspace_20261029/EXECUTION_INVESTIGATION.md) ·
 [Registered learning screen](docs/INTERLEAVED_LR_TUNING_20261029.md).
 
 The untied prediction/value-table comparison is complete and negative. At

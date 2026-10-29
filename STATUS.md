@@ -1,3 +1,27 @@
+## October 29, 2026, 10:15 UTC — equal-data lead; sequential readout and mixed qualification active
+
+All nine128M-target fits, complete cooldowns, mature audits and the common
+readout pass. Each family selects interior LR0.001. Generated latent NLL is
+3.281309, ordinary3.377111 and trained pause3.391128: generated gains0.095803
+over ordinary, with every domain positive. This is one-seed reused-DEV evidence
+at equal data, not confirmation or efficiency. Generated matrix work is4.937
+times ordinary; the selected fixedK2 checkpoint fails sequential consistency.
+[Complete result](results/interleaved_workspace_20261029/tuning-v1/REPORT.md).
+
+All16 chips are qualifying alternatingK2/K3 training with both graphs resident,
+independent cold/mature gradients and exact restart. No mixed scientific fit
+is admitted until this passes. Separately, a frozen CPU readout evaluates the
+already selected checkpoint's exact sequential history across all384 existing
+broad DEV windows. No target-aware selection or fresh reserve access occurs.
+[Sequential registration](docs/INTERLEAVED_SEQUENTIAL_DEV_READOUT_20261029.md).
+
+Nine focused reference/schedule/analysis tests pass; the preceding full suite
+passed718 tests with two skips. Named completed disposable warm-qualification
+arrays are retired with original hashes, freeing11.24GiB; scientific/failed
+histories remain. Exact archival of6000 closed compiler temporaries restores
+24,000 inode slots. No numerical/resource reserve was weakened.
+[Maintenance receipts](results/interleaved_workspace_20261029/maintenance-v4/retirement.json).
+
 ## October 29, 2026, 09:50 UTC — eight tuning endpoints audited; final pause fit next
 
 All ordinary and latent endpoints plus two pause endpoints complete their

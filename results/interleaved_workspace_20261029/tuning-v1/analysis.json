@@ -1,0 +1,142 @@
+{
+  "status": "COMPLETE_INTERLEAVED_LR_TUNING",
+  "scores": {
+    "ordinary-lr0": {
+      "family": "ordinary",
+      "lr": 0.0003,
+      "domains": {
+        "web": 4.237487757504359,
+        "math": 3.415923495127976,
+        "code": 2.658622164741616
+      },
+      "broad_nll": 3.7574017864765334
+    },
+    "ordinary-lr1": {
+      "family": "ordinary",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.869099537092163,
+        "math": 3.0491188844297534,
+        "code": 2.2291392586739867
+      },
+      "broad_nll": 3.3771113508760457
+    },
+    "ordinary-lr2": {
+      "family": "ordinary",
+      "lr": 0.003,
+      "domains": {
+        "web": 3.960601007809468,
+        "math": 3.133318102471927,
+        "code": 2.3202463849883648
+      },
+      "broad_nll": 3.467073502177739
+    },
+    "latent-lr0": {
+      "family": "latent",
+      "lr": 0.0003,
+      "domains": {
+        "web": 4.154896440158421,
+        "math": 3.3342337611921966,
+        "code": 2.5658773774819883
+      },
+      "broad_nll": 3.6729600918298893
+    },
+    "latent-lr1": {
+      "family": "latent",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.778767725190381,
+        "math": 2.945995761586451,
+        "code": 2.124243832427497
+      },
+      "broad_nll": 3.281308553917018
+    },
+    "latent-lr2": {
+      "family": "latent",
+      "lr": 0.003,
+      "domains": {
+        "web": 4.115612645164533,
+        "math": 3.2580884757881425,
+        "code": 2.471125241182765
+      },
+      "broad_nll": 3.6152103304929013
+    },
+    "pause-lr0": {
+      "family": "pause",
+      "lr": 0.0003,
+      "domains": {
+        "web": 4.307518581620756,
+        "math": 3.6848022404959866,
+        "code": 3.0667178696687545
+      },
+      "broad_nll": 3.934815171005402
+    },
+    "pause-lr1": {
+      "family": "pause",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.895148798379737,
+        "math": 3.053362211695833,
+        "code": 2.2168319083496897
+      },
+      "broad_nll": 3.3911281030369467
+    },
+    "pause-lr2": {
+      "family": "pause",
+      "lr": 0.003,
+      "domains": {
+        "web": 4.237319191685274,
+        "math": 3.3839489002738556,
+        "code": 2.596567307663536
+      },
+      "broad_nll": 3.7384947565986426
+    }
+  },
+  "selection": {
+    "ordinary": {
+      "arm": "ordinary-lr1",
+      "family": "ordinary",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.869099537092163,
+        "math": 3.0491188844297534,
+        "code": 2.2291392586739867
+      },
+      "broad_nll": 3.3771113508760457,
+      "bracketed": true,
+      "required_next_action": "separate measured main registration"
+    },
+    "latent": {
+      "arm": "latent-lr1",
+      "family": "latent",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.778767725190381,
+        "math": 2.945995761586451,
+        "code": 2.124243832427497
+      },
+      "broad_nll": 3.281308553917018,
+      "bracketed": true,
+      "required_next_action": "separate measured main registration"
+    },
+    "pause": {
+      "arm": "pause-lr1",
+      "family": "pause",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.895148798379737,
+        "math": 3.053362211695833,
+        "code": 2.2168319083496897
+      },
+      "broad_nll": 3.3911281030369467,
+      "bracketed": true,
+      "required_next_action": "separate measured main registration"
+    }
+  },
+  "trained_seeds": 1,
+  "protected_groups_scored": 0,
+  "automatic_promotion": false,
+  "assigned_chips": 0,
+  "wall_seconds": 0.012466907501220703,
+  "interpretation": "This reused development panel selects learning rates. Scores are not independent confirmation, an unbiased comparison after selection, a thinking result, or a conventional-frontier efficiency claim. All endpoint cooldowns and audits are required."
+}
