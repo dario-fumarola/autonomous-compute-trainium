@@ -1,3 +1,22 @@
+## October 29, 2026, 16:15 UTC — thought-budget qualification passes; capacity preserved
+
+All five explicit-budget graphs pass cold gradients, exact full-state replay and
+replica checks. The largest graph passes the complete128-window mature gradient
+audit. Repeated updates range0.153467–0.526315seconds. Qualification costs
+3.496071assigned chip-hours, with no scientific fit or held-out read.
+[Full evidence](results/budgeted_interleaved_20261029/numerical-v1/REPORT.md).
+
+Exact split archival of two closed failed-build arrays recovers about14.91GiB
+while retaining every byte through independent hard-linked prefixes and unique
+suffixes. Accepted data and scientific states remain unchanged; the old loose
+paths require the explicit tested restore command.
+[Preservation and restoration](results/interleaved_workspace_20261029/maintenance-v13/REPORT.md).
+
+The CPU cached zero/one/two readout passes output/state/full-gradient checks.
+The full suite passes834tests/two skips at that revision; three additional
+archive safety/restoration tests pass. A finite learning comparison remains
+to be registered; this numerical result does not bypass earlier scientific gates.
+
 ## October 29, 2026, 15:57 UTC — distinct thought-budget numerical qualification active
 
 All16chips now run one bounded disposable qualification of explicit zero/one/
