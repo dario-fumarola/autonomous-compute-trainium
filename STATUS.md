@@ -1,3 +1,19 @@
+## October 29, 2026, 14:15 UTC — all declared controls pass; new-seed replication active
+
+Wider ordinary selects interiorLR0.001 at3.399334NLL after all fits/audits.
+Exact-sequential latent improves0.136600nats[0.131449,0.141670], all domains
+positive. The strongest ordinary remains tied11-layer at3.287781; the narrowest
+candidate gain is0.025047. This completes the predeclared conventional screen.
+[Wider result](results/interleaved_workspace_20261029/frontier-wider-tuning-v1/REPORT.md).
+
+All gates and resource checks pass. The fixed two-new-seed replication is
+registered and seed730201's latent fit is active on all16 chips. It includes
+latent, strongest tied ordinary and trained pause recipes at the same128M
+endpoint; six mature audits precede any predictive readout. No new LR choice,
+architecture or fresh reserved panel. These remain equal-data development
+comparisons, not training efficiency or terminal reasoning confirmation.
+[Immutable replication](results/interleaved_workspace_20261029/seed-replication-v1/plan.json).
+
 ## October 29, 2026, 13:52 UTC — wider qualification passes; last declared shape is fitting
 
 The4x576 ordinary model passes cold/mature gradients,64-replica equality and

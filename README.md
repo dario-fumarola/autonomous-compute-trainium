@@ -1,28 +1,38 @@
 # Autonomous computation during pretraining
 
-A persistent latent model trained from random initialization now scores
-**3.262734 NLL under exact sequential generation**, versus **3.287781** for an
-independently tuned eleven-layer ordinary model with tied embeddings. The
-**0.025047-nat equal-data improvement** favors latent computation in web, math
-and code; its conditional source-group interval is[0.020119,0.029968].
+The persistent latent model has passed all declared conventional controls at
+**equal natural-source exposure**, starting from random initialization.
 
-This is a useful predictive-computation development result at51.75M parameters
-and128M authentic targets. It remains one selected seed on reused DEV and costs
-**3.782219times this stronger control's training matrix work**. General reasoning,
-learned allocation and training efficiency remain unestablished. Both fresh
-reserves are unscored. The deeper ordinary control also loses by0.070035nats; the tied control remains
-the strongest completed alternative. The last pre-inventoried wider control
-is now undergoing numerical qualification.
-[Stronger comparison](results/interleaved_workspace_20261029/tied-comparison-v1/REPORT.md) ·
-[Exact sequential result](results/interleaved_workspace_20261029/mixed-sequential-dev-v1/REPORT.md) ·
-[Complete mixed screen](results/interleaved_workspace_20261029/mixed-round-tuning-v1/REPORT.md).
+| Predictor | Parameters | Development NLL ↓ |
+|---|---:|---:|
+| Generated persistent latent state, exact sequential | 51.747M | **3.262734** |
+| Tied-embedding ordinary, 11 layers | 51.179M | 3.287781 |
+| Deeper ordinary, 10 layers | 51.655M | 3.332768 |
+| Original ordinary, 6 layers | 51.747M | 3.377111 |
+| Trained constant pauses | 51.747M | 3.391128 |
+| Wider ordinary, 4 layers | 51.744M | 3.399334 |
 
-A stricter code diagnostic **does not establish better bracket-type tracking**.
-The conditional type-NLL gain over tied ordinary is0.040695nats with an interval
-spanning zero; against trained pauses it is-0.002182, also inconclusive. All
-three models use distant context. The raw closing-token improvement therefore
+Every model receives128,025,288 authentic targets and independent, complete
+three-LR tuning. The **0.025047-nat lead over the strongest ordinary control**
+favors latent computation in web, math and code; its conditional source-group
+interval is[0.020119,0.029968]. All numerical/state audits pass.
+
+This remains one selected seed on reused DEV. The latent model uses
+**3.782219times the strongest control's training matrix work**. A fixed-recipe
+replication with two new initialization seeds is now running on all16 chips.
+Both fresh evaluation reserves remain unscored. Training efficiency, autonomous
+allocation and general reasoning remain unestablished.
+[Strongest control](results/interleaved_workspace_20261029/tied-comparison-v1/REPORT.md) ·
+[Deeper control](results/interleaved_workspace_20261029/frontier-deeper-tuning-v1/REPORT.md) ·
+[Wider control](results/interleaved_workspace_20261029/frontier-wider-tuning-v1/REPORT.md) ·
+[Replication protocol](docs/INTERLEAVED_SEED_REPLICATION_20261029.md).
+
+The stricter code diagnostic does **not** establish better bracket-type
+tracking: comparisons with both tied ordinary and trained pauses are
+inconclusive. All three models use distant context. Raw closing-token gains
 must not be described as a demonstrated reasoning advantage.
-[Complete typed diagnostic](results/interleaved_workspace_20261029/bracket-type-dev-v1/REPORT.md).
+[Typed diagnostic](results/interleaved_workspace_20261029/bracket-type-dev-v1/REPORT.md) ·
+[Claim boundaries](results/interleaved_workspace_20261029/CURRENT_CLAIMS.md).
 
 The preceding fixed-round model has an **equal-data development lead**:
 **3.281309 NLL**, versus **3.377111 ordinary** and **3.391128 trained constant

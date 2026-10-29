@@ -1,0 +1,180 @@
+{
+  "comparison": {
+    "gain": 0.13660002640894123,
+    "conditional_95_interval": [
+      0.1314494264802148,
+      0.14167010531963498
+    ],
+    "cases": 384,
+    "groups": 384
+  },
+  "domains": {
+    "web": {
+      "gain": 0.13342940419610816,
+      "conditional_95_interval": [
+        0.1269596416691432,
+        0.14021471246799705
+      ],
+      "cases": 128,
+      "groups": 128
+    },
+    "math": {
+      "gain": 0.13727836968226548,
+      "conditional_95_interval": [
+        0.12442375746306573,
+        0.1494756766251065
+      ],
+      "cases": 128,
+      "groups": 128
+    },
+    "code": {
+      "gain": 0.14543354977411616,
+      "conditional_95_interval": [
+        0.13341072378638547,
+        0.15839295429418274
+      ],
+      "cases": 128,
+      "groups": 128
+    }
+  },
+  "scores": {
+    "candidate": {
+      "domains": {
+        "web": 3.7625002758453063,
+        "math": 2.9286602524545433,
+        "code": 2.0975086152861753
+      },
+      "broad_nll": 3.2627339390553276
+    },
+    "control": {
+      "domains": {
+        "web": 3.895929680041414,
+        "math": 3.065938622136809,
+        "code": 2.2429421650602914
+      },
+      "broad_nll": 3.3993339654642685
+    }
+  },
+  "status": "COMPLETE_ORDINARY_FRONTIER_PAIRED_COMPARISON",
+  "shape": "wider",
+  "selected_control": {
+    "arm": "wider-lr1",
+    "lr": 0.001,
+    "domains": {
+      "web": 3.895929680041414,
+      "math": 3.065938622136809,
+      "code": 2.2429421650602914
+    },
+    "broad_nll": 3.3993339654642685,
+    "bracketed": true
+  },
+  "candidate_arm": "mixed-lr1",
+  "resources": {
+    "candidate": {
+      "parameters": 51747328,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 165707994422575104,
+      "native_fit_wall_seconds": 790.6416451931,
+      "native_fit_assigned_chip_hours": 3.5139628675248886,
+      "runtime_scope": "Descriptive retained Native fit including startup, compile, audit and checkpoint; cross-launch, not hardware-time matched.",
+      "inference": {
+        "source_positions": 512,
+        "stored_positions": 1024,
+        "nominal_cached_forward_matmul_flops": 62081990656,
+        "fp32_kv_bytes": 25165824,
+        "note": "Analytic cached causal matrix work only, FMA2; excludes elementwise, transfers, dispatch and measured latency. No serving-performance claim."
+      }
+    },
+    "control": {
+      "parameters": 51743808,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 27445771150295040,
+      "native_fit_wall_seconds": 320.25904870033264,
+      "native_fit_assigned_chip_hours": 1.4233735497792561,
+      "runtime_scope": "Descriptive retained Native fit including startup, compile, audit and checkpoint; cross-launch, not hardware-time matched.",
+      "inference": {
+        "source_positions": 512,
+        "stored_positions": 512,
+        "nominal_cached_forward_matmul_flops": 35316301824,
+        "fp32_kv_bytes": 9437184,
+        "note": "Analytic cached causal matrix work only, FMA2; excludes elementwise, transfers, dispatch and measured latency. No serving-performance claim."
+      }
+    }
+  },
+  "candidate_over_control_training_work": 6.037651247441585,
+  "useful_equal_data_screen": true,
+  "control_score_sha256": {
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank0-scores.json": "d6033d96666a86137c33162455afb05ee137cd2002744e5cd34d5e4219b66a73",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank1-scores.json": "9e1e8641c3b15f4b2d378a432a1420358a8660c0577983d6788c6fba68b9f59b",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank2-scores.json": "efa25d5ff5f767f2d581d8b2b20844fa63653539d8e9cd3c91604c7e9f72b05f",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank3-scores.json": "f92be0a3418138a628ae5f320ddccd49cbdde01df47780a0a7fd011aa7df01b0",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank4-scores.json": "9cde7c8fa711d560b815e667aa0b129446e2f6e416127dcbecdbb7631483f30a",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank5-scores.json": "cac710918c9d48fc716bc4cc212ae5dddbc49f5ca34b4a8c0f5b647e6a1139ae",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank6-scores.json": "38f7b5dea47fb4f8ec863628b0832b72680ae3b8a7a908e5a461c4c130e90152",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank7-scores.json": "93ff48f4ec7ca274b23ec91dee825c50eb769e9b2a70dc51ef152936b0239521",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank8-scores.json": "0bcbb0e81941feee6d885bb62985a8868e63c78a2ff863941730769184ed9e2a",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank9-scores.json": "9298bc52b88a35a6c0896064d3267f13a5470c3131c9e1482a480d762d11e6d3",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank10-scores.json": "311b8818efcda2dd1137316be975cfb872610ac4fea5a17f5ac1f0983a0419ae",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank11-scores.json": "2713524eb2491df0862ff97e6499e68623a2b6b0f19beeb825ef1426601206f9",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank12-scores.json": "5fb33562cb27ea91de75f4b7bffdc63f9546c8aabc97c46fe973dc79ada4e547",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank13-scores.json": "a095435617cf9fafb61663dee53adb9764163b8e6ce2a5840d12f909ce1da931",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank14-scores.json": "3ec1f3a55cf8eaebb574319d0f78a8d07f60b2d44bfbdbc49e0cd52de2334041",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank15-scores.json": "d25eca82e96c375c74c6e064f2d4fc59e593e127acfd789e27b000d646543ea3",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank16-scores.json": "fad5f259274b927be168464e0567b120a00850a512ce5a6b1ceaeceda976aa21",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank17-scores.json": "4092b8848bb4db242e3b68060f2c5f9bf8ef299e398de017897f00e71e3d4531",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank18-scores.json": "99f2ed5cbf386a91ba27c1266e2cddc3e6701c69698b57023d6a380a1b7f2451",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank19-scores.json": "d8b6769a496103808b53e5059c073719d7b205782d32d8a56ec1e148d5d04113",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank20-scores.json": "c39fd1ee072aec26b247d1734d2bc3beed1c536f6766875ad3f3981d488ea709",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank21-scores.json": "88a3328b00f370844d4ae9261d92e91f94d851a7a5d8a5841d9c8e1e27d28786",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank22-scores.json": "cbeee24743a785833b18e5cdd5acdec449e9206c8a506ea0050349e92326b1d5",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank23-scores.json": "56c2b7f404f0a93c62abf04179a8103eb93ab8c0c2f8c97c94b0a71c2c192df8",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank24-scores.json": "4bd9e3dca9f55725c8068cbb669806f9384e7bc6ecce2b028e4c97c48151e478",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank25-scores.json": "0afec532ec7b4822693cdd0e2ce896a5d32f1e1a9686d40a31e189421f991e47",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank26-scores.json": "61a6dbfad0b58ab1a129aaf0d23c45912008aabbd90aaf7dd6d5232c079a8828",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank27-scores.json": "ef5132b610b0277d826de9458bfa2007cdc82e9afc3601b0c44ecf3d0a8d2209",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank28-scores.json": "b50929f94a77657dca0721c87895e527c72953b14a940647753055ebbde691b7",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank29-scores.json": "fb84fe385c579dd3d174fafbd0e62a0195626abb9b013c019c7358f2f77f8749",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank30-scores.json": "1989ccd5e355ea473d5137f9c4ac2283a02ff52e1ba11e1976d626a79e3d4c3c",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank31-scores.json": "1faed7a84650e07c0e71a77f8fa1a7ecd2b5ba8de08fbea59625a770299a6db5",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank32-scores.json": "03aa4fa0b6c84758bf42eead37960cead965f6e1cb15c92b17beb25c01dc544d",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank33-scores.json": "a496ac1bc125e6234960925ef6149ab3e84a86a08daae5132c7dfabbe6bf40f4",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank34-scores.json": "4c5911660d3a68245c70efd0732e03692601cedfe1071b79e00338f22f55b6b7",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank35-scores.json": "881d65b548b8c0e24cd626eb6f2f509a4b8c4009028508312d01b36f965dc63d",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank36-scores.json": "18d4c74af4ffbd1ea110c7f2e21af07a617c43fbfb091bb52d925325d4e51ac5",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank37-scores.json": "e99083cd1f78d74a8afb3f8f666a50ae30d1899ddbe00f05e72eb62526b79f51",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank38-scores.json": "11f9c6ef1024b8004e03d04af26af7f62cde64672b144902e1964912de761dd7",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank39-scores.json": "8c1873feecb4f76cc1d3c2b537dbcb8faee19eb229400d1d2abd23d4eefcd7b3",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank40-scores.json": "c3a75447ba9747b3eb9f3aa508a83fe8d6fb821dc2cec8ddb1adf75039f70a5d",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank41-scores.json": "c32fe2780d3604d8bc9985d52c9c1dc36c47c7ac2014d8c7876a5bb1ae6a8e9d",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank42-scores.json": "3fb495c2baf48b848bba04557f1308e58229964d9595ffb47ded527a0605d066",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank43-scores.json": "853ce8f8b4ecbc0f4a7c41e565065e10f8d43766fcb22120a9f6794670fe2ac7",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank44-scores.json": "ae4eb73d80b2ac8856e0d01bfb1eca6752dd49a15ce9507d00401673c8d55df8",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank45-scores.json": "2e77cc30ab54cecbfe64d0ae421a41ae37d04b2addb2a9f78cf096d64164aa96",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank46-scores.json": "70f03627a2764d6d651d58a16059794b999d6ed49b3fb3cef110d5f921a82026",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank47-scores.json": "b78067d5e5896142ceab6ece1aed59bd233eeea378b346032016d72dde10d5bf",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank48-scores.json": "06037e23a3cc32b8f771ac264464bef5b727d5c2d95f7e30c74ee6629513ee7c",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank49-scores.json": "7f0c9cd457b02daba6002c07a95e69aaa1bc022affc064e642af00e5a86f4120",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank50-scores.json": "4f29714387042c2209c232f71926ae52e4d56ae45946d95a92e5670cde15f49f",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank51-scores.json": "4d4e17f6de6b4e76927d0d2aee2fd5e223c9a45a4de18ab18efe641d93e86a5a",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank52-scores.json": "3529f07764ae3aa045a3fe322b1af163cba755c0fdc180e779084e60ebffca76",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank53-scores.json": "32ef679dd7a3d3412097c217f4bba2546110985bd9cc5f5ebc0eeb055a7dcc8e",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank54-scores.json": "ad2f30040f40d879e81c95024ae6019e475d42cc68cfdd5d9c9b30c0036eee2e",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank55-scores.json": "b6e2819ecd5a26b88a3c8ceb94e4957f5deefb8ef68cf396c993bf77adc1f362",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank56-scores.json": "fe3d13bf00b4f4ffd2081d995abbf695a92d7e2637d629974113d9a115f03690",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank57-scores.json": "0a883178c34ba79766ad9d3b7d155cbce7f501dbe9c62a11d481495469b68ca1",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank58-scores.json": "f7696582abbf98e57ec8185006c15d79b9d9a29884c7dc864de9076ee9680204",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank59-scores.json": "7bf09e7f04138c7931768ca412a2aa39319562051e89bfa2975ff5edf17b5ff5",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank60-scores.json": "b7c3fde792a5346edfb3ba2f80fa7cdcd21bc157b2b723050fdc7cdf5bab1b8b",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank61-scores.json": "520d048625f7a4d223660c9787507a7e2c6a20d8f72b582c1f2d954a4aff6e55",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank62-scores.json": "647ade882f10d4d297d6ba26d662d09b7e9edb1dd215fd15508024d1900576bd",
+    "runs/interleaved-frontier-wider-tuning-v1-evaluation/PRIVATE-rank63-scores.json": "574c2d3b73f8a823977ae07cb774f75614aa1f06389e8f10ce3874ee63767ef3"
+  },
+  "control_analysis_sha256": "13349a0b51e193746e217a32edf9508a94367c14793c35651a0bfa3b190d02b5",
+  "trained_seeds": 1,
+  "protected_groups_scored": 0,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "automatic_promotion": false,
+  "wall_seconds": 0.09860444068908691,
+  "scope": "One selected training seed on reused DEV, equal authentic exposure. No fresh confirmation, general reasoning, allocation, exhaustive frontier or matched-training-work claim."
+}
