@@ -1,0 +1,37 @@
+{
+  "status": "REFERENCE_PARAMETERIZATION_DIFFERENCE_IDENTIFIED_NOT_CAUSALLY_TESTED",
+  "paper": "https://arxiv.org/html/2505.20674v3",
+  "paper_sections": [
+    "Appendix B explicitly unties input/output matrices",
+    "Section4.3 randomized extra steps1..10 rather than0..2"
+  ],
+  "official_demo": "https://github.com/LUMIA-Group/PonderingLM/blob/3deec205194d754f3e9641182e0f4c3ea3c3f6d4/README.md",
+  "pythia_config": "https://huggingface.co/EleutherAI/pythia-70m/blob/a39f36b100fe8a5377810d56c3f4789b9c53ac42/config.json",
+  "config_sha256": "002050231a9b1ec3ac77aa6b9b3bbdc4d923f4068a7dd33b8da72a9bd6ad9a43",
+  "config_fields": {
+    "hidden_size": 512,
+    "num_hidden_layers": 6,
+    "intermediate_size": 2048,
+    "tie_word_embeddings": false,
+    "vocab_size": 50304,
+    "use_parallel_residual": true
+  },
+  "current_testbed": {
+    "input_output_tied": true,
+    "dim": 512,
+    "layers": 16,
+    "ffn_dim": 1376,
+    "vocab_size": 32000,
+    "extra_passes": [
+      0,
+      1,
+      2
+    ],
+    "embedding_scaling": false
+  },
+  "structural_observation": "For fixed embedding rows E and final hidden query h,the tied proposal softmax(h E^T) E has Jacobian E^T (diag(p)-p p^T) E,which is positive semidefinite. With distinct output rows W and input/value rows E,the corresponding cross-covariance need not be symmetric or PSD. The full causal body remains nonlinear;this local constraint does not prove the tied model cannot learn useful computation.",
+  "prospective_test": "Only if justified after the fixed-one comparison: independently qualify untied input/output parameters and compare candidate with an equally untied ordinary control at equal parameters/exposure/work. Count extra parameters and measured cost. Do not attribute differences across published architectures to tying alone.",
+  "new_model_fits": 0,
+  "new_native_work": 0,
+  "active_experiment_changed": false
+}
