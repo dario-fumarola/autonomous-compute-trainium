@@ -26,3 +26,14 @@ interval authorizes a terminal reasoning or efficiency claim.
 [Bracket-type diagnostic](bracket-type-dev-v1/REPORT.md) ·
 [Conditional replication](../../docs/INTERLEAVED_SEED_REPLICATION_20261029.md) ·
 [PonderLM-2](https://arxiv.org/html/2509.23184v4).
+
+## Authored arithmetic readout
+
+The complete existing134-conclusion diagnostic fails both advancement gates.
+Latent-minus-control quality gains are−0.013628nats against tied ordinary and
++0.018103 against pauses; both conditional intervals include zero. First-target
+comparisons are inconclusive and all-answer accuracy is near the floor. The
+110 intermediate expressions do not provide a replacement positive. The nine
+code-name cases favor the controls, with insufficient coverage for a general
+code conclusion. No arithmetic-transfer claim follows from the broad lead.
+[Full result](arithmetic-dev-v1/REPORT.md).

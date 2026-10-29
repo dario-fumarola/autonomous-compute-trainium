@@ -34,6 +34,13 @@ must not be described as a demonstrated reasoning advantage.
 [Typed diagnostic](results/interleaved_workspace_20261029/bracket-type-dev-v1/REPORT.md) ·
 [Claim boundaries](results/interleaved_workspace_20261029/CURRENT_CLAIMS.md).
 
+The authored-arithmetic diagnostic also fails its advancement gates. On134
+conclusions, latent NLL2.116429 is slightly worse than tied ordinary2.102801;
+its comparison with pauses2.134533 is also inconclusive. All-answer accuracy
+is near the floor. The broad prediction lead is not an arithmetic-transfer
+finding. [Arithmetic result](results/interleaved_workspace_20261029/arithmetic-dev-v1/REPORT.md).
+
+
 The preceding fixed-round model has an **equal-data development lead**:
 **3.281309 NLL**, versus **3.377111 ordinary** and **3.391128 trained constant
 pauses**. The0.095803-nat ordinary comparison favors generated states in web,

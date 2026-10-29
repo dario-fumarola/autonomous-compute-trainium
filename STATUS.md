@@ -1,3 +1,19 @@
+## October 29, 2026, 15:04 UTC — arithmetic result inconclusive; replication controls continue
+
+The fixed arithmetic readout completes with all253cases and six exact-sequential
+checks passing. Both conclusion gates fail: latent2.116429, tied ordinary2.102801,
+pauses2.134533; conditional comparisons include zero. All-answer accuracy is
+near the floor. The exploratory intermediate family does not rescue the result;
+the tiny code-name family favors the controls. This is not arithmetic transfer.
+[Full readout](results/interleaved_workspace_20261029/arithmetic-dev-v1/REPORT.md).
+
+Both new-seed latent fits and the first seed's two controls pass their mature
+audits. The second seed's ordinary/pause fits remain in the original queue; no
+new-seed quality score has been read. The prepared ephemeral qualification still
+waits for all six audited endpoints. Exact duplicate-code storage recovers3.73GiB
+without changing either path's bytes, the source index or historical failures.
+[Preservation receipt](results/interleaved_workspace_20261029/maintenance-v11/REPORT.md).
+
 ## October 29, 2026, 15:02 UTC — first replication seed audited; arithmetic readout underway
 
 All three seed730201 fits complete and pass mature audits. Seed730237's latent
