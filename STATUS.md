@@ -1,3 +1,18 @@
+## October 29, 2026, 20:48 UTC — missing sparse state checks isolated
+
+The second disposable qualification also times out during checkpoint handling.
+All four cold checks and 100 warm measurements pass, but neither timeout is a
+qualification pass. Together they cost 10.681987 assigned chip-hours.
+
+A separately registered supplement now restores the saved full update-103 state,
+performs only the missing update104, then requires independent replay and the
+full-global CPU gradient audit. There is no third four-graph warm-up and no
+scientific state reuse. Its explicit 45-minute ceiling does not rewrite the
+failed original budget. Ten focused checks and the full suite (974 passed, two skips) pass.
+The scientific comparison remains unadmitted. Both fresh reserves stay sealed.
+[Recovery failure](results/chunked_persistent_workspace_20261029/numerical-recovery-v1/REPORT.md) ·
+[Supplement](results/chunked_persistent_workspace_20261029/completion-v1/plan.json).
+
 ## October 29, 2026, 20:40 UTC — sparse qualification remains incomplete
 
 All four initial cold gradient checks and all 100 warm updates pass their

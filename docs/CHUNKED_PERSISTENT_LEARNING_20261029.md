@@ -59,9 +59,17 @@ communication and serial-launch costs remain outside that ledger. The ordinary
 budget must never be rounded down. A nominal-work advantage is not a chip-time
 advantage. No inference-cost claim follows from training timing.
 
-Admission projects 1.5 times measured warm fit time, 240 seconds per fit for
+Admission projects 1.5 times measured warm fit time, 600 seconds per fit for
 other work, and 900 seconds for evaluation/readout; the complete projection must
-fit four hours. Preserve an immutable four-hour campaign ceiling, one-hour
+fit six hours. Preserve an immutable six-hour campaign ceiling, one-hour
 Native phase caps, 20-minute CPU caps, nine GiB artifacts, all ten snapshot
 inode projections, 512-GiB host and 192-GiB worker limits, and 35-GiB disk floors.
 No automatic retries or scientific reuse of disposable qualification states.
+
+Before admission, require PASS_CHUNKED_PERSISTENT_COMPLETION: both timed-out
+qualification histories remain charged, and the supplement must finish exact
+state replay and the full-global CPU gradient audit. The prospective budget
+now allows 600 seconds per fit for compilation/checkpointing, because repeat
+compilation was observed; cross-launch compilation reuse is not assumed.
+This revision precedes scientific registration and does not extend an active
+scientific experiment.

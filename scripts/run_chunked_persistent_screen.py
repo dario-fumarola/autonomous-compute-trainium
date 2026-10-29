@@ -56,23 +56,23 @@ def admission_cost(arms,warm):
     if set(warm)!={'0','1','2','3'} or any(not 0<float(x)<=1 for x in warm.values()):
         raise AssertionError('Complete bounded measured graph times required')
     measured=sum(len(a['depth_schedule'])*warm[str(a['graph_id'])] for a in arms.values())
-    projected=1.5*measured+240*len(arms)+900
-    if projected>14400:
-        raise RuntimeError('Complete tuned screen must fit the four-hour ceiling with measured headroom')
+    projected=1.5*measured+600*len(arms)+900
+    if projected>21600:
+        raise RuntimeError('Complete tuned screen must fit the six-hour ceiling with measured headroom')
     return dict(measured_fit_seconds=measured,headroom_projected_seconds=projected,
-                fit_factor=1.5,per_fit_other_seconds=240,evaluation_readout_seconds=900)
+                fit_factor=1.5,per_fit_other_seconds=600,evaluation_readout_seconds=900)
 
 
 def prepare(root):
     from compute_trainium.indexed_natural_sources import IndexedNaturalSources
-    qpath=Path('results/chunked_persistent_workspace_20261029/numerical-recovery-v1/report.json')
+    qpath=Path('results/chunked_persistent_workspace_20261029/completion-v1/report.json')
     q=json.loads(qpath.read_text())
-    if q['status']!='PASS_CHUNKED_PERSISTENT_ACTUAL_SHAPE':
+    if q['status']!='PASS_CHUNKED_PERSISTENT_COMPLETION':
         raise AssertionError('Actual shape, full gradients, exact replay and runtime must qualify first')
     if managed_running():raise RuntimeError('Previous Native owner must close')
     if shutil.disk_usage('/').free<35*1024**3 or shutil.disk_usage(root).free<44*1024**3:
         raise RuntimeError('Nine GiB artifact allowance above protected output reserves')
-    qp=root/'chunked-persistent-qualification-recovery-v1/plan.json';qualified=json.loads(qp.read_text())
+    qp=root/'chunked-persistent-completion-v1/plan.json';qualified=json.loads(qp.read_text())
     for f in ('compute_trainium/chunked_persistent_workspace.py','compute_trainium/chunked_persistent_factory.py',
               'compute_trainium/depth_causal_workspace.py','compute_trainium/tied_interleaved_ordinary.py',
               'compute_trainium/model.py','scripts/train_interleaved_screen.py',
@@ -90,7 +90,7 @@ def prepare(root):
     if any(file_sha256(source/(d+'.u16'))!=h for d,h in data.report['raw_token_sha256'].items()):
         raise AssertionError('Original authentic corpus changed')
     c=ModelConfig(**qualified['model_config']);arms,points=build_arms(old,c,data)
-    costs=admission_cost(arms,q['records']['warm']['warm_by_depth'])
+    costs=admission_cost(arms,q['original_warm_times'])
     files={str(f):file_sha256(f) for d in ('compute_trainium','scripts','configs') for f in Path(d).rglob('*.py')}
     for f in ('scripts/run_native_isolated.sh','docs/CHUNKED_PERSISTENT_LEARNING_20261029.md',
               'tests/test_chunked_persistent_screen.py'):
@@ -100,7 +100,7 @@ def prepare(root):
     if os.statvfs(root).f_favail<projection['required_free_inodes']:
         raise RuntimeError('All ten snapshots must fit above protected inode reserve')
     now=time.time();p=copy.deepcopy(old)
-    p.update(identity=ID,registered_unix=now,seconds_limit=14400,absolute_deadline_unix=now+14400,
+    p.update(identity=ID,registered_unix=now,seconds_limit=21600,absolute_deadline_unix=now+21600,
         phase_seconds_limit=3600,cpu_phase_seconds_limit=1200,early_mean_seconds_limit=1.2,
         arms=arms,evaluation_points=points,evaluation_files=er['files'],model_config=c.__dict__,
         parameters=c.parameter_count(),untied_prediction_table=False,source_stride=128,
