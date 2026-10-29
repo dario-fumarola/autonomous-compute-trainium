@@ -1,3 +1,23 @@
+## October 29, 2026, 08:58 UTC — ordinary fits audited; learned-state diagnostic registered
+
+The three ordinary128M-target learning-rate fits complete their cooldowns and
+pass independent mature gradients and exact CPU state restoration. The first
+latent fit is active on all16 chips. No tuning quality scores exist yet.
+
+A separate CPU-only diagnostic is frozen before those scores: all three latent
+endpoints plus initialization, on six fixed TRAIN windows outside fitting and
+numerical-audit ranges. It compares two-round predictions with exact sequential
+generation, state convergence and higher numerical round counts. Initialization
+passes the declared consistency guard in all domains; learned endpoints remain
+pending. These are numerical-depth checks, not additional thought-budget tests.
+
+The cached sequential CPU reference matches full recomputation in states,
+predictions, complete gradients and prefix causality. Eighteen focused tests
+pass. A complete suite is running. No accelerator cached-decoding throughput
+claim follows from this CPU reference, and the active fixed-two tuning plan is
+unchanged. Both fresh evaluation reserves remain unscored.
+[Diagnostic registration](docs/INTERLEAVED_CONVERGENCE_DIAGNOSTIC_20261029.md).
+
 ## October 29, 2026, 08:34 UTC — execution cliff resolved; learning-rate screen active
 
 All16 chips are running the bounded persistent-state tuning queue. Each of
