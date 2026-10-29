@@ -1,11 +1,11 @@
 {
   "status": "PASS_CPU_SPARSE_LEARNING_PREPARATION",
-  "checked_unix": 1793307034.234146,
+  "checked_unix": 1793307981.5203164,
   "focused_tests_passed": 10,
   "focused_seconds": 2.35,
-  "full_suite_passed": 974,
+  "full_suite_passed": 978,
   "full_suite_skipped": 2,
-  "full_suite_seconds": 142.81,
+  "full_suite_seconds": 134.59,
   "source_sha256": {
     "scripts/run_chunked_persistent_screen.py": "273e9dec445407897bf3dfdbf129934c4feafafdf64e55ca22b79addacbba52c",
     "scripts/chunked_persistent_scientific_entry.py": "bb83c2c7a3c53faed5311c35c06d81740c23c29f9c612234ad798f8e7c0eff44",
@@ -41,5 +41,13 @@
   "scientific_fit_admitted": false,
   "assigned_chips": 0,
   "model_scores": 0,
-  "scope": "Prepared and CPU-tested design only. Requires separately completed supplemental state/gradient qualification. Scientific ceiling is six hours with 600 seconds per fit for observed compilation/checkpoint overhead, not assumed cache reuse. Both fresh reserves sealed."
+  "scope": "Prepared and CPU-tested design only. Requires separately completed supplemental state/gradient qualification. Scientific ceiling is six hours with 600 seconds per fit for observed compilation/checkpoint overhead, not assumed cache reuse. Both fresh reserves sealed.",
+  "additional_cpu_only_reference": {
+    "source_sha256": {
+      "compute_trainium/chunked_memory_intervention.py": "cd22d5bb3230a0acd451f63dc1c4d13040e184d94858e941936a020d0b678000",
+      "tests/test_chunked_memory_intervention.py": "56d341a452e45a6574d9382535bb56d37fb68ad6245090055e1c0712ab26fbb7"
+    },
+    "research_data_scored": false,
+    "scientific_fit_admitted": false
+  }
 }
