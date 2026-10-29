@@ -1,3 +1,27 @@
+## October29,2026,03:23 UTC — cue experiment complete; iteration flat, proposals nearly constant
+
+The same checkpoint scores3.423109/3.423031/3.423106NLL at supported0/1/2 exits.
+Incremental gains+0.000078/−0.000075 both have intervals crossing zero. Deepest
+loses0.212059 to equal-data ordinary and0.474025 to equal-work ordinary;all gates
+fail. Fixed-one remains better than this sampled variant. The cue ablation is
+closed;no scientific model is currently fitting and no scaling is admitted.
+
+All mature CPU gradients,full-state restoration,64-replica equality and FP64
+readout checks pass. The repaired fit and evaluation use6.201206 assigned
+chip-hours;the lost first fit adds4.949728,with qualification separately charged.
+The midpoint digest passes independently. Every failure remains preserved.
+
+Registered zero-update TRAIN diagnostics show proposal centered/total RMS only
+4.0–5.9%,versus89.0% fixed-one;cross-depth gradient cosines0.978–0.995. This is
+consistent with nearly constant extra input,not useful iteration. It does not
+support opposing gradients at the measured endpoint,and permutation damage is
+not reasoning evidence. All protected source groups remain unscored.
+
+Next:inspect the independently documented tied-versus-untied probability
+interface difference before deciding any further controlled experiment. No
+continuation or larger model is automatically authorized by this result.
+[Full comparison](results/probability_workspace_20261029/budget-cue-screen-recovery-v1/REPORT.md).
+
 ## October29,2026,02:53 UTC — recovery fit active after exact storage preservation
 
 The repaired same-seed fit is now admitted and active on all16chips. Before

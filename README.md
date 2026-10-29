@@ -1,19 +1,18 @@
 # Autonomous computation during pretraining
 
-Fixed one-replay training materially improves the62.8M workspace: NLL falls
-from3.518072 with sampled-depth training to3.241172 at exactly the same200M
-targets and training matrix work. It still loses to ordinary equal-data3.211047
-and equal-work2.949082. **No thinking or efficiency win is established.**
-A zero-update TRAIN diagnostic finds nearly orthogonal,not opposing embedding
-gradients. After full numerical/recovery qualification,a tiny remaining-budget
-cue is now being tested at the same training budget to isolate depth interference.
-The fit completed its updates but lost its endpoint to a checkpoint-copy OOM.
-The bounded-copy repair passes exact replay;the unchanged recovery fit is active
-with a midpoint recovery checkpoint. No new quality result exists.
-[Fixed-depth results](results/probability_workspace_20261029/fixed-one-v1/REPORT.md) ·
-[Original sampled result](results/probability_workspace_20261028/evaluation-recovery-v2/REPORT.md) ·
-[Live status](STATUS.md).
+The remaining-budget cue experiment is complete and negative. Its same trained
+checkpoint scores3.423109/3.423031/3.423106NLL at0/1/2 extra steps:iteration adds
+no measurable benefit. It loses to ordinary equal-data3.211047 and equal-work
+2.949082. TRAIN diagnostics find almost constant proposals and nearly parallel
+exit gradients,consistent with suppressing content variation rather than learning
+useful iterative work. All registered gates fail;the cue variant is closed.
 
+The final checkpoint survives the qualified bounded-copy repair,and all exits
+pass independent mature-gradient/state/readout audits. The lost first fit and
+its costs remain recorded. **No thinking or efficiency win is established.**
+[Completed comparison and diagnostics](results/probability_workspace_20261029/budget-cue-screen-recovery-v1/REPORT.md) ·
+[Fixed-depth result](results/probability_workspace_20261029/fixed-one-v1/REPORT.md) ·
+[Live status](STATUS.md).
 
 Can a randomly initialized language model learn to use additional internal
 computation to predict unseen natural text better?
