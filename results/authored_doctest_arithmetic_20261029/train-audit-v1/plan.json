@@ -1,0 +1,23 @@
+{
+  "identity": "authored-doctest-arithmetic-train-audit-v1",
+  "registered_unix": 1793309208.7722414,
+  "absolute_deadline_unix": 1793309808.7722414,
+  "maximum_code_documents": 10000,
+  "maximum_rss_bytes": 8589934592,
+  "source_sha256": {
+    "scripts/audit_authored_doctest_arithmetic.py": "08cfaf1fc4ee77a41b3b58d47f345ba4b26728fe775884e65c73c9976d26b090",
+    "compute_trainium/authored_code_assertions.py": "7b1f286c0cebb2cab09ff7ac9fcb4ee7fbf917ed6676b7fa5181a8a66f29bc6e",
+    "compute_trainium/authored_doctest_arithmetic.py": "81a4972e0bd64d25b7f275c16d5b52cd9fa9f44ddbe098bd04b2681ad88713f2",
+    "compute_trainium/natural_code_context.py": "91a8e7e7244054e0d8dc9df200f0b5224e973d7a3e11bd23197de4a9822b284d",
+    "tests/test_authored_doctest_arithmetic.py": "6603f026f7e44649f4d95bef6c57b764714b460c7084895f39178b082f005788"
+  },
+  "accepted_report_sha256": "665d6b2beb7fbc730eeceb4f54fa05ddaa6949b7fffde4a40da32e58b7a27ca1",
+  "recipe_sha256": "0fbfb989c9f442771510799c782419b327f15b3588a9a888460117244408b5ae",
+  "code_tokens_sha256": "0a9c0f5cf8267992dc87c7fb854f5d67bfe61366f9cd6d63a73afc6a5aab481f",
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "selection": "First 10000 accepted indexed TRAIN code documents, unchanged source order and tokenizer roundtrip. Whole-file bounded Python AST; genuine triple-quoted docstrings with authored interactive prompts, local constant assignments, pure integer expressions and existing canonical integer output lines, at module/class/function scope; unknown prompt statements forget all bindings. At least two expression-tree arithmetic operations, authentic answer verified and absent from operand literals/dependency-span numeric text. All used premises must fit the original contiguous512-source-token prefix. No source execution or model scoring.",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "scope": "TRAIN coverage lower bound only. No generated labels, fitted model, evaluation panel or scientific fit admission."
+}
