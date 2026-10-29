@@ -16,6 +16,13 @@ controls are next; the deeper model is now undergoing numerical qualification.
 [Exact sequential result](results/interleaved_workspace_20261029/mixed-sequential-dev-v1/REPORT.md) ·
 [Complete mixed screen](results/interleaved_workspace_20261029/mixed-round-tuning-v1/REPORT.md).
 
+A stricter code diagnostic **does not establish better bracket-type tracking**.
+The conditional type-NLL gain over tied ordinary is0.040695nats with an interval
+spanning zero; against trained pauses it is-0.002182, also inconclusive. All
+three models use distant context. The raw closing-token improvement therefore
+must not be described as a demonstrated reasoning advantage.
+[Complete typed diagnostic](results/interleaved_workspace_20261029/bracket-type-dev-v1/REPORT.md).
+
 The preceding fixed-round model has an **equal-data development lead**:
 **3.281309 NLL**, versus **3.377111 ordinary** and **3.391128 trained constant
 pauses**. The0.095803-nat ordinary comparison favors generated states in web,

@@ -1,3 +1,29 @@
+## October 29, 2026, 13:12 UTC — typed code test is inconclusive; broad comparison continues
+
+The completed282-case bracket-type diagnostic fails both advancement gates.
+Long type-NLL gains are0.040695 vs tied ordinary[-0.060128,0.139516] and-0.002182
+vs pauses[-0.102241,0.096430]. All models benefit from distant context, with no
+clear extra context-use advantage for the generated-state model. Raw-target
+NLL still improves0.278127 vs tied ordinary, but this does not identify better
+bracket tracking. Preserve both results; no threshold or primary claim changes.
+[Typed and raw result](results/interleaved_workspace_20261029/bracket-type-dev-v1/REPORT.md).
+
+The deeper conventional LR screen remains active on all16 chips. The complete
+CPU suite now passes747tests/two skips. No fresh reserved group is scored.
+
+## October 29, 2026, 13:10 UTC — deeper challenger qualifies and begins independent tuning
+
+The10x448 ordinary model passes cold/mature gradients, all64 replicas and exact
+fresh-process full-state replay. Its100 warm updates average0.272427s. A new
+bounded three-LR128M-target comparison now runs on all16 chips; no predictive
+score is available. The paired analysis was registered before fitting and
+requires exact source/exposure/schedule agreement with the latent candidate.
+[Qualification](results/interleaved_workspace_20261029/frontier-deeper-qualification-v1/REPORT.md).
+
+The typed code diagnostic is nearing completion on CPU. No partial scores or
+fresh reserved groups have been inspected. Sixteen focused comparison tests
+pass; the updated full suite is still running.
+
 ## October 29, 2026, 13:04 UTC — latent lead survives the tied ordinary challenger
 
 The complete tied ordinary screen selects interiorLR0.001 at3.287781NLL.

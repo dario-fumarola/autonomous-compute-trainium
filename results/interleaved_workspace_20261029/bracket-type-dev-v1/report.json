@@ -1,0 +1,497 @@
+{
+  "status": "COMPLETE_BRACKET_TYPE_DIAGNOSTIC",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "protected_groups_scored": 0,
+  "raw": {
+    "means": {
+      "latent": {
+        "full": {
+          "long": 1.9363641558201796,
+          "short": 1.9167758417286234
+        },
+        "last32": {
+          "long": 2.6055688457125843,
+          "short": 2.2186465561780837
+        }
+      },
+      "ordinary": {
+        "full": {
+          "long": 2.2144908146536353,
+          "short": 2.0045479507444686
+        },
+        "last32": {
+          "long": 2.717075220125995,
+          "short": 2.160581351446493
+        }
+      },
+      "pause": {
+        "full": {
+          "long": 2.044122776030439,
+          "short": 2.043581153426707
+        },
+        "last32": {
+          "long": 2.5965463912658757,
+          "short": 2.3979321726784444
+        }
+      }
+    },
+    "comparisons": {
+      "long_vs_ordinary": {
+        "gain": 0.27812665883345533,
+        "conditional_95_interval": [
+          0.08175804033607019,
+          0.4828242402610638
+        ]
+      },
+      "short_vs_ordinary": {
+        "gain": 0.08777210901584549,
+        "conditional_95_interval": [
+          -0.08855155135141723,
+          0.28457240484652235
+        ]
+      },
+      "long_minus_short_vs_ordinary": {
+        "gain": 0.19035454981760982,
+        "conditional_95_interval": [
+          -0.07173145940114453,
+          0.45684408886007427
+        ]
+      },
+      "extra_context_utility_vs_ordinary": {
+        "gain": 0.16662028442004415,
+        "conditional_95_interval": [
+          -0.027203047493699964,
+          0.3732062373299272
+        ]
+      },
+      "long_vs_pause": {
+        "gain": 0.10775862021025882,
+        "conditional_95_interval": [
+          -0.07052218780151588,
+          0.2931519903318081
+        ]
+      },
+      "short_vs_pause": {
+        "gain": 0.1268053116980835,
+        "conditional_95_interval": [
+          -0.011613988038741543,
+          0.26179330898071523
+        ]
+      },
+      "long_minus_short_vs_pause": {
+        "gain": -0.0190466914878247,
+        "conditional_95_interval": [
+          -0.2439761944561617,
+          0.20403073024189777
+        ]
+      },
+      "extra_context_utility_vs_pause": {
+        "gain": 0.11678107465696722,
+        "conditional_95_interval": [
+          -0.10507882347300534,
+          0.34268569731166737
+        ]
+      },
+      "full_context_utility_latent_long": {
+        "gain": 0.6692046898924042,
+        "conditional_95_interval": [
+          0.431608168952577,
+          0.9061744154881936
+        ]
+      },
+      "full_context_utility_latent_short": {
+        "gain": 0.30187071444946,
+        "conditional_95_interval": [
+          0.13293339502261303,
+          0.4807351107455855
+        ]
+      },
+      "full_context_utility_ordinary_long": {
+        "gain": 0.50258440547236,
+        "conditional_95_interval": [
+          0.2463726996748245,
+          0.7774604432789712
+        ]
+      },
+      "full_context_utility_ordinary_short": {
+        "gain": 0.1560334007020241,
+        "conditional_95_interval": [
+          -0.02754549350388391,
+          0.34433281808865707
+        ]
+      },
+      "full_context_utility_pause_long": {
+        "gain": 0.5524236152354369,
+        "conditional_95_interval": [
+          0.320673138196008,
+          0.7952430004348352
+        ]
+      },
+      "full_context_utility_pause_short": {
+        "gain": 0.3543510192517372,
+        "conditional_95_interval": [
+          0.18077934964927828,
+          0.5338590446866218
+        ]
+      }
+    },
+    "absolute_long_target_gates": {
+      "ordinary": true,
+      "pause": false
+    },
+    "source_groups": 141
+  },
+  "typed": {
+    "macro_type_weighting": "one third per closer type; source-group bootstrap stratified by type",
+    "groups_by_type": {
+      ")": 63,
+      "]": 36,
+      "}": 42
+    },
+    "means": {
+      "latent": {
+        "full": {
+          "long": {
+            "nll": {
+              "mean": 0.49107780082690816,
+              "conditional_95_interval": [
+                0.38932232475718054,
+                0.6103795332723689
+              ]
+            },
+            "accuracy": {
+              "mean": 0.7883597883597884,
+              "conditional_95_interval": [
+                0.7129629629629629,
+                0.8505291005291005
+              ]
+            }
+          },
+          "short": {
+            "nll": {
+              "mean": 0.05599099823156132,
+              "conditional_95_interval": [
+                0.026530076010376238,
+                0.10088514080395618
+              ]
+            },
+            "accuracy": {
+              "mean": 0.9920634920634921,
+              "conditional_95_interval": [
+                0.9761904761904763,
+                1.0
+              ]
+            }
+          }
+        },
+        "last32": {
+          "long": {
+            "nll": {
+              "mean": 0.747695962242438,
+              "conditional_95_interval": [
+                0.6280339773060467,
+                0.8649119375587906
+              ]
+            },
+            "accuracy": {
+              "mean": 0.6455026455026455,
+              "conditional_95_interval": [
+                0.5714285714285715,
+                0.7169312169312169
+              ]
+            }
+          },
+          "short": {
+            "nll": {
+              "mean": 0.07004684301633664,
+              "conditional_95_interval": [
+                0.03244520436725276,
+                0.12372943379208504
+              ]
+            },
+            "accuracy": {
+              "mean": 0.9828042328042329,
+              "conditional_95_interval": [
+                0.9563492063492062,
+                1.0
+              ]
+            }
+          }
+        }
+      },
+      "pause": {
+        "full": {
+          "long": {
+            "nll": {
+              "mean": 0.4888958215762272,
+              "conditional_95_interval": [
+                0.38109456292967653,
+                0.6073367225979072
+              ]
+            },
+            "accuracy": {
+              "mean": 0.771164021164021,
+              "conditional_95_interval": [
+                0.6997354497354498,
+                0.8399470899470899
+              ]
+            }
+          },
+          "short": {
+            "nll": {
+              "mean": 0.05460384140224265,
+              "conditional_95_interval": [
+                0.01972089051027736,
+                0.10266793127938234
+              ]
+            },
+            "accuracy": {
+              "mean": 0.9841269841269842,
+              "conditional_95_interval": [
+                0.9603174603174603,
+                1.0
+              ]
+            }
+          }
+        },
+        "last32": {
+          "long": {
+            "nll": {
+              "mean": 0.6706919860293326,
+              "conditional_95_interval": [
+                0.5665985630971547,
+                0.7789947892692947
+              ]
+            },
+            "accuracy": {
+              "mean": 0.6772486772486772,
+              "conditional_95_interval": [
+                0.605787037037037,
+                0.7473544973544973
+              ]
+            }
+          },
+          "short": {
+            "nll": {
+              "mean": 0.05800711380877884,
+              "conditional_95_interval": [
+                0.027449772571379934,
+                0.0963369198457634
+              ]
+            },
+            "accuracy": {
+              "mean": 0.9841269841269842,
+              "conditional_95_interval": [
+                0.9603174603174603,
+                1.0
+              ]
+            }
+          }
+        }
+      },
+      "ordinary": {
+        "full": {
+          "long": {
+            "nll": {
+              "mean": 0.5317731575698113,
+              "conditional_95_interval": [
+                0.4129760439948312,
+                0.6750074744789817
+              ]
+            },
+            "accuracy": {
+              "mean": 0.7751322751322752,
+              "conditional_95_interval": [
+                0.697089947089947,
+                0.8425925925925926
+              ]
+            }
+          },
+          "short": {
+            "nll": {
+              "mean": 0.06075477876546981,
+              "conditional_95_interval": [
+                0.03185789473352502,
+                0.09520796342608562
+              ]
+            },
+            "accuracy": {
+              "mean": 0.9841269841269842,
+              "conditional_95_interval": [
+                0.9603174603174603,
+                1.0
+              ]
+            }
+          }
+        },
+        "last32": {
+          "long": {
+            "nll": {
+              "mean": 0.7208244731778622,
+              "conditional_95_interval": [
+                0.6126492598805944,
+                0.8332405810083295
+              ]
+            },
+            "accuracy": {
+              "mean": 0.6626984126984127,
+              "conditional_95_interval": [
+                0.6005291005291005,
+                0.728835978835979
+              ]
+            }
+          },
+          "short": {
+            "nll": {
+              "mean": 0.05988513443258133,
+              "conditional_95_interval": [
+                0.0352952605386241,
+                0.08947512147668672
+              ]
+            },
+            "accuracy": {
+              "mean": 0.9920634920634921,
+              "conditional_95_interval": [
+                0.9761904761904763,
+                1.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "contrasts": {
+      "long_vs_ordinary": {
+        "mean": 0.04069535674290303,
+        "conditional_95_interval": [
+          -0.06012844053850048,
+          0.13951564034179684
+        ]
+      },
+      "short_vs_ordinary": {
+        "mean": 0.004763780533908476,
+        "conditional_95_interval": [
+          -0.016864706146334497,
+          0.02752631603094365
+        ]
+      },
+      "long_minus_short_vs_ordinary": {
+        "mean": 0.03593157620899456,
+        "conditional_95_interval": [
+          -0.06546956377693486,
+          0.13213258974987438
+        ]
+      },
+      "extra_context_utility_vs_ordinary": {
+        "mean": 0.06756684580747876,
+        "conditional_95_interval": [
+          -0.0370642133469127,
+          0.1740491679449035
+        ]
+      },
+      "long_vs_pause": {
+        "mean": -0.002181979250681134,
+        "conditional_95_interval": [
+          -0.10224125244494914,
+          0.0964304306507265
+        ]
+      },
+      "short_vs_pause": {
+        "mean": -0.0013871568293186767,
+        "conditional_95_interval": [
+          -0.014936294321058589,
+          0.01620107807679287
+        ]
+      },
+      "long_minus_short_vs_pause": {
+        "mean": -0.0007948224213624502,
+        "conditional_95_interval": [
+          -0.10385572978861822,
+          0.09789132248870266
+        ]
+      },
+      "extra_context_utility_vs_pause": {
+        "mean": 0.07482199696242416,
+        "conditional_95_interval": [
+          -0.05892818646087032,
+          0.20595256195704176
+        ]
+      },
+      "full_context_utility_latent_long": {
+        "mean": 0.2566181614155297,
+        "conditional_95_interval": [
+          0.1327355576051602,
+          0.37665498901411093
+        ]
+      },
+      "full_context_utility_latent_short": {
+        "mean": 0.014055844784775307,
+        "conditional_95_interval": [
+          -0.0035881708241376265,
+          0.03355864724644679
+        ]
+      },
+      "full_context_utility_pause_long": {
+        "mean": 0.1817961644531055,
+        "conditional_95_interval": [
+          0.07398626480695705,
+          0.29434008453129945
+        ]
+      },
+      "full_context_utility_pause_short": {
+        "mean": 0.003403272406536187,
+        "conditional_95_interval": [
+          -0.011706666094877242,
+          0.017883723640292035
+        ]
+      },
+      "full_context_utility_ordinary_long": {
+        "mean": 0.18905131560805088,
+        "conditional_95_interval": [
+          0.061525029647123725,
+          0.3060757594997924
+        ]
+      },
+      "full_context_utility_ordinary_short": {
+        "mean": -0.0008696443328884742,
+        "conditional_95_interval": [
+          -0.022524430000234363,
+          0.0177351640779864
+        ]
+      }
+    },
+    "useful_long_type_gates": {
+      "ordinary": false,
+      "pause": false
+    },
+    "uniform_type_prior_nll": 1.0986122886681098,
+    "uniform_type_prior_accuracy": 0.3333333333333333
+  },
+  "checks": [
+    {
+      "index": 0,
+      "maximum_log_probability_error": 0.0
+    },
+    {
+      "index": 1,
+      "maximum_log_probability_error": 0.0
+    }
+  ],
+  "trained_seeds": 1,
+  "selected_control": {
+    "arm": "tied-lr1",
+    "lr": 0.001,
+    "domains": {
+      "web": 3.789348732028116,
+      "math": 2.9571135839225478,
+      "code": 2.113745337953945
+    },
+    "broad_nll": 3.287781023592168,
+    "bracketed": true
+  },
+  "scope": "Post-lead exploratory natural-code type diagnostic, frozen before stronger-control quality. One seed,reused source panel, equal data. Conditional type NLL and accuracy are not general reasoning or an efficiency result; original broad comparison remains primary.",
+  "automatic_promotion": false,
+  "wall_seconds": 1134.7378339767456,
+  "peak_rss_bytes": 1366622208
+}
