@@ -1,3 +1,17 @@
+## October 29, 2026, 23:16 UTC — first constant control completes and audits
+
+The first original constant-slot opportunity completes all 1,957 updates and
+passes the full mature gradient, state and replica audits. Maximum gradient-family
+error is 0.612110%, below the unchanged 2% limit. Mean warm update time is
+0.377246 seconds; whole worker fit time is 1,213.369 seconds. The second
+constant LR is compiling on all 16 chips under the separate bounded completion.
+
+Six endpoints are now fully audited across the original and completion histories.
+The original generated LR 0.003 failure remains excluded and charged. No quality
+selection has occurred, the original advancement condition remains unmet, and
+both fresh reserves remain sealed. Two host-only orchestration fixtures also
+pass, covering failed-opportunity exclusion without retries or false bracketing.
+
 ## October 29, 2026, 22:53 UTC — highest generated LR stops; original controls completed separately
 
 The generated LR 0.003 fit stops on a non-finite gradient norm after update 80,
