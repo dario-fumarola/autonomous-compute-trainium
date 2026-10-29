@@ -1,0 +1,18 @@
+{
+  "identity": "chunked-persistent-controller-recovery-v1",
+  "registered_unix": 1793308443.6292515,
+  "reason": "Chat-server restart interrupted only the host controller; original supervised all-chip fit survives.",
+  "scientific_plan_sha256": "40fed17221114f55c620db73828358ffd835f2734285d66bd537511bc2578d37",
+  "original_execution_sha256": "2019f94ce09abe752d31fb2b79bdee46a9f80e78add8dd457587e47558b32167",
+  "original_absolute_deadline_unix": 1793329673.1411092,
+  "adopted_phase": "chunked-persistent-screen-v1-ordinary-lr0",
+  "adopted_launch_sha256": "cf1b6561dfedeec43d7561a76e888a4de2a782fac0190ede0f1b81c1b41b5221",
+  "new_fit_updates": 0,
+  "new_scientific_budget": 0,
+  "source_sha256": {
+    "scripts/resume_chunked_persistent_controller.py": "bdeee9c176946dd8f84f339f22a7fdfdca5fa9bd4cd7c8f557d4d028e8ceae13",
+    "tests/test_chunked_controller_recovery.py": "79d4077149f8dd725bffcc790fde1a9362f732b565ff9d09989b4cd4514262ab"
+  },
+  "service_restart_policy": "no",
+  "scope": "Join the existing supervised fit, require its successful closure and audit, then execute only the remaining frozen original queue. Never relaunch a partial fit or renew its deadline. All original costs remain charged."
+}

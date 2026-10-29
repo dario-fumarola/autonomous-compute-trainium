@@ -1,3 +1,15 @@
+## October 29, 2026, 21:15 UTC — original fit survives server restart
+
+A chat-server restart ends the host controller, while the first ordinary fit
+continues under its original resource supervisor. A bounded user service now
+adopts that exact worker and continues the unchanged queue after clean closure
+and audit. The original 03:07:53 UTC deadline remains binding; no work is repeated
+or additional science admitted. The first fit has passed 540 updates.
+
+A host preflight manifest-format mistake is corrected and recorded; nine focused
+checks pass. It did not touch the running fit. The service has no automatic retry.
+[Controller continuity record](results/chunked_persistent_workspace_20261029/controller-recovery-v1/REPORT.md).
+
 ## October 29, 2026, 21:08 UTC — sparse persistent comparison admitted
 
 Numerical qualification is complete: all four cold checks, 100 warm updates,
