@@ -1,0 +1,20 @@
+{
+  "status": "SOURCE_AVAILABILITY_LIMITS_RECORDED",
+  "population": "First10000code documents in first200M packed TRAIN positions;18,163,162tokens;8243groups",
+  "observations": [
+    "3814call-versus-literal assertions across615documents;most lack a unique earlier same-document top-level definition under this narrow syntax rule.",
+    "21assertions combine literal arguments,a local earlier definition and at least2syntax operations;15fail the strict whitespace-only target-token alignment rule. Among the6aligned candidates,3fit512tokens and6fit1024.",
+    "343source-authored doctest outputs;41direct calls to the enclosing function use literal arguments and literal expected output,and22have at least2syntax operations in the body. These are syntax counts,not executable correctness validation."
+  ],
+  "limitations": [
+    "Source order matters:docstring output commonly precedes the implementation,so the function body is not available at that original prediction position.",
+    "The strict token-span rule rejects punctuation-merging tokens;those rejections are not absent computational examples.",
+    "Imported methods,fixtures,nonliteral arguments,legacy syntax and truncated files are largely outside this inventory.",
+    "Syntax operation counts do not prove an output requires that many operations,or that the source assertion is correct.",
+    "No estimate of the prevalence of all reasoning in code or text follows from these parsers."
+  ],
+  "decision": "Do not create a tiny procedure-learning fit from these counts or change the active NTP corpus. A stronger natural-code mechanism panel would first need source-faithful dependency resolution,explicit causal source views and verification,all registered before model scoring.",
+  "new_model_fits": 0,
+  "heldout_reads": 0,
+  "changed_active_experiment": false
+}

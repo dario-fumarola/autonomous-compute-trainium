@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETE_TRAIN_CODE_ASSERTION_SYNTAX_INVENTORY",
+  "counts": {
+    "documents_read": 10000,
+    "source_tokens_read": 18163162,
+    "token_roundtrip_accepted": 9998,
+    "parse_warnings": 517,
+    "ast_parse_accepted": 8647,
+    "ast_parse_rejected": 1351,
+    "documents_with_call_literal_assertion": 615,
+    "call_literal_assertions": 3814,
+    "non_name_callee": 1494,
+    "literal_argument_assertions": 1565,
+    "prior_unique_top_level_definition": 70,
+    "local_definition_and_literal_arguments": 35,
+    "local_literal_with_at_least_two_syntax_operations": 21,
+    "token_roundtrip_rejected": 2,
+    "target_token_alignment_rejected": 15
+  },
+  "source_groups": 8243,
+  "context_fit_counts": {
+    "512": 3,
+    "1024": 6,
+    "2048": 6
+  },
+  "operation_histogram": {
+    "0": 11,
+    "10": 6,
+    "1": 3,
+    "5": 15
+  },
+  "data_report_sha256": "d574c1feeb7f54cea768ac95238a39a7375871e8eaf7b50d2219242d0936f908",
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "script_sha256": "f999ada7107161ce7119067319f8600d861f94208aced67153cf92a7b2a5888e",
+  "wall_seconds": 42.235774993896484,
+  "peak_rss_bytes": 736980992,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "scope": "First at most10000 code documents within first200M packed TRAIN positions,from the frozen source recipe. Source tokens are decoded and exact-roundtrip checked. No source program is executed,no expected answer is calculated,no target or example is generated,no model score is read. Syntax opportunities are not verified correct assertions or proof of required serial computation. Rejected/truncated/unparseable files are unknown,not negative examples. Context counts are nested and include original intervening source. Current fitting/evaluation rules are unchanged;no new fit or panel admitted."
+}
