@@ -1,0 +1,158 @@
+{
+  "status": "COMPLETE_INTERLEAVED_STRUCTURAL_READOUT",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "protected_groups_scored": 0,
+  "means": {
+    "latent": {
+      "full": {
+        "long": 1.840254046552986,
+        "short": 1.9457371156712078
+      },
+      "last32": {
+        "long": 2.5532489218416377,
+        "short": 2.2217420499329426
+      }
+    },
+    "ordinary": {
+      "full": {
+        "long": 2.1897889109651607,
+        "short": 1.990619359878518
+      },
+      "last32": {
+        "long": 2.844683420790129,
+        "short": 2.3632298426359206
+      }
+    },
+    "pause": {
+      "full": {
+        "long": 2.044122776030439,
+        "short": 2.043581153426708
+      },
+      "last32": {
+        "long": 2.5965463912658757,
+        "short": 2.397932172678444
+      }
+    }
+  },
+  "comparisons": {
+    "long_vs_ordinary": {
+      "gain": 0.34953486441217546,
+      "conditional_95_interval": [
+        0.1551703462120618,
+        0.5654243289049317
+      ]
+    },
+    "short_vs_ordinary": {
+      "gain": 0.0448822442073101,
+      "conditional_95_interval": [
+        -0.12719385993990187,
+        0.21695982324980018
+      ]
+    },
+    "long_minus_short_vs_ordinary": {
+      "gain": 0.3046526202048653,
+      "conditional_95_interval": [
+        0.06222731685785246,
+        0.5596138044083957
+      ]
+    },
+    "extra_context_utility_vs_ordinary": {
+      "gain": 0.05810036546368335,
+      "conditional_95_interval": [
+        -0.13312735500377706,
+        0.25855024389291864
+      ]
+    },
+    "long_vs_pause": {
+      "gain": 0.20386872947745313,
+      "conditional_95_interval": [
+        0.038328623716606516,
+        0.3723261054378466
+      ]
+    },
+    "short_vs_pause": {
+      "gain": 0.09784403775549919,
+      "conditional_95_interval": [
+        -0.08486744336434958,
+        0.2700441991264505
+      ]
+    },
+    "long_minus_short_vs_pause": {
+      "gain": 0.10602469172195395,
+      "conditional_95_interval": [
+        -0.10885016122588362,
+        0.3284456872599206
+      ]
+    },
+    "extra_context_utility_vs_pause": {
+      "gain": 0.16057126005321468,
+      "conditional_95_interval": [
+        -0.03025337449709668,
+        0.3538354451670849
+      ]
+    },
+    "full_context_utility_latent_long": {
+      "gain": 0.7129948752886514,
+      "conditional_95_interval": [
+        0.508133414386647,
+        0.9271830619768904
+      ]
+    },
+    "full_context_utility_latent_short": {
+      "gain": 0.27600493426173506,
+      "conditional_95_interval": [
+        0.10784602205651443,
+        0.45201209875625903
+      ]
+    },
+    "full_context_utility_ordinary_long": {
+      "gain": 0.654894509824968,
+      "conditional_95_interval": [
+        0.41144033578140243,
+        0.9041965265001555
+      ]
+    },
+    "full_context_utility_ordinary_short": {
+      "gain": 0.37261048275740283,
+      "conditional_95_interval": [
+        0.18583308326863474,
+        0.5766958527670069
+      ]
+    },
+    "full_context_utility_pause_long": {
+      "gain": 0.5524236152354367,
+      "conditional_95_interval": [
+        0.3227751825700531,
+        0.7993507711926205
+      ]
+    },
+    "full_context_utility_pause_short": {
+      "gain": 0.3543510192517368,
+      "conditional_95_interval": [
+        0.1886817501694643,
+        0.5415166260056065
+      ]
+    }
+  },
+  "absolute_long_target_gates": {
+    "ordinary": true,
+    "pause": true
+  },
+  "source_groups": 141,
+  "checks": [
+    {
+      "index": 0,
+      "maximum_log_probability_error": 1.7763568394002505e-14
+    },
+    {
+      "index": 1,
+      "maximum_log_probability_error": 1.7763568394002505e-14
+    }
+  ],
+  "trained_seeds": 1,
+  "automatic_promotion": false,
+  "scope": "Single-seed source-separated but reused structural DEV. Exact sequential generated states versus equal-data controls. No efficiency, general reasoning, allocation, confirmation or automatic promotion claim.",
+  "wall_seconds": 1590.211472272873,
+  "peak_rss_bytes": 1303310336
+}

@@ -393,6 +393,425 @@
       "wall_seconds": 127.91561198234558,
       "heldout_reads": 0,
       "scope": "Complete CPU state restoration and independent SDPA/CE full-global gradients. Separate Native next-update replay was qualified on disposable weights; no stronger scientific restart equivalence claimed here."
+    },
+    "mixed-lr1": {
+      "status": "COMPLETE_INTERLEAVED_SCREEN_FIT_PENDING_AUDITS",
+      "world": 64,
+      "arm": "mixed-lr1",
+      "updates": 1957,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 165707994422575104,
+      "checkpoints": [
+        {
+          "update": 1957,
+          "real_targets": 128025288,
+          "matrix_flops": 165707994422575104,
+          "full_state_digest": "d2678ff2f074deebd39d86d2effed71b5d0aceacc84f198e3a8d45414c92f370"
+        }
+      ],
+      "initial_model_digest": "26e0d5ce230de1e5722ac8652608a7d40cde07e115dd18c181745363eb144817",
+      "shared_initial_model_digest": "26e0d5ce230de1e5722ac8652608a7d40cde07e115dd18c181745363eb144817",
+      "parameters": 51747328,
+      "wall_seconds": 790.6416451931,
+      "mean_warm_update_seconds": 0.3213163343398329,
+      "all_replica_full_states_equal": true,
+      "heldout_reads": 0,
+      "final_lr": 0.0001,
+      "objective": "final_only",
+      "scope": "Persistent one-latent-per-source screen with complete endpoint cooldown and uniform original-token NTP. Fixed Jacobi rounds are not thought-budget scaling. No teacher,learned allocation or sequential-inference equivalence claim."
+    },
+    "audit-mixed-lr1": {
+      "status": "PASS_INTERLEAVED_SCREEN_MATURE_AUDITS",
+      "arm": "mixed-lr1",
+      "rows": [
+        {
+          "update": 1957,
+          "depth": 2,
+          "gradient": {
+            "overall": {
+              "relative_l2": 3.542204523362708e-05,
+              "cosine": 0.9999999993728449,
+              "reference_norm": 0.26849634208394346,
+              "candidate_norm": 0.26849651405699443,
+              "maximum_absolute_error": 9.140931069850922e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "prediction_weight",
+                  "squared_error": 3.073556158688604e-11,
+                  "reference_squared_norm": 0.030047836693856113
+                },
+                {
+                  "parameter": "blocks.5.v.weight",
+                  "squared_error": 6.720989521212841e-12,
+                  "reference_squared_norm": 0.0019767053241806164
+                },
+                {
+                  "parameter": "blocks.3.v.weight",
+                  "squared_error": 4.9479022332134055e-12,
+                  "reference_squared_norm": 0.001588564729874234
+                },
+                {
+                  "parameter": "blocks.4.v.weight",
+                  "squared_error": 3.781903258895465e-12,
+                  "reference_squared_norm": 0.00156492944733634
+                },
+                {
+                  "parameter": "blocks.5.gate.weight",
+                  "squared_error": 3.7408037593828584e-12,
+                  "reference_squared_norm": 0.00149426361201149
+                },
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 3.620069079973226e-12,
+                  "reference_squared_norm": 0.006702499021181669
+                },
+                {
+                  "parameter": "blocks.2.v.weight",
+                  "squared_error": 3.5949271884148928e-12,
+                  "reference_squared_norm": 0.0011279341551564883
+                },
+                {
+                  "parameter": "blocks.5.up.weight",
+                  "squared_error": 3.1879193938745083e-12,
+                  "reference_squared_norm": 0.0010833830289796737
+                },
+                {
+                  "parameter": "blocks.5.down.weight",
+                  "squared_error": 3.075659365118009e-12,
+                  "reference_squared_norm": 0.0020051308726993437
+                },
+                {
+                  "parameter": "blocks.5.k.weight",
+                  "squared_error": 2.3418194931011815e-12,
+                  "reference_squared_norm": 0.00171784908550212
+                },
+                {
+                  "parameter": "blocks.1.v.weight",
+                  "squared_error": 2.0005830220869664e-12,
+                  "reference_squared_norm": 0.000646671109273245
+                },
+                {
+                  "parameter": "blocks.3.o.weight",
+                  "squared_error": 1.5644776314848531e-12,
+                  "reference_squared_norm": 0.0014801295806000357
+                }
+              ]
+            },
+            "embedding": {
+              "relative_l2": 2.3240210072488272e-05,
+              "cosine": 0.9999999997300079,
+              "reference_norm": 0.08186879149701472,
+              "candidate_norm": 0.08186882015927918,
+              "maximum_absolute_error": 1.4738179743289948e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 3.620069079973226e-12,
+                  "reference_squared_norm": 0.006702499021181669
+                }
+              ]
+            },
+            "body": {
+              "relative_l2": 3.984181543417989e-05,
+              "cosine": 0.9999999992063969,
+              "reference_norm": 0.18798922840796012,
+              "candidate_norm": 0.1879893042089401,
+              "maximum_absolute_error": 2.7206260710954666e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "blocks.5.v.weight",
+                  "squared_error": 6.720989521212841e-12,
+                  "reference_squared_norm": 0.0019767053241806164
+                },
+                {
+                  "parameter": "blocks.3.v.weight",
+                  "squared_error": 4.9479022332134055e-12,
+                  "reference_squared_norm": 0.001588564729874234
+                },
+                {
+                  "parameter": "blocks.4.v.weight",
+                  "squared_error": 3.781903258895465e-12,
+                  "reference_squared_norm": 0.00156492944733634
+                },
+                {
+                  "parameter": "blocks.5.gate.weight",
+                  "squared_error": 3.7408037593828584e-12,
+                  "reference_squared_norm": 0.00149426361201149
+                },
+                {
+                  "parameter": "blocks.2.v.weight",
+                  "squared_error": 3.5949271884148928e-12,
+                  "reference_squared_norm": 0.0011279341551564883
+                },
+                {
+                  "parameter": "blocks.5.up.weight",
+                  "squared_error": 3.1879193938745083e-12,
+                  "reference_squared_norm": 0.0010833830289796737
+                },
+                {
+                  "parameter": "blocks.5.down.weight",
+                  "squared_error": 3.075659365118009e-12,
+                  "reference_squared_norm": 0.0020051308726993437
+                },
+                {
+                  "parameter": "blocks.5.k.weight",
+                  "squared_error": 2.3418194931011815e-12,
+                  "reference_squared_norm": 0.00171784908550212
+                },
+                {
+                  "parameter": "blocks.1.v.weight",
+                  "squared_error": 2.0005830220869664e-12,
+                  "reference_squared_norm": 0.000646671109273245
+                },
+                {
+                  "parameter": "blocks.3.o.weight",
+                  "squared_error": 1.5644776314848531e-12,
+                  "reference_squared_norm": 0.0014801295806000357
+                },
+                {
+                  "parameter": "blocks.5.o.weight",
+                  "squared_error": 1.4197279834423852e-12,
+                  "reference_squared_norm": 0.001114260556855852
+                },
+                {
+                  "parameter": "blocks.5.q.weight",
+                  "squared_error": 1.3553258887134157e-12,
+                  "reference_squared_norm": 0.0012488842764513874
+                }
+              ]
+            },
+            "output_table": {
+              "relative_l2": 3.198261508105632e-05,
+              "cosine": 0.9999999994890413,
+              "reference_norm": 0.17334311839198033,
+              "candidate_norm": 0.17334328902361337,
+              "maximum_absolute_error": 9.140931069850922e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "prediction_weight",
+                  "squared_error": 3.073556158688604e-11,
+                  "reference_squared_norm": 0.030047836693856113
+                }
+              ]
+            }
+          },
+          "loss_error": -2.214685082435608e-06,
+          "cpu_loss": 3.316203525289893,
+          "native_loss": 3.3162057399749756,
+          "real_targets": 65438,
+          "full_state_restore_exact": true,
+          "checkpoint_sha256": "7b019bbc281330e499ce718e418a2053326ceab82acb9d151311793915c48982"
+        },
+        {
+          "update": 1957,
+          "depth": 3,
+          "gradient": {
+            "overall": {
+              "relative_l2": 3.511680680756561e-05,
+              "cosine": 0.999999999383412,
+              "reference_norm": 0.27123556470212923,
+              "candidate_norm": 0.27123553081694624,
+              "maximum_absolute_error": 9.136274456977844e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "prediction_weight",
+                  "squared_error": 3.1014679236913644e-11,
+                  "reference_squared_norm": 0.029978457414145617
+                },
+                {
+                  "parameter": "blocks.5.v.weight",
+                  "squared_error": 6.718138343612267e-12,
+                  "reference_squared_norm": 0.0020746681454244663
+                },
+                {
+                  "parameter": "blocks.3.v.weight",
+                  "squared_error": 4.989661660653057e-12,
+                  "reference_squared_norm": 0.0017185513410452413
+                },
+                {
+                  "parameter": "blocks.4.v.weight",
+                  "squared_error": 3.809804138219369e-12,
+                  "reference_squared_norm": 0.0016369159497460171
+                },
+                {
+                  "parameter": "blocks.5.gate.weight",
+                  "squared_error": 3.799543410464792e-12,
+                  "reference_squared_norm": 0.0015154134806070032
+                },
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 3.678025199959173e-12,
+                  "reference_squared_norm": 0.006843994930328331
+                },
+                {
+                  "parameter": "blocks.2.v.weight",
+                  "squared_error": 3.6304984568258397e-12,
+                  "reference_squared_norm": 0.0012431806697302892
+                },
+                {
+                  "parameter": "blocks.5.up.weight",
+                  "squared_error": 3.2356840738205823e-12,
+                  "reference_squared_norm": 0.0010964447176351321
+                },
+                {
+                  "parameter": "blocks.5.down.weight",
+                  "squared_error": 3.1473496981416254e-12,
+                  "reference_squared_norm": 0.002036735690969996
+                },
+                {
+                  "parameter": "blocks.5.k.weight",
+                  "squared_error": 2.1317331698623235e-12,
+                  "reference_squared_norm": 0.0018806612898252045
+                },
+                {
+                  "parameter": "blocks.1.v.weight",
+                  "squared_error": 2.039877885564371e-12,
+                  "reference_squared_norm": 0.0006946774589762976
+                },
+                {
+                  "parameter": "blocks.3.o.weight",
+                  "squared_error": 1.5578942542037817e-12,
+                  "reference_squared_norm": 0.0015354230328287265
+                }
+              ]
+            },
+            "embedding": {
+              "relative_l2": 2.3182085894842182e-05,
+              "cosine": 0.999999999731312,
+              "reference_norm": 0.08272844087935134,
+              "candidate_norm": 0.08272845594256327,
+              "maximum_absolute_error": 1.4282704796642065e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "embedding.weight",
+                  "squared_error": 3.678025199959173e-12,
+                  "reference_squared_norm": 0.006843994930328331
+                }
+              ]
+            },
+            "body": {
+              "relative_l2": 3.904896700016161e-05,
+              "cosine": 0.9999999992379057,
+              "reference_norm": 0.1916931903193459,
+              "candidate_norm": 0.19169303767789905,
+              "maximum_absolute_error": 2.7299392968416214e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "blocks.5.v.weight",
+                  "squared_error": 6.718138343612267e-12,
+                  "reference_squared_norm": 0.0020746681454244663
+                },
+                {
+                  "parameter": "blocks.3.v.weight",
+                  "squared_error": 4.989661660653057e-12,
+                  "reference_squared_norm": 0.0017185513410452413
+                },
+                {
+                  "parameter": "blocks.4.v.weight",
+                  "squared_error": 3.809804138219369e-12,
+                  "reference_squared_norm": 0.0016369159497460171
+                },
+                {
+                  "parameter": "blocks.5.gate.weight",
+                  "squared_error": 3.799543410464792e-12,
+                  "reference_squared_norm": 0.0015154134806070032
+                },
+                {
+                  "parameter": "blocks.2.v.weight",
+                  "squared_error": 3.6304984568258397e-12,
+                  "reference_squared_norm": 0.0012431806697302892
+                },
+                {
+                  "parameter": "blocks.5.up.weight",
+                  "squared_error": 3.2356840738205823e-12,
+                  "reference_squared_norm": 0.0010964447176351321
+                },
+                {
+                  "parameter": "blocks.5.down.weight",
+                  "squared_error": 3.1473496981416254e-12,
+                  "reference_squared_norm": 0.002036735690969996
+                },
+                {
+                  "parameter": "blocks.5.k.weight",
+                  "squared_error": 2.1317331698623235e-12,
+                  "reference_squared_norm": 0.0018806612898252045
+                },
+                {
+                  "parameter": "blocks.1.v.weight",
+                  "squared_error": 2.039877885564371e-12,
+                  "reference_squared_norm": 0.0006946774589762976
+                },
+                {
+                  "parameter": "blocks.3.o.weight",
+                  "squared_error": 1.5578942542037817e-12,
+                  "reference_squared_norm": 0.0015354230328287265
+                },
+                {
+                  "parameter": "blocks.5.o.weight",
+                  "squared_error": 1.4107412067017543e-12,
+                  "reference_squared_norm": 0.0011391225433363091
+                },
+                {
+                  "parameter": "blocks.5.q.weight",
+                  "squared_error": 1.24405444655718e-12,
+                  "reference_squared_norm": 0.0013485459494060243
+                }
+              ]
+            },
+            "output_table": {
+              "relative_l2": 3.216466303987629e-05,
+              "cosine": 0.9999999994829148,
+              "reference_norm": 0.17314288150006518,
+              "candidate_norm": 0.17314299021539833,
+              "maximum_absolute_error": 9.136274456977844e-07,
+              "largest_error_contributors": [
+                {
+                  "parameter": "prediction_weight",
+                  "squared_error": 3.1014679236913644e-11,
+                  "reference_squared_norm": 0.029978457414145617
+                }
+              ]
+            }
+          },
+          "loss_error": -2.466142177581787e-06,
+          "cpu_loss": 3.3150231018662453,
+          "native_loss": 3.315025568008423,
+          "real_targets": 65438,
+          "full_state_restore_exact": true,
+          "checkpoint_sha256": "7b019bbc281330e499ce718e418a2053326ceab82acb9d151311793915c48982"
+        }
+      ],
+      "assigned_chips": 0,
+      "optimizer_updates": 0,
+      "wall_seconds": 124.166433095932,
+      "heldout_reads": 0,
+      "scope": "Complete CPU state restoration and independent SDPA/CE full-global gradients. Separate Native next-update replay was qualified on disposable weights; no stronger scientific restart equivalence claimed here."
+    },
+    "mixed-lr2": {
+      "status": "COMPLETE_INTERLEAVED_SCREEN_FIT_PENDING_AUDITS",
+      "world": 64,
+      "arm": "mixed-lr2",
+      "updates": 1957,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 165707994422575104,
+      "checkpoints": [
+        {
+          "update": 1957,
+          "real_targets": 128025288,
+          "matrix_flops": 165707994422575104,
+          "full_state_digest": "28afb45bece3197e9c13428fa70cb9d17fddccf2981b4ecbbffc1fe4c72ddd3b"
+        }
+      ],
+      "initial_model_digest": "26e0d5ce230de1e5722ac8652608a7d40cde07e115dd18c181745363eb144817",
+      "shared_initial_model_digest": "26e0d5ce230de1e5722ac8652608a7d40cde07e115dd18c181745363eb144817",
+      "parameters": 51747328,
+      "wall_seconds": 769.9092593193054,
+      "mean_warm_update_seconds": 0.3159886299648695,
+      "all_replica_full_states_equal": true,
+      "heldout_reads": 0,
+      "final_lr": 0.00030000000000000003,
+      "objective": "final_only",
+      "scope": "Persistent one-latent-per-source screen with complete endpoint cooldown and uniform original-token NTP. Fixed Jacobi rounds are not thought-budget scaling. No teacher,learned allocation or sequential-inference equivalence claim."
     }
   }
 }

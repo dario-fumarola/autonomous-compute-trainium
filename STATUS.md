@@ -1,3 +1,22 @@
+## October 29, 2026, 11:11 UTC — sequential model improves authentic code-dependency prediction
+
+The complete282-case/141-group structural readout passes both absolute
+long-target gates. Sequential latent NLL1.840254 beats ordinary2.189789 and
+trained pauses2.044123; gains0.349535 and0.203869 have conditional95% intervals
+[0.155170,0.565424] and[0.038329,0.372326]. The long-minus-short interaction
+against pauses and additional context-utility contrasts remain inconclusive.
+This is one-seed reused-DEV equal-data evidence, not training efficiency,
+general reasoning or confirmation. All source targets remain authentic.
+[Full structural result](results/interleaved_workspace_20261029/structural-dev-v1/REPORT.md).
+
+MixedK2/K3 at LR0.001 also passes the unchanged TRAIN sequential-consistency
+guard in all domains; maximum mean loss shift0.006948 and forward KL0.006152.
+The third LR is active on all16 chips. No common predictive score is available
+yet. A separately declared tied-table eleven-layer ordinary challenger is
+prepared under the same parameter ceiling; it does not replace the two prior
+untied shapes and is not admitted until the complete mixed prediction and
+consistency gates pass. Its CPU parity tests pass; the full suite passes726 tests with two skips.
+
 ## October 29, 2026, 10:54 UTC — first mixed endpoint repairs consistency
 
 At LR0.0003, mixedK2/K3 passes the unchanged six-TRAIN-window consistency guard

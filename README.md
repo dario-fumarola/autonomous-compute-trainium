@@ -12,6 +12,13 @@ The finite-round training approximation still overstates that benefit by
 0.058892nats. A separately qualified mixed-round learning comparison is active
 on all16 chips to test this mismatch.
 
+On a registered natural-code diagnostic, exact sequential latent generation
+also improves distant closing-delimiter prediction by **0.349535nats over
+ordinary** and **0.203869 over trained pauses**. Both conditional intervals are
+positive. The additional full-context benefit relative to the controls remains
+inconclusive; this is a structural prediction lead, not an identified reasoning
+algorithm. [Structural result](results/interleaved_workspace_20261029/structural-dev-v1/REPORT.md).
+
 This51.75M-parameter,128M-target result is not yet an efficiency or reasoning
 claim. It uses4.937times ordinary training matrix work, one training seed and
 reused DEV. Both fresh evaluation reserves remain unscored.
