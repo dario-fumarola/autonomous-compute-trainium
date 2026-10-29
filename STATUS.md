@@ -1,3 +1,19 @@
+## October 29, 2026, 13:37 UTC — final deeper LR running; replication remains conditional
+
+The first two deeper ordinary endpoints complete their cooldowns and independent
+mature audits. The third LR is active; no predictive comparison is scored yet.
+A bounded handoff waits for the completed paired analysis, then performs exact
+closed-snapshot deduplication and the already-declared wider qualification and
+three-LR comparison. Any execution/numerical failure stops that handoff.
+
+The two-new-seed development replication is implemented and gated on surviving
+all conventional controls. It fixes seeds730201/730237, selected recipes and
+128M-target schedules before any outcome, with exact sequential readout only
+after six mature audits. Neither its registration nor fits have been admitted;
+both fresh reserves remain unscored. Fourteen focused selector/exposure/cache
+tests pass; the preceding full suite passed747tests/two skips and the updated
+suite is running. [Conditional design](docs/INTERLEAVED_SEED_REPLICATION_20261029.md).
+
 ## October 29, 2026, 13:12 UTC — typed code test is inconclusive; broad comparison continues
 
 The completed282-case bracket-type diagnostic fails both advancement gates.
