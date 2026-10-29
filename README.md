@@ -1,6 +1,15 @@
 # Autonomous computation during pretraining
 
-A persistent latent-state model now has an **equal-data development lead**:
+A mixed-round persistent latent model now scores **3.263546 NLL**, improving
+**0.113565 over ordinary training** and **0.127582 over trained pauses** at equal
+natural-source exposure. It selects an interior learning rate, passes mature
+numerical audits, and repairs the original TRAIN sequential-consistency failure
+at every tested LR. Full sequential broad readout is active. This one-seed,
+reused-DEV result costs **5.592856times ordinary training matrix work**; it does
+not establish efficiency or general reasoning. Stronger conventional controls
+are next. [Completed mixed screen](results/interleaved_workspace_20261029/mixed-round-tuning-v1/REPORT.md).
+
+The preceding fixed-round model has an **equal-data development lead**:
 **3.281309 NLL**, versus **3.377111 ordinary** and **3.391128 trained constant
 pauses**. The0.095803-nat ordinary comparison favors generated states in web,
 math and code. All three families select the interior learning rate after
@@ -9,8 +18,8 @@ equal tuning opportunities; all nine mature numerical/state audits pass.
 The lead survives exact sequential generation: **3.340201 NLL**, improving
 **0.036910nats over ordinary** and **0.050927 over pauses**, again in every domain.
 The finite-round training approximation still overstates that benefit by
-0.058892nats. A separately qualified mixed-round learning comparison is active
-on all16 chips to test this mismatch.
+0.058892nats. The completed mixed-round comparison above repairs the TRAIN mismatch; its
+full sequential broad readout remains pending.
 
 On a registered natural-code diagnostic, exact sequential latent generation
 also improves distant closing-delimiter prediction by **0.349535nats over

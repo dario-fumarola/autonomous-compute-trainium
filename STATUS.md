@@ -1,3 +1,37 @@
+## October 29, 2026, 11:24 UTC — stronger conventional qualification active
+
+The tied-table eleven-layer ordinary challenger is now qualifying on all16
+chips under a new immutable90-minute plan. CPU parity checks cover shared-head
+forward, full gradients and optimizer updates. Native cold/mature gradients,
+100 warm updates and exact fresh-process restart are required before any
+scientific LR fit. This is an additional declared conventional resource
+control, not a replacement for the two prior untied shapes.
+
+The selected mixed model's complete exact-sequential broad DEV readout runs
+separately on two CPU workers. Fresh reserves remain closed. Closed-owner
+maintenance verifies and retires only five completed disposable ordinary8 warm
+arrays (5.60GiB); scientific and failed histories remain. An initial inventory
+refused absent mixing/one files before mutation and is recorded. Exact archival
+of6000 old compiler temporaries restores24,000 inodes.
+[Maintenance receipts](results/interleaved_workspace_20261029/maintenance-v6/retirement.json).
+
+## October 29, 2026, 11:21 UTC — mixed schedule improves quality and passes consistency
+
+The complete three-LR mixed comparison selects interiorLR0.001 at3.263546NLL:
++0.113565 over ordinary,+0.127582 over trained pauses,+0.017762 over original
+fixedK2. Every domain favors mixed over both controls. All mature audits and
+independent Native/FP64 readout checks pass. All three endpoints pass the
+unchanged six-TRAIN-window sequential-consistency guard. Training matrix work
+is5.592856times ordinary; this is one-seed reused-DEV equal-data evidence.
+[Complete mixed result](results/interleaved_workspace_20261029/mixed-round-tuning-v1/REPORT.md).
+
+A separately registered CPU exact-sequential readout now evaluates the selected
+mixed checkpoint on all384 existing broad windows, with no new LR choice or
+fresh-reserve access. The stronger tied-table ordinary comparison has passed
+CPU parity and its numerical qualification is next, after closed-owner storage
+maintenance. The full suite passed726 tests/two skips;11 focused checks pass
+with the new prepared runners. No long main or confirmation is admitted.
+
 ## October 29, 2026, 11:11 UTC — sequential model improves authentic code-dependency prediction
 
 The complete282-case/141-group structural readout passes both absolute

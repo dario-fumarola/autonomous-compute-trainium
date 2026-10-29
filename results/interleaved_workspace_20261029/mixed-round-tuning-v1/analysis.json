@@ -1,0 +1,87 @@
+{
+  "status": "COMPLETE_MIXED_ROUND_TUNING_ANALYSIS",
+  "scores": {
+    "mixed-lr0": {
+      "lr": 0.0003,
+      "exits": {
+        "main": {
+          "domains": {
+            "web": 4.189840351184791,
+            "math": 3.3936939572910347,
+            "code": 2.6531349528415933
+          },
+          "broad_nll": 3.7232699927374
+        },
+        "supported3": {
+          "domains": {
+            "web": 4.189201194775973,
+            "math": 3.393459537758205,
+            "code": 2.6543298913224063
+          },
+          "broad_nll": 3.723078602681706
+        }
+      }
+    },
+    "mixed-lr1": {
+      "lr": 0.001,
+      "exits": {
+        "main": {
+          "domains": {
+            "web": 3.763592726595463,
+            "math": 2.929224867717013,
+            "code": 2.097727504432569
+          },
+          "broad_nll": 3.2635461103871943
+        },
+        "supported3": {
+          "domains": {
+            "web": 3.7619787421452706,
+            "math": 2.9278756222898488,
+            "code": 2.0967818390605464
+          },
+          "broad_nll": 3.262118737557241
+        }
+      }
+    },
+    "mixed-lr2": {
+      "lr": 0.003,
+      "exits": {
+        "main": {
+          "domains": {
+            "web": 4.12316956575309,
+            "math": 3.273423785030599,
+            "code": 2.484048752937853
+          },
+          "broad_nll": 3.6253962470455443
+        },
+        "supported3": {
+          "domains": {
+            "web": 4.122767879670336,
+            "math": 3.273331759735524,
+            "code": 2.4840247444397017
+          },
+          "broad_nll": 3.625132028637247
+        }
+      }
+    }
+  },
+  "selection": {
+    "arm": "mixed-lr1",
+    "lr": 0.001,
+    "readout": "K2 only, prespecified",
+    "broad_nll": 3.2635461103871943,
+    "bracketed": true
+  },
+  "development_gains_over_retained_controls": {
+    "ordinary": 0.11356524048885142,
+    "latent": 0.017762443529823813,
+    "pause": 0.12758199264975234
+  },
+  "prediction_screen_pass": true,
+  "sequential_consistency_guard": "Required separately for ALL mixed endpoints; no automatic promotion",
+  "assigned_chips": 0,
+  "protected_groups_scored": 0,
+  "trained_seeds": 1,
+  "wall_seconds": 0.008767366409301758,
+  "interpretation": "Adaptive development follow-up on reused source panel and controls; not independent confirmation, equal-work efficiency or thinking."
+}

@@ -5,8 +5,7 @@ from compute_trainium.execution_isolation import managed_running
 from compute_trainium.queue import write_state
 from compute_trainium.training import file_sha256
 
-PHASES={'mixing':'baseline-numerical-v1-mixing-warm','one':'baseline-numerical-v1-one-warm',
-        'ordinary8':'baseline-numerical-recovery-v1-ordinary8-warm'}
+PHASES={'ordinary8':'baseline-numerical-recovery-v1-ordinary8-warm'}
 FILES={'after-1-model-optimizer.pt':'first_checkpoint_sha256',
        'after-121-model-optimizer.pt':'final_checkpoint_sha256',
        'after-120-full-state.pt':'checkpoint_sha256',
@@ -37,9 +36,9 @@ def main():
     if managed_running():raise RuntimeError('Native owner appeared before retirement')
     out=root/'closed-baseline-qualification-retirement-v1';out.mkdir(mode=0o700);start=time.time()
     result=dict(status='REGISTERED_CLOSED_BASELINE_QUALIFICATION_RETIREMENT',files=selected,gate_sha256=file_sha256(gate),
-        source_sha256=file_sha256(__file__),freed_bytes=0,assigned_chips=0,scientific_states_deleted=0,failed_histories_deleted=0,
+        source_sha256=file_sha256(__file__),preflight_history='System Python lacked torch; corrected environment then rejected missing mixing/one arrays before any mutation. Revised exact inventory contains only the five existing ordinary8 warm arrays, all independently rehashed.',freed_bytes=0,assigned_chips=0,scientific_states_deleted=0,failed_histories_deleted=0,
         exact_local_restoration_after_retirement=False,
-        scope='Only15 named successful disposable warm-qualification binary arrays are retired after original hashes,independent mature gradients and exact replay gates. All scientific models/optimizer states,failed histories,source data,replay arrays,source snapshots,configurations,seeds and receipts remain. Exact byte restoration of removed arrays is not promised; qualification can be recomputed without a bit-exact promise.')
+        scope='Only5 named successful disposable warm-qualification binary arrays are retired after original hashes,independent mature gradients and exact replay gates. All scientific models/optimizer states,failed histories,source data,replay arrays,source snapshots,configurations,seeds and receipts remain. Exact byte restoration of removed arrays is not promised; qualification can be recomputed without a bit-exact promise.')
     write_state(out/'report.json',result)
     try:
         for row in selected:

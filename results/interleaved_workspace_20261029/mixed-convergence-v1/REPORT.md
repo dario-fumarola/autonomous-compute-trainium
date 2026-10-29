@@ -1,24 +1,21 @@
-# Mixed-round consistency diagnostic — in progress
+# Mixed-round sequential consistency: complete
 
-The first completed endpoint, LR0.0003, passes the unchanged consistency guard
-on all six registered TRAIN windows. Its mature K2 and K3 global numerical
-audits pass before this readout. No held-out quality score is used here.
+All three mixedK2/K3 endpoints pass the unchanged six-TRAIN-window consistency guard after their mature K2/K3 gradient and full-state audits. No held-out score is used to choose these checks.
 
-| Domain | FixedK2 mean absolute NLL shift to sequential | MixedK2/K3 shift | Mixed forward KL |
-|---|---:|---:|---:|
-| Web |0.037709|0.005775|0.004939|
-| Math |0.073237|0.008060|0.009080|
-| Code |0.111294|0.005988|0.006453|
+| LR | Domain | Absolute mean NLL shift | Forward KL | Pass |
+|---|---|---:|---:|---|
+|0.0003|web|0.00577549|0.00493907|True|
+|0.0003|math|0.00805977|0.00908033|True|
+|0.0003|code|0.00598806|0.00645289|True|
+|0.001|web|0.00390099|0.00615159|True|
+|0.001|math|0.00694723|0.00622342|True|
+|0.001|code|0.00690188|0.00342376|True|
+|0.003|web|0.00106378|0.00167734|True|
+|0.003|math|0.00149458|0.00281659|True|
+|0.003|code|0.00007107|0.00112920|True|
 
-Each mixed-domain shift and KL is below the unchanged0.01 guard. K16/K32 KL is
-below1.36e-11. At this same learning rate, fixed-two training failed in every
-domain. Architecture, initialization, source exposure, objective and optimizer
-are retained; the mixed depth schedule uses more counted training work.
+Each domain must retain absolute mean loss shift and forward KL at most0.01; K16/K32 KL must be at most1e-4. All requirements are unchanged. FixedK2 training failed at the first two learning rates; mixed training passes at those same settings, with more counted training work.
 
-This supports the proposed numerical repair at one setting. It does not show
-that quality is preserved or that the ultimately selected learning rate will
-pass. The remaining two endpoints and the complete common quality readout are
-pending. No scaling or confirmation is admitted from this partial diagnostic.
+This is evidence for numerical consistency on the registered TRAIN diagnostic. It does not by itself establish predictive quality, full-DEV sequential agreement, reasoning or efficiency. Common held-out LR selection is still separate. A selected-checkpoint exact sequential broad readout is prepared and requires the complete predictive gate.
 
-[First endpoint receipt](mixed-lr0.json) · [Frozen plan](plan.json) ·
-[Original comparison](../convergence-v1/REPORT.md).
+All3 endpoints, original failures and costs remain recorded. No larger fit or confirmation is admitted by this report. [Complete receipt](report.json) · [Frozen plan](plan.json) · [Original consistency report](../convergence-v1/REPORT.md).
