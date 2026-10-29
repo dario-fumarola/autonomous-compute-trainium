@@ -1,3 +1,21 @@
+## October29,2026,05:08 UTC — authentic structural readout closes without a win
+
+Long-target NLL is1.878298workspace,1.873312equal-data ordinary and1.538183
+work-matched ordinary. Equal-data difference−0.004987has wide interval
+[−0.190870,+0.194024];work comparison−0.340116has[−0.541180,−0.140772].
+Both absolute gates fail. Longer context helps all three;workspace’s larger
+context effect versus equal-data ordinary reflects poorer truncated-context
+performance,not an absolute full-context gain. All FP64 checks pass;
+0.579116assigned chip-hours,no updates. All141source pairs remain reported.
+
+No accelerator job remains active. Next:CPU-qualify one optimization hypothesis,
+uniform natural-token NTP at both already-computed exits,with fixed equal exit
+weights. This could shorten early learning lag and permit supported shallow/deep
+comparisons;it is not a diagnosed repair or an admitted fit. No selected-target
+weighting,teacher,router or new model parameters. Qualification,cost and a new
+bounded registration are required before training.
+[Structural result](results/probability_workspace_20261029/structural-readout-v1/REPORT.md).
+
 ## October29,2026,05:03 UTC — all-chip structural readout active; no new fit
 
 The616-test CPU suite passes(two skips). The30-minute zero-update readout now

@@ -9,10 +9,13 @@ state/replica and independent readout checks pass.
 
 Untying worsens both model types relative to their historical tied versions.
 Its positive interaction only narrows the relative deficit;it is not a quality
-win. **No thinking or training-efficiency win is established.** A separately
-frozen,source-separated structural diagnostic is prepared on141authentic code
-pairs,using these same checkpoints without another fit. It cannot replace the
-broad primary. The earlier flat budget-cue result remains closed.
+win. **No thinking or training-efficiency win is established.** The separately
+frozen141-group structural diagnostic also fails its absolute gates:long-target
+NLL is1.878298workspace,1.873312equal-data ordinary and1.538183equal-work ordinary.
+All models benefit from the longer prefix;greater context dependence is not an
+absolute workspace win. No fit was added. The earlier flat budget-cue result
+remains closed.
+[Structural diagnostic](results/probability_workspace_20261029/structural-readout-v1/REPORT.md) ·
 [Completed untied comparison](results/probability_workspace_20261029/untied-screen-v1/REPORT.md) ·
 [Budget-cue result](results/probability_workspace_20261029/budget-cue-screen-recovery-v1/REPORT.md) ·
 [Fixed-depth result](results/probability_workspace_20261029/fixed-one-v1/REPORT.md) ·
