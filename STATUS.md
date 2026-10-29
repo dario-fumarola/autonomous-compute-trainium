@@ -13,7 +13,7 @@ pending. These are numerical-depth checks, not additional thought-budget tests.
 
 The cached sequential CPU reference matches full recomputation in states,
 predictions, complete gradients and prefix causality. Eighteen focused tests
-pass. A complete suite is running. No accelerator cached-decoding throughput
+pass; the complete suite passes712 tests with two skips. No accelerator cached-decoding throughput
 claim follows from this CPU reference, and the active fixed-two tuning plan is
 unchanged. Both fresh evaluation reserves remain unscored.
 [Diagnostic registration](docs/INTERLEAVED_CONVERGENCE_DIAGNOSTIC_20261029.md).
