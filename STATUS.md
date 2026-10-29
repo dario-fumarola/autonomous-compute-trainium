@@ -1,4 +1,19 @@
-## October 29, 2026, 19:01 UTC — first exact depth-causal fit fully audited
+## October 29, 2026, 19:14 UTC — all three depth-causal fits complete
+
+All three LR trials finish 1,957 updates and their frozen cooldowns. The first
+two pass all mature gradient/state/replica checks; the last audit is pending.
+No held-out quality result is available yet. Common evaluation follows only
+after every endpoint passes. Both fresh reserves remain unscored.
+
+Two bounded TRAIN-only coverage investigations are complete. The syntax census
+finds 1,859 integer-result equality assertions and 2,429 integer-operand
+`assertEqual` calls, but the stricter local-list verifier finds no eligible
+multi-update cases in the same 10,000-document prefix. These are coverage
+findings, not model scores or new reasoning benchmarks. No selector is widened.
+[Syntax counts](results/local_arithmetic_assertions_20261029/syntax-census-v1/REPORT.md) ·
+[List-tracking coverage](results/local_container_assertions_20261029/train-audit-v1/REPORT.md).
+
+## October 29, 2026, 18:57 UTC — first exact depth-causal fit fully audited
 
 The first learning-rate endpoint completes all1957updates and its full cooldown.
 All three mature budget gradients, full-state restoration and64replica checks

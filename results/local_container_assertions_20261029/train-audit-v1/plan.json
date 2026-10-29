@@ -1,0 +1,23 @@
+{
+  "identity": "local-container-assertion-train-audit-v1",
+  "registered_unix": 1793301141.1094954,
+  "absolute_deadline_unix": 1793301741.1094954,
+  "maximum_code_documents": 10000,
+  "maximum_rss_bytes": 8589934592,
+  "source_sha256": {
+    "scripts/audit_local_container_assertions.py": "4b1dfe22524897d6dbe5038b7bf49ab53e673bfff05800064570d1b754224aec",
+    "compute_trainium/authored_code_assertions.py": "7b1f286c0cebb2cab09ff7ac9fcb4ee7fbf917ed6676b7fa5181a8a66f29bc6e",
+    "compute_trainium/local_container_assertions.py": "fffc920a8877e1a3f9292618390753481ef68e094d85c47aed3d019b2ed30d3e",
+    "compute_trainium/natural_code_context.py": "91a8e7e7244054e0d8dc9df200f0b5224e973d7a3e11bd23197de4a9822b284d",
+    "tests/test_local_container_assertions.py": "61329cab1941dbfc5d251bcf79b31e4ad6f011977badbcb8cd88ac8f4ad57429"
+  },
+  "accepted_report_sha256": "665d6b2beb7fbc730eeceb4f54fa05ddaa6949b7fffde4a40da32e58b7a27ca1",
+  "recipe_sha256": "0fbfb989c9f442771510799c782419b327f15b3588a9a888460117244408b5ae",
+  "code_tokens_sha256": "0a9c0f5cf8267992dc87c7fb854f5d67bfe61366f9cd6d63a73afc6a5aab481f",
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "selection": "First 10000 accepted indexed TRAIN code documents, unchanged source order and tokenizer roundtrip. Whole-file bounded Python AST; local literal lists and authored assert len(list) == integer, at module or function/method scope; unknown statements/aliases forget all bindings, explicit len shadowing excluded. At least two length-changing append/extend/pop operations, authentic answer at least two and absent from dependency-span numeric text. All used premises must fit the original contiguous512-source-token prefix. No source execution or model scoring.",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "scope": "TRAIN coverage lower bound only. No generated labels, fitted model, evaluation panel or scientific fit admission."
+}
