@@ -6,6 +6,7 @@ from pathlib import Path
 def main(a):
     import torch
     from compute_trainium.model import ModelConfig
+    from compute_trainium.probability_model_factory import probability_model
     from compute_trainium.probability_workspace import ProbabilityWorkspace
     from compute_trainium.probability_workspace_data import ProbabilitySources
     from compute_trainium.pretraining_optimizer import parameter_groups
@@ -13,13 +14,14 @@ def main(a):
     from compute_trainium.training import file_sha256
     from scripts.qualify_native import digest
     from scripts.qualify_trained_gradient import compare_gradients
+    from compute_trainium.probability_model_factory import gradient_families
     torch.set_num_threads(32);start=time.time();p=json.loads(a.plan.read_text())
     if file_sha256(a.plan)!=a.plan_sha:raise AssertionError('Frozen audit changed')
     a.output.mkdir(exist_ok=False);data=ProbabilitySources(a.root/p['data_relative']);arm=p['arms'][a.arm]
     folder=a.root/'runs'/arm['phase'];rows=[]
     for update in arm['checkpoint_updates']:
         checkpoint=folder/f'PRIVATE-u{update}.pt';saved=torch.load(checkpoint,map_location='cpu',weights_only=False,mmap=True)
-        model=ProbabilityWorkspace(ModelConfig(**p['model_config']));model.load_state_dict(saved['model'])
+        model=probability_model(p);model.load_state_dict(saved['model'])
         opt=torch.optim.AdamW(parameter_groups(model,model.embedding.weight,decay=p['weight_decay']),lr=p['lr'],betas=(.9,.95),eps=1e-8,foreach=False,fused=True)
         opt.load_state_dict(saved['optimizer']);torch.set_rng_state(saved['rng'])
         # Native checkpoint serialization recursively converts OrderedDict to
@@ -40,7 +42,7 @@ def main(a):
                 if (time.time()-start>p['cpu_phase_seconds_limit'] or resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024>48*1024**3
                     or shutil.disk_usage(a.root).free<35*1024**3):raise RuntimeError('CPU audit resource bound')
             expected={n:v.grad for n,v in model.named_parameters()};actual=native['gradients'];checks={'overall':compare_gradients(actual,expected)}
-            for family,match in [('embedding',lambda n:n=='embedding.weight'),('body',lambda n:n!='embedding.weight')]:
+            for family,match in gradient_families(p):
                 checks[family]=compare_gradients({n:v for n,v in actual.items() if match(n)},{n:v for n,v in expected.items() if match(n)})
             row=dict(update=update,depth=depth,gradient=checks,loss_error=loss_sum-native['loss'],cpu_loss=loss_sum,
                 native_loss=native['loss'],real_targets=count,full_state_restore_exact=True,checkpoint_sha256=file_sha256(checkpoint))

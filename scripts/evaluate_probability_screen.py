@@ -13,6 +13,7 @@ def main(a):
     import torch_neuronx
     from torch import nn
     from compute_trainium.model import ModelConfig
+    from compute_trainium.probability_model_factory import probability_model
     from compute_trainium.probability_workspace import ProbabilityWorkspace
     from compute_trainium.probability_intervention import ProposalReadout
     from compute_trainium.stable_target_loss import stable_target_log_probs
@@ -26,7 +27,7 @@ def main(a):
     if world!=64:raise ValueError('Registered topology')
     os.environ['NEURON_RT_ROOT_COMM_ID']='127.0.0.1:'+str(a.comm_port);torch.neuron.set_device(0);dist.init_process_group('neuron')
     a.output.mkdir(parents=True,exist_ok=True);start=time.time();c=ModelConfig(**p['model_config']);torch.manual_seed(p['seed'])
-    model=ProbabilityWorkspace(c,explicit_attention=True);initial={n:v.detach().clone() for n,v in model.state_dict().items()};model.to('neuron')
+    model=probability_model(p,explicit_attention=True);initial={n:v.detach().clone() for n,v in model.state_dict().items()};model.to('neuron')
     permutation=torch.randperm(c.vocab_size,generator=torch.Generator().manual_seed(p['permutation_seed']))
     class Scorer(nn.Module):
         def __init__(self,reader):super().__init__();self.reader=reader
@@ -60,7 +61,7 @@ def main(a):
                     # and the first dependency batch for the content intervention.
                     check=(panel=='broad' and ((left==0 and rank in (0,32)) or (left==256 and rank==0))) or (panel=='dependency' and left==0 and rank==0 and key[2])
                     if check:
-                        torch.set_num_threads(8);reference=ProbabilityWorkspace(c).double();reference.load_state_dict(weights)
+                        torch.set_num_threads(8);reference=probability_model(p).double();reference.load_state_dict(weights)
                         cpu=ProposalReadout(reference,key[0],key[1],permutation if key[2] else None)
                         with torch.no_grad():
                             logits=cpu(x);expected=torch.nn.functional.cross_entropy(logits.flatten(0,1),y.flatten(),reduction='none').view_as(y)

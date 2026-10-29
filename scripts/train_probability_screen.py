@@ -22,6 +22,7 @@ def main(a):
     import torch_neuronx
     from torch import nn
     from compute_trainium.model import ModelConfig
+    from compute_trainium.probability_model_factory import probability_model
     from compute_trainium.probability_workspace import ProbabilityWorkspace,matrix_work
     from compute_trainium.probability_workspace_data import ProbabilitySources
     from compute_trainium.pretraining_optimizer import parameter_groups
@@ -37,7 +38,9 @@ def main(a):
     torch.set_num_threads(1);os.environ['NEURON_RT_ROOT_COMM_ID']='127.0.0.1:'+str(a.comm_port)
     torch.neuron.set_device(0);dist.init_process_group('neuron');a.output.mkdir(parents=True,exist_ok=True)
     c=ModelConfig(**p['model_config']);data=ProbabilitySources(a.root/p['data_relative']);torch.manual_seed(p['seed'])
-    model=ProbabilityWorkspace(c,explicit_attention=True);initial_digest=digest(model.state_dict());model.to('neuron')
+    model=probability_model(p,explicit_attention=True);initial_state=model.state_dict();initial_digest=digest(initial_state)
+    shared_initial_digest=digest(type(initial_state)((n,v) for n,v in initial_state.items() if n!='remaining_budget_cues'))
+    parameter_count=sum(v.numel() for v in model.parameters());del initial_state;model.to('neuron')
     opt=torch.optim.AdamW(parameter_groups(model,model.embedding.weight,decay=p['weight_decay']),lr=p['lr'],betas=(.9,.95),eps=1e-8,foreach=False,fused=True)
     torch.manual_seed(p['seed']+1);proposal=arm['proposal'];schedule=arm['depth_schedule'];telemetry=[];started=time.time();exposure=0;work=0
     class Objective(nn.Module):
@@ -99,7 +102,7 @@ def main(a):
     if rank==0:
         result=dict(status='COMPLETE_PROBABILITY_SCREEN_FIT_PENDING_AUDITS',world=world,arm=a.arm,updates=len(schedule),
             real_targets=exposure,nominal_training_matrix_flops=work,checkpoints=checkpoints,
-            initial_model_digest=initial_digest,wall_seconds=time.time()-started,
+            initial_model_digest=initial_digest,shared_initial_model_digest=shared_initial_digest,parameters=parameter_count,wall_seconds=time.time()-started,
             mean_warm_update_seconds=sum(r['seconds'] for r in telemetry[3:])/len(telemetry[3:]),
             all_replica_full_states_equal=True,heldout_reads=0,
             final_lr=lr,scope='Initial-learning screen from random initialization with complete independent endpoint cooldown. No teacher,auxiliary objective,loss weighting,learned allocation or convergence/strong-frontier claim.')

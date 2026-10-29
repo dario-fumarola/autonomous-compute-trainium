@@ -15,6 +15,7 @@ def main(a):
     import torch_neuronx
     from torch import nn
     from compute_trainium.model import ModelConfig
+    from compute_trainium.probability_model_factory import probability_model
     from compute_trainium.probability_workspace import ProbabilityWorkspace
     from compute_trainium.pretraining_optimizer import parameter_groups
     from compute_trainium.stable_target_loss import stable_target_log_probs
@@ -22,6 +23,7 @@ def main(a):
     from scripts.qualify_native import digest
     from compute_trainium.scale_sharded_fixture import cpu_tree
     from scripts.qualify_trained_gradient import compare_gradients
+    from compute_trainium.probability_model_factory import gradient_families
     p=json.loads(a.plan.read_text());src=Path(__file__).resolve().parents[1]
     if file_sha256(a.plan)!=a.plan_sha or any(file_sha256(src/f)!=h for f,h in p['worker_source_sha256'].items()):
         raise AssertionError('Frozen fixture sources differ')
@@ -30,11 +32,11 @@ def main(a):
     os.environ['NEURON_RT_ROOT_COMM_ID']='127.0.0.1:'+str(a.comm_port)
     torch.neuron.set_device(0);dist.init_process_group('neuron');a.output.mkdir(parents=True,exist_ok=True)
     start=time.time();config=ModelConfig(**p['model_config']);torch.manual_seed(p['seed'])
-    model=ProbabilityWorkspace(config,explicit_attention=True)
+    model=probability_model(p,explicit_attention=True)
     initial={n:v.clone() for n,v in model.state_dict().items()}
     reference=None
     if rank==0:
-        reference=ProbabilityWorkspace(config);reference.load_state_dict(initial)
+        reference=probability_model(p);reference.load_state_dict(initial)
     # Constructing the independent reference must not alter replica RNG state.
     torch.manual_seed(p['seed']+1)
     def optimizer(m,fused):
@@ -86,7 +88,7 @@ def main(a):
             comparison=compare_gradients(gradients,rgrad)
             families={family:compare_gradients({n:v for n,v in gradients.items() if match(n)},
                         {n:v for n,v in rgrad.items() if match(n)}) for family,match in
-                        [('embedding',lambda n:n=='embedding.weight'),('body',lambda n:n!='embedding.weight')]}
+                        gradient_families(p)}
             torch.nn.utils.clip_grad_norm_(reference.parameters(),1.,error_if_nonfinite=True);ropt.step()
             native_delta={n:state['model'][n]-before[n] for n in before}
             reference_delta={n:v.detach()-r_before[n] for n,v in reference.named_parameters()}
@@ -113,7 +115,7 @@ def main(a):
     if rank==0:
         report=dict(status='PASS_PROBABILITY_WORKSPACE_SOFTWARE_FIXTURE',world=world,mode=a.mode,records=records,
             actual_fixture_updates=len(updates),research_examples=0,research_optimizer_updates=0,
-            parameters=config.parameter_count(),wall_seconds=time.time()-start,scientific_fit_admitted=False)
+            parameters=sum(v.numel() for v in model.parameters()),wall_seconds=time.time()-start,scientific_fit_admitted=False)
         (a.output/'report.json').write_text(json.dumps(report,indent=2)+'\n')
     dist.barrier();dist.destroy_process_group()
 

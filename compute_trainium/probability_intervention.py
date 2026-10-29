@@ -9,6 +9,8 @@ class ProposalReadout(nn.Module):
         self.register_buffer('permutation',permutation)
 
     def forward(self, tokens):
+        if hasattr(self.model,'replay_with_permutation'):
+            return self.model.replay_with_permutation(tokens,self.steps,self.proposal,self.permutation)
         if self.permutation is None:return self.model(tokens,self.steps,self.proposal)
         if self.proposal!='expected':raise ValueError('Only generated proposals are permuted')
         weight=self.model.embedding.weight;state=self.model.embedding(tokens)

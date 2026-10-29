@@ -1,0 +1,29 @@
+{
+  "identity": "probability-embedding-roles-v1",
+  "registered_unix": 1793236965.4731007,
+  "seconds_limit": 600,
+  "cpu_threads": 12,
+  "maximum_rss_bytes": 51539607552,
+  "window_start": 1000000,
+  "windows": 256,
+  "inputs": {
+    "fixed_one": {
+      "checkpoint_relative": "runs/probability-fixed-one-v1-workspace/PRIVATE-u1530.pt",
+      "checkpoint_sha256": "537a149f3b1b4144ec2ef60b7ff0bd89b8581a652aa16e1bf8a81c6f5202104a",
+      "extra_steps": 1
+    },
+    "ordinary_data": {
+      "checkpoint_relative": "runs/probability-workspace-screen-recovery-v1-ordinary-data/PRIVATE-u1530.pt",
+      "checkpoint_sha256": "f72f48da6d02e067c992a4c9c111f382468f46d532c58c67a903503d780c3e7f",
+      "extra_steps": 0
+    }
+  },
+  "source_sha256": {
+    "scripts/diagnose_probability_embedding_roles.py": "96e9dfcb82d0bc4fd10c1e728fd982fe4cfba4ed9623011ade9aa6d534d92e67",
+    "compute_trainium/probability_role_gradients.py": "af7faf09084e1b9e4eb9e59f0648e338b968026967dcfc0df7be009a87816dcb"
+  },
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "assigned_chips": 0,
+  "scope": "Same qualified global TRAIN audit batch. Separate identical leaf copies of input/output/proposal embedding roles,without changing the forward function. Their gradients must sum to the original audited tied-table gradient within the existing2% rule. Compare fixed-one with ordinary equal-data. Local cancellation is not proof that untying improves prediction and does not admit another fit."
+}

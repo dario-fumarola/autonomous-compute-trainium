@@ -1,3 +1,56 @@
+## October29,2026,01:59 UTC — cue numerics pass; storage admission protected
+
+All64-rank small-array checks and separate-process exact model/AdamW/RNG replay
+pass. Maximum cue-family gradient relative error4.38e-6,inside unchanged2%.
+Full CPU suite594passed/2skipped. The actual-shape preparation stopped before
+launch because projected inode demand exceeded free entries. Closed-source
+sharing and regenerable closed-snapshot bytecode reclamation are underway;
+no reserve is weakened and no scientific state is removed. No new quality run.
+[Numerical receipt](results/probability_workspace_20261029/budget-cue-numerical-v1/report.json).
+
+## October29,2026,01:55 UTC — budget conditioning in numerical qualification
+
+The completed embedding-role diagnostic finds no opposing-gradient pattern:
+input/output cosine+0.0138,input/proposal+0.0411,output/proposal+0.00055.
+Role sums reconstruct the audited gradient to4.82e-6 relative error on the same
+130,860 TRAIN targets. This does not support cancellation as the explanation.
+Zero optimizer updates and no held-out reads.
+[Diagnostic](results/probability_workspace_20261029/embedding-roles-v1/report.json).
+
+A remaining-budget cue adds1024 initially zero parameters to the62.8M model.
+The final prediction path is unshifted;initial predictions and the zero-budget
+path remain exact. Eighteen focused CPU tests pass. The tiny cue receives its
+own numerical family gate. All16chips are starting disposable small-array
+qualification;actual-shape qualification and scientific admission remain gated.
+No new model quality has been scored. [Scope](docs/BUDGET_CONDITIONED_WORKSPACE_20261029.md).
+
+Closed-source sharing recovers2951 inodes while preserving14,561 source hashes,
+all launch/closure receipts and all model/optimizer/corpus files. Scientific
+states and the320 protected evaluation groups remain untouched.
+
+## October29,2026,01:18 UTC — fixed depth repairs most of the deficit; ordinary still wins
+
+Fixed-one NLL is3.241172,versus sampled-one3.518072,ordinary equal-data3.211047,
+ordinary equal-work2.949082 and constant3.207743. The fixed-versus-sampled gain
+is0.276900 at exactly equal data/work;both ordinary-control gates still fail.
+Every broad domain favors ordinary. Arithmetic-conclusion equal-data gain+0.03124
+has conditional95% interval[−0.02108,+0.08058],so it is inconclusive;matched-work
+arithmetic remains negative. No larger run is admitted by this result.
+[Complete result](results/probability_workspace_20261029/fixed-one-v1/REPORT.md).
+
+Mature full-global gradients,full-state restoration and replicas pass. FP64
+readout maximum discrepancy0.00006241 is below unchanged2e-4;all repeated control
+scores are bit-identical. Full CPU suite585passed/2skipped;three new gradient-role
+identity tests also pass. All320 protected source groups remain sealed.
+
+A bounded zero-update CPU diagnostic separates input,output and proposal-value
+embedding gradients on the same qualified global TRAIN batch,while preserving
+the forward exactly. Their sum must reconstruct the original audited gradient.
+It compares fixed-one and ordinary equal-data;no held-out reads,model updates or
+new fit follow automatically. This tests a specific parameter-sharing concern,
+not a claim that the published untied architecture would necessarily win.
+[Diagnostic registration](results/probability_workspace_20261029/embedding-roles-v1/plan.json).
+
 ## October29,2026,00:55 UTC — sampled replay negative; fixed-one diagnostic launched
 
 The complete audited broad NLLs are ordinary equal-data3.211047,ordinary

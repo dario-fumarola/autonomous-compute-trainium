@@ -12,6 +12,7 @@ def main(a):
     import torch_neuronx
     from torch import nn
     from compute_trainium.model import ModelConfig
+    from compute_trainium.probability_model_factory import probability_model
     from compute_trainium.probability_workspace import ProbabilityWorkspace,matrix_work
     from compute_trainium.probability_workspace_data import ProbabilitySources
     from compute_trainium.pretraining_optimizer import parameter_groups
@@ -20,13 +21,14 @@ def main(a):
     from compute_trainium.training import file_sha256
     from scripts.qualify_native import digest
     from scripts.qualify_trained_gradient import compare_gradients
+    from compute_trainium.probability_model_factory import gradient_families
     p=json.loads(a.plan.read_text());src=Path(__file__).resolve().parents[1]
     if file_sha256(a.plan)!=a.plan_sha or any(file_sha256(src/f)!=h for f,h in p['worker_source_sha256'].items()):raise AssertionError('Frozen warm sources changed')
     rank=int(os.environ['RANK']);world=int(os.environ['WORLD_SIZE']);torch.set_num_threads(1)
     if world!=64 or p['purpose']!='probability_workspace_actual_shape_qualification':raise ValueError('Registered actual-shape fixture only')
     os.environ['NEURON_RT_ROOT_COMM_ID']='127.0.0.1:'+str(a.comm_port);torch.neuron.set_device(0);dist.init_process_group('neuron')
     a.output.mkdir(parents=True,exist_ok=True);started=time.time();data=ProbabilitySources(a.root/p['data_relative'])
-    c=ModelConfig(**p['model_config']);torch.manual_seed(p['seed']);model=ProbabilityWorkspace(c,explicit_attention=True)
+    c=ModelConfig(**p['model_config']);torch.manual_seed(p['seed']);model=probability_model(p,explicit_attention=True)
     initial={n:v.clone() for n,v in model.state_dict().items()};model.to('neuron')
     opt=torch.optim.AdamW(parameter_groups(model,model.embedding.weight),lr=p['lr'],betas=(.9,.95),eps=1e-8,foreach=False,fused=True)
     torch.manual_seed(p['seed']+1)
@@ -39,7 +41,7 @@ def main(a):
         return data.batch(indices)
     def numerical(gradients,ref):
         result={'overall':compare_gradients(gradients,ref)}
-        for family,match in [('embedding',lambda n:n=='embedding.weight'),('body',lambda n:n!='embedding.weight')]:
+        for family,match in gradient_families(p):
             result[family]=compare_gradients({n:v for n,v in gradients.items() if match(n)},{n:v for n,v in ref.items() if match(n)})
         return result
     checks={};telemetry=[];start_update=1
@@ -50,12 +52,12 @@ def main(a):
             opt.zero_grad(set_to_none=True);value=compiled[k](*native)/mask.sum().item();value.backward()
             if rank==0:
                 gradients={n:v.grad.detach().cpu().clone() for n,v in model.named_parameters()}
-                torch.set_num_threads(8);ref=ProbabilityWorkspace(c);ref.load_state_dict(initial)
+                torch.set_num_threads(8);ref=probability_model(p);ref.load_state_dict(initial)
                 logits=ref(x,k);loss=(torch.nn.functional.cross_entropy(logits.flatten(0,1),y.flatten(),reduction='none').view_as(y)*mask).sum()/mask.sum()
                 loss.backward();check=numerical(gradients,{n:v.grad for n,v in ref.named_parameters()})
                 check['loss_error']=float(value.detach().cpu())-float(loss.detach());checks[str(k)]=check
                 (a.output/'cold-local-checks.json').write_text(json.dumps(checks,indent=2))
-                if max(check[f]['relative_l2'] for f in ('overall','embedding','body'))>.02 or abs(check['loss_error'])>.003:
+                if max(check[f]['relative_l2'] for f in ('overall',*[n for n,_ in gradient_families(p)]))>.02 or abs(check['loss_error'])>.003:
                     raise AssertionError('Actual-shape CPU local gate failed')
                 del ref,logits,loss,gradients;torch.set_num_threads(1)
             dist.barrier()
@@ -106,7 +108,7 @@ def main(a):
         warm=[r for r in telemetry if 4<=r['update']<=103]
         result=dict(status='COMPLETE_PROBABILITY_WARM_PENDING_GLOBAL_AUDIT' if a.mode=='warm' else 'PASS_PROBABILITY_WARM_EXACT_REPLAY',
             world=world,mode=a.mode,actual_qualification_updates=len(telemetry),scientific_optimizer_updates=0,
-            retained_for_science=False,parameters=c.parameter_count(),warm_updates=len(warm),
+            retained_for_science=False,parameters=sum(v.numel() for v in model.parameters()),warm_updates=len(warm),
             mean_warm_seconds=None if not warm else sum(r['seconds'] for r in warm)/len(warm),
             warm_by_depth={str(k):sum(r['seconds'] for r in warm if r['extra_steps']==k)/max(1,sum(r['extra_steps']==k for r in warm)) for k in (0,1,2)},
             wall_seconds=time.time()-started,all_replica_full_states_equal=True,cold_local_checks=checks)

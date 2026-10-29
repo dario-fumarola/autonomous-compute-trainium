@@ -6,15 +6,17 @@ from pathlib import Path
 def main(a):
     import torch
     from compute_trainium.model import ModelConfig
+    from compute_trainium.probability_model_factory import probability_model
     from compute_trainium.probability_workspace import ProbabilityWorkspace
     from compute_trainium.probability_workspace_data import ProbabilitySources
     from scripts.qualify_trained_gradient import compare_gradients
+    from compute_trainium.probability_model_factory import gradient_families
     from compute_trainium.training import file_sha256
     start=time.time();torch.set_num_threads(32);p=json.loads(a.plan.read_text())
     if file_sha256(a.plan)!=a.plan_sha:raise AssertionError('Frozen audit plan differs')
     a.output.mkdir(exist_ok=False);data=ProbabilitySources(a.root/p['data_relative'])
     parent=a.root/'runs'/p['warm_phase'];saved=torch.load(parent/'PRIVATE-u103.pt',map_location='cpu',weights_only=False,mmap=True)
-    model=ProbabilityWorkspace(ModelConfig(**p['model_config']));model.load_state_dict(saved['model']);del saved
+    model=probability_model(p);model.load_state_dict(saved['model']);del saved
     native=torch.load(parent/'PRIVATE-mature-gradient.pt',weights_only=True,mmap=True)
     count=data.target_count(103*64*p['batch'],64*p['batch']);total=0.
     for rank in range(64):
@@ -27,7 +29,7 @@ def main(a):
             raise RuntimeError('Global CPU audit bound')
     expected={n:v.grad for n,v in model.named_parameters()};actual=native['gradients']
     comparisons={'overall':compare_gradients(actual,expected)}
-    for family,match in [('embedding',lambda n:n=='embedding.weight'),('body',lambda n:n!='embedding.weight')]:
+    for family,match in gradient_families(p):
         comparisons[family]=compare_gradients({n:v for n,v in actual.items() if match(n)},{n:v for n,v in expected.items() if match(n)})
     ok=max(v['relative_l2'] for v in comparisons.values())<=.02 and abs(total-native['loss'])<=.003
     result=dict(status='PASS_PROBABILITY_MATURE_GLOBAL_CPU' if ok else 'FAIL_PROBABILITY_MATURE_GLOBAL_CPU',comparisons=comparisons,

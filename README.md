@@ -1,14 +1,15 @@
 # Autonomous computation during pretraining
 
-The62.8M probability-replay screen is complete. One supported extra pass helps
-its own checkpoint by0.0161nats,but a second hurts by0.0404. Even the best exit
-loses0.3070nats to ordinary training on the same200M targets;the registered
-deepest exit also loses at matched training work. All numerical audits pass,
-including the recovered FP64 readout reference. **No thinking or efficiency win
-is established.** A new single-fit diagnostic now tests exactly one replay on
-every update,at the identical sampled-arm exposure and matrix budget.
-[Complete results](results/probability_workspace_20261028/evaluation-recovery-v2/REPORT.md) ·
-[Fixed-one diagnostic](docs/PROBABILITY_FIXED_ONE_20261029.md) · [Live status](STATUS.md).
+Fixed one-replay training materially improves the62.8M workspace: NLL falls
+from3.518072 with sampled-depth training to3.241172 at exactly the same200M
+targets and training matrix work. It still loses to ordinary equal-data3.211047
+and equal-work2.949082. **No thinking or efficiency win is established.**
+A zero-update TRAIN diagnostic finds nearly orthogonal,not opposing embedding
+gradients. A tiny remaining-budget cue is now undergoing numerical qualification
+to test interference between training depths;no new scientific fit is admitted.
+[Fixed-depth results](results/probability_workspace_20261029/fixed-one-v1/REPORT.md) ·
+[Original sampled result](results/probability_workspace_20261028/evaluation-recovery-v2/REPORT.md) ·
+[Live status](STATUS.md).
 
 
 Can a randomly initialized language model learn to use additional internal
