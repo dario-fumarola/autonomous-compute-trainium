@@ -1,3 +1,25 @@
+## October 29, 2026, 19:32 UTC — fixed-one schedule comparison registered
+
+The completed multi-budget result remains negative with all four gates failed.
+A separate bounded comparison fills the missing fixed-one fit in that same
+exact depth-causal graph. Only the per-update budget schedule changes: one
+latent step throughout, with the original initializer, source order, uniform
+NTP, 1,957 updates and three independent LR opportunities. No checkpoint is
+extended. Only the trained one-step exit is scored.
+
+The primary schedule-effect screen requires 0.02 nats over mixed training's
+supported one-step exit; a separate conventional screen requires 0.01 over
+strongest tied ordinary, each with a positive conditional interval and an
+interior LR. Neither automatically admits scaling, allocation or confirmation.
+Nominal work is exactly 1.12 times strongest ordinary at equal data.
+
+All 921 CPU tests pass, with two skips; 46 focused checks pass. The qualified
+numerical/optimizer source is unchanged. Exact archival preserves closed
+compiler bytes and restores 15,999 inodes. The new immutable plan permits
+three fits and common evaluation on all 16 chips, with a 22:31 UTC cutoff.
+Both fresh reserves stay sealed. [Protocol](docs/FIXED_DEPTH_CAUSAL_COMPARISON_20261029.md) ·
+[Plan](results/depth_causal_workspace_20261029/fixed-one-v1/plan.json).
+
 ## October 29, 2026, 19:25 UTC — exact depth-causal screen complete and negative
 
 All three full fits and mature audits pass. Independent FP64 scores are
