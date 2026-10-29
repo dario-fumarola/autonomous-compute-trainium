@@ -1,4 +1,4 @@
-# Learned-state consistency: first endpoint fails the fixed-two guard
+# Learned-state consistency: first two endpoints fail the fixed-two guard
 
 The initialization passes all three domain guards. The first audited latent
 endpoint (LR0.0003,128,025,288 targets) fails them. Higher-round states converge
@@ -28,3 +28,13 @@ the next specific hypothesis; it is not assumed to repair this mismatch.
 
 [Frozen protocol](../../../docs/INTERLEAVED_CONVERGENCE_DIAGNOSTIC_20261029.md)
 and [first-endpoint aggregates](latent-lr0.json).
+
+## Second audited endpoint, LR0.001
+
+The identical diagnostic takes40.21 CPU seconds and again fails the guard in
+all domains. Exact-sequential minus K2 NLL is+0.002844 on web,+0.040639 on math,
+and+0.091553 on code. Forward KL is0.058263,0.077923 and0.085006 respectively.
+The smaller aggregate web loss shift does not imply close prediction agreement.
+K16/K32 KL remains below1.2e-7. The third endpoint is pending; no learning-rate
+selection or quality promotion follows from these TRAIN-only diagnostics.
+[Second-endpoint aggregates](latent-lr1.json).

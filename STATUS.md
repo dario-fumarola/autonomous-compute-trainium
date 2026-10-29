@@ -1,3 +1,18 @@
+## October 29, 2026, 09:22 UTC — fixed-round dependence persists at second LR
+
+The second latent fit passes its independent mature audit but fails the same
+TRAIN-only sequential-consistency guard in all three domains. Sequential loss
+is0.00284/0.04064/0.09155 worse on web/math/code; prediction KL is0.0583/0.0779/
+0.0850. Small mean web loss movement therefore does not establish agreement.
+The third latent LR is active, with all pause controls still in the frozen queue.
+No tuning quality readout or fresh-reserve access has occurred.
+
+The prospective mixed-round follow-up is implemented but not admitted. Its
+fixed source exposure, common shuffled K2/K3 schedule, K2-only LR selection,
+all-endpoint consistency check and ordinary/pause controls are explicit before
+results. Separate actual-shape qualification must pass first. The complete
+source suite passes718 tests with two skips; all prior failures remain.
+
 ## October 29, 2026, 09:10 UTC — first learned-state check identifies fixed-round dependence
 
 The first128M-target latent fit passes its mature numerical audit. Its separate
