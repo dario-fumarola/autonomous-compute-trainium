@@ -1,3 +1,25 @@
+## October 29, 2026, 21:38 UTC — first sparse-screen audit passes
+
+The first ordinary fit completes all 1,969 updates and passes the mature
+full-global gradient, complete-state restoration and all-replica checks. The
+second ordinary LR fit reaches its final update; checkpoint closure and audit
+are pending. The bounded service continues the original all-16-chip queue.
+No held-out quality score has been selected, and the original deadline remains.
+
+A separate CPU-only position diagnostic is frozen before quality selection.
+It partitions all targets into boundary predictions and fixed distances from
+earlier slots, and must reconstruct the original broad loss. A memory-blocking
+intervention is conditional on both original development gates passing. Four
+new numerical aggregation tests and 14 combined checks pass. This supplement
+adds no fitting, selection opportunities, promotion gate or fresh-source access.
+[Position diagnostic](docs/CHUNKED_POSITION_DIAGNOSTIC_20261029.md).
+
+A bounded TRAIN-only audit finds zero eligible source-authored arithmetic
+doctests in 10,000 code documents under its strict parser. It is closed without
+generating replacement examples or scoring models. This limits the extractor,
+not the corpus's computational content.
+[Coverage receipt](results/authored_doctest_arithmetic_20261029/train-audit-v1/REPORT.md).
+
 ## October 29, 2026, 21:15 UTC — original fit survives server restart
 
 A chat-server restart ends the host controller, while the first ordinary fit
