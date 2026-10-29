@@ -1,3 +1,29 @@
+## October 29, 2026, 16:36 UTC — supported-budget learning registered
+
+The new finite experiment trains zero/one/two generated states in one model,
+with all five numerically qualified graphs. It retains the original1957updates,
+128,025,288authentic targets, seed9901 and three independent LR opportunities.
+No architecture, labels or target weights change. This is a distinct mechanism
+question; the failed fixed-one replication gate and blocked ephemeral follow-up
+remain unchanged.
+
+Each fit must pass all five mature gradients and both TRAIN-only sequential
+consistency checks before DEV scoring. Exact sequential readout must show a
+useful two-over-one gain, a gain over independently trained fixed-one and tied
+ordinary, and preservation of the zero-token prediction path. All four
+development gates are required; no automatic confirmation or larger fit.
+
+All841CPU tests pass with two skips;39targeted model/control checks and seven
+final protocol checks pass. The immutable plan reserves all16chips per Native
+phase and ends by19:36UTC, including audits and exact CPU readout. It is an
+equal-data study using about4.45times tied ordinary's nominal training work;
+it cannot establish training-compute efficiency. Both fresh reserves remain
+unscored.
+
+[Protocol](docs/SUPPORTED_LATENT_BUDGET_LEARNING_20261029.md) ·
+[Plan](results/budgeted_interleaved_20261029/learning-v1/plan.json) ·
+[CPU checks](results/budgeted_interleaved_20261029/learning-v1/cpu-checks.json).
+
 ## October 29, 2026, 16:15 UTC — thought-budget qualification passes; capacity preserved
 
 All five explicit-budget graphs pass cold gradients, exact full-state replay and
