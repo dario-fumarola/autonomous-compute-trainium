@@ -1,0 +1,31 @@
+{
+  "status": "COMPLETE_EXACT_CLOSED_SNAPSHOT_DEDUPLICATION",
+  "files": [
+    {
+      "paths": {
+        "owner": "runs/owner-full-training-screen-v1-one-ntp-owner/after-first-update.pt",
+        "replicated": "runs/owner-full-training-screen-v1-one-ntp-replicated/after-first-update.pt"
+      },
+      "sha256": "30d8c6bbcac5e114db9e9779fcaba3fa419525e8d804607175c5e39821912f46",
+      "bytes": 1928611355,
+      "duplicate_allocated_bytes": 1042812928
+    },
+    {
+      "paths": {
+        "owner": "runs/owner-full-training-screen-v1-one-ntp-owner/after121.pt",
+        "replicated": "runs/owner-full-training-screen-v1-one-ntp-replicated/after121.pt"
+      },
+      "sha256": "aaffc4ee3e713b9d230bde7e8ca36990f27b4423d9c724f9b595d560321ecd05",
+      "bytes": 1928611355,
+      "duplicate_allocated_bytes": 1928617984
+    }
+  ],
+  "gate_sha256": "e5aa726c4837bebc5bbd11e541fbb5d5873969389559e9e6d53c9d3f138599b4",
+  "source_sha256": "48cbbffe1941f272e550360e01e9bbbb8ddd20e98a3c2c179ea25361fdcc8799",
+  "assigned_chips": 0,
+  "scientific_states_deleted": 0,
+  "failed_histories_deleted": 0,
+  "freed_allocated_bytes": 2971430912,
+  "scope": "Two byte-identical pairs from the closed October25 owner/replicated throughput screen. Preserve all paths, exact serialized bytes, receipts and the unfavorable result. Atomic hard links share storage; treat these closed historical snapshots as immutable and copy before any future write. Differing full-state and gradient files remain unchanged.",
+  "wall_seconds": 15.767119646072388
+}

@@ -1,3 +1,30 @@
+## October 29, 2026, 13:52 UTC — wider qualification passes; last declared shape is fitting
+
+The4x576 ordinary model passes cold/mature gradients,64-replica equality and
+exact fresh-process full-state replay. Its100 warm updates average0.127477s.
+The separately frozen three-LR128M-target comparison and paired analysis now
+run on all16 chips. No wider quality result is available yet.
+[Qualification](results/interleaved_workspace_20261029/frontier-wider-qualification-v1/REPORT.md).
+
+The deeper result remains positive for latent computation, while tied ordinary
+remains the strongest completed control. The bracket-type result remains
+inconclusive. Closed-owner exact snapshot deduplication recovers2.77GiB while
+preserving both paths and every byte. Both fresh reserves remain unscored.
+[Exact preservation receipt](results/interleaved_workspace_20261029/maintenance-v9/REPORT.md).
+
+## October 29, 2026, 13:46 UTC — gain survives deeper ordinary; wider comparison is next
+
+All deeper ordinary fits/audits complete. InteriorLR0.001 scores3.332768NLL;
+exact-sequential latent3.262734 improves0.070035nats[0.064797,0.075637], with all
+domains positive. The tied challenger remains strongest at3.287781, so the
+best completed conventional comparison is still the narrower0.025047 gain.
+[Complete deeper comparison](results/interleaved_workspace_20261029/frontier-deeper-tuning-v1/REPORT.md).
+
+The bounded handoff reaches closed-owner maintenance and will immediately
+register/launch the pre-inventoried wider qualification, followed only on pass
+by its frozen three-LR comparison. No long main or fresh-panel read is admitted.
+The conditional seed-replication preparation passes749CPUtests/two skips.
+
 ## October 29, 2026, 13:37 UTC — final deeper LR running; replication remains conditional
 
 The first two deeper ordinary endpoints complete their cooldowns and independent

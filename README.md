@@ -10,8 +10,9 @@ This is a useful predictive-computation development result at51.75M parameters
 and128M authentic targets. It remains one selected seed on reused DEV and costs
 **3.782219times this stronger control's training matrix work**. General reasoning,
 learned allocation and training efficiency remain unestablished. Both fresh
-reserves are unscored. The remaining pre-inventoried deeper and wider ordinary
-controls are next; the deeper model is now undergoing numerical qualification.
+reserves are unscored. The deeper ordinary control also loses by0.070035nats; the tied control remains
+the strongest completed alternative. The last pre-inventoried wider control
+is now undergoing numerical qualification.
 [Stronger comparison](results/interleaved_workspace_20261029/tied-comparison-v1/REPORT.md) ·
 [Exact sequential result](results/interleaved_workspace_20261029/mixed-sequential-dev-v1/REPORT.md) ·
 [Complete mixed screen](results/interleaved_workspace_20261029/mixed-round-tuning-v1/REPORT.md).

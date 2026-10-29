@@ -1,0 +1,49 @@
+{
+  "status": "COMPLETE_ORDINARY_FRONTIER_TUNING_ANALYSIS",
+  "scores": {
+    "deeper-lr0": {
+      "lr": 0.0003,
+      "domains": {
+        "web": 4.227429999111122,
+        "math": 3.4157506585083253,
+        "code": 2.6516855169169076
+      },
+      "broad_nll": 3.7499452345517197
+    },
+    "deeper-lr1": {
+      "lr": 0.001,
+      "domains": {
+        "web": 3.8296433645390917,
+        "math": 3.0016564912934367,
+        "code": 2.1732557864598707
+      },
+      "broad_nll": 3.3327684742741166
+    },
+    "deeper-lr2": {
+      "lr": 0.003,
+      "domains": {
+        "web": 3.932780582715049,
+        "math": 3.08608582057193,
+        "code": 2.2655521565067778
+      },
+      "broad_nll": 3.4299959450447712
+    }
+  },
+  "selection": {
+    "arm": "deeper-lr1",
+    "lr": 0.001,
+    "domains": {
+      "web": 3.8296433645390917,
+      "math": 3.0016564912934367,
+      "code": 2.1732557864598707
+    },
+    "broad_nll": 3.3327684742741166,
+    "bracketed": true
+  },
+  "assigned_chips": 0,
+  "protected_groups_scored": 0,
+  "trained_seeds": 1,
+  "automatic_promotion": false,
+  "wall_seconds": 0.005219221115112305,
+  "scope": "Single-seed pre-inventoried untied ordinary-shape LR selection on reused DEV. No unbiased confirmation or exhaustive conventional frontier claim. Latent comparison uses exact sequential predictions."
+}
