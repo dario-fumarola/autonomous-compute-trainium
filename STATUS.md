@@ -1,3 +1,14 @@
+## October 29, 2026, 15:33 UTC — ephemeral numerical qualification complete
+
+The disposable source-KV reuse graph passes cold and full128-window mature
+gradients, exact fresh-process model/optimizer/RNG replay and all replicas.
+Its100warm updates average0.191977seconds; both Native attempts total
+1.402411assigned chip-hours. No held-out quality was scored.
+[Qualification receipt](results/ephemeral_workspace_20261029/numerical-v1/REPORT.md).
+
+Exact sequential CPU replication readouts continue. The prepared trained
+ephemeral control remains gated on their completed positive result.
+
 ## October 29, 2026, 15:26 UTC — six replication audits pass; exact readouts active
 
 All six fixed-recipe fits finish and pass their mature gradient/state audits.
