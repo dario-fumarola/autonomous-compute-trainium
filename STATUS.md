@@ -1,3 +1,25 @@
+## October 29, 2026, 15:02 UTC — first replication seed audited; arithmetic readout underway
+
+All three seed730201 fits complete and pass mature audits. Seed730237's latent
+fit has reached its endpoint and is being audited; its remaining controls stay
+in the original queue. No new-seed predictive outcome has been inspected.
+
+A CPU-only readout is registered on all253 existing source-separated dependency
+cases, with134 authored arithmetic conclusions primary. It compares the fixed
+original mixed latent, strongest tied ordinary and pause endpoints using exact
+sequential generation and full/last32 contexts. It does not open a fresh reserve
+or change the bracket-type result. The complete CPU suite passes799tests/two
+skips. [Frozen arithmetic readout](docs/INTERLEAVED_ARITHMETIC_DEV_20261029.md).
+
+The separate TRAIN feasibility audit finds no qualifying pure-function integer
+assertions in10000code documents under its strict frozen rule. No new panel is
+created or rule relaxed. This is a coverage limit, not a reasoning negative.
+[Counts and limits](results/authored_code_assertions_20261029/train-audit-v1/REPORT.md).
+
+A bounded handoff will register the disposable ephemeral-state qualification
+only after all six replication fits/audits pass and resource guards permit.
+It uses spare chips during CPU readout, with no scientific fit promotion.
+
 ## October 29, 2026, 14:38 UTC — replication progressing; persistence control prepared
 
 The first new-seed latent fit completes its full schedule and passes mature
