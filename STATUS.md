@@ -1,3 +1,26 @@
+## October29,2026,04:38 UTC — both equal-data fits audited; work control active
+
+The untied workspace and fresh ordinary equal-data endpoints both complete
+200,190,896targets,cooldown and their independent mature gradient audits.
+All16chips now train the ordinary work control to446,570,790targets. No new
+held-out score is available;all three endpoints must pass before evaluation.
+
+A zero-update TRAIN diagnostic shows variable untied proposals(centered/total
+RMS0.9834),unlike the earlier near-constant cue fit. This only rules out that
+particular observed collapse;it is not predictive or causal-use evidence.
+
+A syntax-only inventory finds846 long nested closing-delimiter targets in the
+first10,000 TRAIN code documents. A separately frozen development panel then
+collects141source-disjoint long/near pairs with the same closer and nesting band.
+Its282targets remain original source tokens;no program was executed or answer
+generated. None overlaps current TRAIN,previous evaluation groups or protected
+sources. A prospective zero-update comparison is specified before the parent
+quality scores,with every contrast retained. It does not replace the broad-loss
+primary or admit another fit. Current accelerator work continues unchanged.
+[Proposal diagnostic](results/probability_workspace_20261029/untied-screen-v1/train-proposal-statistics.json) ·
+[Source-only panel](results/probability_workspace_20261029/structural-panel-v1/report.json) ·
+[Prospective readout rules](results/probability_workspace_20261029/structural-readout-v1/prospective-rules.json).
+
 ## October29,2026,03:56 UTC — complete untied qualification passes; three-arm learning screen active
 
 Mature global gradient errors remain below6.14e-7 across input,output and body;

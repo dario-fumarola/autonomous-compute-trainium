@@ -1,0 +1,70 @@
+{
+  "status": "COMPLETE_UNTIED_TRAIN_PROPOSAL_STATISTICS",
+  "rows": [
+    {
+      "identity": "probability-fixed-one-v1",
+      "arm": "workspace",
+      "table_stats": {},
+      "checkpoint_sha256": "537a149f3b1b4144ec2ef60b7ff0bd89b8581a652aa16e1bf8a81c6f5202104a",
+      "plan_sha256": "1440db10ad53c9db9b87d27ee806b93370958a69e5070e89f199a31f5faadb3f",
+      "audit_sha256": "c52ccd2015af1ee98487518c6d11e996e39291df60c9d2dce1f7a2a8b3d524e7",
+      "train_window_start": 1000000,
+      "windows": 8,
+      "records": [
+        {
+          "extra_steps": 1,
+          "steps": [
+            {
+              "remaining": 1,
+              "entropy_nats": 5.387378949615975,
+              "top1_mass": 0.1572655996640151,
+              "thought_rms_l2": 0.3839238516359528,
+              "thought_centered_rms_l2": 0.3417557365551826,
+              "thought_centered_to_total": 0.8901654197802872,
+              "state_rms_l2": 1.042093655065632,
+              "mean_thought_l2": 0.17493010143085638
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": "probability-untied-screen-v1",
+      "arm": "workspace",
+      "table_stats": {
+        "relative_output_input_distance": 1.5385050605237762,
+        "table_cosine": 0.20918430920393663,
+        "input_l2": 159.55686004544188,
+        "output_l2": 222.89084392059718
+      },
+      "checkpoint_sha256": "916fabc2ede19804cb5ba44b26ac9423e914616b47bb63b350da710d3443ab13",
+      "plan_sha256": "50128ce87d9aa18de0321dfd72285629fe9d73cb3fd713917781eca640dbf257",
+      "audit_sha256": "71ce1670318574c2f8946d7c7255a52291a8003f61538eeab97f26c48587db4d",
+      "train_window_start": 1000000,
+      "windows": 8,
+      "records": [
+        {
+          "extra_steps": 1,
+          "steps": [
+            {
+              "remaining": 1,
+              "entropy_nats": 4.161063899708695,
+              "top1_mass": 0.32626237689305526,
+              "thought_rms_l2": 0.39655550685196944,
+              "thought_centered_rms_l2": 0.38998589836753794,
+              "thought_centered_to_total": 0.9834333192430389,
+              "state_rms_l2": 0.9177928058839532,
+              "mean_thought_l2": 0.07188371922130034
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "assigned_chips": 0,
+  "wall_seconds": 4.776806116104126,
+  "peak_rss_bytes": 5249085440,
+  "scope": "Descriptive proposal entropy and state variation on the same first8 TRAIN audit windows. These are not held-out scores,causal ablations or proof of a reasoning mechanism. No new sampled thoughts or future-target access;all reported depths supported. The untied model uses its independent output table for logits and its input table for proposal values. Table distance is descriptive,not a performance or causal attribution test. Global constant mean is descriptive,not a substitute control."
+}

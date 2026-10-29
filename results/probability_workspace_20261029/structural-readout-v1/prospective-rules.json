@@ -1,0 +1,33 @@
+{
+  "status": "PROSPECTIVE_RULES_BEFORE_PARENT_QUALITY_SCORES",
+  "registered_unix": 1793248626.075113,
+  "models": [
+    "untied fixed-one supported exit1",
+    "untied ordinary equal data exit0",
+    "untied ordinary equal work exit0"
+  ],
+  "conditions": [
+    "full original prefix up to512tokens",
+    "last32 original prefix tokens"
+  ],
+  "minimum_source_groups": 128,
+  "source_groups": 141,
+  "practical_gain_nats": 0.03,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 9522,
+  "comparisons": [
+    "long workspace versus each ordinary control",
+    "short workspace versus each ordinary control",
+    "long-minus-short workspace advantage",
+    "full-versus-last32 utility for every model/case",
+    "extra full-context utility versus each control"
+  ],
+  "primary_mechanism_screen": "At least0.03nats lower long-target NLL than equal-data ordinary with positive conditional95%source-group lower bound;report equivalent work comparison separately. Interaction alone cannot pass. Every contrast reported regardless of sign.",
+  "scope": "Zero-update source-separated DEVELOPMENT diagnostic with original authored code targets. Same audited three checkpoints,supported exits only. Full/last32 conditions remove long opener while retaining short opener;this is a context intervention,not proof of an internal algorithm. One seed,141source groups;wide uncertainty may be inconclusive. No broad-primary replacement,larger fit,router,confirmation or changed training. Protected320groups remain sealed. Readout may be admitted only after the running parent comparison fully closes and CPU checks pass.",
+  "draft_code_sha256": {
+    "structural_probability_statistics": "bb186f44a2946fea788f62e69dc0c6c0dce8781f0a595c810ca601f4e73862b1",
+    "evaluate_structural_probability": "5b34939a62c68ceecab21fa31b934860ddc04c85e556160e49ebc50f80ec788a",
+    "analyze_structural_probability": "3cedc3f50c3c536528c65f70c322330fa5eee1660d1d9d30d39b9b8887eeeb71",
+    "run_structural_probability": "e0a9774084cb5758c04708d1ccab8a1e9aea289fb65012398a91ed2edc94dccb"
+  }
+}
