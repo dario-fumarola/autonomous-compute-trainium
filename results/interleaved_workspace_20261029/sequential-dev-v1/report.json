@@ -1,0 +1,197 @@
+{
+  "status": "COMPLETE_SEQUENTIAL_DEV_READOUT",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "protected_groups_scored": 0,
+  "domains": {
+    "web": 3.8299019739554265,
+    "math": 3.0133478377811396,
+    "code": 2.1979513311804717
+  },
+  "broad_nll": 3.3402010181655784,
+  "comparisons": {
+    "ordinary-lr1-main": {
+      "broad": {
+        "gain": 0.03691033271046758,
+        "conditional_95_interval": [
+          0.03187075012716969,
+          0.04193774088221673
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": 0.0391975631367365,
+          "conditional_95_interval": [
+            0.031837321666247045,
+            0.04605235155363773
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": 0.03577104664861386,
+          "conditional_95_interval": [
+            0.027083931845788157,
+            0.044509985504897084
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": 0.03118792749351451,
+          "conditional_95_interval": [
+            0.02099622671502922,
+            0.041373940337853576
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      }
+    },
+    "pause-lr1-main": {
+      "broad": {
+        "gain": 0.050927084871368405,
+        "conditional_95_interval": [
+          0.045773580810748025,
+          0.05628731564200934
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": 0.06524682442431029,
+          "conditional_95_interval": [
+            0.05806190378883826,
+            0.07286881300070083
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": 0.040014373914693646,
+          "conditional_95_interval": [
+            0.031141468786761283,
+            0.04913948086720753
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": 0.01888057716921754,
+          "conditional_95_interval": [
+            0.008997419566927577,
+            0.02911842105485052
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      }
+    },
+    "latent-lr1-main": {
+      "broad": {
+        "gain": -0.058892464248560025,
+        "conditional_95_interval": [
+          -0.06188697167376094,
+          -0.05598039242715098
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": -0.05113424876504569,
+          "conditional_95_interval": [
+            -0.055197401954625004,
+            -0.04722696253640039
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.06735207619468842,
+          "conditional_95_interval": [
+            -0.07458487879126445,
+            -0.06086446782533907
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.07370749875297467,
+          "conditional_95_interval": [
+            -0.07990959646963519,
+            -0.0681446638277645
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      }
+    }
+  },
+  "workers": [
+    {
+      "status": "COMPLETE_SEQUENTIAL_DEV_PARTITION",
+      "views": 96,
+      "checks": [
+        {
+          "index": 0,
+          "maximum_target_loss_error": 1.887379141862766e-15
+        },
+        {
+          "index": 256,
+          "maximum_target_loss_error": 3.552713678800501e-15
+        }
+      ],
+      "wall_seconds": 658.4024488925934,
+      "peak_rss_bytes": 1836126208
+    },
+    {
+      "status": "COMPLETE_SEQUENTIAL_DEV_PARTITION",
+      "views": 96,
+      "checks": [
+        {
+          "index": 1,
+          "maximum_target_loss_error": 2.6645352591003757e-15
+        },
+        {
+          "index": 257,
+          "maximum_target_loss_error": 3.552713678800501e-15
+        }
+      ],
+      "wall_seconds": 733.2624404430389,
+      "peak_rss_bytes": 1841942528
+    },
+    {
+      "status": "COMPLETE_SEQUENTIAL_DEV_PARTITION",
+      "views": 96,
+      "checks": [
+        {
+          "index": 128,
+          "maximum_target_loss_error": 3.552713678800501e-15
+        }
+      ],
+      "wall_seconds": 621.3082580566406,
+      "peak_rss_bytes": 1854877696
+    },
+    {
+      "status": "COMPLETE_SEQUENTIAL_DEV_PARTITION",
+      "views": 96,
+      "checks": [
+        {
+          "index": 129,
+          "maximum_target_loss_error": 3.552713678800501e-15
+        }
+      ],
+      "wall_seconds": 626.078610420227,
+      "peak_rss_bytes": 1883922432
+    }
+  ],
+  "checkpoint_sha256": "afccbcc04d2806bb860069a75deae003ff719cd10dbb2edad612804a380fd13a",
+  "scope": "Sequential readout of the previously selected fixed-K2 checkpoint. Reused single-seed DEV; no efficiency, reasoning, speed or confirmation claim.",
+  "automatic_promotion": false,
+  "trained_seeds": 1,
+  "wall_seconds": 738.8993542194366
+}

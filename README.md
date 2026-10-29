@@ -6,11 +6,16 @@ pauses**. The0.095803-nat ordinary comparison favors generated states in web,
 math and code. All three families select the interior learning rate after
 equal tuning opportunities; all nine mature numerical/state audits pass.
 
+The lead survives exact sequential generation: **3.340201 NLL**, improving
+**0.036910nats over ordinary** and **0.050927 over pauses**, again in every domain.
+The finite-round training approximation still overstates that benefit by
+0.058892nats. A separately qualified mixed-round learning comparison is active
+on all16 chips to test this mismatch.
+
 This51.75M-parameter,128M-target result is not yet an efficiency or reasoning
 claim. It uses4.937times ordinary training matrix work, one training seed and
-reused DEV. The selected two-round training approximation also fails a separate
-sequential-consistency check. Exact sequential readout and a bounded mixed-
-round investigation are next; both fresh evaluation reserves remain unscored.
+reused DEV. Both fresh evaluation reserves remain unscored.
+[Exact sequential result](results/interleaved_workspace_20261029/sequential-dev-v1/REPORT.md) ·
 [Completed learning-rate screen](results/interleaved_workspace_20261029/tuning-v1/REPORT.md).
 
 The joint-exit probability screen is complete and negative. After supervising

@@ -1,3 +1,23 @@
+## October 29, 2026, 10:28 UTC — sequential generation retains positive utility; mixed learning active
+
+The complete fixed384-window sequential readout scores3.340201NLL, improving
+0.036910 over equally exposed ordinary training and0.050927 over trained
+pauses. All three domains favor generated states. The corresponding conditional
+source-group intervals are[0.031871,0.041938] and[0.045774,0.056287]. This remains
+one selected seed on reused DEV, with4.937times ordinary training matrix work;
+no reasoning, efficiency, fresh confirmation or accelerator-serving claim.
+[Sequential result](results/interleaved_workspace_20261029/sequential-dev-v1/REPORT.md).
+
+FiniteK2 prediction is still0.058892nats better than sequential execution, so
+its consistency failure remains material. MixedK2/K3 actual-shape qualification
+now passes: both cold graphs,100 warm updates, exact fresh-process state replay,
+and complete global mature gradients(maximum family relative error1.56e-6).
+The bounded three-LR follow-up is registered and active on all16 chips, retaining
+128,025,288 targets, initialization, optimizer and complete cooldowns. Its
+unchanged all-endpoint TRAIN consistency diagnostic runs separately on CPU.
+Both fresh reserves stay closed; no1B main or confirmation is admitted.
+The full source suite passes718 tests with two skips.
+
 ## October 29, 2026, 10:23 UTC — mixed replay recovered after host-memory admission stop
 
 The mixed warm phase passes100 updates at0.28344s/update (K2:0.26688,
