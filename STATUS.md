@@ -1,4 +1,4 @@
-## October 29, 2026, 17:31 UTC — two supported-budget fits pass; final LR active
+## October 29, 2026, 18:04 UTC — all supported-budget fits pass; common evaluation active
 
 The new finite experiment trains zero/one/two generated states in one model,
 with all five numerically qualified graphs. It retains the original1957updates,
@@ -20,16 +20,18 @@ equal-data study using about4.45times tied ordinary's nominal training work;
 it cannot establish training-compute efficiency. Both fresh reserves remain
 unscored.
 
-The first two LR fits complete all1957updates, full cooldown, five mature global
+All three LR fits complete all1957updates, full cooldown, five mature global
 gradient audits each and exact full-state restoration. Both positive budgets pass
-TRAIN-only consistency against exact sequential execution at both endpoints;
-the largest absolute domain loss shifts are0.000634/0.000946nats. The third and
-final LR fit is active on all16chips.
+TRAIN-only consistency against exact sequential execution at every endpoint;
+the largest absolute domain loss shifts are0.000634/0.000946/0.000441nats.
+The common development readout is active on all16chips. Exact sequential
+zero/one/two-token evaluation of the selected checkpoint follows.
 All LR trials start from identical frozen weights and see the same source order.
 No held-out quality result is available. The controller stops on any numerical,
 consistency, resource or endpoint failure and retains its initiating exception.
 [First-fit receipts](results/budgeted_interleaved_20261029/learning-v1/lr0-checks.json).
 [Second-fit receipts](results/budgeted_interleaved_20261029/learning-v1/lr1-checks.json).
+[Third-fit receipts](results/budgeted_interleaved_20261029/learning-v1/lr2-checks.json).
 
 [Protocol](docs/SUPPORTED_LATENT_BUDGET_LEARNING_20261029.md) ·
 [Plan](results/budgeted_interleaved_20261029/learning-v1/plan.json) ·
