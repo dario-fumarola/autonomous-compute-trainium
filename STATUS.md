@@ -1,3 +1,21 @@
+## October 29, 2026, 18:24 UTC — exact budget readout finishing; new causal reference passes CPU
+
+All nine Native budget/LR readouts finish and pass independent FP64 checks.
+LR0.001is the interior selected endpoint. Preliminary one/two-latent losses
+are3.379690/3.381602; these do not show useful extra-step scaling. Its full
+exact sequential0/1/2readout is still active on bounded CPU workers. All prior
+numerical checks passed; the completed comparison will determine the frozen
+four gates. No extension or confirmation is admitted.
+
+A distinct CPU reference now uses causality in both source position and latent
+stage. Earlier representations remain invariant when later stages are added,
+and differentiable KV reuse exactly matches full recomputation and sequential
+inference.871tests pass/two skip; a subsequent33-test targeted set also passes,
+including three additional static full-graph checks. The implementation has no
+router, new target weighting or fitted outcome. It needs separately registered
+actual-shape qualification after the current experiment closes. Both fresh
+reserves remain unscored. [Reference and checks](results/depth_causal_workspace_20261029/cpu-v1/REPORT.md).
+
 ## October 29, 2026, 18:04 UTC — all supported-budget fits pass; common evaluation active
 
 The new finite experiment trains zero/one/two generated states in one model,
