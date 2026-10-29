@@ -17,16 +17,21 @@ def read(path):
     return json.loads(path.read_text())
 
 
-def render(root):
-    folder = root / IDENTITY
+def render(root, *, completion=False):
+    identity = 'chunked-control-completion-v1' if completion else IDENTITY
+    public = PUBLIC.parent / 'control-completion-v1' if completion else PUBLIC
+    folder = root / identity
     result = read(folder / 'report.json')
-    if result['status'] != 'COMPLETE_CHUNKED_PERSISTENT_SCREEN':
+    expected = 'COMPLETE_CHUNKED_CONTROL_COMPLETION' if completion else 'COMPLETE_CHUNKED_PERSISTENT_SCREEN'
+    if result['status'] != expected:
         raise RuntimeError('No report rendering before the frozen screen completes')
-    plan = read(folder / 'plan.json')
+    plan = read(folder / ('readout-plan.json' if completion else 'plan.json'))
     analysis = read(folder / 'compare/report.json')
     selection = read(folder / 'select/report.json')
     exact = read(folder / 'readout/report.json')
-    costs = read(PUBLIC / 'execution-costs.json')
+    cost_files = ([PUBLIC / 'execution-costs.json', public / 'fit-execution-costs.json',
+                   public / 'readout-execution-costs.json'] if completion else [PUBLIC / 'execution-costs.json'])
+    costs = dict(native_attempts=[r for f in cost_files for r in read(f)['native_attempts']])
     if any(file_sha256(path) != sha for path, sha in plan['source_sha256'].items()):
         raise AssertionError('Original frozen scientific sources changed')
     for arm in plan['arms']:
@@ -52,7 +57,11 @@ def render(root):
     fig, axes = plt.subplots(1, 3, figsize=(12, 3.6), sharey=True, layout='constrained')
     for i, lr in enumerate(plan['learning_rate_grid']):
         ax = axes[i]
+        missing = []
         for family in FAMILIES:
+            if f'{family}-lr{i}' not in plan['arms']:
+                missing.append(LABELS[family])
+                continue
             arm = plan['arms'][f'{family}-lr{i}']
             updates = read(root / 'runs' / arm['phase'] / 'updates.json')
             if len(updates) != len(arm['depth_schedule']) or updates[-1]['update'] != len(updates):
@@ -63,18 +72,26 @@ def render(root):
             work = np.array([row['cumulative_matrix_flops'] for row in updates[63:]], dtype=float) / 1e16
             ax.plot(work, smooth, label=LABELS[family], color=palette[family], linewidth=1.3)
         ax.set_title(f'Peak LR {lr:g}')
+        if missing:
+            ax.text(.98,.96,'Unavailable endpoint:\n'+'\n'.join(missing),transform=ax.transAxes,
+                    ha='right',va='top',fontsize=8,color='#854040')
         ax.set_xlabel('Nominal training matrix FLOPs / 10¹⁶')
         ax.grid(alpha=.18)
     axes[0].set_ylabel('Training NLL, 64-update target-weighted mean')
     axes[0].legend(frameon=False, fontsize=8)
-    fig.suptitle('All registered fits — training trajectories, not held-out scores')
-    fig.savefig(PUBLIC / 'training-curves.png', dpi=180)
-    fig.savefig(PUBLIC / 'training-curves.svg')
+    fig.suptitle('All complete fits — training trajectories, not held-out scores')
+    fig.savefig(public / 'training-curves.png', dpi=180)
+    fig.savefig(public / 'training-curves.svg')
     plt.close(fig)
 
-    lines = ['# Sparse persistent workspace: complete matched-work screen', '',
-             'All nine registered fits and mature numerical audits completed. '
-             'Each family received three independent learning-rate opportunities. '
+    opening = (f"{len(plan['arms'])} of nine original learning-rate opportunities completed with mature audits. "
+               'The original screen remains STOPPED after a non-finite-gradient attempt. '
+               'This separate completion trains only the three previously unstarted controls and reuses the five audited histories. '
+               'No failed fit is retried, and no LR, endpoint or original deadline is extended. '
+               'The original all-nine-complete gate stays UNMET; unavailable fits have no invented NLL. '
+               if completion else 'All nine registered fits and mature numerical audits completed. ')
+    lines = ['# Sparse persistent workspace: ' + ('descriptive control completion' if completion else 'complete matched-work screen'), '',
+             opening + 'Each family received three independent learning-rate opportunities. '
              'The selected checkpoints were rescored in FP64 on all 384 reused DEV sources. '
              'This is one paired random-initialization seed, with 60/20/20 web/math/code weighting. '
              'Both fresh evaluation reserves remain unscored; terminal alpha spent is zero.', '',
@@ -107,6 +124,10 @@ def render(root):
         for row in selection['all_scores'][family]:
             chosen = row['arm'] == analysis['selection'][family]['arm']
             lines.append(f"| {LABELS[family]} | {row['lr']:g} | {row['broad_nll']:.9f} | {'yes' if chosen else ''} |")
+    if completion:
+        for arm, failure in analysis['unavailable'].items():
+            family=arm.split('-')[0]
+            lines.append(f"| {LABELS[family]} | {failure['lr']:g} | unavailable: numerical failure | no |")
     lines += ['', '## Resources', '',
               '| Selected family | Parameters | Natural targets | Nominal training matrix FLOPs | Warm update, s | Worker fit, s |',
               '|---|---:|---:|---:|---:|---:|']
@@ -118,26 +139,31 @@ def render(root):
               'with FMA=2 and backward=2× forward. Elementwise work, communication and launch latency '
               'are outside it. Worker fit durations include startup, compilation and checkpoint work; '
               'warm-update durations exclude startup. These are descriptive cross-run timings, not a hardware-time-matched trial.', '',
-              f'The complete nine-fit screen plus accelerator readout used **{screen_hours:.6f} assigned chip-hours**. '
+              f'All original and completion attempts plus accelerator readout used **{screen_hours:.6f} assigned chip-hours**. '
               f'Its preceding qualifications used **{qualification_hours:.6f} assigned chip-hours**, including both timed-out attempts. '
               f'Total assigned accelerator cost for these histories is **{screen_hours + qualification_hours:.6f} chip-hours**. '
               'Host-only audits and readouts are recorded separately. Reserved-instance opportunity cost is not added again to assigned chip-time.', '',
               '## Numerical checks and scope', '',
-              'Each endpoint passed the unchanged independent full-global TRAIN-gradient audit, full model/optimizer/RNG '
+              'Each scored endpoint passed the unchanged independent full-global TRAIN-gradient audit, full model/optimizer/RNG '
               'restoration and replica checks. The selected exact readout contains '
               f"{sum(len(w['checks']) for w in exact['workers'])} cached/full-prefix checks. "
               'All genuine targets are scored once with uniform next-token weighting. Generated and constant slots '
               'have identical parameters and matrix work; the constant-input body can still read its causal prefix.', '',
-              'The separately registered position diagnostic decomposes this same broad result. Its bins cannot '
-              'repair a failed broad gate. Unsupported slot budgets, fresh confirmation and serving performance '
+              ('The original position diagnostic is not admitted because the original completion prerequisite failed. '
+               if completion else 'The separately registered position diagnostic decomposes this same broad result. Its bins cannot repair a failed broad gate. ')
+              + 'Unsupported slot budgets, fresh confirmation and serving performance '
               'have not been evaluated.', '',
               '![All training trajectories](training-curves.png)', '',
               'Machine-readable evidence: [analysis](compare.json), [all selections](select.json), '
-              '[exact readout](readout.json), [execution costs](execution-costs.json), [full report](report.json).', '']
-    (PUBLIC / 'REPORT.md').write_text('\n'.join(lines))
+              '[exact readout](readout.json), '+
+              ('[original costs](../learning-v1/execution-costs.json), [remaining-fit costs](fit-execution-costs.json), [readout costs](readout-execution-costs.json), '
+               if completion else '[execution costs](execution-costs.json), ')+ '[full report](report.json).', '']
+    (public / 'REPORT.md').write_text('\n'.join(lines))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', required=True, type=Path)
-    render(parser.parse_args().root)
+    parser.add_argument('--completion', action='store_true')
+    args=parser.parse_args()
+    render(args.root,completion=args.completion)
