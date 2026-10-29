@@ -25,11 +25,14 @@ def read(path):
     return json.loads(path.read_text())
 
 
-def prepare(root):
+def prepare(root, *, exploratory=False):
     source = root/SCREEN/'plan.json'
     main = read(source)
     evaluation = root/'runs'/(SCREEN+'-evaluation')
-    if (root/SCREEN/'select').exists() or (evaluation.exists() and any(evaluation.iterdir())):
+    if exploratory:
+        if read(root/SCREEN/'report.json')['status']!='COMPLETE_CHUNKED_CONTROL_COMPLETION':
+            raise AssertionError('Exploratory admission requires completed exact main comparison')
+    elif (root/SCREEN/'select').exists() or (evaluation.exists() and any(evaluation.iterdir())):
         raise AssertionError('Register before any completion quality artifacts exist')
     files = dict(main['source_sha256'])
     for f in ('scripts/diagnose_chunked_completion_positions.py',
@@ -37,8 +40,11 @@ def prepare(root):
               'tests/test_chunked_completion_positions.py',
               'docs/CHUNKED_COMPLETION_POSITION_20261029.md'):
         files[f] = file_sha256(f)
+    if exploratory:
+        f='docs/CHUNKED_COMPLETION_POSITION_EXPLORATORY_20261029.md'; files[f]=file_sha256(f)
     plan = dict(identity=ID, registered_unix=time.time(),
-        evaluation_process_started=evaluation.exists(), quality_artifacts_at_registration=0,
+        exploratory=exploratory, evaluation_process_started=evaluation.exists(),
+        quality_artifacts_at_registration=(len(list(evaluation.iterdir())) if evaluation.exists() else 0),
         completion_plan_sha256=file_sha256(source), source_sha256=files,
         absolute_deadline_unix=main['absolute_deadline_unix']+1200,
         seconds_limit=1200, workers=4, threads=8, maximum_worker_rss_bytes=6*1024**3,
@@ -46,7 +52,8 @@ def prepare(root):
         strata={k:dict(targets=len(v), positions=v) for k,v in position_strata().items()},
         assigned_chips=0, optimizer_updates=0, protected_groups_scored=0,
         automatic_promotion=False, memory_intervention=False,
-        scope='New descriptive supplement before completion quality selection. Original screen stays STOPPED and original position diagnostic NOT ADMITTED. No new success gate, fit, selection, fresh sources, causal attribution or automatic promotion. Intervals condition on selected models and reused DEV.')
+        scope=('Exploratory decomposition after completed quality comparison. The earlier prospective draft was not admitted. ' if exploratory else 'New descriptive supplement before completion quality selection. ')+
+        'Original screen stays STOPPED and original position diagnostic NOT ADMITTED. No new success gate, fit, selection, fresh sources, causal attribution or automatic promotion. Intervals condition on selected models and reused DEV.')
     (root/ID).mkdir(); PUBLIC.mkdir(parents=True)
     write_state(root/ID/'plan.json',plan); write_state(PUBLIC/'plan.json',plan)
 
@@ -139,7 +146,7 @@ def run(root):
         for rank in range(p['workers']):
             log = (output/f'worker{rank}.log').open('w'); logs.append(log)
             jobs.append(subprocess.Popen([sys.executable,'-m','scripts.diagnose_chunked_completion_positions',
-                '--root',str(root),'--action','worker','--worker',str(rank)],stdout=log,stderr=subprocess.STDOUT,
+                '--root',str(root),'--action','worker','--worker',str(rank)]+(['--exploratory'] if p['exploratory'] else []),stdout=log,stderr=subprocess.STDOUT,
                 env={**os.environ,'USE_TORCH_XLA':'0','PYTHONDONTWRITEBYTECODE':'1'}))
         while any(j.poll() is None for j in jobs):
             guard(root,p)
@@ -172,4 +179,10 @@ def run(root):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True)
     p.add_argument('--action',choices=['prepare','run','worker'],required=True);p.add_argument('--worker',type=int)
-    a=p.parse_args();worker(a) if a.action=='worker' else (prepare if a.action=='prepare' else run)(a.root)
+    p.add_argument('--exploratory',action='store_true');a=p.parse_args()
+    if a.exploratory:
+        ID='chunked-completion-position-exploratory-v1'
+        PUBLIC=PUBLIC.parent/'completion-position-exploratory-v1'
+    if a.action=='worker':worker(a)
+    elif a.action=='prepare':prepare(a.root,exploratory=a.exploratory)
+    else:run(a.root)

@@ -40,3 +40,10 @@ def test_any_existing_quality_artifact_blocks_new_registration(tmp_path,artifact
     (evaluation/artifact).write_text('{}')
     with pytest.raises(AssertionError,match='quality artifacts'):d.prepare(tmp_path)
     assert not (tmp_path/d.ID).exists()
+
+
+def test_exploratory_admission_cannot_run_on_incomplete_comparison(tmp_path):
+    source=tmp_path/d.SCREEN;source.mkdir();(source/'plan.json').write_text('{}')
+    (source/'report.json').write_text(json.dumps(dict(status='STOPPED')))
+    with pytest.raises(AssertionError,match='completed exact'):d.prepare(tmp_path,exploratory=True)
+    assert not (tmp_path/d.ID).exists()
