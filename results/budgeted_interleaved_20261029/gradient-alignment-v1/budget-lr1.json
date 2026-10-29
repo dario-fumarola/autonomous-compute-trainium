@@ -1,0 +1,129 @@
+{
+  "status": "COMPLETE_ONE_ENDPOINT_TRAIN_GRADIENT_ALIGNMENT",
+  "arm": "budget-lr1",
+  "rows": [
+    {
+      "graph_a": 0,
+      "graph_b": 13,
+      "groups": {
+        "all": {
+          "cosine": 0.8124081182962656,
+          "gradient_norm_ratio": 0.9733718170027835
+        },
+        "embedding": {
+          "cosine": 0.7317967722295736,
+          "gradient_norm_ratio": 0.7857703903585409
+        },
+        "readout": {
+          "cosine": 0.9328172242269775,
+          "gradient_norm_ratio": 0.9578149492981703
+        },
+        "body": {
+          "cosine": 0.723730132769452,
+          "gradient_norm_ratio": 1.048847967184817
+        }
+      }
+    },
+    {
+      "graph_a": 0,
+      "graph_b": 25,
+      "groups": {
+        "all": {
+          "cosine": 0.7182241167957658,
+          "gradient_norm_ratio": 1.0083912534508983
+        },
+        "embedding": {
+          "cosine": 0.5929695594424838,
+          "gradient_norm_ratio": 0.7415583117329714
+        },
+        "readout": {
+          "cosine": 0.8912711311528451,
+          "gradient_norm_ratio": 0.956882692845478
+        },
+        "body": {
+          "cosine": 0.6059495130898835,
+          "gradient_norm_ratio": 1.1383838719117145
+        }
+      }
+    },
+    {
+      "graph_a": 13,
+      "graph_b": 25,
+      "groups": {
+        "all": {
+          "cosine": 0.9450758594944717,
+          "gradient_norm_ratio": 1.0359774505860946
+        },
+        "embedding": {
+          "cosine": 0.9177294153900712,
+          "gradient_norm_ratio": 0.9437340994671535
+        },
+        "readout": {
+          "cosine": 0.9843068817484412,
+          "gradient_norm_ratio": 0.9990266841696556
+        },
+        "body": {
+          "cosine": 0.9198489645476083,
+          "gradient_norm_ratio": 1.0853659515279592
+        }
+      }
+    },
+    {
+      "graph_a": 12,
+      "graph_b": 13,
+      "groups": {
+        "all": {
+          "cosine": 0.9939021062126456,
+          "gradient_norm_ratio": 1.00447807799299
+        },
+        "embedding": {
+          "cosine": 0.9934922085867695,
+          "gradient_norm_ratio": 1.0057215869677203
+        },
+        "readout": {
+          "cosine": 0.9991707196251914,
+          "gradient_norm_ratio": 0.9981251562889678
+        },
+        "body": {
+          "cosine": 0.989241313169093,
+          "gradient_norm_ratio": 1.0100179667081808
+        }
+      }
+    },
+    {
+      "graph_a": 24,
+      "graph_b": 25,
+      "groups": {
+        "all": {
+          "cosine": 0.9983757664865218,
+          "gradient_norm_ratio": 1.002550325591569
+        },
+        "embedding": {
+          "cosine": 0.998363671399086,
+          "gradient_norm_ratio": 1.0034236072787706
+        },
+        "readout": {
+          "cosine": 0.9999001061064418,
+          "gradient_norm_ratio": 0.998274378750348
+        },
+        "body": {
+          "cosine": 0.997223468543457,
+          "gradient_norm_ratio": 1.0056979653609917
+        }
+      }
+    }
+  ],
+  "gradient_sha256": {
+    "runs/supported-budget-tuning-v1-budget-lr1/PRIVATE-gradient-u1957-k0.pt": "4b66e19ae92a5464e6ba66dc95e73f5024e9edae8b71544431104a8367731a18",
+    "runs/supported-budget-tuning-v1-budget-lr1/PRIVATE-gradient-u1957-k12.pt": "835bbc1d2121a86b1d55874069bec3011777679b0c1a31d3d66af111ca620f6e",
+    "runs/supported-budget-tuning-v1-budget-lr1/PRIVATE-gradient-u1957-k13.pt": "2550e4d8e6bed0707bd2465a940d73e333ed69d203bfefe88e0139e879148d23",
+    "runs/supported-budget-tuning-v1-budget-lr1/PRIVATE-gradient-u1957-k24.pt": "17d01935c7df96455840b06eb3d57cd322332ea6c0dbefe787da513af4d5a6b8",
+    "runs/supported-budget-tuning-v1-budget-lr1/PRIVATE-gradient-u1957-k25.pt": "f563dc7053c3429928e3801530e63886c638e84460559d192ea291ccd212fa2a"
+  },
+  "plan_sha256": "53385373adfc63846e0231179e26d8b894f3e075ad749cc86ea557a332741988",
+  "wall_seconds": 2.21612548828125,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "new_heldout_reads": 0,
+  "scope": "Descriptive local gradient alignment, not realized AdamW update alignment or a causal explanation. No LR selection, advancement gate or optimizer change. Numerical-round pairs and actual-budget pairs reported separately. All three existing endpoints retained."
+}
