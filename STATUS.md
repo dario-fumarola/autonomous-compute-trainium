@@ -1,3 +1,19 @@
+## October29,2026,00:44 UTC — all fits audited; readout precision diagnosis active
+
+All four200M/matched-work fits and mature audits are complete. Joint evaluation
+stops during the semantic-permutation readout at rank32's independent CPU parity
+check;the2e-4 threshold is unchanged. No aggregate scientific quality report is
+admitted. The failed evaluation and all training states/costs remain preserved.
+
+On exactly the rejected four-window batch,the CPU FP32 SDPA loss differs from
+CPU FP64 by0.000235684nats;FP64 SDPA and explicit-attention implementations agree
+to7.82e-14. This localizes an accuracy limitation of the FP32 reference on this
+perturbed graph,without assigning the Native discrepancy to any SDK bug. A
+bounded all16-chip zero-update capture now compares Native directly against both
+FP64 references. No retraining or relaxed criterion is proposed. The fixed-one
+follow-up remains unregistered until this comparison is closed.
+[Precision diagnosis](results/probability_workspace_20261029/readout-precision-v1/cpu-diagnosis.json).
+
 ## October29,2026,00:26 UTC — longer ordinary control audited; constant control active
 
 The matched-work ordinary arm completes3413updates/446,570,790 real targets,

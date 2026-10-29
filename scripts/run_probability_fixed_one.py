@@ -21,6 +21,11 @@ def prepare(root):
     p=copy.deepcopy(json.loads((root/PARENT/'plan.json').read_text()))
     for name in ('scripts/train_probability_screen.py','scripts/audit_probability_screen.py','scripts/evaluate_probability_screen.py','compute_trainium/probability_workspace.py','compute_trainium/probability_workspace_data.py'):
         if file_sha256(name)!=p['source_sha256'][name]: raise AssertionError('Reuse the same qualified scientific implementation')
+    for relative,receipt_key in ((p['data_relative'],'data_report_sha256'),(p['evaluation_relative'],'evaluation_report_sha256')):
+        base=root/relative
+        if file_sha256(base/'report.json')!=p[receipt_key]:raise AssertionError('Frozen source receipt changed')
+        receipt=json.loads((base/'report.json').read_text())
+        if any(file_sha256(base/name)!=h for name,h in receipt['files'].items()):raise AssertionError('Frozen source bytes changed')
     projection=project_snapshot_inodes(Path('.'),2)
     if os.statvfs(root).f_favail<projection['required_free_inodes']: raise RuntimeError('Both snapshots must fit protected inode reserve')
     if min(shutil.disk_usage(root).free,shutil.disk_usage('/').free)<35*1024**3 or shutil.disk_usage(root).free<38*1024**3: raise RuntimeError('3GiB artifacts plus protected storage reserve')
