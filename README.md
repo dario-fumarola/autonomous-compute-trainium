@@ -5,8 +5,9 @@ from3.518072 with sampled-depth training to3.241172 at exactly the same200M
 targets and training matrix work. It still loses to ordinary equal-data3.211047
 and equal-work2.949082. **No thinking or efficiency win is established.**
 A zero-update TRAIN diagnostic finds nearly orthogonal,not opposing embedding
-gradients. A tiny remaining-budget cue is now undergoing numerical qualification
-to test interference between training depths;no new scientific fit is admitted.
+gradients. After full numerical/recovery qualification,a tiny remaining-budget
+cue is now being tested at the same training budget to isolate depth interference.
+No new quality result is available yet.
 [Fixed-depth results](results/probability_workspace_20261029/fixed-one-v1/REPORT.md) ·
 [Original sampled result](results/probability_workspace_20261028/evaluation-recovery-v2/REPORT.md) ·
 [Live status](STATUS.md).

@@ -1,0 +1,38 @@
+{
+  "native_attempts": [
+    {
+      "identity": "probability-budget-cue-warm-v1-warm",
+      "exit_code": 0,
+      "wall_seconds": 358.0579352378845,
+      "assigned_chip_hours": 1.5913686010572645,
+      "whole_instance_opportunity_chip_hours": 1.5913686010572645,
+      "report_exists": true
+    },
+    {
+      "identity": "probability-budget-cue-warm-v1-replay",
+      "exit_code": 0,
+      "wall_seconds": 125.63907837867737,
+      "assigned_chip_hours": 0.5583959039052327,
+      "whole_instance_opportunity_chip_hours": 0.5583959039052327,
+      "report_exists": true
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "probability-budget-cue-warm-v1-cpu",
+      "assigned_chips": 0,
+      "wall_seconds": 140.43913531303406,
+      "reused": false,
+      "exit_code": 0
+    }
+  ],
+  "cleanup_errors": [],
+  "execution": {
+    "started_unix": 1793239557.119464,
+    "deadline_unix": 1793243157.119464,
+    "plan_sha256": "d3babc9c9b89f1d6af51185160c53e531c77d630c31bff9c05588e1750828a7c"
+  },
+  "wall_seconds_since_admission": 665.709025144577,
+  "whole_instance_opportunity_chip_hours": 2.9587067805396186,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

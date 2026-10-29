@@ -52,6 +52,16 @@ def prepare(root):
         fit=root/'runs'/cfg['phase']/'report.json';f=json.loads(fit.read_text());initial_digests.add(f['initial_model_digest'])
         reused[name]=dict(audit_sha256=file_sha256(receipt),fit_report_sha256=file_sha256(fit),phase=cfg['phase'])
     if len(initial_digests)!=1:raise AssertionError('Previous initialization mismatch')
+    import torch
+    from compute_trainium.probability_model_factory import probability_model
+    from scripts.qualify_native import digest
+    torch.set_num_threads(1);torch.manual_seed(p['seed'])
+    preflight=probability_model(dict(p,remaining_budget_conditioning=True,maximum_extra_steps=2))
+    state=preflight.state_dict();shared=type(state)((n,v) for n,v in state.items() if n!='remaining_budget_cues')
+    if digest(shared)!=next(iter(initial_digests)):raise AssertionError('Shared initialization must match before admission')
+    if sum(v.numel() for v in preflight.parameters())!=62801408:raise AssertionError('Actual parameter inventory differs')
+    del preflight,state,shared
+
     files={str(f):file_sha256(f) for d in ('compute_trainium','scripts','configs') for f in Path(d).rglob('*.py')}
     for f in ('scripts/run_native_isolated.sh','docs/BUDGET_CONDITIONED_SCREEN_20261029.md'):files[f]=file_sha256(f)
     worker,host=split_snapshot_sources(files);names=[arm['phase'],ID+'-evaluation'];now=time.time()

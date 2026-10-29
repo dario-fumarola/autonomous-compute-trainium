@@ -1,3 +1,18 @@
+## October29,2026,02:18 UTC — budget-cue learning test admitted and launched
+
+Actual-shape cold checks,100-warm-update timing,exact separate-process recovery
+and full256-window mature CPU audit all pass. Overall/cue-family mature gradient
+errors3.16e-7/3.81e-7;loss discrepancy8.57e-7. Qualification states are disposable.
+
+All16chips now run the single registered62,801,408-parameter ablation from random
+initialization:1530updates/200,190,896 natural targets,original sampled0/1/2
+schedule,shared initial weights verified bit-exact before admission. Only1024
+remaining-budget cues are added. Data,optimizer,cooldown and nominal matrix work
+are unchanged. Controls and saved scores remain frozen;all three mature exit
+audits precede held-out scoring. No larger run or confirmation follows automatically.
+[Registration](results/probability_workspace_20261029/budget-cue-screen-v1/plan.json) ·
+[Complete qualification](results/probability_workspace_20261029/budget-cue-warm-v1/report.json).
+
 ## October29,2026,02:16 UTC — exact recovery passes; mature CPU audit active
 
 The actual-shape100-warm-update average is0.540793seconds;depth0/1/2 averages
