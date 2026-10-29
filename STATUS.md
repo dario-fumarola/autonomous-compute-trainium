@@ -1,3 +1,24 @@
+## October 29, 2026, 22:03 UTC — all ordinary fits audited; generated fitting active
+
+All three ordinary LR endpoints finish their complete schedules and pass mature
+gradient, state and replica audits. Maximum family discrepancy across them is
+0.005883%, below the unchanged 2% bound. The first generated-slot fit is now
+training on all 16 chips after a 425.49-second first update including startup.
+Recent updates take about 0.37 seconds. No quality selection has occurred.
+
+The separate position diagnostic passes a complete four-process numerical
+fixture, including twelve full-context memory-reference checks. A CPU streaming
+reference also matches token-by-token/full-prefix predictions across arbitrary
+chunk boundaries: twelve new checks and 51 combined checks pass. It has not
+scored trained models or been qualified for Native decoding latency.
+[Streaming scope](docs/CHUNKED_STREAMING_REFERENCE_20261029.md).
+
+A read-only cache investigation confirms the trainer's compile path bypasses
+the separate HLO-lowering cache. Compiled-model storage already persists through
+an image symlink; an initial ephemeral-storage suspicion is disproved. The cause
+of differing NEFF entries remains unresolved. No SDK or execution setting changes.
+[Cache evidence and limits](results/native_cache_readonly_20261029/REPORT.md).
+
 ## October 29, 2026, 21:38 UTC — first sparse-screen audit passes
 
 The first ordinary fit completes all 1,969 updates and passes the mature
