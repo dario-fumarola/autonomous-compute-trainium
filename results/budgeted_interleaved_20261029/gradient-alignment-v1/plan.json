@@ -1,0 +1,49 @@
+{
+  "status": "REGISTERED_DESCRIPTIVE_TRAIN_GRADIENT_ANALYSIS",
+  "registered_unix": 1793293878.0621462,
+  "arms": [
+    "budget-lr0",
+    "budget-lr1",
+    "budget-lr2"
+  ],
+  "pairs": [
+    [
+      0,
+      13
+    ],
+    [
+      0,
+      25
+    ],
+    [
+      13,
+      25
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      24,
+      25
+    ]
+  ],
+  "updates": 1957,
+  "gradient_source": "Existing full-global mature TRAIN audit captures at exactly the same endpoint and source batch; no new forward or backward passes.",
+  "statistics": [
+    "cosine=sum(g_a*g_b)/sqrt(sum(g_a^2)*sum(g_b^2))",
+    "gradient_norm_ratio=norm(g_b)/norm(g_a)"
+  ],
+  "precisions": "Accumulate dot products and squared norms in FP64.",
+  "groups": [
+    "all",
+    "embedding",
+    "readout",
+    "body"
+  ],
+  "scope": "Descriptive local gradient alignment, not realized AdamW update alignment or a causal explanation. No LR selection, advancement gate or optimizer change. Numerical-round pairs and actual-budget pairs reported separately. All three existing endpoints retained.",
+  "optimizer_updates": 0,
+  "new_heldout_reads": 0,
+  "assigned_chips": 0,
+  "protected_groups_scored": 0
+}
