@@ -1,0 +1,43 @@
+{
+  "status": "COMPLETE_TRAIN_CHANNEL_GRADIENT_DIAGNOSTIC",
+  "rows": [
+    {
+      "update": 0,
+      "real_train_positions": 6136,
+      "global_channel_cosine": 0.006866977655874826,
+      "mean_position_cosine": 0.030117942165995372,
+      "opposed_position_fraction": 0.017926988265971316,
+      "replay_to_direct_gradient_norm_ratio": 0.008025486227770173,
+      "maximum_ce_derivative_error": 2.3283064365386963e-10,
+      "train_zero_replay_nll": 10.439060269620615,
+      "train_one_replay_nll": 10.438371225938958
+    },
+    {
+      "update": 492,
+      "real_train_positions": 6136,
+      "global_channel_cosine": 0.04880280500279793,
+      "mean_position_cosine": 0.04622437710590198,
+      "opposed_position_fraction": 0.43513689700130376,
+      "replay_to_direct_gradient_norm_ratio": 0.2183509675146616,
+      "maximum_ce_derivative_error": 2.3283064365386963e-10,
+      "train_zero_replay_nll": 4.867602189951801,
+      "train_one_replay_nll": 4.877098419986461
+    },
+    {
+      "update": 1530,
+      "real_train_positions": 6136,
+      "global_channel_cosine": 0.09654216074680964,
+      "mean_position_cosine": 0.11525788170996068,
+      "opposed_position_fraction": 0.3707627118644068,
+      "replay_to_direct_gradient_norm_ratio": 0.2164448245945269,
+      "maximum_ce_derivative_error": 2.3283064365386963e-10,
+      "train_zero_replay_nll": 3.400297352512315,
+      "train_one_replay_nll": 3.3781958225497677
+    }
+  ],
+  "wall_seconds": 29.183398962020874,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "interpretation": "Same-logit local derivatives on12 fixed TRAIN windows. Negative alignment would show competing local channel directions here,not prove a cause of optimization or transfer failure. Positive alignment does not prove useful reasoning. These losses are TRAIN diagnostics,not development or confirmation scores."
+}

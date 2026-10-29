@@ -1,0 +1,31 @@
+{
+  "context": 512,
+  "batch": 1,
+  "supported_extra_passes": {
+    "0": {
+      "forward_matmul_flops": 72880226304,
+      "training_matmul_flops": 218640678912,
+      "complete_body_passes": 1,
+      "expected_embedding_forward_flops": 0,
+      "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter.",
+      "relative_to_zero_replay": 1.0
+    },
+    "1": {
+      "forward_matmul_flops": 162537668608,
+      "training_matmul_flops": 487613005824,
+      "complete_body_passes": 2,
+      "expected_embedding_forward_flops": 16777216000,
+      "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter.",
+      "relative_to_zero_replay": 2.2302025782688766
+    },
+    "2": {
+      "forward_matmul_flops": 252195110912,
+      "training_matmul_flops": 756585332736,
+      "complete_body_passes": 3,
+      "expected_embedding_forward_flops": 33554432000,
+      "assumptions": "Full-square attention, FMA=2, backward=2x forward; excludes elementwise/optimizer/AC. Not a hardware counter.",
+      "relative_to_zero_replay": 3.460405156537753
+    }
+  },
+  "scope": "Executed dense-matrix model;not measured latency,prefill throughput,cached decoding or KV memory. The deepest deployed exit costs more than the mean sampled training depth. No serving-efficiency claim."
+}

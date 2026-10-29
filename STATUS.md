@@ -1,3 +1,23 @@
+## October29,2026,00:04 UTC — workspace and equal-data control fully audited; work control active
+
+The complete workspace passes all six mature CPU gradient checks;worst family
+relative error3.733e-5,and both model/AdamW/RNG restores are exact with the original
+serializer. The equal-data ordinary model completes200,190,896 targets,cooldown
+and both audits. All16chips now run the446,570,790-target ordinary-work control;
+the constant-proposal arm and joint evaluation follow. No held-out score yet.
+[Active recovery](results/probability_workspace_20261028/screen-recovery-v1/REPORT.md).
+
+Two bounded TRAIN-only diagnostics reuse unchanged checkpoints. Proposal/input
+norm grows0.0211→0.4717→0.5806 at initialization/64.4M/200.2M. Reader-channel and
+direct-output gradients have final cosine0.0965;the reader/direct norm ratio
+grows0.0080→0.2164. These12windows cover only5source groups and are not a broad
+corpus estimate. They show changing internal signals and different local roles,
+not useful thinking or a predictive win. A separate reuse of the fully audited
+global gradients finds positively aligned parameter gradients across exits.
+No new Native work,updates,held-out selection or promotion follows these checks.
+[Geometry](results/probability_workspace_20261028/proposal-geometry-v1/REPORT.md) ·
+[Channel diagnostic](results/probability_workspace_20261028/channel-gradients-v1/REPORT.md).
+
 ## October28,2026,23:30 UTC — workspace fit complete; exact state representation fix registered
 
 The workspace arm completes1530updates/200,190,896 real targets and its final
