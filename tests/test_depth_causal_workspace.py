@@ -172,3 +172,16 @@ def test_qualification_factory_rejects_wrong_mechanism():
     from compute_trainium.depth_causal_factory import make_model
     with pytest.raises(ValueError):
         make_model(dict(model_config=make().config.__dict__, workspace_mechanism='budgeted_persistent_generated_state'))
+
+
+@pytest.mark.parametrize('budget', [0, 1, 2])
+def test_static_compilation_frontend_preserves_values_and_gradients(budget):
+    model = make(torch.float32, explicit=True)
+    reference = copy.deepcopy(model)
+    compiled = torch.compile(model, backend='eager', fullgraph=True, dynamic=False)
+    a = compiled(TOKENS, budget)
+    b = reference.full_reference(TOKENS, budget)
+    torch.testing.assert_close(a, b, atol=4e-6, rtol=2e-4)
+    loss(a).backward()
+    loss(b).backward()
+    compare_grads(model, reference, 4e-6, 2e-4)

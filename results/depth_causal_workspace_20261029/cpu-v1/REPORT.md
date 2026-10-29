@@ -1,11 +1,13 @@
 # Exact depth-causal software reference passes
 
-All871CPU tests pass, with two skips, in156.78seconds. Thirty new checks cover
+All871CPU tests pass, with two skips, in156.78seconds. Thirty reference checks cover
 full-mask/cached/true sequential output and full-gradient agreement, exact
 lower-stage invariance, future-token isolation, ordinary-path optimizer parity,
 GQA, explicit attention, independent qualification factories and the matrix
 ledger. A deliberately detached cache preserves forward scores but fails the
-expected gradient-path check. Test arrays are software fixtures only.
+expected gradient-path check. Test arrays are software fixtures only. Three later static full-graph frontend
+checks also pass; the complete33-test targeted set passes in8.40seconds.
+The871-test full-suite count precedes these three added checks.
 
 The model retains51,747,328parameters and the original initializer. It uses
 one exact body execution per stage, reusing differentiable earlier-stage KV.

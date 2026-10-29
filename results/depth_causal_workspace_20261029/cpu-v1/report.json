@@ -1,12 +1,12 @@
 {
   "status": "PASS_DEPTH_CAUSAL_CPU_REFERENCE",
-  "recorded_unix": 1793298088.689234,
+  "recorded_unix": 1793298215.3863566,
   "source_sha256": {
     "compute_trainium/depth_causal_workspace.py": "3c709ecac394794ea28b61f429f8f77b982eaca667b38eca715d8643b57ba127",
     "compute_trainium/depth_causal_factory.py": "2a0f6a10b77af8f92f282a656346762e6654014c558379a0786e2874ba3c23e0",
     "scripts/depth_causal_entry.py": "c2e61b9ee929836d61773c06d98a57043c5429acaeaf2a6d2f375d9a9ab47050",
     "scripts/run_depth_causal_qualification.py": "0e70cbd36e6b54b32fd8947f30aee5b6959fa6f3e8612f6c324fbc4f8e002cda",
-    "tests/test_depth_causal_workspace.py": "8895676b72e36f778a47c5977d164c91f76bad2da331e065921967c6c2bbda57",
+    "tests/test_depth_causal_workspace.py": "2931f144414129c38f50faa0f3ae5f3b726d10380554728df9d9817619d575de",
     "docs/DEPTH_CAUSAL_WORKSPACE_REFERENCE_20261029.md": "ac7c7e59f74b60cbc2e71aadbfd2586b4b162b813eeff6992c57358b0befbeec",
     "docs/DEPTH_CAUSAL_QUALIFICATION_20261029.md": "72819032c5661b556fc8a27aa1f9630b81777f4a156c0ce1ef3cb49eaa6d44de"
   },
@@ -15,7 +15,7 @@
     "skipped": 2,
     "wall_seconds": 156.78
   },
-  "new_reference_tests": 30,
+  "new_reference_tests": 33,
   "previous_initial_reference_tests": {
     "passed": 26,
     "wall_seconds": 6.24
@@ -68,5 +68,10 @@
   "heldout_reads": 0,
   "protected_groups_scored": 0,
   "scientific_fit_admitted": false,
-  "scope": "Exact two-dimensional causal reference and cache correctness only; numerical test fixtures are not research examples. No trained performance or hardware timing claim."
+  "scope": "Exact two-dimensional causal reference and cache correctness only; numerical test fixtures are not research examples. No trained performance or hardware timing claim.",
+  "static_frontend_addition": {
+    "passed": 33,
+    "wall_seconds": 8.4,
+    "scope": "All new reference/factory tests including three static full-graph eager frontend checks; full suite above preceded these three added tests."
+  }
 }
