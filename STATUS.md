@@ -1,3 +1,17 @@
+## October 29, 2026, 20:02 UTC — fixed-depth diagnosis complete; sparse qualification active
+
+Fixed-one training improves 0.073799 nats over mixed training's supported
+one-step exit, but still loses 0.040875 to strongest ordinary. All three audits
+and the independent exact readout pass. The schedule-effect gate passes and
+the ordinary gate fails; no scaling or confirmation follows. Total assigned
+research cost is 6.553761 chip-hours. [Completed result](results/depth_causal_workspace_20261029/fixed-one-v1/REPORT.md).
+
+The separate sparse-persistent prototype is now in its registered, disposable
+hardware qualification on all 16 chips. Its 45-minute deadline and numerical,
+recovery, storage and throughput gates remain fixed. No held-out scoring or
+scientific training is part of that qualification. Both fresh reserves remain
+unscored. [Qualification plan](results/chunked_persistent_workspace_20261029/numerical-v1/plan.json).
+
 ## October 29, 2026, 19:59 UTC — fixed-one fits complete; sparse hardware test prepared
 
 All three fixed-one fits finish 1,957 updates. Two mature audits pass and the

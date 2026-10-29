@@ -1,0 +1,226 @@
+{
+  "status": "COMPLETE_FIXED_DEPTH_CAUSAL_ANALYSIS",
+  "selection": {
+    "arm": "fixed-lr1",
+    "lr": 0.001,
+    "domains": {
+      "web": 3.8239232100943563,
+      "math": 3.0017590184846132,
+      "code": 2.1697477091815016
+    },
+    "broad_nll": 3.3286552715898368,
+    "bracketed": true
+  },
+  "fixed_one_score": {
+    "domains": {
+      "web": 3.8239237964089408,
+      "math": 3.0017595657735416,
+      "code": 2.169748172355008
+    },
+    "broad_nll": 3.328655825471074
+  },
+  "mixed_one_score": {
+    "domains": {
+      "web": 3.8944049660226576,
+      "math": 3.073435314446555,
+      "code": 2.255622544160806
+    },
+    "broad_nll": 3.402454551335067
+  },
+  "comparisons": {
+    "fixed_over_mixed": {
+      "comparison": {
+        "gain": 0.07379872586399215,
+        "conditional_95_interval": [
+          0.06910824235289277,
+          0.07826666403640424
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": 0.07048116961371642,
+          "conditional_95_interval": [
+            0.06405784647105958,
+            0.07691849182268808
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": 0.0716757486730133,
+          "conditional_95_interval": [
+            0.06405354837162186,
+            0.07942806792303356
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": 0.08587437180579816,
+          "conditional_95_interval": [
+            0.07705651539301808,
+            0.09555120236446327
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      },
+      "scores": {
+        "candidate": {
+          "domains": {
+            "web": 3.8239237964089408,
+            "math": 3.0017595657735416,
+            "code": 2.169748172355008
+          },
+          "broad_nll": 3.328655825471074
+        },
+        "control": {
+          "domains": {
+            "web": 3.8944049660226576,
+            "math": 3.073435314446555,
+            "code": 2.255622544160806
+          },
+          "broad_nll": 3.402454551335067
+        }
+      }
+    },
+    "fixed_over_strong_ordinary": {
+      "comparison": {
+        "gain": -0.04087480187890664,
+        "conditional_95_interval": [
+          -0.04690995029224382,
+          -0.03506816449453231
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": -0.03457506438082536,
+          "conditional_95_interval": [
+            -0.0426256698017121,
+            -0.026968363236611028
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.04464598185099433,
+          "conditional_95_interval": [
+            -0.05772833587549786,
+            -0.02694154049618535
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.056002834401062795,
+          "conditional_95_interval": [
+            -0.06642887808583828,
+            -0.046558425181112834
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      },
+      "scores": {
+        "candidate": {
+          "domains": {
+            "web": 3.8239237964089408,
+            "math": 3.0017595657735416,
+            "code": 2.169748172355008
+          },
+          "broad_nll": 3.328655825471074
+        },
+        "control": {
+          "domains": {
+            "web": 3.789348732028116,
+            "math": 2.9571135839225478,
+            "code": 2.113745337953945
+          },
+          "broad_nll": 3.287781023592168
+        }
+      }
+    },
+    "fixed_over_persistent_fixed": {
+      "comparison": {
+        "gain": -0.06592188641574682,
+        "conditional_95_interval": [
+          -0.07066904842639443,
+          -0.061129467735420925
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": -0.061423520563634426,
+          "conditional_95_interval": [
+            -0.06749076686536579,
+            -0.055502634561235234
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.07309931331899833,
+          "conditional_95_interval": [
+            -0.08331381804156349,
+            -0.061178458612893755
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.07223955706883256,
+          "conditional_95_interval": [
+            -0.08223780158363234,
+            -0.06230712075510315
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      },
+      "scores": {
+        "candidate": {
+          "domains": {
+            "web": 3.8239237964089408,
+            "math": 3.0017595657735416,
+            "code": 2.169748172355008
+          },
+          "broad_nll": 3.328655825471074
+        },
+        "control": {
+          "domains": {
+            "web": 3.7625002758453063,
+            "math": 2.9286602524545433,
+            "code": 2.0975086152861753
+          },
+          "broad_nll": 3.2627339390553276
+        }
+      }
+    }
+  },
+  "decisions": {
+    "fixed_over_mixed": true,
+    "fixed_over_strong_ordinary": false
+  },
+  "both_development_gates_pass": false,
+  "resources": {
+    "parameters": 51747328,
+    "real_targets": 128025288,
+    "nominal_training_matrix_flops": 49069855327911936,
+    "nominal_work_ratio_to_strong_ordinary": 1.12,
+    "native_fit_wall_seconds": 438.2928693294525
+  },
+  "trained_seeds": 1,
+  "protected_groups_scored": 0,
+  "terminal_alpha_spent": 0,
+  "automatic_promotion": false,
+  "previous_multi_budget_gates_remain_failed": true,
+  "uncertainty_scope": "Conditional source-group intervals on reused development sources and independently LR-selected single-seed endpoints. Not training-seed uncertainty or fresh confirmation.",
+  "scope": "Schedule-only fixed-one exact depth-causal discovery at equal authentic data. Same qualified graph, parameters, initializer, source order, optimizer and uniform final-token NTP; replace the mixed budget schedule with one latent step every update. Prior failed multi-budget gates remain failed. Only the one-step exit is trained/scored. Reused DEV; no supported extra-step, stopping, reasoning, efficiency or confirmation claim.",
+  "wall_seconds": 0.20155858993530273
+}

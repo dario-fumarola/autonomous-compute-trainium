@@ -55,3 +55,15 @@ nominal work to 1.138181 times ordinary at equal data, but supplies no useful
 supported-budget scaling. A fixed-one fit in this exact graph has not yet been
 performed, so its graph-versus-budget-training effects remain unseparated.
 [Complete result](../depth_causal_workspace_20261029/learning-v1/REPORT.md).
+
+
+## Fixed-depth versus mixed-depth training, October 29
+
+The exact depth-causal graph improves by 0.073799 nats when trained at one
+fixed workspace depth instead of mixed zero/one/two budgets, with its other
+scientific settings held fixed and each schedule independently LR-tuned.
+The fixed model still trails strongest ordinary by 0.040875 nats. This supports
+a schedule penalty in this development recipe; it does not establish why that
+penalty arises or a successful iterative mechanism. Only its trained one-step
+exit is supported. No earlier failed gate is reversed.
+[Full result](../depth_causal_workspace_20261029/fixed-one-v1/REPORT.md).

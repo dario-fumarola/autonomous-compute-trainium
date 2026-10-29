@@ -22,6 +22,13 @@ execution cost does not rescue predictive quality. All numerical checks pass;
 no scaling or confirmation follows.
 [Completed exact-graph comparison](results/depth_causal_workspace_20261029/learning-v1/REPORT.md).
 
+A schedule-only follow-up recovers **0.073799 nats** by training that exact
+graph at one fixed workspace depth throughout. Its **3.328656 NLL** still
+trails strongest ordinary by **0.040875**. The schedule-effect gate passes;
+the conventional competitiveness gate fails. This is a diagnosis of a training
+tradeoff, not a thinking or efficiency win.
+[Completed fixed-depth comparison](results/depth_causal_workspace_20261029/fixed-one-v1/REPORT.md).
+
 The original selected-seed comparison below is retained unchanged:
 
 | Predictor | Parameters | Development NLL ↓ |

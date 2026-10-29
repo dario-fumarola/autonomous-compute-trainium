@@ -1,0 +1,50 @@
+{
+  "status": "COMPLETE_FIXED_DEPTH_CAUSAL_LR_SELECTION",
+  "selection": {
+    "arm": "fixed-lr1",
+    "lr": 0.001,
+    "domains": {
+      "web": 3.8239232100943563,
+      "math": 3.0017590184846132,
+      "code": 2.1697477091815016
+    },
+    "broad_nll": 3.3286552715898368,
+    "bracketed": true
+  },
+  "all_scores": [
+    {
+      "arm": "fixed-lr0",
+      "lr": 0.0003,
+      "domains": {
+        "web": 4.237345427909836,
+        "math": 3.4623793422027944,
+        "code": 2.734387003118389
+      },
+      "broad_nll": 3.781760525810138
+    },
+    {
+      "arm": "fixed-lr1",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.8239232100943563,
+        "math": 3.0017590184846132,
+        "code": 2.1697477091815016
+      },
+      "broad_nll": 3.3286552715898368
+    },
+    {
+      "arm": "fixed-lr2",
+      "lr": 0.003,
+      "domains": {
+        "web": 4.149769545129283,
+        "math": 3.3151343047067767,
+        "code": 2.516445163131091
+      },
+      "broad_nll": 3.6561776206451433
+    }
+  ],
+  "selection_readout": "Only the trained one-step exit, followed by independent exact FP64 readout.",
+  "automatic_promotion": false,
+  "protected_groups_scored": 0,
+  "wall_seconds": 0.03167605400085449
+}

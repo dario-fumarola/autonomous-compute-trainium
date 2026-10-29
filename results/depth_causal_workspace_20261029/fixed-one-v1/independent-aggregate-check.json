@@ -1,0 +1,40 @@
+{
+  "status": "PASS_INDEPENDENT_FSUM_AGGREGATION",
+  "checked_unix": 1793304116.279362,
+  "method": "Independent math.fsum over published-score inputs, 60/20/20 domain weighting, complete source/group/target identity checked without emitting private IDs.",
+  "models": {
+    "fixed": {
+      "domains": {
+        "web": 3.8239237964089408,
+        "math": 3.0017595657735416,
+        "code": 2.169748172355008
+      },
+      "broad_nll": 3.328655825471074
+    },
+    "mixed": {
+      "domains": {
+        "web": 3.8944049660226576,
+        "math": 3.073435314446555,
+        "code": 2.255622544160806
+      },
+      "broad_nll": 3.402454551335067
+    },
+    "ordinary": {
+      "domains": {
+        "web": 3.789348732028116,
+        "math": 2.9571135839225478,
+        "code": 2.113745337953945
+      },
+      "broad_nll": 3.287781023592168
+    }
+  },
+  "gains": {
+    "fixed_over_mixed": 0.07379872586399294,
+    "fixed_over_strong_ordinary": -0.04087480187890602
+  },
+  "rows_per_model": 384,
+  "tolerance": 1e-12,
+  "model_forwards": 0,
+  "assigned_chips": 0,
+  "heldout_reinspection": "Existing saved development score sums only"
+}
