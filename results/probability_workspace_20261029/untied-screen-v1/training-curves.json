@@ -1,0 +1,128 @@
+{
+  "status": "COMPLETE_DESCRIPTIVE_TRAINING_CURVE_COMPARISON",
+  "input_hashes": {
+    "tied-workspace": "7a5092bd2ababbfd161946c5478cbb1ae0fa86a09da52d97a8df00c1f3ee286d",
+    "tied-ordinary_data": "c14e981fa01046c779e209d76dd918351c405fe507799861545f7ff0a469f71b",
+    "untied-workspace": "7eaf0ff86efb05b7139fc198373c70e39063d83c219b46bce444a8f7187f68f0",
+    "untied-ordinary_data": "48eaee20c6c993dfc6fec73b57901a0fb87221ba489b86fd9b2c252f0612722b"
+  },
+  "rows": [
+    {
+      "recipe": "tied",
+      "update_start": 1,
+      "update_end": 32,
+      "workspace_mean_training_batch_nll": 8.322408244013786,
+      "ordinary_mean_training_batch_nll": 8.183750808238983,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.13865743577480316
+    },
+    {
+      "recipe": "tied",
+      "update_start": 33,
+      "update_end": 256,
+      "workspace_mean_training_batch_nll": 6.057631811925343,
+      "ordinary_mean_training_batch_nll": 5.624439452375684,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.4331923595496586
+    },
+    {
+      "recipe": "tied",
+      "update_start": 257,
+      "update_end": 512,
+      "workspace_mean_training_batch_nll": 4.794402204453945,
+      "ordinary_mean_training_batch_nll": 4.448357701301575,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.34604450315237045
+    },
+    {
+      "recipe": "tied",
+      "update_start": 513,
+      "update_end": 768,
+      "workspace_mean_training_batch_nll": 4.0117158479988575,
+      "ordinary_mean_training_batch_nll": 3.794209262356162,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.21750658564269543
+    },
+    {
+      "recipe": "tied",
+      "update_start": 769,
+      "update_end": 1024,
+      "workspace_mean_training_batch_nll": 3.626108038239181,
+      "ordinary_mean_training_batch_nll": 3.53850185405463,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.08760618418455124
+    },
+    {
+      "recipe": "tied",
+      "update_start": 1025,
+      "update_end": 1377,
+      "workspace_mean_training_batch_nll": 3.424013858476374,
+      "ordinary_mean_training_batch_nll": 3.376387233436952,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.04762662503942214
+    },
+    {
+      "recipe": "tied",
+      "update_start": 1378,
+      "update_end": 1530,
+      "workspace_mean_training_batch_nll": 3.270932317559236,
+      "ordinary_mean_training_batch_nll": 3.2385502235562194,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.03238209400301665
+    },
+    {
+      "recipe": "untied",
+      "update_start": 1,
+      "update_end": 32,
+      "workspace_mean_training_batch_nll": 8.242298677563667,
+      "ordinary_mean_training_batch_nll": 8.156308799982071,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.08598987758159637
+    },
+    {
+      "recipe": "untied",
+      "update_start": 33,
+      "update_end": 256,
+      "workspace_mean_training_batch_nll": 5.908462962933949,
+      "ordinary_mean_training_batch_nll": 5.513946094683239,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.39451686825071064
+    },
+    {
+      "recipe": "untied",
+      "update_start": 257,
+      "update_end": 512,
+      "workspace_mean_training_batch_nll": 4.74394672550261,
+      "ordinary_mean_training_batch_nll": 4.454189890064299,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.2897568354383111
+    },
+    {
+      "recipe": "untied",
+      "update_start": 513,
+      "update_end": 768,
+      "workspace_mean_training_batch_nll": 4.084290510974824,
+      "ordinary_mean_training_batch_nll": 3.851957672275603,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.2323328386992216
+    },
+    {
+      "recipe": "untied",
+      "update_start": 769,
+      "update_end": 1024,
+      "workspace_mean_training_batch_nll": 3.6819658279418945,
+      "ordinary_mean_training_batch_nll": 3.593121062964201,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.08884476497769356
+    },
+    {
+      "recipe": "untied",
+      "update_start": 1025,
+      "update_end": 1377,
+      "workspace_mean_training_batch_nll": 3.460682492080559,
+      "ordinary_mean_training_batch_nll": 3.4249711482450578,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.03571134383550109
+    },
+    {
+      "recipe": "untied",
+      "update_start": 1378,
+      "update_end": 1530,
+      "workspace_mean_training_batch_nll": 3.2992818464640696,
+      "ordinary_mean_training_batch_nll": 3.280938788956287,
+      "ordinary_minus_workspace_mean_training_batch_nll": -0.01834305750778298
+    }
+  ],
+  "optimizer_updates": 0,
+  "model_reads": 0,
+  "heldout_reads": 0,
+  "assigned_chips": 0,
+  "scope": "Recorded pre-update TRAIN batch losses,exact same source/order through1530updates. Bins fixed before reading these curves. These are neither held-out performance nor supported within-checkpoint depth comparisons. Tied versus untied changes parameters;each has its own equal-data ordinary control. No uncertainty or efficiency claim from these curves."
+}
