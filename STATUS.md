@@ -1,3 +1,33 @@
+## October 29, 2026, 19:59 UTC — fixed-one fits complete; sparse hardware test prepared
+
+All three fixed-one fits finish 1,957 updates. Two mature audits pass and the
+third is running; common evaluation remains pending. No quality result has
+been selected or reported yet.
+
+The sparse persistent reference and explicit four-graph factory pass 76 focused
+checks; the full suite passes 964 with two skips in 159.26 seconds. A separate
+45-minute actual-shape qualification is prepared, conditional on the active
+comparison closing. It tests full ordinary, chunked ordinary, generated-slot
+and constant-slot execution, including exact recovery and measured whole-update
+cost. No scientific fit is admitted by this preparation. Both fresh reserves
+remain sealed. [Qualification limits](docs/CHUNKED_PERSISTENT_QUALIFICATION_20261029.md).
+
+## October 29, 2026, 19:45 UTC — fixed-one comparison active; sparse reference remains CPU-only
+
+The first fixed-one LR fit completes all 1,957 updates and passes its mature
+gradient/state/replica audit. The second fit is active on all 16 chips. No new
+quality outcome exists yet. The immutable schedule comparison and its gates
+are unchanged. [First-fit checks](results/depth_causal_workspace_20261029/fixed-one-v1/lr0-checks.json).
+
+A separate CPU reference inserts persistent generated states only between
+source chunks and reuses differentiable KV exactly. It uses the strongest
+51.18M tied ordinary family, with a constant-slot control and exact disabled
+ordinary path. All 35 new checks and 68 combined cache/reference checks pass.
+The full source suite is being rerun. No hardware or scientific fit is admitted
+for this prototype; small arithmetic overhead does not imply low runtime.
+[Reference and limits](results/chunked_persistent_workspace_20261029/cpu-v1/REPORT.md).
+Both fresh reserves remain sealed.
+
 ## October 29, 2026, 19:32 UTC — fixed-one schedule comparison registered
 
 The completed multi-budget result remains negative with all four gates failed.
