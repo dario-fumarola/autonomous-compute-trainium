@@ -1,3 +1,14 @@
+## October29,2026,05:03 UTC — all-chip structural readout active; no new fit
+
+The616-test CPU suite passes(two skips). The30-minute zero-update readout now
+uses all16chips to compare the three audited untied checkpoints on141new
+source-separated long/near code pairs. Every target is independently rebuilt
+from its original source offset. Full and last32prefixes preserve identical
+authored labels;no target-aware model selection occurs. Numerical FP64 gates
+precede aggregation. All contrast rules were frozen before the parent scores.
+The completed broad negative remains unchanged;no larger training is admitted.
+[Readout registration](results/probability_workspace_20261029/structural-readout-v1/plan.json).
+
 ## October29,2026,05:01 UTC — untied comparison complete; both absolute gates fail
 
 Workspace3.270157NLL loses0.016197to new equal-data ordinary3.253960 and0.289434
