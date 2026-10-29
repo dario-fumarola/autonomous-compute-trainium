@@ -1,3 +1,45 @@
+## October 29, 2026, 06:58 UTC — slowdown localized; equivalent-layout check active
+
+The all-chip timing diagnostic exactly replays the prior qualified update.
+Forward takes 4.138 s, backward 0.063 s, collectives 0.282 s and optimizer
+0.009 s; no unexpected fallback is recorded. The forward/backward asymmetry
+motivates an implementation investigation before any scientific fit.
+
+An equivalent source/latent slot extraction passes CPU forward, full-gradient
+and AdamW-update checks. Its all-chip actual-shape test is active, retaining the
+original implementation as the independent CPU reference. It stops early if
+warm updates exceed 0.8 s; any failure remains an execution-screen result.
+All 658 CPU tests pass, with two skips. [Layout test](docs/INTERLEAVED_SLOT_LAYOUT_20261029.md).
+
+The indexed reader's isolated batch-plus-count time falls from 53.1 ms to
+0.055 ms by avoiding repeated whole-index dtype/stride conversions. Targets,
+packing, masks and source order are unchanged. This is a CPU input-path timing,
+not a 64-rank training measurement or an explanation of the old graph slowdown.
+
+## October 29, 2026, 06:50 UTC — actual shapes pass; execution penalty under investigation
+
+Generated-latent and ordinary modes both pass cold and mature global gradient
+checks, all-replica state equality and exact separate-process replay at 51.75M
+parameters. Latent mature family error is at most 1.21e-6. The 100-update means
+are 4.490215 s latent and 0.145875 s ordinary: 30.78 times elapsed time for
+4.937 times nominal training matrix work. These are disposable qualification
+weights, not quality results. A bounded all-16-chip diagnostic replays the
+qualified update exactly, then separates forward, backward, data transfer,
+collective and optimizer timing. No scientific fit is admitted before this
+execution penalty is understood and the pause control is qualified.
+
+A CPU-only source index passes 515 independent window reconstructions and
+complete real-target accounting. It exposes six billion packed positions from
+the existing audited natural corpus, using 1.31 GiB of index artifacts and
+copying no source-token arrays. Both fresh evaluation reserves remain unscored.
+The 653-test suite passes with two skips; 21 focused tests also pass after the
+index-reader optimization. A fresh complete suite is running.
+
+Eight explicitly named, superseded successful qualification arrays were retired
+with hashes, freeing 4.72 GiB. Their exact local restoration is no longer
+available. All scientific checkpoints, failed histories, source arrays and
+original receipts remain. [Maintenance receipt](results/interleaved_workspace_20261029/maintenance-v1/report.json).
+
 ## October 29, 2026, 06:20 UTC — actual-shape persistent-state qualification active
 
 All 650 CPU tests pass, with two skips. All 16 chips now qualify the prospective
