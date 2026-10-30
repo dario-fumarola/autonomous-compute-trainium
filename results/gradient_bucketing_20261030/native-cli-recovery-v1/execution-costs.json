@@ -1,0 +1,38 @@
+{
+  "native_attempts": [
+    {
+      "identity": "bucketed-native-qualification-cli-recovery-v1-warm",
+      "exit_code": 0,
+      "wall_seconds": 224.9888195991516,
+      "assigned_chip_hours": 0.9999503093295627,
+      "whole_instance_opportunity_chip_hours": 0.9999503093295627,
+      "report_exists": true
+    },
+    {
+      "identity": "bucketed-native-qualification-cli-recovery-v1-replay",
+      "exit_code": 0,
+      "wall_seconds": 114.32863211631775,
+      "assigned_chip_hours": 0.5081272538503011,
+      "whole_instance_opportunity_chip_hours": 0.5081272538503011,
+      "report_exists": true
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "bucketed-native-qualification-cli-recovery-v1-audit",
+      "assigned_chips": 0,
+      "wall_seconds": 65.24380612373352,
+      "reused": false,
+      "exit_code": 0
+    }
+  ],
+  "cleanup_errors": [],
+  "execution": {
+    "started_unix": 1793356295.6162279,
+    "deadline_unix": 1793361477.6162279,
+    "plan_sha256": "68a5ab680dea85c76aa3251aa37a73b09bc1a2ab27d83afc5d5ab23925e65691"
+  },
+  "wall_seconds_since_admission": 421.3299551010132,
+  "whole_instance_opportunity_chip_hours": 1.8725775814056396,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

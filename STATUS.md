@@ -1,3 +1,27 @@
+## October 30, 2026, 10:45 UTC — whole-update batching qualification passes
+
+Batched gradient reduction/clipping reduces the ordinary model's warm update
+from 0.293359 to 0.061569 seconds in the first pair, and from 0.288414 to
+0.061230 seconds in the reversed pair: **4.765x and 4.710x**. Full first/mature
+CPU gradient and optimizer-moment checks pass; 64 replicas agree, and a fresh
+process exactly replays the saved next update. The largest mature gradient
+family error is 0.0001313%. These are execution results on the ordinary graph,
+not a latent speed measurement or predictive-quality result.
+
+The repaired qualification uses 1.508078 assigned chip-hours plus the original
+zero-update failure's 0.015828. Eighteen focused tests pass. It closes within
+the original deadline and admits no scientific optimizer change. The prepared
+four-fit exposure comparison retains the existing trainer and uniform NTP.
+
+Closed-run cache cleanup removes 4,219 regenerable bytecode files while checking
+the retained sources and receipts. A whole-history source-sharing inventory
+hits its explicit count limit before mutation; a new bounded recent-snapshot
+inventory is complete and byte-preserving sharing is active. This provides
+file-entry capacity for all four upcoming fits. Models, optimizer histories,
+source tokens and both untouched confirmation reserves remain preserved.
+[Qualification and limits](results/gradient_bucketing_20261030/native-cli-recovery-v1/REPORT.md) ·
+[Prepared exposure question](docs/CALCULATION_EXPOSURE_FACTORIAL_20261030.md).
+
 ## October 30, 2026, 10:29 UTC — matched-work comparison closes negative
 
 The audited 3.783B-target ordinary control scores **2.691525** broad NLL versus

@@ -21,7 +21,7 @@ Lagging or replacing generated states also hurts. This shows pathway dependence;
 distribution-changing ablations do not prove a reasoning algorithm or a win at
 matched training work. [Full attribution and limits](results/latent_exposure_20261030/content-recovery-v1/REPORT.md).
 
-**Calculation remains weak:** latent and ordinary each solve13/256 source-authored
+**Calculation remains weak:** at equal data, latent and ordinary each solve13/256 source-authored
 elementary cases; a constant answer selected only from TRAIN frequencies solves
 9/256. On the harder panel, latent solves5/259 versus3/259 for its TRAIN prior.
 These are development diagnostics, not reliable arithmetic competence.
