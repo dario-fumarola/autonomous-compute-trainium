@@ -58,6 +58,19 @@ def test_zero_norm_is_finite_and_preserves_zero_gradients():
     assert norm == 0 and all(torch.count_nonzero(v.grad)==0 for v in p)
 
 
+def test_large_fp32_vectors_keep_original_norm_decomposition():
+    p=[torch.nn.Parameter(torch.zeros(1024,1024)) for _ in range(8)]
+    for i,v in enumerate(p):v.grad=torch.logspace(-6,0,v.numel()).reshape_as(v)*(i+1)
+    original=[v.grad.clone() for v in p]
+    expected=torch.nn.utils.clip_grad_norm_(p,1.,error_if_nonfinite=True)
+    clipped=[v.grad.clone() for v in p]
+    for v,g in zip(p,original):v.grad=g
+    actual,buckets=reduce_and_clip(p,lambda b:None,1,bucket_bytes=32*1024**2)
+    assert buckets==1
+    torch.testing.assert_close(actual,expected,rtol=1e-7,atol=0.)
+    for v,g in zip(p,clipped):torch.testing.assert_close(v.grad,g,rtol=1e-7,atol=0.)
+
+
 def test_missing_duplicate_mixed_and_nonfinite_gradients_fail_closed():
     p=parameters()
     with pytest.raises(ValueError):reduce_and_clip(p+[p[0]],lambda x:None,1)

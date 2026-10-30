@@ -29,18 +29,19 @@ def errors(left,right):
     return dict(relative_l2=(numerator/max(1e-30,denominator))**.5,maximum_absolute=maximum)
 
 
-def run(root):
+def run(root, *, identity=ID, public=PUBLIC,
+        scope_document='docs/BUCKETED_MATURE_CPU_20261030.md', extra_sources=(), repair_of=None):
     import torch
     from compute_trainium.interleaved_model_factory import make_model
     from compute_trainium.tied_interleaved_ordinary import make_model as tied_model
     from compute_trainium.pretraining_optimizer import parameter_groups
     from compute_trainium.bucketed_gradient_reduction import reduce_and_clip
-    started=time.time();out=root/ID
-    if out.exists() or PUBLIC.exists():raise FileExistsError('Preserve each qualification attempt')
+    started=time.time();out=root/identity
+    if out.exists() or public.exists():raise FileExistsError('Preserve each qualification attempt')
     files=sorted({str(f) for f in Path('compute_trainium').glob('*.py')} | {
            'scripts/qualify_bucketed_mature_cpu.py','scripts/audit_latent_exposure_sources.py',
            'scripts/readout_interleaved_bracket_type.py','tests/test_bucketed_gradient_reduction.py',
-           'docs/BUCKETED_MATURE_CPU_20261030.md'})
+           'docs/BUCKETED_MATURE_CPU_20261030.md',scope_document,*extra_sources})
     points={}
     for role in ('ordinary','pause','latent'):
         point=checkpoint(root,'latent-learning-exposure-v1-'+role,role)
@@ -48,11 +49,11 @@ def run(root):
             gradient=root/'runs'/f'latent-learning-exposure-v1-{role}-fit'/f'PRIVATE-gradient-u15287-k{depth}.pt'
             points[f'{role}-k{depth}']=dict(**point,role=role,depth=depth,
                 gradient_relative=str(gradient.relative_to(root)),gradient_sha256=file_sha256(gradient))
-    p=dict(identity=ID,registered_unix=started,absolute_deadline_unix=started+600,threads=8,
+    p=dict(identity=identity,registered_unix=started,absolute_deadline_unix=started+600,threads=8,
         source_sha256={f:file_sha256(f) for f in files},points=points,multipliers=[1.,10.],
         relative_error_limit=1e-5,bucket_bytes=32*1024**2,assigned_chips=0,scientific_optimizer_updates=0,
-        scope=Path('docs/BUCKETED_MATURE_CPU_20261030.md').read_text())
-    out.mkdir(mode=0o700);PUBLIC.mkdir(parents=True);write_state(out/'plan.json',p);write_state(PUBLIC/'plan.json',p)
+        repair_of=repair_of,scope=Path(scope_document).read_text())
+    out.mkdir(mode=0o700);public.mkdir(parents=True);write_state(out/'plan.json',p);write_state(public/'plan.json',p)
     torch.set_num_threads(8);torch.set_num_interop_threads(1)
     records={};result=dict(status='STOPPED_BUCKETED_MATURE_CPU')
     try:
@@ -110,7 +111,7 @@ def run(root):
             peak_rss_bytes=u.ru_maxrss*1024,assigned_chips=0,scientific_optimizer_updates=0,
             disposable_cpu_optimizer_updates=2*len(records),model_scores=0,automatic_promotion=False,
             plan_sha256=file_sha256(out/'plan.json'),scope=p['scope'])
-        write_state(out/'report.json',result);write_state(PUBLIC/'report.json',result)
+        write_state(out/'report.json',result);write_state(public/'report.json',result)
         print(json.dumps({k:v for k,v in result.items() if k not in ('scope','cases')}),flush=True)
 
 

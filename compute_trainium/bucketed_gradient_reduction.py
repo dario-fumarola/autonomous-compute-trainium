@@ -2,7 +2,8 @@
 
 The callback must synchronously sum a dense buffer across the declared ranks.
 Gradient averaging and global norm clipping retain their existing semantics.
-Norm summation order can differ, so Native qualification remains mandatory.
+The existing per-parameter norm decomposition is retained; Native qualification
+is still mandatory for communication, views and floating-point behavior.
 """
 import math
 import torch
@@ -35,7 +36,7 @@ def reduce_and_clip(parameters, reduce_sum, world, *, max_norm=1., bucket_bytes=
         if size >= bucket_bytes:
             groups.append(pending); pending = []; size = 0
     if pending: groups.append(pending)
-    buffers = []
+    buffers = []; views = []
     with torch.no_grad():
         for group in groups:
             flat = (group[0][1].reshape(-1) if len(group)==1 else
@@ -43,13 +44,15 @@ def reduce_and_clip(parameters, reduce_sum, world, *, max_norm=1., bucket_bytes=
             reduce_sum(flat)
             flat.div_(world)
             buffers.append(flat)
-        norm = torch.linalg.vector_norm(torch.stack([torch.linalg.vector_norm(b,2) for b in buffers]),2)
+            offset = 0
+            for p,g in group:
+                p.grad = flat[offset:offset+g.numel()].view_as(p)
+                views.append(p.grad); offset += g.numel()
+        # Large concatenated FP32 norms have different accumulation error.
+        # Preserve the trainer's original per-parameter decomposition.
+        norm = torch.linalg.vector_norm(torch.stack([torch.linalg.vector_norm(g,2) for g in views]),2)
         if not bool(torch.isfinite(norm)):
             raise RuntimeError('Non-finite global gradient norm')
         coefficient = (max_norm/(norm+1e-6)).clamp(max=1.)
-        for group,flat in zip(groups,buffers):
-            flat.mul_(coefficient); offset = 0
-            for p,g in group:
-                p.grad = flat[offset:offset+g.numel()].view_as(p)
-                offset += g.numel()
+        for flat in buffers: flat.mul_(coefficient)
     return norm, len(buffers)
