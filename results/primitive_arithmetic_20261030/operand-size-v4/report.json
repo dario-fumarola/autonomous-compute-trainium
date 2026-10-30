@@ -1,0 +1,92 @@
+{
+  "status": "COMPLETE_SAVED_PRIMITIVE_OPERAND_BREAKDOWN",
+  "bins": {
+    "both_abs_below10": {
+      "cases": 77,
+      "operators": {
+        "add": 29,
+        "subtract": 17,
+        "multiply": 26,
+        "divide": 5
+      },
+      "models": {
+        "latent": {
+          "correct": 6,
+          "answer_nll": 2.5275039005035413,
+          "first_nll": 2.4221472653888627
+        },
+        "ordinary": {
+          "correct": 4,
+          "answer_nll": 2.5307627781222912,
+          "first_nll": 2.4470896642699844
+        },
+        "pause": {
+          "correct": 3,
+          "answer_nll": 2.5968578832623916,
+          "first_nll": 2.450519511770409
+        }
+      }
+    },
+    "both_abs_below100_remaining": {
+      "cases": 120,
+      "operators": {
+        "add": 26,
+        "subtract": 29,
+        "multiply": 32,
+        "divide": 33
+      },
+      "models": {
+        "latent": {
+          "correct": 3,
+          "answer_nll": 2.4957441563385867,
+          "first_nll": 2.246210708099838
+        },
+        "ordinary": {
+          "correct": 5,
+          "answer_nll": 2.5022205474023433,
+          "first_nll": 2.2663678473453635
+        },
+        "pause": {
+          "correct": 1,
+          "answer_nll": 2.5762120002118847,
+          "first_nll": 2.316751335115675
+        }
+      }
+    },
+    "some_abs_at_least100": {
+      "cases": 59,
+      "operators": {
+        "add": 9,
+        "subtract": 18,
+        "multiply": 6,
+        "divide": 26
+      },
+      "models": {
+        "latent": {
+          "correct": 4,
+          "answer_nll": 2.3860384608081073,
+          "first_nll": 2.201061512772753
+        },
+        "ordinary": {
+          "correct": 4,
+          "answer_nll": 2.3970282806026457,
+          "first_nll": 2.294549325005067
+        },
+        "pause": {
+          "correct": 3,
+          "answer_nll": 2.364358237795837,
+          "first_nll": 2.3039159137762666
+        }
+      }
+    }
+  },
+  "cases": 256,
+  "all_premises_reconstruct": true,
+  "wall_seconds": 0.08983135223388672,
+  "peak_rss_bytes": 681000960,
+  "model_inferences": 0,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "posthoc_descriptive": true,
+  "scope": "Post-hoc descriptive partition of every previously scored elementary case by operand magnitude. No inference, source search, excluded case, selection, gate or research claim."
+}
