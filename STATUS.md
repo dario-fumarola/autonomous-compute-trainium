@@ -1,3 +1,28 @@
+## October 30, 2026, 10:55 UTC — authentic-exposure factorial is running
+
+Four bounded, fresh-seed fits are registered: original/enriched natural text
+crossed with ordinary/generated-state models. Each receives1,957 updates and
+approximately128M authentic targets, uniform NTP and a complete cooldown.
+Both architectures receive the same enrichment opportunity. All four must
+complete and pass audits before any held-out quality comparison. The original
+qualified optimizer is unchanged; batching remains a separately qualified
+ordinary-model execution improvement. The first all16-chip fit has passed62M
+targets; all986 frozen experiment files verify unchanged.
+
+An independent containment audit verifies all112,057 enriched-prefix documents
+inside the previously expression-audited source range, with zero identity or
+range escapes. It reads no evaluation targets, takes9.599CPU wall seconds and
+leaves both confirmation reserves untouched. This protects the existing harder
+arithmetic panel without selecting new cases after outcomes.
+
+Closed source sharing preserves all22,480 paths and execution receipts. Removing
+one clean merged maintenance checkout retains its commit/branch and no untracked
+or ignored data. Free file entries exceed the full four-fit admission projection.
+All previous results and stopped attempts remain preserved.
+[Frozen experiment](results/calculation_exposure_20261030/factorial-v1/plan.json) ·
+[Scientific question](docs/CALCULATION_EXPOSURE_FACTORIAL_20261030.md) ·
+[Independent source containment](results/calculation_exposure_20261030/source-containment-v1/REPORT.md).
+
 ## October 30, 2026, 10:45 UTC — whole-update batching qualification passes
 
 Batched gradient reduction/clipping reduces the ordinary model's warm update
