@@ -1,3 +1,17 @@
+## October 30, 2026, 09:22 UTC — closed duplicates archived; ordinary control continues
+
+Thirteen historical duplicate checkpoints now have byte-exact restoration
+recipes, retaining required raw parents and all model/optimizer values. Their
+logical duplicate storage decreases by11.19GB; closing free space is49.99GB.
+The initial zero-release permission failure remains recorded. Ownership-only
+recovery preserves its original deadline and takes111.514CPU wall seconds,
+zero chips and zero updates. All955 active scientific sources remain unchanged.
+
+The all16-chip ordinary control has passed3.16B of3.783B targets. Final quality
+remains unmeasured until its cooldown and audits complete. No new scientific
+fit, fresh-reserve access or terminal alpha is admitted.
+[Exact storage receipt](results/closed_duplicate_storage_20261030/owned-recovery-v1/REPORT.md).
+
 ## October 30, 2026, 09:00 UTC — answer priors and decode costs narrow the current claim
 
 TRAIN-only constant-answer predictors score9/256 elementary and3/259 harder
