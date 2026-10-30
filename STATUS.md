@@ -1,3 +1,19 @@
+## October 30, 2026, 09:00 UTC — answer priors and decode costs narrow the current claim
+
+TRAIN-only constant-answer predictors score9/256 elementary and3/259 harder
+cases, versus the latent model's13/256 and5/259. Choices are frozen before
+opening DEV answers. This descriptive calibration reinforces that reliable
+calculation remains unestablished despite the equal-data prediction-loss gain.
+It uses1.117 CPU wall seconds and no model inference, chips or updates.
+
+An independently shape-checked cached-decode inventory finds17.51% greater
+forward matrix work at context512 and9.09% greater KV storage for latent versus
+ordinary. These are operation/storage counts, not serving latency measurements.
+The all16-chip matched-training-work ordinary fit continues beyond2.88B targets;
+no final matched-work score is available. Both fresh reserves remain unscored.
+[Answer-prior calibration](results/primitive_arithmetic_20261030/answer-prior-v1/REPORT.md) ·
+[Decode inventory](results/latent_exposure_20261030/decode-inventory-v1/REPORT.md).
+
 ## October 30, 2026, 08:40 UTC — source-exposure test is feasible; no new fit admitted
 
 A prospective index preserves60/20/20 domain weights and uniform natural labels,

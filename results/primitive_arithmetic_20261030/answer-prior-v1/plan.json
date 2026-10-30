@@ -1,0 +1,32 @@
+{
+  "identity": "authored-answer-prior-v1",
+  "registered_unix": 1793350645.353037,
+  "absolute_deadline_unix": 1793350825.353037,
+  "source_sha256": {
+    "scripts/audit_authored_answer_prior.py": "3a065f34e72c482bdb4e06fcb80150a214e9ac8046a7ded68526b0cc02bcea25",
+    "scripts/audit_latent_exposure_sources.py": "ece4a5aede11128904e39c2cfba91ba71cc89aefda0b4430732addcb3e1bb8f0",
+    "docs/AUTHORED_ANSWER_PRIOR_20261030.md": "c3b68c503622bdd0d3e67533f7b8ed967e90f76936be2b6eb2e31ced29174687"
+  },
+  "pool_sha256": "0e52b56e80bfce0e8fabf4e09a04028d0c119f406c4c116e666e052b4727c434",
+  "parent_plan_sha256": "1dd02a7bad59bff5710517dbaf90c890587f539502fb408cfb4214cdd30d2d95",
+  "panel_sha256": {
+    "elementary": "eab9f2b2970d8926d54b3beadbcf243412ce01ece15ffd2792706c26f87bb259",
+    "multi": "0fad5895c58509cd271c14916a937f13c96da10c12d594d9fa2183826bffb593"
+  },
+  "original_training_end": 1001848833,
+  "shard_sha256": {
+    "0": "fae29c82170538beff42d1945d80533ba00864e7137c9afb89ba8a16f0e0d2ac",
+    "1": "7137bec234793b3d7d24bf410b9d71d2cece8c0271c9c0d51f77af90d58e3988",
+    "2": "dbd47804b2710066b74aee6f35206d604389fb096b12782084736e6c5429fcb0",
+    "3": "4cbe101543789aca27707c31394a2bb73bca823ff1d10f9d63f2c404decddf0f",
+    "4": "8c8ad1a0cd6ac6aa19f4c105037dae7570891a13bf2ad752dfb0493a652dbe69",
+    "5": "0fcc0f8609d27a9d41586d49176d7e8227445e585f739f2ad16b37be4e235479",
+    "6": "08bbcf5e18497b9db0b3be6c57abc380ff007a6bbb7ed39971d790c4bfe09ba9",
+    "7": "854254d69be4137578b354b7f45d4be41ffc71c0a4c26e701f1afcab2b0a84d2"
+  },
+  "scope": "# Descriptive TRAIN-only answer-prior calibration\n\nBefore interpreting the small exact-answer counts as calculation competence,\nmeasure a predictor that ignores the evaluation prefix entirely. From the\nexisting verified calculation pool, count literal answer token sequences whose\nfull premise and answer were visible within one window of the original1B\nTRAIN prefix. Select the most frequent complete answer sequence; break ties by\ntoken-ID tuple order. Freeze this TRAIN-only choice before reading DEV answers.\n\nUse separate elementary and multi-operation TRAIN counts for their respective\nexisting panels. Report complete token-sequence equality and answer-prefix\nequality, with every original operator/operation bin. The latter matches the\nmodel readout's answer-prefix convention; neither is an NLL comparison or a\nlearned reasoning mechanism. Source-dependent formatting can make a constant\ntoken guess weaker than a numeric-value prior, which is not substituted here.\n\nThis is a post-hoc development calibration, not a newly untouched benchmark or\na change to any primary. Read no model weights or fresh reserve. Preserve the\noriginal published scores. Limits:180 CPU wall seconds,8GiB RSS,16MiB artifacts,\nzero chips/updates/model inferences, and existing host/disk/inode floors.\n",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "model_inferences": 0,
+  "fresh_reserves_scored": false
+}
