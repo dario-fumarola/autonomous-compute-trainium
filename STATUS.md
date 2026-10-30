@@ -1,3 +1,35 @@
+## October 30, 2026, 01:22 UTC — fixed-recipe1B exposure pilot running on all16chips
+
+One new bounded question is admitted: whether the existing dense generated-state
+mechanism acquires an identifiable calculation benefit after more natural NTP
+exposure. This does not promote the failed128M replication or the direct-arithmetic
+result. The new seed730271 starts all three equal-data models from random weights,
+with15,287 updates and1,000,060,368 authentic targets each. The qualified graphs,
+selected0.001 rates, source order, uniform objective and complete cooldowns stay
+fixed. The ordinary control is the active64-rank owner; pause and latent follow.
+
+The full prospective3.783B-target work-control prefix is source-audited. It would
+repeat94 historical evaluation expressions, so the new primary arithmetic subset
+excludes them before fitting:259cases, with87/98/74 per operation bin. No source
+or protected-reserve overlap remains. The original353-case result is preserved.
+The strict intact-calculation count rises from617 to4,398 at the1B endpoint.
+
+After all three mature audits, evaluate exact sequential broad and arithmetic
+predictions. Only a useful positive against BOTH equal-data controls admits the
+already frozen57,822-update ordinary work control. Otherwise stop this exposure
+screen. One development seed and fixed recipes do not establish an optimally
+retuned frontier, causal reasoning, adaptive compute or a terminal result.
+
+The first admission refused inadequate projected inode capacity before any fit
+plan or accelerator work. Sharing byte-identical source files in16 closed
+snapshots restored37,499 free inodes without changing scientific states or source
+bytes. Admission then passed unchanged. Queue cap12hours; all Native phases use
+16chips with the original host, worker, disk, inode and numerical guards. Both
+fresh reserves stay sealed; terminal alpha remains zero.
+[Design](docs/LATENT_LEARNING_EXPOSURE_20261030.md) ·
+[Source audit](results/latent_exposure_20261030/source-audit-v1/REPORT.md) ·
+[Capacity recovery](results/latent_exposure_20261030/inode-recovery-v1/REPORT.md).
+
 ## October 30, 2026, 01:04 UTC — direct calculation lead does not replicate
 
 The frozen 353-source, nine-checkpoint arithmetic readout completes. Latent gains
