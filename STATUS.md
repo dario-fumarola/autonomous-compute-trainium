@@ -1,3 +1,24 @@
+## October 30, 2026, 08:40 UTC — source-exposure test is feasible; no new fit admitted
+
+A prospective index preserves60/20/20 domain weights and uniform natural labels,
+selecting calculation-containing documents for half the mathematics tokens.
+Its128M prefix contains9,816 intact elementary and4,509 multistep calculations,
+roughly the original1B prefix's verified-calculation exposure. The full index
+contains486.15M targets with no repeated document IDs. This is a way to test an
+exposure hypothesis, not evidence that it is correct or a new admitted fit.
+
+The first source-preparation attempt stops at its8GiB RSS limit after20.247s.
+Bounding mapped-page residency repairs execution within the original deadline:
+27.217s,0.771GB peak RSS,515 independently reconstructed windows, exact target
+coverage, and an identical recipe prefix. All private source bytes and both
+receipts remain preserved. No model scores or chip assignments occur.
+
+Native gradient-batching ABBA qualification is implemented and passes15 CPU
+tests, but remains unregistered pending closure of the scientific controller.
+The ordinary matched-work fit continues beyond2.60B/3.783B targets on all16chips.
+[Source exposure](results/calculation_document_pool_20261030/index-recovery-v1/REPORT.md) ·
+[Prospective Native qualification](docs/BUCKETED_NATIVE_QUALIFICATION_20261030.md).
+
 ## October 30, 2026, 08:22 UTC — mature CPU batching repair passes; work control continues
 
 The first mature CPU batching attempt fails the original clipping/optimizer
