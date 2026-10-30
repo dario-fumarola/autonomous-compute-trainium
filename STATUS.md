@@ -1,3 +1,19 @@
+## October 30, 2026, 08:22 UTC — mature CPU batching repair passes; work control continues
+
+The first mature CPU batching attempt fails the original clipping/optimizer
+parity bound. Preserving the original per-parameter norm decomposition repairs
+the discrepancy without relaxing that bound. All eight repeated mature cases
+now match gradients, norms, parameter updates and AdamW moments exactly.
+Thirteen focused tests pass. Both attempts remain recorded; the repair costs
+26.964 CPU wall seconds and sixteen disposable CPU steps, with no chip work.
+Native collective, restart and whole-update throughput qualification remain
+outstanding. The candidate is not enabled in the scientific trainer.
+
+The original ordinary matched-work control has passed 2.38B of 3.783B targets
+on all16 chips. All955 bound sources, the endpoint and deadline remain unchanged.
+No matched-work quality result exists yet; both fresh reserves remain unscored.
+[Mature repair and retained failure](results/gradient_bucketing_20261030/mature-cpu-v2/REPORT.md).
+
 ## October 30, 2026, 07:59 UTC — authentic exposure pool and CPU efficiency candidate prepared
 
 The source-only pool retains 26,622 unmodified TRAIN documents, 48.914M tokens
