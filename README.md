@@ -1,23 +1,26 @@
 # Autonomous computation during pretraining
 
-**Current work, October 30:** all three billion-target exposure fits and their
-mature numerical audits are complete; exact sequential evaluation is active.
-One new seed starts the existing generated-state,
-strongest tied ordinary and trained-pause models from random initialization,
-with1.000B authentic targets each and unchanged uniform NTP. A3.783B ordinary
-work control runs only if both equal-data broad and arithmetic gates pass.
-This tests exposure; it does not promote an earlier failed gate or claim a
-fully retuned frontier. [Frozen design](docs/LATENT_LEARNING_EXPOSURE_20261030.md) ·
-[Live status](STATUS.md).
+**Current result, October 30:** the billion-target generated-state model passes
+both registered equal-data development gates. Broad NLL is **2.801700**, versus
+**2.832195 ordinary** and **2.901458 trained pauses**. On 259 source-audited natural
+arithmetic cases, answer-token gains are **0.053447** and **0.051271 nats**.
+All mature numerical checks pass. This is one from-scratch development seed;
+exact answer accuracy remains about 2%, and ordinary wins the hardest operation
+bin. It is not yet a reasoning or training-compute efficiency result.
 
-**Latest completed diagnostic:** on353 authentic direct calculations, latent
-gains over ordinary are−0.010957,+0.068950 and−0.045059nats in the three existing
-seeds. Only one seed clears both controls; mean gain is0.004311, with substantial
-seed variation and near-floor accuracy. No reproducible arithmetic lead follows.
-The longer-prefix source audit excludes94 expressions that would reappear in
-training, freezing a separate259-case subset before the new fits. Both fresh
-confirmation reserves remain sealed.
-[Complete arithmetic comparison](results/direct_arithmetic_20261030/readout-v1/REPORT.md) ·
+The already registered **3.783B-target matched-work ordinary control is running
+on all 16 chips** under a launch-only recovery after an identifier rejection
+before any worker started. Its recipe and original deadline are unchanged.
+Both fresh confirmation reserves remain sealed.
+[Complete equal-data result](results/latent_exposure_20261030/learning-v1/REPORT.md) ·
+[Frozen design](docs/LATENT_LEARNING_EXPOSURE_20261030.md) · [Live status](STATUS.md).
+
+**Earlier exposure remains negative:** on 353 authentic calculations, the
+128M-target latent gains over ordinary are −0.010957, +0.068950 and −0.045059
+nats in three seeds. Only one clears both controls. The longer-prefix source
+audit excluded 94 expressions that would recur in training, freezing a separate
+259-case subset before the new fits. The new result does not repair the old gate.
+[Earlier arithmetic comparison](results/direct_arithmetic_20261030/readout-v1/REPORT.md) ·
 [Prospective source audit](results/latent_exposure_20261030/source-audit-v1/REPORT.md).
 
 The persistent latent model learns useful generated states from random

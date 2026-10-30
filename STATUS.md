@@ -1,3 +1,27 @@
+## October 30, 2026, 05:20 UTC — equal-data gates pass; matched-work ordinary control active
+
+The billion-target generated-state model scores **2.801700 broad NLL**, versus
+2.832195 ordinary and 2.901458 trained pauses. Gains are **+0.030495** and
+**+0.099757**, with positive conditional source intervals in both comparisons.
+On the 259 frozen authentic arithmetic cases, answer-NLL gains are **+0.053447**
+and **+0.051271**, also with positive conditional intervals. Independent
+reaggregation matches all arithmetic means and counts to 4.44e-16.
+
+The original equal-data gate passes, but the limits matter: one development
+seed, reused sources, inherited learning rates, first-answer intervals spanning
+zero, and only 5/259 exact answer prefixes versus 4/259 for either control.
+Ordinary still wins the four-to-six-operation bin. This is a positive prediction
+lead, not established arithmetic reasoning or training-compute efficiency.
+
+The conditional ordinary launch failed on an underscore in its identity before
+any Native work. The stopped receipt remains intact. Launch-only recovery
+422ca8c preserves every scientific field and the original 13:21:39 UTC deadline.
+The 57,822-update, 3.783B-target ordinary fit is now active on all 16 chips.
+It must complete its cooldown and mature audit before exact scoring. No new
+seed, fresh-reserve access, alpha expenditure or automatic scaling is admitted.
+[Complete equal-data result](results/latent_exposure_20261030/learning-v1/REPORT.md) ·
+[Recovery design](docs/LATENT_WORK_RECOVERY_20261030.md).
+
 ## October 30, 2026, 04:44 UTC — all billion-target fits audited; exact scoring active
 
 All three equal-data conditions complete 15,287 updates and 1,000,060,368
