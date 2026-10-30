@@ -1,3 +1,18 @@
+## October 30, 2026, 10:00 UTC — code-dependency readout does not pass
+
+The completed1B code diagnostic gives long bracket-type NLL0.259965 for latent,
+0.281935 ordinary and0.275830 trained pauses. Latent gains0.021970/0.015865 are
+below the original0.03 gate, with both conditional intervals spanning zero.
+All models benefit from distant context; neither latent-specific context
+interaction is established. Raw punctuation NLL gains do not replace this test.
+
+All1,692 rows independently reaggregate within1.12e-16 and all nine actual-weight
+checks pass. Recovery uses768.275CPU wall seconds within its original deadline;
+the422.503-second stopped attempt remains recorded. The all16-chip ordinary fit
+continues its frozen cooldown near3.65B/3.783B targets. Its final matched-work
+scores remain pending. Both fresh reserves are untouched.
+[Complete code diagnostic](results/latent_exposure_20261030/code-readout-recovery-v1/REPORT.md).
+
 ## October 30, 2026, 09:54 UTC — cooldown and saved-model dependency readout active
 
 The all16-chip ordinary control has passed3.59B of3.783B targets and is in its
