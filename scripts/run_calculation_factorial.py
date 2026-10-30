@@ -11,7 +11,7 @@ import subprocess
 import sys
 import time
 
-from compute_trainium.calculation_factorial import CELLS,arithmetic_statistics,mechanism_gate
+from compute_trainium.calculation_factorial import CELLS,arithmetic_statistics,broad_statistics,mechanism_gate
 from compute_trainium.queue import write_state
 from compute_trainium.training import file_sha256
 
@@ -177,8 +177,6 @@ def broad_worker(root,key):
 def readouts(root,p):
     from scripts.readout_interleaved_bracket_type import checkpoint
     from scripts.readout_direct_arithmetic import guard
-    from scripts.compare_interleaved_tied import compare
-    from scripts.analyze_probability_screen import paired
     out=root/(ID+'-readout');out.mkdir();start=time.time();rp=copy.deepcopy(p);rp['points']={}
     rp['absolute_deadline_unix']=min(start+3600,p['absolute_deadline_unix'])
     for key,t in p['trials'].items():
@@ -199,18 +197,7 @@ def readouts(root,p):
                 time.sleep(2)
             if any(j.returncode for j in jobs):raise RuntimeError('Bounded exact readout failed')
         br={k:read(out/('PRIVATE-'+k+'-broad.json')) for k in CELLS}
-        broad={}
-        for label,condition in [('original_architecture','original'),('enriched_architecture','enriched')]:
-            broad[label]=compare(br[condition+'-latent'],br[condition+'-ordinary'],seed=p['bootstrap_seed'])
-        for role in ('ordinary','latent'):
-            broad[role+'_exposure']=compare(br['enriched-'+role],br['original-'+role],seed=p['bootstrap_seed'])
-        differences={}
-        for role in ('ordinary','latent'):
-            richer={r['index']:r for r in br['enriched-'+role]}
-            differences[role]=[dict(r,loss_sum=r['loss_sum']-richer[r['index']]['loss_sum'])
-                for r in br['original-'+role]]
-        broad['interaction']=paired(differences['latent'],differences['ordinary'],seed=p['bootstrap_seed'],
-            replicates=p['bootstrap_replicates'],weighted=True)
+        broad=broad_statistics(br,p['bootstrap_replicates'],p['bootstrap_seed'])
         rows=[dict(v,cell=k) for k in CELLS for v in read(out/('PRIVATE-'+k+'-scores.json'))]
         arithmetic=arithmetic_statistics(rows,p['bootstrap_replicates'],p['bootstrap_seed'])
         result=dict(status='COMPLETE_CALCULATION_FACTORIAL_READOUT',broad=broad,arithmetic=arithmetic,

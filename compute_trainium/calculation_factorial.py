@@ -57,3 +57,23 @@ def mechanism_gate(arithmetic,broad_gain):
                 for f in ('answer_nll','first_nll'))
         and c['latent_exposure']['first_nll']['mean']>=.03
         and c['interaction']['first_nll']['mean']>0 and broad_gain>=-.005)
+
+
+def broad_statistics(cells,replicates=2000,seed=40532):
+    from scripts.compare_interleaved_tied import compare
+    from scripts.analyze_probability_screen import paired
+    if set(cells)!=set(CELLS):raise AssertionError('Exactly four registered source/architecture cells')
+    output={}
+    for condition in ('original','enriched'):
+        output[condition+'_architecture']=compare(cells[condition+'-latent'],cells[condition+'-ordinary'],
+            seed=seed,replicates=replicates)
+    for role in ('ordinary','latent'):
+        output[role+'_exposure']=compare(cells['enriched-'+role],cells['original-'+role],seed=seed,replicates=replicates)
+    differences={}
+    for role in ('ordinary','latent'):
+        richer={r['index']:r for r in cells['enriched-'+role]}
+        differences[role]=[dict(r,loss_sum=r['loss_sum']-richer[r['index']]['loss_sum'])
+            for r in cells['original-'+role]]
+    output['interaction']=paired(differences['latent'],differences['ordinary'],seed=seed,
+        replicates=replicates,weighted=True)
+    return output

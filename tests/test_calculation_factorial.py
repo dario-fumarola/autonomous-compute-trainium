@@ -1,6 +1,6 @@
 import copy
 import pytest
-from compute_trainium.calculation_factorial import CELLS,arithmetic_statistics,mechanism_gate
+from compute_trainium.calculation_factorial import CELLS,arithmetic_statistics,broad_statistics,mechanism_gate
 
 
 def rows():
@@ -38,3 +38,18 @@ def test_later_token_or_general_data_gain_does_not_pass():
     assert not mechanism_gate(a,0.)
     a=arithmetic_statistics(rows(),replicates=20)
     assert not mechanism_gate(a,-.006)
+
+
+def test_broad_interaction_preserves_domain_weights_and_pairing():
+    # Only math benefits differentially; the aggregate interaction is0.2*0.1.
+    cells={c:[] for c in CELLS}
+    for i in range(384):
+        domain=('web','math','code')[i//128]
+        values=(2.,1.9,1.8,1.6 if domain=='math' else 1.7)
+        for c,value in zip(CELLS,values):
+            cells[c].append(dict(id=str(i),index=i,group=str(i//2),domain=domain,targets=512,loss_sum=512*value))
+    a=broad_statistics(cells,replicates=20)
+    assert a['interaction']['gain']==pytest.approx(.02)
+    assert a['enriched_architecture']['comparison']['gain']==pytest.approx(.12)
+    cells['enriched-latent'][0]['group']='unpaired'
+    with pytest.raises(AssertionError):broad_statistics(cells,replicates=20)
