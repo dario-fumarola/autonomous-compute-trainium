@@ -1,3 +1,20 @@
+## October 30, 2026, 02:42 UTC — ordinary1B control audited; pause control launched
+
+The ordinary control completes all15,287 updates and1,000,060,368 authentic
+targets, including its complete cooldown and untouched900,034,640-target
+pre-cooldown recovery state. Independent128-window gradient relative error is
+0.009616% overall and at most0.014362% by family, well below the unchanged2%
+limit. Model/optimizer/RNG restoration is exact and all64 full-state replicas
+agree. The Native attempt costs20.658 assigned chip-hours; the independent CPU
+audit takes29.275 seconds, with zero held-out reads.
+
+The trained pause control is now the exclusive all16chip owner. The generated
+latent condition follows, then exact broad/arithmetic readouts only after all
+three mature audits. No scientific score or advancement decision is available
+yet. The frozen source manifest, endpoint, seed and original queue deadline
+remain unchanged; both fresh reserves stay sealed.
+[Ordinary completion receipt](results/latent_exposure_20261030/learning-v1/ordinary-completion.json).
+
 ## October 30, 2026, 01:22 UTC — fixed-recipe1B exposure pilot running on all16chips
 
 One new bounded question is admitted: whether the existing dense generated-state

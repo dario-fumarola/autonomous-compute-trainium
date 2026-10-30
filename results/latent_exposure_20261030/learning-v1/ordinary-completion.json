@@ -1,0 +1,240 @@
+{
+  "status": "COMPLETE_AUDITED_ORDINARY_EXPOSURE_CONTROL",
+  "fit": {
+    "world": 64,
+    "updates": 15287,
+    "real_targets": 1000060368,
+    "nominal_training_matrix_flops": 342237972843724800,
+    "parameters": 51179008,
+    "wall_seconds": 4615.9272248744965,
+    "mean_warm_update_seconds": 0.2915247990429261,
+    "all_replica_full_states_equal": true,
+    "heldout_reads": 0,
+    "final_lr": 0.0001,
+    "checkpoints": [
+      {
+        "update": 13758,
+        "real_targets": 900034640,
+        "matrix_flops": 308007459304243200,
+        "full_state_digest": "a88c516a93c097e2da95c1dbdbb7e0042866cc193d6519ada59a0ee9d14fe7ad"
+      },
+      {
+        "update": 15287,
+        "real_targets": 1000060368,
+        "matrix_flops": 342237972843724800,
+        "full_state_digest": "b9dfe80cbab65f7d0f4adeee536bfd9c10f27603d1bdd6a5f655c4cc477a3012"
+      }
+    ]
+  },
+  "audit": {
+    "status": "PASS_INTERLEAVED_SCREEN_MATURE_AUDITS",
+    "arm": "ordinary",
+    "rows": [
+      {
+        "update": 15287,
+        "depth": 0,
+        "gradient": {
+          "overall": {
+            "relative_l2": 9.615930009870741e-05,
+            "cosine": 0.9999999953834887,
+            "reference_norm": 0.26425064575982776,
+            "candidate_norm": 0.2642516186320659,
+            "maximum_absolute_error": 2.941116690635681e-06,
+            "largest_error_contributors": [
+              {
+                "parameter": "blocks.5.down.weight",
+                "squared_error": 8.82004910114729e-11,
+                "reference_squared_norm": 0.001735919509538701
+              },
+              {
+                "parameter": "embedding.weight",
+                "squared_error": 7.597362141773218e-11,
+                "reference_squared_norm": 0.04220890686080726
+              },
+              {
+                "parameter": "blocks.6.v.weight",
+                "squared_error": 5.1995522019368345e-11,
+                "reference_squared_norm": 0.001016079902883739
+              },
+              {
+                "parameter": "blocks.0.o.weight",
+                "squared_error": 4.212454778384681e-11,
+                "reference_squared_norm": 0.0017919391689406072
+              },
+              {
+                "parameter": "blocks.7.v.weight",
+                "squared_error": 3.523358648845322e-11,
+                "reference_squared_norm": 0.0006467515651075149
+              },
+              {
+                "parameter": "blocks.10.up.weight",
+                "squared_error": 3.355373976918908e-11,
+                "reference_squared_norm": 0.0009373945491556816
+              },
+              {
+                "parameter": "blocks.8.v.weight",
+                "squared_error": 2.9942220659985656e-11,
+                "reference_squared_norm": 0.0003421191791810423
+              },
+              {
+                "parameter": "blocks.5.v.weight",
+                "squared_error": 2.793390588951523e-11,
+                "reference_squared_norm": 0.0005583055007970669
+              },
+              {
+                "parameter": "blocks.3.v.weight",
+                "squared_error": 2.591915384237346e-11,
+                "reference_squared_norm": 0.0006812345380168837
+              },
+              {
+                "parameter": "blocks.4.v.weight",
+                "squared_error": 2.227706619660971e-11,
+                "reference_squared_norm": 0.0006810687506876665
+              },
+              {
+                "parameter": "blocks.9.v.weight",
+                "squared_error": 2.0773717964639438e-11,
+                "reference_squared_norm": 0.0002359477371863115
+              },
+              {
+                "parameter": "blocks.10.gate.weight",
+                "squared_error": 1.7001259291145897e-11,
+                "reference_squared_norm": 0.0011199945279006447
+              }
+            ]
+          },
+          "embedding": {
+            "relative_l2": 4.2425733711655276e-05,
+            "cosine": 0.9999999991010367,
+            "reference_norm": 0.20544806365796506,
+            "candidate_norm": 0.20544835518208096,
+            "maximum_absolute_error": 2.941116690635681e-06,
+            "largest_error_contributors": [
+              {
+                "parameter": "embedding.weight",
+                "squared_error": 7.597362141773218e-11,
+                "reference_squared_norm": 0.04220890686080726
+              }
+            ]
+          },
+          "body": {
+            "relative_l2": 0.00014362041168680887,
+            "cosine": 0.9999999897121483,
+            "reference_norm": 0.16619114574392563,
+            "candidate_norm": 0.16619233226188357,
+            "maximum_absolute_error": 2.646062057465315e-06,
+            "largest_error_contributors": [
+              {
+                "parameter": "blocks.5.down.weight",
+                "squared_error": 8.82004910114729e-11,
+                "reference_squared_norm": 0.001735919509538701
+              },
+              {
+                "parameter": "blocks.6.v.weight",
+                "squared_error": 5.1995522019368345e-11,
+                "reference_squared_norm": 0.001016079902883739
+              },
+              {
+                "parameter": "blocks.0.o.weight",
+                "squared_error": 4.212454778384681e-11,
+                "reference_squared_norm": 0.0017919391689406072
+              },
+              {
+                "parameter": "blocks.7.v.weight",
+                "squared_error": 3.523358648845322e-11,
+                "reference_squared_norm": 0.0006467515651075149
+              },
+              {
+                "parameter": "blocks.10.up.weight",
+                "squared_error": 3.355373976918908e-11,
+                "reference_squared_norm": 0.0009373945491556816
+              },
+              {
+                "parameter": "blocks.8.v.weight",
+                "squared_error": 2.9942220659985656e-11,
+                "reference_squared_norm": 0.0003421191791810423
+              },
+              {
+                "parameter": "blocks.5.v.weight",
+                "squared_error": 2.793390588951523e-11,
+                "reference_squared_norm": 0.0005583055007970669
+              },
+              {
+                "parameter": "blocks.3.v.weight",
+                "squared_error": 2.591915384237346e-11,
+                "reference_squared_norm": 0.0006812345380168837
+              },
+              {
+                "parameter": "blocks.4.v.weight",
+                "squared_error": 2.227706619660971e-11,
+                "reference_squared_norm": 0.0006810687506876665
+              },
+              {
+                "parameter": "blocks.9.v.weight",
+                "squared_error": 2.0773717964639438e-11,
+                "reference_squared_norm": 0.0002359477371863115
+              },
+              {
+                "parameter": "blocks.10.gate.weight",
+                "squared_error": 1.7001259291145897e-11,
+                "reference_squared_norm": 0.0011199945279006447
+              },
+              {
+                "parameter": "blocks.2.v.weight",
+                "squared_error": 1.4736414499364645e-11,
+                "reference_squared_norm": 0.0006037363535240699
+              }
+            ]
+          }
+        },
+        "loss_error": -2.6281923055648804e-06,
+        "cpu_loss": 2.879703277722001,
+        "native_loss": 2.8797059059143066,
+        "real_targets": 65438,
+        "full_state_restore_exact": true,
+        "checkpoint_sha256": "96230105fc846a07a442cd95f89984e56f1f1c1b43cf663ef695b7ca5f0fca34"
+      }
+    ],
+    "assigned_chips": 0,
+    "optimizer_updates": 0,
+    "wall_seconds": 29.27546763420105,
+    "heldout_reads": 0,
+    "scope": "Complete CPU state restoration and independent SDPA/CE full-global gradients. Separate Native next-update replay was qualified on disposable weights; no stronger scientific restart equivalence claimed here."
+  },
+  "costs": {
+    "native_attempts": [
+      {
+        "identity": "latent-learning-exposure-v1-ordinary-fit",
+        "exit_code": 0,
+        "wall_seconds": 4648.102708816528,
+        "assigned_chip_hours": 20.658234261406793,
+        "whole_instance_opportunity_chip_hours": 20.658234261406793,
+        "report_exists": true
+      }
+    ],
+    "current_controller_cpu_attempts": [
+      {
+        "identity": "latent-learning-exposure-v1-ordinary-audit",
+        "assigned_chips": 0,
+        "wall_seconds": 35.16450810432434,
+        "reused": false,
+        "exit_code": 0
+      }
+    ],
+    "cleanup_errors": [],
+    "execution": {
+      "started_unix": 1793323355.8291733,
+      "deadline_unix": 1793366555.8291733,
+      "plan_sha256": "2b0361d120e642d61cb3091a3e08abb63a3db5974182cf9c4ca1e5764ccac220"
+    },
+    "wall_seconds_since_admission": 4691.26221370697,
+    "whole_instance_opportunity_chip_hours": 20.850054290559555,
+    "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+  },
+  "source_receipts_sha256": {
+    "fit": "e6fb9dc0bb608ceab52e05ad2d4fe64f75a59c2d69be2257f0d97407c48e44ee",
+    "audit": "52ab93593509f923043de345e5d69335f8046eb4c342943798218cc9601c7960",
+    "costs": "c94ec1dec35b72a55c6dc1036bae61fc310dc7fa500f0bc59e1928d23b5a1cb6"
+  },
+  "scope": "Numerical and execution completion only. No quality readout before all three equal-data fits pass their mature audits."
+}
