@@ -1,0 +1,254 @@
+{
+  "status": "COMPLETE_AUDITED_PAUSE_EXPOSURE_CONTROL",
+  "fit": {
+    "world": 64,
+    "updates": 15287,
+    "real_targets": 1000060368,
+    "nominal_training_matrix_flops": 402215793120509952,
+    "parameters": 51747328,
+    "wall_seconds": 2858.3717815876007,
+    "mean_warm_update_seconds": 0.17767543917206438,
+    "all_replica_full_states_equal": true,
+    "heldout_reads": 0,
+    "final_lr": 0.0001,
+    "checkpoints": [
+      {
+        "update": 13758,
+        "real_targets": 900034640,
+        "matrix_flops": 361986320517562368,
+        "full_state_digest": "27cbe132a02263d64f5a0a1494c045af0613bc877ee33e4a8fa6fd23b90603d2"
+      },
+      {
+        "update": 15287,
+        "real_targets": 1000060368,
+        "matrix_flops": 402215793120509952,
+        "full_state_digest": "333a5f19314874cfe3aedc4e3c085f0c6def6b65047892f9fdee32309cb56479"
+      }
+    ]
+  },
+  "audit": {
+    "status": "PASS_INTERLEAVED_SCREEN_MATURE_AUDITS",
+    "arm": "pause",
+    "rows": [
+      {
+        "update": 15287,
+        "depth": 0,
+        "gradient": {
+          "overall": {
+            "relative_l2": 0.0001005283966791633,
+            "cosine": 0.9999999949495657,
+            "reference_norm": 0.27137410908279264,
+            "candidate_norm": 0.27137471995722756,
+            "maximum_absolute_error": 3.3243559300899506e-06,
+            "largest_error_contributors": [
+              {
+                "parameter": "prediction_weight",
+                "squared_error": 6.216950528812974e-11,
+                "reference_squared_norm": 0.0389995313917208
+              },
+              {
+                "parameter": "blocks.1.v.weight",
+                "squared_error": 6.152574059364503e-11,
+                "reference_squared_norm": 0.002397185446983773
+              },
+              {
+                "parameter": "blocks.4.v.weight",
+                "squared_error": 5.828750696103987e-11,
+                "reference_squared_norm": 0.0009857691198818224
+              },
+              {
+                "parameter": "blocks.2.v.weight",
+                "squared_error": 5.6648016360744e-11,
+                "reference_squared_norm": 0.0015793569224703229
+              },
+              {
+                "parameter": "blocks.0.v.weight",
+                "squared_error": 5.2820854879946645e-11,
+                "reference_squared_norm": 0.0015966019790904255
+              },
+              {
+                "parameter": "blocks.5.up.weight",
+                "squared_error": 5.0067564669138e-11,
+                "reference_squared_norm": 0.0014727789337146047
+              },
+              {
+                "parameter": "blocks.3.v.weight",
+                "squared_error": 4.784963751036941e-11,
+                "reference_squared_norm": 0.0010564809175185536
+              },
+              {
+                "parameter": "blocks.5.v.weight",
+                "squared_error": 3.9164969892685384e-11,
+                "reference_squared_norm": 0.0007180030668984545
+              },
+              {
+                "parameter": "blocks.5.gate.weight",
+                "squared_error": 3.463674229520084e-11,
+                "reference_squared_norm": 0.001852872590226156
+              },
+              {
+                "parameter": "blocks.0.q.weight",
+                "squared_error": 2.7717188647698344e-11,
+                "reference_squared_norm": 0.0005644999937341759
+              },
+              {
+                "parameter": "blocks.0.k.weight",
+                "squared_error": 2.7076245826324018e-11,
+                "reference_squared_norm": 0.0005651628252385974
+              },
+              {
+                "parameter": "blocks.4.down.weight",
+                "squared_error": 1.5652340357643573e-11,
+                "reference_squared_norm": 0.001024480372604672
+              }
+            ]
+          },
+          "embedding": {
+            "relative_l2": 5.573842982777729e-05,
+            "cosine": 0.9999999984477141,
+            "reference_norm": 0.05236594915498043,
+            "candidate_norm": 0.05236602675989294,
+            "maximum_absolute_error": 3.501772880554199e-07,
+            "largest_error_contributors": [
+              {
+                "parameter": "embedding.weight",
+                "squared_error": 8.519368819004782e-12,
+                "reference_squared_norm": 0.002742192630901996
+              }
+            ]
+          },
+          "body": {
+            "relative_l2": 0.000145303412574046,
+            "cosine": 0.9999999894649568,
+            "reference_norm": 0.1786118222790883,
+            "candidate_norm": 0.17861299156643304,
+            "maximum_absolute_error": 3.3243559300899506e-06,
+            "largest_error_contributors": [
+              {
+                "parameter": "blocks.1.v.weight",
+                "squared_error": 6.152574059364503e-11,
+                "reference_squared_norm": 0.002397185446983773
+              },
+              {
+                "parameter": "blocks.4.v.weight",
+                "squared_error": 5.828750696103987e-11,
+                "reference_squared_norm": 0.0009857691198818224
+              },
+              {
+                "parameter": "blocks.2.v.weight",
+                "squared_error": 5.6648016360744e-11,
+                "reference_squared_norm": 0.0015793569224703229
+              },
+              {
+                "parameter": "blocks.0.v.weight",
+                "squared_error": 5.2820854879946645e-11,
+                "reference_squared_norm": 0.0015966019790904255
+              },
+              {
+                "parameter": "blocks.5.up.weight",
+                "squared_error": 5.0067564669138e-11,
+                "reference_squared_norm": 0.0014727789337146047
+              },
+              {
+                "parameter": "blocks.3.v.weight",
+                "squared_error": 4.784963751036941e-11,
+                "reference_squared_norm": 0.0010564809175185536
+              },
+              {
+                "parameter": "blocks.5.v.weight",
+                "squared_error": 3.9164969892685384e-11,
+                "reference_squared_norm": 0.0007180030668984545
+              },
+              {
+                "parameter": "blocks.5.gate.weight",
+                "squared_error": 3.463674229520084e-11,
+                "reference_squared_norm": 0.001852872590226156
+              },
+              {
+                "parameter": "blocks.0.q.weight",
+                "squared_error": 2.7717188647698344e-11,
+                "reference_squared_norm": 0.0005644999937341759
+              },
+              {
+                "parameter": "blocks.0.k.weight",
+                "squared_error": 2.7076245826324018e-11,
+                "reference_squared_norm": 0.0005651628252385974
+              },
+              {
+                "parameter": "blocks.4.down.weight",
+                "squared_error": 1.5652340357643573e-11,
+                "reference_squared_norm": 0.001024480372604672
+              },
+              {
+                "parameter": "blocks.4.ffn_norm.weight",
+                "squared_error": 1.4123798892919635e-11,
+                "reference_squared_norm": 3.1967078130247315e-05
+              }
+            ]
+          },
+          "output_table": {
+            "relative_l2": 3.992629501161331e-05,
+            "cosine": 0.9999999992036749,
+            "reference_norm": 0.19748299013262077,
+            "candidate_norm": 0.1974827514415757,
+            "maximum_absolute_error": 3.1366944313049316e-06,
+            "largest_error_contributors": [
+              {
+                "parameter": "prediction_weight",
+                "squared_error": 6.216950528812974e-11,
+                "reference_squared_norm": 0.0389995313917208
+              }
+            ]
+          }
+        },
+        "loss_error": -3.0901283025741577e-06,
+        "cpu_loss": 2.945176849141717,
+        "native_loss": 2.9451799392700195,
+        "real_targets": 65438,
+        "full_state_restore_exact": true,
+        "checkpoint_sha256": "b94c065474682ad12b07fcace432c156748f7510fe4fc6fac5738b50cedaf31d"
+      }
+    ],
+    "assigned_chips": 0,
+    "optimizer_updates": 0,
+    "wall_seconds": 25.217296838760376,
+    "heldout_reads": 0,
+    "scope": "Complete CPU state restoration and independent SDPA/CE full-global gradients. Separate Native next-update replay was qualified on disposable weights; no stronger scientific restart equivalence claimed here."
+  },
+  "costs": {
+    "native_attempts": [
+      {
+        "identity": "latent-learning-exposure-v1-pause-fit",
+        "exit_code": 0,
+        "wall_seconds": 2890.0600945949554,
+        "assigned_chip_hours": 12.844711531533136,
+        "whole_instance_opportunity_chip_hours": 12.844711531533136,
+        "report_exists": true
+      }
+    ],
+    "current_controller_cpu_attempts": [
+      {
+        "identity": "latent-learning-exposure-v1-pause-audit",
+        "assigned_chips": 0,
+        "wall_seconds": 30.116309642791748,
+        "reused": false,
+        "exit_code": 0
+      }
+    ],
+    "cleanup_errors": [],
+    "execution": {
+      "started_unix": 1793328047.1182845,
+      "deadline_unix": 1793371247.1182845,
+      "plan_sha256": "099f2984ba212f5a3e56d36e1e77211a6f394f9f5d8fb0b70415c1e83b235f8a"
+    },
+    "wall_seconds_since_admission": 2927.297613143921,
+    "whole_instance_opportunity_chip_hours": 13.010211619271173,
+    "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+  },
+  "source_receipts_sha256": {
+    "fit": "741aa78e0dbcf84cebef4c5b19e0d43c707f74ccee3a547c1ec7a230f2f46739",
+    "audit": "21fe29b833aac0b328bf2c124baba8defdf06469e89cb9acc59061812d71cd34",
+    "costs": "6d7b43489cc5ac71a04d227c34f7facfcc433ba640aadcf221fbf60313fdf19c"
+  },
+  "scope": "Numerical and execution completion only. No quality readout before all three equal-data fits pass their mature audits."
+}

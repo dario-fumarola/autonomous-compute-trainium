@@ -1,3 +1,18 @@
+## October 30, 2026, 03:32 UTC — both billion-target controls audited; latent fit active
+
+The pause control completes the same 15,287 updates and 1,000,060,368 authentic
+targets. Its independent gradient error is 0.010053% overall and at most
+0.014530% by family; full model/optimizer/RNG restoration is exact and all
+64 replicas agree. The Native attempt costs 12.844712 assigned chip-hours.
+Both controls retain complete cooldowns and pre-cooldown recovery states.
+
+The generated persistent-state condition is now the sole all-16-chip Native
+owner, using the frozen mixed K2/K3 solver schedule. These are numerical
+refinement rounds, not different supported thought budgets. Exact sequential
+quality readouts remain deferred until its mature audits pass. No held-out
+score, new fit, source change, reserve access or deadline extension has occurred.
+[Pause completion receipt](results/latent_exposure_20261030/learning-v1/pause-completion.json).
+
 ## October 30, 2026, 02:42 UTC — ordinary1B control audited; pause control launched
 
 The ordinary control completes all15,287 updates and1,000,060,368 authentic
