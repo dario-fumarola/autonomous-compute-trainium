@@ -47,6 +47,10 @@ def prepare(root):
     closed=Path('results/latent_exposure_20261030/work-recovery-v1/report.json')
     if not closed.exists() or read(closed)['status']!='COMPLETE_LATENT_WORK_RECOVERY':
         raise RuntimeError('Close the original scientific comparison first')
+    measured={role:read(root/('latent-learning-exposure-v1-'+role)/'report.json')['fit']
+        for role in RECIPES}
+    projection_seconds=2*sum(UPDATES*v['mean_warm_update_seconds']+180+1200 for v in measured.values())+3600
+    if projection_seconds>14400:raise RuntimeError('Measured training plus bounded audits/readout must fit whole-queue cap')
     out=root/ID
     if out.exists() or PUBLIC.exists():raise FileExistsError('Preserve all attempts')
     if min(shutil.disk_usage(root).free-6*1024**3,shutil.disk_usage('/').free)<35*1024**3:
@@ -123,6 +127,8 @@ def prepare(root):
         calculation_pool_report_sha256=file_sha256(root/'calculation-document-pool-v1/report.json'),
         calculation_pool_reaggregation_sha256=file_sha256(pool_audit),
         closed_work_report_sha256=file_sha256(closed),bootstrap_seed=40532,bootstrap_replicates=2000,
+        projected_queue_seconds=projection_seconds,
+        measured_recipe_report_sha256={role:file_sha256(root/('latent-learning-exposure-v1-'+role)/'report.json') for role in RECIPES},
         threads=8,batch=8,maximum_worker_rss_bytes=6*1024**3,artifact_allowance_bytes=6*1024**3,
         protected_groups_scored=0,terminal_alpha_spent=0,automatic_promotion=False,scientific_fit_admitted=True,
         scope=Path('docs/CALCULATION_EXPOSURE_FACTORIAL_20261030.md').read_text())
