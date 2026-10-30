@@ -1,3 +1,17 @@
+## October 30, 2026, 07:33 UTC — source exposure narrows the arithmetic diagnosis
+
+The existing 1B TRAIN prefix contains 9,548 intact verified elementary
+calculations, 3,369 distinct expressions and 17,643 answer tokens under the
+bounded grammar. Of 256 elementary DEV expressions, 163 occur in that training
+prefix; generated-state and ordinary each solve only 10 of those, plus 3/93
+unmatched expressions. Unfamiliarity alone is insufficient. The tokenizer
+already separates numeric digits; no tokenizer change is supported by this
+inventory. These descriptive counts do not prove a cause or admit another fit.
+
+The four-worker census costs 233.019 CPU wall seconds and zero chips/updates.
+The original all16-chip ordinary control remains active; fresh reserves stay
+unscored. [Exposure diagnosis](results/primitive_arithmetic_20261030/exposure-v1/REPORT.md).
+
 ## October 30, 2026, 07:19 UTC — elementary arithmetic prerequisite remains weak
 
 A separately frozen, source-authored single-operation panel yields **13/256**

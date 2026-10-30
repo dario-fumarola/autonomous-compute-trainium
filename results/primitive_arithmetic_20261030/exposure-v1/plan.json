@@ -1,0 +1,57 @@
+{
+  "endpoints": {
+    "old128M": {
+      "updates": 1957,
+      "virtual_position": 128253952,
+      "real_targets": 128025288
+    },
+    "one_billion": {
+      "updates": 15287,
+      "virtual_position": 1001848832,
+      "real_targets": 1000060368
+    },
+    "ordinary_matched_work": {
+      "updates": 57822,
+      "virtual_position": 3789422592,
+      "real_targets": 3782650274
+    }
+  },
+  "maximum_virtual_position": 3789422592,
+  "source_relative": "natural-append-capacity-v4/extension",
+  "math_sha256": "d99d4e20a663c042d4faeb24ea61a3649de3b9bf50b92550be171b9d1cc3003b",
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "index_report_sha256": "665d6b2beb7fbc730eeceb4f54fa05ddaa6949b7fffde4a40da32e58b7a27ca1",
+  "recipe_sha256": "0fbfb989c9f442771510799c782419b327f15b3588a9a888460117244408b5ae",
+  "identity": "primitive-exposure-census-v1",
+  "registered_unix": 1793344939.0404751,
+  "absolute_deadline_unix": 1793346139.0404751,
+  "workers": 4,
+  "source_sha256": {
+    "scripts/audit_primitive_exposure.py": "cd26fc470268291aba0c3de02e930d44be724223f31608851d3436c7a3bf6e5b",
+    "scripts/audit_latent_exposure_sources.py": "ece4a5aede11128904e39c2cfba91ba71cc89aefda0b4430732addcb3e1bb8f0",
+    "compute_trainium/authored_primitive_arithmetic.py": "ab068bbf08ab6e7c9783753c5e6f3d068db6fafa82bc49650c4f8ba89c3c2dec",
+    "compute_trainium/authored_direct_arithmetic.py": "809a8dac19f37e894e3c24729d21d01b8690ba65fa970115c8fab5dbc2038774",
+    "compute_trainium/direct_arithmetic_panel.py": "5a9b39b2949dc357deb1fd2404cd0770e4fb88a670432d794407966c5a0bf777",
+    "compute_trainium/source_arithmetic.py": "28a94e2bb4610f421dd8b059460e69de7fe52d69a479a652d332145d43f8f7ae",
+    "compute_trainium/natural_code_context.py": "91a8e7e7244054e0d8dc9df200f0b5224e973d7a3e11bd23197de4a9822b284d",
+    "docs/PRIMITIVE_EXPOSURE_CENSUS_20261030.md": "78367f0dc3dbb7ffb7a3979d37690a564fca1a5f517bd5dcd21d8ad14a05dcdc"
+  },
+  "parent_report_sha256": "5da12ac935bc029c9f6cf7e38c5ec068e8480bbaf825b4e575002437a166b1f3",
+  "shard_sha256": {
+    "0": "fae29c82170538beff42d1945d80533ba00864e7137c9afb89ba8a16f0e0d2ac",
+    "1": "7137bec234793b3d7d24bf410b9d71d2cece8c0271c9c0d51f77af90d58e3988",
+    "2": "dbd47804b2710066b74aee6f35206d604389fb096b12782084736e6c5429fcb0",
+    "3": "4cbe101543789aca27707c31394a2bb73bca823ff1d10f9d63f2c404decddf0f",
+    "4": "8c8ad1a0cd6ac6aa19f4c105037dae7570891a13bf2ad752dfb0493a652dbe69",
+    "5": "0fcc0f8609d27a9d41586d49176d7e8227445e585f739f2ad16b37be4e235479",
+    "6": "08bbcf5e18497b9db0b3be6c57abc380ff007a6bbb7ed39971d790c4bfe09ba9",
+    "7": "854254d69be4137578b354b7f45d4be41ffc71c0a4c26e701f1afcab2b0a84d2"
+  },
+  "primitive_panel_sha256": "eab9f2b2970d8926d54b3beadbcf243412ce01ece15ffd2792706c26f87bb259",
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "model_scores": 0,
+  "terminal_alpha_spent": 0,
+  "automatic_promotion": false,
+  "scope": "# Count elementary calculation exposure before choosing another intervention\n\nThe separately frozen elementary panel gives 13/256 correct for both generated\nstates and ordinary after 1B authentic targets. This does not identify a cause.\nA source-only census will ask how many comparable, explicitly authored outcomes\ntheir fixed training prefix actually contains. It is a diagnostic motivated by\nthe completed result, not a preregistered cause of that result.\n\nUse the exact eight TRAIN document shards already bound by the completed latent\nexposure audit. Scan no additional documents or protected groups. Apply the\nalready tested primitive-equality grammar without changing it: one original\nadd/subtract/multiply/divide operation, integer operands up to 1,000, an original\ninteger answer up to 100,000, with answer verification and no manufactured label.\nCount aligned answers and those whose complete premise remains inside the\nactual packed 512-position training window, by operator and the existing\n128M/1B/3.783B endpoints. Deduplicate canonical expressions for a separate count;\ndo not treat each repeated expression as a new procedure.\n\nAlso count exact-expression intersections with the already frozen 256-case\nprimitive panel, using its existing hashes. This reads no new evaluation text\nand changes neither selection nor scoring. It describes familiarity under this\ngrammar; absence of a match does not prove that the model never encountered an\nequivalent fact in prose or another notation. Source groups remain disjoint.\nNo model loss chooses a case or source. This cannot establish exposure as the\ncause of poor accuracy, and it admits no new fit or corpus modification.\n\nOne CPU attempt: four workers, at most 20 minutes, at most 8 GiB per process.\nReuse the immutable source and tokenizer hashes; retain the existing memory,\ndisk and inode floors. No accelerator assignment, optimizer updates, new model\nscores or confirmation data. The original all16-chip comparison stays active\nand unchanged; disclose overlapping host work.\n"
+}
