@@ -1,0 +1,307 @@
+{
+  "status": "COMPLETE_PRIMITIVE_ARITHMETIC_READOUT",
+  "workers": {
+    "latent": {
+      "status": "COMPLETE_DIRECT_ARITHMETIC_WORKER",
+      "cases": 256,
+      "checks": [
+        {
+          "selected_full_error": 4.263256414560601e-14,
+          "batch_individual_error": 3.197442310920451e-14
+        },
+        {
+          "selected_full_error": 3.552713678800501e-14,
+          "batch_individual_error": 3.019806626980426e-14
+        },
+        {
+          "selected_full_error": 4.973799150320701e-14,
+          "batch_individual_error": 3.552713678800501e-14
+        }
+      ],
+      "checkpoint_sha256": "7a20a983a597a92021850de1f45cdd7764a6b62d2780651e53da961e73af727b",
+      "wall_seconds": 238.15853667259216,
+      "peak_rss_bytes": 1264222208
+    },
+    "ordinary": {
+      "status": "COMPLETE_DIRECT_ARITHMETIC_WORKER",
+      "cases": 256,
+      "checks": [
+        {
+          "selected_full_error": 0.0,
+          "batch_individual_error": 0.0
+        },
+        {
+          "selected_full_error": 0.0,
+          "batch_individual_error": 0.0
+        },
+        {
+          "selected_full_error": 0.0,
+          "batch_individual_error": 0.0
+        }
+      ],
+      "checkpoint_sha256": "96230105fc846a07a442cd95f89984e56f1f1c1b43cf663ef695b7ca5f0fca34",
+      "wall_seconds": 28.853788137435913,
+      "peak_rss_bytes": 1604661248
+    },
+    "pause": {
+      "status": "COMPLETE_DIRECT_ARITHMETIC_WORKER",
+      "cases": 256,
+      "checks": [
+        {
+          "selected_full_error": 0.0,
+          "batch_individual_error": 1.7763568394002505e-14
+        },
+        {
+          "selected_full_error": 0.0,
+          "batch_individual_error": 1.4210854715202004e-14
+        },
+        {
+          "selected_full_error": 0.0,
+          "batch_individual_error": 1.7763568394002505e-14
+        }
+      ],
+      "checkpoint_sha256": "b94c065474682ad12b07fcace432c156748f7510fe4fc6fac5738b50cedaf31d",
+      "wall_seconds": 29.46748113632202,
+      "peak_rss_bytes": 1820282880
+    }
+  },
+  "statistics": {
+    "cases": 256,
+    "bins": {
+      "add": 64,
+      "subtract": 64,
+      "multiply": 64,
+      "divide": 64
+    },
+    "means": {
+      "latent": {
+        "answer_nll": {
+          "mean": 2.480013157371412,
+          "bins": {
+            "add": 2.3963668580625512,
+            "subtract": 2.7360108807801238,
+            "multiply": 2.2865378820228743,
+            "divide": 2.5011370086200984
+          },
+          "conditional_95_interval": [
+            2.368903955045829,
+            2.5924496000558994
+          ]
+        },
+        "first_nll": {
+          "mean": 2.2887236471113885,
+          "bins": {
+            "add": 2.1956130923604413,
+            "subtract": 2.606787965805289,
+            "multiply": 2.0552025125033158,
+            "divide": 2.2972910177765082
+          },
+          "conditional_95_interval": [
+            2.154311351320125,
+            2.4296600864192626
+          ]
+        },
+        "exact_prefix_correct": {
+          "mean": 0.05078125,
+          "bins": {
+            "add": 0.015625,
+            "subtract": 0.03125,
+            "multiply": 0.078125,
+            "divide": 0.078125
+          },
+          "conditional_95_interval": [
+            0.0234375,
+            0.078125
+          ]
+        }
+      },
+      "ordinary": {
+        "answer_nll": {
+          "mean": 2.486561984997085,
+          "bins": {
+            "add": 2.415331826318722,
+            "subtract": 2.8010685370498414,
+            "multiply": 2.2819888464141043,
+            "divide": 2.447858730205672
+          },
+          "conditional_95_interval": [
+            2.386562145364358,
+            2.5917957016083677
+          ]
+        },
+        "first_nll": {
+          "mean": 2.3272205312716068,
+          "bins": {
+            "add": 2.239897106485711,
+            "subtract": 2.7150301222644426,
+            "multiply": 2.0950059928839924,
+            "divide": 2.258948903452282
+          },
+          "conditional_95_interval": [
+            2.1984330038704587,
+            2.4567014408822243
+          ]
+        },
+        "exact_prefix_correct": {
+          "mean": 0.05078125,
+          "bins": {
+            "add": 0.015625,
+            "subtract": 0.046875,
+            "multiply": 0.0625,
+            "divide": 0.078125
+          },
+          "conditional_95_interval": [
+            0.02734375,
+            0.078125
+          ]
+        }
+      },
+      "pause": {
+        "answer_nll": {
+          "mean": 2.5335962229163465,
+          "bins": {
+            "add": 2.4552213100873805,
+            "subtract": 2.7513954554683133,
+            "multiply": 2.379910879340912,
+            "divide": 2.54785724676878
+          },
+          "conditional_95_interval": [
+            2.4279888958676774,
+            2.6450355986170444
+          ]
+        },
+        "first_nll": {
+          "mean": 2.35402813098829,
+          "bins": {
+            "add": 2.2710879927809877,
+            "subtract": 2.6225021553183616,
+            "multiply": 2.1679375583920377,
+            "divide": 2.354584817461772
+          },
+          "conditional_95_interval": [
+            2.221239836152581,
+            2.48801862049683
+          ]
+        },
+        "exact_prefix_correct": {
+          "mean": 0.02734375,
+          "bins": {
+            "add": 0.015625,
+            "subtract": 0.03125,
+            "multiply": 0.03125,
+            "divide": 0.03125
+          },
+          "conditional_95_interval": [
+            0.0078125,
+            0.05078125
+          ]
+        }
+      }
+    },
+    "contrasts": {
+      "ordinary": {
+        "answer_nll": {
+          "mean": 0.006548827625672967,
+          "bins": {
+            "add": 0.01896496825617106,
+            "subtract": 0.06505765626971732,
+            "multiply": -0.00454903560877023,
+            "divide": -0.053278278414426276
+          },
+          "conditional_95_interval": [
+            -0.04515614718083421,
+            0.056189127407992694
+          ]
+        },
+        "first_nll": {
+          "mean": 0.03849688416021845,
+          "bins": {
+            "add": 0.044284014125269514,
+            "subtract": 0.10824215645915343,
+            "multiply": 0.03980348038067684,
+            "divide": -0.03834211432422599
+          },
+          "conditional_95_interval": [
+            -0.020954902685751856,
+            0.092113371004487
+          ]
+        },
+        "exact_prefix_correct": {
+          "mean": 0.0,
+          "bins": {
+            "add": 0.0,
+            "subtract": -0.015625,
+            "multiply": 0.015625,
+            "divide": 0.0
+          },
+          "conditional_95_interval": [
+            -0.0234375,
+            0.0234375
+          ]
+        }
+      },
+      "pause": {
+        "answer_nll": {
+          "mean": 0.053583065544934444,
+          "bins": {
+            "add": 0.058854452024829126,
+            "subtract": 0.015384574688189552,
+            "multiply": 0.09337299731803725,
+            "divide": 0.04672023814868183
+          },
+          "conditional_95_interval": [
+            0.007682959548026074,
+            0.09942767033877764
+          ]
+        },
+        "first_nll": {
+          "mean": 0.06530448387690141,
+          "bins": {
+            "add": 0.07547490042054664,
+            "subtract": 0.01571418951307286,
+            "multiply": 0.11273504588872207,
+            "divide": 0.05729379968526406
+          },
+          "conditional_95_interval": [
+            0.010618393319103218,
+            0.12241754903054045
+          ]
+        },
+        "exact_prefix_correct": {
+          "mean": 0.0234375,
+          "bins": {
+            "add": 0.0,
+            "subtract": 0.0,
+            "multiply": 0.046875,
+            "divide": 0.046875
+          },
+          "conditional_95_interval": [
+            0.00390625,
+            0.046875
+          ]
+        }
+      }
+    },
+    "correct_counts": {
+      "latent": 13,
+      "ordinary": 13,
+      "pause": 7
+    },
+    "training_seeds": 1,
+    "automatic_promotion": false,
+    "scope": "Exploratory elementary performance, including potentially familiar facts. Source-disjoint but expression overlap unmeasured; not novel-expression transfer or training efficiency. Conditional source intervals do not estimate seed uncertainty."
+  },
+  "private_score_sha256": {
+    "PRIVATE-pause-scores.json": "1bfca3a56e76558b4166a68c4a175628805ea1b9ed7a001c468161218a50b75e",
+    "PRIVATE-ordinary-scores.json": "406562ef9725aff1de4f28ff587e46e65d79069cb5866b9694cce3e8d86edf38",
+    "PRIVATE-latent-scores.json": "fe91f29dcb9d2131860fcbba2fb6b501810d4a940f73688016d649df84d79b2d"
+  },
+  "wall_seconds": 242.12326955795288,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "protected_groups_scored": 0,
+  "terminal_alpha_spent": 0,
+  "automatic_promotion": false,
+  "plan_sha256": "dcff07ac3e41c8ecc6f1804abf9bb0f1ac0040771f0c10d90750fbc22b060665",
+  "scope": "# Is elementary arithmetic competence itself missing?\n\nThe frozen multi-operation primary remains unchanged. Exact answer-prefix\naccuracy there is near 2%, and most answer-NLL gain comes after the first\nteacher-forced answer token. A separate diagnostic asks whether the three\ncompleted billion-target models perform reliably even on single operations.\nIt cannot retrospectively replace their failed or favorable primary results.\n\nSelect only original source-authored integer equalities with exactly one add,\nsubtract, multiply or divide operation; integer operands have magnitude at most\n1,000 and integer results at most 100,000. The bounded verifier checks the\nauthored answer; it never writes a replacement label. Exclude copied answers,\nsymbolic tails, unsupported expressions and already-visible answer strings.\nKeep the complete original premise and up to 256 original context tokens,\nwithout prompts, worked steps, reformatted expressions or generated cases.\n\nScan at most the existing 100,000-document limit in the mathematics hash bucket\nexcluded from every indexed training fit. Exclude both protected reserves and\nall other protected source groups using the existing registry. Use a fixed hash\norder, one source group and literal-valued expression per panel, up to 64 cases\nper operator. Require at least 32 per operator; otherwise close with insufficient\ncoverage. Freeze source hashes and every case before reading any model score.\n\nUnlike the harder expression-transfer panel, elementary facts are **not** removed\nmerely because their exact expression may have appeared in training. Report this\nexplicitly: source groups are distinct, but expression overlap is unmeasured.\nThe question is basic performance, including potentially familiar facts, not\ngeneralization to novel expressions. A positive result would not establish\ncompositional transfer or reasoning.\n\nIf coverage suffices, a separately source-bound CPU readout may compare all three\nfixed equal-data endpoints: seed 730271, update 15,287, generated persistent\nstates, strongest tested ordinary and trained pauses. Use the existing exact\nFP64 sequential/batched scorer and numerical checks. Report full-answer NLL,\nfirst-answer NLL, exact answer-prefix accuracy and every operator, with equal\nweight across operators and conditional source intervals. No model, prefix or\ntemperature selection; no useful-effect gate or fit follows from this diagnostic.\n\nPreparation: one CPU attempt, 20 minutes, 8 GiB RSS. Readout, if separately\nregistered: at most 20 minutes, three 8-thread workers, 6 GiB each. Retain\n512 GiB host, 35 GiB disk and inode reserves. The main 16-chip ordinary control\ncontinues unchanged; all concurrent host work is charged and disclosed. No\nnew training, fresh-reserve scoring, terminal alpha or efficiency claim.\n"
+}

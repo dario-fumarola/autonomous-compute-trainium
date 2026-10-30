@@ -1,3 +1,21 @@
+## October 30, 2026, 07:19 UTC — elementary arithmetic prerequisite remains weak
+
+A separately frozen, source-authored single-operation panel yields **13/256**
+correct answer prefixes for both the generated-state and ordinary 1B models,
+versus 7/256 for trained pauses. Generated-state answer-NLL gain over ordinary
+is 0.006549, conditional interval [-0.045156, 0.056189]. The first-answer
+interval also spans zero. All operator results are retained; none replaces the
+original multi-operation primary. Elementary expression overlap with TRAIN is
+unmeasured, so this is basic competence, not novel-expression transfer.
+
+All 768 scores independently reaggregate within 4.45e-16; nine numerical checks
+and 21 focused tests pass. Preparation and readout use 462.249 CPU wall seconds,
+zero chips and zero updates. The ordinary matched-work fit continues on all16
+chips beyond 1.5B targets. No active source hash, deadline or endpoint changes.
+The useful equal-data prediction lead remains; a reliable calculation procedure
+and training-work advantage remain unestablished. Fresh reserves stay sealed.
+[Elementary diagnostic](results/primitive_arithmetic_20261030/readout-v1/REPORT.md).
+
 ## October 30, 2026, 06:49 UTC — numerical and source diagnostics close; work control continues
 
 The all-16-chip ordinary control has passed 1.16B of its frozen 3.783B authentic
