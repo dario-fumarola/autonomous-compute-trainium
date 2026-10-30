@@ -15,6 +15,12 @@ Both fresh confirmation reserves remain sealed.
 [Complete equal-data result](results/latent_exposure_20261030/learning-v1/REPORT.md) ·
 [Frozen design](docs/LATENT_LEARNING_EXPOSURE_20261030.md) · [Live status](STATUS.md).
 
+**Completed attribution:** removing past latent-memory access from the trained
+model raises broad NLL by **0.636840** and arithmetic answer NLL by **0.323091**.
+Lagging or replacing generated states also hurts. This shows pathway dependence;
+distribution-changing ablations do not prove a reasoning algorithm or a win at
+matched training work. [Full attribution and limits](results/latent_exposure_20261030/content-recovery-v1/REPORT.md).
+
 **Earlier exposure remains negative:** on 353 authentic calculations, the
 128M-target latent gains over ordinary are −0.010957, +0.068950 and −0.045059
 nats in three seeds. Only one clears both controls. The longer-prefix source

@@ -1,3 +1,27 @@
+## October 30, 2026, 06:14 UTC — generated-state attribution completes
+
+The saved-weight diagnostic completes on every frozen broad window and arithmetic
+case. Removing access to past latent states raises broad NLL **2.801700 →
+3.438540** and answer NLL **2.255895 → 2.578986**. Using the previous position's
+state or a constant input hurts further. Authentic execution reproduces the
+original scores within 1.33e-15; independent reaggregation verifies all 2,572 rows.
+
+This establishes dependence on the learned generated-state pathway, including
+persistence. Changing the trained input distribution can cause large damage;
+these penalties are not gains over an ordinary model or evidence of a general
+arithmetic procedure. Exact answers remain only 5/259. Current-only attention
+cannot be presented as a free inference optimization of this checkpoint, and
+it is not a substitute for a separately trained cheaper control.
+
+Recovery takes 1,861.467 wall seconds and 31.622 worker CPU-hours, with no
+accelerator assignment or optimizer updates. It preserves the original deadline;
+the stopped attempt and timed-out throughput check remain recorded. CPU host
+contention overlapped the ordinary training control and is disclosed in costs.
+The diagnostic branch adds only previously unbound files; every active training
+source hash is verified unchanged after integration. The all-16-chip 3.783B
+ordinary control continues. Fresh reserves remain sealed; terminal alpha is zero.
+[Complete attribution](results/latent_exposure_20261030/content-recovery-v1/REPORT.md).
+
 ## October 30, 2026, 05:40 UTC — CPU attribution recovery retains its original deadline
 
 The first CPU diagnostic is stopped after 319.997 seconds because its measured
