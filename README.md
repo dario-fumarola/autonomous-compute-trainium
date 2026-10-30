@@ -21,6 +21,18 @@ Lagging or replacing generated states also hurts. This shows pathway dependence;
 distribution-changing ablations do not prove a reasoning algorithm or a win at
 matched training work. [Full attribution and limits](results/latent_exposure_20261030/content-recovery-v1/REPORT.md).
 
+**Calculation remains weak:** latent and ordinary each solve13/256 source-authored
+elementary cases; a constant answer selected only from TRAIN frequencies solves
+9/256. On the harder panel, latent solves5/259 versus3/259 for its TRAIN prior.
+These are development diagnostics, not reliable arithmetic competence.
+[Elementary readout](results/primitive_arithmetic_20261030/readout-v1/REPORT.md) ·
+[Constant-answer calibration](results/primitive_arithmetic_20261030/answer-prior-v1/REPORT.md).
+
+**Deployment also has a cost:** at context512, exact cached latent decoding uses
+17.51% more forward matrix work and9.09% more KV bytes than tied ordinary.
+This is a checked analytic inventory, not measured serving latency.
+[Decode costs](results/latent_exposure_20261030/decode-inventory-v1/REPORT.md).
+
 **Earlier exposure remains negative:** on 353 authentic calculations, the
 128M-target latent gains over ordinary are −0.010957, +0.068950 and −0.045059
 nats in three seeds. Only one clears both controls. The longer-prefix source
