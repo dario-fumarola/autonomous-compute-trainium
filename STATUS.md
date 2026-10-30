@@ -1,3 +1,18 @@
+## October 30, 2026, 00:11 UTC — two-factor saved-checkpoint diagnostic active
+
+A separately frozen exploratory readout now separates the immediate boundary
+prediction from access to earlier latent memory. It scores all four combinations
+on both selected workspace checkpoints and every original DEV source, with no
+fitting or fresh-reserve access. Ten numerical helper checks pass. Mature checks
+must establish authentic/cache identity, unchanged non-boundary predictions,
+unchanged pre-memory predictions, and equivalence of both removals to the same
+weights' ordinary path. The CPU-only run is capped at 20 minutes.
+
+A better intervened score is diagnostic of a path's effect in these checkpoints,
+not a trained deployment result, a new baseline win or permission to scale.
+The original negative comparison remains unchanged.
+[Diagnostic design](docs/CHUNKED_PATH_DIAGNOSTIC_20261030.md).
+
 ## October 30, 2026, 00:03 UTC — exploratory attribution identifies a boundary penalty
 
 The separately labeled exploratory position decomposition completes in 88.803
