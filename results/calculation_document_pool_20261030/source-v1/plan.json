@@ -1,0 +1,44 @@
+{
+  "maximum_virtual_position": 3789422592,
+  "source_relative": "natural-append-capacity-v4/extension",
+  "math_sha256": "d99d4e20a663c042d4faeb24ea61a3649de3b9bf50b92550be171b9d1cc3003b",
+  "tokenizer_sha256": "11c08db21487c885d8c792180f0be237f6a261b89a46f128a6a80a3aa4bd1720",
+  "identity": "calculation-document-pool-v1",
+  "registered_unix": 1793345815.4910226,
+  "absolute_deadline_unix": 1793347015.4910226,
+  "workers": 4,
+  "artifact_allowance_bytes": 268435456,
+  "source_sha256": {
+    "scripts/prepare_calculation_document_pool.py": "283792302ad52463c7e82b0679323383e72e1553ac918126e34647150750cccd",
+    "scripts/audit_latent_exposure_sources.py": "ece4a5aede11128904e39c2cfba91ba71cc89aefda0b4430732addcb3e1bb8f0",
+    "compute_trainium/authored_primitive_arithmetic.py": "ab068bbf08ab6e7c9783753c5e6f3d068db6fafa82bc49650c4f8ba89c3c2dec",
+    "compute_trainium/authored_direct_arithmetic.py": "809a8dac19f37e894e3c24729d21d01b8690ba65fa970115c8fab5dbc2038774",
+    "compute_trainium/direct_arithmetic_panel.py": "5a9b39b2949dc357deb1fd2404cd0770e4fb88a670432d794407966c5a0bf777",
+    "compute_trainium/source_arithmetic.py": "28a94e2bb4610f421dd8b059460e69de7fe52d69a479a652d332145d43f8f7ae",
+    "compute_trainium/natural_code_context.py": "91a8e7e7244054e0d8dc9df200f0b5224e973d7a3e11bd23197de4a9822b284d",
+    "docs/CALCULATION_DOCUMENT_POOL_20261030.md": "1461de041d55f037f8e51554f92279b6e1ed2f4161673bcb296847ce1a53cad4"
+  },
+  "parent_report_sha256": "5da12ac935bc029c9f6cf7e38c5ec068e8480bbaf825b4e575002437a166b1f3",
+  "shard_sha256": {
+    "0": "fae29c82170538beff42d1945d80533ba00864e7137c9afb89ba8a16f0e0d2ac",
+    "1": "7137bec234793b3d7d24bf410b9d71d2cece8c0271c9c0d51f77af90d58e3988",
+    "2": "dbd47804b2710066b74aee6f35206d604389fb096b12782084736e6c5429fcb0",
+    "3": "4cbe101543789aca27707c31394a2bb73bca823ff1d10f9d63f2c404decddf0f",
+    "4": "8c8ad1a0cd6ac6aa19f4c105037dae7570891a13bf2ad752dfb0493a652dbe69",
+    "5": "0fcc0f8609d27a9d41586d49176d7e8227445e585f739f2ad16b37be4e235479",
+    "6": "08bbcf5e18497b9db0b3be6c57abc380ff007a6bbb7ed39971d790c4bfe09ba9",
+    "7": "854254d69be4137578b354b7f45d4be41ffc71c0a4c26e701f1afcab2b0a84d2"
+  },
+  "excluded_group_files": {
+    "residual-memory-attribution-v1/PRIVATE-reserved-sources.json": "bcaedd7f9f2af7d34424fef10f835570806902fb3c54e50a60c06849dec12768",
+    "probability-workspace-evaluation-v1/PRIVATE-broad-metadata.json": "772df9396cd8ae273818e7af8b184afa5742f197ef07dfbe38aa235489201f78",
+    "probability-workspace-evaluation-v1/PRIVATE-dependency-metadata.json": "470d08e8be41cd0ca56c18b27e20698d757797080e5802ced37b640467c65f2a",
+    "probability-structural-panel-v1/PRIVATE-metadata.json": "2bb071a4b7490088e85b58a0241b327ea0f914ef6c35af376adecdbd8ab01b34",
+    "probability-fresh-broad-reserve-v2/PRIVATE-broad-metadata.json": "e98fff46b2f8fa63a96df618b679ecce12ac9226dc3ca052bea0c4cdd74bf1ef"
+  },
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "model_scores": 0,
+  "scientific_fit_admitted": false,
+  "scope": "# Prepare authentic calculation-containing TRAIN documents\n\nThe billion-target models have a useful equal-data text-prediction lead but\nweak elementary and multi-operation arithmetic. A bounded source preparation\nwill establish whether more computationally relevant natural text is available\nwithout a new architecture, supplied thoughts, generated problems or relabeled\nanswers. It admits no training or automatic replacement of the active study.\n\nUse exactly the eight TRAIN shards already audited for the 3.783B ordinary\ncontrol. A document qualifies if the existing tested primitive or multi-\noperation verifier finds at least one original explicit equality whose answer\nmatches its original premise and whose token boundaries round-trip exactly.\nThe primitive grammar is unchanged; the multi-operation grammar is unchanged.\nKeep the entire original document prefix admitted by the parent index, not just\nits answer or a rewritten task. No new text, reasoning trace or completion is\ngenerated. Record calculation spans for later packing audits, never as extra\nloss weights. Every prospective fit would still need its own frozen objective.\n\nRetain all qualifying documents in a private candidate pool, with original\nsource identity, group, offset and length. Deduplicate repeated document IDs\nand fail on conflicting ranges. Order by a fixed document hash. Report original\ntoken capacity, source groups, operation counts, distinct expressions and\nconcentration. Do not sample a pool based on model losses, change the held-out\npanels or open a protected reserve. The existing indexed TRAIN-group exclusions\nremain binding. Shared elementary expressions across source groups are not a\nclaim of compositional transfer; the original harder panel's expression audit\nstays unchanged.\n\nThe preparation only establishes feasibility for a later comparison in which\nboth ordinary and generated-state models receive the same authentic source\nselection. A possible later design would preserve the 60/20/20 domain weights\nwhile changing which mathematical documents are sampled, retain uniform NTP,\nand report repetition and broad-loss retention. It must not quietly substitute\nan enriched-corpus result for the original corpus result. No such fit, seed,\nsize, learning rate or duration is admitted by this document.\n\nOne attempt, four CPU workers, 20 minutes, 8 GiB per process and at most 256 MiB\nof new private index artifacts. Keep the host-memory, disk and inode floors.\nRecord all costs, preserve stopped attempts and leave the active all16-chip\nordinary run and its 955 source bindings unchanged. No model scoring, chip\nassignment, optimizer updates, confirmation data or alpha spending.\n"
+}

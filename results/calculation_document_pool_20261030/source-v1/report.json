@@ -1,0 +1,86 @@
+{
+  "status": "COMPLETE_AUTHENTIC_CALCULATION_DOCUMENT_POOL",
+  "workers": [
+    {
+      "status": "COMPLETE_CALCULATION_POOL_WORKER",
+      "counts": {
+        "documents": 141429,
+        "alignment_rejections": 699
+      },
+      "selected_documents": 6798,
+      "wall_seconds": 483.0467474460602,
+      "cpu_seconds": 488.574493,
+      "peak_rss_bytes": 4229668864
+    },
+    {
+      "status": "COMPLETE_CALCULATION_POOL_WORKER",
+      "counts": {
+        "documents": 141429,
+        "alignment_rejections": 712
+      },
+      "selected_documents": 6606,
+      "wall_seconds": 481.3989100456238,
+      "cpu_seconds": 490.889621,
+      "peak_rss_bytes": 4226359296
+    },
+    {
+      "status": "COMPLETE_CALCULATION_POOL_WORKER",
+      "counts": {
+        "documents": 141429,
+        "alignment_rejections": 753
+      },
+      "selected_documents": 6628,
+      "wall_seconds": 498.66634917259216,
+      "cpu_seconds": 503.956563,
+      "peak_rss_bytes": 4232593408
+    },
+    {
+      "status": "COMPLETE_CALCULATION_POOL_WORKER",
+      "counts": {
+        "documents": 141428,
+        "alignment_rejections": 818
+      },
+      "selected_documents": 6590,
+      "wall_seconds": 476.9318528175354,
+      "cpu_seconds": 482.222289,
+      "peak_rss_bytes": 4239343616
+    }
+  ],
+  "scanned_documents": 565715,
+  "documents": 26622,
+  "source_groups": 6407,
+  "original_tokens": 48913990,
+  "calculation_counts": {
+    "5": 1051,
+    "2": 9583,
+    "1": 37230,
+    "4": 1482,
+    "3": 4631,
+    "6": 379
+  },
+  "distinct_expressions": 20030,
+  "verified_answer_tokens": 117364,
+  "largest_group_token_fraction": 0.045364342594010426,
+  "top10_group_token_fraction": 0.17322696431021065,
+  "protected_group_overlap": 0,
+  "held_out_hash_bucket_overlap": 0,
+  "original_document_substrings_only": true,
+  "source_bytes_copied": 0,
+  "files": {
+    "PRIVATE-pool.json": "0e52b56e80bfce0e8fabf4e09a04028d0c119f406c4c116e666e052b4727c434",
+    "PRIVATE-documents-1.json": "2da36e12f55effd5037fcac56f6ee0379b03062469bf0c3fe470c66e666babd1",
+    "PRIVATE-documents-0.json": "57fdb4ef30dce2dc0bf5d4a3718c151c43961463c98de0dead454bcdd51fa80b",
+    "PRIVATE-documents-3.json": "22588fe2b137a747cc40746ba8bf3508252d6de9694b7ee4f39d1ee8df1a7021",
+    "PRIVATE-documents-2.json": "a5e10013f554e87b05d6a869b8a817d09d0bd6438ce6898a831b97d030d99d7e"
+  },
+  "index_artifact_bytes": 44458600,
+  "wall_seconds": 506.2029814720154,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "model_scores": 0,
+  "protected_groups_scored": 0,
+  "terminal_alpha_spent": 0,
+  "scientific_fit_admitted": false,
+  "plan_sha256": "123c3ee9848a068efd7181466547bbb774bd57e2aa53c150c3ba56cb49862aaf",
+  "scope": "# Prepare authentic calculation-containing TRAIN documents\n\nThe billion-target models have a useful equal-data text-prediction lead but\nweak elementary and multi-operation arithmetic. A bounded source preparation\nwill establish whether more computationally relevant natural text is available\nwithout a new architecture, supplied thoughts, generated problems or relabeled\nanswers. It admits no training or automatic replacement of the active study.\n\nUse exactly the eight TRAIN shards already audited for the 3.783B ordinary\ncontrol. A document qualifies if the existing tested primitive or multi-\noperation verifier finds at least one original explicit equality whose answer\nmatches its original premise and whose token boundaries round-trip exactly.\nThe primitive grammar is unchanged; the multi-operation grammar is unchanged.\nKeep the entire original document prefix admitted by the parent index, not just\nits answer or a rewritten task. No new text, reasoning trace or completion is\ngenerated. Record calculation spans for later packing audits, never as extra\nloss weights. Every prospective fit would still need its own frozen objective.\n\nRetain all qualifying documents in a private candidate pool, with original\nsource identity, group, offset and length. Deduplicate repeated document IDs\nand fail on conflicting ranges. Order by a fixed document hash. Report original\ntoken capacity, source groups, operation counts, distinct expressions and\nconcentration. Do not sample a pool based on model losses, change the held-out\npanels or open a protected reserve. The existing indexed TRAIN-group exclusions\nremain binding. Shared elementary expressions across source groups are not a\nclaim of compositional transfer; the original harder panel's expression audit\nstays unchanged.\n\nThe preparation only establishes feasibility for a later comparison in which\nboth ordinary and generated-state models receive the same authentic source\nselection. A possible later design would preserve the 60/20/20 domain weights\nwhile changing which mathematical documents are sampled, retain uniform NTP,\nand report repetition and broad-loss retention. It must not quietly substitute\nan enriched-corpus result for the original corpus result. No such fit, seed,\nsize, learning rate or duration is admitted by this document.\n\nOne attempt, four CPU workers, 20 minutes, 8 GiB per process and at most 256 MiB\nof new private index artifacts. Keep the host-memory, disk and inode floors.\nRecord all costs, preserve stopped attempts and leave the active all16-chip\nordinary run and its 955 source bindings unchanged. No model scoring, chip\nassignment, optimizer updates, confirmation data or alpha spending.\n"
+}

@@ -1,3 +1,23 @@
+## October 30, 2026, 07:59 UTC — authentic exposure pool and CPU efficiency candidate prepared
+
+The source-only pool retains 26,622 unmodified TRAIN documents, 48.914M tokens
+and 20,030 distinct verified expressions from 6,407 source groups. Independent
+checks find zero exact-expression overlap with the 259-case harder panel.
+This makes a later exposure comparison feasible without invented problems or
+provided thoughts; it admits no fit or reinterpretation of the original corpus.
+Preparation costs 506.203 CPU wall seconds and 44.459 MB of private index space.
+
+A read-only runtime sample observes all64 logical cores on all16 devices active,
+with mean reported busy time21.31%. Forward/backward are already compiled. A
+prospective gradient reduction/clipping batching helper passes12 CPU tests,
+including complete AdamW moments and repeated alias lifecycle. No accelerator
+speedup is measured, and the helper is not enabled in the scientific trainer.
+
+The ordinary matched-work fit remains active past2B targets. Its original
+recipe and deadline remain binding; no fresh reserve or terminal alpha is used.
+[Authentic source pool](results/calculation_document_pool_20261030/source-v1/REPORT.md) ·
+[CPU efficiency candidate](results/gradient_bucketing_20261030/cpu-v1/REPORT.md).
+
 ## October 30, 2026, 07:33 UTC — source exposure narrows the arithmetic diagnosis
 
 The existing 1B TRAIN prefix contains 9,548 intact verified elementary
