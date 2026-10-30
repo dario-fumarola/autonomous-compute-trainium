@@ -1,6 +1,14 @@
 """Budget and finite-gate fixtures; no research examples."""
 import pytest
-from scripts.run_latent_exposure_screen import arm_for,arithmetic_statistics,advancement
+from scripts.run_latent_exposure_screen import arm_for,arithmetic_statistics,advancement,trial_identity
+
+
+def test_every_conditional_role_has_a_safe_worker_identity():
+    identities=[trial_identity(k) for k in ('ordinary','pause','latent','ordinary_work')]
+    assert len(set(identities))==4
+    assert all(set(name)<=set('abcdefghijklmnopqrstuvwxyz0123456789-') for name in identities)
+    assert identities[-1].endswith('-ordinary-work')
+    with pytest.raises(ValueError):trial_identity('unregistered')
 
 
 def parent():

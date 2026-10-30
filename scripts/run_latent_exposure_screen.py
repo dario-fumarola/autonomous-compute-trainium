@@ -25,6 +25,12 @@ RECIPES={'latent':('interleaved-mixed-round-tuning-v1','mixed-lr1'),
 def read(p):return json.loads(p.read_text())
 
 
+def trial_identity(key):
+    if key not in ('ordinary','pause','latent','ordinary_work'):
+        raise ValueError('Registered exposure role required')
+    return ID+'-'+key.replace('_','-')
+
+
 def arm_for(parent,name,role,updates,real_targets):
     from compute_trainium.model import ModelConfig
     from compute_trainium.interleaved_workspace import matrix_work
@@ -109,7 +115,7 @@ def prepare(root):
                 'compute_trainium/indexed_natural_sources.py','compute_trainium/bounded_replica_capture.py'):
             if file_sha256(f)!=parent['source_sha256'][f]:raise AssertionError('Qualified numerical/training path changed')
         budget=sp['endpoints']['ordinary_matched_work' if key=='ordinary_work' else 'one_billion']
-        identity=ID+'-'+key;phase=identity+'-fit';arm=arm_for(parent,name,role,budget['updates'],budget['real_targets']);arm['phase']=phase
+        identity=trial_identity(key);phase=identity+'-fit';arm=arm_for(parent,name,role,budget['updates'],budget['real_targets']);arm['phase']=phase
         if budget['updates']*128+128>=parent['audit_window_start']:raise AssertionError('Independent audit source must stay beyond all fit prefixes')
         p=copy.deepcopy(parent);p.update(identity=identity,seed=SEED,arms={role:arm},evaluation_points=[],learning_rate_grid=[arm['lr']],
             registered_unix=now,absolute_deadline_unix=deadline,seconds_limit=43200,
