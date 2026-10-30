@@ -1,3 +1,13 @@
+## October30 direct-calculation diagnostic
+
+A separately frozen 353-source direct-arithmetic panel gives latent gains over
+ordinary −0.010957/+0.068950/−0.045059 nats in the three existing seeds. Only one
+clears both ordinary and pause controls. The mean +0.004311 has large paired
+variation; exact answer-prefix accuracy is near 1–2%. No reproducible arithmetic
+lead or promotion follows. Source groups and literal-valued training expression
+ASTs are separated at the tested128M-target exposure. All54 numerical checks pass.
+[Full result](../direct_arithmetic_20261030/readout-v1/REPORT.md).
+
 ## October30 sparse path diagnostic
 
 The generated sparse checkpoint has no measurable latent-memory utility: masking

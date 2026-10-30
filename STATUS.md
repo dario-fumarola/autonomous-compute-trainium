@@ -1,3 +1,19 @@
+## October 30, 2026, 01:04 UTC — direct calculation lead does not replicate
+
+The frozen 353-source, nine-checkpoint arithmetic readout completes. Latent gains
+against ordinary are −0.010957, +0.068950 and −0.045059 nats across the three
+seeds. The mean +0.004311 has paired SD 0.058518; only one seed clears both
+controls. Exact-answer accuracy remains roughly 1–2%. The declared task lead
+fails. All 54 numerical comparisons pass (maximum error 3.20e-14).
+
+This supplies no arithmetic-transfer or efficiency result. The 617 verified
+training calculations establish limited exposure under a strict grammar, not
+its causal explanation. Before considering a longer learning-exposure study,
+check the complete prospective training prefix for evaluation-expression
+contamination and freeze a new finite design. No larger fit is admitted yet.
+CPU readout: 518.221 seconds, zero chips/updates. Both reserves remain sealed.
+[Complete result](results/direct_arithmetic_20261030/readout-v1/REPORT.md).
+
 ## October 30, 2026, 00:55 UTC — new source-separated arithmetic readout active
 
 The frozen panel contains 353 authentic direct calculations from 353 training-
