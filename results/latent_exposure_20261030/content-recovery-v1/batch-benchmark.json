@@ -1,0 +1,71 @@
+{
+  "status": "COMPLETE_NUMERICAL_THROUGHPUT_CHECK",
+  "rows": [
+    {
+      "threads": 8,
+      "batch": 2,
+      "source_positions": 512,
+      "wall_seconds": 9.026093006134033,
+      "seconds_per_view": 4.513046503067017,
+      "batch_single_max_logp_error": 7.105427357601002e-14,
+      "peak_rss_bytes": 1643225088
+    },
+    {
+      "threads": 8,
+      "batch": 8,
+      "source_positions": 512,
+      "wall_seconds": 24.63121747970581,
+      "seconds_per_view": 3.0789021849632263,
+      "batch_single_max_logp_error": 6.927791673660977e-14,
+      "peak_rss_bytes": 3501604864
+    },
+    {
+      "threads": 16,
+      "batch": 8,
+      "source_positions": 512,
+      "wall_seconds": 15.431649208068848,
+      "seconds_per_view": 1.928956151008606,
+      "batch_single_max_logp_error": 6.927791673660977e-14,
+      "peak_rss_bytes": 3544854528
+    }
+  ],
+  "quality_scores_computed": 0,
+  "complete_check_receipts": {
+    "fast-benchmark.json": "a2ba086da4601a30e9951a0bd44859671e969c001a76075700d9d1f84622da5a",
+    "parallel-benchmark.json": "58e8c5430c208ce0cf00c60d72926c7ff3bd35f7adfea417e345e039a6777c92"
+  },
+  "earlier_stopped_check": {
+    "status": "STOPPED_THROUGHPUT_BENCHMARK_AT_240_SECOND_CAP",
+    "quality_scores_computed": 0,
+    "assigned_chips": 0,
+    "measured_completed_rows": [
+      {
+        "threads": 1,
+        "batch": 8,
+        "wall_seconds": 122.25382709503174,
+        "seconds_per_view": 15.281728386878967,
+        "batch_single_max_logp_error": 8.881784197001252e-14
+      },
+      {
+        "threads": 2,
+        "batch": 8,
+        "wall_seconds": 63.84213471412659,
+        "seconds_per_view": 7.980266839265823,
+        "batch_single_max_logp_error": 9.414691248821327e-14
+      },
+      {
+        "threads": 4,
+        "batch": 8,
+        "wall_seconds": 41.933709144592285,
+        "seconds_per_view": 5.241713643074036,
+        "batch_single_max_logp_error": 6.927791673660977e-14
+      }
+    ],
+    "unfinished_configuration": {
+      "threads": 2,
+      "batch": 2
+    },
+    "cost_scope": "Bounded 240-second CPU-only attempt, overlapping the already assigned Native run. No complete scientific scores."
+  },
+  "scope": "Choose CPU execution only; no labels, quality selection, or model changes."
+}

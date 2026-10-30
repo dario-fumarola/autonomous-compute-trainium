@@ -191,7 +191,7 @@ def arithmetic_statistics(cells, *, seed, replicates):
                 exact_answer_counts={m:int(sum(r['exact_prefix_correct'] for r in cells[m])) for m in MODES})
 
 
-def run(root):
+def run(root, worker_module='scripts.readout_latent_content'):
     from scripts.compare_interleaved_tied import compare
     from compute_trainium.execution_isolation import managed_running
     out=root/ID; plan=read(out/'plan.json'); start=time.time(); guard(root,plan); verify(root,plan)
@@ -201,7 +201,7 @@ def run(root):
     try:
         for mode in plan['modes']:
             log=(out/(mode+'.log')).open('w'); logs.append(log)
-            jobs.append(subprocess.Popen([sys.executable,'-m','scripts.readout_latent_content','--root',str(root),
+            jobs.append(subprocess.Popen([sys.executable,'-m',worker_module,'--root',str(root),
                 '--action','worker','--mode',mode],stdout=log,stderr=subprocess.STDOUT,
                 env={**os.environ,'USE_TORCH_XLA':'0','PYTHONDONTWRITEBYTECODE':'1'}))
         while any(j.poll() is None for j in jobs):
