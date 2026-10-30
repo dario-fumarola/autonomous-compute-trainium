@@ -1,0 +1,44 @@
+{
+  "native_attempts": [
+    {
+      "identity": "chunked-control-completion-v1-evaluation",
+      "exit_code": 0,
+      "wall_seconds": 547.8441550731659,
+      "assigned_chip_hours": 2.434862911436293,
+      "whole_instance_opportunity_chip_hours": 2.434862911436293,
+      "report_exists": true
+    }
+  ],
+  "current_controller_cpu_attempts": [
+    {
+      "identity": "chunked-control-completion-v1-select",
+      "assigned_chips": 0,
+      "wall_seconds": 5.031713485717773,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "chunked-control-completion-v1-readout",
+      "assigned_chips": 0,
+      "wall_seconds": 95.38629031181335,
+      "reused": false,
+      "exit_code": 0
+    },
+    {
+      "identity": "chunked-control-completion-v1-compare",
+      "assigned_chips": 0,
+      "wall_seconds": 5.030784606933594,
+      "reused": false,
+      "exit_code": 0
+    }
+  ],
+  "cleanup_errors": [],
+  "execution": {
+    "started_unix": 1793317594.3924243,
+    "deadline_unix": 1793332933.907674,
+    "plan_sha256": "32a8c96980d9ee4ec02721f35370da5840f2505af99aae5b76155ed8edc7e509"
+  },
+  "wall_seconds_since_admission": 660.7972221374512,
+  "whole_instance_opportunity_chip_hours": 2.9368765460120305,
+  "scope": "Each registered native phase closure once,including failures and completed work reused after controller resume. CPU reports retain their intrinsic durations;current-controller attempts distinguish reuse. Reservation opportunity is separate from assigned chips and must not be double-added across overlapping phases."
+}

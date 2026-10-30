@@ -1,3 +1,40 @@
+## October 30, 2026, 00:03 UTC — exploratory attribution identifies a boundary penalty
+
+The separately labeled exploratory position decomposition completes in 88.803
+CPU wall-seconds, zero chips/updates. Every domain and aggregate reconstructs
+the original exact NLL. At the four slot-emitted targets, generated workspace
+trails ordinary by 0.106686 nats per target; the next-eight bin trails by
+0.021763. Together these contribute about 40.63% of the broad deficit. The
+remainder is elsewhere, including before the first slot. Generated feedback's
+boundary advantage over constant inputs is canceled by its following-position
+penalty. These are exploratory conditional intervals, not new success gates or
+causal proof. The sparse broad result remains negative.
+[Complete decomposition](results/chunked_persistent_workspace_20261029/completion-position-exploratory-v1/REPORT.md).
+
+## October 30, 2026, 00:01 UTC — sparse comparison completes negative
+
+The separate bounded completion finishes. Exact FP64 NLL is 3.287681006 ordinary,
+3.292243358 generated workspace, and 3.292884560 constant workspace. Generated
+states trail ordinary by 0.004562352 nats (conditional 95% interval −0.008551281
+to −0.000505369). Their +0.000641203 lead over constant inputs is inconclusive
+(−0.003595801 to +0.004989581). Ordinary wins in every domain. All scores and
+costs were independently recomputed; 72 cached/full-prefix checks pass with
+maximum log-probability error 3.56e-14.
+
+Seven endpoints are audited; both high-rate workspace fits are unavailable
+without retry. The original screen stays STOPPED and its gate UNMET. The common
+Native readout's maximum independent target-loss error is 3.88e-5. Complete
+failed/successful fits plus readout cost 41.099033 assigned chip-hours; preceding
+qualification adds 15.304764, for 56.403797 total. No automatic scale or confirmation.
+[Full evidence](results/chunked_persistent_workspace_20261029/control-completion-v1/REPORT.md).
+
+After the prospective position draft was refused, a separately labeled exploratory
+CPU-only decomposition is admitted against immutable completed artifacts. It uses
+all selected models, all reused sources and every fixed position bin; reconstructs
+each domain and broad result; adds no fit, success criterion or memory intervention.
+Nine numerical/admission fixture checks pass. The original and refused prospective
+diagnostics remain not admitted. Both fresh reserves stay sealed; terminal alpha zero.
+
 ## October 29, 2026, 23:50 UTC — final high LR stops; seven audited endpoints enter readout
 
 The constant-slot LR 0.003 fit stops on a non-finite gradient norm after its

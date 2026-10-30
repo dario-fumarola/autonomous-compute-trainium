@@ -45,6 +45,9 @@ def prepare(root, *, exploratory=False):
     plan = dict(identity=ID, registered_unix=time.time(),
         exploratory=exploratory, evaluation_process_started=evaluation.exists(),
         quality_artifacts_at_registration=(len(list(evaluation.iterdir())) if evaluation.exists() else 0),
+        completion_artifact_sha256=({f:file_sha256(root/SCREEN/f) for f in
+            ('report.json','readout-plan.json','compare/report.json','select/report.json','readout/report.json')}
+            if exploratory else {}),
         completion_plan_sha256=file_sha256(source), source_sha256=files,
         absolute_deadline_unix=main['absolute_deadline_unix']+1200,
         seconds_limit=1200, workers=4, threads=8, maximum_worker_rss_bytes=6*1024**3,
@@ -62,6 +65,8 @@ def verify(root):
     p = read(root/ID/'plan.json'); guard(root,p)
     if file_sha256(root/SCREEN/'plan.json') != p['completion_plan_sha256']:
         raise AssertionError('Completion registration changed')
+    if any(file_sha256(root/SCREEN/f)!=h for f,h in p['completion_artifact_sha256'].items()):
+        raise AssertionError('Completed selections, results or exact readout changed')
     if any(file_sha256(f)!=h for f,h in p['source_sha256'].items()):
         raise AssertionError('Frozen diagnostic sources changed')
     result = read(root/SCREEN/'report.json')

@@ -1,0 +1,135 @@
+{
+  "status": "COMPLETE_CHUNKED_COMPLETION_SELECTION",
+  "selection": {
+    "ordinary": {
+      "arm": "ordinary-lr1",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.787724380078062,
+        "math": 2.9595795574070847,
+        "code": 2.1156495890025027
+      },
+      "broad_nll": 3.2876804573287544,
+      "bracketed": true,
+      "complete_numerical_grid": true,
+      "selection_scope": "Lowest NLL among complete audited original opportunities only"
+    },
+    "generated": {
+      "arm": "generated-lr1",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.7930672210846,
+        "math": 2.964856917683533,
+        "code": 2.1171554253679545
+      },
+      "broad_nll": 3.2922428012610574,
+      "bracketed": false,
+      "complete_numerical_grid": false,
+      "selection_scope": "Lowest NLL among complete audited original opportunities only"
+    },
+    "constant": {
+      "arm": "constant-lr1",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.7957505880493727,
+        "math": 2.961359425365937,
+        "code": 2.1158087826452183
+      },
+      "broad_nll": 3.292883994431855,
+      "bracketed": false,
+      "complete_numerical_grid": false,
+      "selection_scope": "Lowest NLL among complete audited original opportunities only"
+    }
+  },
+  "all_scores": {
+    "ordinary": [
+      {
+        "arm": "ordinary-lr0",
+        "lr": 0.0003,
+        "domains": {
+          "web": 4.114283919010408,
+          "math": 3.2350933448376598,
+          "code": 2.4145400472792704
+        },
+        "broad_nll": 3.598497029829631
+      },
+      {
+        "arm": "ordinary-lr1",
+        "lr": 0.001,
+        "domains": {
+          "web": 3.787724380078062,
+          "math": 2.9595795574070847,
+          "code": 2.1156495890025027
+        },
+        "broad_nll": 3.2876804573287544
+      },
+      {
+        "arm": "ordinary-lr2",
+        "lr": 0.003,
+        "domains": {
+          "web": 3.9273328091607067,
+          "math": 3.0747087500596897,
+          "code": 2.227258307249216
+        },
+        "broad_nll": 3.4167930969582048
+      }
+    ],
+    "generated": [
+      {
+        "arm": "generated-lr0",
+        "lr": 0.0003,
+        "domains": {
+          "web": 4.126242687511072,
+          "math": 3.2501199108064966,
+          "code": 2.426175404639992
+        },
+        "broad_nll": 3.611004675595941
+      },
+      {
+        "arm": "generated-lr1",
+        "lr": 0.001,
+        "domains": {
+          "web": 3.7930672210846,
+          "math": 2.964856917683533,
+          "code": 2.1171554253679545
+        },
+        "broad_nll": 3.2922428012610574
+      }
+    ],
+    "constant": [
+      {
+        "arm": "constant-lr0",
+        "lr": 0.0003,
+        "domains": {
+          "web": 4.124123267612503,
+          "math": 3.2378994971507646,
+          "code": 2.4168718031459786
+        },
+        "broad_nll": 3.6054282206268504
+      },
+      {
+        "arm": "constant-lr1",
+        "lr": 0.001,
+        "domains": {
+          "web": 3.7957505880493727,
+          "math": 2.961359425365937,
+          "code": 2.1158087826452183
+        },
+        "broad_nll": 3.292883994431855
+      }
+    ]
+  },
+  "unavailable": {
+    "generated-lr2": {
+      "lr": 0.003,
+      "reason": "Non-finite gradient after 80 persisted updates; no mature endpoint, no retry, no invented score."
+    },
+    "constant-lr2": {
+      "lr": 0.003,
+      "reason": "Non-finite gradient; no endpoint, score or retry."
+    }
+  },
+  "original_gate_status": "UNMET: all-nine-complete condition failed",
+  "automatic_promotion": false,
+  "wall_seconds": 0.057013750076293945
+}

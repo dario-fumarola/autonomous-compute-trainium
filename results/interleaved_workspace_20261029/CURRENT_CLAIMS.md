@@ -68,13 +68,17 @@ penalty arises or a successful iterative mechanism. Only its trained one-step
 exit is supported. No earlier failed gate is reversed.
 [Full result](../depth_causal_workspace_20261029/fixed-one-v1/REPORT.md).
 
-## Sparse persistent screen stopped; descriptive completion active
+## Sparse persistent comparison, October 30
 
-The generated LR 0.003 attempt stops on a non-finite gradient before a mature
-endpoint. Five earlier fits have complete audits, but no quality selection was
-performed. The original all-nine-complete gate is unmet. A separate bounded
-completion runs only the three unstarted constant controls. It adds no LR,
-retry, endpoint or renewed deadline and cannot repair the original gate.
-Both fresh reserves remain sealed. No old failed result is reversed.
-[Failure record](../chunked_persistent_workspace_20261029/learning-v1/REPORT.md) ·
-[Completion protocol](../../docs/CHUNKED_CONTROL_COMPLETION_20261029.md).
+A separate bounded completion of the original remaining controls is negative.
+Generated-slot NLL 3.292243 trails ordinary 3.287681 by 0.004562 nats at matched
+nominal training work; constant-slot NLL is 3.292885. The generated advantage over
+constant inputs is only 0.000641 nats and its conditional interval spans zero.
+Every domain favors ordinary. This supplies no predictive or efficiency win.
+
+Seven endpoints pass mature audits and 72 exact execution checks. Both workspace
+LR 0.003 fits fail with non-finite gradients, remain unavailable and are charged.
+The original screen and gate remain STOPPED/UNMET. The separate completion cannot
+repair them. Both fresh reserves remain sealed. Neither an exploratory position
+breakdown nor a small favorable bin can replace the negative broad comparison.
+[Complete evidence](../chunked_persistent_workspace_20261029/control-completion-v1/REPORT.md).

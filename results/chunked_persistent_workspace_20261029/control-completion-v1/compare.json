@@ -1,0 +1,239 @@
+{
+  "status": "COMPLETE_CHUNKED_CONTROL_COMPARISON",
+  "selection": {
+    "ordinary": {
+      "arm": "ordinary-lr1",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.787724380078062,
+        "math": 2.9595795574070847,
+        "code": 2.1156495890025027
+      },
+      "broad_nll": 3.2876804573287544,
+      "bracketed": true,
+      "complete_numerical_grid": true,
+      "selection_scope": "Lowest NLL among complete audited original opportunities only"
+    },
+    "generated": {
+      "arm": "generated-lr1",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.7930672210846,
+        "math": 2.964856917683533,
+        "code": 2.1171554253679545
+      },
+      "broad_nll": 3.2922428012610574,
+      "bracketed": false,
+      "complete_numerical_grid": false,
+      "selection_scope": "Lowest NLL among complete audited original opportunities only"
+    },
+    "constant": {
+      "arm": "constant-lr1",
+      "lr": 0.001,
+      "domains": {
+        "web": 3.7957505880493727,
+        "math": 2.961359425365937,
+        "code": 2.1158087826452183
+      },
+      "broad_nll": 3.292883994431855,
+      "bracketed": false,
+      "complete_numerical_grid": false,
+      "selection_scope": "Lowest NLL among complete audited original opportunities only"
+    }
+  },
+  "scores": {
+    "ordinary": {
+      "domains": {
+        "web": 3.787724963399864,
+        "math": 2.959580109648306,
+        "code": 2.1156500301564063
+      },
+      "broad_nll": 3.2876810060008608
+    },
+    "generated": {
+      "domains": {
+        "web": 3.7930678211457365,
+        "math": 2.9648574586803345,
+        "code": 2.117155866253651
+      },
+      "broad_nll": 3.2922433576742387
+    },
+    "constant": {
+      "domains": {
+        "web": 3.795751203630791,
+        "math": 2.9613599724250954,
+        "code": 2.1158092189399595
+      },
+      "broad_nll": 3.292884560451485
+    }
+  },
+  "comparisons": {
+    "generated_over_ordinary": {
+      "comparison": {
+        "gain": -0.004562351673378195,
+        "conditional_95_interval": [
+          -0.008551280879950027,
+          -0.0005053687359814568
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": -0.005342857745872287,
+          "conditional_95_interval": [
+            -0.011131702811521838,
+            0.00019133705036568664
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.005277349032028589,
+          "conditional_95_interval": [
+            -0.011759276402336538,
+            0.0013950626420055946
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.0015058360972455276,
+          "conditional_95_interval": [
+            -0.008363765036040138,
+            0.005225699035864171
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      },
+      "scores": {
+        "candidate": {
+          "domains": {
+            "web": 3.7930678211457365,
+            "math": 2.9648574586803345,
+            "code": 2.117155866253651
+          },
+          "broad_nll": 3.2922433576742387
+        },
+        "control": {
+          "domains": {
+            "web": 3.787724963399864,
+            "math": 2.959580109648306,
+            "code": 2.1156500301564063
+          },
+          "broad_nll": 3.2876810060008608
+        }
+      }
+    },
+    "generated_over_constant": {
+      "comparison": {
+        "gain": 0.0006412027772467964,
+        "conditional_95_interval": [
+          -0.0035958011980848936,
+          0.00498958097376096
+        ],
+        "cases": 384,
+        "groups": 384
+      },
+      "domains": {
+        "web": {
+          "gain": 0.0026833824850549526,
+          "conditional_95_interval": [
+            -0.003905377182736802,
+            0.008994103460658449
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "math": {
+          "gain": -0.003497486255238602,
+          "conditional_95_interval": [
+            -0.009925366193226514,
+            0.003033823385019326
+          ],
+          "cases": 128,
+          "groups": 128
+        },
+        "code": {
+          "gain": -0.001346647313692273,
+          "conditional_95_interval": [
+            -0.009080935632834913,
+            0.0060534224760443005
+          ],
+          "cases": 128,
+          "groups": 128
+        }
+      },
+      "scores": {
+        "candidate": {
+          "domains": {
+            "web": 3.7930678211457365,
+            "math": 2.9648574586803345,
+            "code": 2.117155866253651
+          },
+          "broad_nll": 3.2922433576742387
+        },
+        "control": {
+          "domains": {
+            "web": 3.795751203630791,
+            "math": 2.9613599724250954,
+            "code": 2.1158092189399595
+          },
+          "broad_nll": 3.292884560451485
+        }
+      }
+    }
+  },
+  "decisions": {
+    "generated_over_ordinary": false,
+    "generated_over_constant": false
+  },
+  "both_development_gates_pass": false,
+  "resources": {
+    "ordinary": {
+      "parameters": 51179008,
+      "updates": 1969,
+      "real_targets": 128810414,
+      "nominal_training_matrix_flops": 42406576492904448,
+      "wall_seconds": 839.8345379829407,
+      "mean_warm_update_seconds": 0.31314919547898845
+    },
+    "generated": {
+      "parameters": 51179008,
+      "updates": 1957,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 42392085538013184,
+      "wall_seconds": 1201.733280658722,
+      "mean_warm_update_seconds": 0.3781925085989211
+    },
+    "constant": {
+      "parameters": 51179008,
+      "updates": 1957,
+      "real_targets": 128025288,
+      "nominal_training_matrix_flops": 42392085538013184,
+      "wall_seconds": 1211.2411880493164,
+      "mean_warm_update_seconds": 0.37680857525633205
+    }
+  },
+  "ordinary_work_ratio": 1.0003418316109565,
+  "trained_seeds": 1,
+  "protected_groups_scored": 0,
+  "terminal_alpha_spent": 0,
+  "automatic_promotion": false,
+  "uncertainty_scope": "Conditional source-group intervals after independent LR selection on reused DEV; not training-seed uncertainty or confirmation.",
+  "scope": "Post-stop completion of the original three unstarted constant-slot opportunities and descriptive comparison of audited endpoints. Original gate stays unmet. No extra LR, retry, new source, longer endpoint, automatic promotion or renewed deadline. Failed fits have no NLL and are excluded from selection, with LR bracketing marked incomplete.",
+  "unavailable": {
+    "generated-lr2": {
+      "lr": 0.003,
+      "reason": "Non-finite gradient after 80 persisted updates; no mature endpoint, no retry, no invented score."
+    },
+    "constant-lr2": {
+      "lr": 0.003,
+      "reason": "Non-finite gradient; no endpoint, score or retry."
+    }
+  },
+  "original_gate_status": "UNMET: all-nine-complete condition failed",
+  "conclusion_scope": "Descriptive reused-DEV comparison after a numerical tuning failure; original screen remains stopped. Point differences and conditional intervals do not repair the original advancement gate.",
+  "wall_seconds": 0.1441328525543213
+}

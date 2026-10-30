@@ -29,13 +29,20 @@ the conventional competitiveness gate fails. This is a diagnosis of a training
 tradeoff, not a thinking or efficiency win.
 [Completed fixed-depth comparison](results/depth_causal_workspace_20261029/fixed-one-v1/REPORT.md).
 
-The matched-work sparse-workspace screen **stopped before quality selection**:
-the generated LR 0.003 attempt produced a non-finite gradient. Five earlier
-fits remain fully audited. The original all-nine-complete gate remains unmet.
-A separate bounded completion runs only the three unstarted constant-slot
-controls, with no retry, extra LR or renewed deadline. Its descriptive scores
-will not repair the failed registration. No quality result exists yet.
-[Failure and remaining comparison](results/chunked_persistent_workspace_20261029/learning-v1/REPORT.md).
+The separate matched-work sparse comparison is **negative**. Exact NLL is
+**3.287681 ordinary, 3.292243 generated workspace, and 3.292885 constant
+workspace**. Generated states trail ordinary by **0.004562 nats** and have no
+clear advantage over constant inputs (**+0.000641**, conditional interval
+[−0.003596, +0.004990]). Ordinary wins in web, math and code separately.
+
+Seven endpoints pass mature numerical audits and 72 exact execution checks.
+Both workspace LR 0.003 fits stop on non-finite gradients and remain unavailable,
+without retry. The original all-nine-complete gate stays unmet; the separately
+registered completion is descriptive and does not repair it. All attempts and
+qualification cost **56.403797 assigned chip-hours**. No scaling or confirmation
+is admitted. Both fresh reserves remain sealed.
+[Complete sparse comparison](results/chunked_persistent_workspace_20261029/control-completion-v1/REPORT.md) ·
+[Original failure](results/chunked_persistent_workspace_20261029/learning-v1/REPORT.md).
 
 The original selected-seed comparison below is retained unchanged:
 
