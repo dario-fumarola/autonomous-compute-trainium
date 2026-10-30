@@ -67,6 +67,18 @@ which does not require correct termination, remains about 2% (equal-bin mean)
 for the generated model. This is predictive development evidence, not reliable
 calculation or demonstrated compositional reasoning.
 
+A descriptive decomposition performed after the primary result finds that
+0.045993 of the 0.053447-nat advantage over ordinary (about 86%) comes from
+later answer tokens, after earlier answer tokens are teacher-forced. The first
+answer token contributes 0.007453 to the length-normalized answer metric.
+Against pauses, the corresponding contributions are −0.005865 and +0.057136.
+These contributions divide each case's first and later losses by its answer
+length; they differ from the separately reported unweighted first-answer NLL.
+This narrows the reasoning interpretation further, without changing the primary
+metric or gate. Of the five latent successes and four ordinary successes, two
+are shared; three are latent-only and two ordinary-only. No source texts or
+case identities are published. [Saved-loss decomposition](answer-loss-decomposition.json).
+
 Independent standard-library reaggregation verifies all 777 case scores,
 paired sources/targets/bins, 810 answer tokens per model, and exact-answer
 counts. Maximum discrepancy is 4.44e-16. No new predictions or selection enter

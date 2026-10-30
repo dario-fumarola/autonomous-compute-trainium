@@ -1,4 +1,22 @@
-## October 30, 2026, 05:20 UTC — equal-data gates pass; matched-work ordinary control active
+## October 30, 2026, 05:25 UTC — saved-state attribution active alongside ordinary control
+
+A separately registered CPU diagnostic compares authentic generated states with
+current-only memory, lagged generated input and constant input. It recomputes
+all affected caches and dependent states, retaining every original broad window
+and all 259 arithmetic cases. Twenty-three numerical/statistical tests pass;
+all four mature-checkpoint parity checks pass before full scoring. Four low-
+priority two-thread CPU workers have a one-hour cap, zero accelerator work and
+no optimizer updates. The all-16-chip ordinary matched-work fit continues.
+The isolated diagnostic checkout leaves its frozen trainer source unchanged.
+[Registered diagnostic branch](https://github.com/dario-fumarola/autonomous-compute-trainium/blob/2191846/docs/LATENT_CONTENT_DIAGNOSTIC_20261030.md).
+
+A separate arithmetic decomposition of already saved losses shows that about
+86% of the answer-NLL gain over ordinary comes after the first answer token,
+with earlier answer tokens supplied. This is not a new selected endpoint and
+does not change the gate; it further limits the inference of calculation skill.
+[Complete result and decomposition](results/latent_exposure_20261030/learning-v1/REPORT.md).
+
+## October 30, 2026, 05:15 UTC — equal-data gates pass; matched-work ordinary control active
 
 The billion-target generated-state model scores **2.801700 broad NLL**, versus
 2.832195 ordinary and 2.901458 trained pauses. Gains are **+0.030495** and
