@@ -1,3 +1,13 @@
+## October30 sparse path diagnostic
+
+The generated sparse checkpoint has no measurable latent-memory utility: masking
+earlier slot keys changes broad NLL by only 0.000026, with uncertainty spanning
+zero. Removing its forced boundary readout helps by 0.000903 but leaves it behind
+ordinary. Both switches equal the same weights' ordinary path; this is an
+unsupported diagnostic, not a new trained predictor. All 96 identity checks pass.
+No new scientific admission or fresh-reserve scoring follows.
+[Full report](../chunked_persistent_workspace_20261029/path-diagnostic-v1/REPORT.md).
+
 # What the persistent-state result currently supports
 
 The original persistent-model ordinary comparisons are complete on October 29, 2026. Two-new-seed

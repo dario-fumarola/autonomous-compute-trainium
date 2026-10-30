@@ -44,6 +44,12 @@ is admitted. Both fresh reserves remain sealed.
 [Complete sparse comparison](results/chunked_persistent_workspace_20261029/control-completion-v1/REPORT.md) ·
 [Original failure](results/chunked_persistent_workspace_20261029/learning-v1/REPORT.md).
 
+A saved-checkpoint intervention finds **no measurable benefit from stored latent
+memory** in the sparse model. Removing the forced boundary readout helps by
+0.000903 nats but does not close the ordinary-model gap. This is an exploratory
+path diagnosis, not a repaired training result.
+[Path diagnostic](results/chunked_persistent_workspace_20261029/path-diagnostic-v1/REPORT.md).
+
 The original selected-seed comparison below is retained unchanged:
 
 | Predictor | Parameters | Development NLL ↓ |

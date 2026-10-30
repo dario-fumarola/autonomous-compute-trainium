@@ -1,3 +1,20 @@
+## October 30, 2026, 00:20 UTC — memory path has no measurable utility
+
+The saved-checkpoint two-factor diagnostic completes in 254.449 CPU seconds.
+All 96 identity checks pass; every original source and both selected workspace
+models are included. Blocking generated latent memory changes NLL by only
+−0.000025869 nats (intervention improvement; interval spans zero). Reading the
+four boundaries from the source representation improves broad NLL by 0.000903,
+but the resulting 3.291341 still trails independently trained ordinary 3.287681.
+The combined removal gives the same weights' ordinary path, not a new baseline.
+
+This rules out a large memory-contamination effect in these checkpoints and
+provides no evidence of useful stored computation. No memory-gating or larger
+fit follows from it. Next: inspect TRAIN-only coverage of authentic computational
+code dependencies before choosing another mechanism test. No Native owner or
+training queue is active; fresh reserves remain sealed.
+[Complete intervention](results/chunked_persistent_workspace_20261029/path-diagnostic-v1/REPORT.md).
+
 ## October 30, 2026, 00:11 UTC — two-factor saved-checkpoint diagnostic active
 
 A separately frozen exploratory readout now separates the immediate boundary

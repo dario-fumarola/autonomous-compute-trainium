@@ -1,0 +1,1886 @@
+{
+  "status": "COMPLETE_CHUNKED_PATH_DIAGNOSTIC",
+  "scores": {
+    "generated-authentic": {
+      "domains": {
+        "web": 3.7930678211457365,
+        "math": 2.9648574586803345,
+        "code": 2.117155866253651
+      },
+      "broad_nll": 3.2922433576742387
+    },
+    "generated-source_boundary": {
+      "domains": {
+        "web": 3.7920531225744902,
+        "math": 2.9642806891353275,
+        "code": 2.1162638271883623
+      },
+      "broad_nll": 3.2913407768094323
+    },
+    "generated-blocked_memory": {
+      "domains": {
+        "web": 3.7931254219641586,
+        "math": 2.964833867951582,
+        "code": 2.117135998957538
+      },
+      "broad_nll": 3.292269226560319
+    },
+    "generated-both": {
+      "domains": {
+        "web": 3.79211151911972,
+        "math": 2.964257841154861,
+        "code": 2.1162470728723726
+      },
+      "broad_nll": 3.2913678942772786
+    },
+    "constant-authentic": {
+      "domains": {
+        "web": 3.795751203630791,
+        "math": 2.9613599724250954,
+        "code": 2.1158092189399595
+      },
+      "broad_nll": 3.292884560451485
+    },
+    "constant-source_boundary": {
+      "domains": {
+        "web": 3.793947843552107,
+        "math": 2.959795340140899,
+        "code": 2.1148790860929716
+      },
+      "broad_nll": 3.2913035913780386
+    },
+    "constant-blocked_memory": {
+      "domains": {
+        "web": 3.795756053480755,
+        "math": 2.9614583894144975,
+        "code": 2.115868015209296
+      },
+      "broad_nll": 3.2929189130132115
+    },
+    "constant-both": {
+      "domains": {
+        "web": 3.7939515731030395,
+        "math": 2.95989473294442,
+        "code": 2.1149320915910765
+      },
+      "broad_nll": 3.291336308768923
+    }
+  },
+  "intervention_improvements": {
+    "generated-source_boundary": {
+      "full": {
+        "broad": {
+          "gain": 0.0009025808648072342,
+          "conditional_95_interval": [
+            0.0006565896967786822,
+            0.001157193235776359
+          ],
+          "cases": 384,
+          "groups": 384
+        },
+        "domains": {
+          "web": {
+            "gain": 0.0010146985712466972,
+            "conditional_95_interval": [
+              0.0006548137534617803,
+              0.001419410608162541
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "math": {
+            "gain": 0.000576769545006961,
+            "conditional_95_interval": [
+              0.0001938433282126839,
+              0.0009671076442761989
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "code": {
+            "gain": 0.0008920390652891186,
+            "conditional_95_interval": [
+              0.0005198310360768121,
+              0.0012614129181021004
+            ],
+            "cases": 128,
+            "groups": 128
+          }
+        }
+      },
+      "strata": {
+        "before_first_slot": {
+          "broad": {
+            "gain": 0.0,
+            "conditional_95_interval": [
+              0.0,
+              0.0
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.248046875,
+          "contribution_to_broad_gain": 0.0
+        },
+        "slot_prediction": {
+          "broad": {
+            "gain": 0.11553035069530218,
+            "conditional_95_interval": [
+              0.08404348118763584,
+              0.14812073417939745
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.12988141711953904,
+              "conditional_95_interval": [
+                0.08381616044325493,
+                0.18168455784429507
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.07382650176092653,
+              "conditional_95_interval": [
+                0.024811946011249586,
+                0.12378977846770539
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.11418100035696721,
+              "conditional_95_interval": [
+                0.06653837261793907,
+                0.1614608535170121
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.0078125,
+          "contribution_to_broad_gain": 0.0009025808648070483
+        },
+        "after_1_to_8": {
+          "broad": {
+            "gain": -2.3684757858670006e-16,
+            "conditional_95_interval": [
+              -4.1448326252672507e-16,
+              7.105427357601001e-16
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -5.921189464667501e-16,
+                1.1842378929335002e-15
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -1.1842378929335002e-15,
+              "conditional_95_interval": [
+                -5.921189464667501e-16,
+                5.921189464667501e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -8.881784197001252e-16,
+                5.921189464667501e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.046875,
+          "contribution_to_broad_gain": -1.1102230246251566e-17
+        },
+        "after_9_to_32": {
+          "broad": {
+            "gain": 0.0,
+            "conditional_95_interval": [
+              -4.736951571734001e-16,
+              5.526443500356335e-16
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -7.894919286223335e-16,
+                7.894919286223335e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -3.9474596431116675e-16,
+                3.9474596431116675e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -3.9474596431116675e-16,
+                3.9474596431116675e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.140625,
+          "contribution_to_broad_gain": 0.0
+        },
+        "after_33_to_127": {
+          "broad": {
+            "gain": 4.786814219857517e-16,
+            "conditional_95_interval": [
+              -4.786814219857517e-16,
+              4.786814219857517e-16
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 7.978023699762529e-16,
+              "conditional_95_interval": [
+                -7.978023699762529e-16,
+                7.978023699762529e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                7.978023699762529e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                3.9890118498812643e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.556640625,
+          "contribution_to_broad_gain": 2.6645352591003756e-16
+        }
+      }
+    },
+    "generated-blocked_memory": {
+      "full": {
+        "broad": {
+          "gain": -2.5868886079738473e-05,
+          "conditional_95_interval": [
+            -7.535398605278853e-05,
+            2.3327035009044192e-05
+          ],
+          "cases": 384,
+          "groups": 384
+        },
+        "domains": {
+          "web": {
+            "gain": -5.7600818421654765e-05,
+            "conditional_95_interval": [
+              -0.0001299760514473225,
+              1.7860126892654792e-05
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "math": {
+            "gain": 2.3590728752242995e-05,
+            "conditional_95_interval": [
+              -6.0437521371137226e-05,
+              0.00010412448398002807
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "code": {
+            "gain": 1.9867296114028932e-05,
+            "conditional_95_interval": [
+              -4.9932724142576214e-05,
+              8.953865958218897e-05
+            ],
+            "cases": 128,
+            "groups": 128
+          }
+        }
+      },
+      "strata": {
+        "before_first_slot": {
+          "broad": {
+            "gain": 0.0,
+            "conditional_95_interval": [
+              0.0,
+              0.0
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.248046875,
+          "contribution_to_broad_gain": 0.0
+        },
+        "slot_prediction": {
+          "broad": {
+            "gain": 0.0001939107859941558,
+            "conditional_95_interval": [
+              -7.551764932869353e-05,
+              0.00044914197647308936
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -2.440804952463793e-05,
+              "conditional_95_interval": [
+                -0.00036818410438953507,
+                0.0003055507385554934
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0003495593745386216,
+              "conditional_95_interval": [
+                -1.5680818805330344e-05,
+                0.0007383898009326038
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0006932187040060711,
+              "conditional_95_interval": [
+                7.341451358003904e-05,
+                0.0014583415778504135
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.0078125,
+          "contribution_to_broad_gain": 1.5149280155793421e-06
+        },
+        "after_1_to_8": {
+          "broad": {
+            "gain": 8.95086123866425e-05,
+            "conditional_95_interval": [
+              -0.0006093021181511649,
+              0.0007947617664846137
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -2.8753468479673454e-05,
+              "conditional_95_interval": [
+                -0.0011182985702951362,
+                0.0010965217820489757
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.00023476333915439795,
+              "conditional_95_interval": [
+                -0.00067107317119716,
+                0.0011317936874785017
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.00029904012821783493,
+              "conditional_95_interval": [
+                -0.00044694650996441877,
+                0.0010620228204469171
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.046875,
+          "contribution_to_broad_gain": 4.1957162056238674e-06
+        },
+        "after_9_to_32": {
+          "broad": {
+            "gain": -0.00010346336033551198,
+            "conditional_95_interval": [
+              -0.00027625602240819244,
+              6.491204925015894e-05
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -0.000161421736706302,
+              "conditional_95_interval": [
+                -0.00040637284455294543,
+                8.586068108584752e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -4.9093164187910235e-05,
+              "conditional_95_interval": [
+                -0.0003888370974766748,
+                0.0002795999987312688
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 1.604157262925633e-05,
+              "conditional_95_interval": [
+                -0.00023254036079355266,
+                0.00024660115780640173
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.140625,
+          "contribution_to_broad_gain": -1.4549535047181373e-05
+        },
+        "after_33_to_127": {
+          "broad": {
+            "gain": -3.059423708835215e-05,
+            "conditional_95_interval": [
+              -7.268506016162504e-05,
+              1.0434153651911856e-05
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -5.9935222974385586e-05,
+              "conditional_95_interval": [
+                -0.00012128536132518333,
+                -6.416856535946776e-06
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 3.0107380016967287e-05,
+              "conditional_95_interval": [
+                -5.064395640766562e-05,
+                0.00011164798342297654
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": -3.272896535571291e-06,
+              "conditional_95_interval": [
+                -9.147284738464566e-05,
+                8.465004516136882e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.556640625,
+          "contribution_to_broad_gain": -1.7029995254258522e-05
+        }
+      }
+    },
+    "generated-both": {
+      "full": {
+        "broad": {
+          "gain": 0.0008754633969608073,
+          "conditional_95_interval": [
+            0.0006164790837397805,
+            0.0011393437575563103
+          ],
+          "cases": 384,
+          "groups": 384
+        },
+        "domains": {
+          "web": {
+            "gain": 0.0009563020260170418,
+            "conditional_95_interval": [
+              0.0005709003229176668,
+              0.0013888799635445423
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "math": {
+            "gain": 0.0005996175254741054,
+            "conditional_95_interval": [
+              0.00021130320831512782,
+              0.0009894483071928304
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "code": {
+            "gain": 0.0009087933812788052,
+            "conditional_95_interval": [
+              0.0005203441651938756,
+              0.0012856674301731312
+            ],
+            "cases": 128,
+            "groups": 128
+          }
+        }
+      },
+      "strata": {
+        "before_first_slot": {
+          "broad": {
+            "gain": 0.0,
+            "conditional_95_interval": [
+              0.0,
+              0.0
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.248046875,
+          "contribution_to_broad_gain": 0.0
+        },
+        "slot_prediction": {
+          "broad": {
+            "gain": 0.11556444301520194,
+            "conditional_95_interval": [
+              0.08408068419342273,
+              0.14811926462154357
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.12975515603864274,
+              "conditional_95_interval": [
+                0.08364477705910126,
+                0.18168678857821705
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.07408098935490548,
+              "conditional_95_interval": [
+                0.025094283814319263,
+                0.12420838363505458
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.11447575760517603,
+              "conditional_95_interval": [
+                0.06715644554168401,
+                0.16165137178480168
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.0078125,
+          "contribution_to_broad_gain": 0.0009028472110562652
+        },
+        "after_1_to_8": {
+          "broad": {
+            "gain": 8.95086123866425e-05,
+            "conditional_95_interval": [
+              -0.0006093021181511649,
+              0.0007947617664846137
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -2.8753468479673454e-05,
+              "conditional_95_interval": [
+                -0.0011182985702951362,
+                0.0010965217820489757
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.00023476333915439795,
+              "conditional_95_interval": [
+                -0.00067107317119716,
+                0.0011317936874785017
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.00029904012821783493,
+              "conditional_95_interval": [
+                -0.00044694650996441877,
+                0.0010620228204469171
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.046875,
+          "contribution_to_broad_gain": 4.1957162056238674e-06
+        },
+        "after_9_to_32": {
+          "broad": {
+            "gain": -0.00010346336033551198,
+            "conditional_95_interval": [
+              -0.00027625602240819244,
+              6.491204925015894e-05
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -0.000161421736706302,
+              "conditional_95_interval": [
+                -0.00040637284455294543,
+                8.586068108584752e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -4.9093164187910235e-05,
+              "conditional_95_interval": [
+                -0.0003888370974766748,
+                0.0002795999987312688
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 1.604157262925633e-05,
+              "conditional_95_interval": [
+                -0.00023254036079355266,
+                0.00024660115780640173
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.140625,
+          "contribution_to_broad_gain": -1.4549535047181373e-05
+        },
+        "after_33_to_127": {
+          "broad": {
+            "gain": -3.059423708835215e-05,
+            "conditional_95_interval": [
+              -7.268506016162504e-05,
+              1.0434153651911856e-05
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -5.9935222974385586e-05,
+              "conditional_95_interval": [
+                -0.00012128536132518333,
+                -6.416856535946776e-06
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 3.0107380016967287e-05,
+              "conditional_95_interval": [
+                -5.064395640766562e-05,
+                0.00011164798342297654
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": -3.272896535571291e-06,
+              "conditional_95_interval": [
+                -9.147284738464566e-05,
+                8.465004516136882e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.556640625,
+          "contribution_to_broad_gain": -1.7029995254258522e-05
+        }
+      }
+    },
+    "constant-source_boundary": {
+      "full": {
+        "broad": {
+          "gain": 0.0015809690734473138,
+          "conditional_95_interval": [
+            0.001251838251653017,
+            0.0019555166065628837
+          ],
+          "cases": 384,
+          "groups": 384
+        },
+        "domains": {
+          "web": {
+            "gain": 0.001803360078684424,
+            "conditional_95_interval": [
+              0.001303954455458034,
+              0.002375549000570043
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "math": {
+            "gain": 0.0015646322841962323,
+            "conditional_95_interval": [
+              0.0011103315385309286,
+              0.002062325274461729
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "code": {
+            "gain": 0.000930132846987064,
+            "conditional_95_interval": [
+              0.0005120974666543265,
+              0.0013612150337413583
+            ],
+            "cases": 128,
+            "groups": 128
+          }
+        }
+      },
+      "strata": {
+        "before_first_slot": {
+          "broad": {
+            "gain": 0.0,
+            "conditional_95_interval": [
+              0.0,
+              0.0
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.248046875,
+          "contribution_to_broad_gain": 0.0
+        },
+        "slot_prediction": {
+          "broad": {
+            "gain": 0.20236404140123437,
+            "conditional_95_interval": [
+              0.16023529621160634,
+              0.25030612564014365
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.23083009007154054,
+              "conditional_95_interval": [
+                0.16690617029858557,
+                0.3040702720734918
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.20027293237713018,
+              "conditional_95_interval": [
+                0.14212243693255436,
+                0.2639776351313144
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.11905700441442013,
+              "conditional_95_interval": [
+                0.0655484757315967,
+                0.17423552431858821
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.0078125,
+          "contribution_to_broad_gain": 0.0015809690734471435
+        },
+        "after_1_to_8": {
+          "broad": {
+            "gain": 0.0,
+            "conditional_95_interval": [
+              -4.736951571734001e-16,
+              4.736951571734001e-16
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -5.921189464667501e-16,
+                5.921189464667501e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -5.921189464667501e-16,
+                5.921189464667501e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -5.921189464667501e-16,
+                2.9605947323337506e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.046875,
+          "contribution_to_broad_gain": 0.0
+        },
+        "after_9_to_32": {
+          "broad": {
+            "gain": -7.894919286223336e-17,
+            "conditional_95_interval": [
+              -4.736951571734001e-16,
+              3.9474596431116675e-16
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -7.894919286223335e-16,
+                7.894919286223335e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -3.9474596431116675e-16,
+              "conditional_95_interval": [
+                -3.9474596431116675e-16,
+                3.9474596431116675e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -3.9474596431116675e-16,
+                7.894919286223335e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.140625,
+          "contribution_to_broad_gain": -1.1102230246251566e-17
+        },
+        "after_33_to_127": {
+          "broad": {
+            "gain": 0.0,
+            "conditional_95_interval": [
+              -7.978023699762529e-17,
+              1.5956047399525058e-16
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -3.9890118498812643e-16,
+                3.9890118498812643e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                -3.9890118498812643e-16,
+                7.978023699762529e-16
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.556640625,
+          "contribution_to_broad_gain": 0.0
+        }
+      }
+    },
+    "constant-blocked_memory": {
+      "full": {
+        "broad": {
+          "gain": -3.4352561726080925e-05,
+          "conditional_95_interval": [
+            -8.313999591153865e-05,
+            1.627510806570636e-05
+          ],
+          "cases": 384,
+          "groups": 384
+        },
+        "domains": {
+          "web": {
+            "gain": -4.849849963850517e-06,
+            "conditional_95_interval": [
+              -7.736066578558631e-05,
+              6.87913609445978e-05
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "math": {
+            "gain": -9.841698940205035e-05,
+            "conditional_95_interval": [
+              -0.00019728318656996312,
+              -5.83267421805372e-06
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "code": {
+            "gain": -5.879626933680271e-05,
+            "conditional_95_interval": [
+              -0.00013351529668959028,
+              1.2775597290137768e-05
+            ],
+            "cases": 128,
+            "groups": 128
+          }
+        }
+      },
+      "strata": {
+        "before_first_slot": {
+          "broad": {
+            "gain": 0.0,
+            "conditional_95_interval": [
+              0.0,
+              0.0
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.248046875,
+          "contribution_to_broad_gain": 0.0
+        },
+        "slot_prediction": {
+          "broad": {
+            "gain": -8.563888998009973e-05,
+            "conditional_95_interval": [
+              -0.0003675882597551894,
+              0.00021508899687322708
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -5.405438031536036e-05,
+              "conditional_95_interval": [
+                -0.00039926503185282457,
+                0.0002739745006162917
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -0.00036436155150987304,
+              "conditional_95_interval": [
+                -0.001096454722212703,
+                0.00035376303307011993
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 9.833024255545553e-05,
+              "conditional_95_interval": [
+                -0.0006454348059526938,
+                0.0008271903555499612
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.0078125,
+          "contribution_to_broad_gain": -6.690538279695291e-07
+        },
+        "after_1_to_8": {
+          "broad": {
+            "gain": 0.00019002427909147932,
+            "conditional_95_interval": [
+              -0.00037291134352210136,
+              0.0007636839530153233
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.00026628845639168713,
+              "conditional_95_interval": [
+                -0.0006002992818560759,
+                0.0011508673319648546
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -5.5050255415523e-05,
+              "conditional_95_interval": [
+                -0.0008925422561819828,
+                0.0008414860096634648
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.00020630628169785817,
+              "conditional_95_interval": [
+                -0.000519395335254506,
+                0.0009320541354312477
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.046875,
+          "contribution_to_broad_gain": 8.907388082413093e-06
+        },
+        "after_9_to_32": {
+          "broad": {
+            "gain": -6.658224114267518e-05,
+            "conditional_95_interval": [
+              -0.00022423249835041602,
+              9.632236757315231e-05
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -6.57672431714218e-06,
+              "conditional_95_interval": [
+                -0.0002443168797795221,
+                0.00023974112646324276
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -6.664670059366686e-05,
+              "conditional_95_interval": [
+                -0.0003525418534900935,
+                0.00021020772637846244
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": -0.0002465343321682825,
+              "conditional_95_interval": [
+                -0.000488560925947892,
+                -1.4743047306936212e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.140625,
+          "contribution_to_broad_gain": -9.363127660688698e-06
+        },
+        "after_33_to_127": {
+          "broad": {
+            "gain": -5.969339431454788e-05,
+            "conditional_95_interval": [
+              -0.0001177572883222594,
+              3.02080735790193e-07
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -2.8716857763867124e-05,
+              "conditional_95_interval": [
+                -0.0001131435713044108,
+                5.270272364463491e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -0.00015021853963158367,
+              "conditional_95_interval": [
+                -0.0002870281771495847,
+                -1.9076088380998573e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": -6.209785864955433e-05,
+              "conditional_95_interval": [
+                -0.000156907060602407,
+                3.363760847891801e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.556640625,
+          "contribution_to_broad_gain": -3.322776831962138e-05
+        }
+      }
+    },
+    "constant-both": {
+      "full": {
+        "broad": {
+          "gain": 0.0015482516825624513,
+          "conditional_95_interval": [
+            0.001218249845481818,
+            0.001926095102074585
+          ],
+          "cases": 384,
+          "groups": 384
+        },
+        "domains": {
+          "web": {
+            "gain": 0.0017996305277514502,
+            "conditional_95_interval": [
+              0.0012889485071015728,
+              0.002363845072985115
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "math": {
+            "gain": 0.00146523948067534,
+            "conditional_95_interval": [
+              0.0010073199894087615,
+              0.001958740157907557
+            ],
+            "cases": 128,
+            "groups": 128
+          },
+          "code": {
+            "gain": 0.000877127348882567,
+            "conditional_95_interval": [
+              0.00045126218294696543,
+              0.0013051470788816295
+            ],
+            "cases": 128,
+            "groups": 128
+          }
+        }
+      },
+      "strata": {
+        "before_first_slot": {
+          "broad": {
+            "gain": 0.0,
+            "conditional_95_interval": [
+              0.0,
+              0.0
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.0,
+              "conditional_95_interval": [
+                0.0,
+                0.0
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.248046875,
+          "contribution_to_broad_gain": 0.0
+        },
+        "slot_prediction": {
+          "broad": {
+            "gain": 0.20248770437894115,
+            "conditional_95_interval": [
+              0.1606038246722075,
+              0.2501850392679601
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.2309194339672329,
+              "conditional_95_interval": [
+                0.16714171037148443,
+                0.30399090357476255
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": 0.19978366661837033,
+              "conditional_95_interval": [
+                0.1420245163531162,
+                0.2634187192637775
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.11989655337463656,
+              "conditional_95_interval": [
+                0.06639188827230216,
+                0.17519878475745748
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.0078125,
+          "contribution_to_broad_gain": 0.0015819351904604777
+        },
+        "after_1_to_8": {
+          "broad": {
+            "gain": 0.00019002427909147932,
+            "conditional_95_interval": [
+              -0.00037291134352210136,
+              0.0007636839530153233
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": 0.00026628845639168713,
+              "conditional_95_interval": [
+                -0.0006002992818560759,
+                0.0011508673319648546
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -5.5050255415523e-05,
+              "conditional_95_interval": [
+                -0.0008925422561819828,
+                0.0008414860096634648
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": 0.00020630628169785817,
+              "conditional_95_interval": [
+                -0.000519395335254506,
+                0.0009320541354312477
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.046875,
+          "contribution_to_broad_gain": 8.907388082413093e-06
+        },
+        "after_9_to_32": {
+          "broad": {
+            "gain": -6.658224114267518e-05,
+            "conditional_95_interval": [
+              -0.00022423249835041602,
+              9.632236757315231e-05
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -6.57672431714218e-06,
+              "conditional_95_interval": [
+                -0.0002443168797795221,
+                0.00023974112646324276
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -6.664670059366686e-05,
+              "conditional_95_interval": [
+                -0.0003525418534900935,
+                0.00021020772637846244
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": -0.0002465343321682825,
+              "conditional_95_interval": [
+                -0.000488560925947892,
+                -1.4743047306936212e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.140625,
+          "contribution_to_broad_gain": -9.363127660688698e-06
+        },
+        "after_33_to_127": {
+          "broad": {
+            "gain": -5.969339431454788e-05,
+            "conditional_95_interval": [
+              -0.0001177572883222594,
+              3.02080735790193e-07
+            ],
+            "cases": 384,
+            "groups": 384
+          },
+          "domains": {
+            "web": {
+              "gain": -2.8716857763867124e-05,
+              "conditional_95_interval": [
+                -0.0001131435713044108,
+                5.270272364463491e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "math": {
+              "gain": -0.00015021853963158367,
+              "conditional_95_interval": [
+                -0.0002870281771495847,
+                -1.9076088380998573e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            },
+            "code": {
+              "gain": -6.209785864955433e-05,
+              "conditional_95_interval": [
+                -0.000156907060602407,
+                3.363760847891801e-05
+              ],
+              "cases": 128,
+              "groups": 128
+            }
+          },
+          "target_fraction": 0.556640625,
+          "contribution_to_broad_gain": -3.322776831962138e-05
+        }
+      }
+    }
+  },
+  "loss_scale_interaction": {
+    "generated": 1.248581765977974e-06,
+    "constant": -1.6351708418405053e-06
+  },
+  "workers": [
+    {
+      "status": "COMPLETE_CHUNKED_PATH_WORKER",
+      "checks": [
+        {
+          "family": "generated",
+          "index": 0,
+          "errors": {
+            "authentic_cached": 3.197442310920451e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.1316282072803006e-14
+          }
+        },
+        {
+          "family": "generated",
+          "index": 128,
+          "errors": {
+            "authentic_cached": 2.842170943040401e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.4868995751603507e-14
+          }
+        },
+        {
+          "family": "generated",
+          "index": 256,
+          "errors": {
+            "authentic_cached": 2.842170943040401e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 3.197442310920451e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 0,
+          "errors": {
+            "authentic_cached": 2.4868995751603507e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 1.7763568394002505e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 128,
+          "errors": {
+            "authentic_cached": 2.842170943040401e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.4868995751603507e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 256,
+          "errors": {
+            "authentic_cached": 2.4868995751603507e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.842170943040401e-14
+          }
+        }
+      ],
+      "wall_seconds": 248.54333519935608,
+      "peak_rss_bytes": 2285838336
+    },
+    {
+      "status": "COMPLETE_CHUNKED_PATH_WORKER",
+      "checks": [
+        {
+          "family": "generated",
+          "index": 2,
+          "errors": {
+            "authentic_cached": 2.1316282072803006e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.4868995751603507e-14
+          }
+        },
+        {
+          "family": "generated",
+          "index": 130,
+          "errors": {
+            "authentic_cached": 3.197442310920451e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.4868995751603507e-14
+          }
+        },
+        {
+          "family": "generated",
+          "index": 258,
+          "errors": {
+            "authentic_cached": 2.842170943040401e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.842170943040401e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 2,
+          "errors": {
+            "authentic_cached": 2.1316282072803006e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.1316282072803006e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 130,
+          "errors": {
+            "authentic_cached": 2.4868995751603507e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.842170943040401e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 258,
+          "errors": {
+            "authentic_cached": 2.842170943040401e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.842170943040401e-14
+          }
+        }
+      ],
+      "wall_seconds": 221.8086314201355,
+      "peak_rss_bytes": 2308329472
+    },
+    {
+      "status": "COMPLETE_CHUNKED_PATH_WORKER",
+      "checks": [
+        {
+          "family": "generated",
+          "index": 4,
+          "errors": {
+            "authentic_cached": 3.197442310920451e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.4868995751603507e-14
+          }
+        },
+        {
+          "family": "generated",
+          "index": 132,
+          "errors": {
+            "authentic_cached": 3.197442310920451e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.842170943040401e-14
+          }
+        },
+        {
+          "family": "generated",
+          "index": 260,
+          "errors": {
+            "authentic_cached": 3.197442310920451e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.842170943040401e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 4,
+          "errors": {
+            "authentic_cached": 2.842170943040401e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.1316282072803006e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 132,
+          "errors": {
+            "authentic_cached": 2.842170943040401e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 3.552713678800501e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 260,
+          "errors": {
+            "authentic_cached": 2.842170943040401e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.4868995751603507e-14
+          }
+        }
+      ],
+      "wall_seconds": 238.61924266815186,
+      "peak_rss_bytes": 2304659456
+    },
+    {
+      "status": "COMPLETE_CHUNKED_PATH_WORKER",
+      "checks": [
+        {
+          "family": "generated",
+          "index": 6,
+          "errors": {
+            "authentic_cached": 2.1316282072803006e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.1316282072803006e-14
+          }
+        },
+        {
+          "family": "generated",
+          "index": 134,
+          "errors": {
+            "authentic_cached": 2.1316282072803006e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.1316282072803006e-14
+          }
+        },
+        {
+          "family": "generated",
+          "index": 262,
+          "errors": {
+            "authentic_cached": 3.552713678800501e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.842170943040401e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 6,
+          "errors": {
+            "authentic_cached": 2.4868995751603507e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.842170943040401e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 134,
+          "errors": {
+            "authentic_cached": 2.842170943040401e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.1316282072803006e-14
+          }
+        },
+        {
+          "family": "constant",
+          "index": 262,
+          "errors": {
+            "authentic_cached": 3.197442310920451e-14,
+            "boundary_only": 0.0,
+            "memory_prefix": 0.0,
+            "both_ordinary": 2.842170943040401e-14
+          }
+        }
+      ],
+      "wall_seconds": 245.9757137298584,
+      "peak_rss_bytes": 2280890368
+    }
+  ],
+  "checkpoint_sha256": {
+    "generated": "a342a3db0dee8e113357c1be45c9e0518f4fad454f3d226c6071dcf9ac860c5a",
+    "constant": "e0256d039595c8a3b0a457198951da5aaa0d566f63f9f9be9c235ad890b2fe60"
+  },
+  "private_score_sha256": {
+    "PRIVATE-worker0-scores.json": "d6b4aa220b2b497dcb1f0066ce4f57e077799723c1cd53f45fb6886081ccc5ad",
+    "PRIVATE-worker3-scores.json": "2ad7e4add13ec394ac8b338dde8683bdb333cb98152b7c9e822ad5eb167f23f3",
+    "PRIVATE-worker1-scores.json": "3d0acbef718c8ef88da2cb3591cbf242a101fa2df9822372c4320e8497c0c69f",
+    "PRIVATE-worker2-scores.json": "2ae116124ecf579c732209882b59f8a48e41b5537f51d0703a01912f311d3b3c"
+  },
+  "wall_seconds": 254.44933247566223,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "protected_groups_scored": 0,
+  "terminal_alpha_spent": 0,
+  "automatic_promotion": false,
+  "scope": "Exploratory two-factor intervention on saved selected checkpoints and all reused DEV. Off-distribution path removal, not a new trained predictor, reasoning result, success gate or efficiency claim. No fit, reselection, fresh reserve or promotion."
+}
