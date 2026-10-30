@@ -1,7 +1,8 @@
 # Autonomous computation during pretraining
 
-**Current work, October 30:** a separately registered learning-exposure pilot is
-running on all16chips. One new seed starts the existing generated-state,
+**Current work, October 30:** all three billion-target exposure fits and their
+mature numerical audits are complete; exact sequential evaluation is active.
+One new seed starts the existing generated-state,
 strongest tied ordinary and trained-pause models from random initialization,
 with1.000B authentic targets each and unchanged uniform NTP. A3.783B ordinary
 work control runs only if both equal-data broad and arithmetic gates pass.

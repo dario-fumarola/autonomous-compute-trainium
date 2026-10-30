@@ -1,3 +1,23 @@
+## October 30, 2026, 04:44 UTC — all billion-target fits audited; exact scoring active
+
+All three equal-data conditions complete 15,287 updates and 1,000,060,368
+authentic targets. The generated model's mature K2/K3 gradient errors are
+0.010663%/0.010815% overall, with a maximum family error of 0.015591%.
+Full-state restoration is exact, all 64 replicas agree, and its initial weights
+match the trained-pause control. Its independent CPU audits take 116.251 seconds.
+
+The three complete Native attempts cost 52.734668 assigned chip-hours, including
+startup and closure. The generated model uses 19.231722 of those chip-hours;
+this descriptive cross-run timing is not a controlled hardware-time comparison.
+Its nominal matrix work remains 3.782417 times the equal-data ordinary control.
+
+Exact sequential CPU readout is active on the unchanged 384-window broad DEV
+panel, followed by all 259 source-audited arithmetic cases. No quality result or
+advancement decision is available yet. The conditional longer ordinary fit is
+not launched unless every original gate passes. Both fresh reserves remain
+sealed and the original queue deadline is unchanged.
+[Latent completion receipt](results/latent_exposure_20261030/learning-v1/latent-completion.json).
+
 ## October 30, 2026, 03:32 UTC — both billion-target controls audited; latent fit active
 
 The pause control completes the same 15,287 updates and 1,000,060,368 authentic
