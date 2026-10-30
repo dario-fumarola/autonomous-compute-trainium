@@ -23,7 +23,7 @@ PUBLIC=Path('results/gradient_bucketing_20261030/native-v1')
 def prepare(root):
     if managed_running():raise RuntimeError('Active scientific owner must close first')
     current=Path('results/latent_exposure_20261030/work-recovery-v1/report.json')
-    if not current.exists() or json.loads(current.read_text())['status'].startswith('RUNNING'):
+    if not current.exists() or json.loads(current.read_text())['status']!='COMPLETE_LATENT_WORK_RECOVERY':
         raise RuntimeError('Complete current scientific controller before registration')
     gate=Path('results/gradient_bucketing_20261030/mature-cpu-v2/report.json')
     if json.loads(gate.read_text())['status']!='PASS_BUCKETED_MATURE_CPU':raise AssertionError('Mature CPU parity required')
@@ -38,7 +38,8 @@ def prepare(root):
         if file_sha256(data/name)!=report['files'][name]:raise AssertionError('Accepted TRAIN bytes changed')
     files={str(f):file_sha256(f) for d in ('compute_trainium','scripts','configs') for f in Path(d).rglob('*.py')}
     for name in ('scripts/run_native_isolated.sh','docs/BUCKETED_NATIVE_QUALIFICATION_20261030.md',
-                 'tests/test_bucketed_gradient_reduction.py','tests/test_bucketed_benchmark.py'):
+                 'tests/test_bucketed_gradient_reduction.py','tests/test_bucketed_benchmark.py',
+                 'tests/test_bucketed_native_audit.py'):
         files[name]=file_sha256(name)
     worker,host=split_snapshot_sources(files);names=[ID+'-'+v for v in ('warm','replay')]
     projection=project_snapshot_inodes(Path('.'),2)

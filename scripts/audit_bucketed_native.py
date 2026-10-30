@@ -23,7 +23,7 @@ def main(a):
     if file_sha256(a.plan)!=a.plan_sha:raise AssertionError('Frozen plan changed')
     a.output.mkdir(exist_ok=False);parent=a.root/'runs'/p['warm_phase']
     data=ProbabilitySources(a.root/p['data_relative']);model=make_model(p)
-    records={};result=dict(status='STOPPED_BUCKETED_NATIVE_CPU_AUDIT')
+    records={};result=dict(status='STOPPED_BUCKETED_NATIVE_CPU_AUDIT');cpu_steps=0
     def check_bound():
         if time.time()-started>p['cpu_phase_seconds_limit'] or resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024>16*1024**3:
             raise RuntimeError('CPU audit bound')
@@ -76,7 +76,7 @@ def main(a):
                 before={n:v.detach().clone() for n,v in model.named_parameters()}
                 opt=torch.optim.AdamW(parameter_groups(model,model.embedding.weight,decay=.1),
                     lr=p['lr'],betas=(.9,.95),eps=1e-8,foreach=False,fused=False)
-                torch.nn.utils.clip_grad_norm_(model.parameters(),1.,error_if_nonfinite=True);opt.step()
+                torch.nn.utils.clip_grad_norm_(model.parameters(),1.,error_if_nonfinite=True);opt.step();cpu_steps+=1
                 reference=dict(model=model.state_dict(),optimizer=opt.state_dict())
                 for trial in trials:
                     actual=torch.load(parent/f'PRIVATE-{trial}-u1.pt',map_location='cpu',mmap=True,weights_only=False)
@@ -95,7 +95,7 @@ def main(a):
     finally:
         u=resource.getrusage(resource.RUSAGE_SELF)
         result.update(wall_seconds=time.time()-started,cpu_seconds=u.ru_utime+u.ru_stime,peak_rss_bytes=u.ru_maxrss*1024,
-            assigned_chips=0,scientific_optimizer_updates=0,disposable_cpu_optimizer_updates=1)
+            assigned_chips=0,scientific_optimizer_updates=0,disposable_cpu_optimizer_updates=cpu_steps)
         write_state(a.output/'report.json',result)
 
 
