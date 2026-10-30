@@ -1,0 +1,82 @@
+{
+  "status": "PASS_INDEPENDENT_CONTENT_REAGGREGATION",
+  "utc": "2026-10-30T06:10:00.491347+00:00",
+  "conditions": {
+    "authentic": {
+      "broad_nll": 2.8017003917835788,
+      "domains": {
+        "web": 3.271924318883754,
+        "math": 2.507834059157795,
+        "code": 1.6848949431088376
+      },
+      "arithmetic_means": {
+        "answer_nll": 2.2558948405177026,
+        "first_nll": 2.1565071342091873,
+        "exact_prefix_correct": 0.020073204802268842
+      },
+      "broad_views": 384,
+      "arithmetic_cases": 259,
+      "answer_tokens": 810,
+      "exact_answer_prefix_count": 5
+    },
+    "current_only": {
+      "broad_nll": 3.438539990839964,
+      "domains": {
+        "web": 3.891707665051267,
+        "math": 3.1792548543379935,
+        "code": 2.338322104708024
+      },
+      "arithmetic_means": {
+        "answer_nll": 2.5789859049385164,
+        "first_nll": 2.2191861946690916,
+        "exact_prefix_correct": 0.01216733975354665
+      },
+      "broad_views": 384,
+      "arithmetic_cases": 259,
+      "answer_tokens": 810,
+      "exact_answer_prefix_count": 3
+    },
+    "lagged": {
+      "broad_nll": 6.413300613294455,
+      "domains": {
+        "web": 7.181930937208245,
+        "math": 5.551004732728421,
+        "code": 4.96970552211912
+      },
+      "arithmetic_means": {
+        "answer_nll": 3.265869657212928,
+        "first_nll": 3.5660650131884566,
+        "exact_prefix_correct": 0.0
+      },
+      "broad_views": 384,
+      "arithmetic_cases": 259,
+      "answer_tokens": 810,
+      "exact_answer_prefix_count": 0
+    },
+    "constant": {
+      "broad_nll": 9.47670737044349,
+      "domains": {
+        "web": 9.262484153295546,
+        "math": 9.50150852454051,
+        "code": 10.094575867790304
+      },
+      "arithmetic_means": {
+        "answer_nll": 11.218650693277544,
+        "first_nll": 11.413017481212648,
+        "exact_prefix_correct": 0.0
+      },
+      "broad_views": 384,
+      "arithmetic_cases": 259,
+      "answer_tokens": 810,
+      "exact_answer_prefix_count": 0
+    }
+  },
+  "scope": "Standard-library reaggregation of all saved per-view and per-case means, counts and pairings; no new scoring, selection or interval claim.",
+  "checks": {
+    "all_2572_rows_verified": true,
+    "pairing_exact": true,
+    "maximum_reaggregation_error": 1.3322676295501878e-15,
+    "optimizer_updates": 0,
+    "protected_groups_scored": 0
+  }
+}
