@@ -14,9 +14,11 @@ PUBLIC=Path('results/closed_duplicate_storage_20261030')
 GIB=1024**3
 
 
-def main(root):
-    start=time.time();out=root/ID;screen=root/'closed-legacy-duplicate-screen-20261030-v1'
-    if out.exists() or PUBLIC.exists():raise FileExistsError('Preserve every maintenance attempt')
+def main(root, *, recovery=False):
+    start=time.time();identity=ID+('-owned-recovery-v1' if recovery else '')
+    out=root/identity;screen=root/'closed-legacy-duplicate-screen-20261030-v1'
+    public=PUBLIC/'owned-recovery-v1' if recovery else PUBLIC
+    if out.exists() or public.exists():raise FileExistsError('Preserve every maintenance attempt')
     active=root/'latent-exposure-work-recovery-v1';active_plan=json.loads((active/'plan.json').read_text())
     if (active/'report.json').exists():raise RuntimeError('Known active stage already closed')
     # Discover every dependency by schema, not an assumed archive filename.
@@ -39,6 +41,16 @@ def main(root):
             if total+child['bytes']>12*GIB:continue
             selected.append(dict(parent=parent,child=child));parents.add(parent['file']);total+=child['bytes']
     selected.sort(key=lambda r:(r['child']['bytes'],r['child']['file']))
+    prior=None
+    if recovery:
+        prior=json.loads((root/ID/'plan.json').read_text());failure=json.loads((root/ID/'report.json').read_text())
+        if failure['error_type']!='PermissionError' or failure['files']!=0 or os.geteuid()!=0:
+            raise AssertionError('Zero-release permission failure and local ownership recovery required')
+        # Reconstructing a candidate scope is only a dependency safety check;
+        # actual membership remains exactly the failed frozen selection.
+        def pairs(rows):return [(r['parent']['file'],r['child']['file']) for r in rows]
+        if pairs(selected)!=pairs(prior['selected']):raise AssertionError('Historical selection changed')
+        selected=prior['selected']
     if not selected or parents&{r['child']['file'] for r in selected}:raise AssertionError('Nonempty acyclic exact sharing required')
     for pair in selected:
         for row in pair.values():
@@ -46,13 +58,17 @@ def main(root):
             if not f.is_file() or f.is_symlink() or f.stat().st_size!=row['bytes'] or json.loads(c.read_text()).get('exit_code')!=0:
                 raise AssertionError('Original successful closure and unchanged regular file required')
             row['closure_sha256']=digest_file(c)
-    plan=dict(identity=ID,registered_unix=start,absolute_deadline_unix=start+1200,selected=selected,
+    plan=dict(identity=identity,registered_unix=start,absolute_deadline_unix=start+1200,selected=selected,
         source_sha256={f:digest_file(f) for f in ('scripts/archive_closed_duplicate_checkpoints.py','compute_trainium/lossless_zip_delta.py','docs/CLOSED_DUPLICATE_ARCHIVE_20261030.md')},
         metadata_sha256=digest_file(screen/'PRIVATE-groups.json'),active_plan_sha256=digest_file(active/'plan.json'),
         raw_dependency_parents_must_remain=sorted(parents),existing_archive_dependencies=len(protected),
         maximum_original_bytes=12*GIB,active_remaining_artifact_allowance_bytes=int(1.5*GIB),
         scope=Path('docs/CLOSED_DUPLICATE_ARCHIVE_20261030.md').read_text())
-    out.mkdir(mode=0o700);PUBLIC.mkdir(parents=True);write_state(out/'plan.json',plan)
+    if recovery:
+        plan.update(absolute_deadline_unix=prior['absolute_deadline_unix'],
+            recovery_of=dict(plan_sha256=digest_file(root/ID/'plan.json'),report_sha256=digest_file(root/ID/'report.json')))
+        name='docs/CLOSED_DUPLICATE_OWNERSHIP_RECOVERY_20261030.md';plan['source_sha256'][name]=digest_file(name)
+    out.mkdir(mode=0o700);public.mkdir(parents=True);write_state(out/'plan.json',plan)
     result=dict(status='STOPPED_CLOSED_DUPLICATE_ARCHIVE');records=[]
     def guard(extra=0):
         available=next(int(v.split()[1])*1024 for v in Path('/proc/meminfo').read_text().splitlines() if v.startswith('MemAvailable:'))
@@ -91,9 +107,10 @@ def main(root):
             wall_seconds=time.time()-start,assigned_chips=0,optimizer_updates=0,source_bytes_removed=0,
             every_completed_original_binary_reconstructs=True,raw_dependency_parents_retained=True,
             free_bytes_after=shutil.disk_usage(root).free,plan_sha256=digest_file(out/'plan.json'))
-        write_state(out/'report.json',result);write_state(PUBLIC/'report.json',{k:v for k,v in result.items() if k!='records'})
+        write_state(out/'report.json',result);write_state(public/'report.json',{k:v for k,v in result.items() if k!='records'})
         print(json.dumps({k:v for k,v in result.items() if k!='records'}),flush=True)
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);main(p.parse_args().root)
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--recovery',action='store_true')
+    a=p.parse_args();main(a.root,recovery=a.recovery)
