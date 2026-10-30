@@ -1,3 +1,26 @@
+## October 30, 2026, 09:54 UTC — cooldown and saved-model dependency readout active
+
+The all16-chip ordinary control has passed3.59B of3.783B targets and is in its
+original final cooldown. Its955 bound files remain unchanged. The complete
+matched-work quality result is still pending final audits and exact readouts.
+
+A frozen repeat of the original282-case code-dependency diagnostic on the1B
+checkpoints is active on CPU. Its first attempt is stopped after422.503seconds
+because an unused prospective helper was edited inside its broad source list.
+Original bytes are restored; the Native trainer and actual readout engines
+were untouched. A separately recorded rerun preserves every scientific field
+and the original deadline. All232 recovery-bound files currently match.
+
+Saved elementary scores also remain weak for small operands:6/77 correct for
+latent and4/77 for ordinary when both operands have magnitude below10. This is
+a post-hoc descriptive partition, not a new gate. The source-exposure factorial
+is implemented and has14 focused checks, but no fit is admitted. Both fresh
+reserves remain unscored; terminal alpha remains zero.
+[Code readout](docs/LATENT_LEARNING_CODE_READOUT_20261030.md) ·
+[Recovery](docs/LATENT_CODE_SOURCE_RECOVERY_20261030.md) ·
+[Operand-size breakdown](results/primitive_arithmetic_20261030/operand-size-v4/REPORT.md) ·
+[Prospective exposure test](docs/CALCULATION_EXPOSURE_FACTORIAL_20261030.md).
+
 ## October 30, 2026, 09:22 UTC — closed duplicates archived; ordinary control continues
 
 Thirteen historical duplicate checkpoints now have byte-exact restoration
