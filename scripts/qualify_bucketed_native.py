@@ -132,7 +132,14 @@ def main(a):
     dist.barrier();dist.destroy_process_group()
 
 
-if __name__=='__main__':
+def parser():
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    # The common isolated launcher supplies this compatibility argument. The
+    # registered ProbabilitySources path remains the sole qualification data.
+    p.add_argument('--corpus',type=Path)
     p.add_argument('--plan',type=Path,required=True);p.add_argument('--plan-sha',required=True);p.add_argument('--comm-port',type=int,required=True)
-    p.add_argument('--mode',choices=['warm','replay'],required=True);p.add_argument('--parent',type=Path);main(p.parse_args())
+    p.add_argument('--mode',choices=['warm','replay'],required=True);p.add_argument('--parent',type=Path)
+    return p
+
+
+if __name__=='__main__':main(parser().parse_args())
