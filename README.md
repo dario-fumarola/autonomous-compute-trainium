@@ -1,5 +1,24 @@
 # Autonomous computation during pretraining
 
+**Current work, October 30:** a separately registered learning-exposure pilot is
+running on all16chips. One new seed starts the existing generated-state,
+strongest tied ordinary and trained-pause models from random initialization,
+with1.000B authentic targets each and unchanged uniform NTP. A3.783B ordinary
+work control runs only if both equal-data broad and arithmetic gates pass.
+This tests exposure; it does not promote an earlier failed gate or claim a
+fully retuned frontier. [Frozen design](docs/LATENT_LEARNING_EXPOSURE_20261030.md) ·
+[Live status](STATUS.md).
+
+**Latest completed diagnostic:** on353 authentic direct calculations, latent
+gains over ordinary are−0.010957,+0.068950 and−0.045059nats in the three existing
+seeds. Only one seed clears both controls; mean gain is0.004311, with substantial
+seed variation and near-floor accuracy. No reproducible arithmetic lead follows.
+The longer-prefix source audit excludes94 expressions that would reappear in
+training, freezing a separate259-case subset before the new fits. Both fresh
+confirmation reserves remain sealed.
+[Complete arithmetic comparison](results/direct_arithmetic_20261030/readout-v1/REPORT.md) ·
+[Prospective source audit](results/latent_exposure_20261030/source-audit-v1/REPORT.md).
+
 The persistent latent model learns useful generated states from random
 initialization, but its useful margin over the strongest ordinary model
 **does not repeat reliably across the two new development seeds**.
