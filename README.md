@@ -1,18 +1,18 @@
 # Autonomous computation during pretraining
 
-**Current result, October 30:** the billion-target generated-state model passes
-both registered equal-data development gates. Broad NLL is **2.801700**, versus
-**2.832195 ordinary** and **2.901458 trained pauses**. On 259 source-audited natural
-arithmetic cases, answer-token gains are **0.053447** and **0.051271 nats**.
-All mature numerical checks pass. This is one from-scratch development seed;
-exact answer accuracy remains about 2%, and ordinary wins the hardest operation
-bin. It is not yet a reasoning or training-compute efficiency result.
+**Current result, October 30:** the completed matched-training-work control
+wins. The generated-state model scores **2.801700 broad NLL**, versus
+**2.691525** for the ordinary model trained on 3.783B targets at the same nominal
+matrix-work budget. Hard arithmetic answer NLL is **2.255895 versus 2.167148**.
+The registered advancement gate fails. All mature numerical audits pass.
+[Complete matched-work comparison](results/latent_exposure_20261030/work-recovery-v1/REPORT.md).
 
-The already registered **3.783B-target matched-work ordinary control is running
-on all 16 chips** under a launch-only recovery after an identifier rejection
-before any worker started. Its recipe and original deadline are unchanged.
-Both fresh confirmation reserves remain sealed.
-[Complete equal-data result](results/latent_exposure_20261030/learning-v1/REPORT.md) ·
+The latent model's equal-data gain remains: at 1B targets it beats ordinary by
+**0.030495 broad nats** and **0.053447 arithmetic answer nats**. This is one
+from-scratch development seed, not a training-efficiency or reliable-reasoning
+result. Only 5/259 harder answers are correct. Both fresh confirmation reserves
+remain sealed; no larger fit or confirmation follows automatically.
+[Equal-data result](results/latent_exposure_20261030/learning-v1/REPORT.md) ·
 [Frozen design](docs/LATENT_LEARNING_EXPOSURE_20261030.md) · [Live status](STATUS.md).
 
 **Completed attribution:** removing past latent-memory access from the trained

@@ -1,3 +1,31 @@
+## October 30, 2026, 10:29 UTC — matched-work comparison closes negative
+
+The audited 3.783B-target ordinary control scores **2.691525** broad NLL versus
+**2.801700** latent at matched nominal matrix work. On the 259 source-audited
+arithmetic cases, answer NLL is **2.167148** ordinary versus **2.255895** latent.
+Ordinary wins every domain and operation-count bin. The registered advancement
+gate fails. The equal-data benefit remains valid; no scaling or confirmation
+is admitted. Both fresh reserves stay sealed and terminal alpha is zero.
+
+All 57,822 updates, final cooldown and mature checks complete. Maximum gradient
+family discrepancy is 0.031029%. Independent reaggregation verifies all 1,929
+readout rows within 8.89e-16. The recovery assigns 79.496488 chip-hours; retained
+CPU diagnostics and the earlier zero-update launch failure are separately
+recorded. Timings include host contention and are not a hardware-matched claim.
+The unchanged elementary panel also favors longer ordinary answer loss,
+2.311258 versus 2.480013, while accuracy remains 14/256 versus 13/256.
+
+The separate disposable gradient-batching ABBA qualification is now registered
+after scientific closure. Its first launch stops before updates because its
+CLI omits the launcher-provided corpus argument; the 0.015828 assigned chip-hours
+remain recorded. A bounded CLI-only recovery is being prepared. Thirty-two focused CPU
+checks pass across batching and the prospective exposure test. No optimization
+has entered scientific training. The four-fit authentic-calculation exposure
+factorial remains prepared but unregistered; it will use the existing optimizer.
+[Matched work](results/latent_exposure_20261030/work-recovery-v1/REPORT.md) ·
+[Elementary comparison](results/primitive_arithmetic_20261030/matched-work-v1/REPORT.md) ·
+[Qualification](docs/BUCKETED_NATIVE_QUALIFICATION_20261030.md).
+
 ## October 30, 2026, 10:00 UTC — code-dependency readout does not pass
 
 The completed1B code diagnostic gives long bracket-type NLL0.259965 for latent,
