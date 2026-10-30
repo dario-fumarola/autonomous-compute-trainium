@@ -1,3 +1,31 @@
+## October 30, 2026, 06:49 UTC — numerical and source diagnostics close; work control continues
+
+The all-16-chip ordinary control has passed 1.16B of its frozen 3.783B authentic
+targets. Its scientific fields, all 955 bound source files and original deadline
+are unchanged. There is no completed matched-work quality score yet.
+
+The original six-TRAIN-window consistency check at the latent 1B endpoint finds
+K2/exact loss shifts of 0.000645/0.003177/0.006087 nats on web/math/code. Web KL
+0.010705 narrowly fails the original 0.01 tolerance; that failure is retained.
+Published quality remains exact sequential. Removing a forward refinement costs
+about 0.03 TRAIN nats, so a cheaper solver cannot be assumed equivalent.
+
+A separate no-update credit diagnostic keeps every forward identical. Retaining
+only the last refinement's backward path cuts analytic matrix work by 30.31%,
+but changes body gradients by 28–29% and embedding gradients by 42–44%. Final-
+readout-only credit changes them more. Overall cosine hides the unchanged head.
+No shortened-gradient fit or claimed speedup follows automatically.
+
+The 10,000-document authored-doctest census has no closed multistep output under
+its bounded grammar. It does not create a code benchmark or justify selecting
+unverified examples. Eleven focused gradient/parser tests pass. These CPU checks
+total 104.257 wall seconds, zero chips/updates, and no held-out/reserve reads.
+Removing the clean merged diagnostic checkout recovers 4,999 inodes with all
+scientific artifacts and active sources preserved. Fresh reserves stay sealed.
+[Consistency](results/latent_exposure_20261030/convergence-v1/REPORT.md) ·
+[Gradient credit](results/latent_exposure_20261030/credit-diagnostic-v1/REPORT.md) ·
+[Code-source census](results/authored_code_targets_20261030/doctest-census-v1/REPORT.md).
+
 ## October 30, 2026, 06:14 UTC — generated-state attribution completes
 
 The saved-weight diagnostic completes on every frozen broad window and arithmetic

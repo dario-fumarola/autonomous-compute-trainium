@@ -1,0 +1,365 @@
+{
+  "status": "COMPLETE_LATENT_CREDIT_DIAGNOSTIC",
+  "rounds": {
+    "2": {
+      "rows": [
+        {
+          "domain": "web",
+          "index": 10000128,
+          "real_targets": 512,
+          "losses": {
+            "all": 3.613880157470703,
+            "1": 3.613880157470703,
+            "0": 3.613880157470703
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "web",
+          "index": 10000129,
+          "real_targets": 512,
+          "losses": {
+            "all": 3.7933237552642822,
+            "1": 3.7933237552642822,
+            "0": 3.7933237552642822
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "math",
+          "index": 10000144,
+          "real_targets": 512,
+          "losses": {
+            "all": 2.553990364074707,
+            "1": 2.553990364074707,
+            "0": 2.553990364074707
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "math",
+          "index": 10000152,
+          "real_targets": 512,
+          "losses": {
+            "all": 1.633488416671753,
+            "1": 1.633488416671753,
+            "0": 1.633488416671753
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "code",
+          "index": 10000136,
+          "real_targets": 512,
+          "losses": {
+            "all": 1.8487625122070312,
+            "1": 1.8487625122070312,
+            "0": 1.8487625122070312
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "code",
+          "index": 10000137,
+          "real_targets": 512,
+          "losses": {
+            "all": 1.9562021493911743,
+            "1": 1.9562021493911743,
+            "0": 1.9562021493911743
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        }
+      ],
+      "gradient_comparisons": {
+        "1": {
+          "all": {
+            "cosine": 0.9787738354723172,
+            "relative_l2_error": 0.20596537855953984,
+            "candidate_to_reference_norm_ratio": 0.9582809545043982,
+            "reference_l2": 1.256249732752345,
+            "candidate_l2": 1.2038401929978124
+          },
+          "embedding": {
+            "cosine": 0.9011643327001225,
+            "relative_l2_error": 0.43919429051236225,
+            "candidate_to_reference_norm_ratio": 0.8305330411253943,
+            "reference_l2": 0.213474235451943,
+            "candidate_l2": 0.17729740597182067
+          },
+          "body": {
+            "cosine": 0.9605822268076607,
+            "relative_l2_error": 0.2811345524667421,
+            "candidate_to_reference_norm_ratio": 0.9186912844759444,
+            "reference_l2": 0.8578097049156107,
+            "candidate_l2": 0.7880622996448532
+          },
+          "head": {
+            "cosine": 1.0,
+            "relative_l2_error": 0.0,
+            "candidate_to_reference_norm_ratio": 1.0,
+            "reference_l2": 0.8926111426545936,
+            "candidate_l2": 0.8926111426545936
+          }
+        },
+        "0": {
+          "all": {
+            "cosine": 0.9088440462840037,
+            "relative_l2_error": 0.4190357130250333,
+            "candidate_to_reference_norm_ratio": 0.8689889430188197,
+            "reference_l2": 1.256249732752345,
+            "candidate_l2": 1.091667127432135
+          },
+          "embedding": {
+            "cosine": 0.5531945437338561,
+            "relative_l2_error": 0.8438694019030425,
+            "candidate_to_reference_norm_ratio": 0.41851057777982104,
+            "reference_l2": 0.213474235451943,
+            "candidate_l2": 0.08934122562009822
+          },
+          "body": {
+            "cosine": 0.8228226389309496,
+            "relative_l2_error": 0.5766201333658643,
+            "candidate_to_reference_norm_ratio": 0.7252118129936652,
+            "reference_l2": 0.8578097049156107,
+            "candidate_l2": 0.6220937313054109
+          },
+          "head": {
+            "cosine": 1.0,
+            "relative_l2_error": 0.0,
+            "candidate_to_reference_norm_ratio": 1.0,
+            "reference_l2": 0.8926111426545936,
+            "candidate_l2": 0.8926111426545936
+          }
+        }
+      },
+      "matrix_work": {
+        "all": {
+          "forward_matmul_flops": 194649260032,
+          "differentiated_forward_matmul_flops": 194649260032,
+          "training_matmul_flops": 583947780096,
+          "scope": "Analytic matrix ledger only; same forwards, fewer backwards. Not a trained quality result, measured runtime or unchanged gradient."
+        },
+        "1": {
+          "forward_matmul_flops": 194649260032,
+          "differentiated_forward_matmul_flops": 120259084288,
+          "training_matmul_flops": 435167428608,
+          "scope": "Analytic matrix ledger only; same forwards, fewer backwards. Not a trained quality result, measured runtime or unchanged gradient."
+        },
+        "0": {
+          "forward_matmul_flops": 194649260032,
+          "differentiated_forward_matmul_flops": 68518150144,
+          "training_matmul_flops": 331685560320,
+          "scope": "Analytic matrix ledger only; same forwards, fewer backwards. Not a trained quality result, measured runtime or unchanged gradient."
+        }
+      }
+    },
+    "3": {
+      "rows": [
+        {
+          "domain": "web",
+          "index": 10000128,
+          "real_targets": 512,
+          "losses": {
+            "all": 3.612858295440674,
+            "1": 3.612858295440674,
+            "0": 3.612858295440674
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "web",
+          "index": 10000129,
+          "real_targets": 512,
+          "losses": {
+            "all": 3.792128324508667,
+            "1": 3.792128324508667,
+            "0": 3.792128324508667
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "math",
+          "index": 10000144,
+          "real_targets": 512,
+          "losses": {
+            "all": 2.545008897781372,
+            "1": 2.545008897781372,
+            "0": 2.545008897781372
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "math",
+          "index": 10000152,
+          "real_targets": 512,
+          "losses": {
+            "all": 1.6313456296920776,
+            "1": 1.6313456296920776,
+            "0": 1.6313456296920776
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "code",
+          "index": 10000136,
+          "real_targets": 512,
+          "losses": {
+            "all": 1.844430685043335,
+            "1": 1.844430685043335,
+            "0": 1.844430685043335
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        },
+        {
+          "domain": "code",
+          "index": 10000137,
+          "real_targets": 512,
+          "losses": {
+            "all": 1.9535117149353027,
+            "1": 1.9535117149353027,
+            "0": 1.9535117149353027
+          },
+          "logit_errors": {
+            "all": 0.0,
+            "1": 0.0,
+            "0": 0.0
+          }
+        }
+      ],
+      "gradient_comparisons": {
+        "1": {
+          "all": {
+            "cosine": 0.9780508210729905,
+            "relative_l2_error": 0.20943195095298905,
+            "candidate_to_reference_norm_ratio": 0.9569522267708763,
+            "reference_l2": 1.2572033139589784,
+            "candidate_l2": 1.2030835107967695
+          },
+          "embedding": {
+            "cosine": 0.9117473175419013,
+            "relative_l2_error": 0.4159610329562835,
+            "candidate_to_reference_norm_ratio": 0.8461214691061589,
+            "reference_l2": 0.21011416172571745,
+            "candidate_l2": 0.17778210319937313
+          },
+          "body": {
+            "cosine": 0.9585609214088876,
+            "relative_l2_error": 0.2881640079725046,
+            "candidate_to_reference_norm_ratio": 0.9152303831819826,
+            "reference_l2": 0.8619037969306452,
+            "candidate_l2": 0.7888405423308402
+          },
+          "head": {
+            "cosine": 1.0,
+            "relative_l2_error": 0.0,
+            "candidate_to_reference_norm_ratio": 1.0,
+            "reference_l2": 0.8908052854065661,
+            "candidate_l2": 0.8908052854065661
+          }
+        },
+        "0": {
+          "all": {
+            "cosine": 0.9093348365638452,
+            "relative_l2_error": 0.4181729758068255,
+            "candidate_to_reference_norm_ratio": 0.8674005703400179,
+            "reference_l2": 1.2572033139589784,
+            "candidate_l2": 1.0904988715613786
+          },
+          "embedding": {
+            "cosine": 0.5688367975840092,
+            "relative_l2_error": 0.8345081717269291,
+            "candidate_to_reference_norm_ratio": 0.427489031543463,
+            "reference_l2": 0.21011416172571745,
+            "candidate_l2": 0.08982149950969352
+          },
+          "body": {
+            "cosine": 0.8244824327947504,
+            "relative_l2_error": 0.5750368735449756,
+            "candidate_to_reference_norm_ratio": 0.7223125354495422,
+            "reference_l2": 0.8619037969306452,
+            "candidate_l2": 0.6225639168745617
+          },
+          "head": {
+            "cosine": 1.0,
+            "relative_l2_error": 0.0,
+            "candidate_to_reference_norm_ratio": 1.0,
+            "reference_l2": 0.8908052854065661,
+            "candidate_l2": 0.8908052854065661
+          }
+        }
+      },
+      "matrix_work": {
+        "all": {
+          "forward_matmul_flops": 246390194176,
+          "differentiated_forward_matmul_flops": 246390194176,
+          "training_matmul_flops": 739170582528,
+          "scope": "Analytic matrix ledger only; same forwards, fewer backwards. Not a trained quality result, measured runtime or unchanged gradient."
+        },
+        "1": {
+          "forward_matmul_flops": 246390194176,
+          "differentiated_forward_matmul_flops": 120259084288,
+          "training_matmul_flops": 486908362752,
+          "scope": "Analytic matrix ledger only; same forwards, fewer backwards. Not a trained quality result, measured runtime or unchanged gradient."
+        },
+        "0": {
+          "forward_matmul_flops": 246390194176,
+          "differentiated_forward_matmul_flops": 68518150144,
+          "training_matmul_flops": 383426494464,
+          "scope": "Analytic matrix ledger only; same forwards, fewer backwards. Not a trained quality result, measured runtime or unchanged gradient."
+        }
+      }
+    }
+  },
+  "wall_seconds": 26.134687185287476,
+  "worker_cpu_seconds": 384.379126,
+  "peak_rss_bytes": 4147933184,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "plan_sha256": "1696daafd086da78159b5a946b268afa37effd710bbae4e73064cc8ef88aa18b",
+  "scope": "TRAIN-only instantaneous gradient diagnostic. Forward identity does not establish equal optimization, quality or actual resource savings."
+}
