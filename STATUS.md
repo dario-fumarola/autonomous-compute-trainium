@@ -1,3 +1,24 @@
+## October 30, 2026, 05:40 UTC — CPU attribution recovery retains its original deadline
+
+The first CPU diagnostic is stopped after 319.997 seconds because its measured
+throughput projects beyond the one-hour cap, before any complete score file or
+quality comparison. All four parity checks pass; the failure is execution cost,
+not a scientific outcome. The stopped receipt remains on the diagnostic branch.
+
+Independent mature-weight checks qualify batch eight with 16 CPU threads,
+maximum log-probability discrepancy 6.93e-14 and peak RSS 3.545 GB. A separate
+execution-only recovery retains every panel, intervention, checkpoint, statistic
+and the original 06:22:53 UTC absolute deadline. All four full-panel workers are
+progressing. No quality-based selection or additional accelerator run is made.
+Twenty-four focused correctness tests pass. A slower throughput benchmark that
+hit its 240-second cap is also retained, with zero scientific scores.
+
+The Native ordinary control continues under its unchanged deadline and recipe.
+CPU attribution overlaps that run, so its assigned wall time will explicitly
+include this host contention and cannot be used as an isolated hardware-time
+comparison. Its matched-matrix-work scientific comparison is unchanged.
+[Execution-only recovery](https://github.com/dario-fumarola/autonomous-compute-trainium/blob/c670a99/docs/LATENT_CONTENT_BATCH_RECOVERY_20261030.md).
+
 ## October 30, 2026, 05:25 UTC — saved-state attribution active alongside ordinary control
 
 A separately registered CPU diagnostic compares authentic generated states with
