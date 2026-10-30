@@ -1,3 +1,28 @@
+## October 30, 2026, 00:55 UTC — new source-separated arithmetic readout active
+
+The frozen panel contains 353 authentic direct calculations from 353 training-
+excluded source groups, without supplied intermediate work. Exact training-
+expression overlap and protected-source overlap are zero. All three existing
+latent seeds and their strongest ordinary/pause controls are being read on CPU;
+no model is fitted and no answer-aware choice is made. Twenty-eight extraction,
+selection and statistics fixtures pass. The registered all-nine comparison has
+a 30-minute cap and independent full-prefix/batch numerical checks.
+
+The complete original training prefix contains 617 verified calculations with
+intact premises under this strict grammar; that is exposure evidence, not an
+exhaustive count or a proven explanation. The broader code syntax inventory
+found only six context-sized local-call candidates from one group and does not
+justify a new code benchmark. No Native owner or training queue is active.
+
+Storage maintenance released 12.889 GiB by replacing six fully verified duplicate
+checkpoint copies with links. Every unique full state and both original paths
+remain usable; those pairs have reduced physical redundancy. A zero-mutation
+permission failure and its separately admitted recovery are both retained.
+
+[Source panel](results/direct_arithmetic_20261030/source-preparation-v1/REPORT.md) ·
+[Readout](docs/DIRECT_ARITHMETIC_READOUT_20261030.md) ·
+[Storage receipt](results/closed_recovery_copy_consolidation_20261030/REPORT.md).
+
 ## October 30, 2026, 00:20 UTC — memory path has no measurable utility
 
 The saved-checkpoint two-factor diagnostic completes in 254.449 CPU seconds.

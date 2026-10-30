@@ -1,0 +1,52 @@
+{
+  "status": "COMPLETE_CLOSED_RECOVERY_COPY_CONSOLIDATION",
+  "files": 6,
+  "freed_bytes": 13839130902,
+  "records": [
+    {
+      "bytes": 3112116373,
+      "sha256": "46f778ae8f6669cb1544b00028cf857c1c254fa3c372b622ffa24afeb35c63bd",
+      "released_filesystem": "nvme"
+    },
+    {
+      "bytes": 3112116373,
+      "sha256": "ef4f2dba3416de103f7323e3f46702ced0c002a962047b4868123f615cd87a9b",
+      "released_filesystem": "nvme"
+    },
+    {
+      "bytes": 1903724475,
+      "sha256": "ef33a30a6796fb9755bc11f45a360f8cbde3aac1535ceab1ea1c8e8436ab6166",
+      "released_filesystem": "root"
+    },
+    {
+      "bytes": 1903724603,
+      "sha256": "4b2872397f47d547a88fa7db37a5edd8790ae18815d4bf483a1ca8b81aeabdd1",
+      "released_filesystem": "root"
+    },
+    {
+      "bytes": 1903724475,
+      "sha256": "3e35a14bfe9096e05a09df18d38f764cbf141f87e5747de9438eb6e4f40ca54d",
+      "released_filesystem": "root"
+    },
+    {
+      "bytes": 1903724603,
+      "sha256": "0ec0dbced38550579a2aea2859b1cdcc8efc60f1718947b80c42470dc58a1a2b",
+      "released_filesystem": "root"
+    }
+  ],
+  "free_before": {
+    "root": 39429353472,
+    "nvme": 43581358080
+  },
+  "free_after": {
+    "root": 47044206592,
+    "nvme": 49805594624
+  },
+  "wall_seconds": 49.022913455963135,
+  "assigned_chips": 0,
+  "unique_scientific_states_deleted": 0,
+  "original_paths_byte_readable": true,
+  "dual_filesystem_redundancy_reduced": true,
+  "plan_sha256": "104ace456d309b4bf09770fcd8edf965f625618557ede44dadd17a97398fb6a0",
+  "scope": "Consolidate six successful October23 full-state duplicate pairs after verifying BOTH complete files against their original recovery hashes. Keep one unchanged physical copy and atomically replace the other path by a symbolic link. Four root-filesystem duplicates and two NVMe duplicates are released. Both original paths remain byte-readable; six pairs no longer provide two-filesystem redundancy. No unique model, optimizer state, RNG state, failed attempt, source, audit or dataset is deleted. No off-instance redundancy is claimed."
+}

@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE_AUTHORED_DIRECT_ARITHMETIC_TRAIN_AUDIT",
+  "counts": {
+    "math_documents": 100000,
+    "token_roundtrip_exact": 100000,
+    "bounded_natural_math_documents": 100000,
+    "verified_authored_equalities": 3212,
+    "context_eligible_equalities": 2968,
+    "authored_answer_tokens": 8149,
+    "packed_training_context_contains_premises": 2896,
+    "token_alignment_exclusion": 244
+  },
+  "operation_counts": {
+    "2": 1668,
+    "3": 812,
+    "4": 257,
+    "5": 171,
+    "6": 60
+  },
+  "eligible_source_groups": 954,
+  "private_spans_sha256": "1a066fc1bb23b849bc8d55669e57bd446de470bf975ea1129bdbf15259c17ef4",
+  "limitation": "Strict direct arithmetic grammar, accepted truncated documents and512-token context exclude many natural computations. These are TRAIN coverage counts, not a prepared task, generalization result or model score. All answers are unchanged source text; exact arithmetic only verifies them.",
+  "wall_seconds": 329.2173538208008,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_reads": 0,
+  "model_scores": 0,
+  "plan_sha256": "3bd018b2c76fcb2b1c6cee73833153b95f0b633cbf58108b9cef4fa4df4eabc5",
+  "scope": "TRAIN coverage lower bound only. No generated labels, fitted model, evaluation panel or scientific fit admission."
+}
