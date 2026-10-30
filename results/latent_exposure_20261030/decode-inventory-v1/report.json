@@ -1,0 +1,178 @@
+{
+  "status": "COMPLETE_ANALYTIC_DECODE_INVENTORY",
+  "rows": {
+    "1": {
+      "latent": {
+        "source_context": 1,
+        "batch": 1,
+        "body_calls_per_prediction": 2,
+        "inclusive_attention_key_lengths": [
+          1,
+          2
+        ],
+        "body_projection_matmul_flops": 75890688,
+        "attention_matmul_flops": 36864,
+        "vocabulary_projection_matmul_flops": 32768000,
+        "forward_matmul_flops": 108695552,
+        "kv_bytes_per_source_token": 49152,
+        "kv_bytes_at_context": 49152,
+        "bytes_per_element": 4,
+        "hardware_time_measured": false,
+        "scope": "Exact cached sequential decode; one vocabulary projection per natural prediction. FMA=2; excludes elementwise operations, cache allocation/copies and kernel/communication overhead. No cache sharing, approximate prefill or unsupported context is assumed."
+      },
+      "ordinary": {
+        "source_context": 1,
+        "batch": 1,
+        "body_calls_per_prediction": 1,
+        "inclusive_attention_key_lengths": [
+          1
+        ],
+        "body_projection_matmul_flops": 69566464,
+        "attention_matmul_flops": 22528,
+        "vocabulary_projection_matmul_flops": 32768000,
+        "forward_matmul_flops": 102356992,
+        "kv_bytes_per_source_token": 45056,
+        "kv_bytes_at_context": 45056,
+        "bytes_per_element": 4,
+        "hardware_time_measured": false,
+        "scope": "Exact cached sequential decode; one vocabulary projection per natural prediction. FMA=2; excludes elementwise operations, cache allocation/copies and kernel/communication overhead. No cache sharing, approximate prefill or unsupported context is assumed."
+      },
+      "latent_over_ordinary_flops": 1.0619260089237479,
+      "latent_over_ordinary_kv_bytes": 1.0909090909090908
+    },
+    "128": {
+      "latent": {
+        "source_context": 128,
+        "batch": 1,
+        "body_calls_per_prediction": 2,
+        "inclusive_attention_key_lengths": [
+          255,
+          256
+        ],
+        "body_projection_matmul_flops": 75890688,
+        "attention_matmul_flops": 6279168,
+        "vocabulary_projection_matmul_flops": 32768000,
+        "forward_matmul_flops": 114937856,
+        "kv_bytes_per_source_token": 49152,
+        "kv_bytes_at_context": 6291456,
+        "bytes_per_element": 4,
+        "hardware_time_measured": false,
+        "scope": "Exact cached sequential decode; one vocabulary projection per natural prediction. FMA=2; excludes elementwise operations, cache allocation/copies and kernel/communication overhead. No cache sharing, approximate prefill or unsupported context is assumed."
+      },
+      "ordinary": {
+        "source_context": 128,
+        "batch": 1,
+        "body_calls_per_prediction": 1,
+        "inclusive_attention_key_lengths": [
+          128
+        ],
+        "body_projection_matmul_flops": 69566464,
+        "attention_matmul_flops": 2883584,
+        "vocabulary_projection_matmul_flops": 32768000,
+        "forward_matmul_flops": 105218048,
+        "kv_bytes_per_source_token": 45056,
+        "kv_bytes_at_context": 5767168,
+        "bytes_per_element": 4,
+        "hardware_time_measured": false,
+        "scope": "Exact cached sequential decode; one vocabulary projection per natural prediction. FMA=2; excludes elementwise operations, cache allocation/copies and kernel/communication overhead. No cache sharing, approximate prefill or unsupported context is assumed."
+      },
+      "latent_over_ordinary_flops": 1.0923777639364685,
+      "latent_over_ordinary_kv_bytes": 1.0909090909090908
+    },
+    "256": {
+      "latent": {
+        "source_context": 256,
+        "batch": 1,
+        "body_calls_per_prediction": 2,
+        "inclusive_attention_key_lengths": [
+          511,
+          512
+        ],
+        "body_projection_matmul_flops": 75890688,
+        "attention_matmul_flops": 12570624,
+        "vocabulary_projection_matmul_flops": 32768000,
+        "forward_matmul_flops": 121229312,
+        "kv_bytes_per_source_token": 49152,
+        "kv_bytes_at_context": 12582912,
+        "bytes_per_element": 4,
+        "hardware_time_measured": false,
+        "scope": "Exact cached sequential decode; one vocabulary projection per natural prediction. FMA=2; excludes elementwise operations, cache allocation/copies and kernel/communication overhead. No cache sharing, approximate prefill or unsupported context is assumed."
+      },
+      "ordinary": {
+        "source_context": 256,
+        "batch": 1,
+        "body_calls_per_prediction": 1,
+        "inclusive_attention_key_lengths": [
+          256
+        ],
+        "body_projection_matmul_flops": 69566464,
+        "attention_matmul_flops": 5767168,
+        "vocabulary_projection_matmul_flops": 32768000,
+        "forward_matmul_flops": 108101632,
+        "kv_bytes_per_source_token": 45056,
+        "kv_bytes_at_context": 11534336,
+        "bytes_per_element": 4,
+        "hardware_time_measured": false,
+        "scope": "Exact cached sequential decode; one vocabulary projection per natural prediction. FMA=2; excludes elementwise operations, cache allocation/copies and kernel/communication overhead. No cache sharing, approximate prefill or unsupported context is assumed."
+      },
+      "latent_over_ordinary_flops": 1.1214383146408002,
+      "latent_over_ordinary_kv_bytes": 1.0909090909090908
+    },
+    "512": {
+      "latent": {
+        "source_context": 512,
+        "batch": 1,
+        "body_calls_per_prediction": 2,
+        "inclusive_attention_key_lengths": [
+          1023,
+          1024
+        ],
+        "body_projection_matmul_flops": 75890688,
+        "attention_matmul_flops": 25153536,
+        "vocabulary_projection_matmul_flops": 32768000,
+        "forward_matmul_flops": 133812224,
+        "kv_bytes_per_source_token": 49152,
+        "kv_bytes_at_context": 25165824,
+        "bytes_per_element": 4,
+        "hardware_time_measured": false,
+        "scope": "Exact cached sequential decode; one vocabulary projection per natural prediction. FMA=2; excludes elementwise operations, cache allocation/copies and kernel/communication overhead. No cache sharing, approximate prefill or unsupported context is assumed."
+      },
+      "ordinary": {
+        "source_context": 512,
+        "batch": 1,
+        "body_calls_per_prediction": 1,
+        "inclusive_attention_key_lengths": [
+          512
+        ],
+        "body_projection_matmul_flops": 69566464,
+        "attention_matmul_flops": 11534336,
+        "vocabulary_projection_matmul_flops": 32768000,
+        "forward_matmul_flops": 113868800,
+        "kv_bytes_per_source_token": 45056,
+        "kv_bytes_at_context": 23068672,
+        "bytes_per_element": 4,
+        "hardware_time_measured": false,
+        "scope": "Exact cached sequential decode; one vocabulary projection per natural prediction. FMA=2; excludes elementwise operations, cache allocation/copies and kernel/communication overhead. No cache sharing, approximate prefill or unsupported context is assumed."
+      },
+      "latent_over_ordinary_flops": 1.1751438848920863,
+      "latent_over_ordinary_kv_bytes": 1.0909090909090908
+    }
+  },
+  "parent_plan_sha256": {
+    "latent-learning-exposure-v1-latent": "e78cc6da76e431622c56c564b4bbc75212a64145e8d9518fa2c5cd8175c5b6d6",
+    "latent-learning-exposure-v1-ordinary": "2b0361d120e642d61cb3091a3e08abb63a3db5974182cf9c4ca1e5764ccac220"
+  },
+  "source_sha256": {
+    "compute_trainium/interleaved_decode_inventory.py": "7dccbc644a331f1277d7599d80e871e4609e6fa0e5e48292e058c4f55bfb5607",
+    "compute_trainium/interleaved_sequential_reference.py": "b355f5b1691730daa9073f0244cc28e3997c914fd89d8eb50e272a7c978224bb",
+    "compute_trainium/model.py": "4a2edc5034ccff94ac1817f5b8529f031f4b6ef63cf1da4bc8e1f2e09cc53eb0",
+    "tests/test_interleaved_decode_inventory.py": "ea665fcfc6efb5f60c741561b1f039157fe3528a75b3730b562ecda3cb887998"
+  },
+  "wall_seconds": 0.004624366760253906,
+  "assigned_chips": 0,
+  "optimizer_updates": 0,
+  "heldout_scores": 0,
+  "hardware_latency_measured": false,
+  "automatic_promotion": false,
+  "validation": "Three numerical software tests; traced executed linear/SDPA shapes agree for MHA/GQA cached latent history and the ordinary first token."
+}
