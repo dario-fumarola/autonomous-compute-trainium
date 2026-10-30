@@ -17,7 +17,9 @@ In one worker allocation, run original/bucketed/bucketed/original (ABBA).
 Reset the same model, optimizer, RNG and data order before each trial. Each
 trial has three untimed compile/startup updates then100 whole warm updates;
 timing includes data transfer, forward, backward, averaging, clipping, fused
-AdamW and loss synchronization. All trials use exactly the same windows.
+AdamW and loss synchronization. The advancement ratios use complete elapsed
+time across updates4–103, including inter-update barriers and progress writes;
+per-update kernel timings are secondary. All trials use exactly the same windows.
 Compilation, captures and intertrial resets are reported separately. Record
 both order-specific time ratios; a speed qualification requires at least5%
 lower mean whole-update time in both comparisons, not just a microbenchmark.

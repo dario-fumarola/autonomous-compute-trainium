@@ -55,11 +55,12 @@ def main(a):
             if digest(cpu_tree(dict(model=model.state_dict(),optimizer=opt.state_dict(),rng=torch.get_rng_state())))!=saved['digest']:
                 raise AssertionError('Complete model/optimizer/RNG restoration differs')
             del saved
-        dist.barrier();trial_started=time.time();telemetry=[]
+        dist.barrier();trial_started=time.time();telemetry=[];warm_started=None;warm_seconds=None
         bucketed=trial.startswith('bucketed') or a.mode=='replay'
         updates=range(104,105) if a.mode=='replay' else range(1,105 if trial=='bucketed1' else 104)
         for update in updates:
             tick=time.time();base=(update-1)*world*p['batch']
+            if update==4:warm_started=tick
             x,y,mask=data.batch(list(range(base+rank*p['batch'],base+(rank+1)*p['batch'])))
             count=data.target_count(base,world*p['batch'])
             opt.zero_grad(set_to_none=True)
@@ -89,7 +90,9 @@ def main(a):
             if capture and rank==0:
                 torch.save(dict(gradients=averaged,loss=float(total.cpu()),update=update),a.output/f'PRIVATE-{trial}-gradient-u{update}.pt')
             opt.step();loss=float(total.cpu());norm_value=float(norm.cpu())
+            dist.barrier()
             seconds=time.time()-tick
+            if update==103:warm_seconds=time.time()-warm_started
             if rank==0:
                 telemetry.append(dict(update=update,seconds=seconds,loss=loss,gradient_norm=norm_value,buckets=buckets,source_targets=count))
                 (a.output/'progress.json').write_text(json.dumps(dict(trial=trial,update=update,wall_seconds=time.time()-started)))
@@ -114,6 +117,7 @@ def main(a):
             warm=[r for r in telemetry if 4<=r['update']<=103]
             records.append(dict(trial=trial,updates=telemetry,warm_updates=len(warm),
                 mean_warm_seconds=sum(r['seconds'] for r in warm)/len(warm) if warm else None,
+                warm_block_seconds=warm_seconds,
                 wall_seconds=time.time()-trial_started))
             (a.output/'trials.json').write_text(json.dumps(records))
         fallback=list(torch_neuronx.get_fallback_ops())
