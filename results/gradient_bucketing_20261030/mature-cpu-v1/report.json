@@ -1,0 +1,65 @@
+{
+  "status": "STOPPED_BUCKETED_MATURE_CPU",
+  "error_type": "AssertionError",
+  "error": "Registered complete-gradient/update/moment parity limit",
+  "cases": {
+    "ordinary-k0-scale1.0": {
+      "reference_norm": 0.2641149163246155,
+      "bucketed_norm": 0.2640664875507355,
+      "bucket_count": 6,
+      "parameter_tensor_count": 101,
+      "gradient": {
+        "relative_l2": 0.0,
+        "maximum_absolute": 0.0
+      },
+      "parameter_update": {
+        "relative_l2": 0.0,
+        "maximum_absolute": 0.0
+      },
+      "moments": {
+        "exp_avg": {
+          "relative_l2": 0.0,
+          "maximum_absolute": 0.0
+        },
+        "exp_avg_sq": {
+          "relative_l2": 0.0,
+          "maximum_absolute": 0.0
+        }
+      }
+    },
+    "ordinary-k0-scale10.0": {
+      "reference_norm": 2.6410257816314697,
+      "bucketed_norm": 2.6405298709869385,
+      "bucket_count": 6,
+      "parameter_tensor_count": 101,
+      "gradient": {
+        "relative_l2": 0.00018779925325224973,
+        "maximum_absolute": 2.346932888031006e-05
+      },
+      "parameter_update": {
+        "relative_l2": 0.00011475428104334339,
+        "maximum_absolute": 1.1920928955078125e-07
+      },
+      "moments": {
+        "exp_avg": {
+          "relative_l2": 0.00016891561243849174,
+          "maximum_absolute": 2.346932888031006e-06
+        },
+        "exp_avg_sq": {
+          "relative_l2": 0.0002407053033996838,
+          "maximum_absolute": 2.9336661100387573e-07
+        }
+      }
+    }
+  },
+  "wall_seconds": 9.598341703414917,
+  "cpu_seconds": 33.790929000000006,
+  "peak_rss_bytes": 4364795904,
+  "assigned_chips": 0,
+  "scientific_optimizer_updates": 0,
+  "disposable_cpu_optimizer_updates": 4,
+  "model_scores": 0,
+  "automatic_promotion": false,
+  "plan_sha256": "6f3d3f6a00e83f8dc601e41f8e76ab8db491f3992ec0d8f6908e659a39cecc6a",
+  "scope": "# Mature-gradient CPU qualification of communication batching\n\nUse the four already audited billion-target gradient captures: ordinary K0,\npauses K0, and generated-state K2/K3. They use the existing independent TRAIN\naudit windows. No source selection, new model scoring or accelerator execution.\n\nFor each, load two disposable CPU copies of the same complete checkpoint and\nAdamW state. Compare the original per-parameter global clipping against the new\n32 MiB bucket helper at gradient multipliers1 and10. Captured gradients are\nalready globally averaged: the helper uses world1 and a no-op reduction callback\nin this CPU test. This does not qualify Native communication. Multipliers are\nnumerical stress fixtures, never a scientific training recipe.\n\nVerify all complete gradients, optimizer moments and parameter updates against\nthe original clipping implementation. Require relative L2 errors at most1e-5;\nretain every case, bucket count, norm and maximum absolute difference. The\nreference and candidate optimizer states must be independently cloned. These\ndisposable updates never modify a saved model or initialize training. The original\nNative gradient audits remain the evidence for their training histories.\n\nOne CPU attempt, ten minutes, eight threads, 8 GiB RSS, existing memory/disk/inode\nfloors. Preserve original input hashes and all outcomes. No fit, Native benchmark,\nold-cost discount or automatic promotion is admitted. The active ordinary control\nand its source manifest remain unchanged.\n"
+}
